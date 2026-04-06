@@ -33,7 +33,7 @@ Ajoutez simplement la dépendance suivante au niveau de la balise <dependencies>
 
 ```
 
-```
+```xml
 <dependency>
     <groupId>org.jspecify</groupId>
     <artifactId>jspecify</artifactId>
@@ -57,7 +57,7 @@ Pour faire échouer le build Maven dans le cas où un développeur ne respectera
 
 ```
 
-```
+```xml
 <plugin>
  <groupId>org.apache.maven.plugins</groupId>
  <artifactId>maven-compiler-plugin</artifactId>
@@ -118,7 +118,7 @@ A partir de la version 16 du langage Java, la [documentation d'installation d'e
 
 ```
 
-```
+```bash
 --add-exports jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED
 --add-exports jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED
 --add-exports jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED
@@ -141,7 +141,7 @@ Exemple d’une commande **_mvn compile_** sur l’exemple précédent :
 
 ```
 
-```
+```text
 [ERROR] COMPILATION ERROR :
 [INFO] -------------------------------------------------------------
 [ERROR] /Users/arey/Dev/GitHub/spring-petclinic/spring-petclinic/src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:[106,82] [NullAway] passing @Nullable parameter 'lastName' where @NonNull is required

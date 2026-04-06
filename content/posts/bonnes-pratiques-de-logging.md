@@ -149,13 +149,13 @@ Un message de log se doit d'être lisible, explicite et comporter suffisamment d
 
 Log sans intérêt :
 
-```
+```text
 Echec du traitement
 ```
 
 Log exploitable :
 
-```
+```text
 Echec du traitement numéro=123: checksum=23 invalide
 ```
 
@@ -182,7 +182,7 @@ Afin d'en simplifier la recherche et de leur donner un sens fonctionnel, il est 
 
 Par exemple, les **pistes d’audit** demandées par les PO dans vos User Story peuvent être étiquetées avec le hashtag **#audit** :
 
-```
+```java
 LOG.info("Envoi de la commande numero=" + order.getNumber() + " #audit");
 ```
 

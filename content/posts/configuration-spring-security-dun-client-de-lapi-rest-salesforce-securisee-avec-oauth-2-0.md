@@ -217,7 +217,7 @@ public class SalesforceClient {
 
 Lors de l’appel à _response.block()_, la méthode _ServletOAuth2AuthorizedClientExchangeFilterFunction::filter_ est appelée. Lors du premier appel, elle délègue l’authentification OAuth 2.0 à la classe [DefaultPasswordTokenResponseClient](https://github.com/spring-projects/spring-security/blob/5.5.3/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/endpoint/DefaultPasswordTokenResponseClient.java). En coulisse, un _RestTemplate_ est utilisé pour réaliser l’appel POST HTTP et récupérer l’access token :
 
-```
+```http
 POST https://<your_subdomain>.salesforce.com/services/oauth2/token?
 grant_type=password
 &username=...

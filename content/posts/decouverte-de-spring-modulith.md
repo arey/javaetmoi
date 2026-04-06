@@ -80,7 +80,7 @@ Toute intégration de Spring Modulith commence par l' **ajout du BOM** et des pr
 
 ```
 
-```
+```xml
 <spring-modulith.version>2.0.5</spring-modulith.version>
 ```
 
@@ -92,7 +92,7 @@ Puis on importe le BOM dans `<dependencyManagement>`:
 
 ```
 
-```
+```xml
 <dependencyManagement>
   <dependencies>
     <dependency>
@@ -112,7 +112,7 @@ Et enfin les dépendances minimales :
 
 ```
 
-```
+```xml
 <!-- Annotations et API publique Spring Modulith -->
 <dependency>
   <groupId>org.springframework.modulith</groupId>
@@ -136,7 +136,7 @@ C'est le point d'entrée incontournable de Spring Modulith. En quelques lignes, 
 
 ```
 
-```
+```java
 package org.springframework.samples.petclinic;
 
 import org.junit.jupiter.api.Test;
@@ -161,7 +161,7 @@ L’appel `ApplicationModules.of(...)` scanne les packages de l'application et c
 
 Si une de ces règles est violée, le test échoue avec un message d'erreur précis. Voici un exemple dans lequel un cycle est détecté :
 
-```
+```text
 org.springframework.modulith.core.Violations: - Cycle detected: Slice owner ->
                 Slice vet ->
                 Slice owner
@@ -215,7 +215,7 @@ Dans un module applicatif, le développeur est libre d’organiser le code comme
 
 ```
 
-```
+```xml
 <dependency>
   <groupId>org.springframework.modulith</groupId>
   <artifactId>spring-modulith-events-api</artifactId> </dependency>
@@ -231,7 +231,7 @@ Plutôt que d'injecter un bean du module `vet` dans le module `owner`, on rempla
 
 ```
 
-```
+```java
 @Transactional
 public void bookVisit(Owner owner, Integer petId, Visit visit) {
     Owner managedOwner = owners.findById(owner.getId()).orElseThrow();
@@ -247,7 +247,7 @@ Le record [VisitBook](https://github.com/spring-petclinic/spring-petclinic-modul
 
 ```
 
-```
+```java
 package org.springframework.samples.petclinic.owner;
 
 public record VisitBooked(int visitId, int petId, LocalDate date) {
@@ -260,7 +260,7 @@ La classe [VetEventListener](https://github.com/spring-petclinic/spring-petclini
 
 ```
 
-```
+```java
 @Component
 class VetEventListener {
 
@@ -285,7 +285,7 @@ La mise à jour du tableau de garde des vétérinaires est assurée par le servi
 
 ```
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS visit_assignments (
   visit_id   INT  NOT NULL PRIMARY KEY,
   vet_id     INT  NOT NULL REFERENCES vets (id),
@@ -305,7 +305,7 @@ On commencer par annoter la classe main de l’application Petclinic avec **`@Mo
 
 ```
 
-```
+```java
 @Modulithic(systemName = "PetClinic")
 @SpringBootApplication
 public class PetClinicApplication { ...}
@@ -317,7 +317,7 @@ Puis, dans les fichiers `package-info.java` de chaque module, on utilise `@Appli
 
 ```
 
-```
+```java
 // owner/package-info.java — aucune dépendance
 @ApplicationModule
 package org.springframework.samples.petclinic.owner;
@@ -345,7 +345,7 @@ La mise en place tient en une dépendance :
 
 ```
 
-```
+```xml
 <dependency>
   <groupId>org.springframework.modulith</groupId>
   <artifactId>spring-modulith-starter-jdbc</artifactId>
@@ -358,7 +358,7 @@ Et trois propriétés dans le fichier de configuration `application.properties` 
 
 ```
 
-```
+```properties
 # Crée automatiquement la table event_publication au démarrage
 spring.modulith.events.jdbc.schema-initialization.enabled=true
 
@@ -382,7 +382,7 @@ Sur notre application, le module vet utilise l’évènement **`DayHasPassed`** 
 
 ```
 
-```
+```java
 @EventListener
 void on(DayHasPassed event) {
     vetRoster.cleanupPastAssignments(event.getDate());
@@ -401,7 +401,7 @@ Exemple d’utilisation sur le test **[VisitSchedulerTests](https://github.com/s
 
 ```
 
-```
+```java
 @ApplicationModuleTest
 class VisitSchedulerTests {
 
@@ -457,7 +457,7 @@ Bootstrapping @org.springframework.modulith.test.ApplicationModuleTest for Owner
 
 ```
 
-```
+```java
 // Avant
 @SpringBootTest(webEnvironment = RANDOM_PORT,
        properties = { "spring.web.error.include-message=ALWAYS", "management.endpoints.access.default=none" })
@@ -482,7 +482,7 @@ Spring Modulith permet de générer automatiquement de la documentation à parti
 
 ```
 
-```
+```java
 @Test
 void writeDocumentation() {
     new Documenter(modules).writeDocumentation();
@@ -517,7 +517,7 @@ Cette dernière étape consiste exposer le graphe de modules au runtime. Deux d�
 
 ```
 
-```
+```xml
 <dependency>
   <groupId>org.springframework.modulith</groupId>
   <artifactId>spring-modulith-actuator</artifactId>
@@ -536,7 +536,7 @@ Un appel GET sur l’URL `http://localhost:8080/actuator/modulith ` renvoie le g
 
 ```
 
-```
+```json
 {
   "owner": {
     "displayName": "Owner",

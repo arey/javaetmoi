@@ -93,7 +93,7 @@ En parcourant les **4 319 lignes** de code source de Black Hell, je suis tombé 
 Basculer la fenêtre ASCII de Ms DOS vers le **mode VGA 320x200** avec **256 couleurs** demande à déclencher **l’interruption 10h du BIOS avec 13h dans le registre AX**.  
 Ces 2 lignes de code assembleur se retrouvent à plusieurs fois :
 
-```
+```pascal
 ASM
  MOV AX,13h
  INT 10h
@@ -106,7 +106,7 @@ Le mode VGA est relativement simple à programmer : on accède directement à l
 
 Dans le code Pascal, on retrouve ce tableau de bytes (type Virtual) ainsi qu’un pointeur vers l’adresse de la mémoire vidéo (variable Screen) :
 
-```
+```pascal
 TYPE VirtualPtr=^Virtual;
      Virtual=ARRAY[0..63999] of BYTE;
 
@@ -122,7 +122,7 @@ Les **écrans CRT** utilisent des canons à électron pour afficher les pixels. 
 Le **signal VBL** indique que le faisceau a atteint le bas de l’écran et qu’il retourne en haut. Le **signal HBL** indique que le faisceau a atteint la fin de la ligne et qu’il revient au début de la ligne suivante.   
 Le code du jeu **s’aligne sur le balayage de l’écran entre 2 recopies d’image**:
 
-```
+```pascal
 PROCEDURE Synchro;ASSEMBLER;
 LABEL Attend_VBL;
 LABEL Attend_fin_HBL;
@@ -147,7 +147,7 @@ La **palette de couleurs** tient sur **768 octets** (3 x 256). Une couleur est r
 
 Le changement de palette de la carte vidéo nécessite davantage d’instructions :
 
-```
+```pascal
 VAR Palette: ARRAY[0..767] of BYTE;
 DecodPal(s,Palette);
 ASM
@@ -163,7 +163,7 @@ ASM
 
 Pour afficher l’écran d’accueil, des menus ou de l’aide, le **mode VGA** convient. Par contre, pour créer des animations, de nombreux jeux vidéo utilisaient un mode non documenté du VGA et popularisé par Michael Abrash : le fameux **[Mode X](https://fr.wikipedia.org/wiki/Mode_X)**. Ce mode permet de gérer le double-buffering. Black Hell ne déroge pas à la règle :
 
-```
+```pascal
 PROCEDURE INITMODX;ASSEMBLER;
 ASM
    MOV AX,13h
@@ -211,7 +211,7 @@ END;
 Le DOS n’a pas été conçu pour exploiter plus d’1 Mo de RAM. Et seuls les premiers 640 Ko de mémoire conventionnelle pouvaient servir aux applications.   
 Pour charger ses images, Black Hell requière 1 Mo mémoire. Il fait donc appel à la **mémoire étendue** connue sous le nom de **XMS** (Extended Memory Specification) :
 
-```
+```pascal
 VAR  XMSDrv     : POINTER;
      XRegs      : XREGISTERS;
 
@@ -249,7 +249,7 @@ END;
 
 La détection des **frappes de touche** passe par l’usage du **PORT 60** et des codes du contrôleur clavier :
 
-```
+```pascal
 CASE PORT[$60] Of
   72 : Haut:=True;
   80 : Bas:=True;
@@ -260,14 +260,14 @@ END
 
 On retrouve même des cheat-code pour être invulnérable et debugger plus facilement le jeu (je vous laisse retrouver avec quelle touche)  :
 
-```
+```pascal
 CONST TI = 23;
 If Inv and alt then If not Invulnerable then Invulnerable:=True Else Invulnerable:=False;
 ```
 
 L’effet de fade-out de fin de jeu est implémenté à l’aide de rechargements successifs de la palette graphiques. Entre chaque rechargement, les composantes RVB sont décrémentées de 1, ceci afin d’atteindre progressivement le 0 du noir :
 
-```
+```pascal
 PROCEDURE FADE_OUT;
 Var CoulMax : Byte;
 BEGIN
@@ -288,7 +288,7 @@ END;
 
 Le Turbo Pascal vient sans API de manipulation ni de chargement d’images. Pour lire des fichiers au format GIF, JPG ou PCX, il était nécessaire d’implémenter à la main l’algorithme de décompression. Ne disposant pas de leurs spécifications, j’ai utilisé un algorithme de compression / décompression très naïf, peu efficient mais qui a du faire gagner au total quelques centaines de Ko. Je vous laisse en juger :
 
-```
+```pascal
 Decompact('N1Alien.ima',1);
 
 PROCEDURE DECOMPACT(Ne:String;Num:Word);
@@ -323,7 +323,7 @@ end;
 
 A l’époque, pas de Direct3D ni d’OpenGL. La génération de l’ **ombre portée** sous les vaisseaux est réalisée à la main par la routine suivante :
 
-```
+```pascal
 PROCEDURE Shadow;
 VAR Plus : WORD;
     D0001 : BYTE;
@@ -348,14 +348,14 @@ END;
 
 Au début du jeu, à des fins d’optimisation, **sont pré-calculés les tables de sinus et de cosinus** :
 
-```
+```batch
 For i:=1 to 360 do Sinus[i]:=Trunc(Round(Sin(i*Pi/180)*1024));
 For i:=1 to 360 do Cosinus[i]:=Trunc(Round(Cos(i*Pi/180)*1024));
 ```
 
 Pour calculer les trajectoires des vaisseaux, j’avais dû demander à mon prof de Maths de Première S quelle était la formule de **matrice de rotation en 2 dimensions**, formule qu’on n’apprenait en principe qu’en terminale :
 
-```
+```pascal
 
 { Rotation autour des Z }
 RotX:=((Play1.Circle[1]*Cosinus[Play1.Circle[3]*23+1]) shr 10) - ((Play1.Circle[2]*Sinus[Play1.Circle[3]*23+1]) shr 10);
@@ -372,7 +372,7 @@ PutSprAt(10,122,14,126,ScrX+3,ScrY+3,3);
 
 Jouer à 2 sur le même écran, c’est sympa. Avoir les commandes sur le même clavier, un peu moins. Du coup, j’avais pris en charge la **[gestion du Joystick](http://vitaly_filatov.tripod.com/ng/asm/asm_026.11.html)** pour le second joueur :
 
-```
+```pascal
 VAR j1b1,j1b2 : BYTE;
     joyX,JoyY : WORD;
 

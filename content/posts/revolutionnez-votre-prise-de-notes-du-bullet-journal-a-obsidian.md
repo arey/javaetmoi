@@ -135,7 +135,7 @@ Le contenu du Daily peut être très riche et comporter :
 
 Exemples de métadonnées d'un Daily permettant de suivre des variables quotidiennes :
 
-```
+```text
 energy_level_morning : 6
 energy_level_evening : 7
 mood_morning : insomniaque

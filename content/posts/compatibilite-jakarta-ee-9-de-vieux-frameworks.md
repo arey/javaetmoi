@@ -94,7 +94,7 @@ Rendre compatible Jakarta EE 9 des librairies tierces puis les utiliser dans le 
 
 2\. Executer la ligne de commande suivante (exemple avec jsf-api-1.2\_14.jar) :
 
-```
+```batch
 set MIGRATION_TOOL=C:\dev\jakartaee-migration\lib\jakartaee-migration-1.0.8.jar
 set M2_REPO=C:\dev\maven\repository
 java -jar %MIGRATION_TOOL% -profile=EE %M2_REPO%\javax\faces\jsf-api\1.2_14\jsf-api-1.2_14.jar %M2_REPO%\javax\faces\jsf-api\1.2_14-jakarta\jsf-api-1.2_14-jakarta.jar
@@ -110,7 +110,7 @@ Extrait de la classe FacesServlet :
 3\. Renouveler l'opération pour le JAR du code source.  
 Exemple sur jsf-api-1.2\_14-sources.jar :
 
-```
+```bash
 java -jar $MIGRATION_TOOL -profile=EE $M2_REPO/javax/faces/jsf-api/1.2_14/jsf-api-1.2_14-sources.jar $M2_REPO/javax/faces/jsf-api/1.2_14-jakarta/jsf-api-1.2_14-jakarta-sources.jar
 ```
 
@@ -127,7 +127,7 @@ Cette étape de migration peut être **complètement automatisée** par un pipel
 3\. Il est ensuite nécessaire d'adapter le code métier utilisant les classes de ces librairies qui ont changé de package, au niveau des imports du code source java, mais également dans le fichiers XML.   
 Exemple du web.xml référençant jakarta.faces.webapp.FacesServlet :
 
-```
+```xml
 <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
@@ -142,7 +142,7 @@ Pour y arriver, 4 possibilités s'offrent à nous :
 - Utiliser l’ [IntelliJ IDEA's migration tool](https://www.jetbrains.com/guide/java/tutorials/migrating-javax-jakarta/use-migration-tool/)
 - Utiliser une nouvelle fois l'outil **tomcat-jakartaee-migration**
 
-```
+```bash
 java -jar %MIGRATION_TOOL% -logLevel=FINEST -profile=EE C:\dev\project\my-webapp C:\dev\project\my-webapp-jakarta
 ```
 
@@ -150,7 +150,7 @@ Cette dernière option est à privilégier. En attente de prise en compte de la 
 
 5\. Vérifier que tout compile
 
-```
+```bash
 mvn clean install
 ```
 

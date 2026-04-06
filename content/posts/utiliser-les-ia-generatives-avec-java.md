@@ -121,7 +121,7 @@ La première démo en Java de ce Deep Dive commence par l’utilisation de Verte
 
 La classe [Demo01\_VertexClientChat](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/main/devoxx-genai-vertexai-client/src/test/java/devoxx/demo/gemini/Demo01_VertexClientChat.java) fait appel à Gemini Pro pour répondre à quelques questions :
 
-```
+```java
 @Test
 void testChat() throws Exception {
     try (VertexAI vertexAI = new VertexAI(GCP_PROJECT_ID, GCP_PROJECT_LOCATION)) {
@@ -137,7 +137,7 @@ void testChat() throws Exception {
 Une seconde démo demande au LLM multimodal gemini-vision-pro de décrire la photo d’un coucher de soleil. Le code envoie simultanément au LLM l’image et la question. Le code Java dépend du client Java Gemini et donc de Vertex AI.  
 Extrait de la classe [Demo02\_VertexClientVisionPro](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/main/devoxx-genai-vertexai-client/src/test/java/devoxx/demo/gemini/Demo02_VertexClientVisionPro.java) :
 
-```
+```java
 @Test
 void testVision() throws Exception {
   // Load the image
@@ -197,7 +197,7 @@ Nul besoin de compte (mais peut-être d’une carte Nvidia ?)
 
 Une fois le modèle démarré, on peut l’interroger à base d’une simple commande curl :
 
-```
+```bash
 curl http://localhost:11434/api/generate -d '{
 "model": "gemma:7b",
 "prompt": "Pourquoi le ciel est bleu ?"
@@ -208,7 +208,7 @@ Plutôt que de passer par curl ou d’utiliser en Java un RestTemplate, Cédric 
 Langchain4j est une implémentation de [Langchain](https://www.langchain.com/), bibliothèque populaire du monde Python et JavaScript.  
 Le code suivant est extrait de la classe [\_21\_GemmaChat](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/main/devoxx-genai-langchain4j/src/test/java/devoxx/demo/_2_gemma/_21_GemmaChat.java):
 
-```
+```java
 @Test
 void talkWithGemma() {
     ChatLanguageModel gemma = OllamaChatModel.builder()
@@ -236,7 +236,7 @@ Se référer au test [\_10\_LanguageModelSayHello](https://github.com/datastaxde
 Plus jeune et développé par l’équipe Spring, le framework [**Spring AI**](https://spring.io/projects/spring-ai) est un concurrent de Langchain4j.  
 Cédrick nous montre un HelloWorld en Spring Boot basé sur Gemini:
 
-```
+```java
 @SpringBootTest
 class _01_LanguageModel_SayHelloTest {@Autowired
     private VertexAiGeminiChatClient client;@Value("classpath:/prompts/system-message.st")
@@ -257,7 +257,7 @@ class _01_LanguageModel_SayHelloTest {@Autowired
 La classe [\_01\_LanguageModel\_SayHelloTest](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-springai/src/test/java/devoxx/demo/_01_LanguageModel_SayHelloTest.java) montre l’utilisation de classes d’abstraction comme **UserMessage**, **Message**, **Prompt** ou bien encore **ChatResponse**.  
 La configuration du LLM est centralisée dans le fichier **_application.properties_** :
 
-```
+```properties
 spring.ai.vertex.ai.gemini.projectId=devoxxfrance
 spring.ai.vertex.ai.gemini.location=us-central1
 spring.ai.vertex.ai.gemini.chat.options.model=gemini-pro
@@ -344,7 +344,7 @@ Java permet d’utiliser des templates de prompt. Cédrick compare un template �
 A cet effet, Langchain4j et Spring IA fournissent tous les 2 une classe **PromptTemplate**  
 La classe [\_16\_PromptTemplateTest](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-langchain4j/src/test/java/devoxx/demo/_1_vertexai/_16_PromptTemplateTest.java) donne un exemple d’utilisation :
 
-```
+```java
 @Test
 void prompt() {
     PromptTemplate promptTemplate = PromptTemplate.from("""
@@ -427,7 +427,7 @@ Les nœuds sont distribués et contiennent entre 2 à 4 To de données. L’ajou
 
 La version 5 de Cassandra introduit le nouveau type **Vector** :
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS vsearch.products (
   id int PRIMARY KEY,
   name TEXT,
@@ -438,7 +438,7 @@ CREATE TABLE IF NOT EXISTS vsearch.products (
 
 Ainsi qu’un nouvel index de stockage attaché appelé **StorageAttachedIndex** :
 
-```
+```sql
 CREATE CUSTOM INDEX IF NOT EXISTS ann_index
 ON vsearch.products(item_vector)
 USING 'StorageAttachedIndex';
@@ -447,7 +447,7 @@ USING 'StorageAttachedIndex';
 **ANN** est une famille d’algorithme de recherche approximative.  
 L’opérateur **ANN OF** permet d'effectuer efficacement des recherches ANN sur leurs données lors d’une recherche CQL :
 
-```
+```sql
 SELECT * FROM vsearch.products
 ORDER BY item_vector ANN OF [0.15, 0.1, 0.1, 0.35, 0.55]
 LIMIT 1;
@@ -473,7 +473,7 @@ On lui donne du texte et il sort un vecteur.
 
 Code extrait de la classe [\_51\_EmbeddingModel](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-langchain4j/src/test/java/devoxx/demo/_5_vectorsearch/_51_EmbeddingModel.java#L10):
 
-```
+```java
 @Test
 void testEmbeddingModel() {
     Response<Embedding> embedding = getEmbeddingModelGecko().embed("Hello, World!");
@@ -494,7 +494,7 @@ La modélisation des données sous Cassandra est complexe. Aussi, pour faciliter
 
 S’en suit la démo [\_54\_CassandraVectorStore](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-langchain4j/src/test/java/devoxx/demo/_5_vectorsearch/_54_CassandraVectorStore.java#L18) montrant l’usage de tags pour filtrer des requêtes. La classe **EmbeddingStore** est mise à l’honneur.
 
-```
+```java
 @Test
 void langchain4jEmbeddingStore() {
     // I have to create a EmbeddingModel
@@ -538,7 +538,7 @@ Astuce pour sauvegarder le segment : ajouter un hash dans les métadonnées du 
 
 Nouvelle démo basée sur le test [\_62\_NaiveRag\_RetrievalTest](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-langchain4j/src/test/java/devoxx/demo/_6_rag/_62_NaiveRag_RetrievalTest.java) et montrant l’usage des interfaces **ContentRetriever** et **Assistant** de langchain4j :
 
-```
+```java
 @Test
 void shouldRetrieveContent2() {ContentRetriever contentRetriever = EmbeddingStoreContentRetriever.builder()
             .embeddingStore(new AstraDbEmbeddingStore(getCollectionRAG()))
@@ -562,7 +562,7 @@ Lors de longues discussions, on peut atteindre les limites du LLM. Il est alors 
 Lorsqu’il y’a plusieurs résultats, il faut les agréger via des Query Aggregator. Les algorithmes de **reranking** peuvent utiliser d’autres algorithmes. La star du reranking s’appelle [Cohere](https://cohere.com/rerank).  
 La classe de test [\_66\_AdvancedRag\_QueryReranking](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-langchain4j/src/test/java/devoxx/demo/_6_rag/_66_AdvancedRag_QueryReranking.java) en donne un exemple d’utilisation :
 
-```
+```java
 @Test
 void shouldRerankResult() {// Re Ranking
     ScoringModel scoringModel = CohereScoringModel.withApiKey(System.getenv("COHERE_API_KEY"));ContentAggregator contentAggregator = ReRankingContentAggregator.builder()
@@ -588,7 +588,7 @@ Pour récupérer la météo à Paris, Gemini sait qu’il existe une API permett
 En java, on annote une méthode avec @Tool, ce qui permet au LLM d’appeler ce tool lorsqu’on lui pose la question d’additionner 2 nombres.  
 Extrait de la classe de test [\_71\_CallFunctionTest](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-langchain4j-gemini/src/test/java/devoxx/demo/gemini/_7_functions/_71_CallFunctionTest.java):
 
-```
+```java
 static ChatLanguageModel model= VertexAiGeminiChatModel.builder()
         .project(GCP_PROJECT_ID)
         .location(GCP_PROJECT_LOCATION)

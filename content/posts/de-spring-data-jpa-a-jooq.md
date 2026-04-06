@@ -47,7 +47,7 @@ Cet article a pour objectif d’expliquer les **étapes** adoptées pour **migre
 
 [Spring Boot supporte nativement l’usage des versions commerciales et Open Source de jOOQ](https://docs.spring.io/spring-boot/reference/data/sql.html#data.sql.jooq). Dans le **pom.xml** ou le fichier **build.gradle**, commencer par déclarer le starter Spring Boot pour jOOQ **spring-boot-starter-jooq** :
 
-```
+```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-jooq</artifactId>
@@ -58,7 +58,7 @@ L’étape suivante consiste à générer les classes Java à partir du schéma 
  Les plugins [**jooq-codegen-maven**](https://www.jooq.org/doc/latest/manual/code-generation/codegen-execution/codegen-maven/) ou [**jooq-codegen-gradle**](https://www.jooq.org/doc/latest/manual/code-generation/codegen-execution/codegen-gradle/) sont à configurer.   
  Voici un exemple extrait de jOOQ Spring Petclinic :
 
-```
+```xml
 <plugin>
   <groupId>org.jooq</groupId>
   <artifactId>jooq-codegen-maven</artifactId>
@@ -120,13 +120,13 @@ Premier changement notable : la nature des repositories qui passent d’une int
 
 Avant :
 
-```
+```java
 public interface VetRepository extends Repository<Vet, Integer> {
 ```
 
 Après:
 
-```
+```java
 @Repository
 public class VetRepository {
 
@@ -140,14 +140,14 @@ public class VetRepository {
 Continuons par changer l’implémentation d’une première requête SQL simple utilisant un SELECT.   
 Requête native SQL utilisée par Spring Data JPA :
 
-```
+```java
 @Query("SELECT ptype FROM PetType ptype ORDER BY ptype.name")
 List<PetType> findPetTypes();
 ```
 
 Implémentation équivalente avec jOOQ :
 
-```
+```java
 public List<PetType> findPetTypes() {
     return dsl
        .selectFrom(TYPES)
@@ -161,7 +161,7 @@ Enfin, la méthode **fetchInto()** mappe les lignes retournées par la base dans
 
 Là où JPA et Hibernate nous facilitaient la sauvegarde de nos entités JPA, jOOQ va demander un travail nettement plus important. En effet, la méthode save() de l’interface CrudRepository de Spring Data JPA ne demandait qu’à être appelée. La magie des ORM opérait grâce aux annotations JPA apposées sur les entités. jOOQ nécessite de prévoir les 2 requêtes SQL correspondantes et d’effectuer à la main le binding des propriétés du Owner vers les colonnes. Exemple de sauvegarde d’un Owner :
 
-```
+```java
 public Integer saveOrUpdateDetails(Owner owner) {
     if (owner.isNew()) {
        return requireNonNull(
@@ -193,7 +193,7 @@ Autre différence notable : jOOQ laisse décider du ou des champs à mettre à 
 
 Dans la même idée, lors de requêtes de type SELECT, les **jointures** entre tables devront être systématiquement précisées. A titre d’exemple, charger un animal et son type nécessitera un appel à **join()** :
 
-```
+```java
 @Transactional(readOnly = true)
 public Optional<Pet> findByIdWithoutVisits(Integer petId) {
     return dsl.select()
@@ -207,7 +207,7 @@ public Optional<Pet> findByIdWithoutVisits(Integer petId) {
 Noter ici l’utilisation d’une [**jointure implicite**](https://www.jooq.org/doc/latest/manual/sql-building/sql-statements/select-statement/from-clause/implicit-join/) basée sur la **clé étrangère**, évitant ainsi d’ajouter une clause **ON** entre la PK de PETS et la FK de TYPES.   
 Avec une **association 1:1**, le chargement et le mapping du type d’animal ne présente aucune difficulté :
 
-```
+```java
 private static Pet toPet(org.jooq.Record row) {
     return new Pet(row.get(PETS.ID), row.get(PETS.NAME), row.get(PETS.BIRTH_DATE),
           new PetType(row.get(PETS.TYPE_ID), row.get(TYPES.NAME)));
@@ -216,7 +216,7 @@ private static Pet toPet(org.jooq.Record row) {
 
 Le chargement des **associations 1:N** se complexifie. L’usage de l’ [**opérateur mulstiset()**](https://blog.jooq.org/jooq-3-15s-new-multiset-operator-will-change-how-you-think-about-sql/) du SQL qui est supporté par jOOQ permet de charger les Vets et leurs Specialities en une seule requête :
 
-```
+```java
 public List<Vet> findAll(){
     return dsl.select(VETS.ID, VETS.FIRST_NAME, VETS.LAST_NAME, MULTISET_SPECIALITIES)
        .from(VETS)
@@ -249,7 +249,7 @@ Une fois l’ensemble des Repository migrés, la dernière étape a consisté à
 
 Débarrassé de JPA, nous pouvons revoir en partie le design de l’application qui avait été limité par ce dernier. En effet, [les entités JPA ne peuvent pas être modélisées avec des record Java](ManyToMany). Suite à la migration vers jOOQ, les entités du domaine métier de Spring Petclinic n’ont plus d’adhérence avec la couche de persistance. Les **classes immutables** ont pu être converties en **record**. Exemple du value object [Speciality](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/v3.4.2/src/main/java/org/springframework/samples/petclinic/vet/Specialty.java) :
 
-```
+```java
 public record Specialty(Integer id, String name) {
 }
 ```

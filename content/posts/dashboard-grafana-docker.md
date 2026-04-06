@@ -70,7 +70,7 @@ Prometheus est un outil de supervision chargé de collecter et de stocker les m�
 
 Mise en place par Kevin Crawley, l’image Docker de Prometheus [docker/prometheus/Dockerfile](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile) personnalise [l’image officielle de Prometheus 2.4.2](https://hub.docker.com/r/prom/prometheus) en ajoutant le fichier [prometheus.yml](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/prometheus.yml) dans le répertoire de configuration /etc/prometheus :
 
-```
+```dockerfile
 FROM prom/prometheus:v2.4.2
 ADD prometheus.yml /etc/prometheus/
 ```
@@ -130,7 +130,7 @@ Pratique, l’IHM de consultation des métriques proposée par Prometheus ne per
 
 Le [Dockerfile](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/Dockerfile) de Grafana repose sur l’image officielle 5.2.4 de Grafana, y ajoute 2 répertoires /provisioning et /dashboard et le fichier de configuration grafana.ini :
 
-```
+```dockerfile
 FROM grafana/grafana:5.2.4
 ADD ./provisioning /etc/grafana/provisioning
 ADD ./grafana.ini /etc/grafana/grafana.ini
@@ -144,7 +144,7 @@ L’image Grafana est livrée avec un fichier grafana.ini dont toutes les option
 
 Au final, voici à quoi ressemble le fichier de configuration [grafana.ini](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/grafana.ini) :
 
-```
+```ini
 ##################### Spring Petclinic Microservices Grafana Configuration #####################
 
 #################################### Paths ####################################
@@ -170,7 +170,7 @@ Le fichier de pré-configuration de la source de données
 Prometheus [provisionning/datasources/all.yml](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml)
 référence l’URL de Prometheus avec son port interne à Docker :
 
-```
+```yaml
 apiVersion: 1
 
 datasources:
@@ -186,7 +186,7 @@ datasources:
 
 Le fichier de pré-configuration des dashboards [provisioning/dashboards/all.yml](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/dashboards/all.yml) référence le répertoire **/** var **/** lib **/** grafana **/** dashboards dans lequel a été copié le fichier de configuration du dashboard Spring Petclinic Metrics [grafana-petclinic-dashboard.json](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/dashboards/grafana-petclinic-dashboard.json) (cf. Dockerfile) :
 
-```
+```yaml
 apiVersion: 1
 
 providers:
@@ -204,7 +204,7 @@ Le fichier de configuration du dashboard _Spring Petclinic Metrics_ [grafana-pet
 
 Extrait d’utilisation de la métrique **http\_server\_requests\_seconds\_sum** :
 
-```
+```json
 "expr": "sum(rate(http_server_requests_seconds_sum{status!~\"5..\"}[1m]))/sum(rate(http_server_requests_seconds_count{ status!~\"5..\"}[1m]))",
 "format": "time_series",
 "intervalFactor": 1,
@@ -214,7 +214,7 @@ Extrait d’utilisation de la métrique **http\_server\_requests\_seconds\_sum**
 
 Extrait d’utilisation de la métrique **petclinic\_owner\_seconds\_count** :
 
-```
+```json
 "expr": "sum(petclinic_owner_seconds_count{method=\"POST\", status=\"201\"})",
 "format": "time_series",
 "instant": false,

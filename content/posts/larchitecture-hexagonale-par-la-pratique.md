@@ -68,7 +68,7 @@ A contrario, l’ **architecture hexagonale sacralise ce qui apporte de la valeu
 
 A titre d’exemple, le Domain de Rebels Rescue ne contient que 2 dépendances de test : **junit-jupiter** et **assertj-core**. Pour éviter qu’un développeur ne vienne enfreindre cette règle, Julien s’appuie sur le plugin [**maven-enforcer-plugin**](https://maven.apache.org/enforcer/maven-enforcer-plugin/):
 
-```
+```xml
 <plugin>
     <artifactId>maven-enforcer-plugin</artifactId>
     <version>3.0.0</version>
@@ -110,7 +110,7 @@ Dans la littérature, l’archi hexagonale est également appelée **Ports and A
 Lorsqu’on développe sur une application architecturée en hexagone, on commence par implémenter le Domain.   
 Dans notre exemple, on retrouve les 2 classes : [**StarShip**](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/domain/src/main/java/rebelsrescue/fleet/StarShip.java) et [**Fleet**](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/domain/src/main/java/rebelsrescue/fleet/Fleet.java).
 
-```
+```java
 public record Fleet (UUID id, List<StarShip> starships){
     public Fleet(List<StarShip> starships) {
         this(UUID.randomUUID(),starships);
@@ -122,14 +122,14 @@ public record Fleet (UUID id, List<StarShip> starships){
 Ce n’était pas une pratique courante il y’a 10 ans, mais en 2024, **Julien recommande de créer un test fonctionnel** permettant de vérifier le contrat d’entrée dans le domaine.   
 A cet effet, la méthode _should\_assemble\_a\_fleet\_for\_1050\_passengers_ de la classe [AssembleAFleetFunctionalTest](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/domain/src/test/java/rebelsrescue/fleet/AssembleAFleetFunctionalTest.java) assemble une flotte de 1050 passagers.
 
-```
+```java
 // When
 Fleet fleet = assembleAFleet.forPassengers(numberOfPassengers);
 ```
 
 L’implémentation du test nécessite de créer l’interface [AssembleAFleet](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/domain/src/main/java/rebelsrescue/fleet/api/AssembleAFleet.java) :
 
-```
+```java
 public interface AssembleAFleet {
     Fleet forPassengers(int numberOfPassengers);
 }
@@ -139,7 +139,7 @@ Point d’entrée dans le Domain, cette interface doit être rangée dans le **p
 Si le nommage vous gêne, le package _api_ peut être nommé **_features_**.   
 La classe [FleetAssembler](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/domain/src/main/java/rebelsrescue/fleet/FleetAssembler.java) implémente l’interfacer AssembleAFleet. A noter : l’interface prend le nom d’une commande (verbe au présent), l’implémentation un nom commun.
 
-```
+```java
 class FleetAssembler implements AssembleAFleet {@Override
     public Fleet forPassengers(int numberOfPassengers) {
         List<StarShip> starShips = getStarShipsHavingPassengersCapacity();
@@ -150,7 +150,7 @@ class FleetAssembler implements AssembleAFleet {@Override
 
 L’implémentation de la méthode _getStarShipsHavingPassengersCapacity()_ demande d’introduire l’interface [StartSheepInventory](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/domain/src/main/java/rebelsrescue/fleet/spi/StarShipInventory.java) contenant l’unique méthode _starShips()_. Cette interface est ajoutée au package **spi** pour aller chercher l’inventaire par appel d’une API externe.
 
-```
+```java
 private List<StarShip> getStarShipsHavingPassengersCapacity() {
     return starshipsInventory.starShips().stream()
             .filter(starShip -> starShip.passengersCapacity() > 0)
@@ -163,7 +163,7 @@ private List<StarShip> getStarShipsHavingPassengersCapacity() {
 
 Dans la classe _FleetAssembler_, l’inventory _StarShipInventory_ est injecté par constructeur :
 
-```
+```java
 private final StarShipInventory starshipsInventory;public FleetAssembler(StarShipInventory starShipsInventory) {
     this.starshipsInventory = starShipsInventory;
 }
@@ -171,7 +171,7 @@ private final StarShipInventory starshipsInventory;public FleetAssembler(StarShi
 
 L’écriture du TU nécessite une instance de _FleetAssembler_. Pour simuler l’extérieur, on un **stub**. Technique intéressante : Julien se passe ici de Mockito et **crée le stub à l’aide d’une fonction lambda** :
 
-```
+```java
 //Given
 var starShips = asList(
         new StarShip("no-passenger-ship", 0, ZERO),
@@ -188,7 +188,7 @@ Julien poursuit par l’implémentation d’un contrôleur REST exposant cette l
 
 On retrouve un contrôleur Rest Spring MVC [RescueFleetController](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/infrastructure/src/main/java/rebelsrescue/controllers/RescueFleetController.java) exposant un endpoint POST /rescueFleets :
 
-```
+```java
 @PostMapping
 public ResponseEntity<FleetResource> assembleAFleet(@RequestBody RescueFleetRequest rescueFleetRequest){
     var fleet = assembleAFleet.forPassengers(rescueFleetRequest.numberOfPassengers);
@@ -201,7 +201,7 @@ L’IDE ne trouve pas d’instance de bean _AssembleAFleet_. Ce qui est normal c
 Pour résoudre cette problématique, certains développeurs utilisent des fabriques de bean. Julien n’est pas fan et préfère l’usage du **component scan**. **Il fait en sorte que ce soit Spring qui connaisse notre domaine et non l’inverse**. Pour cela, il introduit les 2 annotations customs   
 [@DomainService](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/domain/src/main/java/ddd/DomainService.java) et [@Stub](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/domain/src/main/java/ddd/Stub.java) qu’il place dans un package **ddd**.
 
-```
+```java
 /**
  * <p>
  * A Domain Service, i.e. a feature that belongs to the domain and the
@@ -219,7 +219,7 @@ Cette annotation permet de documenter les classes en faisant référence au docu
 
 Dans la couche d’infrastructure, la classe [DomainConfiguration](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/infrastructure/src/main/java/rebelsrescue/configuration/DomainConfiguration.java) configure Spring pour scanner les beans annotés par **_@DomainService_** et **_@Stub_**
 
-```
+```java
 @Configuration
 @ComponentScan(
         basePackageClasses = {Fleet.class},

@@ -408,7 +408,7 @@ Remarque : le système d’authentification sur lequel est branchée votre appl
 
 La configuration Java de **[Spring MVC](http://docs.spring.io/spring/docs/4.0.5.RELEASE/spring-framework-reference/htmlsingle/#mvc)** ressemble à celle de Spring Security. L’annotation _[@EnableWebMvc](https://github.com/spring-projects/spring-framework/blob/v4.0.5.RELEASE/spring-webmvc/src/main/java/org/springframework/web/servlet/config/annotation/EnableWebMvc.java)_ s’utilise conjointement à la classe abstraite _[WebMvcConfigurerAdapter](https://github.com/spring-projects/spring-framework/blob/v4.0.5.RELEASE/spring-webmvc/src/main/java/org/springframework/web/servlet/config/annotation/WebMvcConfigurerAdapter.java)_. L’application bénéficie d’une configuration par défaut qu’il est possible de personnaliser par redéfinition de méthodes. La classe **_[WebMvcConfig](https://github.com/arey/spring-javaconfig-sample/blob/blog/src/main/java/com/javaetmoi/sample/config/WebMvcConfig.java)_** joue ce rôle :
 
-```
+```java
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = { "com.javaetmoi.sample.web" })

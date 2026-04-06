@@ -103,7 +103,7 @@ Les **commentaires interrogatifs** sont multi-interprétables. Dans l’exemple 
 Pour se prémunir de ces incompréhensions, il parait nécessaire de **standardiser les commentaires de revue de code** en utilisant, par exemple, l’approche des [**Conventional Comments**](https://conventionalcomments.org/) fortement inspiré des [Conventional Commits](https://www.conventionalcommits.org/).   
  Les conventional comments proposent **de formatter ses commentaires** de commit en suivant ce formalisme :
 
-```
+```xml
 <label> [decorations]: <subject>[discussion]
 ```
 

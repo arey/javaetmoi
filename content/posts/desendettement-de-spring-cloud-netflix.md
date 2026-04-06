@@ -71,7 +71,7 @@ Request #125](https://github.com/spring-petclinic/spring-petclinic-microservices
 
 Configuration de depart Zuul :
 
-```
+```yaml
 zuul:
   prefix: /api
   ignoredServices: '*'
@@ -84,7 +84,7 @@ zuul:
 
 Configuration Spring Cloud Gateway :
 
-```
+```yaml
 spring:
   cloud:
     gateway:
@@ -132,7 +132,7 @@ liées à **Ribbon** :
 - spring-cloud-netflix-ribbon
 - ribbon-eureka
 
-```
+```xml
 <dependency>
      <groupId>org.springframework.cloud</groupId>
      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -153,7 +153,7 @@ liées à **Ribbon** :
  </dependency>
 ```
 
-```
+```xml
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
@@ -173,7 +173,7 @@ pas possible car Spring Cloud Gateway nécessite d’utiliser
 des APIs non bloquantes. Preuve
 en stacktrace :
 
-```
+```text
 java.lang.IllegalStateException: block()/blockFirst()/blockLast() are blocking, which is not supported in thread reactor-http-nio-2
 	|_ checkpoint ⇢ HTTP GET "/api/gateway/owners/6"[ExceptionHandlingWebHandler]
 Stack trace:
@@ -215,7 +215,7 @@ Le _@RestController_ [ApiGatewayController](https://github.com/spring-petclinic/
 L’utilisation du _WebClient.Builder_ déclaré plus haut nécessite un peu d’entrainement lorsqu’il s’agit de chaîner les appels distants et d’enrichir une première réponse avec une seconde.  
 Voici un exemple d’appel simplifié :
 
-```
+```java
 @Autowired
 private WebClient.Builder webClientBuilder;
 
@@ -280,7 +280,7 @@ Resilience4j. Elle a été supprimée de la classe principale.
 
 La déclaration du **bean** **defaultCustomizer** permet de spécifier la configuration par défaut de l’ensemble des circuit breaker Resilience4j utilisés dans l’application :
 
-```
+```java
 /**
   * Default Resilience4j circuit breaker configuration
   */
@@ -298,7 +298,7 @@ spécifiquement certains circuit breaker par leur ID.
 
 L’utilisation d’un circuit breaker passe par l’utilisation de la fabrique **ReactiveCircuitBreakerFactory** créée par Spring Boot. La classe [ApiGatewayController](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java) a été adaptée : le _Mono<Visits>_ renvoyé par le service _getVisitsForPets_ subit une opération de transformation. C’est le **ReactiveCircuitBreaker** _getOwnerDetails_ qui est maintenant chargé d’exécuter la suite du flux et de gérer les exceptions applicatives ou le timeout, et de router alors sur une méthode de contournement ( **fallback method**). Dans notre cas, lorsque le service des visites est inaccessible ou trop lent, on considère que l’animal de compagnie n’a pas eu de visite.
 
-```
+```java
 private final ReactiveCircuitBreakerFactory cbFactory;@GetMapping(value = "owners/{ownerId}")
  public Mono<OwnerDetails> getOwnerDetails(final @PathVariable int ownerId) {
      return customersServiceClient.getOwner(ownerId)
@@ -313,7 +313,7 @@ private final ReactiveCircuitBreakerFactory cbFactory;@GetMapping(value = "owner
  }
 ```
 
-```
+```java
 private Mono<Visits> emptyVisitsForPets() {
     return Mono.just(new Visits());
 }
@@ -322,7 +322,7 @@ private Mono<Visits> emptyVisitsForPets() {
 Le test unitaire [ApiGatewayControllerTest](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/test/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayControllerTest.java)
 s’assure que le coupe circuit est opérationnel :
 
-```
+```java
 @ExtendWith(SpringExtension.class)
 @WebFluxTest(controllers = ApiGatewayController.class)
 @Import(ReactiveResilience4JAutoConfiguration.class)
