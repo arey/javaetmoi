@@ -29,15 +29,12 @@ La gestion de la **nullabilité** en Java a longtemps été source de bugs et de
 
 Ajoutez simplement la dépendance suivante au niveau de la balise <dependencies> de votre pom.xml :
 
-```
-
-```
 
 ```xml
 <dependency>
     <groupId>org.jspecify</groupId>
-    <artifactId>jspecify</artifactId>
-    <version>1.0.0</version>
+    <artifactId>jspecify</artifactId>
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -53,9 +50,6 @@ Dans le cas où ces warnings n’apparaissent pas dans IntelliJ, vérifier que l
 
 Pour faire échouer le build Maven dans le cas où un développeur ne respecterait pas les annotations JSpecify, le compilateur Java doit être strictement configuré à l’aide des plugins **Error Prone** de Google et de son extension **NullAway** d'Uber :
 
-```
-
-```
 
 ```xml
 <plugin>
@@ -114,9 +108,6 @@ Toutes les options de [NullAway](https://github.com/uber/NullAway) peuvent être
 
 A partir de la version 16 du langage Java, la [documentation d'installation d'error prone](https://errorprone.info/docs/installation) explique comment activer des flags à la JVM via le fichier **.mvn/jvm.config**:
 
-```
-
-```
 
 ```bash
 --add-exports jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED
@@ -137,9 +128,6 @@ Avec cette configuration Maven, toute tentative d’accès à une référence po
 
 Exemple d’une commande **_mvn compile_** sur l’exemple précédent :
 
-```
-
-```
 
 ```text
 [ERROR] COMPILATION ERROR :

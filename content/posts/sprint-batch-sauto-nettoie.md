@@ -151,6 +151,3 @@ Qui mieux que Spring Batch peut exécuter un traitement de purge pouvant potenti
 
 Pour parfaire le code, il aurait été intéressant de déplacer l’exécution des requêtes SQL dans  un DAO héritant de la classe **AbstractJdbcBatchMetadataDao**. Outre un meilleur design, cela aurait permis de faire un appel au DAO de purge ailleurs que dans un batch. Une telle fonctionnalité pourrait très bien avoir sa place dans la console de [Spring Batch Admin](http://static.springsource.org/spring-batch-admin/ "Page d'accueil du projet Spring Batch Admin").
 
-```
-
-```

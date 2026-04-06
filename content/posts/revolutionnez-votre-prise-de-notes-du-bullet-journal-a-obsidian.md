@@ -13,7 +13,7 @@ summary: |-
 
   Dans son talk, Hoani nous présente le logiciel **[Obsidian](https://obsidian.md/)**, la manière dont **il l'utilise au quotidien** pour **noter** et **gérer son activité**, qu'elle soit professionnelle ou personnelle.{{ double-space-with-newline }}Je suis sorti de sa présentation quelque peu désarçonné. Hoani utilise Obsidian comme un **Bullet Journal** (qu'on appelle aussi « **bujo** ») numérique pour compiler **notes**, **pense-bêtes**, **objectifs**, **rappels**, **tracking**, **plannings** et **coups de coeur**. Son utilisation est vraiment avancée et très régulière. Je ne me voyais pas passer autant de temps que lui sur Obsidian.
 
-  L'autre domaine dans lequel Obsidian semble exceller consiste en la possibilité de se créer un un **Second Cerveau**. Les notes peuvent être reliées ensemble à l'aide de **Map Of Content** (MOC). Une alternative aux **hashtags** et l'organisation hiérarchisée en **dossiers** et sous-dossiers.{{ double-space-with-newline }}Une note de type Map of Content s'assimile à une thématique, un sujet principal, auquel on rattache bidirectionnellement des notes et qui va faire office de table de matières et de tableau de bord. La création de sous-MOCs spécialisés reste possible. On se rapproche du web, des liens hypertextes et du **mind mapping**.{{ double-space-with-newline }}Dans ce billet, j'aimerais vous restituer la prestation d'Hoani et vous laisser découvrir son utilisation Obsidian.
+  L'autre domaine dans lequel Obsidian semble exceller consiste en la possibilité de se créer un **Second Cerveau**. Les notes peuvent être reliées ensemble à l'aide de **Map Of Content** (MOC). Une alternative aux **hashtags** et l'organisation hiérarchisée en **dossiers** et sous-dossiers.{{ double-space-with-newline }}Une note de type Map of Content s'assimile à une thématique, un sujet principal, auquel on rattache bidirectionnellement des notes et qui va faire office de table de matières et de tableau de bord. La création de sous-MOCs spécialisés reste possible. On se rapproche du web, des liens hypertextes et du **mind mapping**.{{ double-space-with-newline }}Dans ce billet, j'aimerais vous restituer la prestation d'Hoani et vous laisser découvrir son utilisation Obsidian.
 tags:
   - devfest
   - obsidian
@@ -26,7 +26,7 @@ Lors de la conférence [Devfest Nantes 2025](https://devfest2025.gdgnantes.com/)
 Dans son talk, Hoani nous présente le logiciel **[Obsidian](https://obsidian.md/)**, la manière dont **il l'utilise au quotidien** pour **noter** et **gérer son activité**, qu'elle soit professionnelle ou personnelle.  
 Je suis sorti de sa présentation quelque peu désarçonné. Hoani utilise Obsidian comme un **Bullet Journal** (qu'on appelle aussi « **bujo** ») numérique pour compiler **notes**, **pense-bêtes**, **objectifs**, **rappels**, **tracking**, **plannings** et **coups de coeur**. Son utilisation est vraiment avancée et très régulière. Je ne me voyais pas passer autant de temps que lui sur Obsidian.
 
-L'autre domaine dans lequel Obsidian semble exceller consiste en la possibilité de se créer un un **Second Cerveau**. Les notes peuvent être reliées ensemble à l'aide de **Map Of Content** (MOC). Une alternative aux **hashtags** et l'organisation hiérarchisée en **dossiers** et sous-dossiers.  
+L'autre domaine dans lequel Obsidian semble exceller consiste en la possibilité de se créer un **Second Cerveau**. Les notes peuvent être reliées ensemble à l'aide de **Map Of Content** (MOC). Une alternative aux **hashtags** et l'organisation hiérarchisée en **dossiers** et sous-dossiers.  
 Une note de type Map of Content s'assimile à une thématique, un sujet principal, auquel on rattache bidirectionnellement des notes et qui va faire office de table de matières et de tableau de bord. La création de sous-MOCs spécialisés reste possible. On se rapproche du web, des liens hypertextes et du **mind mapping**.  
 Dans ce billet, j'aimerais vous restituer la prestation d'Hoani et vous laisser découvrir son utilisation Obsidian.
 
@@ -136,12 +136,12 @@ Le contenu du Daily peut être très riche et comporter :
 Exemples de métadonnées d'un Daily permettant de suivre des variables quotidiennes :
 
 ```text
-energy_level_morning : 6
-energy_level_evening : 7
-mood_morning : insomniaque
-mood_evening : détendu
-walked : 400
-working_place_morning : HOME
+energy_level_morning : 6
+energy_level_evening : 7
+mood_morning : insomniaque
+mood_evening : détendu
+walked : 400
+working_place_morning : HOME
 ```
 
 La **barre de navigation** du Daily permet de passer rapidement du daily précédent au suivant, à la semaine associée …  

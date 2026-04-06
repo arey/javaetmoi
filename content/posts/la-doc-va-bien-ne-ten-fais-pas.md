@@ -107,7 +107,7 @@ L’application doit être déployée sur un serveur Tomcat OnPremise
 ## 3\. Contexte et périmètre
 
 Le contexte et le périmètre délimitent le système de tous les systèmes connexes voisins. Les interfaces fonctionnelles et techniques avec les partenaires sont décrites dans ce paragraphe. Un **diagramme de contexte** a toute sa place.   
-Traditionnellement, les outils **Visio** ou **draw.io** peuvent être utilisés pour réalisés de tels diagrammes. Vous vous en doutez, Damien recommande de privilégier les diagrammes as code afin de faciliter les revues et préconise [**C4 model**](https://c4model.com/), créé par Simon Brown entre 2006 et 2011 et inspiré de UML.   
+Traditionnellement, les outils **Visio** ou **draw.io** peuvent être utilisés pour réaliser de tels diagrammes. Vous vous en doutez, Damien recommande de privilégier les diagrammes as code afin de faciliter les revues et préconise [**C4 model**](https://c4model.com/), créé par Simon Brown entre 2006 et 2011 et inspiré de UML.   
 La modélisation C4 documente l'architecture d'un système logiciel en utilisant plusieurs points de vue et avec 4 niveaux d’abstraction. Nous y reviendrons.
 
 Exemple de diagramme de contexte conçu à l’aide de [C4-PlantUML](https://github.com/plantuml-stdlib/C4-PlantUML) :

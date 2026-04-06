@@ -71,6 +71,6 @@ Le principal avantage d’EditorConfig est le nombre d’éditeur de code suppor
 
 ## Conclusion
 
-Ce modeste billet vous aura montré 2 moyens de partager la configuration de vos formateurs, et ceci quelque soit votre IDE Java.
+Ce modeste billet vous aura montré 2 moyens de partager la configuration de vos formateurs, et ceci quel que soit votre IDE Java.
 Pour des besoins simples, sur des projets multi-technos, EditorConfig est un bon candidat. Il convient également aux développeurs détestant que leur code soit formaté.
 Pour une application d’Entreprise centrée sur Java, l’utilisation du formateur Eclipse reste à mon avis le meilleur choix.

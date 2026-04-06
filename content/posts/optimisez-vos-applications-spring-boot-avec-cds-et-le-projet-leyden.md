@@ -79,7 +79,7 @@ Sébastien fait une démonstration à l’aide de l’application [Spring Petcli
 Commande permettant d’utiliser l’archive CDS au démarrage de l’application :
 
 ```bash
-java -XX :SharedArchiveFile=spring-petclinic.jsa – jar spring-petclinic.jar
+java -XX :SharedArchiveFile=spring-petclinic.jsa – jar spring-petclinic.jar
 ```
 
 Le **gain au démarrage** est de **19%.** A noter que l’utilisation de CDS peut engendrer des effets de bord si l’on ne suit pas les **bonnes pratiques** suivantes :

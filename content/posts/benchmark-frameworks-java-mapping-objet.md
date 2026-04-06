@@ -62,7 +62,7 @@ Extrait d’un **retour d’expérience**, le tableau ci-dessous dresse les avan
 
 En fonction de votre expertise, ce tableau pourrait être adapter avec d’autres frameworks.
 
-Quelque soit l’approche choisie (framework ou code manuel), seuls des **tests unitaires** permettront de valider le mapping. Ne pouvant être automatisés, ces tests s’avèrent malheureusement longs et fastidieux.
+Quel que soit l’approche choisie (framework ou code manuel), seuls des **tests unitaires** permettront de valider le mapping. Ne pouvant être automatisés, ces tests s’avèrent malheureusement longs et fastidieux.
 
 ## Micro-benchmark
 

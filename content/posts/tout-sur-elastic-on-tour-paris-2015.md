@@ -72,7 +72,7 @@ Bien connus des développeurs, des acteurs comme GitHub ou Stackoverflow n’ont
 Team Leader d’Elasticsearch, Climton Gormley a un background de **développeur Perl**. C’est l’un des tout premiers utilisateur d’Elasticsearch qui a contribué au développement de la communauté sur IRC et la mailing list.
 
 Cimton commence son intervention par rappeler ce qu’est ES. C’est avant tout une couche d’abstraction permettant de **distribuer** les indexations et les requêtes sur plusieurs index Lucene. ES doit détecter les pannes. L’idée est de pouvoir utiliser ES de la même façon, que ce soit en local sur un poste de développement ou sur un cluster de 500 nœuds.
-Dès le départ, un gros effort a été réalisé sur l’API, ceci afin qu’elle soit facile à utiliser pour les développeurs, quelque soit leur langage de programmation. Un peu plus tard dans la journée, un développeur Java me confirmait qu’il donnait 5 étoiles à leur API.
+Dès le départ, un gros effort a été réalisé sur l’API, ceci afin qu’elle soit facile à utiliser pour les développeurs, quel que soit leur langage de programmation. Un peu plus tard dans la journée, un développeur Java me confirmait qu’il donnait 5 étoiles à leur API.
 La recherche et l’analyse temps-réel est également une fonctionnalité centrale d’ES. Les agrégations ont été créées dans ce sens.
 Climton enchaine sur les nouveautés apportées par **Elasticsearch 2.0** sorti la semaine précédente :
 
@@ -385,7 +385,7 @@ A l’avenir, la volumétrie va être x 100.
 Natixis est la banque de financements du Groupe Banque Populaire Caisse d’Epargne. Elle vend des prêts personnels et du crédit revolving. Cette entité compte aujourd’hui 6 millions de clients.
 
 Pendant le développement d’un poste de travail pour les chargés de clientèle, ils ont eu besoin d’agréger des données (interactions avec les clients) issues d’une dizaine d’applications. Les données sont reçues depuis différents canaux : SMS, site Internet, appels téléphoniques … Et leur collecte est réalisée à la fois par batch (intégration de fichiers CSV) et en temps réel (WS REST).
-Leur exigence fonctionnelle était de pouvoir y accéder à la fois par Web Service et par une une IHM de recherche multi-critères intégrée au poste de travail.
+Leur exigence fonctionnelle était de pouvoir y accéder à la fois par Web Service et par une IHM de recherche multi-critères intégrée au poste de travail.
 Le projet a été réalisé en 4 mois (de mars à juin 2015).
 
 Quelques chiffres :

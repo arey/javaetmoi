@@ -487,7 +487,7 @@ Comme expliqué précédemment, le batch est chargé de créer l’ **index musi
 Le filtre **myEdgeNGram** et l’analyseur **myPartialNameAnalyzer** sont par exemple utilisés par l’ **autosuggestion** des résultats de recherche :
 
 ```json
- "analysis": {
+ "analysis": {
           "filter": {
             "myEdgeNGram": {
               "side": "front",
@@ -521,7 +521,7 @@ Le filtre **myEdgeNGram** et l’analyseur **myPartialNameAnalyzer** sont par ex
 Le fichier **[_es-index-mappings.json_](https://github.com/arey/musicbrainz-elasticsearch/blob/master/src/main/resources/com/javaetmoi/elasticsearch/musicbrainz/batch/es-index-mappings.json)** précise à Elasticsearch comment indexer les différents champs de l’ _EsDocument_ construit à partir d’un _Album_. Ce sont les usages de recherche qui guident la réalisation du fichier de mapping. Par exemple, le nom d’un album sera indexé de 2 manières à l’aide d’une propriété de type **multi\_field** : l’une pour la recherche fulltext et l’autre pour l’autosuggestion.
 
 ```json
- {
+ {
   "_source": {
     "enabled": "true",
     "compress": "true"

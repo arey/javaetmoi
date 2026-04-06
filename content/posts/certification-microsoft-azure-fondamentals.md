@@ -173,7 +173,7 @@ Availability zones : permet de remédier un pb arrivant sur un Data Center. On 
   - Tables : pour les données NoSQL, va être supprimé dans la roadmap Azure et remplacé par Azure Cosmos DB
   - Queues : gestion asynchrone des messages
 
-Le cout d’un Storage Storage est calculé en fonction de la capacité de stockage, le niveau de réplication (4 niveaux), le niveau d’accès (hot, cold, archive)
+Le cout d’un Storage est calculé en fonction de la capacité de stockage, le niveau de réplication (4 niveaux), le niveau d’accès (hot, cold, archive)
 
 **Azure database services**
 

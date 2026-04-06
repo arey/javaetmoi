@@ -166,9 +166,9 @@ Le premier workshop de ce Lab consiste à calculer la moyenne, le min, le max et
 Pour source de données, nous repartons du fichier ratings.txt dont voici les 3 premières lignes :
 
 ```sh
-196 242    3  881250949
-186    302    3  891717742
-22 377    1  878887116
+196 242    3  881250949
+186    302    3  891717742
+22 377    1  878887116
 ```
 
 L’initiation du _JavaSparkContext_ et la récupération du chemin vers le fichier ratings.txt s’effectuent de la même manière que dans la classe _FirstRDD_.
@@ -220,7 +220,7 @@ Je ne rentrais pas ici dans le détail du calcul du min et du count. Le code sou
 
 ## Workshop 2 : le cache
 
-Dans le Workshop 1, le fichier est lu 4 fois. De même, le filtrage sur l’utilisateur n°200 est opéré 4 fois. Vous vous en doutez, 4 aller/retours entre le driver et le cluster a un coût. C’est pourquoi, lorsque des transformations sont communes à plusieurs opérations, Spark propose un mécanisme de cache. Et l’objectif du workshop n°2 est précisémment d’utiliser le cache.
+Dans le Workshop 1, le fichier est lu 4 fois. De même, le filtrage sur l’utilisateur n°200 est opéré 4 fois. Vous vous en doutez, 4 aller/retours entre le driver et le cluster a un coût. C’est pourquoi, lorsque des transformations sont communes à plusieurs opérations, Spark propose un mécanisme de cache. Et l’objectif du workshop n°2 est précisément d’utiliser le cache.
 
 Pour se faire, il faut indiquer à Spark que le RDD ne doit pas être déchargé suite à une action. Spark laisse alors les données sur le cluster. Libre au développeur de décharger le cache lorsqu’il n’en a plus besoin. Spark propose 5 stratégies de caching (exemple : StorageLevel.MEMORY\_AND\_DISK).
 

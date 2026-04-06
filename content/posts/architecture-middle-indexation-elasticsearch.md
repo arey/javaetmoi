@@ -154,7 +154,7 @@ Une extension Spring Integration pour ElasticSearch pourrait également avoir so
 
 ## Conclusion
 
-Si je ne vous ai pas perdus en route au fil de ces longues explications, vous vous dites probablement que le travail accomplit est relativement conséquent alors qu’il parait plus simple et plus efficace d’indexer les données directement depuis l’application qui en est maitre.
+Si je ne vous ai pas perdus en route au fil de ces longues explications, vous vous dites probablement que le travail accompli est relativement conséquent alors qu’il parait plus simple et plus efficace d’indexer les données directement depuis l’application qui en est maitre.
 C’est oublier que dans les grandes entreprises, séparation des préoccupations, découplage et sécurité sont de rigueur.
 Pour garantir les performances, le middle d’indexation est déployé dans la même bulle réseau que les nœuds du cluster ElasticSearch. Niveau sécurité, le firewall garanti que seul le middle d’indexation a le droit d’indexer des données dans ElasticSearch.
 Enfin, la mise en œuvre du composant de notification est facilitée sur les applications convenablement architecturées.

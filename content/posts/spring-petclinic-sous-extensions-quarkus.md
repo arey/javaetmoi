@@ -76,8 +76,8 @@ L’erreur suivante était générée pendant le build :
 
 ```xml
 <dependency>
-  <groupId>io.quarkus</groupId>
-  <artifactId>quarkus-spring-data-jpa-deployment</artifactId>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-spring-data-jpa-deployment</artifactId>
 </dependency>
 ```
 

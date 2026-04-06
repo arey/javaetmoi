@@ -145,8 +145,8 @@ Le serveur de config est packagé sous forme d’un JAR Spring Cloud. Pour crée
 
 ```xhtml
 <dependency>
-   <groupId>org.springframework.cloud</groupId>
-   <artifactId>spring-cloud-config-server</artifactId>
+   <groupId>org.springframework.cloud</groupId>
+   <artifactId>spring-cloud-config-server</artifactId>
 </dependency>
 ```
 

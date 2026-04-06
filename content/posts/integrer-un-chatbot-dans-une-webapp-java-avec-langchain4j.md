@@ -774,7 +774,7 @@ InMemoryEmbeddingStore<TextSegment> embeddingStore() {
 
 
 Nous devons ensuite choisir un modèle de embedding. [LangChain4j en supporte plus de 19](https://docs.langchain4j.dev/category/embedding-models). J’ai opté pour un [modèle de type in-process](https://docs.langchain4j.dev/integrations/embedding-models/in-process) basé sur le runtime [ONNX](https://onnxruntime.ai/docs/get-started/with-java.html). Ce type de modèle présente l’avantage de pouvoir s’exécuter dans la même JVM que celle de Petclinic.  
-Le repo git [langchain4j-embeddings](https://github.com/langchain4j/langchain4j-embeddings) propose une douzaine d’artefact (JAR) embarquant chacun un modèle au f **ormat .onnx**. Parmis eux, on retrouve l’artefact [langchain4j-embeddings-all-minilm-l6-v2](https://github.com/langchain4j/langchain4j-embeddings/tree/main/langchain4j-embeddings-all-minilm-l6-v2).
+Le repo git [langchain4j-embeddings](https://github.com/langchain4j/langchain4j-embeddings) propose une douzaine d’artefact (JAR) embarquant chacun un modèle au f **ormat .onnx**. Parmi eux, on retrouve l’artefact [langchain4j-embeddings-all-minilm-l6-v2](https://github.com/langchain4j/langchain4j-embeddings/tree/main/langchain4j-embeddings-all-minilm-l6-v2).
 
 Le modèle [**all-MiniLM-L6-v2**](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) est un modèle de langage basé sur la famille [MiniLM](https://github.com/microsoft/unilm/tree/master/minilm) conçue par Microsoft. Entrainé pour la similarité sémantique et les recherches de phrases, ce modèle de 86 Mo est compact et optimisé pour offrir des performances élevées en termes de qualité d'encodage de phrases, tout en restant léger et rapide. Il semble parfait pour notre **chatbot** et la **recherche de similarité**.
 

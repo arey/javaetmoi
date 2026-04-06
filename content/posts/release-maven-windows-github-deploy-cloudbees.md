@@ -53,7 +53,7 @@ Les réponses apportées par ce billet sont :
 
 Pour permettre à maven d’accéder en lecture et en écriture à votre repo GitHub, vous devez tout d’abord configurer comme suit la balise <scm> de votre pom.xml :
 
-```xhtml
+```xml
 <scm>
 <url>https://github.com/arey/maven-config-github-cloudbees</url>
 <connection>scm:git:ssh://git@github.com/arey/maven-config-github-cloudbees.git</connection>
@@ -96,7 +96,7 @@ En interne, le plugin scm exécute des lignes de commandes git.
 Sous Windows, la ligne de commande git est exécutée par l’interpréteur de commandes cmd.exe en mode non interactif.
 Or, lorsque vous essayez manuellement de pousser vos modifications vers GitHub depuis un bash git ou une ligne de commande avec git dans le path, Git vous demande systématiquement votre passphrase :
 
-```default
+```shell
 git push
 Enter passphrase for key '/c/Users/Antoine/.ssh/id_rsa':
 ```
@@ -114,7 +114,7 @@ En résumé, vous allez demander à git d’utiliser PuTTY pour communiquer en S
 
 Pour tester la configuration, ouvrir une nouvelle fenêtre de commande et exécuter la commande suivante :
 
-```default
+```shell
 C:\Software\Dev\Putty>plink.exe git@github.com
 Using username "git".
 Server refused to allocate pty
@@ -129,27 +129,27 @@ Avant de pouvoir effectuer une release, il est encore nécessaire de configurer 
 
 Lors de la phase de déploiement d’un artefact, 2 repositories sont nécessaires, l’un pour déployer des releases,et  l’autre pour déployer des snapshots :
 
-```xhtml
+```xml
 <distributionManagement>
-    <downloadUrl>https://github.com/arey/maven-config-github-cloudbee</downloadUrl>
-    <repository>
-      <id>javaetmoi-cloudbees-release</id>
-      <name>javaetmoi-cloudbees-release</name>
-      <url>dav:https://repository-javaetmoi.forge.cloudbees.com/release/</url>
-    </repository>
-    <snapshotRepository>
-      <id>javaetmoi-cloudbees-snapshot</id>
-      <name>javaetmoi-cloudbees-snapshot</name>
-      <url>dav:https://repository-javaetmoi.forge.cloudbees.com/snapshot/</url>
-    </snapshotRepository>
+    <downloadUrl>https://github.com/arey/maven-config-github-cloudbee</downloadUrl>
+    <repository>
+      <id>javaetmoi-cloudbees-release</id>
+      <name>javaetmoi-cloudbees-release</name>
+      <url>dav:https://repository-javaetmoi.forge.cloudbees.com/release/</url>
+    </repository>
+    <snapshotRepository>
+      <id>javaetmoi-cloudbees-snapshot</id>
+      <name>javaetmoi-cloudbees-snapshot</name>
+      <url>dav:https://repository-javaetmoi.forge.cloudbees.com/snapshot/</url>
+    </snapshotRepository>
  </distributionManagement>
 ```
 
-Point d’attention : les repositories CloudBees ne sont accessibles en écriture que par le prococole WebDAV. Les URL des repository doivent donc être préfixées par un **dav:**
+Point d’attention : les repositories CloudBees ne sont accessibles en écriture que par le protocole WebDAV. Les URL des repository doivent donc être préfixées par un **dav:**
 
-L’extension maven wagon-webddav est requis pour que maven puisse interprêtrer le dav:.  A ajouter dans la balise <build> de votre configuration :
+L’extension maven wagon-webdav est requis pour que maven puisse interpréter le dav:.  A ajouter dans la balise <build> de votre configuration :
 
-```xhtml
+```xml
 <extensions>
     <extension>
         <groupId>org.apache.maven.wagon</groupId>
@@ -161,46 +161,46 @@ L’extension maven wagon-webddav est requis pour que maven puisse interprêtrer
 
 Afin que maven puisse accéder à ces repository pour télécharger les snapshots et les releases, il est nécessaire de les déclarer, soit dans le pom.xml de votre projet, soit dans le fichier setting.xml global ou local à l’utilisateur (ce qui est une bien meilleure pratique) :
 
-```xhtml
+```xml
 <repositories>
-    <repository>
-      <id>javaetmoi-cloudbees-release</id>
-      <name>javaetmoi-cloudbees-release</name>
-      <url>https://repository-javaetmoi.forge.cloudbees.com/release/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>javaetmoi-cloudbees-snapshot</id>
-      <name>javaetmoi-cloudbees-snapshot</name>
-      <url>https://repository-javaetmoi.forge.cloudbees.com/snapshot/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
+    <repository>
+      <id>javaetmoi-cloudbees-release</id>
+      <name>javaetmoi-cloudbees-release</name>
+      <url>https://repository-javaetmoi.forge.cloudbees.com/release/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>javaetmoi-cloudbees-snapshot</id>
+      <name>javaetmoi-cloudbees-snapshot</name>
+      <url>https://repository-javaetmoi.forge.cloudbees.com/snapshot/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
 ```
 
 Lors d’un déploiement distant (ex : mvn deploy), maven doit disposer des paramètres de connexion pour écrire dans l’un ou l’autre des repository. A configurer dans le fichier setting.xml global ou local de l’utilisateur :
 
 ```xhtml
 <servers>
-    <server>
-      <id>javaetmoi-cloudbees-snapshot</id>
-      <username>javaetmoi</username>
-      <password>Mot de passe CloudBees</password>
-    </server>
-    <server>
-      <id>javaetmoi-cloudbees-release</id>
-      <username>javaetmoi</username>
-      <password>Mot de passe CloudBees </password>
+    <server>
+      <id>javaetmoi-cloudbees-snapshot</id>
+      <username>javaetmoi</username>
+      <password>Mot de passe CloudBees</password>
+    </server>
+    <server>
+      <id>javaetmoi-cloudbees-release</id>
+      <username>javaetmoi</username>
+      <password>Mot de passe CloudBees </password>
 </server>
 ```
 
@@ -210,7 +210,7 @@ Attention, bien que le mot de passe soit celui que vous utilisez pour vous conne
 
 Pour figer sa version, le plugin maven release peut également être déclaré dans votre pom.xml :
 
-```xhtml
+```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-release-plugin</artifactId>

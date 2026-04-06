@@ -234,22 +234,22 @@ Dans la solution, 2 routes sont déclarées au niveau du composant parent Ng2Cod
 
 ```js
 @Component({
-  selector: 'app',
-  templateUrl: 'app/ng2codelab.html',
-  directives : [Home, ROUTER_DIRECTIVES]
+  selector: 'app',
+  templateUrl: 'app/ng2codelab.html',
+  directives : [Home, ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-    {
-      path: '/',
-      component: Home,
-      name: 'Home',
-      useAsDefault: true
-  },
- {
-  path: '/question',
-    component: QuestionCard,
-    name: 'QuestionCard'
- }
+    {
+      path: '/',
+      component: Home,
+      name: 'Home',
+      useAsDefault: true
+  },
+ {
+  path: '/question',
+    component: QuestionCard,
+    name: 'QuestionCard'
+ }
 ])
 export class Ng2CodelabApp {
 ```
@@ -258,7 +258,7 @@ Dans le template _theme-card.html_, la directive **\[routerLink\]** génère le 
 
 ```xhtml
 <a [routerLink]="[ '/QuestionCard' ]" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-  Start test
+  Start test
 </a>
 ```
 
@@ -284,11 +284,11 @@ Pour vous y aider, le service **QuestionStore** est mis à votre disposition :
 @Injectable()
 export class QuestionsStore {
 
- private questions: IQuestion[];
+ private questions: IQuestion[];
 
- constructor(questions: IQuestion[] = QUESTIONS){
-  this.questions = questions.map( (question: IQuestion) => new Question(question));
- }…
+ constructor(questions: IQuestion[] = QUESTIONS){
+  this.questions = questions.map( (question: IQuestion) => new Question(question));
+ }…
 }
 ```
 
@@ -298,23 +298,23 @@ Une fois le step-4 réalisé, le composant QuestionCard est relativement concis�
 
 ```js
 @Component({
-  selector: 'question-card',
-  encapsulation: ViewEncapsulation.None,
-  templateUrl: './app/components/question-card/question-card.html',
-  directives: [ROUTER_DIRECTIVES]
+  selector: 'question-card',
+  encapsulation: ViewEncapsulation.None,
+  templateUrl: './app/components/question-card/question-card.html',
+  directives: [ROUTER_DIRECTIVES]
 })
 export class QuestionCard implements AfterViewInit {
 
- @Input() question: IQuestion;
- @Output() checked: EventEmitter<IChoice>;
+ @Input() question: IQuestion;
+ @Output() checked: EventEmitter<IChoice>;
 
- constructor() {
-  this.checked = new EventEmitter();
- }
+ constructor() {
+  this.checked = new EventEmitter();
+ }
 
- onCheckedChange($event, choice: IChoice) {
-  this.checked.emit(choice);
- }
+ onCheckedChange($event, choice: IChoice) {
+  this.checked.emit(choice);
+ }
 }
 ```
 
@@ -324,8 +324,8 @@ Le template de ce dernier binde l’événement sur la fonction toggle :
 
 ```js
 template: `
-  <question-card (checked)="toggle($event)"[question]="currentQuestion" class="mdl-cell mdl-cell--4-col" ></question-card> private toggle(choice: IChoice) {
-  this.questions[this.currentQuestionId].toggle(choice);
+  <question-card (checked)="toggle($event)"[question]="currentQuestion" class="mdl-cell mdl-cell--4-col" ></question-card> private toggle(choice: IChoice) {
+  this.questions[this.currentQuestionId].toggle(choice);
 }
 ```
 

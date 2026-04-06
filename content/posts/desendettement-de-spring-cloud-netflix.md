@@ -73,40 +73,40 @@ Configuration de depart Zuul :
 
 ```yaml
 zuul:
-  prefix: /api
-  ignoredServices: '*'
-  routes:
-    vets-service: /vet/**
-    visits-service: /visit/**
-    customers-service: /customer/**
-    api-gateway: /gateway/**
+  prefix: /api
+  ignoredServices: '*'
+  routes:
+    vets-service: /vet/**
+    visits-service: /visit/**
+    customers-service: /customer/**
+    api-gateway: /gateway/**
 ```
 
 Configuration Spring Cloud Gateway :
 
 ```yaml
 spring:
-  cloud:
-    gateway:
-      routes:
-        - id: vets-service
-          uri: lb://vets-service
-          predicates:
-            - Path=/api/vet/**
-          filters:
-            - StripPrefix=2
-        - id: visits-service
-          uri: lb://visits-service
-          predicates:
-            - Path=/api/visit/**
-          filters:
-            - StripPrefix=2
-        - id: customers-service
-          uri: lb://customers-service
-          predicates:
-            - Path=/api/customer/**
-          filters:
-            - StripPrefix=2
+  cloud:
+    gateway:
+      routes:
+        - id: vets-service
+          uri: lb://vets-service
+          predicates:
+            - Path=/api/vet/**
+          filters:
+            - StripPrefix=2
+        - id: visits-service
+          uri: lb://visits-service
+          predicates:
+            - Path=/api/visit/**
+          filters:
+            - StripPrefix=2
+        - id: customers-service
+          uri: lb://customers-service
+          predicates:
+            - Path=/api/customer/**
+          filters:
+            - StripPrefix=2
 ```
 
 Le filtre **SripPrefix** accepte pour paramètre le nombre de parties du chemin à retirer de la requête HTTP avant d’être redirigée vers le microservice cible.  
@@ -114,7 +114,7 @@ Exemple : lorsqu’une requête arrive sur la gateway avec l’URL [http://loca
 
 A noter que la route _/api/gateway_ servie par le contrôleur Rest [ApiGatewayController](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java) n’a plus besoin d’être déclarée.
 
-## Ribbon vers Spring Cloud Cloud Reactive LoadBalancer
+## Ribbon vers Spring Cloud Reactive LoadBalancer
 
 **[Spring Cloud LoadBalancer](https://cloud.spring.io/spring-cloud-static/spring-cloud-commons/2.2.0.RC2/reference/html/#spring-cloud-loadbalancer)** a été [incubé](https://github.com/spring-cloud-incubator/spring-cloud-loadbalancer) avant d'avoir été intégré au projet **Spring Cloud Commons**. Il abstrait l’utilisation d’un répartiteur de charge (load-balancer) côté client et fonctionne avec Spring RestTemplate, Spring WebClient et Spring WebFlux WebCient. Sous le capot, Spring Cloud LoadBalancer s’appuie sur Ribbon lorsque ce dernier est détecté dans le classpath et n’est pas désactivé. Dans le cas contraire, il **dispose de sa propre implémentation de répartiteur de charge**.
 
@@ -134,35 +134,35 @@ liées à **Ribbon** :
 
 ```xml
 <dependency>
-     <groupId>org.springframework.cloud</groupId>
-     <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-     <exclusions>
-         <exclusion>
-             <groupId>org.springframework.cloud</groupId>
-             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-         </exclusion>
-         <exclusion>
-             <groupId>org.springframework.cloud</groupId>
-             <artifactId>spring-cloud-netflix-ribbon</artifactId>
-         </exclusion>
-         <exclusion>
-             <groupId>com.netflix.ribbon</groupId>
-             <artifactId>ribbon-eureka</artifactId>
-         </exclusion>
-     </exclusions>
+     <groupId>org.springframework.cloud</groupId>
+     <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+     <exclusions>
+         <exclusion>
+             <groupId>org.springframework.cloud</groupId>
+             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+         </exclusion>
+         <exclusion>
+             <groupId>org.springframework.cloud</groupId>
+             <artifactId>spring-cloud-netflix-ribbon</artifactId>
+         </exclusion>
+         <exclusion>
+             <groupId>com.netflix.ribbon</groupId>
+             <artifactId>ribbon-eureka</artifactId>
+         </exclusion>
+     </exclusions>
  </dependency>
 ```
 
 ```xml
 <dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-    <exclusions>
-        <exclusion>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-netflix-ribbon</artifactId>
-        </exclusion>
-    </exclusions>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-ribbon</artifactId>
+        </exclusion>
+    </exclusions>
 </dependency>
 ```
 
@@ -221,34 +221,34 @@ private WebClient.Builder webClientBuilder;
 
 @GetMapping(value = "owners/{ownerId}")
 public Mono<OwnerDetails> getOwnerDetails(final @PathVariable int ownerId) {
-    return webClientBuilder.build().get()
-        .uri("http://customers-service/owners/{ownerId}", ownerId)
-        .retrieve()
-        .bodyToMono(OwnerDetails.class)
-        .flatMap(owner ->
-            webClientBuilder.build()
-                .get()
-                .uri("http://visits-service/ pets/visits?petId={petId}", joinIds(owner.getPetIds()))
-                .retrieve()
-                .bodyToMono(Visits.class)
-                .map(addVisitsToOwner(owner))
-        );
+    return webClientBuilder.build().get()
+        .uri("http://customers-service/owners/{ownerId}", ownerId)
+        .retrieve()
+        .bodyToMono(OwnerDetails.class)
+        .flatMap(owner ->
+            webClientBuilder.build()
+                .get()
+                .uri("http://visits-service/ pets/visits?petId={petId}", joinIds(owner.getPetIds()))
+                .retrieve()
+                .bodyToMono(Visits.class)
+                .map(addVisitsToOwner(owner))
+        );
 }
 
 private String joinIds(List<Integer> petIds) {
-    return petIds.stream().map(Object::toString).collect(joining(","));
+    return petIds.stream().map(Object::toString).collect(joining(","));
 }
 
 private Function<Visits, OwnerDetails> addVisitsToOwner(OwnerDetails owner) {
-    return visits -> {
-        owner.getPets()
-            .forEach(pet -> pet.getVisits()
-                .addAll(visits.getItems().stream()
-                    .filter(v -> v.getPetId() == pet.getId())
-                    .collect(Collectors.toList()))
-            );
-        return owner;
-    };
+    return visits -> {
+        owner.getPets()
+            .forEach(pet -> pet.getVisits()
+                .addAll(visits.getItems().stream()
+                    .filter(v -> v.getPetId() == pet.getId())
+                    .collect(Collectors.toList()))
+            );
+        return owner;
+    };
 }
 ```
 
@@ -282,14 +282,14 @@ La déclaration du **bean** **defaultCustomizer** permet de spécifier la config
 
 ```java
 /**
-  * Default Resilience4j circuit breaker configuration
-  */
+  * Default Resilience4j circuit breaker configuration
+  */
  @Bean
  public Customizer<ReactiveResilience4JCircuitBreakerFactory> defaultCustomizer() {
-     return factory -> factory.configureDefault(id -> new Resilience4JConfigBuilder(id)
-         .circuitBreakerConfig(CircuitBreakerConfig.ofDefaults())
-         .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofSeconds(4)).build())
-         .build());
+     return factory -> factory.configureDefault(id -> new Resilience4JConfigBuilder(id)
+         .circuitBreakerConfig(CircuitBreakerConfig.ofDefaults())
+         .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofSeconds(4)).build())
+         .build());
  }
 ```
 
@@ -301,21 +301,21 @@ L’utilisation d’un circuit breaker passe par l’utilisation de la fabrique 
 ```java
 private final ReactiveCircuitBreakerFactory cbFactory;@GetMapping(value = "owners/{ownerId}")
  public Mono<OwnerDetails> getOwnerDetails(final @PathVariable int ownerId) {
-     return customersServiceClient.getOwner(ownerId)
-         .flatMap(owner ->
-             visitsServiceClient.getVisitsForPets(owner.getPetIds())
-                 .transform(it -> {
-                     ReactiveCircuitBreaker cb = cbFactory.create("getOwnerDetails");
-                     return cb.run(it, throwable -> emptyVisitsForPets());
-                 })
-                 .map(addVisitsToOwner(owner))
-         );
+     return customersServiceClient.getOwner(ownerId)
+         .flatMap(owner ->
+             visitsServiceClient.getVisitsForPets(owner.getPetIds())
+                 .transform(it -> {
+                     ReactiveCircuitBreaker cb = cbFactory.create("getOwnerDetails");
+                     return cb.run(it, throwable -> emptyVisitsForPets());
+                 })
+                 .map(addVisitsToOwner(owner))
+         );
  }
 ```
 
 ```java
 private Mono<Visits> emptyVisitsForPets() {
-    return Mono.just(new Visits());
+    return Mono.just(new Visits());
 }
 ```
 

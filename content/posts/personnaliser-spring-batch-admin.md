@@ -97,7 +97,7 @@ Pour changer de logo :
 
 Pour exécuter les jobs, Spring Batch Admin s'appuie sur la classe _SimpleJobLauncher_ de Spring Batch. Son pool de threads est dimensionné à 6 threads. De ce fait, un maximum de 6 jobs peuvent être exécutés simultanément. Pour augmenter ou diminuer le nombre de thread, il est nécessaire de redéfinir le bean  _jobLauncherTaskExecutor_
 
-Ajouter un fichier _META-INF/spring/batch/override/execution-context.xml_ contenant la définition de de bean :
+Ajouter un fichier _META-INF/spring/batch/override/execution-context.xml_ contenant la définition de bean :
 
 ```xhtml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -129,7 +129,7 @@ Nativement, Spring Batch Admin ne sait pas automatiquement détecter si la base 
 
 En redéfinissant le bean _initialize-database_, Spring Batch Admin peut être configuré pour ne créer le schéma que s’il n’existe pas. L’exécution du script de destruction du schéma est retirée et on précise à Spring d’ignorer les erreurs. Ainsi, si une table existe, l’exécution du CREATE TABLE ne fera pas échouer l’exécution du script.
 
-En pratique, créer dans dans votre web app un fichier _META-INF/spring/batch/ **override**/data-source-context.xml_ contenant le bean suivant :
+En pratique, créer dans votre web app un fichier _META-INF/spring/batch/ **override**/data-source-context.xml_ contenant le bean suivant :
 
 ```xhtml
 <jdbc:initialize-database data-source="dataSource" enabled="true" ignore-failures="ALL">

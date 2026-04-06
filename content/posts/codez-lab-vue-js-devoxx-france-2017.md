@@ -89,9 +89,9 @@ Le fichier **main.js** est le point d’entrée de l’application. On y retrouv
 
 ```js
 new Vue({
-   el: '#app',
-   template: '<App/>',
-   components: { App }
+   el: '#app',
+   template: '<App/>',
+   components: { App }
  })
 ```
 

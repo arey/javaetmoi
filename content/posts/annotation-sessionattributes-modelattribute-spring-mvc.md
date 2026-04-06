@@ -245,7 +245,7 @@ Page affichée dans le navigateur :
 
  [![2014-09-spring-mvc-sessionattributes-screenshot4](/wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot4.jpg)](/wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot4.jpg)
 
-Injecté dans le le handler, le bean myBean1 n’est plus disponible en session.
+Injecté dans le handler, le bean myBean1 n'est plus disponible en session.
 public String otherHandlingMethod(Model model, HttpServletRequest request, HttpSession session, @ModelAttribute("myBean1") MyBean myBean) {
 
 ## Tests unitaires

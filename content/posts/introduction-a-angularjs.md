@@ -21,7 +21,7 @@ Si vous pensez encore que le **data-binding**, l’ **inversion de dépendances*
 **AngularJS**, le dernier framework JavaScript de chez Google, devrait vous surprendre.
 
 **Basée sur l’université  AngularJS, ou le futur du développement Web présentée lors de Devoxx France 2013**, cette présentation a pour objectif de vous initier à AngularJS.
-Les concepts fondamentaux seront mis en en action au travers de l’application Game Store.
+Les concepts fondamentaux seront mis en action au travers de l'application Game Store.
 Côté industrialisation, nous verrons que tests unitaires, tests fonctionnels et infrastructure de build ne sont pas non plus délaissés.
 
 A l’heure où la couche présentation des applications web est de plus en plus déportée côté client, ce workshop a pour objectif de démystifier ce type de framework permettant de structurer une application JavaScript.

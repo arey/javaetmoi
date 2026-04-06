@@ -61,7 +61,7 @@ Ce changement de comportement impacte le fonctionnement de certaines librairies 
 **2.** La **visibilité** des méthodes et des classes est par défaut **publique**
 Appartenant au package _visit_, la classe [Visit](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/visit/Visit.kt) est référencée par la classe [Pet](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/owner/Pet.kt) du package de même niveau _owner_:
 
-```java
+```kotlin
 class Visit : BaseEntity()
 ```
 
@@ -76,7 +76,7 @@ Il faut s’y faire et retrouver ses habitudes du bon vieux Turbo Pascal.
 
 **5.** Par défaut, aucune variable ne peut être **null**. Le compilateur vous rappellera à l’ordre. Lorsqu’une variable peut prendre la valeur null, il est nécessaire de le préciser explicitement en faisant suivre son type par le caractère **?**
 
-```java
+```kotlin
 var name: String? = null
 ```
 
@@ -89,13 +89,13 @@ james.setLastName("Carter");
 
 en Kotlin, on affecte directement la valeur à la propriété :
 
-```java
+```kotlin
 james.lastName = "Carter"
 ```
 
 Bien entendu, Kotlin offre la possibilité de ne générer qu’un des 2 mutateurs et/ou de redéfinir leur implémentation. Par exemple, dans la [BaseEntity](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/model/BaseEntity.kt).kt, la propriété isNew est évaluée à partie de l’ID de l’entité :
 
-```java
+```kotlin
 val isNew: Boolean
     get() = this.id == null
 ```
@@ -110,13 +110,13 @@ Extrait du PetController Java :
 ```java
 @ModelAttribute("types")
 public Collection<PetType> populatePetTypes() {
-    return this.pets.findPetTypes();
+    return this.pets.findPetTypes();
 }
 ```
 
 Extrait du [PetController](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/owner/PetController.kt) Kotlin :
 
-```java
+```kotlin
 @ModelAttribute("types")
 fun populatePetTypes(): Collection<PetType> = this.pets.findPetTypes()
 ```
@@ -131,14 +131,14 @@ public interface VetRepository extends Repository<Vet, Integer> {
 
 Code Kotlin :
 
-```default
+```kotlin
 interface VetRepository : Repository<Vet, Int> {
 ```
 
  **3.** Le compilateur Kotlin sait **inférer** le **type des variables**. Lorsque vous déclarez une variable en lui affectant une valeur (autre que null), il n’est plus nécessaire de spécifier son type.
 Exemple issu de Owner.kt :
 
-```java
+```kotlin
 @Column(name = "city")
 @NotEmpty
 var city = ""
@@ -154,7 +154,7 @@ for (Pet pet : getPetsInternal()) {
 
 Version Kotlin :
 
-```java
+```kotlin
 for (pet in pets) {
 ```
 
@@ -175,29 +175,29 @@ Extrait de la méthode processFindForm de la classe Java OwnerController:
 
 ```java
 if (results.isEmpty()) {
-    result.rejectValue("lastName", "notFound", "not found");
-    return "owners/findOwners";
+    result.rejectValue("lastName", "notFound", "not found");
+    return "owners/findOwners";
 } else if (results.size() == 1) {
-    owner = results.iterator().next();
-    return "redirect:/owners/" + owner.getId();
+    owner = results.iterator().next();
+    return "redirect:/owners/" + owner.getId();
 } else {
-    model.put("selections", results);
-    return "owners/ownersList";
+    model.put("selections", results);
+    return "owners/ownersList";
 }
 ```
 
 Pour réduire le nombre de **_return_**, Kotlin permet d’utiliser le [if comme expression et non plus comme instruction](https://kotlinlang.org/docs/reference/control-flow.html). Lorsqu’une branche contient plusieurs instructions, la dernière est assignée au if ; dans l’exemple ci-dessous, c’est le nom de la page :
 
-```java
+```kotlin
 return if (results.isEmpty()) {
-    result.rejectValue("lastName", "notFound", "not found")
-    "owners/findOwners"
+    result.rejectValue("lastName", "notFound", "not found")
+    "owners/findOwners"
 } else if (results.size == 1) {
-    val foundOwner = results.iterator().next();
-    "redirect:/owners/" + foundOwner.id
+    val foundOwner = results.iterator().next();
+    "redirect:/owners/" + foundOwner.id
 } else {
-    model.put("selections", results)
-    "owners/ownersList"
+    model.put("selections", results)
+    "owners/ownersList"
 }
 ```
 
@@ -207,16 +207,16 @@ Une autre façon d’écrire ce code consiste à utiliser l’expression **_when
 
 ```java
 return when {
-    results.isEmpty() -> {
-        result.rejectValue("lastName", "notFound", "not found")
-        "owners/findOwners"
-    }
-    results.size == 1 -> {
-       "redirect:/owners/" + results.first().id    }
-    else -> {
-        model.put("selections", results)
-        "owners/ownersList"
-    }
+    results.isEmpty() -> {
+        result.rejectValue("lastName", "notFound", "not found")
+        "owners/findOwners"
+    }
+    results.size == 1 -> {
+       "redirect:/owners/" + results.first().id    }
+    else -> {
+        model.put("selections", results)
+        "owners/ownersList"
+    }
 }
 ```
 
@@ -226,30 +226,30 @@ Extrait de la classe Owner codée en Java 6 :
 
 ```java
 public List<Pet> getPets() {
-    List<Pet> sortedPets = new ArrayList<>(getPetsInternal());
-    PropertyComparator.sort(sortedPets, new MutableSortDefinition("name", true, true));
-    return Collections.unmodifiableList(sortedPets);
+    List<Pet> sortedPets = new ArrayList<>(getPetsInternal());
+    PropertyComparator.sort(sortedPets, new MutableSortDefinition("name", true, true));
+    return Collections.unmodifiableList(sortedPets);
 }
 ```
 
 Pendant en Kotlin :
 
-```java
+```kotlin
 fun getPets(): List<Pet> =
-        pets.sortedWith(compareBy({ it.name }))
+        pets.sortedWith(compareBy({ it.name }))
 ```
 
 La méthode **find()** permet de rechercher un élément dans une collection. A noter l’utilisation de l’opérateur **?:** qui permet de lever une exception si find renvoie null.
 Extrait de la classe [PetTypeFormatter.kt](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/165ce34e501da7a18ef4318edb16aafeb439145f/src/test/kotlin/org/springframework/samples/petclinic/owner/PetTypeFormatterTest.kt):
 
-```java
+```kotlin
 findPetTypes.find { it.name == text } ?:
-            throw ParseException("type not found: " + text, 0)
+            throw ParseException("type not found: " + text, 0)
 ```
 
  **4.** Bien que par défaut les variables ne puissent être null, nous avons vu qu’il était possible de les rendre nullable. L’ **opérateur elvis ?.** permet d’accéder à des propriétés sans craindre des NullPointerException :
 
-```java
+```kotlin
 val compName = pet.name?.toLowerCase()
 ```
 
@@ -261,23 +261,23 @@ Kotlin proposent d’autres fonctionnalités fortes intéressantes que je n’ai
 
 Constantes globales (extrait de [PetControllerTest.kt](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/test/kotlin/org/springframework/samples/petclinic/owner/PetControllerTest.kt)) :
 
-```java
+```kotlin
 const val TEST_OWNER_ID = 1
 const val TEST_PET_ID = 1
 ```
 
 Constantes internes à une classe (extrait de [PetValidator.kt](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/owner/PetValidator.kt)) :
 
-```java
+```kotlin
 companion object {
-    const val TEST_PET_ID = 1
+    const val TEST_PET_ID = 1
 }
 ```
 
  **2.** Un développeur Spring et JPA utilise massivement les **annotations**. Or, lorsque la propriété est multi-valuée (tableau), Kotlin requière l’utilisation du mot clé **arrayOf**
 Exemple d’un mapping @OneToMany JPA extrait de [Owner.kt](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/owner/Owner.kt) :
 
-```java
+```kotlin
 @OneToMany(cascade = arrayOf(CascadeType.ALL), mappedBy = "owner")
 var pets: MutableSet<Pet> = HashSet()
 ```
