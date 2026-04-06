@@ -1,0 +1,2300 @@
+- id: "4"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2012-03-04T19:24:24Z
+  parent_id: "0"
+  content: |-
+    Vinay Singh a publié un post sur le blog de Skill Guru :-)
+    http://www.skill-guru.com/blog/2012/03/04/new-spring-mock-certification-exam/
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "950"
+  author_name: Pascal COQUELET
+  author_email: pascal.coquelet@bbox.fr
+  author_url: https://www.google.com/profiles/111180867053552826974
+  published: 2012-12-07T13:30:28Z
+  parent_id: "0"
+  content: Bonjour ,  au niveau de la question 6 , il semble y avoir une erreur. 3. The  tag enable them devrait être 3. The  tag enable them .. Sinon merci d'avoir mis cet examen blanc.
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "972"
+  author_name: Pascal COQUELET
+  author_email: pascal.coquelet@bbox.fr
+  author_url: https://www.google.com/profiles/111180867053552826974
+  published: 2012-12-10T10:06:10Z
+  parent_id: "0"
+  content: 'Bonjour, pour éviter le filtrage je copie sans les balises question 6 je pense que  : context:scan-components‎  devrais être plutôt context:component-scan   Bonne journée. (sprind context 3.1)'
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "988"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2012-12-11T21:35:27Z
+  parent_id: "972"
+  content: Merci Pascal pour cette rectification que je viens de corriger dans le PDF.
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "1149"
+  author_name: mouad el azaar
+  author_email: mouad.elazaar@gmail.com
+  author_url: ""
+  published: 2013-01-11T15:00:24Z
+  parent_id: "0"
+  content: bonjour  ;je veux bien me certifier en spring framwork  et je me demande si quelqu'un a une formation  format pdf  !!
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "954"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2012-12-07T20:08:37Z
+  parent_id: "950"
+  content: Bonjour Pascal, merci pour cette remarque. Malheureusement, peut-être est-ce lié au système filtrage, mais je ne vois aucune différence entre l'avant et l'après ....
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "1152"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2013-01-11T19:42:44Z
+  parent_id: "1149"
+  content: Bonjour Mouad, pour passer la certification, il est nécessaire d'assister à la formation Spring Source où te seront remis les supports de formation au format papier et les l'énoncé des TPs au format html. Les stagiaires ne sont pas autorisés à les diffuser.
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "3682"
+  author_name: Karim
+  author_email: Djafaka@gmail.com
+  author_url: ""
+  published: 2013-04-07T12:25:14Z
+  parent_id: "0"
+  content: |-
+    Franchement je ne comprend pas cette situation de monopole qui est de nous imposer zenika comme organisme certificateur et qui pour couronner le tout refuse de rembourser au titre de la formation professionnelle une partie des frais !?
+
+    n'y a t'il pas pléthore de sociétés de formation aptes a dispenser ce genre de cours ?!!
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "12850"
+  author_name: Andolsi Zied
+  author_email: andolsi.zied@yahoo.fr
+  author_url: ""
+  published: 2013-10-28T12:38:15Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    tout d'abord je teins à vous remercier pour cet article.
+
+    J'ai quelques remarques :
+
+    *Au niveau des vos explications pour les réponses des question 1 et 22, vous dites que "Bean without Id is anonymous" et "The bean is anonymous. No id is generated.", alros que ce n'est pas vrai. En fait, chaque bean dans le conteneur spring possède un identifiant qui peut être  id, nom ou alias. Si aucun attribut n'est spécifié, un identifiant ayant ce format "Package.className#num_instance" sera affecté à ce bean. Dans l'attribut "beanDefinitionMap" spring map chaque bean à son identifiant et dans "aliasMap" spring map les alias (id, nom, alias) à l'identifiant.
+
+    *Au niveau de la question 12, cette écriture est fausse "@Bean("clientRepository")" elle doit être comme ça"@Bean(name="clientRepository")".
+
+    Cordialement.
+
+    Zied ANDOLSI
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "12954"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2013-10-30T21:32:32Z
+  parent_id: "12850"
+  content: |-
+    Bonjour Zied,
+    Je te remercie pour ces rectifications qui sont tout à fait justes.
+    L’utilisation du terme bean anonyme est juste (cf. http://docs.spring.io/spring/docs/3.2.4.RELEASE/spring-framework-reference/html/beans.html#beans-autowired-annotation-qualifiers). Par contre, le conteneur Spring génère bel et bien un identifiant. Il existait d’ailleurs également une autre coquille dans la réponse de la question 2 (ID = com.spring.service.BankServiceImpl#0).
+    Tes corrections ont été prises en compte, à la fois dans la version PDF que dans le questionnaire en ligne.
+    N’hésite pas à me faire d’autres retours.
+    Antoine
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "6011"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2013-05-18T17:57:18Z
+  parent_id: "6006"
+  content: |-
+    Bonjour Fred,
+
+    Félicitations pour ta certif.
+    Que ce soit pour la certification Spring Core ou Spring Enterprise Integration, j'ai du moi même contacter directement le centre de formation VMWare pour obtenir le document officiel. Et ceci, après plusieurs mois d'attente (3 ou 4). Tu peux les contacter à cette adresse mail : certification at vmware.com
+    Quelques jours ouvrés plus tard, j'étais en possession du précieux sésame.
+    Tiens moi au courant,
+
+    Antoine
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "6006"
+  author_name: Fred
+  author_email: valery.frebourg@gmail.com
+  author_url: ""
+  published: 2013-05-18T14:46:32Z
+  parent_id: "0"
+  content: En fait, j'ai passer la certification spring enterprise intégration et pas spring-core. Mais ma question est toujours en suspend ;-)
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "6005"
+  author_name: Fred
+  author_email: valery.frebourg@gmail.com
+  author_url: ""
+  published: 2013-05-18T14:44:52Z
+  parent_id: "0"
+  content: |-
+    Salut,
+
+    j'ai obtenu également la certification après avoir suivi le cours en ligne (moins cher que zenika). La formation est plutôt bien faite et fait un bon état des lieux des possibilités des frameworks.
+
+    Par contre, j'ai juste le 'score report' donné par le centre d'examen pearson, qui n'est pas le document officiel.
+
+    Je n'ai rien trouvé sur le site spring-source ou celui de pearson, pour avoir un certificat d'authentification de la certification.
+
+    Pourrait-tu m'indiquer comment tu as eu le tien?
+
+    Merci.
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "3820"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2013-04-08T20:00:00Z
+  parent_id: "3682"
+  content: |-
+    Bonjour Karim,
+    Difficile de répondre à tes interrogations en ne connaissant ni le contenu du partenariat unissant Zenika et SpringSource, ni la stratégie de SpringSource en termes de formation.
+    Ce que je sais, c'est que les futurs formateurs doivent assister à la formation et passer leur certification. Je ne me demande si un examinateur n'assiste pas également à l'un de leurs premier cours. Qui plus est, je pense que les formateurs sont sélectionnés pour leurs compétences et leur implication dans la démocratisation de Spring. Co-auteur de 3 livres sur Spring, la crédibilité de mon formateur n'était plus à démontrer. C'est un gage de qualité pour SpringSource.
+    Stricts, ces critères de sélection expliquent sans doute pourquoi trouver et entretenir des relations avec un unique partenaire par pays présente davantage de facilité.
+    A termes, l'initiative Pivotal portée par la maison mère EMC de SpringSource et VMWare pourrait avoir des répercussions sur la formation. A suivre.
+    Antoine
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "16433"
+  author_name: Abdelhakim
+  author_email: abdelhakim.atmani@gmail.com
+  author_url: ""
+  published: 2014-02-22T16:43:51Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    Dans la question6, la première phrase n'est pas correct. L'annotation @Required fait partie de JSR-330 et non de la JSR-250.
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "16440"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2014-02-22T18:57:48Z
+  parent_id: "16433"
+  content: Merci Abdelhakim, c'est tout à fait exact. Je viens de substituer @PreDestroy à l'annotation @Required.
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "21422"
+  author_name: Randhir
+  author_email: randhirkumar.singh@gmail.com
+  author_url: ""
+  published: 2014-06-18T02:45:55Z
+  parent_id: "0"
+  content: Thanks for your notes. I cleared Core Spring certification exam with 92% score.
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "30737"
+  author_name: Hanmant
+  author_email: hanmantk89@gmail.com
+  author_url: ""
+  published: 2014-09-20T07:46:39Z
+  parent_id: "0"
+  content: nice work  Antoine ....
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "107666"
+  author_name: bruno
+  author_email: pbruno13000@gmail.com
+  author_url: ""
+  published: 2016-05-26T09:16:05Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    Je voulais savoir si en 2016 on est toujours obligé de suivre une formation chez Zenika avant de passer la certification ? Cela fait des années que je pratique le framework. Autant les formations avancées m'intéresseraient que pour le Core, je tenterai sans formation au préalable.
+
+    Bruno
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "107672"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2016-05-26T20:29:46Z
+  parent_id: "107666"
+  content: |-
+    Bonjour Bruno,
+
+    D'après le site de Pivotal http://pivotal.io/academy, la certification Spring Professional demande toujours à suivre la formation "Core Spring". C'est un pré-requis pour obtenir le voucher qui te permettra de passer la certification. Je t'invite à les contacter afin qu'il te le confirme.
+
+    Antoine
+
+    PS: si tu souhaites t'entrainer, une mise à jour du mock exam pour Sprign Core 4.2 est disponible sur http://javaetmoi.com/2016/01/spring-core-4-2-certification-mock-exam/
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "98899"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2015-09-02T21:25:50Z
+  parent_id: "98873"
+  content: Je n'ai pas eu à me poser la question. Je suppose qu'il faut acheter un Voucher, mais je ne connais pas son tarif. Ton formateur a peut être la réponse.
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "98873"
+  author_name: LAHBABI
+  author_email: lahbabi.abdelkarim@gmail.com
+  author_url: ""
+  published: 2015-09-02T15:50:31Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    Comment ça se passe si on échoue dans le test de certification, est ce qu'on doit passer la formation encore une fois ?  Merci pour vos réponses
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "82556"
+  author_name: Lore
+  author_email: lorenzo.notarfonzo@gmail.com
+  author_url: https://www.springmockexams.com
+  published: 2015-02-10T23:55:36Z
+  parent_id: "0"
+  content: |-
+    <span class="im">Bonjour à Tous,
+
+    J’ai passé un certain temps à chercher d'intéressantes questions, j’ai découvert dans le lien ci-dessous que vous pouvez trouver un examen gratuit de «Simulator with Spring Certification Questions»: </span>
+
+    <span class="im"><a title="Spring Certification Questions" href="https://www.springmockexams.com/spring/free/free-test.html" rel="nofollow">https://www.springmockexams.com/spring/free/free-test.html</a>
+
+    A partir du site web, vous pouvez télécharger un document PDF où vous trouverez des questions qui seront très utiles pour vous!
+
+    </span>Je vous souhaite une bonne formation, de mon coté c’est un cauchemar, j’espère que vous pourrez partager vos ressources et<b> résultats des examens blancs </b>dans ce commentaire également!
+
+    Merci
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "130781"
+  author_name: Othmen
+  author_email: kimbly2626@gmail.com
+  author_url: ""
+  published: 2020-03-25T20:51:45Z
+  parent_id: "0"
+  content: "Bonjour,\n\n2020, \nJe veux passer l'examen sans faire la formation. dans le site https://tanzu.vmware.com/training/certification/spring-professional-certification je trouve que c'est possible d'acheter l'examen mais je veux avoir des informations sur les centres d'examens les dates ... avant de payer mais c'est pas possible. il n y a pas d'informations et je ne sais pas si c'est possible d'acheter l'examen pour le passer en France.\n\nQui a une idée ?"
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "130795"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2020-03-26T09:52:01Z
+  parent_id: "130781"
+  content: "Bonjour Othmen, \nUn ré-requis au passage de la certification est de suivre le cours Spring Core. Il y'a des sessions en-ligne : https://tanzu.vmware.com/training/courses/core-spring-training En cette période de confinement, elles sont à privilégier :-)\nA l'issue de cette formation, le formateur vous expliquera quelles sont les modalités de passage de la certification.\nPour avoir passé récemment une certification Microsoft, je sais que des centres comme Pearson Vue permettent de passer des certifications en ligne : vous êtres filmés avec une webcam.\nAntoine"
+  post_url: /2012/02/core-spring-3-0-certification-mock-exam/
+  post_id: "18"
+- id: "85"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2012-09-04T22:13:59Z
+  parent_id: "0"
+  content: |-
+    Ce commentaire pour vous signaler la release d'une version 1.1 du projet comprenant le support de l'annotation @Embedded :
+    https://github.com/arey/hibernate-hydrate/issues?milestone=1&page=1&state=closed
+    2 issues ont été ouvertes par karlhungus qui est le premier utilisateur connu du projet :-)
+  post_url: /2012/03/hibernate-dites-adieu-aux-lazy-initialization-exception/
+  post_id: "54"
+- id: "1105"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2013-01-05T13:40:11Z
+  parent_id: "0"
+  content: Pour utiliser Hibernate Hydrate avec Hibernate 4.x, vous pouvez utiliser l'artefact com.javaetmoi.core:javaetmoi-hibernate4-hydrate:2.0
+  post_url: /2012/03/hibernate-dites-adieu-aux-lazy-initialization-exception/
+  post_id: "54"
+- id: "107199"
+  author_name: Philippe
+  author_email: philippe_sabaa@hotmail.fr
+  author_url: ""
+  published: 2016-05-05T15:05:06Z
+  parent_id: "0"
+  content: |-
+    Heuuuu.... Franchement c'est un peu n'imp ce projet. Pour un projet bien configurer, je veux dire ayant les liens objets qu'il faut ou il faut, il est très souvent possible de ramener L'ENSEMBLE des données à partir d'un seul objet si on parcours assez profondément le graphe.
+
+    Donc à moins qu'on veuille faire péter la mémoire de la JVM, et les perfs par la même occaz ! , je déconseille vivement !!!
+
+    (incroyable que ce soit en prermière page de google c'te page... comme quoi leurs algos sont pas encore tout à fait au point !)
+  post_url: /2012/03/hibernate-dites-adieu-aux-lazy-initialization-exception/
+  post_id: "54"
+- id: "107203"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2016-05-05T18:38:30Z
+  parent_id: "107199"
+  content: "Bonjour Philippe,\nAvant de critiquer ce projet, as-tu pris le temps de lire l’article en entier et les mises en garde qui vont avec ? En effet, Hybernate Hydrate n’est pas à utiliser sans réfléchir à la moindre LazyInitializationException. \nLors de la définition du mapping Hibernate, une bonne pratique consiste à laisser la stratégie de chargement par défaut (ex: lazy pour du OneToMany). Les Entity Graphs permettent de déclarer différents scénarios de chargement des relations. C’est au requêtage que le développeur doit se demander quelles sont les données dont il va avoir besoin, et ne pas tout charger dans la majorité des cas. Nul besoin d’Hibernate Hydrate dans ce cas là. On est tous les deux d’accord. \nNéanmoins, comme expliqué dans ce billet, cet outil est fort pratique dans des conditions bien particulières. Personnellement, je l’utilise par exemple dans un outil d’échantillonnage de données nécessitant de charger toute une grappe d’objets (amuse toi à charger manuellement 50 entités). Les performances (nombre de requêtes SQL exécutés) n’est pas un soucis dans mon cas.\nJ’espère que la 2ième page de résultats de Goole aura répondu à ta problématique,\nAntoine"
+  post_url: /2012/03/hibernate-dites-adieu-aux-lazy-initialization-exception/
+  post_id: "54"
+- id: "11"
+  author_name: Antoine Rey
+  author_email: antoine.rey@gmail.com
+  author_url: https://www.google.com/profiles/109838394663357158694
+  published: 2012-05-02T13:04:53Z
+  parent_id: "0"
+  content: 'Et voilà le travail, le site Devoxx France référence cet article : http://www.devoxx.fr/display/FR12/News'
+  post_url: /2012/04/devoxx-initiation-google-app-engine/
+  post_id: "148"
+- id: "309"
+  author_name: Thomas
+  author_email: tgoirand@gmail.com
+  author_url: ""
+  published: 2012-10-25T13:05:24Z
+  parent_id: "0"
+  content: "Merci pour cette page blog intéressante.\nJMeter est un outil pas assez mis en avant à mon gout. \nUne fonction qui manque je trouve, un plugin pour convertir le fichier JMX en code Java et ainsi s'affranchir du fichier JMX.\nAussi, si on le couple à JSoup, ce peut faire un bon socle pour des tests d'integrations."
+  post_url: /2012/05/generer-tests-jmeter-selenium/
+  post_id: "166"
+- id: "15146"
+  author_name: vdaburon
+  author_email: vdaburon@yahoo.fr
+  author_url: ""
+  published: 2014-01-06T16:45:03Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    Le plugin JMeter (http://jmeter-plugins.org/) ajoute la possibilité de réaliser des tests <strong>directement</strong> avec l'API Selenium avec les navigateurs Firefox, Chrome et HTMLUnit.
+
+    http://jmeter-plugins.org/wiki/WebDriverSampler/
+
+    Cordialement
+
+    Vincent D.
+  post_url: /2012/05/generer-tests-jmeter-selenium/
+  post_id: "166"
+- id: "16303"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2014-02-16T16:21:34Z
+  parent_id: "0"
+  content: |-
+    Thanks to Lubos Krnac for publishing its Enterprise Integration with Spring Certification study notes : <a href="http://java.dzone.com/announcements/enterprise-integration-spring" rel="nofollow">http://java.dzone.com/announcements/enterprise-integration-spring</a>
+
+    &nbsp;
+
+    &nbsp;
+  post_url: /2012/09/certified-spring-enterprise-integration-specialist-study-notes/
+  post_id: "230"
+- id: "5756"
+  author_name: Roca
+  author_email: rohitpappa@gmail.com
+  author_url: ""
+  published: 2013-05-13T13:52:55Z
+  parent_id: "0"
+  content: |-
+    hey antoine
+    i was trying out your exam in the skill guru website
+    was wondering whether i should expect the same level of difficutly in the real exam or is it going to easier or harder?
+  post_url: /2012/10/enterprise-spring-integration-certification-mock-exam/
+  post_id: "324"
+- id: "5778"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2013-05-13T21:40:26Z
+  parent_id: "5756"
+  content: Hi Roca, I've tried to create questions that have the same complexity of the most question. But in the real exam, you have some questions (maybe 10) that I have found very easy.
+  post_url: /2012/10/enterprise-spring-integration-certification-mock-exam/
+  post_id: "324"
+- id: "5547"
+  author_name: Jose Coronel
+  author_email: jcoronelcortes@gmail.com
+  author_url: ""
+  published: 2013-05-09T01:22:20Z
+  parent_id: "0"
+  content: |-
+    Hi,
+
+    Do you have the french study guide notes in english?.
+    Your material is very good, but I don't speak french :-(.
+
+    Best regards,
+
+    Jose Coronel
+  post_url: /2012/10/enterprise-spring-integration-certification-mock-exam/
+  post_id: "324"
+- id: "5557"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2013-05-09T10:35:42Z
+  parent_id: "5547"
+  content: |-
+    I'm sorry Jose, but I did not translate my personal study guide in English.
+    I recommend you to check the <a title="Sample Questions for EIwS-1.x-certification-study-guide" href="http://ice09.wordpress.com/2012/01/16/sample-questions-for-eiws-1-x-certification-study-guide/" rel="nofollow">Sample Questions for EIwS-1.x-certification-study-guide</a> written by Ice09. You will find a shorter study guide, but there in english.
+    Regards,
+    Antoine
+  post_url: /2012/10/enterprise-spring-integration-certification-mock-exam/
+  post_id: "324"
+- id: "5563"
+  author_name: rohit
+  author_email: rohitpappa@gmail.com
+  author_url: ""
+  published: 2013-05-09T12:11:28Z
+  parent_id: "0"
+  content: |-
+    hi...
+    i was wondering about the mark scheme of the exam
+    and on this page you have mentioned a specific mark scheme but also said this is half of the exam
+    so can i safely assume that the marks that you mentioned here is half of the actual marks that is asked in the exam?
+
+    Also is studying from the study guide and the slides enough or do i need to go through the labs too?
+    i would prefer to not go through each lab since it takes a considerable amount of time
+  post_url: /2012/10/enterprise-spring-integration-certification-mock-exam/
+  post_id: "324"
+- id: "5644"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2013-05-10T20:18:27Z
+  parent_id: "5563"
+  content: |-
+    Compared to this mock exam and its 25 questions, in the real exam, you have 50 multiple-choice questions to answer. However all the main topics of the real exam I passed are covered. Note that I have excluded some minor subjects like Web Services security because I didn't have any question about.
+
+    Redo the labs is recommended. It's a good training and that's what I've done to be certified. If you don't have a lot time, you may choose the lab you want to practice: the framework you didn't know before having the course, the one you did not understand completely... To prepare for the exame, I have personaly took a look on some Spring reference manuals.
+  post_url: /2012/10/enterprise-spring-integration-certification-mock-exam/
+  post_id: "324"
+- id: "5688"
+  author_name: Heezer
+  author_email: alexey.wiesner@gmail.com
+  author_url: ""
+  published: 2013-05-11T19:46:20Z
+  parent_id: "0"
+  content: Simple use <a href="http://translate.google.de/translate?hl=en&amp;sl=fr&amp;tl=en&amp;u=http%3A%2F%2Fjavaetmoi.com%2F2012%2F09%2Fcertified-spring-enterprise-integration-specialist-study-notes%2F" rel="nofollow">google translator</a>, I'm happy with it.
+  post_url: /2012/10/enterprise-spring-integration-certification-mock-exam/
+  post_id: "324"
+- id: "81240"
+  author_name: Luca
+  author_email: pele87@libero.it
+  author_url: ""
+  published: 2015-01-28T14:13:58Z
+  parent_id: "0"
+  content: |-
+    Hi Antoine, thanks for your blog post ! Very useful for preparing this certification.
+
+    I do not speak French either unfortunately :) It would be great if you will decide to translate that guide !
+
+    Do you know if there is any web exam simulator like the one I used for the <a href="https://www.springmockexams.com" rel="nofollow">Spring Core Certification here</a>.
+
+    Also, have you taken the Spring Web Certification as well ?
+
+    That is going to be my next one but there is not much material on the Internet!
+  post_url: /2012/10/enterprise-spring-integration-certification-mock-exam/
+  post_id: "324"
+- id: "86527"
+  author_name: David
+  author_email: b8c79ecd4040824cf64a4ac3cabcbe0d@example.com
+  author_url: http://twitter.com/SpringMockExams
+  published: 2015-03-27T00:59:53Z
+  parent_id: "0"
+  content: |-
+    Hello guys,
+
+    &nbsp;
+
+    I am David the Creator of Spring Mock Exams.
+
+    &nbsp;
+
+    As you may know Pivotal has updated the Spring Certification from Version 3.2 to Version 4.0.
+
+    &nbsp;
+
+    So at<a href="http://www.springmockexams.com" rel="nofollow"> www.springmockexams.com</a> we did the upgrade too!
+
+    &nbsp;
+
+    Soon our Web Simulator will be released with a new set of Spring Certification Questions that reflect the new CoreSpringV4.0 exam certification.
+
+    &nbsp;
+
+    Stay tuned and visit:<a href="https://www.springmockexams.com/spring/mock/spring-mock-exam.html" rel="nofollow"> https://www.springmockexams.com/spring/mock/spring-mock-exam.html</a> to see the new CoreSpringV4.0 exam simulator.
+
+    &nbsp;
+
+    David.
+  post_url: /2012/10/enterprise-spring-integration-certification-mock-exam/
+  post_id: "324"
+- id: "11150"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2013-09-14T08:53:07Z
+  parent_id: "0"
+  content: |-
+    Article mis à jour en septembre 2013 suite à un changement de syntaxe d'une nouvelle version du plugin Git pour Jenkins.
+    L'URL d'un repository adopte désormais la syntaxe https://github.com/&lt;username&gt;/&lt;repository name&gt;.git
+    à la place de git@github.com:&lt;username&gt;/&lt;repository name&gt;
+  post_url: /2012/12/ma-petite-usine-logicielle-github-cloudbees/
+  post_id: "436"
+- id: "1212"
+  author_name: Damien
+  author_email: dlecan@free.fr
+  author_url: ""
+  published: 2013-01-27T21:31:24Z
+  parent_id: "0"
+  content: Fichtre, vous faites des tests de charge de non-régression sur les montées de version du JDK ?
+  post_url: /2013/01/unknownhostexception-jvm-version/
+  post_id: "587"
+- id: "1213"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2013-01-27T21:37:32Z
+  parent_id: "1212"
+  content: Et oui, tu as vu à quel point nous sommes consciencieux ;-) Quand le process est bien rôdé et qu'on en a les moyens, cela permet d'être on ne peut plus serein le jour J.
+  post_url: /2013/01/unknownhostexception-jvm-version/
+  post_id: "587"
+- id: "161819"
+  author_name: Bernard
+  author_email: bernardlegrand327@gmail.com
+  author_url: ""
+  published: 2024-09-05T15:13:57Z
+  parent_id: "0"
+  content: Bonjour. Je tiens à vous remercier pour cet article, qui offre un aperçu précieux sur l'optimisation du déploiement des applications web en utilisant des technologies modernes telles que docker, ainsi que des outils d'automatisation comme Ansible et Puppet. Le processus d'installation d'une application web peut souvent être complexe et exigeant, nécessitant la configuration de divers pré-requis tels que JRE, serveurs d'application et bases de données. L'article met en lumière l'importance de docker univirtual dans ce contexte, permettant de regrouper l'application avec toutes ses dépendances dans un conteneur, réduisant ainsi les problèmes liés à l'environnement d'exécution. Il aborde également l'utilisation d'outils comme Sonar et Jenkins, qui, depuis des années, facilitent le packaging et le déploiement d'applications en les intégrant dans des conteneurs prêts à l'emploi. En évoquant les architectures micro-services et les frameworks tels que Play Framework et Spring Boot, l'article illustre comment ces technologies favorisent la création d'applications légères et facilement déployables. cet article est un guide pratique utile pour les professionnels du développement et les équipes devops cherchant à simplifier le déploiement des applications web. En combinant docker, des outils d'automatisation, et des pratiques de packaging moderne, il offre des solutions concrètes pour améliorer les processus de livraison et de déploiement.
+  post_url: /2013/07/jenkins-release-deploy-plugins/
+  post_id: "721"
+- id: "87912"
+  author_name: Sam
+  author_email: yohky@its-cloud.fr
+  author_url: ""
+  published: 2015-04-08T14:22:57Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    Merci Antoine, exactement ce qu'il me fallait !
+  post_url: /2013/08/ecraser-une-branche-par-une-autre-avec-git/
+  post_id: "735"
+- id: "126991"
+  author_name: Jairem
+  author_email: legrandnain@gmail.com
+  author_url: ""
+  published: 2019-10-08T17:20:10Z
+  parent_id: "0"
+  content: "Pas totalement convaincu, j'ai essayé et je m'aperçois que certains fichiers présents sur master et qui ne sont plus présent dans \"maBranche\" ne sont pas supprimés... Ce n'est pas un écrasement total. \nPour l'instant, j'ai trouvé une solution qui écrase tout mais on perd l'historique sur le Master : \n\ngit checkout master\ngit reset --hard maBranche"
+  post_url: /2013/08/ecraser-une-branche-par-une-autre-avec-git/
+  post_id: "735"
+- id: "14064"
+  author_name: Antoine Rey
+  author_email: 8e0a131b3a24d9081bee367bb736a2ea@example.com
+  author_url: https://github.com/arey
+  published: 2013-12-01T17:16:21Z
+  parent_id: "0"
+  content: 'Cet article est référencé sur le blog d''Elasticsearch : <a href="http://www.elasticsearch.org/blog/2013-11-2-this-week-in-elasticsearch/" rel="nofollow">http://www.elasticsearch.org/blog/2013-11-2-this-week-in-elasticsearch</a> Belle récompense :-)'
+  post_url: /2013/11/musicbrainz-elasticsearch-angularjs-openshift/
+  post_id: "782"
+- id: "14540"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2013-12-20T20:10:25Z
+  parent_id: "0"
+  content: 'Belle reconnaissance. Cet article a été cité sur le bog d''Elasticsearch : http://www.elasticsearch.org/blog/2013-12-18-this-week-in-elasticsearch/'
+  post_url: /2013/12/retour-experience-problematiques-elasticsearch/
+  post_id: "879"
+- id: "16679"
+  author_name: Daco
+  author_email: pdacosta@gmail.com
+  author_url: ""
+  published: 2014-03-04T16:51:22Z
+  parent_id: "0"
+  content: |-
+    Merci et bravo pour cet excellent article.
+    Je le mets en favori afin de le tester très prochainement.
+
+    Cordialement
+  post_url: /2014/03/tester-code-javascript-webapp-java/
+  post_id: "995"
+- id: "117787"
+  author_name: Juanma HA
+  author_email: juanma.ha@gmail.com
+  author_url: ""
+  published: 2018-06-13T18:14:47Z
+  parent_id: "0"
+  content: |-
+    Bonjour
+
+    Je suis en train d'utiliser ta dependency dans mon projet mais nous devons faire face à cette problème:
+
+    <code>Actual exception
+    Caught Exception while registering Interceptor class a.b.c.d.f.QuelquechoseInterceptor - interceptor - vfszip:/repertoire/jboss-5.0.1.GA/server/notre_app/deploy/notre_app.war/WEB-INF/classes/struts.xml:XX:YY</code>
+
+    Dans le fichier struts.xml, ligne XX, on trouve simplement la declaration de l'interceptor:
+
+    <code>
+    </code>
+
+    Quel peut être le problème?
+
+    Merci d'avance
+  post_url: /2014/04/support-vfs2-jboss5-spring4/
+  post_id: "1032"
+- id: "117796"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2018-06-14T07:11:50Z
+  parent_id: "117787"
+  content: |-
+    Bonjour,
+
+    Cela fait un petit moment que je n'ai pas travaillé sur le projet spring4-vfs2-support.
+    Tout d'abord, avez-vous utilisé la dernière version 1.4.1 du projet ?
+    Si oui, il faudrait essayer de debugger l'intercepteur (vu le nom, on dirait du code maison) pour voir quelle classe il utilise pour charger le fichier struts.xml. Comme son chargement échoue, il doit passer par la classe VfsUtils. Il faudra modifier le code de chargement pour utiliser l'une des classes Vfs2xxx du projet (ex: Vfs2Utils).
+    Je vous laisse essayer.
+
+    Cordialement,
+
+    Antoine
+  post_url: /2014/04/support-vfs2-jboss5-spring4/
+  post_id: "1032"
+- id: "117800"
+  author_name: Juanma HA
+  author_email: juanma.ha@gmail.com
+  author_url: ""
+  published: 2018-06-14T11:02:06Z
+  parent_id: "0"
+  content: |-
+    Bonjour Antoine, merci pour votre gentillesse.
+
+    Je ne suis pas sûr de avoir un problème avec VFS. En fait, toutes les interceptors (de Struts, de Spring) sont bien chargés, a l'exception de celui-ci que nous avons programmé pour une nouvelle annotation:
+    <blockquote>package a.b.c.d.e.f.annotation;
+
+    import java.lang.annotation.ElementType;
+    import java.lang.annotation.Retention;
+    import java.lang.annotation.RetentionPolicy;
+    import java.lang.annotation.Target;
+
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target({ElementType.FIELD})
+    public @interface QuelqueChose {}</blockquote>
+    Et c'est tout pour la annotation. Pour la classe QuelqueChoseInterceptor, j'ai ça:
+    <blockquote>package a.b.c.d.e.f.interceptor;
+
+    import java.lang.reflect.Field;
+
+    import org.slf4j.Logger;
+    import org.slf4j.LoggerFactory;
+    import org.springframework.beans.factory.annotation.Autowired;
+
+    import com.opensymphony.xwork2.ActionInvocation;
+    import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
+
+    import a.b.c.d.x.y.QuelqueChoseManager;
+    import a.b.c.d.e.f.annotation.QuelqueChose;
+
+    public class QuelqueChoseInterceptor extends AbstractInterceptor {
+
+    private static final long serialVersionUID = ...;
+
+    @Autowired
+    private QuelqueChoseManager quelqueChoseManager;
+
+    @Override
+    public String intercept(ActionInvocation actionInvocation) throws Exception {
+
+    ...
+
+    }</blockquote>
+    Vous croyez que c'est necessaire de la faire passer par VFS2?
+
+    Je suis un peu perdu, comme vous pouvez voir...
+
+    Bien cordialement,
+
+    Juanma
+  post_url: /2014/04/support-vfs2-jboss5-spring4/
+  post_id: "1032"
+- id: "117802"
+  author_name: Juanma HA
+  author_email: juanma.ha@gmail.com
+  author_url: ""
+  published: 2018-06-14T12:08:49Z
+  parent_id: "117800"
+  content: |-
+    Voici l'instant précis ou le problème se produit:
+
+    dans com.opensymphony.xwork2.factory.DefaultInterceptorFactory (Struts 2)
+
+    <code>public class DefaultInterceptorFactory implements InterceptorFactory {
+
+    ....
+
+    public Interceptor buildInterceptor(InterceptorConfig interceptorConfig, Map interceptorRefParams) throws ConfigurationException {
+
+    ...
+
+    try {
+
+    <strong>Interceptor interceptor = (Interceptor) objectFactory.buildBean(interceptorClassName, null);</strong>
+
+    ...</code>
+
+
+    Merci encore pour votre aide.
+  post_url: /2014/04/support-vfs2-jboss5-spring4/
+  post_id: "1032"
+- id: "117805"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2018-06-14T19:49:36Z
+  parent_id: "117802"
+  content: |-
+    Je n'ai jamais travaillé avec Sruts 2. Mais à ce que je comprends, la classe QuelqueChoseInterceptor est un intercepteur Stuts 2 dans lequel est injecté des beans Spring (@Autowired).
+    Je crois comprendre que l'exception est levée lors de l'appel à la méthode objectFactory.buildBean(). Cet objectFactory doit faire appel au contexte Spring. Il faudrait identifier précisément quel bout de code.
+    Vous serait-il possible de m'envoyer la stacktrace complète ? D'ailleurs, je vous invite à continuer cet échange en ouvrant une issue dans le projet github. Ce sera plus facile qu'avec Wordpress.
+  post_url: /2014/04/support-vfs2-jboss5-spring4/
+  post_id: "1032"
+- id: "91913"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2015-05-19T17:05:07Z
+  parent_id: "91900"
+  content: |-
+    Hi Phaedra,
+
+    The PathMatchingResourcePatternResolver is used instead of the VfsPathMatchingResourcePatternResolver. It's demonstrate the VFS2 patch is not taken into account.
+    Are you sure to configure the JBoss5AnnotationConfigWebApplicationContext or JBoss5XmlWebApplicationContext in your web.xml or in your Java configuration?
+    As documentation, you may refer to the README.md of the https://github.com/arey/spring4-vfs2-support/ repo. Please, create an issue on GitHub. It's more appropriate to discuss about your probleme
+
+    Regards,
+
+    Antoine
+  post_url: /2014/04/support-vfs2-jboss5-spring4/
+  post_id: "1032"
+- id: "91900"
+  author_name: Phaedra
+  author_email: phaedra.casadio@dmpa.it
+  author_url: ""
+  published: 2015-05-19T12:25:00Z
+  parent_id: "0"
+  content: |-
+    Hi, i'm trying to use your vfs2 patch for spring 4 but i have a constant exception:
+
+    &nbsp;
+
+    Caused by: java.lang.ExceptionInInitializerError
+    at org.springframework.core.io.support.PathMatchingResourcePatternResolver$VfsResourceMatchingDelegate.findMatchingResources(PathMatchingResourcePatternResolver.java:721)
+    at org.springframework.core.io.support.PathMatchingResourcePatternResolver.findPathMatchingResources(PathMatchingResourcePatternResolver.java:413)
+    at org.springframework.core.io.support.PathMatchingResourcePatternResolver.getResources(PathMatchingResourcePatternResolver.java:273)
+    at org.springframework.context.support.AbstractApplicationContext.getResources(AbstractApplicationContext.java:1159)
+    at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.findCandidateComponents(ClassPathScanningCandidateComponentProvider.java:270)
+    at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:248)
+    at org.springframework.context.annotation.ComponentScanBeanDefinitionParser.parse(ComponentScanBeanDefinitionParser.java:87)
+    at org.springframework.beans.factory.xml.NamespaceHandlerSupport.parse(NamespaceHandlerSupport.java:74)
+    at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1427)
+    at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1417)
+    at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.parseBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:174)
+    at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:144)
+    at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.registerBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:100)
+    at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.registerBeanDefinitions(XmlBeanDefinitionReader.java:510)
+    at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:392)
+    ... 89 more
+    Caused by: java.lang.IllegalStateException: Could not detect JBoss VFS infrastructure
+    at org.springframework.core.io.VfsUtils.&lt;clinit&gt;(VfsUtils.java:94)
+    ... 104 more
+    Caused by: java.lang.ClassNotFoundException: org.jboss.vfs.VFS from BaseClassLoader@11528488{VFSClassLoaderPolicy@407b059a{name=vfsfile:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/ domain=ClassLoaderDomain@584caa92{name=vfsfile:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/ parentPolicy=AFTER_BUT_JAVA_BEFORE parent=BaseClassLoader@66c2de47{vfsfile:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/}} roots=[DelegatingHandler@1286398600[path=sebina.ear/sebinaopac.war/WEB-INF/lib/ki-jzkit-hss.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/ki-jzkit-hss.jar], DelegatingHandler@1783395851[path=sebina.ear/sebinaopac.war/WEB-INF/lib/spring-aop-4.1.6.RELEASE.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/spring-aop-4.1.6.RELEASE.jar], DelegatingHandler@1104806578[path=sebina.ear/sebinaopac.war/WEB-INF/lib/velocity-1.6.4.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/velocity-1.6.4.jar], DelegatingHandler@1340544484[path=sebina.ear/sebinaopac.war/WEB-INF/lib/velocity-tools-2.0.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/velocity-tools-2.0.jar], DelegatingHandler@1280201911[path=sebina.ear/sebinaopac.war/WEB-INF/lib/ki-util.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/ki-util.jar], DelegatingHandler@714858884[path=sebina.ear/sebinaopac.war/WEB-INF/lib/oclc-srw-DM.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/oclc-srw-DM.jar], DelegatingHandler@1609742070[path=sebina.ear/sebinaopac.war/WEB-INF/lib/spring-context-4.1.6.RELEASE.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/spring-context-4.1.6.RELEASE.jar], DelegatingHandler@935985584[path=sebina.ear/sebinaopac.war/WEB-INF/lib/spring-webmvc-4.1.6.RELEASE.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/spring-webmvc-4.1.6.RELEASE.jar], DelegatingHandler@791996013[path=sebina.ear/sebinaopac.war/WEB-INF/lib/ki-jzkit-z3950-DM.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/ki-jzkit-z3950-DM.jar], DelegatingHandler@973346385[path=sebina.ear/sebinaopac.war/WEB-INF/lib/SN_Opac.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/SN_Opac.jar], DelegatingHandler@1649753496[path=sebina.ear/sebinaopac.war/WEB-INF/lib/h2-1.3.173.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/h2-1.3.173.jar], DelegatingHandler@1245640855[path=sebina.ear/sebinaopac.war/WEB-INF/lib/taglibs-string.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/taglibs-string.jar], DelegatingHandler@1815259029[path=sebina.ear/sebinaopac.war/WEB-INF/lib/javaetmoi-spring4-vfs2-support-1.4.0.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/javaetmoi-spring4-vfs2-support-1.4.0.jar], DelegatingHandler@1905811121[path=sebina.ear/sebinaopac.war/WEB-INF/lib/spring-beans-4.1.6.RELEASE.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/spring-beans-4.1.6.RELEASE.jar], DelegatingHandler@1248915642[path=sebina.ear/sebinaopac.war/WEB-INF/lib/spring-expression-4.1.6.RELEASE.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/spring-expression-4.1.6.RELEASE.jar], DelegatingHandler@1020029316[path=sebina.ear/sebinaopac.war/WEB-INF/lib/spring-web-4.1.6.RELEASE.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/spring-web-4.1.6.RELEASE.jar], DelegatingHandler@270760011[path=sebina.ear/sebinaopac.war/WEB-INF/lib/dwr.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/dwr.jar], DelegatingHandler@145656884[path=sebina.ear/sebinaopac.war/WEB-INF/lib/oaicat.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/oaicat.jar], DelegatingHandler@2071375455[path=sebina.ear/sebinaopac.war/WEB-INF/lib/ini4j-0.5.4.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/ini4j-0.5.4.jar], DelegatingHandler@749870668[path=sebina.ear/sebinaopac.war/WEB-INF/lib/ki-jzkit-iface.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/ki-jzkit-iface.jar], DelegatingHandler@1642276480[path=sebina.ear/sebinaopac.war/WEB-INF/lib/cql-java.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/cql-java.jar], DelegatingHandler@133484469[path=sebina.ear/sebinaopac.war/WEB-INF/lib/harvester2.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/harvester2.jar], DelegatingHandler@1500543015[path=sebina.ear/sebinaopac.war/WEB-INF/lib/spring-core-4.1.6.RELEASE.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/spring-core-4.1.6.RELEASE.jar], DelegatingHandler@1725986384[path=sebina.ear/sebinaopac.war/WEB-INF/lib/sn_opac_ws_mlol.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/sn_opac_ws_mlol.jar], DelegatingHandler@444052212[path=sebina.ear/sebinaopac.war/WEB-INF/lib/spring-context-support-4.1.6.RELEASE.jar context=file:/home/sol/JBOSS5/sol/HEAD/deploy/ real=file:/home/sol/JBOSS5/sol/HEAD/deploy/sebina.ear/sebinaopac.war/WEB-INF/lib/spring-context-support-4.1.6.RELEASE.jar]]  delegates=null exported=[org.springframework.asm, com.k_int.util.Configuration, , it.sebina.w.dwr, org.directwebremoting.util, de.fuberlin.wiwiss.pubby.negotiation, org.springframework.web.servlet.tags, org.apache.taglibs.string.util, com.akros.sebina.opac.lucene, com.akros.sebina.opac.cache, org.h2.util.data.zip.org.h2.res, com.k_int.gen.ESFormat_ItemOrder, org.springframework.beans.factory.access, org.springframework.objenesis.instantiator.jrockit, org.springframework.objenesis.instantiator.perc, ORG.oclc.oai.server.verb.extension, org.apache.velocity.io, org.springframework.validation.annotation, org.directwebremoting.contrib, org.springframework.web.servlet.view, org.springframework.instrument.classloading.tomcat, org.springframework.jmx.export.assembler, ORG.oclc.os.SRW.Normalization, com.k_int.util.PrefixLang, org.apache.velocity.tools.view.context, org.springframework.core.annotation, org.springframework.web.bind.annotation.support, com.akros.sebina.opac.model.stampe, org.springframework.context.config, org.h2.fulltext, org.springframework.mail.javamail, org.h2.api, com.k_int.gen.ResourceReport_Format_Resource_2, it.sebina.w.search.mlol, org.springframework.http.client.support, com.k_int.gen.ResourceReport_Format_Resource_1, gov.loc.www.zing.srw.service, org.springframework.beans.factory.annotation, gov.loc.www.zing.srw, it.sebina.w.bo.sebstore, org.springframework.objenesis.instantiator.gcj, org.springframework.util.concurrent, it.sebina.w.search.facet, org.springframework.cglib.reflect, ORG.oclc.os.SRW.Lucene, it.sebina.w.frbr, org.springframework.lang, org.apache.velocity.runtime, org.springframework.expression, org.springframework.http.server, com.k_int.util.ThreadPool, org.h2.mvstore.type, org.springframework.web.filter, it.sebina.w.dwr.bean.listmania, org.springframework.scheduling.annotation, org.springframework.ejb.config, org.springframework.web.servlet.mvc, org.springframework.core.type.filter, META-INF.services, com.akros.sebina.opac.model.z3950, org.springframework.web.context.request.async, com.k_int.gen.RecordSyntax_explain, org.apache.velocity.runtime.resource, org.springframework.ui.freemarker, org.springframework.core.env, ORG.oclc.oai.harvester2.verb, org.springframework.cglib.proxy, org.springframework.aop, org.springframework.cglib.transform.impl, org.springframework.validation.support, org.springframework.jmx, org.springframework.jmx.access, com.akros.sebina.opac.control, it.sebina.w.core, com.acme.oai, org.springframework.core, com.k_int.IR.Syntaxes, org.directwebremoting.impl, org.apache.velocity.texen.defaults, it.sebina.w.search.voc, org.springframework.cache.jcache.interceptor, org.springframework.util.comparator, org.springframework.ejb.access, org.apache.velocity.runtime.parser, org.springframework.aop.scope, org.springframework.aop.aspectj, org.springframework.aop.support.annotation, org.h2.engine, org.springframework.expression.spel.support, org.directwebremoting.convert, com.k_int.gen.ESFormat_Update0, org.springframework.web.servlet.theme, it.sebina.w.bo.upgrade, it.sebina.w.inout, org.apache.velocity.tools.view.tools, com.akros.sebina.opac.model.db, it.sebina.w.dwr.bean.wroot, it.medialibrary.www.services, org.directwebremoting.webwork, org.springframework.scheduling.concurrent, org.h2.upgrade, org.springframework.instrument.classloading, org.springframework.objenesis.instantiator.basic, org.h2.tools, org.springframework.jndi.support, org.springframework.core.type, org.springframework.http.converter.xml, org.springframework.aop.framework.adapter, org.springframework.context.weaving, it.sebina.w.search, com.akros.sebina.opac.model.OAI.harvester, org.directwebremoting.beehive, it.sebina.w.bo.tools, META-INF, org.h2.mvstore.db, org.springframework.cache.annotation, org.springframework.http.converter.json, org.apache.velocity.tools.struts, org.springframework.context.expression, org.springframework.http.client, it.sebina.w.bo.ws.profile, it.sebina.w.search.facet.thread, org.springframework.scheduling.commonj, it.sebina.w.batch.PMV, org.h2.mvstore.cache, com.k_int.util.SearchFactory, org.apache.velocity.servlet, org.springframework.aop.target.dynamic, com.k_int.gen, org.springframework.web.servlet.config, org.springframework.web.servlet.handler, it.sebina.w.search.spell.lucene.util, com.k_int.gen.RecordSyntax_opac, org.springframework.beans.factory, org.springframework.util, org.apache.velocity.exception, org.h2.security, it.sebina.w.bo.news, it.sebina.w.search.opensearch, it.sebina.w.dwr.bean.suggread, org.ini4j, com.k_int.z3950.util, it.sebina.w.embed, org.springframework.web.servlet.view.xml, org.springframework.aop.config, org.springframework.jmx.export.naming, org.springframework.aop.framework, org.directwebremoting.proxy.scriptaculous, org.directwebremoting.fluent, org.h2.jmx, org.springframework.aop.aspectj.autoproxy, org.springframework.objenesis.strategy, org.springframework.web.jsf, org.apache.velocity.runtime.parser.node, org.springframework.objenesis.instantiator, com.k_int.gen.Z39_50_APDU_1995, it.sebina.w.bo.listmania, com.k_int.gen.RecordSyntax_summary, org.springframework.cglib.beans, it.sebina.w.dipendenze, org.apache.velocity.runtime.defaults, org.springframework.beans.annotation, org.springframework.context.i18n, it.sebina.w.search.parser, org.springframework.instrument.classloading.websphere, it.sebina.w.bo.scroll, ORG.oclc.oai.server.catalog.helpers, org.springframework.beans.factory.xml, com.akros.sebina.opac.model.re, it.sebina.w.bo.novita, org.directwebremoting.create, org.springframework.web.servlet.mvc.annotation, com.akros.sebina.opac.model.OAI, org.apache.velocity.util, org.h2.server.pg, org.directwebremoting.faces, org.h2.util.data.zip.org.h2.server.pg, org.h2.command.dml, org.h2.message, org.springframework.aop.support, org.apache.velocity.util.introspection, org.apache.velocity.context, org.springframework.context.support, gov.loc.www.zing.srw.interfaces, com.akros.sebina.opac.model.documento, gov.loc.www.zing.cql.xcql, org.springframework.scheduling.support, it.sebina.w.bo, com.k_int.gen.ESFormat_Update, it.sebina.w.locale, com.k_int.gen.AccessControlFormat_krb_1, org.apache.velocity.tools, ORG.oclc.oai.server.catalog, org.directwebremoting.annotations, com.akros.sebina.opac.model.sru, it.sebina.w.inout.xls, ORG.oclc.oai.server.verb, org.springframework.format, org.springframework.web.method.annotation, org.springframework.util.backoff, org.springframework.web.method, org.springframework.ui, com.k_int.gen.DiagnosticFormatDiag1, com.k_int.z3950.server, org.springframework.web.bind, org.apache.velocity, org.springframework.scripting, org.h2.store.fs, org.springframework.objenesis, org.springframework.aop.interceptor, org.springframework.context.access, org.springframework.web.servlet.i18n, org.h2.schema, it.sebina.w.bo.tom, org.directwebremoting.spring, com.akros.sebina.opac.xml2idx.blend, it.sebina.w.search.shelf, org.springframework.web.multipart.support, ORG.oclc.os.SRW, org.springframework.web.client.support, com.k_int.gen.ESFormat_ExportInvocation, org.springframework.remoting.soap, org.apache.velocity.runtime.directive, org.springframework.web, com.k_int.util.Repository, org.springframework.ui.jasperreports, com.k_int.IR.QueryModels, org.h2.bnf, org.springframework.web.multipart.commons, it.sebina.w.cache, org.springframework.core.io.support, it.sebina.w.formbean, org.apache.velocity.runtime.log, org.springframework.remoting, org.springframework.web.method.support, org.apache.velocity.tools.generic.log, org.springframework.core.serializer, org.apache.velocity.runtime.resource.loader, org.springframework.core.convert.converter, org.springframework.aop.target, org.springframework.web.servlet.view.jasperreports, org.springframework.web.servlet, org.springframework.aop.framework.autoproxy.target, org.springframework.beans.factory.support, ORG.oclc.oai.harvester2.app, org.h2.command, org.springframework.expression.spel.standard, org.springframework.cache.transaction, org.springframework.web.servlet.mvc.support, org.springframework.jmx.export.notification, it.sebina.w.dwr.bean, org.springframework.ui.context, org.apache.velocity.convert, org.directwebremoting.guice.spring, it.sebina.w.bo.decalog, org.h2.constraint, com.akros.sebina.opac.model.ricerca, org.springframework.format.datetime.standard, gov.loc.www.zing.srw.diagnostic, it.sebina.w.hibernate, org.springframework.core.task, org.springframework.web.servlet.tags.form, it.sebina.w.search.spell, com.k_int.gen.RecordSyntax_generic, org.directwebremoting.servlet, org.h2, org.springframework.beans.factory.config, org.springframework.util.xml, org.springframework.context.annotation, org.springframework.format.annotation, org.springframework.remoting.support, org.springframework.web.servlet.resource, com.akros.sebina.opac.locale, org.springframework.web.servlet.mvc.method.annotation, org.springframework.web.servlet.mvc.method, it.sebina.w.bo.initcontext, org.springframework.web.servlet.view.velocity, org.h2.store, org.directwebremoting.hibernate, com.k_int.IR, org.directwebremoting.struts, com.k_int.util.RPNQueryRep, com.javaetmoi.core.spring, it.sebina.w.bo.stat.search, it.sebina.w.dwr.a.dashboard, org.springframework.context.event, org.h2.constant, it.sebina.w.dwr.a, org.springframework.jmx.support, it.sebina.w.dwr.d, it.sebina.w.core.less, org.springframework.mail, org.springframework.stereotype, org.springframework.remoting.caucho, org.apache.velocity.tools.view.servlet, org.springframework.cache.support, org.h2.index, org.springframework.web.servlet.support, org.springframework.instrument.classloading.glassfish, com.k_int.z3950.IRClient, org.h2.value, ORG.oclc.oai.server.crosswalk, com.akros.sebina.opac.util, it.sebina.w.search.suggest, org.springframework.scheduling.quartz, org.springframework.web.multipart, it.sebina.w.search.voc.test, com.k_int.gen.ESFormat_PeriodicQuerySchedule, org.springframework.beans.support, org.springframework.web.servlet.view.tiles3, org.springframework.web.servlet.view.tiles2, org.z3950.zing.cql, org.h2.table, com.k_int.gen.AccessControlFormat_prompt_1, org.springframework.scripting.groovy, it.sebina.w.search.dym, org.springframework.ui.velocity, com.k_int.gen.RecordSyntax_SUTRS, com.k_int.gen.NegotiationRecordDefinition_charSetandLanguageNegotiation_3, org.apache.velocity.texen, it.sebina.w.bo.gamification, it.sebina.w.bo.twitter, org.springframework.scripting.bsh, org.springframework.http.converter.protobuf, org.springframework.cache.concurrent, org.springframework.core.task.support, org.springframework.objenesis.instantiator.android, org.springframework.aop.framework.autoproxy, it.sebina.w.bo.ws, org.springframework.web.util, org.apache.velocity.tools.generic, com.akros.sebina.opac.conf.w, org.springframework.remoting.rmi, org.springframework.http.converter.support, org.springframework.format.number, it.sebina.w.bo.task, com.javaetmoi.core.spring.vfs, META-INF.maven.org.ini4j.ini4j, com.k_int.gen.ESFormat_PersistentQuery, org.springframework.cache.jcache.config, it.sebina.w.bo.cover, it.sebina.w.bo.cover.amazon, it.sebina.w.bo.analytics, org.springframework.beans.factory.wiring, org.springframework.ui.context.support, META-INF.maven.com.javaetmoi.core.javaetmoi-spring4-vfs2-support, org.springframework.aop.aspectj.annotation, org.springframework.cache.guava, org.springframework.scheduling.config, org.apache.velocity.app.tools, org.springframework.http.converter, org.springframework.web.jsf.el, org.springframework.cache.interceptor, com.akros.sebina.opac.taglib, org.springframework.jmx.export, org.springframework.beans.propertyeditors, org.springframework.core.serializer.support, org.springframework.beans.factory.access.el, org.springframework.web.servlet.view.document, org.springframework.web.accept, org.springframework.scripting.jruby, org.apache.velocity.texen.util, org.springframework.cache.jcache, com.k_int.util.SortSpecLang, com.akros.sebina.opac.model.OAI.harvester.utility, ORG.oclc.oai.server, org.directwebremoting.dwrp, org.springframework.scripting.support, org.springframework.jmx.export.metadata, org.springframework.core.io, org.springframework.context, org.h2.mvstore, com.k_int.gen.ESFormat_PersistentResultSet, org.springframework.web.context, org.directwebremoting.extend, com.k_int.gen.RecordSyntax_ESTaskPackage, org.springframework.beans.factory.groovy, org.springframework.scheduling, com.k_int.gen.AccessControlFormat_des_1, org.springframework.web.servlet.view.xslt, uk.ltd.getahead.dwr.compat, it.sebina.w.search.where, org.directwebremoting.guice, org.apache.velocity.app.event, com.k_int.util, org.springframework.instrument.classloading.jboss, com.k_int.IR.QueryModels.InternalQueryRep, it.sebina.w.dwr.bean.wchisiamo, org.springframework.beans, org.h2.util.data.zip.org.h2.server.web.res, org.h2.jdbcx, uk.ltd.getahead.dwr, org.springframework.jndi, gov.loc.www.zing.srw.srw_sample_service, org.h2.result, org.springframework.web.servlet.view.freemarker, gov.loc.www.zing.srw.srw_bindings, org.apache.velocity.tools.view.i18n, it.sebina.w.hibernate.q, org.springframework.expression.spel, com.akros.sebina.opac.xml2idx.xsl, it.sebina.w.dwr.bean.wavanzata, org.springframework.cglib.transform, org.springframework.expression.common, org.springframework.core.style, org.springframework.validation, org.springframework.cglib, com.k_int.gen.ElementSpecificationFormat_eSpec_1, org.h2.command.ddl, org.h2.expression, it.sebina.w.control.api, org.springframework.expression.spel.ast, org.springframework.validation.beanvalidation, org.apache.velocity.tools.config, com.akros.sebina.opac.lucene.mixin, org.apache.velocity.texen.ant, com.akros.sebina.opac.view, org.springframework.beans.factory.parsing, ORG.oclc.oai.util, org.apache.velocity.tools.view, it.sebina.w.bo.mlol, org.springframework.web.context.request, org.springframework.format.datetime.joda, org.springframework.remoting.jaxws, com.akros.sebina.opac.xml2idx, com.k_int.hss, org.springframework.core.convert, org.springframework.web.servlet.config.annotation, org.springframework.format.datetime, org.springframework.remoting.httpinvoker, org.springframework.beans.factory.serviceloader, it.sebina.w.dwr.w, org.apache.velocity.runtime.resource.util, org.apache.velocity.anakia, org.springframework.cglib.util, com.akros.sebina.opac.xml2idx.test, org.springframework.core.convert.support, com.k_int.util.CCL, com.k_int.gen.UserInfoFormat_searchResult_1, org.directwebremoting.proxy.dwr, org.springframework.cache, org.springframework.format.support, org.springframework.cache.ehcache, org.apache.velocity.app, org.directwebremoting.proxy, META-INF.eliminati.zip.eliminati.com.k_int.z3950.client, it.sebina.w.search.spell.lucene, org.springframework.http.converter.feed, org.springframework.http, org.springframework.web.servlet.view.groovy, org.springframework.jmx.export.annotation, org.directwebremoting.filter, it.sebina.w.bo.impactfactor, org.springframework.scripting.config, it.sebina.w.batch.cmstypo3, org.apache.velocity.tools.view.jsp, org.springframework.web.servlet.mvc.condition, com.k_int.IR.Syntaxes.Conversion, org.springframework.web.context.support, org.directwebremoting, org.springframework.instrument.classloading.weblogic, org.springframework.web.bind.support, com.akros.sebina.opac.conf, it.sebina.w.dwr.bean.pagesearch, org.apache.taglibs.string, org.h2.server, org.ini4j.spi, com.k_int.z3950.server.demo, it.sebina.w.batch, com.k_int.util.LoggingFacade, org.springframework.web.bind.annotation, org.springframework.web.servlet.mvc.multiaction, org.springframework.cache.config, org.h2.jdbc, org.springframework.web.client, com.akros.sebina.opac.model.dispo, it.sebina.w.bo.newsletter, com.k_int.gen.ESFormat_ExportSpecification, com.akros.sebina.opac.model.OAI.harvester.xharvestinglog, org.h2.server.web, org.apache.velocity.app.event.implement, com.akros.sebina.opac.xml2idx.opera, it.sebina.w.search.clump, org.springframework.web.servlet.view.feed, org.springframework.cglib.core, org.springframework.web.servlet.view.json, org.apache.velocity.runtime.visitor, it.sebina.w.control, org.h2.compress, it.sebina.w.test, org.h2.util, it.sebina.w.bo.ebook, org.h2.mvstore.rtree, org.springframework.core.type.classreading, it.sebina.w.search.searcherquery, org.springframework.ejb.interceptor, org.springframework.objenesis.instantiator.sun] &lt;IMPORT-ALL&gt;NON_EMPTY}}
+    at org.jboss.classloader.spi.base.BaseClassLoader.loadClass(BaseClassLoader.java:448)
+    at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+    at org.springframework.core.io.VfsUtils.&lt;clinit&gt;(VfsUtils.java:71)
+    ... 104 more
+
+    &nbsp;
+
+    Can you give us support on this?
+
+    It seems that it's always trying to use vfs3 instead of 2, searching for org.jboss.vfs.VFS class.
+
+    Thanks, Phaedra.
+  post_url: /2014/04/support-vfs2-jboss5-spring4/
+  post_id: "1032"
+- id: "131853"
+  author_name: Carlos Serpa
+  author_email: carlos.serpa.it@gmail.com
+  author_url: ""
+  published: 2020-04-29T15:29:46Z
+  parent_id: "0"
+  content: "Hi, i’m trying to use your vfs2 patch for spring 4 but i have a constant exception:\n \n[[dispatcher]] Servlet.service() for servlet dispatcher threw exception\njava.lang.ClassNotFoundException: org.jboss.vfs.VFS from BaseClassLoader...\n\nIn the link: https://github.com/arey/spring4-vfs2-support/ suggest to create a webconfig class.\nSpring MVC webjar support\nWith Spring MVC, static resources could be served from a webjar. The Vfs2ResourceHandlerRegistry class prevents you for having the error java.lang.ClassNotFoundException: org.jboss.vfs.VFS from BaseClassLoader.\n\nHow to use it:\n\n@Configuration\n@EnableWebMvc\npublic class WebConfig extends WebMvcConfigurerAdapter {\n\n    @Autowired\n    private ApplicationContext applicationContext;\n    \n    @Override\n    public void addResourceHandlers(ResourceHandlerRegistry registry) {\n        new Vfs2ResourceHandlerRegistry(registry, applicationContext)\n                .addResourceHandler(\"/resources/webjars/**\")\n                .addResourceLocations(\"classpath:/META-INF/resources/webjars/\");\n    }\n}\n\nI am not sure if this class should be created in my project on in spring4-vfs2-support project and compile again because the Vfs2ResourceHandlerRegistry constructor is private. \nSo, I try change the constructor to public and recompile the spring4-vfs2-support project and add depencie to my project and I create this config class in my project.\nNow a have this exception:\n\n [DispatcherServlet] Context initialization failed\norg.springframework.beans.factory.BeanCreationException: Error creating bean with name 'resourceHandlerMapping' defined in class path resource [org/springframework/web/servlet/config/annotation/DelegatingWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method 'resourceHandlerMapping' threw exception; nested exception is java.lang.NoSuchMethodError: org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration.(Lorg/springframework/core/io/ResourceLoader;[Ljava/lang/String;)V\n\n....\n\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method 'resourceHandlerMapping' threw exception; nested exception is java.lang.NoSuchMethodError: org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration.(Lorg/springframework/core/io/ResourceLoader;[Ljava/lang/String;)V\n        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)\n        at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)\n        ... 90 more\nCaused by: java.lang.NoSuchMethodError: org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration.(Lorg/springframework/core/io/ResourceLoader;[Ljava/lang/String;)V\n\n....\n\n15:27:30,674 ERROR [[/agorarest]] StandardWrapper.Throwable\norg.springframework.beans.factory.BeanCreationException: Error creating bean with name 'resourceHandlerMapping' defined in class path resource [org/springframework/web/servlet/config/annotation/DelegatingWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method 'resourceHandlerMapping' threw exception; nested exception is java.lang.NoSuchMethodError: org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration.(Lorg/springframework/core/io/ResourceLoader;[Ljava/lang/String;)V\n\n...\n\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method 'resourceHandlerMapping' threw exception; nested exception is java.lang.NoSuchMethodError: org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration.(Lorg/springframework/core/io/ResourceLoader;[Ljava/lang/String;)V\n        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)\n        at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)\n        ... 90 more\nCaused by: java.lang.NoSuchMethodError: org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration.(Lorg/springframework/core/io/ResourceLoader;[Ljava/lang/String;)V\n\n...\n\n15:27:30,690 ERROR [[/agorarest]] Servlet /agorarest threw load() exception\njava.lang.NoSuchMethodError: org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration.(Lorg/springframework/core/io/ResourceLoader;[Ljava/lang/String;)V\n        at com.javaetmoi.core.spring.vfs.Vfs2ResourceHandlerRegistration.(Vfs2ResourceHandlerRegistration.java:41)\n        at com.javaetmoi.core.spring.vfs.Vfs2ResourceHandlerRegistry.addResourceHandler(Vfs2ResourceHandlerRegistry.java:63)\n\nCould you help me,\n\nThanks"
+  post_url: /2014/04/support-vfs2-jboss5-spring4/
+  post_id: "1032"
+- id: "131871"
+  author_name: Carlos Serpa
+  author_email: carlos.serpa.it@gmail.com
+  author_url: ""
+  published: 2020-04-30T08:09:32Z
+  parent_id: "0"
+  content: "Hi, i’m trying to use your vfs2 patch for spring 4 but i have a constant exception:\n \n[[dispatcher]] Servlet.service() for servlet dispatcher threw exception\njava.lang.ClassNotFoundException: org.jboss.vfs.VFS from BaseClassLoader...\n\nIn the link: https://github.com/arey/spring4-vfs2-support/ suggest to create a webconfig class.\nSpring MVC webjar support\nWith Spring MVC, static resources could be served from a webjar. The Vfs2ResourceHandlerRegistry class prevents you for having the error java.lang.ClassNotFoundException: org.jboss.vfs.VFS from BaseClassLoader.\n\nHow to use it:\n\n@Configuration\n@EnableWebMvc\npublic class WebConfig extends WebMvcConfigurerAdapter {\n\n    @Autowired\n    private ApplicationContext applicationContext;\n    \n    @Override\n    public void addResourceHandlers(ResourceHandlerRegistry registry) {\n        new Vfs2ResourceHandlerRegistry(registry, applicationContext)\n                .addResourceHandler(\"/resources/webjars/**\")\n                .addResourceLocations(\"classpath:/META-INF/resources/webjars/\");\n    }\n}\n\nI am not sure if this class should be created in my project on in spring4-vfs2-support project and compile again because the Vfs2ResourceHandlerRegistry constructor is private. \nSo, I try change the constructor to public and recompile the spring4-vfs2-support project and add depencie to my project and I create this config class in my project.\nNow a have this exception:\n\n [DispatcherServlet] Context initialization failed\norg.springframework.beans.factory.BeanCreationException: Error creating bean with name 'resourceHandlerMapping' defined in class path resource [org/springframework/web/servlet/config/annotation/DelegatingWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method 'resourceHandlerMapping' threw exception; nested exception is java.lang.NoSuchMethodError: org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration.(Lorg/springframework/core/io/ResourceLoader;[Ljava/lang/String;)V\n\n....\n\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method 'resourceHandlerMapping' threw exception; nested exception is java.lang.NoSuchMethodError: org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration.(Lorg/springframework/core/io/ResourceLoader;[Ljava/lang/String;)V\n        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)\n        at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)\n        ... 90 more\nCaused by: java.lang.NoSuchMethodError: org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration.(Lorg/springframework/core/io/ResourceLoader;[Ljava/lang/String;)V\n\n....\n\n15:27:30,674 ERROR [[/agorarest]] StandardWrapper.Throwable\norg.springframework.beans.factory.BeanCreationException: Error creating bean with name 'resourceHandlerMapping' defined in class path resource [org/springframework/web/servlet/config/annotation/DelegatingWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method 'resourceHandlerMapping' threw exception; nested exception is java.lang.NoSuchMethodError: org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration.(Lorg/springframework/core/io/ResourceLoader;[Ljava/lang/String;)V\n\n...\n\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method 'resourceHandlerMapping' threw exception; nested exception is java.lang.NoSuchMethodError: org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration.(Lorg/springframework/core/io/ResourceLoader;[Ljava/lang/String;)V\n        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)\n        at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)\n        ... 90 more\nCaused by: java.lang.NoSuchMethodError: org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration.(Lorg/springframework/core/io/ResourceLoader;[Ljava/lang/String;)V\n\n...\n\n15:27:30,690 ERROR [[/agorarest]] Servlet /agorarest threw load() exception\njava.lang.NoSuchMethodError: org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration.(Lorg/springframework/core/io/ResourceLoader;[Ljava/lang/String;)V\n        at com.javaetmoi.core.spring.vfs.Vfs2ResourceHandlerRegistration.(Vfs2ResourceHandlerRegistration.java:41)\n        at com.javaetmoi.core.spring.vfs.Vfs2ResourceHandlerRegistry.addResourceHandler(Vfs2ResourceHandlerRegistry.java:63)\n\nCould you help me ?\n\nThanks"
+  post_url: /2014/04/support-vfs2-jboss5-spring4/
+  post_id: "1032"
+- id: "19486"
+  author_name: Eric
+  author_email: eric.cmsfr@gmail.com
+  author_url: ""
+  published: 2014-04-30T22:52:06Z
+  parent_id: "0"
+  content: Merci pour cet article de synthèse. Je viens de comprendre pas mal de chose.
+  post_url: /2014/04/lab-angularjs-from-scratch-devoxx-france-2014/
+  post_id: "1068"
+- id: "19287"
+  author_name: Damien Lecan
+  author_email: 6f2f91690cb410667a7f149ec31f15c2@example.com
+  author_url: https://github.com/dlecan
+  published: 2014-04-25T21:53:18Z
+  parent_id: "0"
+  content: Quel boulot de synthèse, bravo !
+  post_url: /2014/04/lab-angularjs-from-scratch-devoxx-france-2014/
+  post_id: "1068"
+- id: "21190"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2014-06-11T21:26:49Z
+  parent_id: "0"
+  content: 'Cet article vient d''être publié sur le blog de ma société : http://www.technologies-ebusiness.com/langages/comprendre-angular-en-refaisant-zero-devoxx-france-2014'
+  post_url: /2014/04/lab-angularjs-from-scratch-devoxx-france-2014/
+  post_id: "1068"
+- id: "21781"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: ""
+  published: 2014-07-01T12:28:00Z
+  parent_id: "0"
+  content: 'Article publié également sur le blog technologies-ebusiness.com : http://www.technologies-ebusiness.com/langages/configuration-spring-en-java'
+  post_url: /2014/06/spring-framework-java-configuration/
+  post_id: "1122"
+- id: "83210"
+  author_name: Franck Gasparotto
+  author_email: fgasparotto@keeleek.com
+  author_url: http://www.keeleek.com
+  published: 2015-03-03T18:15:12Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    Bel article bravo! Il m'aurait été très utile il y a quelques mois... Pour les développeurs qui se lancent dans une migration RF3 vers RF4 voici un article qui traite justement de l'automatisation de la réécriture des pages xhtml :
+
+    <a title="http://www.keeleek.com/migration-jsf1-rf3-vers-jsf2-rf4-gagner-du-temps-reecriture-automatisation/?utm_source=javaetmoi&amp;utm_medium=javaee&amp;utm_campaign=blog&amp;utm_content=migration-jsf1-rf3-vers-jsf2-rf4-gagner-du-temps-reecriture-automatisation" href="http://www.keeleek.com/migration-jsf1-rf3-vers-jsf2-rf4-gagner-du-temps-reecriture-automatisation" rel="nofollow">http://www.keeleek.com/migration-jsf1-rf3-vers-jsf2-rf4-gagner-du-temps-reecriture-automatisation</a>
+
+    &nbsp;
+  post_url: /2014/06/notes-migration-jsf2-richfaces4-jboss5-eap/
+  post_id: "1165"
+- id: "35629"
+  author_name: Carlos Menezes
+  author_email: carlosalbertogmenezes@gmail.com
+  author_url: ""
+  published: 2014-10-17T14:01:42Z
+  parent_id: "0"
+  content: |-
+    Hi,
+
+    Look like it´s a good post, but I dont speak french and the translation is too bad. I´m very interested on reading this, so, if possible, translate it to english. Thanks in advance!
+  post_url: /2014/10/annotation-sessionattributes-modelattribute-spring-mvc/
+  post_id: "1216"
+- id: "109638"
+  author_name: metos
+  author_email: noadress@mail.test
+  author_url: ""
+  published: 2017-02-09T10:03:23Z
+  parent_id: "0"
+  content: Très pédagogique ! merci pour cet excellent article.
+  post_url: /2014/10/annotation-sessionattributes-modelattribute-spring-mvc/
+  post_id: "1216"
+- id: "113071"
+  author_name: Florian Lopes
+  author_email: florian.lopes@outlook.com
+  author_url: https://blog.florianlopes.io
+  published: 2017-08-21T20:24:31Z
+  parent_id: "0"
+  content: |-
+    Excellent article, technique et bien expliqué.
+
+    N'y a-t-il pas une légère erreur dans la partie expliquant l'annotation @ModelAttribute ?
+
+    "Il est possible de spécifier la clé en utilisant la syntaxe @RequestMapping("account")."
+    =&gt; @ModelAttribute("account")
+  post_url: /2014/10/annotation-sessionattributes-modelattribute-spring-mvc/
+  post_id: "1216"
+- id: "113074"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2017-08-21T21:20:51Z
+  parent_id: "113071"
+  content: Merci Florian pour avoir relevé cette erreur. Je viens de la corriger.
+  post_url: /2014/10/annotation-sessionattributes-modelattribute-spring-mvc/
+  post_id: "1216"
+- id: "94189"
+  author_name: Charles Morin
+  author_email: charles@charlesmorin.info
+  author_url: http://charlesmorin.info
+  published: 2015-06-19T19:24:00Z
+  parent_id: "0"
+  content: Excellent billet! Merci beaucoup!
+  post_url: /2014/10/annotation-sessionattributes-modelattribute-spring-mvc/
+  post_id: "1216"
+- id: "98350"
+  author_name: Imen
+  author_email: imene.jaouani@gmail.com
+  author_url: ""
+  published: 2015-08-27T16:52:31Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    S'il te plait , je veux avoir le lien du projet sur Github si possible .
+
+    Merci d'avance
+  post_url: /2015/03/etude-de-cas-spring-integration-elasticsearch/
+  post_id: "1310"
+- id: "98354"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2015-08-27T18:27:25Z
+  parent_id: "98350"
+  content: Bonjour, je suis désolé mais étant donné qu'il s'agit d'exemples inspirés de code propriétaire, je ne peux pas rendre publique le code source.
+  post_url: /2015/03/etude-de-cas-spring-integration-elasticsearch/
+  post_id: "1310"
+- id: "105916"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2016-01-12T21:55:24Z
+  parent_id: "105901"
+  content: |-
+    Bonjour Zak,
+    Merci de m'avoir signalé les liens morts. Par chance, j'avais conservé les 2 zips. Je les ai republiés.
+    Bonne initiation,
+    Antoine
+  post_url: /2015/04/initiation-apache-spark-en-java-devoxx/
+  post_id: "1343"
+- id: "105901"
+  author_name: Zak
+  author_email: zakanous@gmail.com
+  author_url: ""
+  published: 2016-01-12T10:46:55Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    Les liens pour :
+
+    	Les jeu de données au format CSV et JSON nécessaires pour le Lab@
+    	La configuration maven pour Java ou sbt pour Scala.
+
+    ne sont pas disponibles non plus ... :(
+  post_url: /2015/04/initiation-apache-spark-en-java-devoxx/
+  post_id: "1343"
+- id: "94172"
+  author_name: Jeff MAURY
+  author_email: jeffmaury@jeffmaury.com
+  author_url: https://www.linkedin.com/in/jeffmaury
+  published: 2015-06-19T11:01:13Z
+  parent_id: "0"
+  content: Le lien vers le gitbook n'est plus valide
+  post_url: /2015/04/initiation-apache-spark-en-java-devoxx/
+  post_id: "1343"
+- id: "94197"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2015-06-19T21:27:49Z
+  parent_id: "94172"
+  content: Merci Jeff pour le signalement. N'ayant pas retrouvé le gitbook sur Internet, je viens de publié la version PDF que j'avais archivée.
+  post_url: /2015/04/initiation-apache-spark-en-java-devoxx/
+  post_id: "1343"
+- id: "145803"
+  author_name: Chiba Zouhair
+  author_email: chiba.zouhair@gmail.com
+  author_url: ""
+  published: 2022-08-06T01:30:46Z
+  parent_id: "0"
+  content: |-
+    Bonjour;
+    Le lien Machine Learning avec Spark, MMLIB et D3.js. n'est pas plus valide.
+    Merci
+  post_url: /2015/04/initiation-apache-spark-en-java-devoxx/
+  post_id: "1343"
+- id: "145977"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: https://www.javaetmoi.com
+  published: 2022-08-14T18:49:57Z
+  parent_id: "145803"
+  content: Merci Chiba pour ce retour. J'ai changé le lien vers la vidéo désormais disponible sur Youtube et non plus Parleys.
+  post_url: /2015/04/initiation-apache-spark-en-java-devoxx/
+  post_id: "1343"
+- id: "107887"
+  author_name: Jonathan-David Schröder
+  author_email: jonathan.schroder@gmail.com
+  author_url: ""
+  published: 2016-06-24T18:12:54Z
+  parent_id: "0"
+  content: Très bon article. Merci beaucoup !
+  post_url: /2015/07/plateforme-lamp-docker-compose/
+  post_id: "1429"
+- id: "108278"
+  author_name: Sebastien
+  author_email: sebastien@thivinfo.com
+  author_url: ""
+  published: 2016-09-18T20:07:40Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    j'ai mis au point mes containers mais est il possible d'avoir le meme docker-compose dans plusieurs dossier (projets) ?
+    pour le moment j'ai souvent une erreur de conflit (un container ayant dejà le meme nom)
+    Il y a t'il une solution?
+
+    merci
+  post_url: /2015/07/plateforme-lamp-docker-compose/
+  post_id: "1429"
+- id: "108282"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2016-09-19T18:04:46Z
+  parent_id: "108278"
+  content: Sébastien, d'après la doc https://docs.docker.com/compose/compose-file/, tu peux nommer ton image à l'aide du paramètre image.
+  post_url: /2015/07/plateforme-lamp-docker-compose/
+  post_id: "1429"
+- id: "109540"
+  author_name: Etienne Jouin
+  author_email: ejouin@gmail.com
+  author_url: https://www.facebook.com/app_scoped_user_id/10211076680806825/
+  published: 2017-01-29T16:01:30Z
+  parent_id: "0"
+  content: |-
+    Sympa, ça m'a bien aidé.
+
+    Par contre j'ai pas mal galéré sur le pdo_mysql. En effet
+    <pre class="lang:default decode:true ">RUN docker-php-ext-install pdo mysql
+    RUN docker-php-ext-install pdo mysqli</pre>
+    ne marche pas, ou plus.
+
+    Et à en croire <a href="https://github.com/docker-library/php/tree/master/5.6" rel="nofollow">https://github.com/docker-library/php/tree/master/5.6</a>
+
+    C'est plutôt ça qu'il faut mettre :
+    <pre class="lang:default decode:true">RUN docker-php-ext-install pdo pdo_mysql
+    RUN docker-php-ext-enable pdo pdo_mysql</pre>
+    Qui a fonctionné.
+
+    Cordialement.
+  post_url: /2015/07/plateforme-lamp-docker-compose/
+  post_id: "1429"
+- id: "109549"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2017-01-30T08:20:52Z
+  parent_id: "109540"
+  content: Merci Etienne pour ce retour. Saurais-tu me dire si c'est le passage à MySQL 5.6 qui a entrainé le problème que tu évoques et quels étaient les symptômes ?
+  post_url: /2015/07/plateforme-lamp-docker-compose/
+  post_id: "1429"
+- id: "109557"
+  author_name: Etienne Jouin
+  author_email: ejouin@gmail.com
+  author_url: https://www.facebook.com/app_scoped_user_id/10211076680806825/
+  published: 2017-01-30T19:14:58Z
+  parent_id: "0"
+  content: Le symptôme était l'absence de pdo_mysql dans phpinfo(). Quant à la cause, je n'en sais rien.
+  post_url: /2015/07/plateforme-lamp-docker-compose/
+  post_id: "1429"
+- id: "109873"
+  author_name: aleo74
+  author_email: aleo74@hotmail.fr
+  author_url: https://github.com/aleo74
+  published: 2017-02-28T17:35:28Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+    J'ai le même soucis que Étienne, mais je n'arrive pas à le résoudre.
+    Mon connecteur pdo_mysql n'est toujours pas présent malgré mes tentatives acharnées... Et j'ai bien suivi ce tutoriel ^^
+    Quelqu'un dispose d'une solution ?
+  post_url: /2015/07/plateforme-lamp-docker-compose/
+  post_id: "1429"
+- id: "109905"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2017-03-02T08:23:22Z
+  parent_id: "109873"
+  content: |-
+    Bonjour Aleo,
+    Je n'ai pas eu le temps de tester la solution proposée par Etienne. A ce que je comprends de ton commentaire, elle ne fonctionne pas dans ton cas. Peux-tu me le confirmer ?
+    Merci
+    Antoine
+  post_url: /2015/07/plateforme-lamp-docker-compose/
+  post_id: "1429"
+- id: "109979"
+  author_name: aleo74
+  author_email: aleo74@hotmail.fr
+  author_url: https://github.com/aleo74
+  published: 2017-03-06T09:19:40Z
+  parent_id: "109905"
+  content: |-
+    Bonjour Antoine,
+
+    J'ai bel et bien testé la version proposé par Etienne, et le problème persiste.
+
+    &nbsp;
+  post_url: /2015/07/plateforme-lamp-docker-compose/
+  post_id: "1429"
+- id: "110176"
+  author_name: Pierre
+  author_email: pcailliatte@gmail.com
+  author_url: ""
+  published: 2017-03-13T11:44:35Z
+  parent_id: "0"
+  content: |-
+    Bonjour à tous,
+
+    Lorsque je fais un insert avec PDO, j'ai deux ligne en BDD ?!
+
+    Quand je passe par le phpmyadmin, je n'ai pas le soucis...
+
+    Une idée ?
+  post_url: /2015/07/plateforme-lamp-docker-compose/
+  post_id: "1429"
+- id: "112227"
+  author_name: hacene
+  author_email: b.elise995@laposte.net
+  author_url: ""
+  published: 2017-06-02T14:52:02Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    Je suis ingénieur d'étude et développement, 3 ans d’expérience en dev j2ee.
+    J'aimerais savoir si possible quel est le poste que vous occupé  et quelles sont vos tâches.
+    En fait, j'aimerai prendre un poste de revue de code.
+
+    Merci d'avance
+  post_url: /2015/08/check-list-revue-code-et-architecture-java/
+  post_id: "1435"
+- id: "112230"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2017-06-02T18:48:35Z
+  parent_id: "112227"
+  content: |-
+    Bonsoir,
+
+    Je ne sais pas s’il existe un poste de « reviewer de code ». Mais rassurez-vous : les revues peuvent être menées à différents postes : développeur, tech lead, équipe support transverse …  En tant qu'ingénieur d’études Java, vous pouvez proposer de mettre en place sur votre projet des revues de pair ou des revues de code.
+    Pour ma part, j’occupe actuellement un poste de référent technique et les revues occupent au maximum 5% de mon temps.
+
+    Antoine
+  post_url: /2015/08/check-list-revue-code-et-architecture-java/
+  post_id: "1435"
+- id: "100139"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2015-09-16T08:22:40Z
+  parent_id: "98339"
+  content: |-
+    Laurent, comme promis, voici un article faisant à la fois un retour d'expérience de l'utilisation de Dozer, mais comparant également les performances de 5 frameworks de mapping objets : Selma, Dozer, Orika, ModelMapper et MapStruct
+    http://javaetmoi.com/2015/09/benchmark-frameworks-java-mapping-objet/
+  post_url: /2015/08/check-list-revue-code-et-architecture-java/
+  post_id: "1435"
+- id: "98338"
+  author_name: Thomas Renard
+  author_email: threnard@gmail.com
+  author_url: ""
+  published: 2015-08-27T09:25:00Z
+  parent_id: "0"
+  content: |-
+    Salut Antoine,
+    Le monde de l'IT est petit. Je suis tombé par hasard sur cet article et après vérification de la photo et du profil LinkedIn, c'est bien toi ! Petit moment de nostalgie avec une belle aventure partagée sur Target2... Merci pour cet article qui résume de manière pragmatique la revue de code. Je mets dans mes favoris ! Bonne continuation...
+  post_url: /2015/08/check-list-revue-code-et-architecture-java/
+  post_id: "1435"
+- id: "98339"
+  author_name: Laurent R
+  author_email: lrichard.fr@gmail.com
+  author_url: ""
+  published: 2015-08-27T09:26:00Z
+  parent_id: "0"
+  content: |-
+    Merci pour cet article intéressant.
+    Un point m'interpelle : pourquoi proscrire les frameworks de mapping (dozer, orika, ...) ?
+    Nous sommes justement en train de nous interroger sur le sujet et un retour d'expérience nous serait profitable.
+    Concrètement, aujourd'hui, on se retrouve dans une de nos applications avec des POJOs annotés pour hibernate + JAXB + Jackson, ce qui impliquent des contraintes fortes et nous envisagions de séparer les entités dédiées à hibernate de celles dédiées à la sérialisation XML ou JSON avec du mapping entre les 2. On se demande aussi si on ne devrait pas partir systématiquement d'un modèle métier central pour mapper vers ces nouveaux POJOs. Le mapping manuel étant loin d'être la panacée, un framework de mapping nous semblait profitable.
+    C'est pourquoi je suis curieux d'en savoir plus sur les raisons qui pourraient amener à proscrire un tel framework.
+    Si c'est pour des raisons de performance (c'est dans cette rubrique que se trouve cette préconisation) plus que d'architecture, n'existe-t-il pas aujourd'hui de frameworks de mapping qui procurent des performances à la hauteur d'un mapping manuel ? Je n'ai aucune pratique de ces frameworks mais j'ai cru comprendre que les plus récents d'entre eux (selma, modelmapper, ... ?) tentaient de répondre à ces impératifs.
+  post_url: /2015/08/check-list-revue-code-et-architecture-java/
+  post_id: "1435"
+- id: "98419"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2015-08-28T08:22:07Z
+  parent_id: "98338"
+  content: |-
+    Bonjour Thomas, quelle belle surprise. Le monde de l'informatique est décidément petit, même éloigné de Paris ;-)
+    Neuf ans ont passés depuis ce beau projet qu'est Target 2. Cela reste sans doute ma plus belle référence et j’y ai rencontré de très bons développeurs (même si certains font aujourd’hui moins de technique ;-).
+    En tout cas, cela me fait plaisir de te savoir un de mes lecteurs ;-) A bientôt sur ce blog ou ailleurs.
+  post_url: /2015/08/check-list-revue-code-et-architecture-java/
+  post_id: "1435"
+- id: "98644"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2015-08-31T08:40:57Z
+  parent_id: "98339"
+  content: |-
+    Bonjour Laurent,
+    D'une manière générale, j'aurais tendance à éviter le mapping objet / objet. Outre les problèmes de performance évoqués, cette couche de mapping complexifie l'architecture applicative et peut être source de bugs. Faire transiter une entité métier de la couche de persistance aux IHM reste le plus simple.
+    Cela dit, dans certains cas, le mapping se révèle indispensable. Je pense par exemple à l'exposition de web services SOAP versionnés. Dans votre application où vos POJOs portent à la fois des annotations JPA, JAXB et Jackson, votre questionnement est tout à fait légitime. Un tableau pondéré des avantages / inconvénients pourrait vous aider à faire le meilleur choix. Dans un prochain billet, je vais tâcher de retranscrire le notre. A l'époque, nous n'avions étudié ni Selma ni Modelmapper. Mais j'y mettrai le résultat des micro-benchmarks réalisés avec Dozer et Orika.
+    Stay tuned.
+    Antoine
+  post_url: /2015/08/check-list-revue-code-et-architecture-java/
+  post_id: "1435"
+- id: "107833"
+  author_name: Alexandre
+  author_email: Alexandre.petrillo@gmail.com
+  author_url: ""
+  published: 2016-06-15T20:03:44Z
+  parent_id: "0"
+  content: "Bonjour et merci pour ce billet très intéressant. \nIl y un point que j'aimerai ajouter, il s'agit de la compatibilité avec lombok. \nLombok est une librairie utilisée pour générer les getter/setter à la compilation via l'annotation processor. C'est très utile mais cela pose problème si on utilise map struct ou selma. La seule solution de contournement est de déplacer ses entités et ses dtos dans un module maven séparée... \nOrika semble compatible directement avec lombok, c'est je pense un avantage à considérer."
+  post_url: /2015/09/benchmark-frameworks-java-mapping-objet/
+  post_id: "1442"
+- id: "106010"
+  author_name: David DE CARVALHO
+  author_email: e2784726d4a2a3b37f54433addaefec9@example.com
+  author_url: http://twitter.com/dedece35
+  published: 2016-01-21T15:58:38Z
+  parent_id: "0"
+  content: Billet très interessant sur la coparaison des frameworks de factory automatique ! cela confirme mes tests JMH. merci.
+  post_url: /2015/09/benchmark-frameworks-java-mapping-objet/
+  post_id: "1442"
+- id: "109456"
+  author_name: Nicolas Roussel
+  author_email: ni.roussel@gmail.com
+  author_url: https://www.linkedin.com/in/nicolas-roussel-4a721439
+  published: 2017-01-19T14:27:56Z
+  parent_id: "0"
+  content: |-
+    Pour info, en relançant ces benchs aujorud'hui (le 19/01/2017) avec les dernières versions, on remarque que 1 an et demi après les écarts de performances sont les mêmes.
+
+    JMapper qui n'est pas présenté ici mais qui était présent sur le Dépot est juste en dessous de Mapstruct.
+
+    Si on part du principe que ces benchs ont été fait le 16/09/2015, il est intéressant de noter que Dozer est le seul qui n'a pas évolué :
+
+    orika		1.4.6 (May, 2015)		1.5.0 (Dec, 2016)
+    dozer		5.5.1 (Apr, 2014)		idem !!
+    modelmapper	0.7.5 (Sep, 2015)		0.7.7 (Oct, 2016)
+    mapstruct	1.0.0.CR2 (Aug, 2015)		1.1.0.Final (Nov, 2016)
+    selma		0.12 (Apr, 2015)		0.15 (Jul, 2016)
+    jmapper		1.4.2 (Sep, 2015)		1.6.0.1 (Apr, 2016)
+
+    Pour info voici les résultats :
+
+    Benchmark	Score		Error		Units
+    manual		13090067,67	83122,6		ops/s
+    selma		13062938,01	117979,558	ops/s
+    mapStruct	11822100,04	167796,608	ops/s
+    jmapper		10966729,53	115245,214	ops/s
+    orika		2867276,161	23691,535	ops/s
+    modelMapper	203917,852	1816,008	ops/s
+    dozer		65224,54	630,094		ops/s
+  post_url: /2015/09/benchmark-frameworks-java-mapping-objet/
+  post_id: "1442"
+- id: "109457"
+  author_name: Guillaume Darona
+  author_email: guillaume.darona@free.fr
+  author_url: ""
+  published: 2017-01-19T16:41:50Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    Je pense que le test est faussé par le fait qu'Orika génère les classes de mapping au démarrage de l'application. Dans le cadre du benchmark ce processus est appelé à chaque itération d'où les performances médiocre d'Orika. Dans un projet classique c'est phase n'est faite qu'une fois démarrage de l'application.
+
+    Nous utilisons Orika sur mon projet et j'étais plutôt surpris de vos résultats j'ai donc lancé votre projet en debug sur les classes Orika et en effet à chaque itération le context Orika est recréé.
+  post_url: /2015/09/benchmark-frameworks-java-mapping-objet/
+  post_id: "1442"
+- id: "109462"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2017-01-19T18:20:10Z
+  parent_id: "109456"
+  content: 'Merci Nicolas pour ces benchs mis à jour. Le projet GitHub proposait déjà des résultats plus récents : https://github.com/arey/java-object-mapper-benchmark Et JMapper a été ajouté par un contributeur. N''hésite donc pas à soumettre une PR.'
+  post_url: /2015/09/benchmark-frameworks-java-mapping-objet/
+  post_id: "1442"
+- id: "109463"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2017-01-19T18:39:42Z
+  parent_id: "109457"
+  content: |-
+    Bonjour Guillaume,
+    Dans le microbenchmark, le code d'initialisation est réalisé dans le constructeur du test unitaire, à savoir ici OrikaMapper.
+    Je m'attendrais donc à ce que le code de mapping soit généré par Orika une fois pour toute, comme sur une application classique. En effet, le constructeur du TU n'est appelé qu'une seule et unique fois par JMH.
+    Afin de pouvoir investiguer sur un probable problème de codage du benchmark d'Orika, pourrais-tu ouvrir une issue sur le repo https://github.com/arey/java-object-mapper-benchmark et préciser qu'elle est la méthode de génération qui est appelée plusieurs fois (voir systématiquement) ?
+    Merci
+    Antoine
+  post_url: /2015/09/benchmark-frameworks-java-mapping-objet/
+  post_id: "1442"
+- id: "109472"
+  author_name: Guillaume Darona
+  author_email: guillaume.darona@free.fr
+  author_url: ""
+  published: 2017-01-20T14:56:43Z
+  parent_id: "109463"
+  content: |-
+    Bonjour Antoine,
+    J'ai continué un peu dans mes tests et au final Orika génère une fois ces classes pour chaque benchmark donc si on configure 1 warmup 2 itérations, la génération se fera une fois lors du warmup ce qui n'affecte pas les performances donc vu que seul les itérations sont prises en compte pour le calcul.
+    J'ai donc fait mes bench avec 1 warmup et 200 itérations et les résultats laisse quand même Orika loin derrière.
+
+    Guillaume
+  post_url: /2015/09/benchmark-frameworks-java-mapping-objet/
+  post_id: "1442"
+- id: "109766"
+  author_name: TehBakker
+  author_email: will.bakr@gmail.com
+  author_url: https://github.com/TehBakker
+  published: 2017-02-20T00:50:15Z
+  parent_id: "0"
+  content: Dommage que ce ne soit pas très pratique à utiliser avec lombok
+  post_url: /2015/09/benchmark-frameworks-java-mapping-objet/
+  post_id: "1442"
+- id: "103917"
+  author_name: Damien Tacheron
+  author_email: damien@tacheron.fr
+  author_url: https://www.linkedin.com/pub/damien-tacheron/0/397/428
+  published: 2015-10-27T20:21:44Z
+  parent_id: "0"
+  content: |-
+    Salut Antoine,
+
+    ça fait un bail, je passais par là et je suis tombé sur cet article. Une très bonne surprise pour moi, j'en était resté à Dozer et ModelMapper et il est vrai que j'étais un peu ennuyé par le coût lié à l'introspection. Je ne connaissais pas les solutions basées sur la génération de code (Selma et MapStruct donc) et c'est une découverte pour moi, et une bonne surprise. Orika était dans ma todo-list mais en lointaine position ;-)
+
+    En tout cas merci pour cette contribution. Et n'hésites pas à développer ton point de vue sur Bean Validation, mon intuition sur ce point rejoignait ton conseil et pour être honnête comme je n'ai plus trop eu à traiter d'archi JEE depuis quelque temps je n'ai pas approfondi et j'ai la flemme (pas de cas d'usage dans les tuyaux ...).
+
+    a+
+  post_url: /2015/09/benchmark-frameworks-java-mapping-objet/
+  post_id: "1442"
+- id: "100142"
+  author_name: Laurent R
+  author_email: lrichard.fr@gmail.com
+  author_url: ""
+  published: 2015-09-16T09:09:10Z
+  parent_id: "0"
+  content: |-
+    Bonjour Antoine,
+
+    Un énorme merci pour ce benchmark auquel je ne m'attendais pas. Il est d'autant plus instructif que les écarts sont conséquents entre les différentes solutions techniques retenues par ces frameworks.
+    Je vais me ruer sur le code aimablement mis à disposition pour mieux percevoir ce qu'implique la mise en oeuvre de chaque solution.
+    Merci encore pour cette agréable surprise
+  post_url: /2015/09/benchmark-frameworks-java-mapping-objet/
+  post_id: "1442"
+- id: "115668"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: ""
+  published: 2018-04-06T09:36:17Z
+  parent_id: "0"
+  content: |-
+    Les versions 5.4 et 6.0 d'Hibernate Validator requièrent EL 3.0.
+    Il n'est donc pas possible d'utiliser directement Hibernate Validator 6 sur un serveur Java EE 6 embarquant EL 2.2, comme par exemple JBoss 6.4 EAP (cf. https://access.redhat.com/articles/113373).
+    Il est donc nécessaire de repackager Hibernate Validator 6 en s'inspirant de la démarche décrite dans ce billet.
+  post_url: /2015/10/hibernate-validator-5-sur-conteneur-servlet-2-5/
+  post_id: "1462"
+- id: "105028"
+  author_name: François Deléglise
+  author_email: francois.deleglise@gmail.com
+  author_url: http://francois-deleglise.fr
+  published: 2015-11-19T10:01:23Z
+  parent_id: "0"
+  content: Je débute sur Elastic Search, j'ai à peine fait un petit projet perso dessus, mais c'est déjà fascinant ! De voir autant de grands comptes faire des manipulations aussi lourdes, c'est vraiment encourageant pour ES ! Je garde au chaud l'article ! Merci à bientôt.
+  post_url: /2015/11/tout-sur-elastic-on-tour-paris-2015/
+  post_id: "1480"
+- id: "104850"
+  author_name: Cédric Hourdeau
+  author_email: hourdeau@hotmail.com
+  author_url: https://www.linkedin.com/in/c%C3%A9dric-hourdeau-a5997749
+  published: 2015-11-15T08:40:48Z
+  parent_id: "0"
+  content: Merci pour ce compte rendu complet.
+  post_url: /2015/11/tout-sur-elastic-on-tour-paris-2015/
+  post_id: "1480"
+- id: "104804"
+  author_name: Daco
+  author_email: pdacosta@gmail.com
+  author_url: ""
+  published: 2015-11-13T22:08:11Z
+  parent_id: "0"
+  content: "Merci pour ce retour super complet.\nES est vraiment une très bonne solution. \n\nLa version 2 et son écosystème a l'air prometteuse. Reste plus qu'a faire l'upgrade  :)"
+  post_url: /2015/11/tout-sur-elastic-on-tour-paris-2015/
+  post_id: "1480"
+- id: "112271"
+  author_name: JavaHelper
+  author_email: prateek.ashtikar512@yahoo.in
+  author_url: https://github.com/JavaNeed
+  published: 2017-06-05T20:38:18Z
+  parent_id: "0"
+  content: |-
+    Hello,
+
+    Are these questions are real questions of the exam? Or they just useful for making exam preparation?
+
+    Please reply.
+
+    Regards,
+
+    JavaHelper
+
+    &nbsp;
+
+    &nbsp;
+  post_url: /2016/01/spring-core-4-2-certification-mock-exam/
+  post_id: "1508"
+- id: "112273"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2017-06-05T22:36:13Z
+  parent_id: "112271"
+  content: Hi JavaHelper. They aren't real questions. But they are closed to the reals and thus are useful for making exam preparation.
+  post_url: /2016/01/spring-core-4-2-certification-mock-exam/
+  post_id: "1508"
+- id: "114046"
+  author_name: krishna
+  author_email: chithraraghavendran.2822@gmail.com
+  author_url: ""
+  published: 2017-11-08T16:15:49Z
+  parent_id: "0"
+  content: |-
+    Hi
+
+    What is the passing chances if we complete the 200 questions from this purchased mock test?
+  post_url: /2016/01/spring-core-4-2-certification-mock-exam/
+  post_id: "1508"
+- id: "114048"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2017-11-08T18:33:34Z
+  parent_id: "114046"
+  content: Which commercial mock test? This one is free.
+  post_url: /2016/01/spring-core-4-2-certification-mock-exam/
+  post_id: "1508"
+- id: "107123"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2016-04-30T22:30:02Z
+  parent_id: "107119"
+  content: |-
+    Merci Wassim pour cette relecture. Cela me conforte dans le fait que je n’ai pas écrit trop de bêtises. J’ai pris en compte des remarques et mis à jour les premiers liens vers tes slides.
+
+    En ce qui concerne React,  la comparaison est osée car React n’adresse que le V de MV*. Du coup, il est moins structurant et reste plus léger.
+  post_url: /2016/04/angular-2-hands-on-lab-devoxx-france/
+  post_id: "1560"
+- id: "107124"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2016-04-30T22:34:56Z
+  parent_id: "107118"
+  content: |-
+    Youen, ta comparaison avec Play 2 est intéressante. Il y'avait effectivement une rupture avec Play! Framework.
+    Néanmoins, Angular 2 a l'énorme avantage d'être soutenu par Google.
+  post_url: /2016/04/angular-2-hands-on-lab-devoxx-france/
+  post_id: "1560"
+- id: "107118"
+  author_name: Youen
+  author_email: youen.chene@gadz.org
+  author_url: http://www.youenchene.fr
+  published: 2016-04-30T19:20:56Z
+  parent_id: "0"
+  content: |-
+    J'etais au meme lab que toi et j ai eu la meme conclusion.
+
+    j ai eu une impression de play1 versus play2.
+
+    J espere que cela ne sera pas le meme destin.
+  post_url: /2016/04/angular-2-hands-on-lab-devoxx-france/
+  post_id: "1560"
+- id: "107119"
+  author_name: Wassim Chegham
+  author_email: github@wassimchegham.com
+  author_url: https://github.com/manekinekko
+  published: 2016-04-30T21:28:02Z
+  parent_id: "0"
+  content: "Très bien résumé Antoine. Tes retours sur le workshop me sont assez précieux.\n\nVoici quelques remarques:\n\n- C'est bien que tu précise que tu peux dev des appli Angular 2 en ES6, ES5 ou même Dart. Il n'y a pas que TypeSript (même si ca aide). Beaucoup de personnes pensent que Angular 2 === TypeScript.\n\n- Quand tu parle de @Input et @Output, précise bien que c'est @Input() et @Output() (ce sont des fonctions). J'ai constaté par le passé que certains devs oublient les parenthèses. Pareil pour @RouteConfig, @Injectable...\n\n- Dans ton article, tu dis: \"A ce que j’ai cru comprendre, il serait même question de le mettre à disposition d’Angular 1.\" --&gt; c'est déjà le cas, le component router a été back-porté en Angular 1.5 (https://docs.angularjs.org/guide/component-router)\n\n- Pour l'histoire de React, je ne pense pas que cette lib est morte (ou va mourir). Pour moi, il ne devrait pas y avoir comparaison. Les deux ne jouent pas dans la même cour. Même principe, on ne compare pas Polymer et Angular 2. \nMais ce qui est intérssant avec Angular 2, c'est que le framework te permet de mettre en place une archi de type Flux (la même proposé par react!). Il te permet de mettre en place d'autres types d'archi aussi : MVC, MVVM ou MVI. C'est toi qui choisi.\n\nEn tout cas, merci vraiment pour tes retours. Je mettrais à jour mon codelab avec tes remarques pour les prochaines sessions ^^\n\nAu fait, c'est GDE — Google Developer Expert et non pas Evangelist ^^"
+  post_url: /2016/04/angular-2-hands-on-lab-devoxx-france/
+  post_id: "1560"
+- id: "108173"
+  author_name: Francois Marot
+  author_email: 3656be66cf4f05cc5d5d24fd03ecc928@example.com
+  author_url: http://twitter.com/FrancoisMarot
+  published: 2016-08-30T23:20:44Z
+  parent_id: "0"
+  content: Bonjour et merci pour cet article bien intéressant. Est-il possible d'en savoir plus concernant la "limitation du support des pages JSP par Spring Boot" ? Merci d'avance :)
+  post_url: /2016/08/migrer-vers-spring-boot/
+  post_id: "1623"
+- id: "108180"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2016-08-31T18:47:08Z
+  parent_id: "108173"
+  content: "Merci François pour ton commentaire. \nTu trouveras une réponse exhaustive à ta question dans le manuel de référence de Spring Boot : http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html#boot-features-jsp-limitations\nA mon avis, la limitation la plus gênante est celle empêchant d’utiliser des JSP dans un JAR auto-exécutable. A moyen termes, j’espère que cette limitation sautera."
+  post_url: /2016/08/migrer-vers-spring-boot/
+  post_id: "1623"
+- id: "108182"
+  author_name: Francois Marot
+  author_email: 3656be66cf4f05cc5d5d24fd03ecc928@example.com
+  author_url: http://twitter.com/FrancoisMarot
+  published: 2016-08-31T22:07:10Z
+  parent_id: "108180"
+  content: Merci ! Bon heureusement ce n'est pas tres genant. Ouf ;)
+  post_url: /2016/08/migrer-vers-spring-boot/
+  post_id: "1623"
+- id: "112555"
+  author_name: Olivier
+  author_email: pa75@aliceadsl.fr
+  author_url: ""
+  published: 2017-07-03T14:57:33Z
+  parent_id: "0"
+  content: La branche "springboot" n'existe pas/plus sur le projet <a href="https://github.com/spring-projects/spring-petclinic/" rel="nofollow">petclinic</a> :(
+  post_url: /2016/08/migrer-vers-spring-boot/
+  post_id: "1623"
+- id: "112557"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2017-07-03T17:21:07Z
+  parent_id: "112555"
+  content: Depuis fin 2016, la branche springboot a été mergée dans master puis supprimée. Vous pouvez donc vous référer à la branche master/
+  post_url: /2016/08/migrer-vers-spring-boot/
+  post_id: "1623"
+- id: "108331"
+  author_name: Christelle
+  author_email: christelle.marionet@gmail.com
+  author_url: http://livreinformatique.com
+  published: 2016-09-29T09:18:25Z
+  parent_id: "0"
+  content: Très utile, merci pour ce tutoriel
+  post_url: /2016/09/merge-git-et-release-maven/
+  post_id: "1630"
+- id: "117321"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2018-05-31T19:29:58Z
+  parent_id: "0"
+  content: |-
+    Merci François pour ce retour. Pour ma part, j'utilise Python 3.6.0a4 sous Windows 7.
+    J'ai collègue qui utilise <a href="https://github.com/cecom/pomutils" rel="nofollow">pomutils</a> et il en ai également très satisfait.
+  post_url: /2016/09/merge-git-et-release-maven/
+  post_id: "1630"
+- id: "117296"
+  author_name: Francois MAROT
+  author_email: francois.marot@gmail.com
+  author_url: http://fraaargh.wordpress.com/
+  published: 2018-05-30T18:19:09Z
+  parent_id: "0"
+  content: |-
+    Merci pour l'article qui m'a appris des choses :)
+
+    J'ai eu des probleme avec le script python conseillé qui ne semble pas supporter les versions récentes de Python. Alors je viens de commencer à tester la même chose en Java qui semble pour l'instant faire le job: https://github.com/cecom/pomutils
+
+    Voila, c'etait juste pour info. Merci !
+  post_url: /2016/09/merge-git-et-release-maven/
+  post_id: "1630"
+- id: "109375"
+  author_name: satty
+  author_email: satty.rap@gmail.com
+  author_url: ""
+  published: 2017-01-10T03:44:55Z
+  parent_id: "0"
+  content: |-
+    I was trying to run Spring Petclinic AngularJS  version and am getting below error. Can you please let me know why and how to fix this?
+    <blockquote>mvnw spring-boot:run
+    [INFO] Scanning for projects...
+    [WARNING]
+    [WARNING] Some problems were encountered while building the effective model for org.springframework.samples:spring-petclinic-client:jar:1.4.3
+    [WARNING] 'build.plugins.plugin.version' for com.github.eirslett:frontend-maven-plugin is missing. @ org.springframework.samples:spring-petclinic-client:[unknown-version], C:\raps\GitHub\spring-petclinic-angular1\spring-petclinic-client\pom.xml, line 28, column 12
+    [WARNING]
+    [WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+    [WARNING]
+    [WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+    [WARNING]
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Reactor Build Order:
+    [INFO]
+    [INFO] Spring Petclinic :: Parent POM
+    [INFO] Spring Petclinic :: AngularJS Client
+    [INFO] Spring Petclinic :: Spring MVC REST server
+    [INFO]
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Building Spring Petclinic :: Parent POM 1.4.3
+    [INFO] ------------------------------------------------------------------------
+    [INFO]
+    [INFO] &gt;&gt;&gt; spring-boot-maven-plugin:1.4.3.RELEASE:run (default-cli) &gt; test-compile @ spring-petclinic-angular1 &gt;&gt;&gt;
+    [INFO]
+    [INFO] &lt;&lt;&lt; spring-boot-maven-plugin:1.4.3.RELEASE:run (default-cli) &lt; test-compile @ spring-petclinic-angular1 &lt;&lt;&lt;
+    [INFO]
+    [INFO] --- spring-boot-maven-plugin:1.4.3.RELEASE:run (default-cli) @ spring-petclinic-angular1 ---
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Reactor Summary:
+    [INFO]
+    [INFO] Spring Petclinic :: Parent POM ..................... FAILURE [ 0.813 s]
+    [INFO] Spring Petclinic :: AngularJS Client ............... SKIPPED
+    [INFO] Spring Petclinic :: Spring MVC REST server ......... SKIPPED
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD FAILURE
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 1.489 s
+    [INFO] Finished at: 2017-01-10T08:09:40+05:30
+    [INFO] Final Memory: 16M/245M
+    [INFO] ------------------------------------------------------------------------
+    [ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:1.4.3.RELEASE:run (default-cli) on project spring-petclinic-angular1: Unable to find a suitable main class, please add a 'mainClass' property -&gt; [Help 1]
+    [ERROR]
+    [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+    [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+    [ERROR]
+    [ERROR] For more information about the errors and possible solutions, please read the following articles:
+    [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException</blockquote>
+    &nbsp;
+
+    Thanks in advance
+
+    &nbsp;
+  post_url: /2016/12/les-forks-de-spring-petclinic/
+  post_id: "1657"
+- id: "109380"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2017-01-10T08:06:00Z
+  parent_id: "109375"
+  content: |-
+    Hi Satty.
+    Sure I can help you. As mention in the readme.md, launching the Spring Petclinic AngularJS version requires 2 maven command lines:
+    <code>
+    ./mvnw clean install  => this will build your missing spring-petclinic-client:jar:1.4.3
+    cd spring-petclinic-server
+    ../mvnw spring-boot:run
+    </code>
+    For more problems, please use GitHub issues: https://github.com/spring-petclinic/spring-petclinic-angular1/issues
+  post_url: /2016/12/les-forks-de-spring-petclinic/
+  post_id: "1657"
+- id: "110039"
+  author_name: David Brooks
+  author_email: davidmayercert@gmail.com
+  author_url: http://ww.springmockexams.com
+  published: 2017-03-10T06:25:59Z
+  parent_id: "0"
+  content: |-
+    Hi,
+    I am David Brook at www.springmockexams.com and www.javamockexams.com.
+    Thank you very much for your post, I am going to share it on my social media.
+    In the meantime we upgraded our Spring Core Certification Simulator to version 4.2 and we released our Java8-1Z0-809 simulator.
+    Check it out at www.springmockexams.com and www.javamockexams.com
+    Thanks
+    David
+  post_url: /2017/02/spring-framework-petclinic-presentation/
+  post_id: "1672"
+- id: "112065"
+  author_name: Rémi Alvergnat
+  author_email: toilal.dev@gmail.com
+  author_url: https://github.com/Toilal
+  published: 2017-05-19T11:20:36Z
+  parent_id: "0"
+  content: |-
+    Je viens justement de coder a peu près la même chose avec Vue et Symfony. Vue 2.x est vraiment un excellent framework, je suis bluffé chaque jour et de plus en plus adepte. Pour ma part j'y ajoute TypeScript et quelques librairies comme <a href="https://github.com/vuejs/vue-class-component" rel="nofollow">vue-class-component</a> et <a href="https://github.com/kaorun343/vue-property-decorator" rel="nofollow">vue-property-decorator</a>, et c'est juste une merveille de lisibilité et de stabilité.
+
+    Je suis aussi allé plus loin sur mon projet : Le formulaire n'est pas décrit par une configuration JSON, mais est fournie par une méthode de l'API REST qui fait de l'introspection sur les entités ORM (Doctrine dans mon cas, mais on peut très bien faire la même chose avec Hibernate/JPA).
+
+    Par exemple, si un champs de la base de donnée est marqué "nullable=false", la règle "required" est automatiquement ajoutée. Ca gère aussi les relations entre les entités, en affichant une liste de  choix pour les champs qui correspondent à une collection d'une autre entité. J'ai ajouté quelques annotations spécifiques comme @Label, @Description, @Validation, pour personnaliser des informations qui ne peuvent pas être prises directement du modèle de l'ORM.
+
+    A noter que vee-validate est en pleine transformation en ce moment et qu'il ne faut pas hésiter à utiliser la version master du github. Certaines fonctionnalités ne sont pas encore documentées et il faut fouiller les issues github pour trouver son bonheur ...
+  post_url: /2017/05/formulaire-dynamique-en-vue-js/
+  post_id: "1726"
+- id: "112066"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2017-05-19T12:30:02Z
+  parent_id: "112065"
+  content: |-
+    Merci Rémi pour ton retour d'expérience qui va effectivement plus loin.
+
+    Lorsque le back est codé en Java, la génération des règles de validation peut-être réalisées à partir des annotations Bean Validation / Hibernate Validation apposées sur les entités métiers (@NotEmpty, @Email, @Size ...). Cette idée rejoint ce que je proposais dans un précédent article : http://javaetmoi.com/2014/09/validation-html-5-avec-spring-mvc-et-bean-validation/
+  post_url: /2017/05/formulaire-dynamique-en-vue-js/
+  post_id: "1726"
+- id: "114031"
+  author_name: Nizar AOUISSAOUI
+  author_email: aouissaoui.nizar@gmail.com
+  author_url: ""
+  published: 2017-11-07T07:52:59Z
+  parent_id: "0"
+  content: |-
+    A noté aussi qu’il est possible de créer des applications native (windows, linux, mac) sous vuejs grâce à electron :
+
+    https://simulatedgreg.gitbooks.io/electron-vue/content/en/
+  post_url: /2017/05/formulaire-dynamique-en-vue-js/
+  post_id: "1726"
+- id: "113811"
+  author_name: Alexandre Dembour
+  author_email: adembour@editx.eu
+  author_url: http://www.editx.eu
+  published: 2017-10-19T15:42:55Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    Accepteriez vous de diffuser le challenge Java France 2017 sur votre site?
+    https://editx.eu/it-challenge/java-code-challenge-france
+
+    Bien à vous,
+    Alexandre
+  post_url: /2017/09/algo-java-kruskal-recherche-arbre-couvrant-poids-minium/
+  post_id: "1759"
+- id: "113812"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2017-10-19T16:25:53Z
+  parent_id: "113811"
+  content: Bonjour Alexandre, j'ai ajouté une image et un lien sur le bandeau latéral droit de mon blog.
+  post_url: /2017/09/algo-java-kruskal-recherche-arbre-couvrant-poids-minium/
+  post_id: "1759"
+- id: "153079"
+  author_name: Mahamat
+  author_email: mahamatousmanyoussouf@mail.com
+  author_url: ""
+  published: 2023-10-17T23:30:00Z
+  parent_id: "113812"
+  content: J'aimerai bien ainsi
+  post_url: /2017/09/algo-java-kruskal-recherche-arbre-couvrant-poids-minium/
+  post_id: "1759"
+- id: "115869"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2018-04-23T09:06:52Z
+  parent_id: "115868"
+  content: Merci Alexander pour ta relecture. J'intègre tes précieux retours dans la journée :-)
+  post_url: /2018/04/lab-initiation-apache-cassandra/
+  post_id: "1820"
+- id: "115868"
+  author_name: Alexander
+  author_email: adejanovski@gmail.com
+  author_url: ""
+  published: 2018-04-23T08:48:56Z
+  parent_id: "0"
+  content: |-
+    Bonjour Antoine,
+
+    voici un retour trèèèèèès détaillé du lab, c'est impressionnant :)
+    Quelques corrections à apporter :
+
+    Dans la partie sur les restrictions de la clause where, on peut requêter sur "id_flux, start_time et id_etape". Ce qu'on ne peut pas faire c'est requêter sur "id_flux et start_time" car il manquerait la clause sur "id_etape" qui est avant "start_time" dans la PK. L'ordre à proprement parler dans la clause WHERE n'a pas d'importance par contre, donc inverser "id_etape" et "start_time" par rapport à leur ordre dans la clé de clustering n'aura aucune incidence.
+
+    La taille max de partition à respecter est 100 Mo, pas 100 Go :) A 100 Go on est déjà dans de sacrés ennuis...
+
+    Un TTL de 3 mois correspond à ~7776000 au lieu de 86400 (1 jour).
+
+    Dans la partie 2 du lab, on fait toujours des suppressions (pas le choix) mais on limite la durée de vie des partitions en utilisant un bucketing temporel (à la minute). Du coup on aura moins de tombstone par partition/lecture.
+    Pour le problème de concurrence d'accès, ce sont les LightWeights Transaction effectuée sur le champ processed_by qui vont nous permettre de "locker" les enregistrements.
+  post_url: /2018/04/lab-initiation-apache-cassandra/
+  post_id: "1820"
+- id: "118296"
+  author_name: Monabel
+  author_email: messagerie.elmalki@gmail.com
+  author_url: ""
+  published: 2018-07-20T11:42:58Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    J'ai des requêtes à traiter avec des OR... Quelle solution utilisez vous pour contourner cela?
+
+    Passage par Spark,
+
+    Gestion par la couche applicative
+
+    Ou autre alternative?
+  post_url: /2018/04/lab-initiation-apache-cassandra/
+  post_id: "1820"
+- id: "118571"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2018-08-14T12:07:52Z
+  parent_id: "118296"
+  content: |-
+    Bonjour Monabel, un OR entre 2 ou plusieurs valeurs peut être résolu en CQL avec un IN https://docs.datastax.com/en/cql/3.3/cql/cql_using/useQueryIN.html
+    Pour des cas plus compliqués, peut-être passer par 2 requêtes ? Je ne connais pas suffisamment Cassandra pour vous répondre.
+    J'espère qu'un internaute pourra vous apporter une réponse.
+    Antoine
+  post_url: /2018/04/lab-initiation-apache-cassandra/
+  post_id: "1820"
+- id: "116564"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2018-05-03T19:01:49Z
+  parent_id: "116505"
+  content: Très bonne remarque. Je viens de retirer ce doublon, et par la même occasion changer le titre :-) Merci
+  post_url: /2018/04/15-prises-de-notes-a-devoxx-france-2018/
+  post_id: "1826"
+- id: "116505"
+  author_name: LeBezout
+  author_email: 1913fb13112c4b167c28bc8b2751145b@example.com
+  author_url: http://twitter.com/LeBezout
+  published: 2018-05-02T10:09:11Z
+  parent_id: "0"
+  content: |-
+    Salut, merci pour le partage.
+
+    Tu as mis "Java dans Docker" en double ;)
+  post_url: /2018/04/15-prises-de-notes-a-devoxx-france-2018/
+  post_id: "1826"
+- id: "116294"
+  author_name: Ahmed
+  author_email: ahmed.yehdih@gmail.com
+  author_url: ""
+  published: 2018-04-29T00:17:38Z
+  parent_id: "0"
+  content: Merci
+  post_url: /2018/04/15-prises-de-notes-a-devoxx-france-2018/
+  post_id: "1826"
+- id: "119108"
+  author_name: Maxime Francoeur
+  author_email: max3f3@gmail.com
+  author_url: ""
+  published: 2018-10-11T19:22:04Z
+  parent_id: "0"
+  content: Merci du partage
+  post_url: /2018/04/15-prises-de-notes-a-devoxx-france-2018/
+  post_id: "1826"
+- id: "123553"
+  author_name: tajjini
+  author_email: xmen-5@hotmail.fr
+  author_url: ""
+  published: 2019-04-04T23:26:04Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    je te remercie pour ce blog.
+
+    Ce lâ fait 3 mois que j'apprends Spring, j'ai déja appris en détails Spring (Ioc, AOP, MVC, JDBC). actuellement j'apprends Hibernate et Spring Cloud. Le problème que j'ai trouvé, est la masse de technologies qui existent. Si on prends par exemple la couche persistance de données on trouve Spring-Jdbc, Spring-data, JPA, Hibernate..., et je me sens confondu, je trouve des diffucultés pour apprendre toutes ces technologies.
+
+    pourriez vous me citer les choses que je dois donner une plus grande priorité. Par exemple pour la couche de persistence? pour ce qui Spring cloud?
+
+    J'ai 4 mois pour me preparer encore pour des entretiens pour un poste de développeur Java(Spring).
+
+    &nbsp;
+
+    Merci
+  post_url: /2018/10/architecture-microservices-avec-spring-cloud/
+  post_id: "1869"
+- id: "123636"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2019-04-09T15:40:38Z
+  parent_id: "123553"
+  content: |-
+    Bonjour Tajjini,
+
+    Il m'est difficile de vous conseiller d'apprendre telle technologie de persistance plutôt qu'une autre. Tout dépend de l'entreprise dans laquelle vous allez travailler et de ses choix techniques. Du fait du peu de développeurs expérimentés en ORM sur le marché (Hibernate, Spring Data JPA), certaines entreprises sont retournées à du JDBC (avec Spring JDBC Template dans le monde Spring, Spring Data JDBC étant très récent). Dans le monde des ORM, Hibernate domine. Mais vous pouvez très bien être amené à travailler sur une base NoSQL (Cassandra, MongoDB). Si tel est le cas, Hibernate et JDBC ne vous serviront pas.
+    Si vous avez le choix de la stack technique pour une application de gestion adossée à une base relationnelle, Spring Data JPA est un must have. L'application officielle Spring Petclinic s'appuie notamment dessus : https://github.com/spring-projects/spring-petclinic
+
+    Pour ce qui est de Spring Cloud, il me semble que connaître Spring Boot est une pré-requis. Ensuite, je vous recommanderai de comprendre comment fonctionne la gestion de configuration avec Spring Cloud Config et la découverte des services avec @EnableDiscoveryClient et Eureka ou Consul.
+
+    Bon courage à vous dans votre apprentissage.
+
+    Antoine
+  post_url: /2018/10/architecture-microservices-avec-spring-cloud/
+  post_id: "1869"
+- id: "133511"
+  author_name: Farid BADIS
+  author_email: faridbadis@yahoo.fr
+  author_url: ""
+  published: 2020-07-06T17:49:25Z
+  parent_id: "0"
+  content: "Bonjour,\n\nBravo pour ce Tuto \nGrand merci pour votre effort de rédaction."
+  post_url: /2018/10/architecture-microservices-avec-spring-cloud/
+  post_id: "1869"
+- id: "137312"
+  author_name: Santos
+  author_email: andreibaptista05@gmail.com
+  author_url: ""
+  published: 2021-01-05T03:19:50Z
+  parent_id: "0"
+  content: |-
+    Salut,
+
+    Je voudrais savoir s'il est possible de mettre à jour un service tel que le service client, et de le déployer sans nécessairement construire l'ensemble du projet et effectuer à nouveau le menu de composition.
+  post_url: /2018/10/architecture-microservices-avec-spring-cloud/
+  post_id: "1869"
+- id: "137319"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2021-01-05T11:14:29Z
+  parent_id: "137312"
+  content: "Bonjour Santos, \nPar simplicité, les différents services de l'application démo https://github.com/spring-petclinic/spring-petclinic-microservices sont hébergés dans un même repo git. Leurs modules Maven ont le même cycle de vie. Dans une architecture d'Entreprise, chaque microservice aurait son propre repo et son propre cycle de vie.\nPour autant, tu peux rebuilder un microservice (jar + image Docker) en allant dans le sous-répertoire correspondant. Le fichier docker-compose.yml référence la version latest donc devrait la prendre en compte.\nJ'espère avoir répondu à ta question.\nAntoine"
+  post_url: /2018/10/architecture-microservices-avec-spring-cloud/
+  post_id: "1869"
+- id: "137427"
+  author_name: Kaya
+  author_email: dogushankaya.itu@gmail.com
+  author_url: ""
+  published: 2021-01-09T18:45:00Z
+  parent_id: "0"
+  content: |-
+    Hi,
+
+    Firstly, thank you for this great tutorial. you said that " In an Enterprise architecture, each microservice would have its own repo and its own lifecycle."  If i want to write one microservice with spring and another service with flask, then this api gateways and discovery servers does not work for my flask service. In this type of service which api gateways and service discovery tools should  i use?
+  post_url: /2018/10/architecture-microservices-avec-spring-cloud/
+  post_id: "1869"
+- id: "137446"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2021-01-10T11:41:10Z
+  parent_id: "137427"
+  content: |-
+    Hi Kaya,
+    You could use this eureka client written in python https://pypi.org/project/py-eureka-client/ to easily integrate your python microservices with the Spring Cloud stack.
+    The Spring Cloud Gateway could forward your HTTP requests to your Flask application (and any web application).
+    Regards
+    Antoine
+  post_url: /2018/10/architecture-microservices-avec-spring-cloud/
+  post_id: "1869"
+- id: "137449"
+  author_name: Kaya
+  author_email: dogushankaya.itu@gmail.com
+  author_url: ""
+  published: 2021-01-10T13:52:43Z
+  parent_id: "137446"
+  content: "Thank you for quick answer Antoine. Simply, i will create an eureka server with spring cloud , then i am going to implement eureka clients in different languages like python, go , dotnet etc. Is this a right pattern ? Can eureka manages this types of architecture? \n\nBest regards.\nKaya"
+  post_url: /2018/10/architecture-microservices-avec-spring-cloud/
+  post_id: "1869"
+- id: "137450"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2021-01-10T17:12:46Z
+  parent_id: "137449"
+  content: |-
+    The Eureka Server is implemented in Java. But it exists a lot of implementations of Eureka client.
+    See those resources for Donet : https://altkomsoftware.pl/en/blog/service-discovery-eureka/ or GO : https://pkg.go.dev/github.com/ArthurHlt/go-eureka-client#readme-go-eureka-client
+    An alternative could be to use HashiCorp Consul https://www.consul.io/ I never tested it.
+  post_url: /2018/10/architecture-microservices-avec-spring-cloud/
+  post_id: "1869"
+- id: "141422"
+  author_name: Nuanda
+  author_email: nuandafr@hotmail.com
+  author_url: ""
+  published: 2021-11-09T01:19:09Z
+  parent_id: "0"
+  content: |-
+    Bonjour,
+
+    Merci pour ce billet !
+
+    J'ai une petite question, si un service devient indisponible comment fait-on pour qu'il ne soit plus enregistrer au prêt du dicovery server et que par conséquent le loadbalancer ne redirige plus les requêtes vers lui ?
+    Peut être à partir d'un circuit breaker, mais il me avoir compris qu'il permettait surtout de rediriger les appels trop long et éventuellement d'éviter de les rappeler pendant un certain temps (mais j'ai peut être pas tout saisie encore).
+  post_url: /2018/10/architecture-microservices-avec-spring-cloud/
+  post_id: "1869"
+- id: "141428"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: https://www.javaetmoi.com
+  published: 2021-11-09T21:59:08Z
+  parent_id: "141422"
+  content: |-
+    Bonjour Nuanda,
+
+    Merci pour ton retour. Cet article mériterait d'être révisé car depuis 3 ans, l'eco-système Spring Cloud a pas mal évolué. Je vais y réfléchir.
+
+    Pour répondre à ta question, de mémoire, à son démarrage, un service s'enregistre auprès du Discovery Server et récupère l'annuaire des autres services qu'il met en cache. L'IHM d'Eureka permet de consulter la liste des services enregistrés.
+    Les services envoient régulièrement un hearthbeat au Discovery Server.
+    Lorsque le service s'arrête proprement, il se désenregistre du Discovery Server. Lors d'un arrêt brutal du service, le Discovery Server ne reçoit plus de heartbeat et en conclue que le service est tombé.
+    En parallèle, un service rafraichit régulièrement son cache de services en interrogeant le Discovery Server.
+
+    Annoté avec @LoadBalanced, le RestTemplate route les appels vers les services connus. Lorsque plusieurs instances du même service existent, il peut répartir la charge. En cas d'indisponibilité du service avant que le Discovery Server ne le prévienne, je suppose qu'il le retire provisoirement de son cache ? Ce point serait à vérifier.
+  post_url: /2018/10/architecture-microservices-avec-spring-cloud/
+  post_id: "1869"
+- id: "122430"
+  author_name: ⓥⓘⓝⓒⓔ⑨ⓟⓐⓡⓐ
+  author_email: vdupain@gmail.com
+  author_url: https://github.com/vdupain
+  published: 2019-02-11T21:17:41Z
+  parent_id: "0"
+  content: La bonne époque les années 90!! Et l’assembleur que de souvenirs
+  post_url: /2019/02/black-hell-mon-premier-jeu-video/
+  post_id: "1906"
+- id: "133796"
+  author_name: Gudbes
+  author_email: gudbes@protonmail.com
+  author_url: ""
+  published: 2020-07-17T19:38:51Z
+  parent_id: "0"
+  content: Merci pour ce partage !
+  post_url: /2020/02/certification-microsoft-azure-fondamentals/
+  post_id: "2080"
+- id: "135482"
+  author_name: Alex
+  author_email: alex.gachon@gmail.com
+  author_url: ""
+  published: 2020-10-07T09:55:48Z
+  parent_id: "0"
+  content: Bravo, c'est un super résumé bien utile.
+  post_url: /2020/02/certification-microsoft-azure-fondamentals/
+  post_id: "2080"
+- id: "138270"
+  author_name: Musclor51
+  author_email: maxime@outlook.fr
+  author_url: ""
+  published: 2021-02-19T09:43:32Z
+  parent_id: "0"
+  content: Merci beaucoup pour ces notes. Elles m'ont été très utiles !
+  post_url: /2020/02/certification-microsoft-azure-fondamentals/
+  post_id: "2080"
+- id: "148224"
+  author_name: david
+  author_email: david.laumon@free.fr
+  author_url: ""
+  published: 2022-12-08T15:29:55Z
+  parent_id: "0"
+  content: "bonjour, \n\nj'ai une petite question dans la demande du token on a \"instance_url\", \n\nexemple de réponse la demande d'accès\n\n{\n    \"access_token\": \"xxxxx\",\n    \"instance_url\": \"https://toto.salesforce.com\",\n    \"id\": \"https://login.salesforce.com/id/xxxxxx\",\n    \"token_type\": \"Bearer\",\n    \"issued_at\": \"xxxx\",\n    \"signature\": \"xxxx\"\n}\n\nnous sommes supposés prendre cet `instance_url` pour construire l'URL de base pour builder le webClient.\n\nreturn WebClient.builder()\n                .baseUrl(env.getProperty(\"myapp.salesforce.base-path\")) &lt;-- &quot;instance_url&quot;\n                .apply(oauth2Client.oauth2Configuration())\n                .build();\n\nComment fait-on ?"
+  post_url: /2021/11/configuration-spring-security-dun-client-de-lapi-rest-salesforce-securisee-avec-oauth-2-0/
+  post_id: "2138"
+- id: "148228"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: https://www.javaetmoi.com
+  published: 2022-12-08T18:42:52Z
+  parent_id: "148224"
+  content: |-
+    Bonjour David,
+
+    Je n'ai pas eu ce besoin. Je crois me souvenir que l'URL d'appel avait été externalité dans un serveur de conf.
+    Le classe OAuth2AccessToken de Spring Security ne contient pas de propriétés additionnelles autre que celles de la spécs OAuth 2. Je ne suis donc pas certain qu'il soit possible de récupérer l'instance_url.
+    A moins peut-être de pouvoir accéder à la classe OAuth2AccessTokenResponse et à ses additionalParameters ?
+    Si tu trouves une solution, je serai ravi de la connaitre.
+    Bon courage
+
+    Antoine
+  post_url: /2021/11/configuration-spring-security-dun-client-de-lapi-rest-salesforce-securisee-avec-oauth-2-0/
+  post_id: "2138"
+- id: "145308"
+  author_name: LE BARON
+  author_email: lebaronjerome@free.fr
+  author_url: ""
+  published: 2022-07-12T14:15:48Z
+  parent_id: "0"
+  content: Article intéressant, on peut faire pas mal de choses en effet. Et si on peut étendre tout ça c'est d'autant plus utile. J'ai regardé un tallk Devoxx https://www.youtube.com/watch?v=CXaLEyckqu8 qui présente aussi une solution intéressante pour de la génération de projet "en masse". J'ai quand même l'impression que la solution est plus couteuse à mettre en oeuvre que ce que tu présentes ici.
+  post_url: /2022/07/generateur-de-squelette-dapplication-base-sur-spring-initializr/
+  post_id: "2217"
+- id: "145345"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: https://www.javaetmoi.com
+  published: 2022-07-14T12:13:03Z
+  parent_id: "145308"
+  content: 'Merci Jérôme pour ton retour. Je suis passé à côté de cette conférence sur Telosys lors de Devoxx France 2022. A ce que j''en ai vu, ils vont beaucoup plus loin avec toute une architecture DDD et un DSL maison pour modéliser ses entités. Ca me rappelle AndroMDA : http://www.andromda.org/ sans le côté usine à gaz des templates.'
+  post_url: /2022/07/generateur-de-squelette-dapplication-base-sur-spring-initializr/
+  post_id: "2217"
+- id: "158195"
+  author_name: Resumis
+  author_email: galley.meng@gmail.com
+  author_url: https://resumis.com
+  published: 2024-06-03T12:54:03Z
+  parent_id: "0"
+  content: Very good presentation for Java promgramming
+  post_url: /2024/04/larchitecture-hexagonale-par-la-pratique/
+  post_id: "2317"
+- id: "194079"
+  author_name: rattan homels
+  author_email: support@mermaidviewer.com
+  author_url: https://mermaidviewer.com/
+  published: 2025-10-29T09:29:18Z
+  parent_id: "0"
+  content: Cette conférence est une vraie pépite ! Le sujet de la doc est si souvent négligé, mais l'approche avec arc42 et les outils comme Mermaid semble vraiment changer la donne. J'ai particulièrement aimé l'idée de docs-as-code. Ça donne envie de se lancer sérieusement dans un tutoriel de diagramme Mermaid pour améliorer notre documentation d'équipe. Le projet fictif des JO rendait l'explication très concrète. Vraiment inspirant comme talk !
+  post_url: /2024/04/la-doc-va-bien-ne-ten-fais-pas/
+  post_id: "2335"
+- id: "195158"
+  author_name: Notes hebdomadaires N°48 Semaines du 28 octobre 2025 au 17 novembre 2025 &#8211; YunoBlog
+  author_email: ""
+  author_url: https://alteractu.korrigan.link/2025/11/17/notes-hebdomadaires-n48-semaines-du-28-octobre-2025-au-17-novembre-2025/
+  published: 2025-11-17T09:21:52Z
+  parent_id: "0"
+  content: '[&#8230;] Lifehacking Révolutionnez votre prise de notes : du Bullet Journal à Obsidian [&#8230;]'
+  post_url: /2025/10/revolutionnez-votre-prise-de-notes-du-bullet-journal-a-obsidian/
+  post_id: "2612"
+- id: "198251"
+  author_name: Guillaume
+  author_email: bonjour@guillaumerenaud.fr
+  author_url: https://guillaumerenaud.fr
+  published: 2026-03-15T04:03:20Z
+  parent_id: "0"
+  content: |-
+    Merci pour le partage et cet excellent article.
+    J'utilise le format.MD depuis plus de 10 ans que cela soit avec l'utilisation de Nextcloud Notes ou même directement sur papier.
+
+    J'ai basculé mes +450 notes sur Obsidian récemment et c'est vraiment impressionnant. La seule frustration vient du fait d'abandonner un peu plus le stylo/papier. Mais force est de constater qu'un CTRL + F est vraiment efficace quand on compil des savoirs sur tout et rien en plus.
+  post_url: /2025/10/revolutionnez-votre-prise-de-notes-du-bullet-journal-a-obsidian/
+  post_id: "2612"
+- id: "2"
+  author_name: Chris
+  author_email: angelmacbeal@yahoo.fr
+  author_url: ""
+  published: 2012-02-26T22:05:28Z
+  parent_id: "0"
+  content: Un site bien fait avec de précieuses informations, un partage de ressources, bravo !!!
+  post_url: /about/
+  post_id: "2"
+- id: "255"
+  author_name: Krzysytof
+  author_email: kbielski@gmail.com
+  author_url: ""
+  published: 2012-10-17T18:47:37Z
+  parent_id: "0"
+  content: |-
+    hi,
+
+    could you give me your email? I have a question about the Spring certification.
+
+    regards,
+    Krzysztof
+  post_url: /about/
+  post_id: "2"
+- id: "17877"
+  author_name: Pierpaolo
+  author_email: ppagno@gmail.com
+  author_url: ""
+  published: 2014-04-01T11:41:23Z
+  parent_id: "0"
+  content: |-
+    Hi,
+
+    like Krzysytof, I'd ask you an information about Spring certification, in particular about mock exam. Could u contact me?
+
+    Ciao
+
+    Pierpaolo
+  post_url: /about/
+  post_id: "2"
+- id: "108143"
+  author_name: Augustin
+  author_email: adelale@hotmail.com
+  author_url: http://www.gus06.com
+  published: 2016-08-25T22:37:43Z
+  parent_id: "0"
+  content: |-
+    Salut !
+
+    Tout d'abord, je voulais te remercier pour ton blog, je me suis mis récemment à Spring MVC dans le cadre de mon travail et j'ai trouvé plein d'infos utiles dans ton blog.
+
+    Comme toi, je suis un passionné de Java, que je connais depuis longtemps aussi. A mes heures perdues, je développe des applications Java, dont notamment un moteur de scripts. Si ça te dis d'échanger sur la programmation Java, n'hésite pas à prendre contact avec moi !
+
+    Juste pour info, voici une petite présentation que j'ai mise en ligne sur Youtube, qui te donnera un aperçu de ce que je développe : https://www.youtube.com/watch?v=s7gRVDXosp4
+
+    Restant à ta disposition.
+    Cordialement,
+
+    Augustin
+  post_url: /about/
+  post_id: "2"
+- id: "108296"
+  author_name: Mehdi D
+  author_email: decatrianon@gmail.com
+  author_url: ""
+  published: 2016-09-21T11:37:23Z
+  parent_id: "0"
+  content: Enorme site Antoine!
+  post_url: /about/
+  post_id: "2"
+- id: "115533"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2018-03-26T18:39:25Z
+  parent_id: "115408"
+  content: Je vous remercie pour votre retour. Bien qu'ayant personnalisé Spring Batch Admin sur 2 projets professionnels différents, je n'ai pas pris le temps de recoder un exemple plus concret. J'en suis désolé. Mais je tiendrais compte de vote remarque pour mes prochains billets.
+  post_url: /about/
+  post_id: "2"
+- id: "115408"
+  author_name: zoheir
+  author_email: boutalebzoher.dz@gmail.com
+  author_url: ""
+  published: 2018-03-14T07:27:39Z
+  parent_id: "0"
+  content: |-
+    bonjour,
+    j'ai vraiment aimé et lu avec passion ce billet sur spring batch admin et la possibilité de le customiser, ce qui manque vraiment c'est un exemple de code qui permet au personnes débutant dans ce domaine de comprendre très rapidement.
+
+    Franchement Bravo
+  post_url: /about/
+  post_id: "2"
+- id: "118435"
+  author_name: François-Xavier Robin
+  author_email: fxrobin@gmail.com
+  author_url: https://www.fxjavadevblog.fr
+  published: 2018-08-04T18:03:50Z
+  parent_id: "0"
+  content: |-
+    Encore un démarrage grâce au MO5. Cela ressemble à mon <a href="https://www.fxjavadevblog.fr/about" rel="nofollow">parcours.</a>
+
+    Super blog. D'ailleurs Baeldung semble avoir un peu pris l'inspiration sur l'article concernant le test des frameworks de mapping d'objets.
+
+    Cordialement
+
+    FX
+  post_url: /about/
+  post_id: "2"
+- id: "118572"
+  author_name: Antoine
+  author_email: antoine.rey@free.fr
+  author_url: http://www.javaetmoi.com
+  published: 2018-08-14T12:20:18Z
+  parent_id: "118435"
+  content: 'Merci François-Xavier pour tes encouragements. Je me suis fait la même remarque en tombant sur l''article de Baeldung : https://www.baeldung.com/java-performance-mapping-frameworks Ce n''est pas plus mal : il y''a enfin un article en anglais qui couvre ce sujet :-)'
+  post_url: /about/
+  post_id: "2"
+- id: "194367"
+  author_name: Ludo
+  author_email: ltoinel@free.fr
+  author_url: https://www.geeek.org
+  published: 2025-11-03T22:34:39Z
+  parent_id: "0"
+  content: "Le monde est petit, salut FX. \nEt Antoine, on a du probablement croisé sur les mêmes confs : Devfest, Devoxx ..."
+  post_url: /about/
+  post_id: "2"

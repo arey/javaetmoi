@@ -1,0 +1,54 @@
+baseURL: https://javaetmoi.com
+languageCode: fr-FR
+title: Java & Moi
+theme: PaperMod
+taxonomies:
+  category: categories
+  tag: tags
+params:
+  description: Développeur Java, Spring & co, et fier de l'être
+  defaultTheme: auto
+  disableThemeToggle: true
+  showShareButtons: true
+  showReadingTime: true
+  showToc: false
+  showBreadCrumbs: true
+  showCodeCopyButtons: true
+  comments: true
+  hideFooter: true
+  assets:
+    favicon: /favicon.ico
+    disableHLJS: true
+  author:
+    name: admin
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    style: monokai
+  goldmark:
+    renderer:
+      unsafe: true
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+outputFormats:
+  RSS:
+    mediaType: application/rss+xml
+    baseName: feed
+menu:
+  main:
+    - name: Accueil
+      url: /
+      weight: 1
+    - name: Spring
+      url: /spring/
+      weight: 2
+    - name: A Propos
+      url: /about/
+      weight: 3
+    - name: "\U0001F50D"
+      url: /search/
+      weight: 4
