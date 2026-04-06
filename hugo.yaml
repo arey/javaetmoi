@@ -40,15 +40,19 @@ outputFormats:
     baseName: feed
 menu:
   main:
-    - name: Accueil
+    - identifier: nav-accueil
+      name: Accueil
       url: /
       weight: 1
-    - name: Spring
+    - identifier: nav-spring
+      name: Spring
       url: /spring/
       weight: 2
-    - name: A Propos
+    - identifier: nav-about
+      name: A Propos
       url: /about/
       weight: 3
-    - name: "\U0001F50D"
+    - identifier: search
+      name: "\U0001F50D"
       url: /search/
       weight: 4
