@@ -9,15 +9,15 @@ parent_post_id: null
 post_id: "187"
 post_views_count: "10595"
 summary: |-
-  Lorsque vous mettez en œuvre **[Spring Batch](http://static.springsource.org/spring-batch/ "Page d'accueil du projet Spring Batch")** pour réaliser des traitements par lots, vous avez le  choix d’utiliser **une implémentation de _JobRepository_** soit **en mémoire** soit **persistante**. L’avantage de cette dernière est triple :
+  Lorsque vous mettez en œuvre **[Spring Batch](http://static.springsource.org/spring-batch/ "Page d'accueil du projet Spring Batch")** pour réaliser des traitements par lots, vous avez le  choix d’utiliser **une implémentation de _JobRepository_** soit **en mémoire** soit **persistante**. L’avantage de cette dernière est triple :
 
   1. Conserver un **historique des différentes exécutions** de vos instances de jobs.
   2. Pouvoir **suivre en temps réel le déroulement de votre batch** via, par exemple, l’excellent [Spring Batch Admin](http://static.springsource.org/spring-batch-admin/ "Page d'accueil du projet Spring Batch Admin").
   3. Avoir la possibilité de **reprendre un batch** là où il s’était arrêté en erreur.
 
-  La contrepartie d’utiliser un JobRepository persistant est de devoir faire reposer le batch sur une **base de données** relationnelles. Le schéma sur lequel s’appuie Spring Bath est composé de **6 tables**. Leur MPD est disponible dans l’ [annexe  B. Meta-Data Schema](http://static.springsource.org/spring-batch/reference/html/metaDataSchema.html "Appendix B. Spring Batch Meta-Data Schema") du [manuel de référence de Spring Batch](http://static.springsource.org/spring-batch/reference/html/ "Manuel de référence de Spring Batch au format HTML"). SpringSource faisant bien les choses, les scripts DDL de différentes solutions du marché (ex : MySQL, Oracle, DB2, SQL Server, Postgres, H2 …) sont disponibles dans le package org.springframework.batch.core du JAR spring-batch-core-xxx.jar{{ double-space-with-newline }}Qui dit base de données, dit **dimensionnement** de cette dernière. L’ **espace disque requis** est alors **fonction** du **nombre d’exécutions** estimé, de la **nature des informations contextuelles persistées** et de la **durée de rétention** des données. Cette démarche prend tout son sens lorsqu’une instance de base de données est dédiée au schéma de Spring Batch.  En faisant quelques hypothèses (ex : sur le taux d’échec) et en mesurant le volume occupé sur plusieurs exécutions des batchs, il est possible de prévoir assez finement l’espace occupé par les données.
+  La contrepartie d’utiliser un JobRepository persistant est de devoir faire reposer le batch sur une **base de données** relationnelles. Le schéma sur lequel s’appuie Spring Bath est composé de **6 tables**. Leur MPD est disponible dans l’ [annexe  B. Meta-Data Schema](http://static.springsource.org/spring-batch/reference/html/metaDataSchema.html "Appendix B. Spring Batch Meta-Data Schema") du [manuel de référence de Spring Batch](http://static.springsource.org/spring-batch/reference/html/ "Manuel de référence de Spring Batch au format HTML"). SpringSource faisant bien les choses, les scripts DDL de différentes solutions du marché (ex : MySQL, Oracle, DB2, SQL Server, Postgres, H2 …) sont disponibles dans le package org.springframework.batch.core du JAR spring-batch-core-xxx.jar{{ double-space-with-newline }}Qui dit base de données, dit **dimensionnement** de cette dernière. L’ **espace disque requis** est alors **fonction** du **nombre d’exécutions** estimé, de la **nature des informations contextuelles persistées** et de la **durée de rétention** des données. Cette démarche prend tout son sens lorsqu’une instance de base de données est dédiée au schéma de Spring Batch.  En faisant quelques hypothèses (ex : sur le taux d’échec) et en mesurant le volume occupé sur plusieurs exécutions des batchs, il est possible de prévoir assez finement l’espace occupé par les données.
 
-  A moins de disposer de ressources infinies ou de n’avoir qu’un seul batch annuel, il est fréquent de fixer une durée de rétention de l’historique. Première option : demander à l’équipe d’exploitation de régulièrement lancer un script SQL de purge. Deuxième option : **utiliser Spring Batch pour purger ses propres données** !!
+  A moins de disposer de ressources infinies ou de n’avoir qu’un seul batch annuel, il est fréquent de fixer une durée de rétention de l’historique. Première option : demander à l’équipe d’exploitation de régulièrement lancer un script SQL de purge. Deuxième option : **utiliser Spring Batch pour purger ses propres données** !!
 tags:
   - spring-batch
   - spring-framework
@@ -26,22 +26,22 @@ title: Spring Batch s'auto-nettoie
 url: /2012/06/sprint-batch-sauto-nettoie/
 
 ---
-Lorsque vous mettez en œuvre **[Spring Batch](http://static.springsource.org/spring-batch/ "Page d'accueil du projet Spring Batch")** pour réaliser des traitements par lots, vous avez le  choix d’utiliser **une implémentation de _JobRepository_** soit **en mémoire** soit **persistante**. L’avantage de cette dernière est triple :
+Lorsque vous mettez en œuvre **[Spring Batch](http://static.springsource.org/spring-batch/ "Page d'accueil du projet Spring Batch")** pour réaliser des traitements par lots, vous avez le  choix d’utiliser **une implémentation de _JobRepository_** soit **en mémoire** soit **persistante**. L’avantage de cette dernière est triple :
 
 1. Conserver un **historique des différentes exécutions** de vos instances de jobs.
 1. Pouvoir **suivre en temps réel le déroulement de votre batch** via, par exemple, l’excellent [Spring Batch Admin](http://static.springsource.org/spring-batch-admin/ "Page d'accueil du projet Spring Batch Admin").
 1. Avoir la possibilité de **reprendre un batch** là où il s’était arrêté en erreur.
 
-La contrepartie d’utiliser un JobRepository persistant est de devoir faire reposer le batch sur une **base de données** relationnelles. Le schéma sur lequel s’appuie Spring Bath est composé de **6 tables**. Leur MPD est disponible dans l’ [annexe  B. Meta-Data Schema](http://static.springsource.org/spring-batch/reference/html/metaDataSchema.html "Appendix B. Spring Batch Meta-Data Schema") du [manuel de référence de Spring Batch](http://static.springsource.org/spring-batch/reference/html/ "Manuel de référence de Spring Batch au format HTML"). SpringSource faisant bien les choses, les scripts DDL de différentes solutions du marché (ex : MySQL, Oracle, DB2, SQL Server, Postgres, H2 …) sont disponibles dans le package org.springframework.batch.core du JAR spring-batch-core-xxx.jar  
-Qui dit base de données, dit **dimensionnement** de cette dernière. L’ **espace disque requis** est alors **fonction** du **nombre d’exécutions** estimé, de la **nature des informations contextuelles persistées** et de la **durée de rétention** des données. Cette démarche prend tout son sens lorsqu’une instance de base de données est dédiée au schéma de Spring Batch.  En faisant quelques hypothèses (ex : sur le taux d’échec) et en mesurant le volume occupé sur plusieurs exécutions des batchs, il est possible de prévoir assez finement l’espace occupé par les données.
+La contrepartie d’utiliser un JobRepository persistant est de devoir faire reposer le batch sur une **base de données** relationnelles. Le schéma sur lequel s’appuie Spring Bath est composé de **6 tables**. Leur MPD est disponible dans l’ [annexe  B. Meta-Data Schema](http://static.springsource.org/spring-batch/reference/html/metaDataSchema.html "Appendix B. Spring Batch Meta-Data Schema") du [manuel de référence de Spring Batch](http://static.springsource.org/spring-batch/reference/html/ "Manuel de référence de Spring Batch au format HTML"). SpringSource faisant bien les choses, les scripts DDL de différentes solutions du marché (ex : MySQL, Oracle, DB2, SQL Server, Postgres, H2 …) sont disponibles dans le package org.springframework.batch.core du JAR spring-batch-core-xxx.jar  
+Qui dit base de données, dit **dimensionnement** de cette dernière. L’ **espace disque requis** est alors **fonction** du **nombre d’exécutions** estimé, de la **nature des informations contextuelles persistées** et de la **durée de rétention** des données. Cette démarche prend tout son sens lorsqu’une instance de base de données est dédiée au schéma de Spring Batch.  En faisant quelques hypothèses (ex : sur le taux d’échec) et en mesurant le volume occupé sur plusieurs exécutions des batchs, il est possible de prévoir assez finement l’espace occupé par les données.
 
-A moins de disposer de ressources infinies ou de n’avoir qu’un seul batch annuel, il est fréquent de fixer une durée de rétention de l’historique. Première option : demander à l’équipe d’exploitation de régulièrement lancer un script SQL de purge. Deuxième option : **utiliser Spring Batch pour purger ses propres données** !!
+A moins de disposer de ressources infinies ou de n’avoir qu’un seul batch annuel, il est fréquent de fixer une durée de rétention de l’historique. Première option : demander à l’équipe d’exploitation de régulièrement lancer un script SQL de purge. Deuxième option : **utiliser Spring Batch pour purger ses propres données** !!
 
 ## Une Tasklet pour purger les données
 
-De base, Spring Batch n’offre pas cette fonctionnalité. Et sur le Jira de SpringSource, je n’ai pas trouvé de demandes d’évolutions allant dans ce sens. Dans le ticket [BATCH-1747](https://jira.springsource.org/browse/BATCH-1747), Lucas Ward, commiteur Spring Batch,  invite les personnes intéressées à passer par des requêtes SQL de suppression après désactivation des contraintes d’intégrité.
+De base, Spring Batch n’offre pas cette fonctionnalité. Et sur le Jira de SpringSource, je n’ai pas trouvé de demandes d’évolutions allant dans ce sens. Dans le ticket [BATCH-1747](https://jira.springsource.org/browse/BATCH-1747), Lucas Ward, commiteur Spring Batch,  invite les personnes intéressées à passer par des requêtes SQL de suppression après désactivation des contraintes d’intégrité.
 
-Partant de ce constat, je me suis lancé dans l’écriture d’une **tasklet** **permettant de ne conserver l’historique Spring Batch des N derniers mois**.  Surement perfectible, en voici le résultat :
+Partant de ce constat, je me suis lancé dans l’écriture d’une **tasklet** **permettant de ne conserver l’historique Spring Batch des N derniers mois**.  Surement perfectible, en voici le résultat :
 
 ```java
 public class RemoveSpringBatchHistoryTasklet implements Tasklet, InitializingBean {
@@ -136,7 +136,7 @@ public class RemoveSpringBatchHistoryTasklet implements Tasklet, InitializingBea
 
 Le code source de la classe **[RemoveSpringBatchHistoryTasklet](https://github.com/arey/spring-batch-toolkit/blob/master/src/main/java/com/javaetmoi/core/batch/tasklet/RemoveSpringBatchHistoryTasklet.java)** et sa classe de tests unitaires sont disponibles sur le **projet Github [spring-batch-toolkit](https://github.com/arey/spring-batch-toolkit/)**.
 
-Cette tasklet peut être utilisée de 2 manières :
+Cette tasklet peut être utilisée de 2 manières :
 
 1. Dans un batch dédié à la purge de l’historique Spring Batch, batch qui pourrait par exemple être exécuté mensuellement ou annuellement selon la durée de rétention choisie.
 1. Dans un step ajouté à un batch existant, par exemple en tant que step final.
@@ -147,7 +147,7 @@ Outre le fait de valider les requêtes SQL et leur ordonnancement, le **test uni
 
 ## Conclusion
 
-Qui mieux que Spring Batch peut exécuter un traitement de purge pouvant potentiellement manipuler des enregistrements en masse ? Vous connaissez désormais la réponse.
+Qui mieux que Spring Batch peut exécuter un traitement de purge pouvant potentiellement manipuler des enregistrements en masse ? Vous connaissez désormais la réponse.
 
-Pour parfaire le code, il aurait été intéressant de déplacer l’exécution des requêtes SQL dans  un DAO héritant de la classe **AbstractJdbcBatchMetadataDao**. Outre un meilleur design, cela aurait permis de faire un appel au DAO de purge ailleurs que dans un batch. Une telle fonctionnalité pourrait très bien avoir sa place dans la console de [Spring Batch Admin](http://static.springsource.org/spring-batch-admin/ "Page d'accueil du projet Spring Batch Admin").
+Pour parfaire le code, il aurait été intéressant de déplacer l’exécution des requêtes SQL dans  un DAO héritant de la classe **AbstractJdbcBatchMetadataDao**. Outre un meilleur design, cela aurait permis de faire un appel au DAO de purge ailleurs que dans un batch. Une telle fonctionnalité pourrait très bien avoir sa place dans la console de [Spring Batch Admin](http://static.springsource.org/spring-batch-admin/ "Page d'accueil du projet Spring Batch Admin").
 

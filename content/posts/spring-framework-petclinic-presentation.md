@@ -26,7 +26,7 @@ url: /2017/02/spring-framework-petclinic-presentation/
 
 ---
 Spring Petclinic is a sample application that has been designed to show how the Spring Framework can be used to build simple but powerful database-­oriented applications.
-The « canonical » version of Spring Petclinic is based on Spring Boot and Thymeleaf. But many forks exists: distributed version (microservices) built with Spring Cloud, React, AngularJS. The fork we are talking about is named **Spring** **Framework** **Petclinic**. It maintains a Petclinic version both with a **plain old Spring Framework configuration** and a **3-layer architecture** (i.e. presentation --> service --> repository).
+The « canonical » version of Spring Petclinic is based on Spring Boot and Thymeleaf. But many forks exists: distributed version (microservices) built with Spring Cloud, React, AngularJS. The fork we are talking about is named **Spring** **Framework** **Petclinic**. It maintains a Petclinic version both with a **plain old Spring Framework configuration** and a **3-layer architecture** (i.e. presentation --> service --> repository).
 
 Those 3 last years, the community has commited a lot of improvements: Bootstrap 3 migration, PostgreSQL support, alternative Java configuration, LESS, switch to the Spring IO Platform, stateless architecture, SQL optimizations, unit tests, templating with JSP tags.
 

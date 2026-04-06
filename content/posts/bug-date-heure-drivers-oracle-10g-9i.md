@@ -9,11 +9,11 @@ parent_post_id: null
 post_id: "564"
 post_views_count: "6392"
 summary: |-
-  Récemment, je suis tombé sur un **bug** lié à l’utilisation d’une **version de driver** **JDBC pour Oracle** plus récente que la version de la base Oracle attaquée en SQL via JDBC.
+  Récemment, je suis tombé sur un **bug** lié à l’utilisation d’une **version de driver** **JDBC pour Oracle** plus récente que la version de la base Oracle attaquée en SQL via JDBC.
 
   # Les symptômes
 
-  Dans notre contexte applicatif, la date et l’heure des données lues en base sont utilisées pour détecter des conflits de version, d’une manière similaire au versioning Hibernate. Concrètement, cela nous permet d’éviter qu’une donnée traitée par batch quotidien écrase une donnée plus fraiche provenant d’un système tiers. Ce mécanisme permet notamment d’exécuter un batch sans interruption de service de l’application web associée. Le bug que je vais vous décrire nous a été révélé tardivement. Sous certaines conditions,  nous avons en effet constaté que le batch ne rattrapait jamais des données. C’est **comme si l’heure n’était jamais prise en compte** **dans le code Java**.
+  Dans notre contexte applicatif, la date et l’heure des données lues en base sont utilisées pour détecter des conflits de version, d’une manière similaire au versioning Hibernate. Concrètement, cela nous permet d’éviter qu’une donnée traitée par batch quotidien écrase une donnée plus fraiche provenant d’un système tiers. Ce mécanisme permet notamment d’exécuter un batch sans interruption de service de l’application web associée. Le bug que je vais vous décrire nous a été révélé tardivement. Sous certaines conditions,  nous avons en effet constaté que le batch ne rattrapait jamais des données. C’est **comme si l’heure n’était jamais prise en compte** **dans le code Java**.
 tags:
   - bug
   - jdbc
@@ -22,15 +22,15 @@ title: 'Oracle : dis-moi quelle heure est-il ?'
 url: /2013/01/bug-date-heure-drivers-oracle-10g-9i/
 
 ---
-Récemment, je suis tombé sur un **bug** lié à l’utilisation d’une **version de driver** **JDBC pour Oracle** plus récente que la version de la base Oracle attaquée en SQL via JDBC.
+Récemment, je suis tombé sur un **bug** lié à l’utilisation d’une **version de driver** **JDBC pour Oracle** plus récente que la version de la base Oracle attaquée en SQL via JDBC.
 
 # Les symptômes
 
-Dans notre contexte applicatif, la date et l’heure des données lues en base sont utilisées pour détecter des conflits de version, d’une manière similaire au versioning Hibernate. Concrètement, cela nous permet d’éviter qu’une donnée traitée par batch quotidien écrase une donnée plus fraiche provenant d’un système tiers. Ce mécanisme permet notamment d’exécuter un batch sans interruption de service de l’application web associée. Le bug que je vais vous décrire nous a été révélé tardivement. Sous certaines conditions,  nous avons en effet constaté que le batch ne rattrapait jamais des données. C’est **comme si l’heure n’était jamais prise en compte** **dans le code Java**.
+Dans notre contexte applicatif, la date et l’heure des données lues en base sont utilisées pour détecter des conflits de version, d’une manière similaire au versioning Hibernate. Concrètement, cela nous permet d’éviter qu’une donnée traitée par batch quotidien écrase une donnée plus fraiche provenant d’un système tiers. Ce mécanisme permet notamment d’exécuter un batch sans interruption de service de l’application web associée. Le bug que je vais vous décrire nous a été révélé tardivement. Sous certaines conditions,  nous avons en effet constaté que le batch ne rattrapait jamais des données. C’est **comme si l’heure n’était jamais prise en compte** **dans le code Java**.
 
 # Lecture de la colonne DATE
 
-Dans la base de données Oracle 9i interrogées, date et heure des données sont stockées dans une colonne de type DATE. Aucun doute sur un éventuel problème d’insertion des données, Toad nous confirme que l’heure est bel et bien présente. L’hypothèse d’un problème de lecture de l’heure a été confirmée en debuggant le batch, et plus particulièrement le code Java chargé de parcourir le _ResultSet_ ramenée par une requête SQL. Voici le résultat des différents tests effectués :
+Dans la base de données Oracle 9i interrogées, date et heure des données sont stockées dans une colonne de type DATE. Aucun doute sur un éventuel problème d’insertion des données, Toad nous confirme que l’heure est bel et bien présente. L’hypothèse d’un problème de lecture de l’heure a été confirmée en debuggant le batch, et plus particulièrement le code Java chargé de parcourir le _ResultSet_ ramenée par une requête SQL. Voici le résultat des différents tests effectués :
 
 ```java
 String type = resultSet.getMetaData().getColumnTypeName(1);  // "DATE"
@@ -43,11 +43,11 @@ La norme SQL précise que le type temporel DATE ne contient pas d’informations
 
 # Le driver JDBC en cause
 
-Sur le site d’Oracle, la FAQ « [What is going on with DATE and TIMESTAMP?](http://www.oracle.com/technetwork/database/enterprise-edition/jdbc-faq-090281.html#08_01) »  décrit précisément le problème rencontré et donne plusieurs pistes pour le résoudre. Pour résumer, jusqu’à la version 9.2 d’Oracle, cette dernière ne distinguait pas les types temporels SQL DATE et TIMESTAMP. Le type DATE Oracle combinait à la fois dates et heures. Jusque-là, le driver JDBC Oracle associé le type DATE à un _java.sql.Timestamp_. L’implémentation du type SQL TIMESTAMP est arrivée avec la version 9.2 de la base Oracle. Pour se conformer à la norme SQL, Oracle préconisa de migrer les colonnes de type DATE contenant des heures dans une colonne de type TIMESTAMP. Logiquement, le driver JDBC de la 9.2 associait désormais le type DATE dans un _java.sql.Date_ et le type TIMESTAMP dans un _java.sql.Timestamp_. C’était oublier les bases antérieures à la version 9.2 ou celles qui n’avaient pas suivi les préconisations par difficultés techniques ou coûts. Ce changement de comportement du driver a perduré jusqu’à sa version 10.2. Oracle fit marche arrière avec la version 11.1 de son driver JDBC.  Les types SQL DATE furent de nouveau associés à la classe _java.sql.Timestamp_. Notre code applicatif utilisait la version 10.2.0.3 du driver Oracle. La base de données Oracle interrogée est quant à elle une 9.2.0.8.0. Elle pourrait donc théoriquement utiliser le type TIMESTAMP ; mais ce n’est pas le cas.
+Sur le site d’Oracle, la FAQ « [What is going on with DATE and TIMESTAMP?](http://www.oracle.com/technetwork/database/enterprise-edition/jdbc-faq-090281.html#08_01) »  décrit précisément le problème rencontré et donne plusieurs pistes pour le résoudre. Pour résumer, jusqu’à la version 9.2 d’Oracle, cette dernière ne distinguait pas les types temporels SQL DATE et TIMESTAMP. Le type DATE Oracle combinait à la fois dates et heures. Jusque-là, le driver JDBC Oracle associé le type DATE à un _java.sql.Timestamp_. L’implémentation du type SQL TIMESTAMP est arrivée avec la version 9.2 de la base Oracle. Pour se conformer à la norme SQL, Oracle préconisa de migrer les colonnes de type DATE contenant des heures dans une colonne de type TIMESTAMP. Logiquement, le driver JDBC de la 9.2 associait désormais le type DATE dans un _java.sql.Date_ et le type TIMESTAMP dans un _java.sql.Timestamp_. C’était oublier les bases antérieures à la version 9.2 ou celles qui n’avaient pas suivi les préconisations par difficultés techniques ou coûts. Ce changement de comportement du driver a perduré jusqu’à sa version 10.2. Oracle fit marche arrière avec la version 11.1 de son driver JDBC.  Les types SQL DATE furent de nouveau associés à la classe _java.sql.Timestamp_. Notre code applicatif utilisait la version 10.2.0.3 du driver Oracle. La base de données Oracle interrogée est quant à elle une 9.2.0.8.0. Elle pourrait donc théoriquement utiliser le type TIMESTAMP ; mais ce n’est pas le cas.
 
 ## Corrections possibles
 
-Plusieurs solutions permettent de contourner ce problème :
+Plusieurs solutions permettent de contourner ce problème :
 
 1. Migrer le schéma pour **utiliser le type TIMESTAMP** à la place d’une DATE. Dans notre contexte, la base ne nous appartenant pas, cette solution ne peut s’appliquer.
 1. Utiliser la méthode **_defineColumnType_** de la classe _OracleStatement_ afin de **redéfinir en _Timestamp_** les colonnes de type DATE. De par la verbosité du code et l’adhérence à la classe _OracleStatement_ du driver Oracle, cette solution fut mise de côté. En outre, nos tests étant basés sur la base de données embarquée H2, cette solution nous imposerait de supporter les 2 bases de données.
@@ -57,10 +57,10 @@ Plusieurs solutions permettent de contourner ce problème :
 
 ## Version du driver JDBC
 
-Jusqu’à ce problème, je n’avais jamais prêté attention à la version du driver JDBC pour Oracle utilisée chez mon client. En effet, son choix est aux mains de l’équipe d’exploitation qui assure leur installation et leurs montées de version sur les serveurs d’applications. Le socle applicatif de l’entreprise est naturellement basé sur la même version. Par ailleurs, les driver Oracle sont unifiés. A savoir qu’un driver sait communiquer avec des bases de données de versions inférieures, voir même supérieure : «  [Which JDBC drivers support which versions of Oracle Database?](http://www.oracle.com/technetwork/database/enterprise-edition/jdbc-faq-090281.html#02_02) »
+Jusqu’à ce problème, je n’avais jamais prêté attention à la version du driver JDBC pour Oracle utilisée chez mon client. En effet, son choix est aux mains de l’équipe d’exploitation qui assure leur installation et leurs montées de version sur les serveurs d’applications. Le socle applicatif de l’entreprise est naturellement basé sur la même version. Par ailleurs, les driver Oracle sont unifiés. A savoir qu’un driver sait communiquer avec des bases de données de versions inférieures, voir même supérieure : «  [Which JDBC drivers support which versions of Oracle Database?](http://www.oracle.com/technetwork/database/enterprise-edition/jdbc-faq-090281.html#02_02) »
 
 # Conclusion
 
 En conclusion, comme je vous l’ai montré, une montée de version de drivers JDBC n’est pas anodine, surtout avec Oracle. Tout comme la montée de version d’un framework, une analyse d’impacts doit être menée à partir des [notes de livraisons](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html "Oracle JDBC Driver Downloads page").
-Par ailleurs, nos tests unitaires sur une base embarquée n’ont pas pu déceler ce problème.  Moralité, même avec un taux de couverture maximum, des tests d’intégration ne sont jamais à exclure.
-Seul petit réconfort : les ingénieurs Java de chez Oracle sont tombés sur le même bug. Preuve en est, l’exécution d’une requête SQL depuis l'outil Oracle SQL Developer installé sur mon poste de dév et qui ne renvoie pas l'heure des dates.
+Par ailleurs, nos tests unitaires sur une base embarquée n’ont pas pu déceler ce problème.  Moralité, même avec un taux de couverture maximum, des tests d’intégration ne sont jamais à exclure.
+Seul petit réconfort : les ingénieurs Java de chez Oracle sont tombés sur le même bug. Preuve en est, l’exécution d’une requête SQL depuis l'outil Oracle SQL Developer installé sur mon poste de dév et qui ne renvoie pas l'heure des dates.

@@ -39,7 +39,7 @@ According to the [Core Spring 4.2 Certification Study Guide](/wp-content/uploads
 
 This mock exam is as close as possible to the real **Spring Professional** certification. You have **90 minutes** to answer **50 multiple-choice questions**. You must answer 38 questions correctly (76%) in order to pass the exam.
 
-Repartition of the questions by topics:
+Repartition of the questions by topics:
 
 - Container (13)
 - Test (5)
@@ -55,6 +55,6 @@ Repartition of the questions by topics:
 **Test Availability** You have the choice between two formats:
 
 1. A **PDF version** of the Spring Core 4.2 mock exam: [spring-certification-4\_2-mock-exam-antoine.pdf](/wp-content/uploads/2016/01/spring-certification-4_2-mock-exam-antoine.pdf)
-1. **Online test** on GoConqr: [www.goconqr.com/en-US/p/4316687-Core-Spring-4-2-Certification-Mock-Exam-quizzes](https://www.goconqr.com/en-US/p/4316687-Core-Spring-4-2-Certification-Mock-Exam-quizzes)
+1. **Online test** on GoConqr: [www.goconqr.com/en-US/p/4316687-Core-Spring-4-2-Certification-Mock-Exam-quizzes](https://www.goconqr.com/en-US/p/4316687-Core-Spring-4-2-Certification-Mock-Exam-quizzes)
 
 Please take the test and give me your feedback by blog comments.

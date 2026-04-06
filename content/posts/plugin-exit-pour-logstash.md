@@ -30,8 +30,8 @@ Extensible via un mécanisme de plugins, LogStash sait gérer plusieurs types de
 ## Solution possible
 
 A l’instar de la commande _tail_, LogStash est conçu pour attendre la suite d’un fichier. **Il n’a pas connaissance de la fin de fichier**. Une première étape consiste donc à informer LogStash que la dernière ligne du fichier a été atteinte et qu’il peut s’arrêter.
-Une solution possible est donnée comme réponse à la [la question « How to automatically kill a logstash agent when tests are done » posée sur Stackoverfow](http://stackoverflow.com/questions/18299337/how-to-automatically-kill-a-logstash-agent-when-tests-are-done).
-Elle consiste **à ajouter un tag _endfile_** lorsqu’un pattern est détecté dans le message (la ligne) qui vient d’être lue, ici la chaîne _END FILE_ :
+Une solution possible est donnée comme réponse à la [la question « How to automatically kill a logstash agent when tests are done » posée sur Stackoverfow](http://stackoverflow.com/questions/18299337/how-to-automatically-kill-a-logstash-agent-when-tests-are-done).
+Elle consiste **à ajouter un tag _endfile_** lorsqu’un pattern est détecté dans le message (la ligne) qui vient d’être lue, ici la chaîne _END FILE_ :
 
 ```js
 filter {
@@ -44,9 +44,9 @@ filter {
 ```
 
 L’ajout du tag est réalisé dans la section _filter_.
-Cette solution nécessite d’avoir la main sur le fichier : soit en le générant, soit en ayant la possibilité de lui concaténer une ligne END FILE.
+Cette solution nécessite d’avoir la main sur le fichier : soit en le générant, soit en ayant la possibilité de lui concaténer une ligne END FILE.
 
-Dans la section _output_, avant d’écrire le message, on vérifie si le tag _endfile_ existe. Si c’est le cas, on quitte l’agent LogStash en faisant appel au plugin exit :
+Dans la section _output_, avant d’écrire le message, on vérifie si le tag _endfile_ existe. Si c’est le cas, on quitte l’agent LogStash en faisant appel au plugin exit :
 
 ```js
 output {
@@ -61,7 +61,7 @@ output {
 
 Le plugin exit pour LogStash est écrit en **JRuby**. Il a été testé sous **LogStash 1.4.2**. Son code source est disponible dans le repo [https://github.com/arey/logstash-exit-plugin](https://github.com/arey/logstash-exit-plugin)
 
-Les commandes suivantes permettent de le récupérer et de le tester :
+Les commandes suivantes permettent de le récupérer et de le tester :
 
 1. git clone git://github.com/arey/logstash-exit-plugin.git
 1. cd logstash-exit-plugin
@@ -72,7 +72,7 @@ Un effet de bord lié à l'implémentation de ce plugin est que la JVM s’arrê
 
 Un autre usage de ce plugin consiste à sortir de LogStash dès qu’une erreur est rencontrée. Le paramètre _exit\_code_ permet de spécifier le code d’erreur retournée par la JVM à l’appelant.
 
-Pour les plus curieux, le code du plugin est des plus trivial :
+Pour les plus curieux, le code du plugin est des plus trivial :
 
 ```ruby
 Extrait de la classe ruby Exit

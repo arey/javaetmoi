@@ -32,18 +32,18 @@ Cet article a pour objectif de vous présenter la **configuration Spring Securit
 
 ## Stack technique
 
-L’appel d’une API sécurisée avec OAuth 2.0 depuis une application Java reposant sur Spring Boot peut être implémenté de plusieurs façons : une authentification maison à l’aide d’un bon vieux Apache HttpClient ou de Spring RestTemplate, l’utilisation d’une librairie tierce (ex : [MITREid](https://github.com/mitreid-connect/OpenID-Connect-Java-Spring-Server/tree/master/openid-connect-client) ou [Nimbus](https://connect2id.com/products/nimbus-oauth-openid-connect-sdk)) ou bien encore de **Spring Security**. L’utilisation de Spring Security s’est tout naturellement imposée car elle s’intègre parfaitement à la stack technique existante et était déjà utilisée dans l’application pour sécuriser ses propres API.
+L’appel d’une API sécurisée avec OAuth 2.0 depuis une application Java reposant sur Spring Boot peut être implémenté de plusieurs façons : une authentification maison à l’aide d’un bon vieux Apache HttpClient ou de Spring RestTemplate, l’utilisation d’une librairie tierce (ex : [MITREid](https://github.com/mitreid-connect/OpenID-Connect-Java-Spring-Server/tree/master/openid-connect-client) ou [Nimbus](https://connect2id.com/products/nimbus-oauth-openid-connect-sdk)) ou bien encore de **Spring Security**. L’utilisation de Spring Security s’est tout naturellement imposée car elle s’intègre parfaitement à la stack technique existante et était déjà utilisée dans l’application pour sécuriser ses propres API.
 
 [Depuis sa version 5, Spring Security permet d’intégrer des services sécurisés avec OAuth 2](https://spring.io/blog/2018/03/06/using-spring-security-5-to-integrate-with-oauth-2-secured-services-such-as-facebook-and-github).0\. Il n’est plus nécessaire d’utiliser le projet [Spring Security OAuth](https://spring.io/projects/spring-security-oauth) qui a été déprécié.   
-Le module [**spring-security-oauth2-client**](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#spring-security-oauth2-client) contient le code client supportant OAuth 2.0 et OIDC. Son package racine est _org.springframework.security.oauth2.client_.   
-Spring Boot vient avec un starter facilitant l’intégration de ce module : **spring-boot-starter-oauth2-client**.
+Le module [**spring-security-oauth2-client**](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#spring-security-oauth2-client) contient le code client supportant OAuth 2.0 et OIDC. Son package racine est _org.springframework.security.oauth2.client_.   
+Spring Boot vient avec un starter facilitant l’intégration de ce module : **spring-boot-starter-oauth2-client**.
 
 En résumé, cet exemple s’appuie sur **Spring Boot 2.5** et **Spring Security 5.5**.
 
 ## Dépendances Maven
 
 Pour appeler une API REST sécurisée avec OAuth 2.0, [la documentation de référence de Spring Security encourage l’utilisation de Spring **WebClient**](https://docs.spring.io/spring-security/site/docs/5.2.1.RELEASE/reference/htmlsingle/#oauth2client) provenant du **module spring-webflux**. De nombreux exemples trouvés sur le Net vont dans ce sens. L’usage de RestTemplate passe sous silence. D’après Stackoverflow, moyennant la création de l’intercepteur [OAuthClientCredentialsRestTemplateInterceptor](https://stackoverflow.com/questions/58982286/spring-security-5-replacement-for-oauth2resttemplate), pour celles et ceux qui préfèrent, il semble néanmoins possible de continuer à utiliser RestTemplate.   
-Sur une application Spring MVC (non réactive) qui utilise WebClient avec des appels bloquants, voici les modules Spring Boot à déclarer dans le [pom.xml](https://github.com/arey/spring-security-oauth2-salesforce-sample/blob/main/pom.xml) de Maven :
+Sur une application Spring MVC (non réactive) qui utilise WebClient avec des appels bloquants, voici les modules Spring Boot à déclarer dans le [pom.xml](https://github.com/arey/spring-security-oauth2-salesforce-sample/blob/main/pom.xml) de Maven :
 
 ```xml
 <dependency>
@@ -64,7 +64,7 @@ Sur une application Spring MVC (non réactive) qui utilise WebClient avec des ap
 </dependency>
 ```
 
-Remarque : le token Salesforce étant opaque, nul besoin d’ajouter la dépendance _spring-security-oauth2-jose_.
+Remarque : le token Salesforce étant opaque, nul besoin d’ajouter la dépendance _spring-security-oauth2-jose_.
 
 ## Configuration Spring Boot
 
@@ -100,9 +100,9 @@ spring:
 
 Les variables en majuscule peuvent être changées / hardcodées à votre guise ou bien passées sous forme de variables d’environnements. Elles dépendent pour la plupart de l’environnement dans lequel l’application est déployée.
 
-La classe [OAuth2ClientProperties](https://github.com/spring-projects/spring-boot/blob/v2.5.6/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/OAuth2ClientProperties.java) charge tous les clients définis dans le fichier application.yml ou application.properties. Les clients doivent être préfixés par le préfixe : **_spring.security.oauth2.client_**.
+La classe [OAuth2ClientProperties](https://github.com/spring-projects/spring-boot/blob/v2.5.6/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/OAuth2ClientProperties.java) charge tous les clients définis dans le fichier application.yml ou application.properties. Les clients doivent être préfixés par le préfixe : **_spring.security.oauth2.client_**.
 
-La cinématique [Resource Owner Password](https://www.oreilly.com/library/view/getting-started-with/9781449317843/ch04.html) n’est pas (encore ?) pleinement supporté par Spring Boot 2.5 dans la mesure où les propriétés **_username_** et **_password_** ne sont pas directement mappées dans la classe [OAuth2ClientProperties](https://github.com/spring-projects/spring-boot/blob/v2.5.6/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/OAuth2ClientProperties.java) de Spring Boot. Dans notre exemple, on réutilise le préfixe _spring.security.oauth2.client_ pour les déclarer au même niveau que le _client-id_ et le _client-secret_.
+La cinématique [Resource Owner Password](https://www.oreilly.com/library/view/getting-started-with/9781449317843/ch04.html) n’est pas (encore ?) pleinement supporté par Spring Boot 2.5 dans la mesure où les propriétés **_username_** et **_password_** ne sont pas directement mappées dans la classe [OAuth2ClientProperties](https://github.com/spring-projects/spring-boot/blob/v2.5.6/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/OAuth2ClientProperties.java) de Spring Boot. Dans notre exemple, on réutilise le préfixe _spring.security.oauth2.client_ pour les déclarer au même niveau que le _client-id_ et le _client-secret_.
 
 ## Déclaration du bean salesforceWebClient
 
@@ -172,7 +172,7 @@ public class OAuth2ClientConfig {
 ## Utilisation du bean salesforceWebClient
 
 Une fois configuré, le bean salesforceWebClient peut être utilisé comme tout WebClient, sans se soucier du mécanisme d’authentification.   
-Exemple :
+Exemple :
 
 ```java
 @Component
@@ -215,7 +215,7 @@ public class SalesforceClient {
 }
 ```
 
-Lors de l’appel à _response.block()_, la méthode _ServletOAuth2AuthorizedClientExchangeFilterFunction::filter_ est appelée. Lors du premier appel, elle délègue l’authentification OAuth 2.0 à la classe [DefaultPasswordTokenResponseClient](https://github.com/spring-projects/spring-security/blob/5.5.3/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/endpoint/DefaultPasswordTokenResponseClient.java). En coulisse, un _RestTemplate_ est utilisé pour réaliser l’appel POST HTTP et récupérer l’access token :
+Lors de l’appel à _response.block()_, la méthode _ServletOAuth2AuthorizedClientExchangeFilterFunction::filter_ est appelée. Lors du premier appel, elle délègue l’authentification OAuth 2.0 à la classe [DefaultPasswordTokenResponseClient](https://github.com/spring-projects/spring-security/blob/5.5.3/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/endpoint/DefaultPasswordTokenResponseClient.java). En coulisse, un _RestTemplate_ est utilisé pour réaliser l’appel POST HTTP et récupérer l’access token :
 
 ```http
 POST https://<your_subdomain>.salesforce.com/services/oauth2/token?
@@ -233,12 +233,12 @@ Le **test d’intégration** [**SalesforceClientIntegrationTest**](https://githu
 
 Dans cet article, au travers d’exemples de code extraits du repo GitHub [spring-security-oauth2-salesforce-sample](https://github.com/arey/spring-security-oauth2-salesforce-sample), nous avons vu comment implémenter la cinématique OAuth 2.0 Resource Owner Password Credentials dans une application Spring Boot 2.5 avec Spring Security 5.5.
 
-Cette implémentation n’est pas parfaite dans le sens où Salesforce ne renvoie malheureusement pas l’en-tête _expires\_in_ recommandée par la [RFC-6749](https://datatracker.ietf.org/doc/html/rfc6749#section-5.1) et précisant la durée de validation de l’access token (en général de 2h, mais sans garantie). En son absence, la méthode _getExpiresAt()_ de la classe [OAuth2AccessTokenResponse](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-core/src/main/java/org/springframework/security/oauth2/core/endpoint/OAuth2AccessTokenResponse.java) de Spring Security le calcule en ajoutant une seconde au timestamp _issued\_at_. Vous l’aurez compris, l’authentification OAuth 2.0 se fera presque à chaque requête. Dans mon cas métier, ce n’était pas trop préoccupant car les appels Salesforce étaient peu fréquents et en asynchrone. Je vous laisse réfléchir à ce qu’il en est pour vous ? Selon le [site d’Xkit](https://xkit.co/post/when-do-salesforce-access-tokens-expire), il semblerait que Salesforce expose une [**API OAuth 2.0 d’introspection**](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oidc_token_introspection_endpoint.htm&type=5) permettant de connaître l’état du jeton et donc sa validité. Resterait à trouver comment brancher cet appel dans Spring Security.
+Cette implémentation n’est pas parfaite dans le sens où Salesforce ne renvoie malheureusement pas l’en-tête _expires\_in_ recommandée par la [RFC-6749](https://datatracker.ietf.org/doc/html/rfc6749#section-5.1) et précisant la durée de validation de l’access token (en général de 2h, mais sans garantie). En son absence, la méthode _getExpiresAt()_ de la classe [OAuth2AccessTokenResponse](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-core/src/main/java/org/springframework/security/oauth2/core/endpoint/OAuth2AccessTokenResponse.java) de Spring Security le calcule en ajoutant une seconde au timestamp _issued\_at_. Vous l’aurez compris, l’authentification OAuth 2.0 se fera presque à chaque requête. Dans mon cas métier, ce n’était pas trop préoccupant car les appels Salesforce étaient peu fréquents et en asynchrone. Je vous laisse réfléchir à ce qu’il en est pour vous ? Selon le [site d’Xkit](https://xkit.co/post/when-do-salesforce-access-tokens-expire), il semblerait que Salesforce expose une [**API OAuth 2.0 d’introspection**](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oidc_token_introspection_endpoint.htm&type=5) permettant de connaître l’état du jeton et donc sa validité. Resterait à trouver comment brancher cet appel dans Spring Security.
 
-**Ressources** :
+**Ressources** :
 
 - [OAuth 2 Resource Owner Password Credentials Flow](-%09https:/guide-api-rest.marmicode.fr/securite-des-apis-rest/oauth-2/oauth-2-authorization-code-flow) (Marmicode)
-- [Getting Started with OAuth 2.0 by Ryan Boyd - Chapter 4. Resource Owner Password Flow](https://www.oreilly.com/library/view/getting-started-with/9781449317843/ch04.html) (Oreilly library)
+- [Getting Started with OAuth 2.0 by Ryan Boyd - Chapter 4. Resource Owner Password Flow](https://www.oreilly.com/library/view/getting-started-with/9781449317843/ch04.html) (Oreilly library)
 - [Using Spring Security 5 to integrate with OAuth 2-secured services such as Facebook and GitHub](https://spring.io/blog/2018/03/06/using-spring-security-5-to-integrate-with-oauth-2-secured-services-such-as-facebook-and-github) (Spring Blog)
 - [Spring Security OAuth 5.2 Migration Sample](https://github.com/jgrandja/spring-security-oauth-5-2-migrate) (GitHub)
 - [Spring Security 5 Replacement for OAuth2RestTemplate](https://stackoverflow.com/questions/58982286/spring-security-5-replacement-for-oauth2resttemplate) (StackOverflow)

@@ -11,11 +11,11 @@ post_views_count: "29756"
 summary: |-
   Ce fut ma 9ième participation à Devoxx France (et oui, j’ai malheureusement loupé l’édition 9 ¾). Et je dois vous avouer que ma conférence préférée m’avait manqué. Une bonne bulle d’oxygène au détour d’un projet réglementaire en Java. Les **10 ans de Devoxx France** furent un grand cru. Le nombre de stands / partenaires occupent de plus en plus d'espace au Palais des Congrés et les speakers se dépassent d’année en année. Un grand bravo aux organisateurs, gilets rouges, orateurs et aux [Cast Codeurs](https://lescastcodeurs.com/) qui clôturent chaque édition en beauté.
 
-  D'ici quelques jours, **l’intégralité des vidéos des conférences et universités présentées lors de Devoxx France** **2022** sont disponibles sur la [chaîne Devoxx FR de Youtube](https://www.youtube.com/channel/UCsVPQfo5RZErDL41LoWvk0A/videos).
+  D'ici quelques jours, **l’intégralité des vidéos des conférences et universités présentées lors de Devoxx France** **2022** sont disponibles sur la [chaîne Devoxx FR de Youtube](https://www.youtube.com/channel/UCsVPQfo5RZErDL41LoWvk0A/videos).
 
-  Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les visionner ou si vous souhaitez garder une trace écrite de ce que vous y avez appris, je mets librement à disposition l’ensemble de **mes 13 notes** prises au cours de ces 3 jours riches en contenus et en découvertes. Entre les retards SNCF et mon Macbook vieillissant qui fait des siennes, le nombre est moindre que les années précédentes. Mais promis, j’essaierai de me rattraper en 2023 :-)
+  Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les visionner ou si vous souhaitez garder une trace écrite de ce que vous y avez appris, je mets librement à disposition l’ensemble de **mes 13 notes** prises au cours de ces 3 jours riches en contenus et en découvertes. Entre les retards SNCF et mon Macbook vieillissant qui fait des siennes, le nombre est moindre que les années précédentes. Mais promis, j’essaierai de me rattraper en 2023 :-)
 
-  Fait marquant, cette édition 2022 n’aura pas fait place à de nouvelles technos hypes. On peut se souvenir de Quarkus en 2019, Kafka en 2016 ou bien encore Angular.JS en 2013. Cette 10ième édition aura été celle de la maturité : **retours d’expérience**, **architecture**, **état de l’art**, **sécurisation du code** et **approfondissement du fonctionnement de la plateforme Java** étaient au rendez-vous.
+  Fait marquant, cette édition 2022 n’aura pas fait place à de nouvelles technos hypes. On peut se souvenir de Quarkus en 2019, Kafka en 2016 ou bien encore Angular.JS en 2013. Cette 10ième édition aura été celle de la maturité : **retours d’expérience**, **architecture**, **état de l’art**, **sécurisation du code** et **approfondissement du fonctionnement de la plateforme Java** étaient au rendez-vous.
 tags:
   - argo
   - cloud
@@ -34,11 +34,11 @@ url: /2022/04/13-prises-de-notes-a-devoxx-france-2022/
 ---
 Ce fut ma 9ième participation à Devoxx France (et oui, j’ai malheureusement loupé l’édition 9 ¾). Et je dois vous avouer que ma conférence préférée m’avait manqué. Une bonne bulle d’oxygène au détour d’un projet réglementaire en Java. Les **10 ans de Devoxx France** furent un grand cru. Le nombre de stands / partenaires occupent de plus en plus d'espace au Palais des Congrés et les speakers se dépassent d’année en année. Un grand bravo aux organisateurs, gilets rouges, orateurs et aux [Cast Codeurs](https://lescastcodeurs.com/) qui clôturent chaque édition en beauté.
 
-D'ici quelques jours, **l’intégralité des vidéos des conférences et universités présentées lors de Devoxx France** **2022** sont disponibles sur la [chaîne Devoxx FR de Youtube](https://www.youtube.com/channel/UCsVPQfo5RZErDL41LoWvk0A/videos).
+D'ici quelques jours, **l’intégralité des vidéos des conférences et universités présentées lors de Devoxx France** **2022** sont disponibles sur la [chaîne Devoxx FR de Youtube](https://www.youtube.com/channel/UCsVPQfo5RZErDL41LoWvk0A/videos).
 
-Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les visionner ou si vous souhaitez garder une trace écrite de ce que vous y avez appris, je mets librement à disposition l’ensemble de **mes 13 notes** prises au cours de ces 3 jours riches en contenus et en découvertes. Entre les retards SNCF et mon Macbook vieillissant qui fait des siennes, le nombre est moindre que les années précédentes. Mais promis, j’essaierai de me rattraper en 2023 :-)
+Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les visionner ou si vous souhaitez garder une trace écrite de ce que vous y avez appris, je mets librement à disposition l’ensemble de **mes 13 notes** prises au cours de ces 3 jours riches en contenus et en découvertes. Entre les retards SNCF et mon Macbook vieillissant qui fait des siennes, le nombre est moindre que les années précédentes. Mais promis, j’essaierai de me rattraper en 2023 :-)
 
-Fait marquant, cette édition 2022 n’aura pas fait place à de nouvelles technos hypes. On peut se souvenir de Quarkus en 2019, Kafka en 2016 ou bien encore Angular.JS en 2013. Cette 10ième édition aura été celle de la maturité : **retours d’expérience**, **architecture**, **état de l’art**, **sécurisation du code** et **approfondissement du fonctionnement de la plateforme Java** étaient au rendez-vous.
+Fait marquant, cette édition 2022 n’aura pas fait place à de nouvelles technos hypes. On peut se souvenir de Quarkus en 2019, Kafka en 2016 ou bien encore Angular.JS en 2013. Cette 10ième édition aura été celle de la maturité : **retours d’expérience**, **architecture**, **état de l’art**, **sécurisation du code** et **approfondissement du fonctionnement de la plateforme Java** étaient au rendez-vous.
 
 {{< figure src="/wp-content/uploads/2022/04/2022-04-21-10-ans-Devoxx-France.jpg" alt="" caption="" >}}
 

@@ -9,9 +9,9 @@ parent_post_id: null
 post_id: "1032"
 post_views_count: "13380"
 summary: |-
-  Ce billet solutionne un problème rencontré lors de la **montée de version du famework Spring**  de la version 3.2 à la **version** **4.0**. En effet, le déploiement d’une application sous **JBoss 5.1 EAP** échouait dès l’initialisation du contexte Spring. Plus précisément, une exception était levée lorsque Spring scanne le classpath à la recherche de beans Spring annotés par les annotations  @Repository, @Service, @Controller …{{ double-space-with-newline }}Comme le montre la pile d’appel complète ci-dessous, l’exception **java.lang.ClassNotFoundException: org.jboss.vfs.VFS** est encapsulée dans l’exception **java.lang.IllegalStateException: Could not detect JBoss VFS infrastructure**
+  Ce billet solutionne un problème rencontré lors de la **montée de version du famework Spring**  de la version 3.2 à la **version** **4.0**. En effet, le déploiement d’une application sous **JBoss 5.1 EAP** échouait dès l’initialisation du contexte Spring. Plus précisément, une exception était levée lorsque Spring scanne le classpath à la recherche de beans Spring annotés par les annotations  @Repository, @Service, @Controller …{{ double-space-with-newline }}Comme le montre la pile d’appel complète ci-dessous, l’exception **java.lang.ClassNotFoundException: org.jboss.vfs.VFS** est encapsulée dans l’exception **java.lang.IllegalStateException: Could not detect JBoss VFS infrastructure**
 
-  Ce problème ne m’était initialement pas apparu lors des développements sous Eclipse avec le plugin JBoss Tools pour WTP : Spring n’a aucun mai à trouver les beans d’un WAR ou d’un EAR explosé. Cette erreur s’est manifestée  lors du déploiement manuel de l’EAR dans le répertoire deploy de JBoss puis du démarrage du serveur par la commande run.bat.{{ double-space-with-newline }}
+  Ce problème ne m’était initialement pas apparu lors des développements sous Eclipse avec le plugin JBoss Tools pour WTP : Spring n’a aucun mai à trouver les beans d’un WAR ou d’un EAR explosé. Cette erreur s’est manifestée  lors du déploiement manuel de l’EAR dans le répertoire deploy de JBoss puis du démarrage du serveur par la commande run.bat.{{ double-space-with-newline }}
 tags:
   - bug
   - jboss
@@ -22,10 +22,10 @@ url: /2014/04/support-vfs2-jboss5-spring4/
 ---
 {{< figure src="/wp-content/uploads/2014/04/logo-spring-framework.png" alt="logo-spring-framework" caption="logo-spring-framework" >}}
 
-Ce billet solutionne un problème rencontré lors de la **montée de version du famework Spring**  de la version 3.2 à la **version** **4.0**. En effet, le déploiement d’une application sous **JBoss 5.1 EAP** échouait dès l’initialisation du contexte Spring. Plus précisément, une exception était levée lorsque Spring scanne le classpath à la recherche de beans Spring annotés par les annotations  @Repository, @Service, @Controller …  
+Ce billet solutionne un problème rencontré lors de la **montée de version du famework Spring**  de la version 3.2 à la **version** **4.0**. En effet, le déploiement d’une application sous **JBoss 5.1 EAP** échouait dès l’initialisation du contexte Spring. Plus précisément, une exception était levée lorsque Spring scanne le classpath à la recherche de beans Spring annotés par les annotations  @Repository, @Service, @Controller …  
 Comme le montre la pile d’appel complète ci-dessous, l’exception **java.lang.ClassNotFoundException: org.jboss.vfs.VFS** est encapsulée dans l’exception **java.lang.IllegalStateException: Could not detect JBoss VFS infrastructure**
 
-Ce problème ne m’était initialement pas apparu lors des développements sous Eclipse avec le plugin JBoss Tools pour WTP : Spring n’a aucun mai à trouver les beans d’un WAR ou d’un EAR explosé. Cette erreur s’est manifestée  lors du déploiement manuel de l’EAR dans le répertoire deploy de JBoss puis du démarrage du serveur par la commande run.bat.  
+Ce problème ne m’était initialement pas apparu lors des développements sous Eclipse avec le plugin JBoss Tools pour WTP : Spring n’a aucun mai à trouver les beans d’un WAR ou d’un EAR explosé. Cette erreur s’est manifestée  lors du déploiement manuel de l’EAR dans le répertoire deploy de JBoss puis du démarrage du serveur par la commande run.bat.  
 
 ```java
 14:01:54,811 INFO  [STDOUT] 14:01:54.811 | ERROR | Context initialization failed
@@ -69,9 +69,9 @@ Caused by: java.lang.ClassNotFoundException: org.jboss.vfs.VFS from BaseClassLoa
 
 ## Diagnostic
 
-Les versions communautaires JBoss AS 5 et commerciales JBoss 5 EAP s’appuient toutes les deux sur la version 2 du [Virtual File System](http://java.dzone.com/news/jboss-virtual-file-system).  Or, comme l’atteste le [commit de Juergen Hoeller](https://github.com/spring-projects/spring-framework/commit/ca194261a42a0a4f0c8bdc36f447e1029a7d2e3e) dans GitHub, le **support de VFS 2 a été volontairement retiré de Spring 4**.
+Les versions communautaires JBoss AS 5 et commerciales JBoss 5 EAP s’appuient toutes les deux sur la version 2 du [Virtual File System](http://java.dzone.com/news/jboss-virtual-file-system).  Or, comme l’atteste le [commit de Juergen Hoeller](https://github.com/spring-projects/spring-framework/commit/ca194261a42a0a4f0c8bdc36f447e1029a7d2e3e) dans GitHub, le **support de VFS 2 a été volontairement retiré de Spring 4**.
 
-Comme je m’y attendais, je ne suis pas le seul développeur à  regretter cet abandon. Le [forum de Spring](http://forum.spring.io/forum/spring-projects/container/744173-spring-4-doesn-t-support-vfs2) en donne une idée. Qui plus est, la documentation de Spring n’est pas tout à fait à jour à ce sujet. J’ai soumis la [pull request](https://github.com/spring-projects/spring-framework/pull/502) concernant la JavaDoc de la classe _VfsResource_.
+Comme je m’y attendais, je ne suis pas le seul développeur à  regretter cet abandon. Le [forum de Spring](http://forum.spring.io/forum/spring-projects/container/744173-spring-4-doesn-t-support-vfs2) en donne une idée. Qui plus est, la documentation de Spring n’est pas tout à fait à jour à ce sujet. J’ai soumis la [pull request](https://github.com/spring-projects/spring-framework/pull/502) concernant la JavaDoc de la classe _VfsResource_.
 
 ## Réactivation de VFS2
 
@@ -91,7 +91,7 @@ Pour utiliser Spring 4 avec JBoss 5, vous pouvez copier/coller le code du repo [
 </dependency>
 ```
 
-L’artefact javaetmoi-spring4-vfs2-support est publié sur un repository maven hébergé par CloudBees. Ce repo doit être référencé dans votre proxy Maven d’Entreprise (ex : Nexus) ou bien déclaré dans votre pom.xml au niveau de la balise <repositories> :
+L’artefact javaetmoi-spring4-vfs2-support est publié sur un repository maven hébergé par CloudBees. Ce repo doit être référencé dans votre proxy Maven d’Entreprise (ex : Nexus) ou bien déclaré dans votre pom.xml au niveau de la balise <repositories> :
 
 ```xhtml
 <repository>

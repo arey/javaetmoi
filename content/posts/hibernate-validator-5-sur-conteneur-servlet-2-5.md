@@ -14,7 +14,7 @@ summary: |-
 
   [![hibernate-validator-logo](http://javaetmoi.com/wp-content/uploads/2015/09/hibernate-validator-logo.png)](http://javaetmoi.com/wp-content/uploads/2015/09/hibernate-validator-logo.png)
 
-  Essayer et vous tomberez au runtime sur l’exception suivante :
+  Essayer et vous tomberez au runtime sur l’exception suivante :
   NoSuchMethodError: javax.el.ExpressionFactory.newInstance()Ljavax/el/ExpressionFactory)
 tags:
   - el
@@ -28,10 +28,10 @@ EL 2.2 étant apparue avec Java EE 6, il n’est donc pas possible d’utiliser 
 
 [![hibernate-validator-logo](/wp-content/uploads/2015/09/hibernate-validator-logo.png)](/wp-content/uploads/2015/09/hibernate-validator-logo.png)
 
-Essayer et vous tomberez au runtime sur l’exception suivante :
+Essayer et vous tomberez au runtime sur l’exception suivante :
 NoSuchMethodError: javax.el.ExpressionFactory.newInstance()Ljavax/el/ExpressionFactory)
 
-Comme indiqué dans la documentation, embarquer EL 2.2 dans votre WAR ne résout pas le problème et génère ce type d’erreur au runtime :
+Comme indiqué dans la documentation, embarquer EL 2.2 dans votre WAR ne résout pas le problème et génère ce type d’erreur au runtime :
 
 ```java
 java.lang.LinkageError: loader constraint violation: when resolving interface method "javax.servlet.jsp.JspApplicationContext.getExpressionFactory()Ljavax/el/ExpressionFactory;" the class loader (instance of org/apache/jasper/servlet/JasperLoader) of the current class, org/apache/jsp/index_jsp, and the class loader (instance of org/apache/catalina/loader/StandardClassLoader) for resolved class, javax/servlet/jsp/JspApplicationContext, have different Class objects for the type javax/el/ExpressionFactory used in the signature
@@ -55,7 +55,7 @@ Vous aurez à éditer les pom.xml et à changer le groupId ou l’artefactId afi
 Patcher **Hibernate Validator** n’est guère plus compliqué. Commencer par forker ou cloner son [repo Github](https://github.com/hibernate/hibernate-validator).
 Ensuite, renommer en masse de tous les imports vers le package javax.el.
 
-Le contenu de 2 classes devra être changé manuellement :
+Le contenu de 2 classes devra être changé manuellement :
 
 **ResourceBundleMessageInterpolator**
 

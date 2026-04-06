@@ -23,14 +23,14 @@ summary: |-
   Moins courant que le traditionnel **logback.xml**, cette possibilité de configurer Logback par le code offre davantage de possibilités, ne serait-ce que par son caractère dynamique.
 
   Par le passé, j’avais déjà eu l’occasion de manipuler l’API Logback dans des tests unitaires afin de changer dynamiquement le niveau de log des loggers.
-  Cette fois-ci, je l’ai utilisé pour déclarer les différents appenders et configurer toute l’ **infrastructure applicative de logs**:
+  Cette fois-ci, je l’ai utilisé pour déclarer les différents appenders et configurer toute l’ **infrastructure applicative de logs**:
 
   - Activer l’appender Console uniquement sur le poste de dév (afin qu’en prod, les logs ne se retrouvent pas en double dans le fichier server.log de JBoss)
   - Factoriser la stratégie de journalisation des différents appenders fichiers (troubleshooting, overview, soap …)
-  - Récupérer différentes informations applicatives (ex : nom de la JVM, application, nom de l’environnement, login de l’utilisateur authentifié) à destination du collecteur de logs (Logstash ou Splunk)
+  - Récupérer différentes informations applicatives (ex : nom de la JVM, application, nom de l’environnement, login de l’utilisateur authentifié) à destination du collecteur de logs (Logstash ou Splunk)
   - Exposer l’accès aux loggers au travers d’une API REST
 
-  La configuration des logs reste paramétrable via un fichier de properties externe. En effet, le paramétrage peut différer d’un environnement de déploiement à l’autre (ex : chemin du répertoire des fichiers logs). La configuration Logback reste extensible par l’inclusion d’un fichier XML au format Joran.
+  La configuration des logs reste paramétrable via un fichier de properties externe. En effet, le paramétrage peut différer d’un environnement de déploiement à l’autre (ex : chemin du répertoire des fichiers logs). La configuration Logback reste extensible par l’inclusion d’un fichier XML au format Joran.
 
   Dans cet article, je vais vous présenter quelques bouts de code simplifié manipulant l’API Java de Logback.
 tags:
@@ -45,27 +45,27 @@ Afin de **normaliser** la **configuration Logback** des applications web sur les
 Moins courant que le traditionnel **logback.xml**, cette possibilité de configurer Logback par le code offre davantage de possibilités, ne serait-ce que par son caractère dynamique.
 
 Par le passé, j’avais déjà eu l’occasion de manipuler l’API Logback dans des tests unitaires afin de changer dynamiquement le niveau de log des loggers.
-Cette fois-ci, je l’ai utilisé pour déclarer les différents appenders et configurer toute l’ **infrastructure applicative de logs**:
+Cette fois-ci, je l’ai utilisé pour déclarer les différents appenders et configurer toute l’ **infrastructure applicative de logs**:
 
 - Activer l’appender Console uniquement sur le poste de dév (afin qu’en prod, les logs ne se retrouvent pas en double dans le fichier server.log de JBoss)
 - Factoriser la stratégie de journalisation des différents appenders fichiers (troubleshooting, overview, soap …)
-- Récupérer différentes informations applicatives (ex : nom de la JVM, application, nom de l’environnement, login de l’utilisateur authentifié) à destination du collecteur de logs (Logstash ou Splunk)
+- Récupérer différentes informations applicatives (ex : nom de la JVM, application, nom de l’environnement, login de l’utilisateur authentifié) à destination du collecteur de logs (Logstash ou Splunk)
 - Exposer l’accès aux loggers au travers d’une API REST
 
-La configuration des logs reste paramétrable via un fichier de properties externe. En effet, le paramétrage peut différer d’un environnement de déploiement à l’autre (ex : chemin du répertoire des fichiers logs). La configuration Logback reste extensible par l’inclusion d’un fichier XML au format Joran.
+La configuration des logs reste paramétrable via un fichier de properties externe. En effet, le paramétrage peut différer d’un environnement de déploiement à l’autre (ex : chemin du répertoire des fichiers logs). La configuration Logback reste extensible par l’inclusion d’un fichier XML au format Joran.
 
 Dans cet article, je vais vous présenter quelques bouts de code simplifié manipulant l’API Java de Logback.
 
-## Où brancher l’initialisation ?
+## Où brancher l’initialisation ?
 
-Notre étude de cas porte sur une application web démarrée dans un conteneur de servlets (ex : Tomcat) ou un serveur d’application (ex : JBoss).
+Notre étude de cas porte sur une application web démarrée dans un conteneur de servlets (ex : Tomcat) ou un serveur d’application (ex : JBoss).
 Pour logger, les développeurs utilisent l’API SLF4J. Logback a été retenue comme implémentation de SLF4J.
 
 Pour brancher la configuration Java, le moyen le plus courant est d’utiliser un **ServletContextListener** dédié. Afin d’être démarré en premier, ce listener est déclaré tout en haut du web.xml, en tête des autres listeners (avant le listener Spring).
 
 Outre la configuration Logback, on retrouve également dans ce listener la configuration SLF4J. Par exemple, pour initialiser le **bridge JUL SLF4JBridgeHandler**.
 
-Exemple de Listener :
+Exemple de Listener :
 
 ```java
 @WebListener
@@ -85,7 +85,7 @@ A noter l’utilisation de la classe helper **ContextAwareBase** dont nous verro
 Afin de pouvoir programmer Logback, il est nécessaire de récupérer l’instance de **LoggerContext**. Classe centrale de Logback, [LoggerContext](https://github.com/qos-ch/logback/blob/master/logback-classic/src/main/java/ch/qos/logback/classic/LoggerContext.java) implémente l’interface ILoggerFactory de SLF4J.
 Pour la récupérer, on demande à SLF4J de nous retourner l’interface en passant par la méthode statique getILoggerFactory de la classe utilitaire **LoggerFactory** de SLF4J.
 
-Un bout de code est bien plus parlant. Pour s’y retrouver entre SLF4J et Logback, le nom qualifié des classes est utilisé :
+Un bout de code est bien plus parlant. Pour s’y retrouver entre SLF4J et Logback, le nom qualifié des classes est utilisé :
 
 ```java
 private LoggerContext getLogbackContext() {
@@ -98,13 +98,13 @@ private LoggerContext getLogbackContext() {
 La classe **ContextAwareBase** héritée par notre _LogbackListener_ est une classe utilitaire proposée par Logback. Elle implémente l’interface _ContextAware_. Elle apporte 2 fonctionnalités :
 
 - Conserver en mémoire le contexte Logback (accessible via la méthode _getContext_) pour un accès ultérieur plus rapide.
-- Fournir des méthodes de logs internes : _addInfo_, _addWarn_ et _addError_. A priori, cela peut paraître étrange, mais vous allez bientôt connaître la raison.
+- Fournir des méthodes de logs internes : _addInfo_, _addWarn_ et _addError_. A priori, cela peut paraître étrange, mais vous allez bientôt connaître la raison.
 
-Dans le code du framework Logback comme dans le code applicatif chargé d’initialiser Logback, nous ne pouvons pas encore utiliser le système de logs de SLF4J/Logback pour tracer des erreurs ou tout simplement des informations utiles. A ce stade  SLF4J/Logback n’est en effet pas encore prêt.
+Dans le code du framework Logback comme dans le code applicatif chargé d’initialiser Logback, nous ne pouvons pas encore utiliser le système de logs de SLF4J/Logback pour tracer des erreurs ou tout simplement des informations utiles. A ce stade  SLF4J/Logback n’est en effet pas encore prêt.
 
 Pour pallier à cette problématique, Logback propose un mécanisme de statuts matérialisé par l’interface _ch.qos.logback.core.status.Status_. Les méthodes _addInfo_, _addWarn_ et _addError_ ajoutent un statut dans une liste de statuts interne à Logback et gérée par le [StatusManager](https://github.com/qos-ch/logback/blob/master/logback-core/src/main/java/ch/qos/logback/core/status/StatusManager.java). Nous verrons par la suite comment exploiter ces statuts.
 
-Dans notre Listener, nous pouvons ainsi tracer des informations importantes :
+Dans notre Listener, nous pouvons ainsi tracer des informations importantes :
 
 ```java
 addInfo("Suppression du handler JUL : "+ handler.getClass().getName());
@@ -138,7 +138,7 @@ private void configureJdkLoggingBridgeHandler() {
 
 Bien plus safe que l’appel à la méthode SLF4JBridgeHandler:: removeHandlersForRootLogger, le code ci-dessus retire le ConsoleHandler mais laisse ceux éventuellement ajoutés par le serveur d’application.
 
-La méthode _isBridgeHandlerAvailable()_ teste l’existence du bridge dans le classpath :
+La méthode _isBridgeHandlerAvailable()_ teste l’existence du bridge dans le classpath :
 
 ```java
 private boolean isBridgeHandlerAvailable() {
@@ -150,7 +150,7 @@ private boolean isBridgeHandlerAvailable() {
 
 Lorsque Logback est configuré à partir d’un fichier XML, Logback se prémunit de toute demande de configuration concurrente en utilisant le **verrou LogbackLock** (se référer à la méthode [GenericConfigurator:: doConfigure(List<SaxEvent>)](https://github.com/qos-ch/logback/blob/master/logback-core/src/main/java/ch/qos/logback/core/joran/GenericConfigurator.java)).
 
-Par précaution, toute la configuration du LogbackContext est réalisée dans un **bloc synchronisé** sur ce verrou :
+Par précaution, toute la configuration du LogbackContext est réalisée dans un **bloc synchronisé** sur ce verrou :
 
 ```java
 synchronized (getLogbackContext().getConfigurationLock()) {
@@ -164,7 +164,7 @@ synchronized (getLogbackContext().getConfigurationLock()) {
 
 Avant de pouvoir configurer par programmation les appenders et le niveau des loggers, il est nécessaire de **réinitialiser Logback**. En apparence, cela ne semble pas nécessaire puisque l’application vient tout juste de démarrer. C’est oublier qu’avant d’arriver dans le code du listener, la JVM aura déjà instancié de nombreuses classes. Or, **la toute 1ière instanciation d’un logger déclenche automatiquement l’initialisation de SLF4J** (méthode LoggerFactory::performInitialization) qui appelle à son tour l’initialisation de Logback (instanciation du LoggerContext par la classe StaticLoggerBinder). Logback recherche alors sa configuration dans le classpath en testant la présence des fichiers logback-test.xml, logback.groovy et logback.xml.
 
-Vous avez compris : lorsqu’on arrive dans le listener, Logback s’est déjà initialisé. Il est donc préférable de faire le ménage en réinitialisant sa configuration par défaut.  Pour se faire, on appelle successivement les méthodes stop() et reset() du LoggerContext. Et si le SLF4JBridgeHandler est installé, on propage à JUL les réinitialisations des niveaux des loggers :
+Vous avez compris : lorsqu’on arrive dans le listener, Logback s’est déjà initialisé. Il est donc préférable de faire le ménage en réinitialisant sa configuration par défaut.  Pour se faire, on appelle successivement les méthodes stop() et reset() du LoggerContext. Et si le SLF4JBridgeHandler est installé, on propage à JUL les réinitialisations des niveaux des loggers :
 
 ```java
 private void stopAndReset(LoggerContext loggerContext) {
@@ -186,7 +186,7 @@ Lorsque le **mode debug** de Logback est activé, **les statuts sont affichés d
 
 En XML, l’activation du mode debug se fait dans au niveau de la balise racine <configuration> : <configuration debug="true">
 
-En Java, on enregistre le listener [**OnConsoleStatusListener**](https://github.com/qos-ch/logback/blob/master/logback-core/src/main/java/ch/qos/logback/core/status/OnConsoleStatusListener.java) auprès du StatusManager du contexte Logback :
+En Java, on enregistre le listener [**OnConsoleStatusListener**](https://github.com/qos-ch/logback/blob/master/logback-core/src/main/java/ch/qos/logback/core/status/OnConsoleStatusListener.java) auprès du StatusManager du contexte Logback :
 
 ```java
 StatusListenerConfigHelper.addOnConsoleListenerInstance(loggerContext, new OnConsoleStatusListener());
@@ -194,9 +194,9 @@ StatusListenerConfigHelper.addOnConsoleListenerInstance(loggerContext, new OnCon
 
 ## Déclaration des appenders
 
-Logback délègue la tâche d’écriture des logs à des composants appelés « **appenders**». Implémentant l’interface [Appender](https://github.com/qos-ch/logback/blob/master/logback-core/src/main/java/ch/qos/logback/core/Appender.java), les appenders permettent d’afficher les logs sur la console, de les archiver dans des fichiers ou bien encore de les stocker en base de données.
+Logback délègue la tâche d’écriture des logs à des composants appelés « **appenders**». Implémentant l’interface [Appender](https://github.com/qos-ch/logback/blob/master/logback-core/src/main/java/ch/qos/logback/core/Appender.java), les appenders permettent d’afficher les logs sur la console, de les archiver dans des fichiers ou bien encore de les stocker en base de données.
 
-La déclaration des appenders communs à tous les loggers non exclusifs passe par la configuration du **logger racine** (le « root logger »). La méthode utilitaire _root_ permet de spécifies son niveau et la liste des appenders :
+La déclaration des appenders communs à tous les loggers non exclusifs passe par la configuration du **logger racine** (le « root logger »). La méthode utilitaire _root_ permet de spécifies son niveau et la liste des appenders :
 
 ```java
 private void root(Level level, List<Appender<ILoggingEvent>> rootAppenders) {
@@ -206,7 +206,7 @@ private void root(Level level, List<Appender<ILoggingEvent>> rootAppenders) {
 }
 ```
 
-La déclaration de l’ **appender Console** permettant d’afficher les logs dans la sortie console est relativement simple :
+La déclaration de l’ **appender Console** permettant d’afficher les logs dans la sortie console est relativement simple :
 
 ```java
 private ConsoleAppender<ILoggingEvent> consoleAppender() {
@@ -220,7 +220,7 @@ private ConsoleAppender<ILoggingEvent> consoleAppender() {
 }
 ```
 
-Comme son nom l’indique, la classe **PatternLayoutEncoder** permet d’indiquer à Logback le format d’affichage des logs. Voici un exemple de pattern :
+Comme son nom l’indique, la classe **PatternLayoutEncoder** permet d’indiquer à Logback le format d’affichage des logs. Voici un exemple de pattern :
 
 ```java
 private static final String CONSOLE_LOG_PATTERN =     "%d{HH:mm:ss.SSS} | %highlight(%-5level) | %cyan(%-50.50logger{49}) | %-200m %C.%M\\(%F:%L\\)%n";
@@ -228,7 +228,7 @@ private static final String CONSOLE_LOG_PATTERN =     "%d{HH:mm:ss.SSS} | %hig
 
 Notez l’utilisation des [sous-patterns de couleur](https://logback.qos.ch/manual/layouts.html)%highlight et %cyan
 
-L’appel à la méthode _start_ de l’encoder est nécessaire :
+L’appel à la méthode _start_ de l’encoder est nécessaire :
 
 ```java
 private void start(LifeCycle lifeCycle) {
@@ -248,7 +248,7 @@ private void appender(String name, Appender<?> appender) {
 }
 ```
 
-La déclaration d’un **appender fichier** est bien plus verbeuse :
+La déclaration d’un **appender fichier** est bien plus verbeuse :
 
 ```java
 private RollingFileAppender<ILoggingEvent> troubleshootingAppender() {
@@ -282,14 +282,14 @@ private RollingFileAppender<ILoggingEvent> troubleshootingAppender() {
 
 En complément du pattern d’affichage, la stratégie de journalisation doit être spécifiée. Dans notre exemple, lorsque le fichier de logs atteint 10 Mo, il est compressé en une archive zip qui est déplacée dans le sous-répertoire backup. Un total de 10 archives est conservé. La compression d’un fichier de log est généralement très efficiente et sera bien antérieure à 10% de la taille initiale. On garantit ainsi que, sur le filesystem, la taille totale des logs n’excèdera pas 20 Mo.
 
-Le pattern utilisé par cet appender diffère légèrement de celui de l’appender console en ajoutant le jour et le nom du thread et en n’utilisant pas les sous-patterns de couleur :
+Le pattern utilisé par cet appender diffère légèrement de celui de l’appender console en ajoutant le jour et le nom du thread et en n’utilisant pas les sous-patterns de couleur :
 
 ```java
 private static final String FILE_LOG_PATTERN =     "%d{yyyy/MM/dd HH:mm:ss.SSS} | %-50.50logger{49} | %-200m |  %-5thread |%C.%M\\(%F:%L\\) %n";
 
 ```
 
-Une fois déclarés les appenders racines, on appelle la méthode _root_ présentée ci-dessus :
+Une fois déclarés les appenders racines, on appelle la méthode _root_ présentée ci-dessus :
 
 ```java
 root(Level.INFO, appenders);
@@ -340,7 +340,7 @@ L’exposition des MBean sur HTTP est possible à l’aide de librairies tierces
 
 ## Pour aller plus loin
 
-La configuration Logback présentée dans cet article pourrait être complétée par :
+La configuration Logback présentée dans cet article pourrait être complétée par :
 
 - La configuration d’un appender **LogstashEncoder** permettant de générer les logs au format JSON et de les indexer les logs dans Elasticsearch
 - La déclaration conditionnelle de l’appender Console sur le poste de dév (utilisation d’un fichier properties ou d’un paramètre de JVM)
@@ -355,7 +355,7 @@ Le **code complet des snippets** est disponible dans ce [Gist](https://gist.gith
 Le choix de privilégier la configuration Java a été fait par l’équipe de **Sp** r **ing Boot**. Je vous recommande d’aller jeter un coup d’œil aux classes [DefaultLogbackConfiguration](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/logback/DefaultLogbackConfiguration.java) et [LogbackConfigurator](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/logback/LogbackConfigurator.java).
 Etant donné qu’il n’y a plus de fichier XML à parser, le temps de démarrage de l’application est sensiblement amélioré (100 ms d’après la [documentation Logback](https://logback.qos.ch/manual/configuration.html)).
 
-Ressources :
+Ressources :
 
 - [Manuel d’utilisation de Logback](https://logback.qos.ch/manual/)
 - [Spring Boot - LoggingSystem abstraction and logging configuration properties](https://www.logicbig.com/tutorials/spring-framework/spring-boot/logging-system.html)

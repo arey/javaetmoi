@@ -13,7 +13,7 @@ post_views_count: "17193"
 summary: |-
   ## Contexte
 
-  Récemment, j’ai participé au développement d’un batch capable d’indexer dans le moteur de recherche [Elasticsearch](http://www.elasticsearch.org/) des données provenant d’une **base de données** tierce. Développé en Java, ce batch s’appuie sur [Spring Batch](http://static.springsource.org/spring-batch/), le plus célèbre framework de traitements par lot de l’écosystème Java{{ double-space-with-newline }}Plus précisément, ce batch est décomposé en 2 jobs Spring Batch, très proches l’un de l’autre :
+  Récemment, j’ai participé au développement d’un batch capable d’indexer dans le moteur de recherche [Elasticsearch](http://www.elasticsearch.org/) des données provenant d’une **base de données** tierce. Développé en Java, ce batch s’appuie sur [Spring Batch](http://static.springsource.org/spring-batch/), le plus célèbre framework de traitements par lot de l’écosystème Java{{ double-space-with-newline }}Plus précisément, ce batch est décomposé en 2 jobs Spring Batch, très proches l’un de l’autre :
 
   1. le premier est capable d’initialiser à partir de zéro le moteur de recherche
   2. et le second traite uniquement les mouvements quotidiens de données.
@@ -22,15 +22,15 @@ summary: |-
 
   Au cours du traitement batch, l’exécution de la requête par Oracle pour préparer son **curseur** a été identifiée comme l’opération la plus couteuse, loin devant la lecture des enregistrements en **streaming** à travers le réseau, leur traitement chargé de construire les documents Lucene à indexer ou leur **écriture en mode** bulk dans ElasticSearch. A titre d’exemple, sur des volumétries de production, la préparation côté serveur Oracle d’une requête SQL ramenant 10 millions d’enregistrement peut mettre jusqu’à 1h30.
 
-  Avec pour objectif que le batch passe **sous le seuil de 2h** à moindre coût, 2 axes d’optimisations ont été étudiés : diminuer le temps d’exécution par Oracle et diminuer le temps de traitement.
+  Avec pour objectif que le batch passe **sous le seuil de 2h** à moindre coût, 2 axes d’optimisations ont été étudiés : diminuer le temps d’exécution par Oracle et diminuer le temps de traitement.
 
   ## Solutions étudiées
 
-  Les optimisations d’un DBA consistant à utiliser des **tables temporaires** et des **procédures stockées** n’ont pas été concluantes : trop peu de gains (10 à 20%) pour une réécriture partielle de notre batch, et avec le risque d’engendrer des régressions.
+  Les optimisations d’un DBA consistant à utiliser des **tables temporaires** et des **procédures stockées** n’ont pas été concluantes : trop peu de gains (10 à 20%) pour une réécriture partielle de notre batch, et avec le risque d’engendrer des régressions.
 
-  Après mesures et calculs, l’utilisation de la **pagination** sur des plages de 100, de 1 000 ou même de 10 000 enregistrements a également été écartée. Dans notre contexte, cela aurait dégradé les performances. Le choix de rester sur l’utilisation d’un **curseur JDBC** a été maintenu.{{ double-space-with-newline }}A cette occasion, nous avons remarqué que les temps de mise en place d’un curseur Oracle pour préparer 1 millions ou 10 millions d’enregistrements étaient du même ordre de grandeur.
+  Après mesures et calculs, l’utilisation de la **pagination** sur des plages de 100, de 1 000 ou même de 10 000 enregistrements a également été écartée. Dans notre contexte, cela aurait dégradé les performances. Le choix de rester sur l’utilisation d’un **curseur JDBC** a été maintenu.{{ double-space-with-newline }}A cette occasion, nous avons remarqué que les temps de mise en place d’un curseur Oracle pour préparer 1 millions ou 10 millions d’enregistrements étaient du même ordre de grandeur.
 
-  Utilisant déjà l’une des techniques proposées par Spring Batch pour paralléliser notre traitement batch, pourquoi ne pas refaire appel à ses loyaux services ?
+  Utilisant déjà l’une des techniques proposées par Spring Batch pour paralléliser notre traitement batch, pourquoi ne pas refaire appel à ses loyaux services ?
 tags:
   - elasticsearch
   - spring-batch
@@ -42,7 +42,7 @@ url: /2012/12/parallelisation-de-traitements-batchs-spring-batch/
 ## Contexte
 
 Récemment, j’ai participé au développement d’un batch capable d’indexer dans le moteur de recherche [Elasticsearch](http://www.elasticsearch.org/) des données provenant d’une **base de données** tierce. Développé en Java, ce batch s’appuie sur [Spring Batch](http://static.springsource.org/spring-batch/), le plus célèbre framework de traitements par lot de l’écosystème Java  
-Plus précisément, ce batch est décomposé en 2 jobs Spring Batch, très proches l’un de l’autre :
+Plus précisément, ce batch est décomposé en 2 jobs Spring Batch, très proches l’un de l’autre :
 
 1. le premier est capable d’initialiser à partir de zéro le moteur de recherche
 1. et le second traite uniquement les mouvements quotidiens de données.
@@ -51,16 +51,16 @@ Plus précisément, ce batch est décomposé en 2 jobs Spring Batch, très proch
 
 Au cours du traitement batch, l’exécution de la requête par Oracle pour préparer son **curseur** a été identifiée comme l’opération la plus couteuse, loin devant la lecture des enregistrements en **streaming** à travers le réseau, leur traitement chargé de construire les documents Lucene à indexer ou leur **écriture en mode** bulk dans ElasticSearch. A titre d’exemple, sur des volumétries de production, la préparation côté serveur Oracle d’une requête SQL ramenant 10 millions d’enregistrement peut mettre jusqu’à 1h30.
 
-Avec pour objectif que le batch passe **sous le seuil de 2h** à moindre coût, 2 axes d’optimisations ont été étudiés : diminuer le temps d’exécution par Oracle et diminuer le temps de traitement.
+Avec pour objectif que le batch passe **sous le seuil de 2h** à moindre coût, 2 axes d’optimisations ont été étudiés : diminuer le temps d’exécution par Oracle et diminuer le temps de traitement.
 
 ## Solutions étudiées
 
-Les optimisations d’un DBA consistant à utiliser des **tables temporaires** et des **procédures stockées** n’ont pas été concluantes : trop peu de gains (10 à 20%) pour une réécriture partielle de notre batch, et avec le risque d’engendrer des régressions.
+Les optimisations d’un DBA consistant à utiliser des **tables temporaires** et des **procédures stockées** n’ont pas été concluantes : trop peu de gains (10 à 20%) pour une réécriture partielle de notre batch, et avec le risque d’engendrer des régressions.
 
-Après mesures et calculs, l’utilisation de la **pagination** sur des plages de 100, de 1 000 ou même de 10 000 enregistrements a également été écartée. Dans notre contexte, cela aurait dégradé les performances. Le choix de rester sur l’utilisation d’un **curseur JDBC** a été maintenu.  
+Après mesures et calculs, l’utilisation de la **pagination** sur des plages de 100, de 1 000 ou même de 10 000 enregistrements a également été écartée. Dans notre contexte, cela aurait dégradé les performances. Le choix de rester sur l’utilisation d’un **curseur JDBC** a été maintenu.  
 A cette occasion, nous avons remarqué que les temps de mise en place d’un curseur Oracle pour préparer 1 millions ou 10 millions d’enregistrements étaient du même ordre de grandeur.
 
-Utilisant déjà l’une des techniques proposées par Spring Batch pour paralléliser notre traitement batch, pourquoi ne pas refaire appel à ses loyaux services ?
+Utilisant déjà l’une des techniques proposées par Spring Batch pour paralléliser notre traitement batch, pourquoi ne pas refaire appel à ses loyaux services ?
 
 ## Spring Batch et ses techniques de parallélisation
 
@@ -75,12 +75,12 @@ Pour optimiser le batch, 2 de ces techniques ont été utilisées.
 
 Le **Remote Chunking of Step** a été écarté d’office. Dans le contexte client, installer un batch en production est déjà forte affaire. Alors en installer plusieurs interconnectés, je n'ose pas me l’imaginer : à étudier en dernier recours.
 
-Le **Multi-threaded Step** est sans doute la technique la plus simple à mettre en œuvre. Seule un peu de configuration est suffisante : l’ajout d’un _taskExecutor_ sur le tasklet à paralléliser. La conséquence majeure est que les items peuvent être traités dans le désordre.  
+Le **Multi-threaded Step** est sans doute la technique la plus simple à mettre en œuvre. Seule un peu de configuration est suffisante : l’ajout d’un _taskExecutor_ sur le tasklet à paralléliser. La conséquence majeure est que les items peuvent être traités dans le désordre.  
 Un prérequis à cette technique est que les _ItemReader_ et _ItemWiter_ soient **stateless** ou **thread-safe**. La classe de [**_JdbcCursorItemReader_**](https://github.com/SpringSource/spring-batch/blob/master/spring-batch-infrastructure/src/main/java/org/springframework/batch/item/database/JdbcCursorItemReader.java) de Spring Batch hérite de la classe [**_AbstractItemCountingItemStreamItemReader_**](https://github.com/SpringSource/spring-batch/blob/master/spring-batch-infrastructure/src/main/java/org/springframework/batch/item/support/AbstractItemCountingItemStreamItemReader.java) qui n'est pas thread-safe. L’utilisation d’un [wrapper _synchronized_](http://static.springsource.org/spring-batch/faq.html#threading-reader) aurait pu être envisagée si la classe fille de [**_JdbcCursorItemReader_**](https://github.com/SpringSource/spring-batch/blob/master/spring-batch-infrastructure/src/main/java/org/springframework/batch/item/database/JdbcCursorItemReader.java) développée pour les besoins du batch ne s’appuyait pas elle-même sur un _RowMapper_ avec état reposant sur l’ordre de lecture des éléments.
 
-Les **Parallel Steps** ont été mises en œuvre dès le début du batch pour traiter en parallèle des données de types différents (ex : Musique et Film). De par leurs jointures, les requêtes SQL de chacun différaient. Avant optimisation, **9 steps** étaient déjà **exécutés en parallèle** par ce biais.
+Les **Parallel Steps** ont été mises en œuvre dès le début du batch pour traiter en parallèle des données de types différents (ex : Musique et Film). De par leurs jointures, les requêtes SQL de chacun différaient. Avant optimisation, **9 steps** étaient déjà **exécutés en parallèle** par ce biais.
 
-Quatrième et dernière technique, celle du **Partitioning a Step** est la piste que nous avons étudiée pour diminuer le temps d’exécuter des 3 steps les plus longs. Elle consiste à partitionner les données selon un critère pertinemment choisi (ex : identifiant, année, catégorie), le but étant d’obtenir des partitions de taille équivalente et donc de même temps de traitement.  
+Quatrième et dernière technique, celle du **Partitioning a Step** est la piste que nous avons étudiée pour diminuer le temps d’exécuter des 3 steps les plus longs. Elle consiste à partitionner les données selon un critère pertinemment choisi (ex : identifiant, année, catégorie), le but étant d’obtenir des partitions de taille équivalente et donc de même temps de traitement.  
 Bien qu’il ne fut pas parfaitement linéairement réparti, le **discriminant** retenu pour le batch a été l’identifiant fonctionnel des données à indexer. Les données ont été découpées en **3 partitions**. Comme attendu, bien que le volume de données soit divisé par trois, le temps de mise en place du curseur Oracle ne diminua pas. Par contre, le temps de traitements fut divisé par 3, faisant ainsi passer le temps d’exécution du batch de 3h à 2h.  
 Malgré une augmentation du nombre de requêtes exécutées simultanément, la base Oracle n’a pas montré de faiblesse. Une surcharge aurait en effet pu ternir ce résultat.
 
@@ -88,11 +88,11 @@ Malgré une augmentation du nombre de requêtes exécutées simultanément, la b
 
 Après ce long discours, rien de tel qu’un peu d’exercice. Pour les besoins de ce billet, et afin de capitaliser sur l’expérience acquise sur la configuration Spring Batch, j’ai mis à jour le projet [spring-batch-toolkit](https://github.com/arey/spring-batch-toolkit/) hébergé sur GitHub. Le fichier [blog-parallelisation.zip](https://github.com/arey/spring-batch-toolkit/archive/blog-parallelisation.zip) contient l’ensemble du code source mavenisé.
 
-Je suis parti d’un cas d’exemple des plus simples : **un batch chargé de lire en base de données des chefs-d’œuvre puis de les afficher sur la console**.
+Je suis parti d’un cas d’exemple des plus simples : **un batch chargé de lire en base de données des chefs-d’œuvre puis de les afficher sur la console**.
 
 {{< figure src="/wp-content/uploads/2012/11/ParallélisationTraitementsBatch%5FMPD.jpg" alt="Modèle physique de données des tables MASTERPIECE, MUSIC\_ALBUM et MOVIE" caption="Modèle physique de données des tables MASTERPIECE, MUSIC\_ALBUM et MOVIE" >}}
 
-En base, il existe 2 types de chefs-d’œuvre : les films et les albums de musique. Comme le montre le diagramme du modèle physique de données ci-contre, chaque type de chef-d'oeuvre dispose de sa propre table : respectivement MOVIE et MUSIC\_ALBUM. Les données communes sont normalisées dans la table MAESTERPIECE.
+En base, il existe 2 types de chefs-d’œuvre : les films et les albums de musique. Comme le montre le diagramme du modèle physique de données ci-contre, chaque type de chef-d'oeuvre dispose de sa propre table : respectivement MOVIE et MUSIC\_ALBUM. Les données communes sont normalisées dans la table MAESTERPIECE.
 
 En ce qui concerne le design du batch, le **job** peut être **décomposé en 2 steps exécutés en parallèle**, l’un chargé de traiter les albums de musique, l’autre les films. Une fois les 2 steps terminés, un **dernier step** affiche le **nombre total de chefs-d’œuvre traités**.
 
@@ -102,7 +102,7 @@ Le besoin est simple. Partons d’une démarche TDD et commençons par l’écri
 
 Dans un premier temps, attaquons-nous aux **données de test**, sans doute ce qu’il y’a de plus fastidieux. Exécuté au moment de la création de la base de données embarquée, le script SQL [**_TestParallelAndPartitioning.sql_**](https://raw.github.com/arey/spring-batch-toolkit/blog-parallelisation/src/test/resources/com/javaetmoi/core/batch/test/TestParallelAndPartitioning.sql "Script SQL complet") contient les ordres DDL du schéma ci-dessous ainsi que des requêtes INSERT permettant de l’alimenter.
 
-Voici un exemple de données de tests :
+Voici un exemple de données de tests :
 
 ```tsql
 Insert <strong>into</strong> MASTERPIECE (MASTERPIECE_ID, NAME, YEAR, GENRE) <strong>values</strong> (2, 'Star Wars: Episode IV - A New Hope!', 1977, 'Movie');
@@ -153,21 +153,21 @@ public class TestParallelAndPartitioning extends AbstractSpringBatchTest {
 
 ```
 
-L’exécution du job est suivie d’assertions :
+L’exécution du job est suivie d’assertions :
 
 1. Le job s’est terminé avec succès
 1. Le step des films _stepLogMovie_ a traité les 8 films attendus
-1. Le step des albums de musiques _stepLogMusicAlbum_  a traité les 11 films attendus
-1. Et en y regardant de plus près, le step des albums a été décomposé en deux « sous-steps », _stepLogMusicAlbumPartition:partition0_ et _stepLogMusicAlbumPartition:partition1_ qui correspondent, comme leur nom l’indique, à chacune des 2 partitions. Les 11 films ont été séparés en 2 lots de capacités avoisinantes, à savoir de 6 et 5 films. Avec 3 partitions, on aurait pu s’attendre à un découpage de 4-4-3.
+1. Le step des albums de musiques _stepLogMusicAlbum_  a traité les 11 films attendus
+1. Et en y regardant de plus près, le step des albums a été décomposé en deux « sous-steps », _stepLogMusicAlbumPartition:partition0_ et _stepLogMusicAlbumPartition:partition1_ qui correspondent, comme leur nom l’indique, à chacune des 2 partitions. Les 11 films ont été séparés en 2 lots de capacités avoisinantes, à savoir de 6 et 5 films. Avec 3 partitions, on aurait pu s’attendre à un découpage de 4-4-3.
 
-La configuration du batch commence par la déclaration de beans d’infrastructure Spring relativement génériques pour des tests :
+La configuration du batch commence par la déclaration de beans d’infrastructure Spring relativement génériques pour des tests :
 
 - Une base de données en mémoire H2 initialisée avec le schéma des 6 tables de Spring Batch
 - Le gestionnaire de transactions utilisé par Spring Batch pour gérer ses chunk
 - Le _JobRespository_ dans lequel seront persistés l’historique et le contexte d’exécution des batchs
-- Les beans  _SimpleJobLauncher_ et _JobLauncherTestUtils_ permettant d’exécuter le job testé
+- Les beans  _SimpleJobLauncher_ et _JobLauncherTestUtils_ permettant d’exécuter le job testé
 
-Ces beans sont déclarés dans le fichier [AbstractSpringBatchTest-context.xml](https://github.com/arey/spring-batch-toolkit/blob/blog-parallelisation/src/test/resources/com/javaetmoi/core/batch/test/AbstractSpringBatchTest-context.xml "Fichier de configuration Spring des beans d'infrastructure du test") :
+Ces beans sont déclarés dans le fichier [AbstractSpringBatchTest-context.xml](https://github.com/arey/spring-batch-toolkit/blob/blog-parallelisation/src/test/resources/com/javaetmoi/core/batch/test/AbstractSpringBatchTest-context.xml "Fichier de configuration Spring des beans d'infrastructure du test") :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -206,7 +206,7 @@ Ces beans sont déclarés dans le fichier [AbstractSpringBatchTest-context.xml](
 ```
 
 La majeure partie de la configuration Spring est définie dans le fichier [TestParallelAndPartitioning-context.xml](https://github.com/arey/spring-batch-toolkit/blob/blog-parallelisation/src/test/resources/com/javaetmoi/core/batch/test/TestParallelAndPartitioning-context.xml "Fichier de configuration du contexte application Spring du test TestParallelAndPartitioning ") d’où sont tirés les extraits suivants.  
-En plus du schéma nécessaire par le _JobRepository_ persistant de Spring Batch, les 3 tables de notre exemple sont créées puis alimentées avec notre jeu de données comportant 19 chefs-d’œuvre :
+En plus du schéma nécessaire par le _JobRepository_ persistant de Spring Batch, les 3 tables de notre exemple sont créées puis alimentées avec notre jeu de données comportant 19 chefs-d’œuvre :
 
 ```xml
   <!-- Initialize database with 8 movies and 11 music albums -->
@@ -215,7 +215,7 @@ En plus du schéma nécessaire par le _JobRepository_ persistant de Spring Batch
   </jdbc:initialize-database>
 ```
 
-Un **pool de threads** sera utilisé pour paralléliser le job . Ce pool est dimensionné à 4 threads : un thread pour chacun des 2 parallel steps + un thread pour chacun des 2 « sous-steps » correspondants aux 2 partitions.
+Un **pool de threads** sera utilisé pour paralléliser le job . Ce pool est dimensionné à 4 threads : un thread pour chacun des 2 parallel steps + un thread pour chacun des 2 « sous-steps » correspondants aux 2 partitions.
 
 ```xml
   <!-- Thread pools : 1 thread for stepLogMovie and 3 threads for stepLogMusicAlbum -->
@@ -242,7 +242,7 @@ Les 2 flows _flowMovie_ et _flowMusicAlbum_ sont exécutés en parallèle. Une f
   </batch:job>
 ```
 
-Composé d’un seul **step** (sans partition), la déclaration du flow **_flowMusicAlbum_** chargée de logger les **films** est la plus simple. De type **chunk**, le step a un reader utilisant un **curseur JDBC** pour itérer sur la liste des films. La classe **_BeanPropertyRowMapper_** permet d’effectuer le mapping entre les colonnes du _ResultSet_ de la requête SQL et le bean java _Movie_ ; il se base sur le nom des colonnes et le nom des propriétés du bean.
+Composé d’un seul **step** (sans partition), la déclaration du flow **_flowMusicAlbum_** chargée de logger les **films** est la plus simple. De type **chunk**, le step a un reader utilisant un **curseur JDBC** pour itérer sur la liste des films. La classe **_BeanPropertyRowMapper_** permet d’effectuer le mapping entre les colonnes du _ResultSet_ de la requête SQL et le bean java _Movie_ ; il se base sur le nom des colonnes et le nom des propriétés du bean.
 
 Le **writer** affiche les propriétés du bean _Movie_ à l’aide de la méthode _ToStringBuilder.reflectionToString()_ d’Apache Commons Lang.  
 L’attribut **_commit-interval_** du chunk est fixé volontairement à 2. Ainsi, le writer est appelé tous les 2 films. Cela permet de voir plus facilement l’enchevêtrement des différents threads.
@@ -274,7 +274,7 @@ L’attribut **_commit-interval_** du chunk est fixé volontairement à 2. Ainsi
   </batch:flow>
 ```
 
-Le flow chargé de traiter les films est lui aussi composé d’un seul step : **_stepLogMusicAlbum_**. Ce dernier est **partitionné** en 2 (propriété **_grid-size="2"_** du handler). Le même pool de threads est utilisé pour traiter les 2 partitions. Le bean chargé de partitionner les données est référencé : _partitionerMusicAlbum_. Le traitement des « sous-steps » partitionnés est confié au bean _stepLogMusicAlbumPartition_.
+Le flow chargé de traiter les films est lui aussi composé d’un seul step : **_stepLogMusicAlbum_**. Ce dernier est **partitionné** en 2 (propriété **_grid-size="2"_** du handler). Le même pool de threads est utilisé pour traiter les 2 partitions. Le bean chargé de partitionner les données est référencé : _partitionerMusicAlbum_. Le traitement des « sous-steps » partitionnés est confié au bean _stepLogMusicAlbumPartition_.
 
 ```xml
   <!-- The music flow is composed of a single step which is partitioned -->
@@ -288,7 +288,7 @@ Le flow chargé de traiter les films est lui aussi composé d’un seul step : 
   </batch:flow>
 ```
 
-Le bean **_partitionerMusicAlbum_** repose sur la classe **_[ColumnRangePartitioner](http://static.springsource.org/spring-batch/apidocs/org/springframework/batch/sample/common/ColumnRangePartitioner.html)_** reprise des [samples Spring Batch](http://static.springsource.org/spring-batch/spring-batch-samples/index.html "Page d'accueil des Samples Spring Batch") La **clé de partition** doit lui être précisé sous forme du **couple nom de table / nom de colonne**.  
+Le bean **_partitionerMusicAlbum_** repose sur la classe **_[ColumnRangePartitioner](http://static.springsource.org/spring-batch/apidocs/org/springframework/batch/sample/common/ColumnRangePartitioner.html)_** reprise des [samples Spring Batch](http://static.springsource.org/spring-batch/spring-batch-samples/index.html "Page d'accueil des Samples Spring Batch") La **clé de partition** doit lui être précisé sous forme du **couple nom de table / nom de colonne**.  
 Techniquement, cette classe utilise ces données pour récupérer les **valeurs minimales** et **maximales** de la clé. Pour se faire, 2 requêtes SQL sont exécutées. A partir, du min et du max, connaissant le nombre de partitions à créer (grid-size), elle calcule des **intervalles de données de grandeur équivalente**. Afin que les partitions soient de taille équivalente en termes de données, les valeurs des clés doivent être uniformément distribuées. C’est par exemple le cas avec un identifiant technique généré par une séquence base de données et pour lesquelles aucune donnée n’est supprimée (pas de trou). Les clés **minValue** et **maxValue** de chaque intervalle sont mises à disposition dans le **contexte d'exécution** de chaque « sous-step ».
 
 ```java
@@ -301,7 +301,7 @@ Techniquement, cette classe utilise ces données pour récupérer les **valeurs 
   </bean>
 ```
 
-De la même manière que son cousin _stepLogMovie_, le bean **_stepLogMusicAlbumPartition_** est composé d’un chunk tasklet. Celui-ci référence 2 beans définis dans la suite du fichier de configuration : _readerMusicAlbum_ et _anyObjectWriter_, ce dernier étant déjà utilisé par le bean _stepLogMovie_.
+De la même manière que son cousin _stepLogMovie_, le bean **_stepLogMusicAlbumPartition_** est composé d’un chunk tasklet. Celui-ci référence 2 beans définis dans la suite du fichier de configuration : _readerMusicAlbum_ et _anyObjectWriter_, ce dernier étant déjà utilisé par le bean _stepLogMovie_.
 
 ```xml
   <!-- Read music albums from database then write them into logs -->
@@ -314,7 +314,7 @@ De la même manière que son cousin _stepLogMovie_, le bean **_stepLogMusicAlbum
 
 Par rapport à celui en charge de la lecture des films, le bean **_readerMusicAlbum_** se démarque en 2 points :
 
-1. La requête SQL filtre non seulement les chefs-d’œuvre par leur genre ( _where genre='Music'_), mais également sur une plage d’identifiants ( _and  b.album\_id >= ? and b.album\_id <= ?)_ relatifs à la clé de partitionnement. Cette requête est donc dynamique. Basé sur un _PreparedStatement_ JDBC, elle est exécutée autant de fois qu’il y’a de partitions à traiter.
+1. La requête SQL filtre non seulement les chefs-d’œuvre par leur genre ( _where genre='Music'_), mais également sur une plage d’identifiants ( _and  b.album\_id >= ? and b.album\_id <= ?)_ relatifs à la clé de partitionnement. Cette requête est donc dynamique. Basé sur un _PreparedStatement_ JDBC, elle est exécutée autant de fois qu’il y’a de partitions à traiter.
 
 Les 2 **paramètres de la requête** (symbolisés par un ?) sont **évalués dynamiquement** à partir du contexte d’exécution du step. Une Spring Expression Language (SPeL) est utilisée dans la définition du bean anonyme basé sur la classe _ListPreparedStatementSetter_. Ceci est permis grâce à la **portée** du bean reader qui est de type **step** (scope="step").
 
@@ -348,7 +348,7 @@ Les 2 **paramètres de la requête** (symbolisés par un ?) sont **évalués dyn
   </bean>
 ```
 
-Après épuration des logs et ajout d’un _Thread.sleep(50)_ dans la classe _ConsoleItemWriter_ dans le but, voici le résultat de l’exécution du batch :
+Après épuration des logs et ajout d’un _Thread.sleep(50)_ dans la classe _ConsoleItemWriter_ dans le but, voici le résultat de l’exécution du batch :
 
 ```diff
 Job: [FlowJob: [name=parallelAndPartitioningJob]] launched with the following parameters: [{timestamp=1354297881856}]
@@ -382,6 +382,6 @@ Ces traces confirment que le traitement des chefs-d’œuvre est équitablement 
 
 ## Conclusion
 
-Pour un effort minime, à peine quelques heures de développement, la durée d’exécution du batch a baissé de 33%, avec un débit avoisinant les 5 000 documents par secondes indexés dans ElasticSearch. Pourquoi donc s’en priver ?
+Pour un effort minime, à peine quelques heures de développement, la durée d’exécution du batch a baissé de 33%, avec un débit avoisinant les 5 000 documents par secondes indexés dans ElasticSearch. Pourquoi donc s’en priver ?
 
-La documentation Spring Batch doit être attentivement suivie pour ne pas tomber dans certains pièges liés à la parallélisassion. La [documentation officielle](http://docs.spring.io/spring-batch/reference/html/ "Manuel de référence HTML ou PDF de Spring Batch"), le livre [Spring Batch in Action](http://www.amazon.fr/Spring-Batch-Action-Arnaud-Cogoluegnes/dp/1935182951 "Spring Batch in Action sur Amazon") et maintenant ce billet devraient être des sources suffisantes pour comprendre et mettre en œuvre aux moins 2 des techniques proposées nativement par Spring Batch : Parallel Steps et Partitioning a Step.
+La documentation Spring Batch doit être attentivement suivie pour ne pas tomber dans certains pièges liés à la parallélisassion. La [documentation officielle](http://docs.spring.io/spring-batch/reference/html/ "Manuel de référence HTML ou PDF de Spring Batch"), le livre [Spring Batch in Action](http://www.amazon.fr/Spring-Batch-Action-Arnaud-Cogoluegnes/dp/1935182951 "Spring Batch in Action sur Amazon") et maintenant ce billet devraient être des sources suffisantes pour comprendre et mettre en œuvre aux moins 2 des techniques proposées nativement par Spring Batch : Parallel Steps et Partitioning a Step.

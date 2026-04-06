@@ -40,7 +40,7 @@ Hoani commence par nous rappeler les **bienfaits** de prendre des notes :
 - **Ralentir** pour assimiler, poser son téléphone pour se focaliser
 - **Graver** dans la mémoire
 - Transformer l’écoute en **savoir**, **résumer** avec ses propres mots
-- **Entraîner** **le cerveau** : sport mental, reformulation, concentration
+- **Entraîner** **le cerveau** : sport mental, reformulation, concentration
 - **Connecter** **des idées** parfois éloignées les unes des autres
 - **Améliorer sa compréhension** tout en construisant une bibliothèque personnelle (le fameux Second Cerveau)
 
@@ -55,7 +55,7 @@ Hoani a essayé de basculer sur des carnets numériques avec le [reMarkable](htt
 - Plus de **2 500 plugins** OpenSource
 - **Multiplateforme** : Windows, Linux, MacOS, Android, iOS
 
-Obsidian intègre les **fonctionnalités** suivantes  :
+Obsidian intègre les **fonctionnalités** suivantes  :
 
 - **Coffre avec navigateur de fichiers** : toutes les notes sont stockées localement dans un dossier (appelé "coffre"), consultable via un explorateur intégré.
 - **Éditeur de Markdown intelligent** : éditeur fluide combinant texte brut et mise en forme instantanée, avec gestion des liens internes, blocs de code, formules et tableaux.
@@ -65,11 +65,11 @@ Obsidian intègre les **fonctionnalités** suivantes  :
 - **Enregistrement audio** : capture vocale intégrée pour enregistrer des idées, réunions ou commentaires, directement stockés et liés dans le coffre.
 - **Vue graphique de l’arborescence des notes** : représentation visuelle du réseau de liens entre notes, offrant une cartographie claire et dynamique de son écosystème de connaissances.
 
-L'une des forces du logiciel Obsidian réside dans le fait qu'il soit multiplafeforme : on peut commencer une note oralement sur son Smartphone puis la reprendre plus tard avec un clavier sur son laptop. Plusieurs [techniques de synchronisation des coffres](https://help.obsidian.md/sync-notes) entre différents devices existent :
+L'une des forces du logiciel Obsidian réside dans le fait qu'il soit multiplafeforme : on peut commencer une note oralement sur son Smartphone puis la reprendre plus tard avec un clavier sur son laptop. Plusieurs [techniques de synchronisation des coffres](https://help.obsidian.md/sync-notes) entre différents devices existent :
 
-1. Offre de service intégré payant : **Sync** (4$ par mois)
+1. Offre de service intégré payant : **Sync** (4$ par mois)
 1. Stockage Cloud avec **iCloud**, **OneDrive**, **Google Drive**
-1. **[Syncthing](https://syncthing.net/)** (OSS) : synchronisation Peer-to-Peer de fichiers. Vos données ne sont jamais stockées dans le Cloud
+1. **[Syncthing](https://syncthing.net/)** (OSS) : synchronisation Peer-to-Peer de fichiers. Vos données ne sont jamais stockées dans le Cloud
 1. Plugin **Git** (instable sur mobile) : personnellement, c'est ce dernier que j'utilise avec un repo GitHub privé.
 
 À noter que l'utilisation d'un repo Git rend possible le partage en équipe d'un coffre Obsidian.
@@ -78,13 +78,13 @@ L'une des forces du logiciel Obsidian réside dans le fait qu'il soit multiplafe
 
 Le coffre d'Hoani contient toutes ses données, tant personnelles que professionnelles. Cela peut poser un problème de confidentialité : faire sortir des données pros sur son ordi perso peut être contraire aux règles de sécurité de son entreprise.
 
-L'organisation de son coffre comporte 8 grands dossiers :
+L'organisation de son coffre comporte 8 grands dossiers :
 
 - Notes persos
 - Notes pros
 - Notes de lecture (livres ou vidéo youtube)
 - Notes non classées (temporaire)
-- Second Brain : wiki perso
+- Second Brain : wiki perso
 - Bullet Journal (Bujo)
 - Archives
 - Templates
@@ -105,7 +105,7 @@ Le plugin [Tasks](https://github.com/obsidian-tasks-group/obsidian-tasks) permet
 A noter la possibilité de créer des **tableaux dynamiques** à l’aide de requête, par exemple pour créer une **liste de TODO** à faire aujourd’hui.
 
 Son **daily** est centré autour d’une simple bullet list renseignée tout au long de la journée.  
-Chaque sujet commence par un tag (ex : #perso, #tech). Hoani utilise les sous-listes pour détailler le sujet.  
+Chaque sujet commence par un tag (ex : #perso, #tech). Hoani utilise les sous-listes pour détailler le sujet.  
 Chaque jour, Hoani ouvre son Daily du jour et
 
 - Regarde les tâches à réaliser
@@ -120,7 +120,7 @@ Comparé au manuscrit, les bénéfices du numérique sont nombreux :
 - Personnaliser son daily en ajoutant toutes les infos qui lui passent par la tête
 - Suivre des variables quotidiennes (comme le temps passé à s'entrainer au [Kendama](https://fr.wikipedia.org/wiki/Kendama))
 - Afficher les tâches à réaliser et être notifié de celles en retard
-- Automatiser certains traitements à l'aide de plugins additionnels : [Templater](https://github.com/SilentVoid13/Templater), [Tasks](https://github.com/obsidian-tasks-group/obsidian-tasks) et [Dataview](https://github.com/blacksmithgu/obsidian-dataview)
+- Automatiser certains traitements à l'aide de plugins additionnels : [Templater](https://github.com/SilentVoid13/Templater), [Tasks](https://github.com/obsidian-tasks-group/obsidian-tasks) et [Dataview](https://github.com/blacksmithgu/obsidian-dataview)
 
 Le contenu du Daily peut être très riche et comporter :
 
@@ -130,7 +130,7 @@ Le contenu du Daily peut être très riche et comporter :
 - Définition de la **tâche ultime** de la journée
 - Rappel des **tâches** via un filtre de recherche et un report facilité des tâches
 - Le **journal** en lui-même  
-- Entrainement au Kendama
+- Entrainement au Kendama
 - Des métriques sur livres (page en cours) et jeux vidéo (temps, winrate)
 
 Exemples de métadonnées d'un Daily permettant de suivre des variables quotidiennes :
@@ -144,7 +144,7 @@ walked : 400
 working_place_morning : HOME
 ```
 
-La **barre de navigation** du Daily permet de passer rapidement du daily précédent au suivant, à la semaine associée …  
+La **barre de navigation** du Daily permet de passer rapidement du daily précédent au suivant, à la semaine associée …  
 L'ajout de **barres de progression** est possible via le plugin [Progressbar](https://github.com/zwpaper/obsidian-progressbar).
 
 Le numérique permet de créer d' **autres types de notes périodiques** que le daily. On peut, par exemple, se fixer des objectifs annuels (ex: courir un marathon), suivre visuellement leurs avancements puis, une fois la période écoulée, faire un bilan de la période et définir de nouveaux objectifs. Hoani insiste sur le fait que l'ouverture et la fermeture d'une période doit être vécue comme un rituel.  

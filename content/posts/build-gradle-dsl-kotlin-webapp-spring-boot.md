@@ -122,13 +122,13 @@ dependencies {
 Le **DSL Kotlin pour Gradle** a facilité la déclaration des plugins en introduisant le [**bloc _plugins {}_**](https://github.com/gradle/kotlin-dsl/blob/master/doc/getting-started/Configuring-Plugins.md). Par exemple, le plugin de compilation du code source Kotlin de l’application est déclaré dans ce bloc.
 Suite à [un bug JUnit 5](https://github.com/junit-team/junit5/issues/768), le plugin **junit-platform-gradle-plugin** a dû rester déclaré dans le bloc _buildscript {}._ Un contournement existe, mais il ne fonctionne pas correctement lorsque les plugins sont tirés de plusieurs repos Maven, ce qui est le cas du plugin **spring-boot-gradle-plugin** en version Milestone 2.0.0.M6 qui n’est pas encore publié dans Maven Central.
 
-Le plugin Spring Boot pour Gradle **org.springframework.boot** joue un triple rôle :
+Le plugin Spring Boot pour Gradle **org.springframework.boot** joue un triple rôle :
 
 1. La **construction** le **uber-JAR exécutable**
 1. L’ **exécution** de la webapp via la ligne de commande _gradle bootRun_
 1. La **gestion des dépendances**
 
-Attardons-nous un moment sur la gestion des dépendances. Fonctionnant de concert avec le [plugin Dependency Management](https://github.com/spring-gradle-plugins/dependency-management-plugin/) **io.spring.dependency-management**, le plugin Spring Boot permet d’éviter de déclarer la version des dépendances déclarées dans le bloc _dependencies {}_ ; du moins, celles déclarées dans le **BOM Maven spring-boot-starter-parent** qu’il importe.
+Attardons-nous un moment sur la gestion des dépendances. Fonctionnant de concert avec le [plugin Dependency Management](https://github.com/spring-gradle-plugins/dependency-management-plugin/) **io.spring.dependency-management**, le plugin Spring Boot permet d’éviter de déclarer la version des dépendances déclarées dans le bloc _dependencies {}_ ; du moins, celles déclarées dans le **BOM Maven spring-boot-starter-parent** qu’il importe.
 
 La centralisation des versions non déclarées dans le BOM passe par l’usage de la **propriété _extra_** déclarée sous forme d’extension Kotlin. Il est toutefois regrettable qu’ _extra_ ne soit pas visible du bloc _plugins {}_.
 
@@ -138,7 +138,7 @@ Par rapport au [pom.xml](https://github.com/spring-petclinic/spring-petclinic-ko
 Novice en Kotlin et en Gradle, toute suggestion d’amélioration du [build.gradle.kts](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/build.gradle.kts) est la bienvenue.
 J’attends vos pull requests :-)
 
-Références :
+Références :
 
 - [Better dependency management for Gradle](https://spring.io/blog/2015/02/23/better-dependency-management-for-gradle) (Andy Wilkinson)
 - [Spring Boot Gradle plugin](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#build-tool-plugins-gradle-plugin) (Manuel de référence de Spring Boot)

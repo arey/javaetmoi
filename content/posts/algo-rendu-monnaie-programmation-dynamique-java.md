@@ -18,8 +18,8 @@ parent_post_id: null
 post_id: "1742"
 post_views_count: "16406"
 summary: |-
-  [![](http://javaetmoi.com/wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png)](http://javaetmoi.com/wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png) Dans ce billet, j’ai eu l’envie de vous partager mon implémentation Java du très célèbre [problème du rendu de monnaie](https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_rendu_de_monnaie) dont voici l’énoncé : étant donné un système de monnaie, comment rendre de façon optimale une somme donnée, c'est-à-dire avec le nombre minimal de pièces et de billets ?
-  Par exemple, dans le système monétaire de l’Euro, la manière la plus optimale de rendre 6 euros consiste à rendre un billet de 5 € et une pièce de 1 €, même si d’autres combinaisons existent (ex : 3 x 2 € ou 6 x 1 €).
+  [![](http://javaetmoi.com/wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png)](http://javaetmoi.com/wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png) Dans ce billet, j’ai eu l’envie de vous partager mon implémentation Java du très célèbre [problème du rendu de monnaie](https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_rendu_de_monnaie) dont voici l’énoncé : étant donné un système de monnaie, comment rendre de façon optimale une somme donnée, c'est-à-dire avec le nombre minimal de pièces et de billets ?
+  Par exemple, dans le système monétaire de l’Euro, la manière la plus optimale de rendre 6 euros consiste à rendre un billet de 5 € et une pièce de 1 €, même si d’autres combinaisons existent (ex : 3 x 2 € ou 6 x 1 €).
 
   Dans le cas d’un système monétaire non canonique, utiliser un [algorithme glouton](https://fr.wikipedia.org/wiki/Algorithme_glouton) ne donnera pas nécessairement un résultat optimal. Il est nécessaire de passer par la méthode algorithmique dite de [programmation dynamique](https://fr.wikipedia.org/wiki/Programmation_dynamique).
 tags:
@@ -29,8 +29,8 @@ title: Implémentation Java de l'algorithme de rendu de monnaie par programmatio
 url: /2017/07/algo-rendu-monnaie-programmation-dynamique-java/
 
 ---
-[![](/wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png)](/wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png) Dans ce billet, j’ai eu l’envie de vous partager mon implémentation Java du très célèbre [problème du rendu de monnaie](https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_rendu_de_monnaie) dont voici l’énoncé : étant donné un système de monnaie, comment rendre de façon optimale une somme donnée, c'est-à-dire avec le nombre minimal de pièces et de billets ?
-Par exemple, dans le système monétaire de l’Euro, la manière la plus optimale de rendre 6 euros consiste à rendre un billet de 5 € et une pièce de 1 €, même si d’autres combinaisons existent (ex : 3 x 2 € ou 6 x 1 €).
+[![](/wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png)](/wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png) Dans ce billet, j’ai eu l’envie de vous partager mon implémentation Java du très célèbre [problème du rendu de monnaie](https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_rendu_de_monnaie) dont voici l’énoncé : étant donné un système de monnaie, comment rendre de façon optimale une somme donnée, c'est-à-dire avec le nombre minimal de pièces et de billets ?
+Par exemple, dans le système monétaire de l’Euro, la manière la plus optimale de rendre 6 euros consiste à rendre un billet de 5 € et une pièce de 1 €, même si d’autres combinaisons existent (ex : 3 x 2 € ou 6 x 1 €).
 
 Dans le cas d’un système monétaire non canonique, utiliser un [algorithme glouton](https://fr.wikipedia.org/wiki/Algorithme_glouton) ne donnera pas nécessairement un résultat optimal. Il est nécessaire de passer par la méthode algorithmique dite de [programmation dynamique](https://fr.wikipedia.org/wiki/Programmation_dynamique).
 
@@ -198,7 +198,7 @@ public class AlgoRenduMonnaie {
 }
 ```
 
-Le test unitaire JUnit associé valide différents cas de tests et documente son utilisation :
+Le test unitaire JUnit associé valide différents cas de tests et documente son utilisation :
 
 ```java
 package com.javaetmoi.algo;
@@ -272,7 +272,7 @@ Plus le système monétaire est dense et plus le montant à rendre est élevé, 
 
 Pour complexifier le problème, on pourrait tenir compte du nombre de pièces disponibles dans la caisse et adapter le rendu de monnaie en conséquences. La mise en cache des résultats intermédiaires ne serait alors plus possible.
 
-Références :
+Références :
 
 - [Problème de rendu de monnaie](https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_rendu_de_monnaie), Wikipedia
 - Rendu de monnaie, bases de programmation dynamique, Jill-Jênn Vie & Clémence

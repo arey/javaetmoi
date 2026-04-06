@@ -19,6 +19,6 @@ title: 'Devoxx France 2016 : une conf appréciée, un slide'
 url: /2016/05/devoxx-france-2016-un-slide-par-conf/
 
 ---
-Voici la présentation que j'ai animée auprès de mes collègues afin de leur faire un retour suite à ma participation à Devoxx France 2016. Le leitmotiv était **_"1_ _conférence appréciée => 1 slide"_**.Au menu : Angular 2, ECMASript 2015, Kakfa, Spring Cloud, architecture StackOverflow, Jenkins pipeline, React, revues de code et documentation.
+Voici la présentation que j'ai animée auprès de mes collègues afin de leur faire un retour suite à ma participation à Devoxx France 2016. Le leitmotiv était **_"1_ _conférence appréciée => 1 slide"_**.Au menu : Angular 2, ECMASript 2015, Kakfa, Spring Cloud, architecture StackOverflow, Jenkins pipeline, React, revues de code et documentation.
 
 \[slideshare id=61995666&doc=2016-05-13-retoursdevoxxfrance2016-160513175637\]

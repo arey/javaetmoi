@@ -16,7 +16,7 @@ summary: |-
   Vous avez testé QueryDSL.
   Alors n'attendez plus !!
 
-  Les **secrets du conteneur** Spring vous attendent pour ce 3ième workshop sur le framework Spring : module **spring-test**, **injection de beans de portées différentes**, **support** des **JSR 250** et **330**, **post-processeurs de beans**, fichiers de **configuration** et abstraction de l’accès aux ressources.
+  Les **secrets du conteneur** Spring vous attendent pour ce 3ième workshop sur le framework Spring : module **spring-test**, **injection de beans de portées différentes**, **support** des **JSR 250** et **330**, **post-processeurs de beans**, fichiers de **configuration** et abstraction de l’accès aux ressources.
 
   Conçu en décembre 2011, et faisant suite aux 2 billets précédents, le support de présentation de ce workshop reste d’actualités avec Spring 4.x. Seule la syntaxe XML pourrait de nos jours être réécrites en Java.
 title: Tests et techniques avancées du conteneur Spring
@@ -30,7 +30,7 @@ Vous êtes conquis par la magie de Spring Data JPA.
 Vous avez testé QueryDSL.
 Alors n'attendez plus !!
 
-Les **secrets du conteneur** Spring vous attendent pour ce 3ième workshop sur le framework Spring : module **spring-test**, **injection de beans de portées différentes**, **support** des **JSR 250** et **330**, **post-processeurs de beans**, fichiers de **configuration** et abstraction de l’accès aux ressources.
+Les **secrets du conteneur** Spring vous attendent pour ce 3ième workshop sur le framework Spring : module **spring-test**, **injection de beans de portées différentes**, **support** des **JSR 250** et **330**, **post-processeurs de beans**, fichiers de **configuration** et abstraction de l’accès aux ressources.
 
 Conçu en décembre 2011, et faisant suite aux 2 billets précédents, le support de présentation de ce workshop reste d’actualités avec Spring 4.x. Seule la syntaxe XML pourrait de nos jours être réécrites en Java.
 

@@ -48,13 +48,13 @@ Pour me préparer, à l’instar du [Jeanne Boyarsky's Spring 3.X Certification 
 
 ## Présentation des fiches de révision
 
-Ces fiches reprennent une à une toutes les questions abordées dans _l’Enterprise Integration with Spring 1.x Certification Study Guide_  mis à disposition par SpringSource.  J’ai essayé d’y répondre en m’appuyant sur le support de formation, les différents manuels de référence et le code source.
+Ces fiches reprennent une à une toutes les questions abordées dans _l’Enterprise Integration with Spring 1.x Certification Study Guide_  mis à disposition par SpringSource.  J’ai essayé d’y répondre en m’appuyant sur le support de formation, les différents manuels de référence et le code source.
 
 Au regard de la formation, lorsqu’il m’a semblé que des points importants n’avaient pas été abordés, j’ai ajouté des questions/réponses repérables par leur police en italique.
-Vous trouverez ces fiches sous 2 formes :
+Vous trouverez ces fiches sous 2 formes :
 
-- un **fichier au format PDF**: [spring-integration-specialist-certification-study-notes-antoine.pdf](/wp-content/uploads/2012/09/spring-integration-specialist-certification-study-notes-antoine.pdf)
-- une **version HTML en ligne** publiée à la suite de ce billet :
+- un **fichier au format PDF**: [spring-integration-specialist-certification-study-notes-antoine.pdf](/wp-content/uploads/2012/09/spring-integration-specialist-certification-study-notes-antoine.pdf)
+- une **version HTML en ligne** publiée à la suite de ce billet :
 
 ## Remoting
 
@@ -62,20 +62,20 @@ Vous trouverez ces fiches sous 2 formes :
 
 Les concepts proposés par Spring Remoting, côté serveur comme client
 
- Remoting => appel synchrone de méthodes distantes
+ Remoting => appel synchrone de méthodes distantes
 
-Côté serveur : concept d’Exporter permettant d’exposer à distance un bean Spring (POJO).
+Côté serveur : concept d’Exporter permettant d’exposer à distance un bean Spring (POJO).
 
-Côté client : un ProxyFactoryBean chargé de créer dynamiquement un proxy masquant les appels distants et gérant la plomberie technique (connexion, exceptions …)Les bénéfices de Spring Remoting par rapport aux techniques traditionnelles d’appel de méthodes distantes
+Côté client : un ProxyFactoryBean chargé de créer dynamiquement un proxy masquant les appels distants et gérant la plomberie technique (connexion, exceptions …)Les bénéfices de Spring Remoting par rapport aux techniques traditionnelles d’appel de méthodes distantes
 
-1. Faible couplage avec la technologie d’accès à distance : les exceptions vérifiées sont encapsulées par Spring,
-1. Il n’est plus nécessaire d’étendre d’interfaces techniques (ex : Remote),
+1. Faible couplage avec la technologie d’accès à distance : les exceptions vérifiées sont encapsulées par Spring,
+1. Il n’est plus nécessaire d’étendre d’interfaces techniques (ex : Remote),
 1. Les services métiers peuvent directement être exposés sans modification du code,
 1. Spring s’occupe de l’enregistrement dans le registre (RMI) ou l’exposition du service en tant qu’endpoint (http).
 1. Aucun couplage avec la technologie de remoting utilisée.
 1. Changement de protocole possible par simple changement de configuration
 
- Les protocoles de Remoting supportés par Spring
+ Les protocoles de Remoting supportés par Spring
 
 - RMI(-IIOP)
 - HTTPInvoker : protocole d’échange propriétaire à Spring permettant de sérialiser des objets java sur HTTP

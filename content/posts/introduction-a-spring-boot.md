@@ -9,7 +9,7 @@ parent_post_id: null
 post_id: "1644"
 post_views_count: "6385"
 summary: |-
-  Dans [mon précédent article sur Spring Boot](http://javaetmoi.com/2016/08/migrer-vers-spring-boot/), je vous détaillais le chemin de migration de l’application démo [Spring Petclinic](https://github.com/spring-projects/spring-petclinic) vers Spring Boot. Intéressons-nous aujourd’hui aux fondamentaux : **qu’est-ce qu’est Spring Boot ? Et comment fonctionne-t-il ?** Vous trouverez des éléments de réponse dans la présentation suivante. J’y décris les grands principes de Spring Boot. Puis j’essaie de démystifier le **fonctionnement de l’auto-configuration**. Enfin, je montre comment Spring Boot permet de simplifier encore davantage vos **tests**.
+  Dans [mon précédent article sur Spring Boot](http://javaetmoi.com/2016/08/migrer-vers-spring-boot/), je vous détaillais le chemin de migration de l’application démo [Spring Petclinic](https://github.com/spring-projects/spring-petclinic) vers Spring Boot. Intéressons-nous aujourd’hui aux fondamentaux : **qu’est-ce qu’est Spring Boot ? Et comment fonctionne-t-il ?** Vous trouverez des éléments de réponse dans la présentation suivante. J’y décris les grands principes de Spring Boot. Puis j’essaie de démystifier le **fonctionnement de l’auto-configuration**. Enfin, je montre comment Spring Boot permet de simplifier encore davantage vos **tests**.
 
   \[slideshare id=66730766&doc=2016-10-04-introductionaspringboot-161004173204\]
 tags:
@@ -18,11 +18,11 @@ title: Introduction à Spring Boot
 url: /2016/10/introduction-a-spring-boot/
 
 ---
-Dans [mon précédent article sur Spring Boot](/2016/08/migrer-vers-spring-boot/), je vous détaillais le chemin de migration de l’application démo [Spring Petclinic](https://github.com/spring-projects/spring-petclinic) vers Spring Boot. Intéressons-nous aujourd’hui aux fondamentaux : **qu’est-ce qu’est Spring Boot ? Et comment fonctionne-t-il ?** Vous trouverez des éléments de réponse dans la présentation suivante. J’y décris les grands principes de Spring Boot. Puis j’essaie de démystifier le **fonctionnement de l’auto-configuration**. Enfin, je montre comment Spring Boot permet de simplifier encore davantage vos **tests**.
+Dans [mon précédent article sur Spring Boot](/2016/08/migrer-vers-spring-boot/), je vous détaillais le chemin de migration de l’application démo [Spring Petclinic](https://github.com/spring-projects/spring-petclinic) vers Spring Boot. Intéressons-nous aujourd’hui aux fondamentaux : **qu’est-ce qu’est Spring Boot ? Et comment fonctionne-t-il ?** Vous trouverez des éléments de réponse dans la présentation suivante. J’y décris les grands principes de Spring Boot. Puis j’essaie de démystifier le **fonctionnement de l’auto-configuration**. Enfin, je montre comment Spring Boot permet de simplifier encore davantage vos **tests**.
 
 \[slideshare id=66730766&doc=2016-10-04-introductionaspringboot-161004173204\]
 
-Sommaire :
+Sommaire :
 
 - Les principes de Spring Boot
 - Le traditionnel Hello World

@@ -28,14 +28,14 @@ Une fois une branche crée à partir d’une autre, chaque branche vit sa vie. D
 Comme cas d’études, prenons l’exemple du repo Git helloworld :![merge1](/wp-content/uploads/2016/09/merge1.png)
 
 Une application HelloWorld construite avec Maven a été releasée avec Maven en version 1.0.0 sur la branche **develop**. La prochaine version renseignée sur develop est 1.1.0-SNAPSHOT.
-Une branche de maintenance **release/1.0.x** a ensuite été créée à partir du tag pointant sur le commit _« \[maven-release-plugin\] prepare release helloworld-1.0.0 »._ Une faute d’orthographe a été corrigée. Afin de la livrer en production rapidement, une version 1.0.1 a été réalisée avec Maven.
+Une branche de maintenance **release/1.0.x** a ensuite été créée à partir du tag pointant sur le commit _« \[maven-release-plugin\] prepare release helloworld-1.0.0 »._ Une faute d’orthographe a été corrigée. Afin de la livrer en production rapidement, une version 1.0.1 a été réalisée avec Maven.
 Cette correction doit désormais être reportée sur la branche develop. Entre temps, 2 commits ont été réalisés sur celle-ci, dont l’un touchant au pom.xml.
-**Quelle solution adopter pour effectuer ce report ?**
+**Quelle solution adopter pour effectuer ce report ?**
 
-Une première solution consiste à utiliser un **cherry-pick** du commit _« Fix spelling »._ Pour rappel, cherry-pick permet de reporter commit par commit les différences entre branche. Le risque est d’oublier un commit. Et cette solution peut devenir laborieuse si beaucoup de commits séparent les 2 branches.
+Une première solution consiste à utiliser un **cherry-pick** du commit _« Fix spelling »._ Pour rappel, cherry-pick permet de reporter commit par commit les différences entre branche. Le risque est d’oublier un commit. Et cette solution peut devenir laborieuse si beaucoup de commits séparent les 2 branches.
 
 Une seconde solution consiste à **merger** la branche release/1.0.x dans la branche develop.
-Apparaît alors le conflit sur le numéro de version du pom.xml évoqué en introduction :
+Apparaît alors le conflit sur le numéro de version du pom.xml évoqué en introduction :
 
 ```sh
 git merge release/1.0.x
@@ -63,15 +63,15 @@ index b43c671,01257f6..0000000
  +    <description>Git merge demonstration</description>
 ```
 
-Le conflit doit être résolu manuellement : la version 1.1.0-SNAPSHOT de la branche develop est à conserver.
+Le conflit doit être résolu manuellement : la version 1.1.0-SNAPSHOT de la branche develop est à conserver.
 
 Une solution permettant d’éviter de résoudre ce genre de conflits consiste à **utiliser un script que va utiliser Git pour merger 2 fichiers pom.xml**. C’est précisément l’objectif du driver de merge [**mergepom.py**](https://github.com/ralfth/pom-merge-driver/blob/master/mergepom.py) écrit en **Python** et que vous pouvez récupérer sur le repo GitHub [**pom-merge-driver**](https://github.com/ralfth/pom-merge-driver).
 L’utilisation de ce script sous **Linux** et **Mac** est décrite dans le [README.md](https://github.com/ralfth/pom-merge-driver/blob/master/README.md).
-Sur **Windows**, il est nécessaire de faire quelques adaptations :
+Sur **Windows**, il est nécessaire de faire quelques adaptations :
 
 - [Télécharger et installer Python (la version portable est suffisante)](https://www.python.org/downloads/)
 - Dans le script mergepom.py, supprimer la ligne d’en-tête #! /usr/bin/env python
-- Dans le fichier .gitconfig, ajouter le chemin vers python.exe :
+- Dans le fichier .gitconfig, ajouter le chemin vers python.exe :
 
 ```sh
 [merge "pommerge"]
@@ -85,9 +85,9 @@ Afin de laisser la liberté aux autres développeurs d’utiliser ce script ou n
 pom.xml merge=pommerge
 ```
 
-Remarque : alternativement, on peut également ajouter cette  ligne dans le fichier .gitattributes situé dans le répertoire racine du repo Git. Tous les développeurs de l'application en profitent alors.
+Remarque : alternativement, on peut également ajouter cette  ligne dans le fichier .gitattributes situé dans le répertoire racine du repo Git. Tous les développeurs de l'application en profitent alors.
 
-On relance la commande de merge. Cette fois-ci, le script détecte un conflit sur le numéro de version du pom.xml et décide de garder celui de la branche courante, à savoir 1.1.0-SNAPHSOT :
+On relance la commande de merge. Cette fois-ci, le script détecte un conflit sur le numéro de version du pom.xml et décide de garder celui de la branche courante, à savoir 1.1.0-SNAPHSOT :
 
 ```sh
 git merge release/1.0.x
@@ -106,4 +106,4 @@ Le script Python respecte le workflow git-flow. De ce fait, les merge dans le ma
 
 Comme moi, j’espère que l’existence de ce driver de merge Git vous simplifiera vos merges. Ne prenant en compte que les fichiers pom.xml encodé en UTF-8, j’ai fait une [demande d’évolution](https://github.com/ralfth/pom-merge-driver/issues/2). En attendant, vous pouvez changer l’encodage en dur dans le script ou bien, encore mieux, soumettre une pull request.
 
-Enfin, sachez que d'autres drivers de merge Git existent. [pomutils](https://github.com/cecom/pomutils) est écrit en Java. Si vous en avez testé, n'hésitez pas à laisser un feedback.
+Enfin, sachez que d'autres drivers de merge Git existent. [pomutils](https://github.com/cecom/pomutils) est écrit en Java. Si vous en avez testé, n'hésitez pas à laisser un feedback.

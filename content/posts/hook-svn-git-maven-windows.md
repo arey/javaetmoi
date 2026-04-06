@@ -30,7 +30,7 @@ Ecrire de tels scripts n’est pas compliqué sous Linux car beaucoup d’exempl
 
 ## Hook SVN
 
- [![logo-svn](/wp-content/uploads/2014/12/logo-svn.png)](/wp-content/uploads/2014/12/logo-svn.png) Deux types de hook existent dans Subversion : des hooks clients et des hooks serveurs.
+ [![logo-svn](/wp-content/uploads/2014/12/logo-svn.png)](/wp-content/uploads/2014/12/logo-svn.png) Deux types de hook existent dans Subversion : des hooks clients et des hooks serveurs.
 Pour ne pas transformer le serveur SVN en serveur d’intégration continue, ce sont les hooks clients qui vont ici nous intéresser.
 Le script appelé par le hook n’est rien d’autre qu’un .bat.
 L’exemple de script _pre-commit.bat_ ci-dessous est localisé dans le même répertoire que le POM reactor du projet. Un pré-requis est que Maven et Java sont dans le PATH de Windows.
@@ -47,21 +47,21 @@ cmd /C exit /B %ERROR_CODE%
 Afin de pouvoir être consultée en cas d’échec du build, la sortie console est redirigée dans un fichier de logs. Le code d’erreur de maven est retourné à SVN qui sait l’interpréter. Tout code différent de 0 fait échouer le commit.
 Exécuté dans à la racine de l’arborescence, le paramètre _–f myapp-parent\\pom.xml_ permet de spécifier à maven où se trouve le POM parent (structure de type _flat module_). Nul besoin d’ajouter ce paramètre lorsque le POM parent se situe à la racine du projet.
 
-**TortoiseSVN** permet de configurer un hook client à 2 niveaux :
+**TortoiseSVN** permet de configurer un hook client à 2 niveaux :
 
 1. De manière globale pour tous les repos SVN du poste de dév. Chaque développeur doit individuellement configurer TortoiseSVN. Cette configuration peut être problématique lorsqu’un développeur est amené à travailler sur plusieurs repos et que le script de hook n’est pas assez générique. Le script précédent devra être généralisé pour fonctionner avec l’ensemble des projets.
 1. De manière unitaire pour chaque repo SVN. A l’instar d’une propriété _svn:ignore_, TortoiseSVN ajoute récursivement une propriété **tsn:precommithook** au niveau du repository SVN. Tous les développeurs bénéficient alors de ce hook.
 
-Etapes de configuration du mode global :
+Etapes de configuration du mode global :
 
 1. Depuis n’importe quel répertoire, sélectionner le menu contextuel T _ortoiseSVN > Settings_
 1. Se rendre dans le menu _Hook Scripts_
-1. Renseigner les champs suivants :
+1. Renseigner les champs suivants :
    - Hook type : pre-commit
    - Woking copy path : chemin vers le pom parent de l'application
    - Command line to execute : pre-commit.bat
 
-**[![2014-12-hook-maven-git-svn-sous-windows-svn-hook-global-config](/wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-global-config.jpg)](/wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-global-config.jpg)** Etapes de configuration du mode local :
+**[![2014-12-hook-maven-git-svn-sous-windows-svn-hook-global-config](/wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-global-config.jpg)](/wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-global-config.jpg)** Etapes de configuration du mode local :
 
 1. Sélectionner le répertoire racine du projet SVN
 1. Ouvrir le menu contextuel et sélectionner le menu _TortoiseSVN > Properties_
@@ -75,14 +75,14 @@ Etapes de configuration du mode global :
       1. Apply property recursively
 1. Commiter ces modifications de manière récursive sur l'ensemble des sous répertoires du projet SVN
 
-[![2014-12-hook-maven-git-svn-sous-windows-svn-hook-local-properties](/wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-local-properties.png)](/wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-local-properties.png) Remarque : les hooks clients sont une fonctionnalité propre à TortoiseSVN. De ce fait, le client en ligne de commande _svn.exe_ ou bien encore le plugin Subversive d’Eclipse ne reconnaissent pas la propriété _tsvn:precommithook_.
+[![2014-12-hook-maven-git-svn-sous-windows-svn-hook-local-properties](/wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-local-properties.png)](/wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-local-properties.png) Remarque : les hooks clients sont une fonctionnalité propre à TortoiseSVN. De ce fait, le client en ligne de commande _svn.exe_ ou bien encore le plugin Subversive d’Eclipse ne reconnaissent pas la propriété _tsvn:precommithook_.
 
 ## Hook Git
 
  [![logo-git](/wp-content/uploads/2014/12/logo-git.jpg)](/wp-content/uploads/2014/12/logo-git.jpg) Git appartenant à la catégorie des DVCS, il n’existe pas de hook server. La configuration s’effectue donc au niveau du repository Git local. Les scripts de hook sont à positionner dans le sous-répertoire _.git\\hooks_. Par défaut, ce répertoire contient des exemples post-fixés par l’extension _.sample_. Le nom des scripts est conventionné et correspond au nom de la phase à laquelle il est exécuté. Ainsi, le script de hook exécuté avant le commit se nomme **_pre-commit_**.
 Sous Windows, **Msysgit** est le client Git le plus populaire. Basé sur les utilitaires [Msys](http://www.mingw.org/wiki/MSYS), le script ne doitpas être écrit en script batch comme c’est le cas avec SVN, mais en bash Linux.
 
-Voici un exemple de sript shell _pre-commit_ :
+Voici un exemple de sript shell _pre-commit_ :
 
 ```sh
 #!/bin/sh
@@ -114,4 +114,4 @@ La commande _cd $MAIN\_DIR/../../myapp-parent_ permet de positionner dans le ré
 
 ## Conclusion
 
-Que ce soit avec Git ou avec TortoiseSVN, il est possible de systématiser l’appel à commande _mvn clean install_(ou à tout autre script) avant de commiter. Cette bonne pratique fait en sorte que le code historisé dans le gestionnaire de code source est toujours stable. L’intérêt de maintenir un serveur d’intégration continue peut donc se poser. Dès 2009, David Gageot montrait d’ailleurs qu’il était possible de monter [une intégration continue sans serveur](http://blog.javabien.net/2009/12/01/serverless-ci-with-git/). Pour autant, les serveurs d’intégration continue tels que Jenkins ont aujourd’hui davantage de responsabilités que par le passé : exécution des tests d’intégration, des tests Selenium et des tests de montée en charge, packaging, déploiement d’applications sur les différents environnements … Leurs jours ne sont donc pas comptés !
+Que ce soit avec Git ou avec TortoiseSVN, il est possible de systématiser l’appel à commande _mvn clean install_(ou à tout autre script) avant de commiter. Cette bonne pratique fait en sorte que le code historisé dans le gestionnaire de code source est toujours stable. L’intérêt de maintenir un serveur d’intégration continue peut donc se poser. Dès 2009, David Gageot montrait d’ailleurs qu’il était possible de monter [une intégration continue sans serveur](http://blog.javabien.net/2009/12/01/serverless-ci-with-git/). Pour autant, les serveurs d’intégration continue tels que Jenkins ont aujourd’hui davantage de responsabilités que par le passé : exécution des tests d’intégration, des tests Selenium et des tests de montée en charge, packaging, déploiement d’applications sur les différents environnements … Leurs jours ne sont donc pas comptés !

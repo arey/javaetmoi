@@ -13,7 +13,7 @@ summary: |-
 
   Comme source de données musicale, j’ai opté pour **[MusicBrainz](http://musicbrainz.org/ "MusicBrainz Home")** qui est une plateforme ouverte collectant des méta-données sur les artistes, leurs albums et leurs chansons puis les mettant à disposition du publique.
 
-  Pour indexer les données depuis une base PostgreSQL, j’ai privilégié **Spring Batch** au détriment d'une river. Pour l’IHM, j’ai adapté un prototype basé sur **AngularJS**, jQuery et Bootstrap qu’avait réalisé [Lucian Precup](https://twitter.com/lucianprecup) pour la [Scrum Day 2013](http://agenda2013.scrumday.fr/event/149). La mise en ligne de l’index Elasticsearch m’aura permis de tester  la plateforme Cloud  **OpenShift** de Redhat.
+  Pour indexer les données depuis une base PostgreSQL, j’ai privilégié **Spring Batch** au détriment d'une river. Pour l’IHM, j’ai adapté un prototype basé sur **AngularJS**, jQuery et Bootstrap qu’avait réalisé [Lucian Precup](https://twitter.com/lucianprecup) pour la [Scrum Day 2013](http://agenda2013.scrumday.fr/event/149). La mise en ligne de l’index Elasticsearch m’aura permis de tester  la plateforme Cloud  **OpenShift** de Redhat.
 
   Cet article a pour objectif de décrire les différentes étapes qui m’ont été nécessaires pour réaliser ma démo et d’expliquer ce que j’ai librement rendu accessible sur [GitHub](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/core/batch/item/EsDocumentWriter.java) et [Internet](http://musicsearch.javaetmoi.com/).
 tags:
@@ -32,7 +32,7 @@ Pour les besoins d’un workshop sur Elasticsearch, je me suis amusé à **index
 
 Comme source de données musicale, j’ai opté pour **[MusicBrainz](http://musicbrainz.org/ "MusicBrainz Home")** qui est une plateforme ouverte collectant des méta-données sur les artistes, leurs albums et leurs chansons puis les mettant à disposition du publique.
 
-Pour indexer les données depuis une base PostgreSQL, j’ai privilégié **Spring Batch** au détriment d'une river. Pour l’IHM, j’ai adapté un prototype basé sur **AngularJS**, jQuery et Bootstrap qu’avait réalisé [Lucian Precup](https://twitter.com/lucianprecup) pour la [Scrum Day 2013](http://agenda2013.scrumday.fr/event/149). La mise en ligne de l’index Elasticsearch m’aura permis de tester  la plateforme Cloud  **OpenShift** de Redhat.
+Pour indexer les données depuis une base PostgreSQL, j’ai privilégié **Spring Batch** au détriment d'une river. Pour l’IHM, j’ai adapté un prototype basé sur **AngularJS**, jQuery et Bootstrap qu’avait réalisé [Lucian Precup](https://twitter.com/lucianprecup) pour la [Scrum Day 2013](http://agenda2013.scrumday.fr/event/149). La mise en ligne de l’index Elasticsearch m’aura permis de tester  la plateforme Cloud  **OpenShift** de Redhat.
 
 Cet article a pour objectif de décrire les différentes étapes qui m’ont été nécessaires pour réaliser ma démo et d’expliquer ce que j’ai librement rendu accessible sur [GitHub](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/core/batch/item/EsDocumentWriter.java) et [Internet](http://musicsearch.javaetmoi.com/).
 
@@ -46,39 +46,39 @@ Un batch d’indexation se connecte via JDBC à la base de données de MusicBrai
 
 # Base de données MusicBrainz
 
-A l’instar d’IMDb pour le cinéma, MusicBrainz est une **base de données dédiée à la musique**. Artistes, groupes de musiques, albums, pochettes et chansons issus du monde entier y sont référencés.  Outre la base de données musicale, MusicBrainz propose également une interface graphique permettant d’effectuer des recherches, de consulter les données et de participer à l’enrichissement de la base. [Last.fm](http://blog.last.fm/2011/11/24/the-brainz-are-back-in-town), [The Guardian](http://www.theguardian.com/open-platform/blog/linked-data-open-platform) ou bien encore la [BBC](http://www.bbc.co.uk/music/brainz/) s’interfacent avec MusicBrainz.  
-Parce que la base PostgreSQL du sites MusicBrainz.org n’est pas accessible depuis Internet mais également dans le souci de pouvoir réaliser ma démo déconnecté du réseau, j’ai cherché à pouvoir installer la base de données en locale. MusicBrainz propose 2 solutions :
+A l’instar d’IMDb pour le cinéma, MusicBrainz est une **base de données dédiée à la musique**. Artistes, groupes de musiques, albums, pochettes et chansons issus du monde entier y sont référencés.  Outre la base de données musicale, MusicBrainz propose également une interface graphique permettant d’effectuer des recherches, de consulter les données et de participer à l’enrichissement de la base. [Last.fm](http://blog.last.fm/2011/11/24/the-brainz-are-back-in-town), [The Guardian](http://www.theguardian.com/open-platform/blog/linked-data-open-platform) ou bien encore la [BBC](http://www.bbc.co.uk/music/brainz/) s’interfacent avec MusicBrainz.  
+Parce que la base PostgreSQL du sites MusicBrainz.org n’est pas accessible depuis Internet mais également dans le souci de pouvoir réaliser ma démo déconnecté du réseau, j’ai cherché à pouvoir installer la base de données en locale. MusicBrainz propose 2 solutions :
 
 1. Télécharger l’ [image d’une machine virtuelle](http://musicbrainz.org/doc/MusicBrainz_Server/Setup) du serveur MusicBrainz ou
 1. Télécharger la dernière archive de la base PostgreSQL est l’installer en suivant les instructions du [INSTALL.md](https://github.com/metabrainz/musicbrainz-server/blob/master/INSTALL.md)
 
-Pour ma part, j’ai opté pour la solution la plus simple : installer une VM. Disponible au format OVA, elle peut être déployée aussi bien dans VirtualBox ou que dans VMWare. Le [guide d’installation de la VM](http://musicbrainz.org/doc/MusicBrainz_Server/Setup) terminé, 2 étapes seront ensuite nécessaires pour que le host puisse accéder à la base PostgreSQL :
+Pour ma part, j’ai opté pour la solution la plus simple : installer une VM. Disponible au format OVA, elle peut être déployée aussi bien dans VirtualBox ou que dans VMWare. Le [guide d’installation de la VM](http://musicbrainz.org/doc/MusicBrainz_Server/Setup) terminé, 2 étapes seront ensuite nécessaires pour que le host puisse accéder à la base PostgreSQL :
 
-1. _[![2013-11-virtualbox-musicbrainz-nat](/wp-content/uploads/2013/11/2013-11-virtualbox-musicbrainz-nat.png)](/wp-content/uploads/2013/11/2013-11-virtualbox-musicbrainz-nat.png)_**Configurer la redirection de port** : VirtualBox permet de rediriger les connexions TCP établies sur un port de l’host vers un autre port de la VM. La base PostgreSQL écoutant sur le port 5432, la règle suivante peut être ajoutée via l’interface de VirtualBox : _PostgreSQL database - TCP - host : 5432 / guest : 5432_
-1. **Configurer PostgreSQL**: par mesure de sécurité, la base PostgreSQL ne permet pas d’accès distant. Pour que le batch exécuté depuis l’OS hôte puisse s’y connecter, [ces instructions](http://www.cyberciti.biz/tips/postgres-allow-remote-access-tcp-connection.html) doivent être suivies. Démarrer la VM, s’y connecter (login : vm / musicbrainz) et éditer les 2 fichiers de configuration _ph\_hba.conf_ et _postgresql.conf_.
+1. _[![2013-11-virtualbox-musicbrainz-nat](/wp-content/uploads/2013/11/2013-11-virtualbox-musicbrainz-nat.png)](/wp-content/uploads/2013/11/2013-11-virtualbox-musicbrainz-nat.png)_**Configurer la redirection de port** : VirtualBox permet de rediriger les connexions TCP établies sur un port de l’host vers un autre port de la VM. La base PostgreSQL écoutant sur le port 5432, la règle suivante peut être ajoutée via l’interface de VirtualBox : _PostgreSQL database - TCP - host : 5432 / guest : 5432_
+1. **Configurer PostgreSQL**: par mesure de sécurité, la base PostgreSQL ne permet pas d’accès distant. Pour que le batch exécuté depuis l’OS hôte puisse s’y connecter, [ces instructions](http://www.cyberciti.biz/tips/postgres-allow-remote-access-tcp-connection.html) doivent être suivies. Démarrer la VM, s’y connecter (login : vm / musicbrainz) et éditer les 2 fichiers de configuration _ph\_hba.conf_ et _postgresql.conf_.
 
-Depuis l’hôte, il est à présent possible de se connecter à la base à partir de n’importe quel client SQL (SQuireL, pgAdmin …). Utiliser les paramètres de connexion suivants :
+Depuis l’hôte, il est à présent possible de se connecter à la base à partir de n’importe quel client SQL (SQuireL, pgAdmin …). Utiliser les paramètres de connexion suivants :
 
-- URL : jdbc:postgresql://localhost:5432/musicbrainz
-- Login : musicbrainz / musicbrainz
+- URL : jdbc:postgresql://localhost:5432/musicbrainz
+- Login : musicbrainz / musicbrainz
 
 Le batch Java est désormais capable de récupérer les données à indexer.
 
 ## Serveur Elasticsearch en local
 
-Le batch se connecte à un cluster Elasticsearch. L’installation d’un cluster est donc nécessaire, que ce soit sur votre poste de développement ou sur une autre machine. Installer un serveur Elasticsearch est on ne peut plus simple. Quelques lignes de commandes suffisent. Pour davantage d’explications, je vous renvoie à l’article [Premiers pas avec ElasticSearch](http://blog.zenika.com/index.php?post/2012/11/14/Premiers-pas-avec-ElasticSearch-Partie-1) de Tanguy Leroux.  Au vu de la volumétrie des données et de la faible charge, un seul nœud suffit amplement.
+Le batch se connecte à un cluster Elasticsearch. L’installation d’un cluster est donc nécessaire, que ce soit sur votre poste de développement ou sur une autre machine. Installer un serveur Elasticsearch est on ne peut plus simple. Quelques lignes de commandes suffisent. Pour davantage d’explications, je vous renvoie à l’article [Premiers pas avec ElasticSearch](http://blog.zenika.com/index.php?post/2012/11/14/Premiers-pas-avec-ElasticSearch-Partie-1) de Tanguy Leroux.  Au vu de la volumétrie des données et de la faible charge, un seul nœud suffit amplement.
 
 # Le batch d’indexation
 
-Le batch n’indexe pas toute la base de données MusicBrainz. Il se cantonne aux **albums de musique** qui sont un sous ensemble des _**release groups**_.  Seuls les albums « principaux » sont indexés. Single, EP, Compilation, Live ou autre Remix ne sont pas indexés.
+Le batch n’indexe pas toute la base de données MusicBrainz. Il se cantonne aux **albums de musique** qui sont un sous ensemble des _**release groups**_.  Seuls les albums « principaux » sont indexés. Single, EP, Compilation, Live ou autre Remix ne sont pas indexés.
 
-Le batch d’indexation est composé d’un seul job Spring Batch. La configuration des **beans d’infrastructure** sur lesquels s’appuie le batch est répartie dans les fichiers [applicationContext-datasource.xml](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/resources/com/javaetmoi/elasticsearch/musicbrainz/batch/applicationContext-datasource.xml), [applicationContext-elasticsearch.xml](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/resources/com/javaetmoi/elasticsearch/musicbrainz/batch/applicationContext-elasticsearch.xml) et [applicationContext-batch.xml](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/resources/com/javaetmoi/elasticsearch/musicbrainz/batch/applicationContext-batch.xml). Y sont déclarés :
+Le batch d’indexation est composé d’un seul job Spring Batch. La configuration des **beans d’infrastructure** sur lesquels s’appuie le batch est répartie dans les fichiers [applicationContext-datasource.xml](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/resources/com/javaetmoi/elasticsearch/musicbrainz/batch/applicationContext-datasource.xml), [applicationContext-elasticsearch.xml](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/resources/com/javaetmoi/elasticsearch/musicbrainz/batch/applicationContext-elasticsearch.xml) et [applicationContext-batch.xml](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/resources/com/javaetmoi/elasticsearch/musicbrainz/batch/applicationContext-batch.xml). Y sont déclarés :
 
 - la source de données MusicBrainz et son gestionnaire de transaction,
 - un client Elasticsearch déclaré via la fabrique de beans Spring mise à disposition par David Pilato dans le projet [spring-elasticsearch](https://github.com/dadoonet/spring-elasticsearch),
 - un _JobRepository_ en mémoire et un _JobLauncher_ Spring Batch.
 
-Déclaré dans le fichier [applicationContext-job.xml](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/resources/com/javaetmoi/elasticsearch/musicbrainz/batch/applicationContext-job.xml), le job **_musicAlbumJob_** est décomposé en 4 étapes successives :
+Déclaré dans le fichier [applicationContext-job.xml](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/resources/com/javaetmoi/elasticsearch/musicbrainz/batch/applicationContext-job.xml), le job **_musicAlbumJob_** est décomposé en 4 étapes successives :
 
 1. Suppression d’un éventuel précédent index
 1. Création de l’ **index musicalbum**
@@ -107,7 +107,7 @@ La définition du job ne comporte aucune difficulté :
   </job>
 ```
 
-A noter ligne 31 que le batch profite du mécanisme de partitionnement présenté dans le précédent billet [Parallélisation de traitements batchs](/2012/12/parallelisation-de-traitements-batchs-spring-batch/). Chacun des beans référencés par les steps sont définis dans le même fichier de configuration Spring. Les 3 premières étapes sont implémentés à l’aide de tasklets :
+A noter ligne 31 que le batch profite du mécanisme de partitionnement présenté dans le précédent billet [Parallélisation de traitements batchs](/2012/12/parallelisation-de-traitements-batchs-spring-batch/). Chacun des beans référencés par les steps sont définis dans le même fichier de configuration Spring. Les 3 premières étapes sont implémentés à l’aide de tasklets :
 
 ```xhtml
   <bean id="deleteIndexTasklet" class="com.javaetmoi.core.batch.tasklet.DeleteElasticIndexTasklet"
@@ -192,7 +192,7 @@ public class CreateElasticIndexSettingsTasklet implements Tasklet {
 }
 ```
 
-Le bean de partition **_indexMusicAlbumPartition_** s’appuie quant à lui sur un _chunk_ Spring Batch composé d’un _reader_, d’un _writer_ et d’un _processor_ composite :
+Le bean de partition **_indexMusicAlbumPartition_** s’appuie quant à lui sur un _chunk_ Spring Batch composé d’un _reader_, d’un _writer_ et d’un _processor_ composite :
 
 ```xml
   <!-- Read music albums from database then index them into ElasticSearch -->
@@ -217,7 +217,7 @@ Le bean de partition **_indexMusicAlbumPartition_** s’appuie quant à lui sur 
 
 Dans le fichier properties de configuration du batch, la taille des lots ( _commit-interval_) est fixé à 5000 albums.
 
-Le bean **_musicAlbumReader_** utilise la classe [_JdbcCursorItemReader_](http://docs.spring.io/spring-batch/apidocs/org/springframework/batch/item/database/JdbcCursorItemReader.html) de Spring Batch pour exécuter la requête SQL chargée de lire les albums. Cette requête effectue une jointure entre 10 tables et filtre sur des critères permettant de ramener un _ResultSet_ dans lequel un album ne correspond qu’à une seule ligne. Aucune agrégation de lignes n’est donc à réaliser par le _reader_. L’enrichissement de l’album avec des données multi-valuées (ex : tags) est réalisé dans la phase de traitement.  
+Le bean **_musicAlbumReader_** utilise la classe [_JdbcCursorItemReader_](http://docs.spring.io/spring-batch/apidocs/org/springframework/batch/item/database/JdbcCursorItemReader.html) de Spring Batch pour exécuter la requête SQL chargée de lire les albums. Cette requête effectue une jointure entre 10 tables et filtre sur des critères permettant de ramener un _ResultSet_ dans lequel un album ne correspond qu’à une seule ligne. Aucune agrégation de lignes n’est donc à réaliser par le _reader_. L’enrichissement de l’album avec des données multi-valuées (ex : tags) est réalisé dans la phase de traitement.  
 Pour comprendre la requête, le [modèle physique de données de MusicBrainz](http://musicbrainz.org/doc/MusicBrainz_Database/Schema) est consultable en ligne.
 
 ```xml
@@ -306,7 +306,7 @@ public class Album {
 
 A ce stade, la liste des tags utilisés dans MusicBrainz pour qualifier le genre musical d’un album est vide.
 
-Le bean **_musicAlbumProcessor_** est composé de 2 traitements successifs matérialisés par 2 classes : [**_EnhanceAlbumProcessor_**](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/elasticsearch/musicbrainz/batch/item/EnhanceAlbumProcessor.java) et [**_MusicAlbumDocumentProcessor_**](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/elasticsearch/musicbrainz/batch/item/MusicAlbumDocumentProcessor.java). La première exécute une requête JDBC pour charger les tags de l’album. Le 2nd transforme la classe Album en un document indexable dans Elasticsearch.
+Le bean **_musicAlbumProcessor_** est composé de 2 traitements successifs matérialisés par 2 classes : [**_EnhanceAlbumProcessor_**](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/elasticsearch/musicbrainz/batch/item/EnhanceAlbumProcessor.java) et [**_MusicAlbumDocumentProcessor_**](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/elasticsearch/musicbrainz/batch/item/MusicAlbumDocumentProcessor.java). La première exécute une requête JDBC pour charger les tags de l’album. Le 2nd transforme la classe Album en un document indexable dans Elasticsearch.
 
 ```xml
   <bean id="musicAlbumProcessor" class="org.springframework.batch.item.support.CompositeItemProcessor">
@@ -391,9 +391,9 @@ public class EsDocument {
 }
 ```
 
-Le type **[_XContentBuilder_](https://github.com/elasticsearch/elasticsearch/blob/master/src/main/java/org/elasticsearch/common/xcontent/XContentBuilder.java)** fait partie de l’API Java d’Elasticsearch. Il permet de construire en mémoire la représentation d’un objet JSON. La classe abstraite **[_EsDocumentProcessor_](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/core/batch/item/EsDocumentProcessor.java)** dont hérite [_MusicAlbumDocumentProcessor_](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/elasticsearch/musicbrainz/batch/item/MusicAlbumDocumentProcessor.java) implémente le **pattern template method** et pilote la création du [_EsDocument_](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/core/batch/item/EsDocument.java). La construction de l’objet JSON a été réalisée manuellement en utilisant les méthodes _startObject_, _field_, _array_ et _endObject_ exposées par le _XContentBuilder_. Comme alternative, [Jackson](https://github.com/FasterXML/jackson) aurait  pu être utilisé pour sérialiser la classe [_Album_](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/elasticsearch/musicbrainz/domain/Album.java) en JSON.
+Le type **[_XContentBuilder_](https://github.com/elasticsearch/elasticsearch/blob/master/src/main/java/org/elasticsearch/common/xcontent/XContentBuilder.java)** fait partie de l’API Java d’Elasticsearch. Il permet de construire en mémoire la représentation d’un objet JSON. La classe abstraite **[_EsDocumentProcessor_](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/core/batch/item/EsDocumentProcessor.java)** dont hérite [_MusicAlbumDocumentProcessor_](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/elasticsearch/musicbrainz/batch/item/MusicAlbumDocumentProcessor.java) implémente le **pattern template method** et pilote la création du [_EsDocument_](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/core/batch/item/EsDocument.java). La construction de l’objet JSON a été réalisée manuellement en utilisant les méthodes _startObject_, _field_, _array_ et _endObject_ exposées par le _XContentBuilder_. Comme alternative, [Jackson](https://github.com/FasterXML/jackson) aurait  pu être utilisé pour sérialiser la classe [_Album_](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/elasticsearch/musicbrainz/domain/Album.java) en JSON.
 
-Le bean **musicAlbumWriter** termine le traitement batch. Il utilise la fonctionnalité de requêtes en masse ( _bulk request_) d’Elasticsearch pour indexer simultanément tous les documents lus dans un chunk (soit ici 5000). Factorisée elle aussi dans le projet [spring-batch-toolkit](https://github.com/arey/spring-batch-toolkit), la classe [**_EsDocumentWriter_**](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/core/batch/item/EsDocumentWriter.java) concentre le code :
+Le bean **musicAlbumWriter** termine le traitement batch. Il utilise la fonctionnalité de requêtes en masse ( _bulk request_) d’Elasticsearch pour indexer simultanément tous les documents lus dans un chunk (soit ici 5000). Factorisée elle aussi dans le projet [spring-batch-toolkit](https://github.com/arey/spring-batch-toolkit), la classe [**_EsDocumentWriter_**](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/core/batch/item/EsDocumentWriter.java) concentre le code :
 
 ```java
 /**
@@ -518,7 +518,7 @@ Le filtre **myEdgeNGram** et l’analyseur **myPartialNameAnalyzer** sont par ex
             },
 ```
 
-Le fichier **[_es-index-mappings.json_](https://github.com/arey/musicbrainz-elasticsearch/blob/master/src/main/resources/com/javaetmoi/elasticsearch/musicbrainz/batch/es-index-mappings.json)** précise à Elasticsearch comment indexer les différents champs de l’ _EsDocument_ construit à partir d’un _Album_. Ce sont les usages de recherche qui guident la réalisation du fichier de mapping. Par exemple, le nom d’un album sera indexé de 2 manières à l’aide d’une propriété de type **multi\_field** : l’une pour la recherche fulltext et l’autre pour l’autosuggestion.
+Le fichier **[_es-index-mappings.json_](https://github.com/arey/musicbrainz-elasticsearch/blob/master/src/main/resources/com/javaetmoi/elasticsearch/musicbrainz/batch/es-index-mappings.json)** précise à Elasticsearch comment indexer les différents champs de l’ _EsDocument_ construit à partir d’un _Album_. Ce sont les usages de recherche qui guident la réalisation du fichier de mapping. Par exemple, le nom d’un album sera indexé de 2 manières à l’aide d’une propriété de type **multi\_field** : l’une pour la recherche fulltext et l’autre pour l’autosuggestion.
 
 ```json
  {
@@ -631,7 +631,7 @@ Avant d’exécuter le batch sur la base de données MusicBrainz, le test unitai
 
 # Exécution du batch
 
-Comme son nom l’indique, la classe **[_IndexBatchMain_](https://github.com/arey/musicbrainz-elasticsearch/blob/master/src/main/java/com/javaetmoi/elasticsearch/musicbrainz/batch/IndexBatchMain.java)** fournit la méthode _main_ permettant d’exécuter le batch en ligne de commande. Quelques étapes suffisent :
+Comme son nom l’indique, la classe **[_IndexBatchMain_](https://github.com/arey/musicbrainz-elasticsearch/blob/master/src/main/java/com/javaetmoi/elasticsearch/musicbrainz/batch/IndexBatchMain.java)** fournit la méthode _main_ permettant d’exécuter le batch en ligne de commande. Quelques étapes suffisent :
 
 1. Démarrer un serveur Elasticsearch
 1. Démarrer la base de données MusicBrainz database ou la VM l’hébergeant
@@ -640,19 +640,19 @@ Comme son nom l’indique, la classe **[_IndexBatchMain_](https://github.com/are
 1. mvn install
 1. mvn exec:java
 
-Quelques minutes plus tard, quelques **265 169 albums sont indexés**.
+Quelques minutes plus tard, quelques **265 169 albums sont indexés**.
 
 # Démo
 
-Pour exploiter l’index nouvellement créé, rien de tel qu’une petite interface en HTML 5. Pour se faire, [Lucian Precup](https://twitter.com/lucianprecup) m’a autorisé à adapter une page qu’il avait mis au point dans le cadre de l’atelier [Construisons un moteur de recherche](http://agenda2013.scrumday.fr/event/149) tenu lors de la Scrum Day 2013. Réalisée en **AngularJS**, jQuery et Boostrap, cette page propose une zone de recherche full-text, offre de l’autosuggestion et affiche le résultat de recherche de manière paginée. Quelques filtres et directives Angular ont été ajoutés pour, par exemple, gérer les appréciations des mélomanes.  La capture d’écran  ci-dessous donne un aperçu du rendu graphique :
+Pour exploiter l’index nouvellement créé, rien de tel qu’une petite interface en HTML 5. Pour se faire, [Lucian Precup](https://twitter.com/lucianprecup) m’a autorisé à adapter une page qu’il avait mis au point dans le cadre de l’atelier [Construisons un moteur de recherche](http://agenda2013.scrumday.fr/event/149) tenu lors de la Scrum Day 2013. Réalisée en **AngularJS**, jQuery et Boostrap, cette page propose une zone de recherche full-text, offre de l’autosuggestion et affiche le résultat de recherche de manière paginée. Quelques filtres et directives Angular ont été ajoutés pour, par exemple, gérer les appréciations des mélomanes.  La capture d’écran  ci-dessous donne un aperçu du rendu graphique :
 
 [![workshop-demo-screenshot](/wp-content/uploads/2013/11/2013-11-search-gui-screenshot.png)](/wp-content/uploads/2013/11/2013-11-search-gui-screenshot.png)  
 Déployée sur OVH, l’application Angular est accessible à l’adresse **[http://musicsearch.javaetmoi.com/](http://musicsearch.javaetmoi.com/)**
 
 ## Requêtes de recherche
 
-La recherche utilisée pour l’ **autosuggestion** repose sur une **_query\_string_** analysant le nom de l’album, le nom de l’artiste et la date de sortie de l’album. Pour les noms, elle utilise 2 champs : celui pour la recherche exacte (ex: artist.name) et celui pour la recherche de type « commence par » (ex : artist.name.start). La **surbrillance** est activée sur les 3 critères.  
-Le gist  [7436834](https://gist.github.com/arey/7436834) propose la commande curl équivalente :
+La recherche utilisée pour l’ **autosuggestion** repose sur une **_query\_string_** analysant le nom de l’album, le nom de l’artiste et la date de sortie de l’album. Pour les noms, elle utilise 2 champs : celui pour la recherche exacte (ex: artist.name) et celui pour la recherche de type « commence par » (ex : artist.name.start). La **surbrillance** est activée sur les 3 critères.  
+Le gist  [7436834](https://gist.github.com/arey/7436834) propose la commande curl équivalente :
 
 ```sh
 curl -XPOST 'http://es.javaetmoi.com/musicalbum/album/_search?pretty' -d '
@@ -721,8 +721,8 @@ Voici un extrait du résultat retourné par Elasticsearch:
     }, …
 ```
 
-La recherche **fulltext** utilise quant à elle le type de recherche **_f_ _uzzy\_like\_this_** permettant une recherche approximative sur le  nom de l’album, le nom de l’artiste et la date de sortie de l’album. Trois **facettes** de types différents permettent d’afficher la répartition du nombre de résultats en fonction du type d’artiste ( _terms facet)_, des appréciations ( _histogram facet_) et de la décennie ( _range facet_).  
-Le gist  [7436893](https://gist.github.com/arey/7436893) présente la commande curl équivalente :
+La recherche **fulltext** utilise quant à elle le type de recherche **_f_ _uzzy\_like\_this_** permettant une recherche approximative sur le  nom de l’album, le nom de l’artiste et la date de sortie de l’album. Trois **facettes** de types différents permettent d’afficher la répartition du nombre de résultats en fonction du type d’artiste ( _terms facet)_, des appréciations ( _histogram facet_) et de la décennie ( _range facet_).  
+Le gist  [7436893](https://gist.github.com/arey/7436893) présente la commande curl équivalente :
 
 ```sh
 curl -XPOST 'http://es.javaetmoi.com/musicalbum/album/_search?pretty' -d '
@@ -776,7 +776,7 @@ curl -XPOST 'http://es.javaetmoi.com/musicalbum/album/_search?pretty' -d '
 }'
 ```
 
-Voici un extrait du résultat retourné par Elasticsearch :
+Voici un extrait du résultat retourné par Elasticsearch :
 
 ```json
 {
@@ -823,20 +823,20 @@ Si vous le souhaitez, l’installation des plugins [eshead](http://mobz.github.i
 
 Afin de résoudre l’exception _BindException\[Address already in use\]_ au démarrage d’Elasticsearch, j’ai suivi les préconisations postées dans un commentaire par ewindsor.
 
-Une fois Elasticsearch démarré, seul le port HTTP est accessible depuis Internet. C’est le port utilisé par l’IHM de recherche. Le port utilisé par le client TCP Elastisearch n’est quant à lui pas accessible. Le Batch d’indexation s’exécutant en local ne peut donc pas alimenter directement le cluster Elasticsearch. Par facilité, je me suis contenté d’uploader par SFTP mon index local (répertoire data\\musicbrainz)  sur le serveur OpenShift.  
-Un redémarrage d’Elasticsearch et l’index est visible via Eshead :
+Une fois Elasticsearch démarré, seul le port HTTP est accessible depuis Internet. C’est le port utilisé par l’IHM de recherche. Le port utilisé par le client TCP Elastisearch n’est quant à lui pas accessible. Le Batch d’indexation s’exécutant en local ne peut donc pas alimenter directement le cluster Elasticsearch. Par facilité, je me suis contenté d’uploader par SFTP mon index local (répertoire data\\musicbrainz)  sur le serveur OpenShift.  
+Un redémarrage d’Elasticsearch et l’index est visible via Eshead :
 
 {{< figure src="/wp-content/uploads/2013/11/2013-11-musicbrainz-eshead.png" alt="Index musicbrainz vu dans Eshead" caption="Index musicbrainz vu dans Eshead" >}}
 
 Le [plugin Jetty](https://github.com/sonian/elasticsearch-jetty) pour Elasticsearch et le [cartouche Nginx](http://cartreflect-claytondev.rhcloud.com/reflect?github=gsterjov/openshift-nginx-cart#nginx) pour OpenShift permettent de **sécuriser** l’accès au serveur Elasticsearch, rendant possible la configuration d’un reverse proxy avec authentification basic HTTP.
 
-Pour terminer, OpenShift permet d’associer un **nom de domaine** à une Gem.  Ainsi, le nom de domaine es.javaetmoi.com pointe sur le serveur Nginx.
+Pour terminer, OpenShift permet d’associer un **nom de domaine** à une Gem.  Ainsi, le nom de domaine es.javaetmoi.com pointe sur le serveur Nginx.
 
-L’application Angular [http://musicsearch.javaetmoi.com/](http://musicsearch.javaetmoi.com/)  fait appel à l’API REST d’Angular exposée sur l’URL http://es.javaetmoi.com/musicalbum/album/\_search
+L’application Angular [http://musicsearch.javaetmoi.com/](http://musicsearch.javaetmoi.com/)  fait appel à l’API REST d’Angular exposée sur l’URL http://es.javaetmoi.com/musicalbum/album/\_search
 
 ## Conclusion
 
-Ce billet nous aura permis d’aborder de bout en bout la **mise en ligne d’une application basée sur Elasticsearch** : de l’indexation des données par batch à [leur consultation dans votre  navigateur](http://musicsearch.javaetmoi.com/).  
-En moins d’une heure, l’index Elasticsearch aura été mis en ligne sur OpenShift, le PaaS / IaaS de Redhat.  La disponibilité d’un cartdrige OpenShift pour Elasticsearch permettrait d’accélérer son déploiement. A noter que mon cluster Elasticsearch n’est formé que d’un seul nœud. Je n’ai pas vérifié s’il était possible d’installer un cluster Elasticsearch sur plusieurs serveurs.
+Ce billet nous aura permis d’aborder de bout en bout la **mise en ligne d’une application basée sur Elasticsearch** : de l’indexation des données par batch à [leur consultation dans votre  navigateur](http://musicsearch.javaetmoi.com/).  
+En moins d’une heure, l’index Elasticsearch aura été mis en ligne sur OpenShift, le PaaS / IaaS de Redhat.  La disponibilité d’un cartdrige OpenShift pour Elasticsearch permettrait d’accélérer son déploiement. A noter que mon cluster Elasticsearch n’est formé que d’un seul nœud. Je n’ai pas vérifié s’il était possible d’installer un cluster Elasticsearch sur plusieurs serveurs.
 
 Vous l’aurez remarqué, l’index musicalbum créé par le batch est figé. Pour aller plus loin, il aurait été intéressant d’automatiser sa **mise à jour régulière**. La base de données Musicbrainz est capable de [se synchroniser](http://musicbrainz.org/doc/Live_Data_Feed) toutes les heures avec la base principale. Il serait donc possible de reconstruire périodiquement l’index en utilisant, par exemple, un mécanisme d’alias pour ne pas interrompre le service de recherche. La base répliquée et le batch aurait pu être installés sur une 3ième Gem OpenShift. Resterait alors à régler la communication entre le batch et le serveur Elasticsearch. RedHat a dû prévoir la possibilité d’ouvrir un port entre 2 Gems. Dans le cas contraire, un client Java utilisant l’API REST d’indexation permettrait de contourner le blocage du port utilisé pour la communication TCP d’Elasticsearch.

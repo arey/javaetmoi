@@ -12,7 +12,7 @@ summary: |-
   [![spring-batch-admin-screenshot](http://javaetmoi.com/wp-content/uploads/2015/06/spring-batch-admin-screenshot-300x218.jpg)](http://javaetmoi.com/wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg) Pour rappel, **Spring Batch Admin** est une **console de supervision des traitements par lots implémentés avec Spring Batch**. En plus d'un **frontal web**, elle offre une **API JSON** et expose des métriques via JMX.
   Bien que dépendant du projet Spring Batch, Spring Batch Admin dispose de [son propre repo GitHub](https://github.com/spring-projects/spring-batch-admin) et de son propre cycle de vie. Cet article se base sur la [version 2.0.0.M1 sortie en janvier 2015.](https://spring.io/blog/2015/01/16/spring-batch-and-spring-batch-admin-releases) Développé en Spring MVC et composé de 3 JARs, Spring Batch Admin peut aussi bien être intégrée dans une application existante que déployée dans son propre WAR.
 
-  Ouvert aux extensions, Spring Batch Admin a tout pour devenir un véritable **serveur de batchs** : monitoring, chargement et mise à jour à chaud de la configuration des jobs, ordonnancement, exécution de jobs sur réception de fichiers …
+  Ouvert aux extensions, Spring Batch Admin a tout pour devenir un véritable **serveur de batchs** : monitoring, chargement et mise à jour à chaud de la configuration des jobs, ordonnancement, exécution de jobs sur réception de fichiers …
   En 3 ans, c'est la seconde fois que je suis amené à personnaliser Spring Batch Admin. Le manuel de référence fourmille d'explications. Ce billet recense quelques informations complémentaires qui, je l'espère, pourront vous être utiles :
 
   - Transformer Spring Batch Admin en une application auto-exécutable embarquant sa propre base de données et son propre conteneur de servlet
@@ -31,7 +31,7 @@ url: /2015/06/personnaliser-spring-batch-admin/
 [![spring-batch-admin-screenshot](/wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg)](/wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg) Pour rappel, **Spring Batch Admin** est une **console de supervision des traitements par lots implémentés avec Spring Batch**. En plus d'un **frontal web**, elle offre une **API JSON** et expose des métriques via JMX.
 Bien que dépendant du projet Spring Batch, Spring Batch Admin dispose de [son propre repo GitHub](https://github.com/spring-projects/spring-batch-admin) et de son propre cycle de vie. Cet article se base sur la [version 2.0.0.M1 sortie en janvier 2015.](https://spring.io/blog/2015/01/16/spring-batch-and-spring-batch-admin-releases) Développé en Spring MVC et composé de 3 JARs, Spring Batch Admin peut aussi bien être intégrée dans une application existante que déployée dans son propre WAR.
 
-Ouvert aux extensions, Spring Batch Admin a tout pour devenir un véritable **serveur de batchs** : monitoring, chargement et mise à jour à chaud de la configuration des jobs, ordonnancement, exécution de jobs sur réception de fichiers …
+Ouvert aux extensions, Spring Batch Admin a tout pour devenir un véritable **serveur de batchs** : monitoring, chargement et mise à jour à chaud de la configuration des jobs, ordonnancement, exécution de jobs sur réception de fichiers …
 En 3 ans, c'est la seconde fois que je suis amené à personnaliser Spring Batch Admin. Le manuel de référence fourmille d'explications. Ce billet recense quelques informations complémentaires qui, je l'espère, pourront vous être utiles :
 
 - Transformer Spring Batch Admin en une application auto-exécutable embarquant sa propre base de données et son propre conteneur de servlet
@@ -43,11 +43,11 @@ En 3 ans, c'est la seconde fois que je suis amené à personnaliser Spring Batch
 
 ## Pré-requis
 
-Certaines classes utilisées dans ce billet sont issues [du projet **spring-batch-toolkit** hébergé sur GitHub](https://github.com/arey/spring-batch-toolkit). Disponible sur Maven Central, n’hésitez pas à l’utiliser sur vos projets.
+Certaines classes utilisées dans ce billet sont issues [du projet **spring-batch-toolkit** hébergé sur GitHub](https://github.com/arey/spring-batch-toolkit). Disponible sur Maven Central, n’hésitez pas à l’utiliser sur vos projets.
 
 ## Créer sa propre application
 
-Pour créer from scratch une application Spring Batch Admin, le plus simple consiste à s'inspirer de l'application web d'exemple [spring-batch-admin-sample](https://github.com/spring-projects/spring-batch-admin/tree/master/spring-batch-admin-sample) : pom.xml maven, web.xml, index.jsp, fichiers de configuration XML et properties pourront être repris puis adaptés.
+Pour créer from scratch une application Spring Batch Admin, le plus simple consiste à s'inspirer de l'application web d'exemple [spring-batch-admin-sample](https://github.com/spring-projects/spring-batch-admin/tree/master/spring-batch-admin-sample) : pom.xml maven, web.xml, index.jsp, fichiers de configuration XML et properties pourront être repris puis adaptés.
 
 Pour stocker l’historique de l’exécution des jobs dans une base de données HSQLDB, la recopie des fichiers _batch-hsql.properties_ et _business-schema-hsqldb.sql_ s’avère nécessaire. Remplacer _hsql_ par le nom d’une autre base supportée.
 
@@ -57,7 +57,7 @@ A noter que [l’IHM devrait être retirée de la version finale de Spring Batch
 
 Les différents libellés affichés dans l'en-tête et le pied page de l'application Spring Batch Admin peuvent être chargés depuis un ressource bundle _messages_.
 
-Pour se faire, créer un fichier _messsages.properties_ dans le répertoire _src/main/resources_ de votre projet. Puis ajouter et personnaliser les propriétés suivantes :
+Pour se faire, créer un fichier _messsages.properties_ dans le répertoire _src/main/resources_ de votre projet. Puis ajouter et personnaliser les propriétés suivantes :
 
 ```java
 site.name=Java & Moi Blog
@@ -70,7 +70,7 @@ company.contact.url=/about/
 company.contact=Contact
 ```
 
-Créer  ensuite le fichier de configuration Spring _src/main/resources/META-INF/spring/batch/servlet/override/ **manager-context.xml**_ et déclarer le bean _messageSource_ :
+Créer  ensuite le fichier de configuration Spring _src/main/resources/META-INF/spring/batch/servlet/override/ **manager-context.xml**_ et déclarer le bean _messageSource_ :
 
 ```xhtml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -95,9 +95,9 @@ Pour changer de logo :
 
 ## Paramétrer le nombre de jobs exécutés en parallèle
 
-Pour exécuter les jobs, Spring Batch Admin s'appuie sur la classe _SimpleJobLauncher_ de Spring Batch. Son pool de threads est dimensionné à 6 threads. De ce fait, un maximum de 6 jobs peuvent être exécutés simultanément. Pour augmenter ou diminuer le nombre de thread, il est nécessaire de redéfinir le bean  _jobLauncherTaskExecutor_
+Pour exécuter les jobs, Spring Batch Admin s'appuie sur la classe _SimpleJobLauncher_ de Spring Batch. Son pool de threads est dimensionné à 6 threads. De ce fait, un maximum de 6 jobs peuvent être exécutés simultanément. Pour augmenter ou diminuer le nombre de thread, il est nécessaire de redéfinir le bean  _jobLauncherTaskExecutor_
 
-Ajouter un fichier _META-INF/spring/batch/override/execution-context.xml_ contenant la définition de bean :
+Ajouter un fichier _META-INF/spring/batch/override/execution-context.xml_ contenant la définition de bean :
 
 ```xhtml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -111,14 +111,14 @@ Ajouter un fichier _META-INF/spring/batch/override/execution-context.xml_ conten
 </beans>
 ```
 
-Puis ajouter la propriété _batch.job.threadpool.size_ dans le fichier _batch-<xxx>.properties_ :
+Puis ajouter la propriété _batch.job.threadpool.size_ dans le fichier _batch-<xxx>.properties_ :
 
 ```java
 ## Maximum jobs that could be launched in parallel
 batch.job.threadpool.size=10
 ```
 
-Remarque : un autre moyen de contrôler le nombre de traitements réalisés en parallèle est d'utiliser le _poolTaskExecutor_ déclaré par Spring Batch Admin (mais non utilisé par ce dernier). C'est particulièrement vrai si vos Jobs utilisent des [techniques de parallélisation](/2012/12/parallelisation-de-traitements-batchs-spring-batch/) tels le partitionnement ou la parallélisation de steps. Mutualiser le pool de threads sur plusieurs jobs permet un dimensionnement optimal : les ressources serveur seront ainsi réparties en fonction de la charge globale. Lorsqu'un seul job est exécuté, ce dernier pourra profiter de l'intégralité des threads mis à disposition du serveur de batch (600 par défaut).
+Remarque : un autre moyen de contrôler le nombre de traitements réalisés en parallèle est d'utiliser le _poolTaskExecutor_ déclaré par Spring Batch Admin (mais non utilisé par ce dernier). C'est particulièrement vrai si vos Jobs utilisent des [techniques de parallélisation](/2012/12/parallelisation-de-traitements-batchs-spring-batch/) tels le partitionnement ou la parallélisation de steps. Mutualiser le pool de threads sur plusieurs jobs permet un dimensionnement optimal : les ressources serveur seront ainsi réparties en fonction de la charge globale. Lorsqu'un seul job est exécuté, ce dernier pourra profiter de l'intégralité des threads mis à disposition du serveur de batch (600 par défaut).
 
 ## Une base de données auto-installable
 
@@ -129,7 +129,7 @@ Nativement, Spring Batch Admin ne sait pas automatiquement détecter si la base 
 
 En redéfinissant le bean _initialize-database_, Spring Batch Admin peut être configuré pour ne créer le schéma que s’il n’existe pas. L’exécution du script de destruction du schéma est retirée et on précise à Spring d’ignorer les erreurs. Ainsi, si une table existe, l’exécution du CREATE TABLE ne fera pas échouer l’exécution du script.
 
-En pratique, créer dans votre web app un fichier _META-INF/spring/batch/ **override**/data-source-context.xml_ contenant le bean suivant :
+En pratique, créer dans votre web app un fichier _META-INF/spring/batch/ **override**/data-source-context.xml_ contenant le bean suivant :
 
 ```xhtml
 <jdbc:initialize-database data-source="dataSource" enabled="true" ignore-failures="ALL">
@@ -153,9 +153,9 @@ Spring Batch Admin offre une intégration poussée de Spring Integration avec Sp
 La UI et les endpoints REST de Spring Batch Admin offrent la possibilité d’uploader un fichier qui sera déposé dans le _pusblish-subscribe-channel_ nommé **_input-file_** et déclaré dans le fichier _META-INF/spring/batch/bootstrap/integration/file-context.xml_ du module _spring-batch-admin-manager_. Charge au développeur de s’abonner au channel pour, par exemple, déclencher un job.
 
 En combinant ces 2 fonctionnalités, il est possible de déclencher l’exécution d’un job Spring Batch lors de la réception d’un fichier dans un répertoire donné. Ce cas d’utilisation est particulièrement intéressant lorsque le job exécuté prend en entrée le fichier reçu.
-Pour exemple, on peut imaginer un batch chargé de prendre un fichier CSV et d’insérer chaque ligne dans une base de données NoSQL. Le chemin complet du fichier est passé au batch à l’aide du paramètre _input.file_. Le chemin du fichier est préfixé par _file://_ Le nom du job à déclencher est déduit du nom du fichier à partir, par exemple, d’une convention de nommage.
+Pour exemple, on peut imaginer un batch chargé de prendre un fichier CSV et d’insérer chaque ligne dans une base de données NoSQL. Le chemin complet du fichier est passé au batch à l’aide du paramètre _input.file_. Le chemin du fichier est préfixé par _file://_ Le nom du job à déclencher est déduit du nom du fichier à partir, par exemple, d’une convention de nommage.
 
-La **première étape** consiste à créer le fichier _META-INF/spring/batch/override/admin-context.xml_ et à déclarer toute une série d’espaces de nom :
+La **première étape** consiste à créer le fichier _META-INF/spring/batch/override/admin-context.xml_ et à déclarer toute une série d’espaces de nom :
 
 ```xhtml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -186,7 +186,7 @@ Le corps du message déposé dans le channel _input-files_ est de type _File_.
 
 Une **3ième étape** consiste à transformer ce fichier en une demande d’exécution de job, à savoir un objet de type _JobLaunchRequest_ (appartenant au module _spring-batch-integration_).
 
-Une chaîne de 2 endpoints est nécessaire :
+Une chaîne de 2 endpoints est nécessaire :
 
 ```xhtml
 <context:annotation-config/>
@@ -204,7 +204,7 @@ Une chaîne de 2 endpoints est nécessaire :
 
 L’auto-wiring est activé pour faciliter l’injection de beans dans la classe [**FilenameToJobLaunchRequestAdapter**](https://github.com/arey/spring-batch-toolkit/blob/blog-spring-batch-admin/src/main/java/com/javaetmoi/core/batch/integration/DynamicFileToJobLaunchRequestAdapter.java). En interne, cet adaptateur fait appel à un bean implémentant l’interface [FileToJobNameConverter](https://github.com/arey/spring-batch-toolkit/blob/blog-spring-batch-admin/src/main/java/com/javaetmoi/core/batch/integration/FileToJobNameConverter.java) qui est capable de déduire le nom du job à exécuter en fonction du nom du fichier.
 
-Voici un exemple d’implémentation :
+Voici un exemple d’implémentation :
 
 ```java
 @Service
@@ -226,11 +226,11 @@ public class CsvFileToJobConverter implements FileToJobNameConverter {
 ```
 
 A l’issu de l’exécution du _FilenameToJobLaunchRequestAdapter_, une instance de _JobLaunchRequest_ est créée et envoyée sur le channel. Fourni par Spring Batch Admin, le transformeur _LastJobParametersJobLaunchRequestEnhancer_ complète les paramètres de lancement du job en reprenant ceux utilisés lors de la dernière exécution du job.
-L’infrastructure de Spring Batch Admin prend ensuite la relève : récupérant le _JobLaunchRequest_ depuis le channel _job-requests_, elle fait appel à un _SimpleJobLauncher_ pour exécuter immédiatement le job. Une instance de _JobExecution_ est alors déposée dans le channel _job-operator_.
+L’infrastructure de Spring Batch Admin prend ensuite la relève : récupérant le _JobLaunchRequest_ depuis le channel _job-requests_, elle fait appel à un _SimpleJobLauncher_ pour exécuter immédiatement le job. Une instance de _JobExecution_ est alors déposée dans le channel _job-operator_.
 
 ## Attendre la fin de l’exécution d’un batch
 
-La classe _SimpleJobLauncher_ délègue l’exécution  des jobs à un pool de threads. Elle rend donc la main avant la fin de l’exécution du job.
+La classe _SimpleJobLauncher_ délègue l’exécution  des jobs à un pool de threads. Elle rend donc la main avant la fin de l’exécution du job.
 Dans la milestone 2.0.0-M1 de Spring Batch Admin, les messages déposés dans le channel _job-operator_ sont simplement loggés. Un TODO présage que, dans une prochaine version, Spring Batch Admin proposera de réaliser des traitements en fonction de l’exécution du batch. Extrait de la configuration _[META-INF/spring/batch/bootstrap/integration/launcher-context.xml](https://github.com/spring-projects/spring-batch-admin/blob/2.0.0.M1/spring-batch-admin-manager/src/main/resources/META-INF/spring/batch/bootstrap/integration/launcher-context.xml)_:
 
 ```xhtml
@@ -240,7 +240,7 @@ Dans la milestone 2.0.0-M1 de Spring Batch Admin, les messages déposés dans le
 <logging-channel-adapter channel="job-operator" />
 ```
 
-En attendant, la classe [**JobExitStatusRouter**](https://github.com/arey/spring-batch-toolkit/blob/blog-spring-batch-admin/src/main/java/com/javaetmoi/core/batch/integration/JobExitStatusRouter.java) de _spring-batch-toolkit_ permet de router le message dans 2 channels en fonction du code de retour du job ( _ExitStatus_) :
+En attendant, la classe [**JobExitStatusRouter**](https://github.com/arey/spring-batch-toolkit/blob/blog-spring-batch-admin/src/main/java/com/javaetmoi/core/batch/integration/JobExitStatusRouter.java) de _spring-batch-toolkit_ permet de router le message dans 2 channels en fonction du code de retour du job ( _ExitStatus_) :
 
 ```xhtml
 <int:router input-channel="job-operator">
@@ -257,7 +257,7 @@ Un mécanisme de notification aurait été préférable. Mais à ma connaissance
 ## Envoi d’un mail en cas d’erreur
 
 Lorsque le batch tombe en erreur, si ce dernier ne propose pas déjà un système d’alertes, il est possible d’envoyer un mail à l’équipe en charge de sa supervision.
-Disponible dans le projet _spring-batch-toolkit_, la classe [**JobExecutionToMailOutTransformer**](https://github.com/arey/spring-batch-toolkit/blob/blog-spring-batch-admin/src/main/java/com/javaetmoi/core/batch/integration/JobExecutionToMailOutTransformer.java) permet de construire le corps du mail à partir du _JobExecution_ récupérée dans le channel _job-error_. Est ensuite utilisé les endpoints du module _spring-integration-mail_ pour compléter le mail puis l’envoyer :
+Disponible dans le projet _spring-batch-toolkit_, la classe [**JobExecutionToMailOutTransformer**](https://github.com/arey/spring-batch-toolkit/blob/blog-spring-batch-admin/src/main/java/com/javaetmoi/core/batch/integration/JobExecutionToMailOutTransformer.java) permet de construire le corps du mail à partir du _JobExecution_ récupérée dans le channel _job-error_. Est ensuite utilisé les endpoints du module _spring-integration-mail_ pour compléter le mail puis l’envoyer :
 
 ```xhtml
 <chain input-channel="job-error" xmlns="http://www.springframework.org/schema/integration">
@@ -298,7 +298,7 @@ Une fois le template modifié, la redéfinition du bean **jobs/executions.json**
 
 ## Empêcher l’exécution simultanée d’un même job
 
-Précédemment, nous avons vu comment la réception d’un fichier peut déclencher l’exécution d’un job. Mais que se passe-t-il lorsque 2 fichiers sont reçus et que ces 2 fichiers déclenchent le même job ? Et bien 2 instances du job sont créés puis exécutées en parallèle. Ce comportement peut introduire des effets de bord. Il peut alors être nécessaire de sérialiser le traitements de ces fichiers.
+Précédemment, nous avons vu comment la réception d’un fichier peut déclencher l’exécution d’un job. Mais que se passe-t-il lorsque 2 fichiers sont reçus et que ces 2 fichiers déclenchent le même job ? Et bien 2 instances du job sont créés puis exécutées en parallèle. Ce comportement peut introduire des effets de bord. Il peut alors être nécessaire de sérialiser le traitements de ces fichiers.
 
 Comme son nom l’indique, la classe [**AcceptOnceFilePerJobListFilter**](https://github.com/arey/spring-batch-toolkit/blob/blog-spring-batch-admin/src/main/java/com/javaetmoi/core/batch/integration/AcceptOnceFilePerJobListFilter.java) du projet spring-batch-toolkit permet de n’exécuter à la fois qu’une seule instance du même job. Elle s’appuie sur l’interface [FileToJobNameConverter](https://github.com/arey/spring-batch-toolkit/blob/blog-spring-batch-admin/src/main/java/com/javaetmoi/core/batch/integration/FileToJobNameConverter.java) utilisée précédemment. Le nom du job que le fichier va déclencher est conservé en mémoire.
 
@@ -335,7 +335,7 @@ Une fois l’exécution du job terminée, il est nécessaire de notifier le bean
 
 Lorsque Spring Batch Admin démarre, les fichiers préalablement déposés dans le répertoire _/data/sas-in_ sont analysés par l’ _inbound-channel-adapter_ alors que la configuration XML du job chargé de les traiter n’est pas encore chargé. Le fichier tombe alors en erreur et est déplacé dans le répertoire _/data/sas-error_
 
-Pour remédier à ce problème, une solution consiste à démarrer manuellement le bean de type _inbound-channel-adapter_ du _« Root WebApplicationContext »_ initié par le _ContextLoaderListener_ _._
+Pour remédier à ce problème, une solution consiste à démarrer manuellement le bean de type _inbound-channel-adapter_ du _« Root WebApplicationContext »_ initié par le _ContextLoaderListener_ _._
 Pour se faire, la propriété **auto-startup** doit être positionnée à _false_ et un **id** doit être renseigné :
 
 ```xhtml
@@ -343,9 +343,9 @@ Pour se faire, la propriété **auto-startup** doit être positionnée à _false
 directory="/data/sas-in" channel="input-files" filter="receivedFileListFilter" auto-startup="false">
 ```
 
-Pour chaque job, Spring Batch Admin crée un contexte Spring. Qui plus est, le _DispatcherServlet_ de Spring MVC déclaré dans le _web.xml_ crée également un contexte applicatif enfant du _« Root WebApplicationContext »_ Au total, N+2 contextes Spring sont créés.
+Pour chaque job, Spring Batch Admin crée un contexte Spring. Qui plus est, le _DispatcherServlet_ de Spring MVC déclaré dans le _web.xml_ crée également un contexte applicatif enfant du _« Root WebApplicationContext »_ Au total, N+2 contextes Spring sont créés.
 
-On démarre le bean _inbound-channel-adapter_ une fois l’ensemble des contextes initialisés.  Le bean _ServerStartEventHandler_ s’abonne aux évènements de type _ContextRefreshedEvent_ émis par le conteneur Spring à chaque fois qu’un contexte applicatif est initialisé ou rafraichit :
+On démarre le bean _inbound-channel-adapter_ une fois l’ensemble des contextes initialisés.  Le bean _ServerStartEventHandler_ s’abonne aux évènements de type _ContextRefreshedEvent_ émis par le conteneur Spring à chaque fois qu’un contexte applicatif est initialisé ou rafraichit :
 
 ```java
 /**
@@ -365,14 +365,14 @@ public class ServerStartEventHandler
 }
 ```
 
-Au cours du démarrage, la méthode _onApplicationEvent_ est appelée autant de fois que de contextes. Le nom du contexte Spring MVC qui est le dernier chargé contient le nom du servlet _« Batch Servlet »._
+Au cours du démarrage, la méthode _onApplicationEvent_ est appelée autant de fois que de contextes. Le nom du contexte Spring MVC qui est le dernier chargé contient le nom du servlet _« Batch Servlet »._
 
 ## Ajouter un contrôleur REST
 
 Spring Batch Admin propose un frontal REST permettant d’accéder à des ressources au format HTML, RSS et JSON. Par exemple, un GET sur le chemin _/jobs/{jobName}/executions.json_ listera l’historique des exécutions d’un job. De par l’extension, les données échangées sont au format JSON.
 Ouvert aux extensions, Spring Batch Admin permet d’ajouter ses propres ressources REST.
 
-La **première étape** consiste à ajouter un contrôleur Spring MVC respectant les propriétés suivantes :
+La **première étape** consiste à ajouter un contrôleur Spring MVC respectant les propriétés suivantes :
 
 - Hériter de la classe abstraite _AbstractBatchJobsController_
 - Etre déclaré en tant que contrôleur REST via l’annotation _@RestController_

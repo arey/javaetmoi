@@ -15,8 +15,8 @@ summary: |-
 
   En matière de web services, il n’y a qu’à choisir : CXF, JAX-WS, JAX-RS, Spring WS, Restlet …
 
-  Mais pour écrire vos traitements par lot ? java.io ? Soyons fou : commons-io. Pas très sexy …
-  la JSR-352 Java Batch de JEE 7 ? Optez pour l’original.
+  Mais pour écrire vos traitements par lot ? java.io ? Soyons fou : commons-io. Pas très sexy …
+  la JSR-352 Java Batch de JEE 7 ? Optez pour l’original.
 
   Alors franchissez le pas et venez découvrir Spring Batch au cours d’un workshop basé sur un cas d’utilisation concret.
 tags:
@@ -31,8 +31,8 @@ Pour accéder aux données, à chacun ses préférences : Hibernate, JPA 2, iBat
 
 En matière de web services, il n’y a qu’à choisir : CXF, JAX-WS, JAX-RS, Spring WS, Restlet …
 
-Mais pour écrire vos traitements par lot ? java.io ? Soyons fou : commons-io. Pas très sexy …
-la JSR-352 Java Batch de JEE 7 ? Optez pour l’original.
+Mais pour écrire vos traitements par lot ? java.io ? Soyons fou : commons-io. Pas très sexy …
+la JSR-352 Java Batch de JEE 7 ? Optez pour l’original.
 
 Alors franchissez le pas et venez découvrir Spring Batch au cours d’un workshop basé sur un cas d’utilisation concret.
 

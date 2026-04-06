@@ -31,7 +31,7 @@ guid: http://javaetmoi.com/?p=1906
 parent_post_id: null
 post_id: "1906"
 post_views_count: "12735"
-summary: '[![](http://javaetmoi.com/wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png)](http://javaetmoi.com/wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png) Pour ce premier article de 2019, je vous propose un **voyage dans le temps**, au contenu plus personnel. J’ai récemment dîné avec mon vieil ami Nicolas Lidzborski qui travaille chez Google aux US et que je n’avais pas revu depuis une dizaine d’années. Comme toute retrouvaille, nous nous sommes remémorés des souvenirs du Lycée, ses profs et son club IF. De sa chambre d’ado, Nicolas a retrouvé une illustration que nous avions réalisé pendant le **[concours Soft la Nuit](ftp://shamash.lpi.ac-poitiers.fr/pub/soft-qui-peut/sqp.txt)** de 1996, un marathon de 24h pendant lequel 20 équipes de 4 jeunes devaient développer un logiciel. Et oui, mon premier **hackaton** commence à dater. Afin de pouvoir se qualifier, nous avions du présenter des projets personnels. Mon [jeu vidéo Black Hell](https://github.com/arey/black-hell) en faisait partie. Par curiosité, et avec un brin de nostalgie, je suis parti à la recherche d’un backup de disquette. J’en ai ressorti code source et binaire. Et surprise : avec l’émulateur [DOSBox](https://www.dosbox.com/), j’ai réussi à le faire tourner, à la fois sous Windows 10 et MacOS.'
+summary: '[![](http://javaetmoi.com/wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png)](http://javaetmoi.com/wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png) Pour ce premier article de 2019, je vous propose un **voyage dans le temps**, au contenu plus personnel. J’ai récemment dîné avec mon vieil ami Nicolas Lidzborski qui travaille chez Google aux US et que je n’avais pas revu depuis une dizaine d’années. Comme toute retrouvaille, nous nous sommes remémorés des souvenirs du Lycée, ses profs et son club IF. De sa chambre d’ado, Nicolas a retrouvé une illustration que nous avions réalisé pendant le **[concours Soft la Nuit](ftp://shamash.lpi.ac-poitiers.fr/pub/soft-qui-peut/sqp.txt)** de 1996, un marathon de 24h pendant lequel 20 équipes de 4 jeunes devaient développer un logiciel. Et oui, mon premier **hackaton** commence à dater. Afin de pouvoir se qualifier, nous avions du présenter des projets personnels. Mon [jeu vidéo Black Hell](https://github.com/arey/black-hell) en faisait partie. Par curiosité, et avec un brin de nostalgie, je suis parti à la recherche d’un backup de disquette. J’en ai ressorti code source et binaire. Et surprise : avec l’émulateur [DOSBox](https://www.dosbox.com/), j’ai réussi à le faire tourner, à la fois sous Windows 10 et MacOS.'
 tags:
   - assembleur
   - turbo-pascal
@@ -39,13 +39,13 @@ title: 'Black Hell : mon premier jeu vidéo'
 url: /2019/02/black-hell-mon-premier-jeu-video/
 
 ---
-[![](/wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png)](/wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png) Pour ce premier article de 2019, je vous propose un **voyage dans le temps**, au contenu plus personnel. J’ai récemment dîné avec mon vieil ami Nicolas Lidzborski qui travaille chez Google aux US et que je n’avais pas revu depuis une dizaine d’années. Comme toute retrouvaille, nous nous sommes remémorés des souvenirs du Lycée, ses profs et son club IF. De sa chambre d’ado, Nicolas a retrouvé une illustration que nous avions réalisé pendant le **[concours Soft la Nuit](ftp://shamash.lpi.ac-poitiers.fr/pub/soft-qui-peut/sqp.txt)** de 1996, un marathon de 24h pendant lequel 20 équipes de 4 jeunes devaient développer un logiciel. Et oui, mon premier **hackaton** commence à dater. Afin de pouvoir se qualifier, nous avions du présenter des projets personnels. Mon [jeu vidéo Black Hell](https://github.com/arey/black-hell) en faisait partie. Par curiosité, et avec un brin de nostalgie, je suis parti à la recherche d’un backup de disquette. J’en ai ressorti code source et binaire. Et surprise : avec l’émulateur [DOSBox](https://www.dosbox.com/), j’ai réussi à le faire tourner, à la fois sous Windows 10 et MacOS.
+[![](/wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png)](/wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png) Pour ce premier article de 2019, je vous propose un **voyage dans le temps**, au contenu plus personnel. J’ai récemment dîné avec mon vieil ami Nicolas Lidzborski qui travaille chez Google aux US et que je n’avais pas revu depuis une dizaine d’années. Comme toute retrouvaille, nous nous sommes remémorés des souvenirs du Lycée, ses profs et son club IF. De sa chambre d’ado, Nicolas a retrouvé une illustration que nous avions réalisé pendant le **[concours Soft la Nuit](ftp://shamash.lpi.ac-poitiers.fr/pub/soft-qui-peut/sqp.txt)** de 1996, un marathon de 24h pendant lequel 20 équipes de 4 jeunes devaient développer un logiciel. Et oui, mon premier **hackaton** commence à dater. Afin de pouvoir se qualifier, nous avions du présenter des projets personnels. Mon [jeu vidéo Black Hell](https://github.com/arey/black-hell) en faisait partie. Par curiosité, et avec un brin de nostalgie, je suis parti à la recherche d’un backup de disquette. J’en ai ressorti code source et binaire. Et surprise : avec l’émulateur [DOSBox](https://www.dosbox.com/), j’ai réussi à le faire tourner, à la fois sous Windows 10 et MacOS.
 
 # Présentation du jeu
 
-Blach Hell est un shoot’em up, ou plutôt 2 **shoot’em up** : le mode solo et le mode 2 joueurs (sur le même écran) n’ont rien à voir.
+Blach Hell est un shoot’em up, ou plutôt 2 **shoot’em up** : le mode solo et le mode 2 joueurs (sur le même écran) n’ont rien à voir.
 
-Dans la lignée de Xenon 2, la **version solo** vous propose de prendre les commandes d’un avion de chasse nommé « Silicium ». Vous aurez à éliminer des vaisseaux et à éviter des mines avant de pouvoir détruire le Big Boss final. Un travelling vertical fait avancer le terrain en arrière-plan. 5 touches sont nécessaires : les flèches multidirectionnelles pour se déplacer et Ctrl pour tirer.
+Dans la lignée de Xenon 2, la **version solo** vous propose de prendre les commandes d’un avion de chasse nommé « Silicium ». Vous aurez à éliminer des vaisseaux et à éviter des mines avant de pouvoir détruire le Big Boss final. Un travelling vertical fait avancer le terrain en arrière-plan. 5 touches sont nécessaires : les flèches multidirectionnelles pour se déplacer et Ctrl pour tirer.
 
 {{< figure src="/wp-content/uploads/2019/02/2019-02-Black-Hell-Screenshot-1-player.png" alt="" caption="" >}}
 
@@ -53,7 +53,7 @@ Dans la lignée de Xenon 2, la **version solo** vous propose de prendre les comm
 
 Partie en mode solo
 
-Dans le **mode 2 joueurs**, chaque joueur choisit un vaisseau parmi les 3 proposés. Ils rentrent ensuite dans une arène pour un combat à mort. Afin de se déplacer sur tout l’écran et viser leur adversaire, les vaisseaux peuvent tourner à 360 °. Des options à récupérer viennent pimenter les parties : vitesse doublée, soin, invincibilité emporaire, double canon, bombe …
+Dans le **mode 2 joueurs**, chaque joueur choisit un vaisseau parmi les 3 proposés. Ils rentrent ensuite dans une arène pour un combat à mort. Afin de se déplacer sur tout l’écran et viser leur adversaire, les vaisseaux peuvent tourner à 360 °. Des options à récupérer viennent pimenter les parties : vitesse doublée, soin, invincibilité emporaire, double canon, bombe …
 
 {{< figure src="/wp-content/uploads/2019/02/2019-02-Black-Hell-Screenshot-2-players.png" alt="" caption="" >}}
 
@@ -91,7 +91,7 @@ Chaque partie commence par une animation en image de synthèse montrant le Silic
 En parcourant les **4 319 lignes** de code source de Black Hell, je suis tombé sur de bons souvenirs. En voici une sélection.
 
 Basculer la fenêtre ASCII de Ms DOS vers le **mode VGA 320x200** avec **256 couleurs** demande à déclencher **l’interruption 10h du BIOS avec 13h dans le registre AX**.  
-Ces 2 lignes de code assembleur se retrouvent à plusieurs fois :
+Ces 2 lignes de code assembleur se retrouvent à plusieurs fois :
 
 ```pascal
 ASM
@@ -102,9 +102,9 @@ END;
 
 A noter au passage l’interopérabilité très simple du Pascal avec l’Assembleur à l’aide du bloc de code ASM.
 
-Le mode VGA est relativement simple à programmer : on accède directement à la mémoire de la carte vidéo par un pointeur localisé à l’ **adresse $A000:0000h**(segment:offset avec segment\*16 + offset = adresse physique). Un pixel est représenté par un seul octet (256 couleurs). La taille mémoire est de 320 x 200 x 1 = **64 000 octets**.
+Le mode VGA est relativement simple à programmer : on accède directement à la mémoire de la carte vidéo par un pointeur localisé à l’ **adresse $A000:0000h**(segment:offset avec segment\*16 + offset = adresse physique). Un pixel est représenté par un seul octet (256 couleurs). La taille mémoire est de 320 x 200 x 1 = **64 000 octets**.
 
-Dans le code Pascal, on retrouve ce tableau de bytes (type Virtual) ainsi qu’un pointeur vers l’adresse de la mémoire vidéo (variable Screen) :
+Dans le code Pascal, on retrouve ce tableau de bytes (type Virtual) ainsi qu’un pointeur vers l’adresse de la mémoire vidéo (variable Screen) :
 
 ```pascal
 TYPE VirtualPtr=^Virtual;
@@ -145,7 +145,7 @@ MOVE(Sp^,Screen,64000);
 
 La **palette de couleurs** tient sur **768 octets** (3 x 256). Une couleur est représenté par 3 octets correspondant aux primitives RGB).
 
-Le changement de palette de la carte vidéo nécessite davantage d’instructions :
+Le changement de palette de la carte vidéo nécessite davantage d’instructions :
 
 ```pascal
 VAR Palette: ARRAY[0..767] of BYTE;
@@ -161,7 +161,7 @@ ASM
  END;
 ```
 
-Pour afficher l’écran d’accueil, des menus ou de l’aide, le **mode VGA** convient. Par contre, pour créer des animations, de nombreux jeux vidéo utilisaient un mode non documenté du VGA et popularisé par Michael Abrash : le fameux **[Mode X](https://fr.wikipedia.org/wiki/Mode_X)**. Ce mode permet de gérer le double-buffering. Black Hell ne déroge pas à la règle :
+Pour afficher l’écran d’accueil, des menus ou de l’aide, le **mode VGA** convient. Par contre, pour créer des animations, de nombreux jeux vidéo utilisaient un mode non documenté du VGA et popularisé par Michael Abrash : le fameux **[Mode X](https://fr.wikipedia.org/wiki/Mode_X)**. Ce mode permet de gérer le double-buffering. Black Hell ne déroge pas à la règle :
 
 ```pascal
 PROCEDURE INITMODX;ASSEMBLER;
@@ -209,7 +209,7 @@ END;
 ```
 
 Le DOS n’a pas été conçu pour exploiter plus d’1 Mo de RAM. Et seuls les premiers 640 Ko de mémoire conventionnelle pouvaient servir aux applications.   
-Pour charger ses images, Black Hell requière 1 Mo mémoire. Il fait donc appel à la **mémoire étendue** connue sous le nom de **XMS** (Extended Memory Specification) :
+Pour charger ses images, Black Hell requière 1 Mo mémoire. Il fait donc appel à la **mémoire étendue** connue sous le nom de **XMS** (Extended Memory Specification) :
 
 ```pascal
 VAR  XMSDrv     : POINTER;
@@ -247,7 +247,7 @@ BEGIN
 END;
 ```
 
-La détection des **frappes de touche** passe par l’usage du **PORT 60** et des codes du contrôleur clavier :
+La détection des **frappes de touche** passe par l’usage du **PORT 60** et des codes du contrôleur clavier :
 
 ```pascal
 CASE PORT[$60] Of
@@ -258,14 +258,14 @@ CASE PORT[$60] Of
 END
 ```
 
-On retrouve même des cheat-code pour être invulnérable et debugger plus facilement le jeu (je vous laisse retrouver avec quelle touche)  :
+On retrouve même des cheat-code pour être invulnérable et debugger plus facilement le jeu (je vous laisse retrouver avec quelle touche)  :
 
 ```pascal
 CONST TI = 23;
 If Inv and alt then If not Invulnerable then Invulnerable:=True Else Invulnerable:=False;
 ```
 
-L’effet de fade-out de fin de jeu est implémenté à l’aide de rechargements successifs de la palette graphiques. Entre chaque rechargement, les composantes RVB sont décrémentées de 1, ceci afin d’atteindre progressivement le 0 du noir :
+L’effet de fade-out de fin de jeu est implémenté à l’aide de rechargements successifs de la palette graphiques. Entre chaque rechargement, les composantes RVB sont décrémentées de 1, ceci afin d’atteindre progressivement le 0 du noir :
 
 ```pascal
 PROCEDURE FADE_OUT;
@@ -286,7 +286,7 @@ BEGIN
 END;
 ```
 
-Le Turbo Pascal vient sans API de manipulation ni de chargement d’images. Pour lire des fichiers au format GIF, JPG ou PCX, il était nécessaire d’implémenter à la main l’algorithme de décompression. Ne disposant pas de leurs spécifications, j’ai utilisé un algorithme de compression / décompression très naïf, peu efficient mais qui a du faire gagner au total quelques centaines de Ko. Je vous laisse en juger :
+Le Turbo Pascal vient sans API de manipulation ni de chargement d’images. Pour lire des fichiers au format GIF, JPG ou PCX, il était nécessaire d’implémenter à la main l’algorithme de décompression. Ne disposant pas de leurs spécifications, j’ai utilisé un algorithme de compression / décompression très naïf, peu efficient mais qui a du faire gagner au total quelques centaines de Ko. Je vous laisse en juger :
 
 ```pascal
 Decompact('N1Alien.ima',1);
@@ -321,7 +321,7 @@ BEGIN
 end;
 ```
 
-A l’époque, pas de Direct3D ni d’OpenGL. La génération de l’ **ombre portée** sous les vaisseaux est réalisée à la main par la routine suivante :
+A l’époque, pas de Direct3D ni d’OpenGL. La génération de l’ **ombre portée** sous les vaisseaux est réalisée à la main par la routine suivante :
 
 ```pascal
 PROCEDURE Shadow;
@@ -346,14 +346,14 @@ BEGIN
 END;
 ```
 
-Au début du jeu, à des fins d’optimisation, **sont pré-calculés les tables de sinus et de cosinus** :
+Au début du jeu, à des fins d’optimisation, **sont pré-calculés les tables de sinus et de cosinus** :
 
 ```batch
 For i:=1 to 360 do Sinus[i]:=Trunc(Round(Sin(i*Pi/180)*1024));
 For i:=1 to 360 do Cosinus[i]:=Trunc(Round(Cos(i*Pi/180)*1024));
 ```
 
-Pour calculer les trajectoires des vaisseaux, j’avais dû demander à mon prof de Maths de Première S quelle était la formule de **matrice de rotation en 2 dimensions**, formule qu’on n’apprenait en principe qu’en terminale :
+Pour calculer les trajectoires des vaisseaux, j’avais dû demander à mon prof de Maths de Première S quelle était la formule de **matrice de rotation en 2 dimensions**, formule qu’on n’apprenait en principe qu’en terminale :
 
 ```pascal
 
@@ -370,7 +370,7 @@ If (ScrX>0) and (ScrX<314) and (ScrY>0) and (ScrY<149) then
 PutSprAt(10,122,14,126,ScrX+3,ScrY+3,3);
 ```
 
-Jouer à 2 sur le même écran, c’est sympa. Avoir les commandes sur le même clavier, un peu moins. Du coup, j’avais pris en charge la **[gestion du Joystick](http://vitaly_filatov.tripod.com/ng/asm/asm_026.11.html)** pour le second joueur :
+Jouer à 2 sur le même écran, c’est sympa. Avoir les commandes sur le même clavier, un peu moins. Du coup, j’avais pris en charge la **[gestion du Joystick](http://vitaly_filatov.tripod.com/ng/asm/asm_026.11.html)** pour le second joueur :
 
 ```pascal
 VAR j1b1,j1b2 : BYTE;
@@ -406,7 +406,7 @@ Beaucoup de personnes **découvrent la programmation** au travers **le développ
 
 En 1995, Internet était balbutiant. Pour **se former**, il y’avait bien quelques chats et forums accessibles via **BBS** et sites **minitels**. En 2nde, j’ai eu la chance d’avoir un **prof** d’informatique qui m’enseigna le Turbo Pascal (une pensée pour Monsieur Canal). J’ai appris l’assembleur dans un **livre** de poche et la programmation système dans la fameuse [Bible PC de Michael Tischer](https://www.amazon.fr/BIBLE-PC-PROGRAMMATION-SYSTEME/dp/2742901442). Mes **amis** codeurs Patrick et Nicolas m’ont également beaucoup apportés.
 
-C’est quelque peu étrange de [publier dans GitHub](https://github.com/arey/black-hell) du code écrit il y’a 24 ans, mais pourquoi pas ? Je serai a peu près sûr de le retrouver dans 20 ans pour mes petits-enfants.   
+C’est quelque peu étrange de [publier dans GitHub](https://github.com/arey/black-hell) du code écrit il y’a 24 ans, mais pourquoi pas ? Je serai a peu près sûr de le retrouver dans 20 ans pour mes petits-enfants.   
 Pour conclure ce billet, ma plus grande fierté a été quand mon plus jeune fils de 5 ans me demanda d’échanger sa partie de Mario Kart contre une de Black Hell. **Vive le rétrogaming !**
 
 Pour le plaisir, voici quelques souvenirs d’un autre siècle :

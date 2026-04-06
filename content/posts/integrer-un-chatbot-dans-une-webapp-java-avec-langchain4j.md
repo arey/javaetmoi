@@ -23,7 +23,7 @@ summary: |-
 
   Nous nous appuierons sur le framework Open Source [**LangChain4j**](https://docs.langchain4j.dev/), une adaptation Java de la célèbre librairie python LangChain, visant à simplifier l'intégration de grands modèles de langage ( **LLM**). LangChain4j permet de créer des **agents conversationnels**, des **assistants virtuels** (comme notre chatbot), ou des applications capables d'effectuer des **analyses de texte** et de répondre en fonction de données contextuelles, le tout sans devoir écrire de code complexe et avec un **haut niveau d’abstraction**. Elle facilite notamment l'utilisation des API des Large Langage Model comme [OpenAI](https://docs.langchain4j.dev/integrations/language-models/open-ai) et [Hugging Face](https://docs.langchain4j.dev/integrations/language-models/hugging-face), et propose différents connecteurs pour des bases de données vectorielles, incluant [Elasticsearch](https://docs.langchain4j.dev/integrations/embedding-stores/elasticsearch) et [Qdrant](https://docs.langchain4j.dev/integrations/embedding-stores/qdrant). Pour accélérer son intégration, LangChain4j propose des extensions pour **Quarkus** et des starters pour **Spring Boot**.
 
-  Pour illustrer cet article, nous utiliserons l’illustre application démo **Spring Petclinic** et son récent fork dédié à LangChain4j : [**spring-petclinic-langchain4j**](https://github.com/spring-petclinic/spring-petclinic-langchain4j){{ double-space-with-newline }}Propulsé par Spring Boot, Spring Petclinic s’appuie sur **Spring Data JPA** pour l’accès aux données et **Thymeleaf** pour la couche présentation HTML / CSS / JavaScript.{{ double-space-with-newline }}En septembre 2024, Oded Shopen, contributeur en 2020 du fork [Spring Petclinic Cloud](https://github.com/spring-petclinic/spring-petclinic-cloud/), [a proposé une intégration de Spring AI dans Spring Petclinic](https://spring.io/blog/2024/09/26/ai-meets-spring-petclinic-implementing-an-ai-assistant-with-spring-ai-part-i). De son travail, est né le projet [spring-petclinic-ai](https://github.com/spring-petclinic/spring-petclinic-ai). Le repository [spring-petclinic-langchain4j](https://github.com/spring-petclinic/spring-petclinic-langchain4j) est un **portage** du framework **[Spring AI](https://spring.io/projects/spring-ai/)** vers **LangChain4j**. Y a été ajouté notamment une fonctionnalité de **streaming**.{{ double-space-with-newline }}Extraits du sample, les exemples de code s’appuient sur les versions 3.3 de Spring Boot et **0.35.0 de LangChaing4j**.
+  Pour illustrer cet article, nous utiliserons l’illustre application démo **Spring Petclinic** et son récent fork dédié à LangChain4j : [**spring-petclinic-langchain4j**](https://github.com/spring-petclinic/spring-petclinic-langchain4j){{ double-space-with-newline }}Propulsé par Spring Boot, Spring Petclinic s’appuie sur **Spring Data JPA** pour l’accès aux données et **Thymeleaf** pour la couche présentation HTML / CSS / JavaScript.{{ double-space-with-newline }}En septembre 2024, Oded Shopen, contributeur en 2020 du fork [Spring Petclinic Cloud](https://github.com/spring-petclinic/spring-petclinic-cloud/), [a proposé une intégration de Spring AI dans Spring Petclinic](https://spring.io/blog/2024/09/26/ai-meets-spring-petclinic-implementing-an-ai-assistant-with-spring-ai-part-i). De son travail, est né le projet [spring-petclinic-ai](https://github.com/spring-petclinic/spring-petclinic-ai). Le repository [spring-petclinic-langchain4j](https://github.com/spring-petclinic/spring-petclinic-langchain4j) est un **portage** du framework **[Spring AI](https://spring.io/projects/spring-ai/)** vers **LangChain4j**. Y a été ajouté notamment une fonctionnalité de **streaming**.{{ double-space-with-newline }}Extraits du sample, les exemples de code s’appuient sur les versions 3.3 de Spring Boot et **0.35.0 de LangChaing4j**.
 tags:
   - genai
   - langchain4j
@@ -39,22 +39,22 @@ Cet article explique comment intégrer un **chatbot** utilisant l’ **IA géné
 
 Nous nous appuierons sur le framework Open Source [**LangChain4j**](https://docs.langchain4j.dev/), une adaptation Java de la célèbre librairie python LangChain, visant à simplifier l'intégration de grands modèles de langage ( **LLM**). LangChain4j permet de créer des **agents conversationnels**, des **assistants virtuels** (comme notre chatbot), ou des applications capables d'effectuer des **analyses de texte** et de répondre en fonction de données contextuelles, le tout sans devoir écrire de code complexe et avec un **haut niveau d’abstraction**. Elle facilite notamment l'utilisation des API des Large Langage Model comme [OpenAI](https://docs.langchain4j.dev/integrations/language-models/open-ai) et [Hugging Face](https://docs.langchain4j.dev/integrations/language-models/hugging-face), et propose différents connecteurs pour des bases de données vectorielles, incluant [Elasticsearch](https://docs.langchain4j.dev/integrations/embedding-stores/elasticsearch) et [Qdrant](https://docs.langchain4j.dev/integrations/embedding-stores/qdrant). Pour accélérer son intégration, LangChain4j propose des extensions pour **Quarkus** et des starters pour **Spring Boot**.
 
-Pour illustrer cet article, nous utiliserons l’illustre application démo **Spring Petclinic** et son récent fork dédié à LangChain4j : [**spring-petclinic-langchain4j**](https://github.com/spring-petclinic/spring-petclinic-langchain4j)  
+Pour illustrer cet article, nous utiliserons l’illustre application démo **Spring Petclinic** et son récent fork dédié à LangChain4j : [**spring-petclinic-langchain4j**](https://github.com/spring-petclinic/spring-petclinic-langchain4j)  
 Propulsé par Spring Boot, Spring Petclinic s’appuie sur **Spring Data JPA** pour l’accès aux données et **Thymeleaf** pour la couche présentation HTML / CSS / JavaScript.  
 En septembre 2024, Oded Shopen, contributeur en 2020 du fork [Spring Petclinic Cloud](https://github.com/spring-petclinic/spring-petclinic-cloud/), [a proposé une intégration de Spring AI dans Spring Petclinic](https://spring.io/blog/2024/09/26/ai-meets-spring-petclinic-implementing-an-ai-assistant-with-spring-ai-part-i). De son travail, est né le projet [spring-petclinic-ai](https://github.com/spring-petclinic/spring-petclinic-ai). Le repository [spring-petclinic-langchain4j](https://github.com/spring-petclinic/spring-petclinic-langchain4j) est un **portage** du framework **[Spring AI](https://spring.io/projects/spring-ai/)** vers **LangChain4j**. Y a été ajouté notamment une fonctionnalité de **streaming**.  
 Extraits du sample, les exemples de code s’appuient sur les versions 3.3 de Spring Boot et **0.35.0 de LangChaing4j**.
 
 ## Démo
 
-Avant de se plonger dans le code Java, je vous propose de voir le résultat final en visionnant ce **screencast** durant moins de **2 minutes** et dans lequel je pose **4 questions** à l’assistant :
+Avant de se plonger dans le code Java, je vous propose de voir le résultat final en visionnant ce **screencast** durant moins de **2 minutes** et dans lequel je pose **4 questions** à l’assistant :
 
 https://youtu.be/hy2HDMjLr\_8
 
-Impressionnant, non ? Lorsqu’on pose les mêmes questions en français, le chatbot répond en français.
+Impressionnant, non ? Lorsqu’on pose les mêmes questions en français, le chatbot répond en français.
 
 ## Compte développeur OpenAI
 
-A ce jour, l’application Spring Petclinic LangChain4j supporte OpenAI et son service hébergé sur Azure : Azure OpenAI. Dans cet article, nous nous focaliserons sur l’intégration **OpenAI**. Pour faire fonctionner ce sample, moyennant quelques euros de crédits, vous aurez besoin d’un [compte développeur OpenAI](https://platform.openai.com/docs/quickstar) et d’une clé d’API personnelle exportée en tant que variable d’environnement **OPENAI\_API\_KEY**.
+A ce jour, l’application Spring Petclinic LangChain4j supporte OpenAI et son service hébergé sur Azure : Azure OpenAI. Dans cet article, nous nous focaliserons sur l’intégration **OpenAI**. Pour faire fonctionner ce sample, moyennant quelques euros de crédits, vous aurez besoin d’un [compte développeur OpenAI](https://platform.openai.com/docs/quickstar) et d’une clé d’API personnelle exportée en tant que variable d’environnement **OPENAI\_API\_KEY**.
 
 Si vous ne disposez pas de votre propre clé API OpenAI ou ne souhaitez pas dépenser le moindre centime, vous pouvez utiliser temporairement la clé de démonstration **demo** que OpenAI fournit gratuitement. Seul le modèle **gpt-4o-mini** sera alors disponible avec cette clé et le nombre de **tokens** sera **limité à 5000**.
 
@@ -66,7 +66,7 @@ export OPENAI_API_KEY=demo
 
 La [documentation Spring Boot Integration](https://docs.langchain4j.dev/tutorials/spring-boot-integration) de LangChain4j explique comment les starters Spring Boot aident à configurer l’usage des larges modèles de langages, des embedding models et des embedding stores par le biais de propriétés à déclarer dans le fichier **application.properties** (ou application.yaml).
 
-Dans le pom.xml de Spring Petclinic, commençons par déclarer les deux dépendances **langchain4j-spring-boot-starter** et **langchain4j-open-ai-spring-boot-starter** :
+Dans le pom.xml de Spring Petclinic, commençons par déclarer les deux dépendances **langchain4j-spring-boot-starter** et **langchain4j-open-ai-spring-boot-starter** :
 
 ```xml
 <properties>
@@ -87,11 +87,11 @@ Dans le pom.xml de Spring Petclinic, commençons par déclarer les deux dépenda
 
 Le premier starter **langchain4j-spring-boot-starter** expose la classe d’auto-configuration pour Spring Boot [LangChain4jAutoConfig](https://github.com/langchain4j/langchain4j-spring/blob/3fbf707037689cda90f67dc02ca54983cfd1a5ce/langchain4j-spring-boot-starter/src/main/java/dev/langchain4j/spring/LangChain4jAutoConfig.java) et donne, entre autre, accès à l’annotation [@AiService](https://github.com/langchain4j/langchain4j-spring/blob/3fbf707037689cda90f67dc02ca54983cfd1a5ce/langchain4j-spring-boot-starter/src/main/java/dev/langchain4j/service/spring/AiService.java) que nous utiliserons dans une prochaine étape.
 
-Le second starter **langchain4j-open-ai-spring-boot-starter** permet quant à lui de parser et binder les propriétés spécifiques à OpenAI du fichier de configuration application.properties (ex : _langchain4j.azure-open-ai.chat-model.api-key_). Par transitivité, il tire les artefacts langchain4j-open-ai et dev.ai4j:openai4j. En interne, LangChain4j s’appuie sur le **client Java non officiel** [**openai4j**](https://github.com/ai-for-java/openai4j) permettant de connecter des applications Java à l'API OpenAI.
+Le second starter **langchain4j-open-ai-spring-boot-starter** permet quant à lui de parser et binder les propriétés spécifiques à OpenAI du fichier de configuration application.properties (ex : _langchain4j.azure-open-ai.chat-model.api-key_). Par transitivité, il tire les artefacts langchain4j-open-ai et dev.ai4j:openai4j. En interne, LangChain4j s’appuie sur le **client Java non officiel** [**openai4j**](https://github.com/ai-for-java/openai4j) permettant de connecter des applications Java à l'API OpenAI.
 
 ## Configuration OpenAI
 
-Dans une première version du chatbot ne faisant pas encore l’usage du streaming, ajouter au fichier [application.properties](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/resources/application.properties) les 4 propriétés suivantes :
+Dans une première version du chatbot ne faisant pas encore l’usage du streaming, ajouter au fichier [application.properties](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/resources/application.properties) les 4 propriétés suivantes :
 
 ```properties
 langchain4j.open-ai.chat-model.api-key=${OPENAI_API_KEY}
@@ -102,14 +102,14 @@ langchain4j.open-ai.chat-model.log-responses=true
 
 Plus compact et moins cher que le **modèle gpt-4o** préconisé pour la démo, le modèle **gpt-4o-mini** peut également être utilisé et sait répondre aux exemples de questions suggérées dans le [readme.md](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/readme.md).
 
-Spring Boot détermine les beans à instancier en fonction des propriétés déclarées. A titre d’exemple, la classe [_AutoConfig_](https://github.com/langchain4j/langchain4j-spring/blob/main/langchain4j-open-ai-spring-boot-starter/src/main/java/dev/langchain4j/openai/spring/AutoConfig.java) du starter LangChain4j OpenAI pour Spring Boot, déclare conditionnellement un bean de type [_OpenAiChatModel_](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-open-ai/src/main/java/dev/langchain4j/model/openai/OpenAiChatModel.java) implémentant l’interface agnostique [**_ChatLanguageModel_**](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/model/chat/ChatLanguageModel.java) lorsque la propriété _langchain4j.open-ai. **chat-model**.api-key_ est déclarée. Dans la suite de cet article, nous aurons besoin d’un bean de type [_StreamingChatLanguageModel_](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/model/chat/StreamingChatLanguageModel.java) permettant de streamer la réponse du LLM token par token.   
+Spring Boot détermine les beans à instancier en fonction des propriétés déclarées. A titre d’exemple, la classe [_AutoConfig_](https://github.com/langchain4j/langchain4j-spring/blob/main/langchain4j-open-ai-spring-boot-starter/src/main/java/dev/langchain4j/openai/spring/AutoConfig.java) du starter LangChain4j OpenAI pour Spring Boot, déclare conditionnellement un bean de type [_OpenAiChatModel_](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-open-ai/src/main/java/dev/langchain4j/model/openai/OpenAiChatModel.java) implémentant l’interface agnostique [**_ChatLanguageModel_**](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/model/chat/ChatLanguageModel.java) lorsque la propriété _langchain4j.open-ai. **chat-model**.api-key_ est déclarée. Dans la suite de cet article, nous aurons besoin d’un bean de type [_StreamingChatLanguageModel_](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/model/chat/StreamingChatLanguageModel.java) permettant de streamer la réponse du LLM token par token.   
 Sur le même principe, la propriété _langchain4j.open-ai. **streaming-chat-model**.api-key_ déclenchera l’instanciation d’un bean de type [_OpenAiStreamingChatModel_](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-open-ai/src/main/java/dev/langchain4j/model/openai/OpenAiStreamingChatModel.java) implémentant l’interface _StreamingChatLanguageModel_.
 
 ## Déclarer un AI Service
 
-Dans la suite de cet article, le code Java dédié au chatbot est localisé dans un package dédié : [org.springframework.samples.petclinic.chat](https://github.com/spring-petclinic/spring-petclinic-langchain4j/tree/main/src/main/java/org/springframework/samples/petclinic/chat).
+Dans la suite de cet article, le code Java dédié au chatbot est localisé dans un package dédié : [org.springframework.samples.petclinic.chat](https://github.com/spring-petclinic/spring-petclinic-langchain4j/tree/main/src/main/java/org/springframework/samples/petclinic/chat).
 
-Dans le code métier, l’interaction avec le LLM se fait au travers d’une simple interface Java nommée [**Assistant**](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/java/org/springframework/samples/petclinic/chat/Assistant.java) et annotée avec l’annotation **@AiService**. LangChain4j propose un mécanisme similaire à Spring Data et Square Retrofit : on définit de manière déclarative une interface respectant des conventions de nommage et, au runtime, LangChain4j fournit une implémentation de cette interface. Se référer à la documentation [AI Services](https://docs.langchain4j.dev/tutorials/ai-services) pour davantage d’explications.  
+Dans le code métier, l’interaction avec le LLM se fait au travers d’une simple interface Java nommée [**Assistant**](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/java/org/springframework/samples/petclinic/chat/Assistant.java) et annotée avec l’annotation **@AiService**. LangChain4j propose un mécanisme similaire à Spring Data et Square Retrofit : on définit de manière déclarative une interface respectant des conventions de nommage et, au runtime, LangChain4j fournit une implémentation de cette interface. Se référer à la documentation [AI Services](https://docs.langchain4j.dev/tutorials/ai-services) pour davantage d’explications.  
 L’interface Assistant propose une seule et unique méthode **chat**. Celle-ci accepte une question de l’utilisateur et renvoie la réponse du LLM sous forme de String.
 
 ```typescript
@@ -129,7 +129,7 @@ Le bean implémentant cette interface est mise à disposition par Spring et pour
 
 ## Prompter un Message Système
 
-Pour répondre à l’utilisateur, nous **guidons le comportement du LLM** en définissant un « **system message** » via l’annotation **@SystemMessage**.  Les directives sont externalisées dans le fichier texte [system.st](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/resources/prompts/system.st) :
+Pour répondre à l’utilisateur, nous **guidons le comportement du LLM** en définissant un « **system message** » via l’annotation **@SystemMessage**.  Les directives sont externalisées dans le fichier texte [system.st](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/resources/prompts/system.st) :
 
 ```text
 You are a friendly AI assistant designed to help with the management of a veterinarian pet clinic called Spring Petclinic.
@@ -146,13 +146,13 @@ For owners, pets or visits - provide the correct data.
 ```
 
 Comme expliqué par Oded dans son [article de blog](https://spring.io/blog/2024/09/26/ai-meets-spring-petclinic-implementing-an-ai-assistant-with-spring-ai-part-i), le contexte système doit être régulièrement enrichi et optimisé afin que les réponses soient les plus précises et les plus fiables possibles.  
-Par exemple, afin que le LLM prenne des initiatives sans demander l’aval de l’utilisateur, le message système a été récemment complété avec la directive suivante :
+Par exemple, afin que le LLM prenne des initiatives sans demander l’aval de l’utilisateur, le message système a été récemment complété avec la directive suivante :
 
 ```batch
 If you need access to pet owners or pet types, list and locate them without asking the user.
 ```
 
-Sans cette directive, le LLM demande l’autorisation de rechercher l’ID de Betty :
+Sans cette directive, le LLM demande l’autorisation de rechercher l’ID de Betty :
 
 {{< figure src="/wp-content/uploads/2024/11/chat0.png" alt="" caption="" >}}
 
@@ -178,13 +178,13 @@ class AssistantController {
 }
 ```
 
-Démarrer l’application Spring Boot et vérifier le fonctionnement du chatbot via un simple appel curl :
+Démarrer l’application Spring Boot et vérifier le fonctionnement du chatbot via un simple appel curl :
 
 {{< figure src="/wp-content/uploads/2024/11/curl1.png" alt="" caption="" >}}
 
 ## Paramétrer la mémoire conversationnelle de l’assistant
 
-A ce stade, le chatbot n’a pas encore de mémoire. Il ne peut donc pas s’aider des précédents échanges pour générer une réponse. Voici un des exemples des plus connus :
+A ce stade, le chatbot n’a pas encore de mémoire. Il ne peut donc pas s’aider des précédents échanges pour générer une réponse. Voici un des exemples des plus connus :
 
 {{< figure src="/wp-content/uploads/2024/11/curl2.png" alt="" caption="" >}}
 
@@ -211,7 +211,7 @@ Par défaut, les messages sont sauvegardés en mémoire dans un [InMemoryChatMem
 ## Supporter plusieurs utilisateurs
 
 A ce stade, la même instance de _ChatMemory_ est utilisée pour toutes les invocations du service d'IA. Cette approche a des limites et ne fonctionnera pas avec plusieurs utilisateurs. Chaque utilisateur a besoin de sa propre instance de _ChatMemory_ pour maintenir sa conversation individuelle.  
-Une [solution proposée par LangChain4j](https://docs.langchain4j.dev/tutorials/ai-services/#chat-memory) consiste à utiliser un [**ChatMemoryProvider**](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j/src/main/java/dev/langchain4j/memory/chat/ChatMemoryProvider.java) :
+Une [solution proposée par LangChain4j](https://docs.langchain4j.dev/tutorials/ai-services/#chat-memory) consiste à utiliser un [**ChatMemoryProvider**](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j/src/main/java/dev/langchain4j/memory/chat/ChatMemoryProvider.java) :
 
 ```java
 @Configuration
@@ -226,7 +226,7 @@ class AssistantConfiguration {
 
 Chaque utilisateur est associé à un **memoryId** qui lui est dédié et dispose donc de sa propre ChatMemory.
 
-La signature de la méthode _chat_ de l’interface _Assistant_ prend désormais un second paramètre nommé memoryId, annoté avec l’annotation [**@MemoryId**](https://github.com/langchain4j/langchain4j/blob/main/langchain4j/src/main/java/dev/langchain4j/service/MemoryId.java) et de type UUID v4. Le paramètre userMessage est quant à lui annoté avec [**@UserMessage**](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j/src/main/java/dev/langchain4j/service/UserMessage.java) :
+La signature de la méthode _chat_ de l’interface _Assistant_ prend désormais un second paramètre nommé memoryId, annoté avec l’annotation [**@MemoryId**](https://github.com/langchain4j/langchain4j/blob/main/langchain4j/src/main/java/dev/langchain4j/service/MemoryId.java) et de type UUID v4. Le paramètre userMessage est quant à lui annoté avec [**@UserMessage**](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j/src/main/java/dev/langchain4j/service/UserMessage.java) :
 
 ```typescript
 import dev.langchain4j.service.MemoryId;
@@ -242,7 +242,7 @@ interface Assistant {
 }
 ```
 
-Le contrôleur REST est adapté en fonction :
+Le contrôleur REST est adapté en fonction :
 
 ```java
 @PostMapping(value = "/chat/{user}")
@@ -259,7 +259,7 @@ La [Pull Request #8 Support multiple users with @MemoryId](https://github.com/sp
 L’ **interface web** du chat a été [designée par Oded](https://spring.io/blog/2024/09/27/ai-meets-spring-petclinic-implementing-an-ai-assistant-with-spring-ai-part#implementing-the-ui). Les codes HTML, JavaScript et CSS sont respectivement localisés dans les fichiers [layout.html](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/resources/templates/fragments/layout.html) et [chat.js](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/resources/static/resources/js/chat.js) et [chat.css](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/resources/static/resources/css/chat.css)
 
 Certaines réponses d’ **OpenAI** sont formattés en **Markdown**.  
-Côté front, la librairie [**MarkedJS**](https://marked.js.org/) permet de convertir le markdown en HTML. Elle est ajoutée dans la configuration maven en tant que webjar :
+Côté front, la librairie [**MarkedJS**](https://marked.js.org/) permet de convertir le markdown en HTML. Elle est ajoutée dans la configuration maven en tant que webjar :
 
 ```xml
 <dependency>
@@ -272,15 +272,15 @@ Côté front, la librairie [**MarkedJS**](https://marked.js.org/) permet de conv
 ## Ajouter une première fonction
 
 Afin d’interagir avec le code métier de l’application, les développeurs peuvent proposer aux LLM d’appeler des fonctions, en l’occurrence du code Java. L'appel de fonctions personnalisées renforce la capacité des LLM à fournir des réponses plus pertinentes et contextuelles. Le LLM peut, par exemple, **accéder aux données de l’application**.  
-Le LLM n’appelle pas directement les fonctions : **le modèle produit une sortie de données structurées qui spécifie le nom de la fonction** à appeler ainsi que les **arguments suggérés**. Les fonctions sont appelées par l’application Java ayant appelée le LLM.  
+Le LLM n’appelle pas directement les fonctions : **le modèle produit une sortie de données structurées qui spécifie le nom de la fonction** à appeler ainsi que les **arguments suggérés**. Les fonctions sont appelées par l’application Java ayant appelée le LLM.  
 A noter que tous les LLM ne supportent pas encore l’appel de fonctions.
 
-LangChain4j facilite et standardise l’ **appel de fonctions** via les [**Tools**](https://docs.langchain4j.dev/tutorials/tools). Deux niveaux d’abstraction sont proposés :
+LangChain4j facilite et standardise l’ **appel de fonctions** via les [**Tools**](https://docs.langchain4j.dev/tutorials/tools). Deux niveaux d’abstraction sont proposés :
 
-1. **Low-level**, en utilisant la classe [ToolSpecification](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/agent/tool/ToolSpecifications.java) pour décrire les fonctions au LLM : nom, description, paramètres d’entrée / sortie.
+1. **Low-level**, en utilisant la classe [ToolSpecification](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/agent/tool/ToolSpecifications.java) pour décrire les fonctions au LLM : nom, description, paramètres d’entrée / sortie.
 1. **High-level**, à l'aide des services d’IA et des méthodes Java annotées [**@Tool**](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/agent/tool/Tool.java)
 
-Nous mettrons en œuvre celui de haut niveau permettant d’annoter n'importe quelle méthode Java avec l'annotation [**@Tool**](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/agent/tool/Tool.java). LangChain4j génère automatiquement les [ToolSpecification](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/agent/tool/ToolSpecifications.java) s à partir de la signature des méthodes annotées.  Lors de l’appel du LLM, la description des fonctions qui sont mises à sa disposition lui sont transmises. Lorsque le LLM décide d’appeler une fonction, LangChain4j exécute automatiquement la méthode Java appropriée et sa valeur de retour est renvoyée au LLM. Sous la forme d’un simple bean Spring, la classe [**AssistantTool**](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/java/org/springframework/samples/petclinic/chat/AssistantTool.java) expose les fonctions que le LLM pourra invoquer pour récupérer des données de référence, lister les propriétaires ou bien encore ajouter en base un animal de compagnie. Commençons par déclarer une function nommée **getAllOwners** :
+Nous mettrons en œuvre celui de haut niveau permettant d’annoter n'importe quelle méthode Java avec l'annotation [**@Tool**](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/agent/tool/Tool.java). LangChain4j génère automatiquement les [ToolSpecification](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/agent/tool/ToolSpecifications.java) s à partir de la signature des méthodes annotées.  Lors de l’appel du LLM, la description des fonctions qui sont mises à sa disposition lui sont transmises. Lorsque le LLM décide d’appeler une fonction, LangChain4j exécute automatiquement la méthode Java appropriée et sa valeur de retour est renvoyée au LLM. Sous la forme d’un simple bean Spring, la classe [**AssistantTool**](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/java/org/springframework/samples/petclinic/chat/AssistantTool.java) expose les fonctions que le LLM pourra invoquer pour récupérer des données de référence, lister les propriétaires ou bien encore ajouter en base un animal de compagnie. Commençons par déclarer une function nommée **getAllOwners** :
 
 ```java
 @Component
@@ -312,11 +312,11 @@ Une fois la fonction appelée, LangChain4j convertit le record _OwnersResponse_ 
 
 A noter que la méthode _getAllOwners_ n’aurait pas sa place dans une application d’entreprise. L’application démo Spring Petclinic compte seulement 10 propriétaires. Renvoyer toutes les données de la base ne pose donc pas de problème de performance. Néanmoins, dans une vraie application de gestion, **proposer une méthode de recherche multi-critères serait préférable**. C’est ce que propose l’ [issue #9](https://github.com/spring-petclinic/spring-petclinic-langchain4j/issues/9).
 
-Interrogeons à présent le chatbot avec la question _« Please list the owners that come to the clinic. »_ et regardons le flux d’échange entre l’application Petclinic et OpenAI.
+Interrogeons à présent le chatbot avec la question _« Please list the owners that come to the clinic. »_ et regardons le flux d’échange entre l’application Petclinic et OpenAI.
 
 {{< figure src="/wp-content/uploads/2024/11/chat1.png" alt="" caption="" >}}
 
-Au préalable, dans le fichier _application.properties_, nous avons activé les logs des requêtes et réponses envoyées à OpenAI :
+Au préalable, dans le fichier _application.properties_, nous avons activé les logs des requêtes et réponses envoyées à OpenAI :
 
 ```properties
 langchain4j.open-ai.chat-model.log-requests=true
@@ -325,7 +325,7 @@ langchain4j.open-ai.chat-model.log-responses=true
 
 Lors du 1er appel à OpenAI, à côté de la question saisie par l’utilisateur dans le fenêtre de chat, la fonction _getAllOwners_ est proposée dans une liste de tools.
 
-Log partiel de la requête #1 :
+Log partiel de la requête #1 :
 
 ```text
 - method: POST
@@ -357,7 +357,7 @@ Log partiel de la requête #1 :
 ```
 
 Comme attendu, OpenAI demande à l’application d’appeler la function _getAllOwners_.  
-Log partiel de la réponse #1 :
+Log partiel de la réponse #1 :
 
 ```text
 status code: 200
@@ -386,9 +386,9 @@ status code: 200
 …. }
 ```
 
-LangChain4j fait aussitôt appel à la méhtode **_getAllOwners_** du bean _AssistantTool_. Le résultat est sérialisé en JSON et placé dans l’attribut **content** lors du second appel au LLM.
+LangChain4j fait aussitôt appel à la méhtode **_getAllOwners_** du bean _AssistantTool_. Le résultat est sérialisé en JSON et placé dans l’attribut **content** lors du second appel au LLM.
 
-Log partiel de la requête #2 :
+Log partiel de la requête #2 :
 
 ```text
 - method: POST
@@ -422,9 +422,9 @@ Log partiel de la requête #2 :
 
 ```
 
-OpenAI utilise le résultat de l’appel à la fonction _getAllOwners_ pour générer une réponse présentant une liste de propriétaires d’animaux formatée en markdown :
+OpenAI utilise le résultat de l’appel à la fonction _getAllOwners_ pour générer une réponse présentant une liste de propriétaires d’animaux formatée en markdown :
 
-Log partiel de la réponse #2 :
+Log partiel de la réponse #2 :
 
 ```text
 - status code: 200
@@ -457,7 +457,7 @@ Ajoutons à présent les fonctions permettant à un vétérinaire de déclarer u
 >
 > {{< figure src="/wp-content/uploads/2024/11/agent-question.png" alt="" caption="" >}}
 
-Dans la classe _AssistantTool_, ajoutons une seconde fonction _addPetToOwner_ permettant à un vétérinaire de déclarer un nouvel animal de compagnie à l’un de ses clients :
+Dans la classe _AssistantTool_, ajoutons une seconde fonction _addPetToOwner_ permettant à un vétérinaire de déclarer un nouvel animal de compagnie à l’un de ses clients :
 
 ```java
 @Tool("Add a pet with the specified petTypeId, to an owner identified by the ownerId")
@@ -469,7 +469,7 @@ public AddedPetResponse addPetToOwner(AddPetRequest request) {
 }
 ```
 
-Cette fois-ci, la méthode accepte un paramètre de type [AddPetRequest](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/f03f5ae28c2a0d7575fb61ce77ad74b74035ffea/src/main/java/org/springframework/samples/petclinic/chat/AssistantTool.java#L72) :
+Cette fois-ci, la méthode accepte un paramètre de type [AddPetRequest](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/f03f5ae28c2a0d7575fb61ce77ad74b74035ffea/src/main/java/org/springframework/samples/petclinic/chat/AssistantTool.java#L72) :
 
 ```java
 record AddPetRequest(Pet pet, Integer ownerId) {
@@ -477,7 +477,7 @@ record AddPetRequest(Pet pet, Integer ownerId) {
 ```
 
 Pour ajouter un animal de compagnie, le LLM doit connaitre l’identifiant du propriétaire (le _ownerId_) et les données caractérisant son compagnon. Cet identifiant peut être récupéré par le LLM via l’appel de la fonction _getAllOwners_.  
-Le LLM doit également savoir comment valoriser les attributs de la classe [Pet](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/f03f5ae28c2a0d7575fb61ce77ad74b74035ffea/src/main/java/org/springframework/samples/petclinic/owner/Pet.java) : _name_, _birthDate_, _visits_ et _type_. Les identifiants du type [PetType](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/f03f5ae28c2a0d7575fb61ce77ad74b74035ffea/src/main/java/org/springframework/samples/petclinic/owner/PetType.java) (ex : 1=cat, 2=dog …) peuvent être listés par le LLM via l’appel de la nouvelle fonction _populatePetTypes_ :
+Le LLM doit également savoir comment valoriser les attributs de la classe [Pet](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/f03f5ae28c2a0d7575fb61ce77ad74b74035ffea/src/main/java/org/springframework/samples/petclinic/owner/Pet.java) : _name_, _birthDate_, _visits_ et _type_. Les identifiants du type [PetType](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/f03f5ae28c2a0d7575fb61ce77ad74b74035ffea/src/main/java/org/springframework/samples/petclinic/owner/PetType.java) (ex : 1=cat, 2=dog …) peuvent être listés par le LLM via l’appel de la nouvelle fonction _populatePetTypes_ :
 
 ```java
 @Tool("List all pairs of petTypeId and pet type name")
@@ -486,7 +486,7 @@ public List<PetType> populatePetTypes() {
 }
 ```
 
-Lorsque OpenAI est interrogé, dans sa première réponse, il demande à LangChain4j d’appeler 2 fonctions / tools. Optimisé, cela évitera les allers-retours :
+Lorsque OpenAI est interrogé, dans sa première réponse, il demande à LangChain4j d’appeler 2 fonctions / tools. Optimisé, cela évitera les allers-retours :
 
 Log partiel de la réponse #1 :
 
@@ -496,7 +496,7 @@ Log partiel de la réponse #1 :
 2024-11-02T18:14:50.534+01:00 DEBUG 10650 --- [.openai.com/...] d.a.openai4j.StreamingRequestExecutor    : onEvent() {"id":"chatcmpl-APC01s26BWq4QFXC1tpIgHuSml798","object":"chat.completion.chunk","created":1730567689,"model":"gpt-4o-2024-08-06","system_fingerprint":"fp_159d8341cc","usage":null,"choices":[{"index":0,"delta":{"tool_calls":[{"index":1,"function":{"arguments":"{}"}}]},"logprobs":null,"finish_reason":null}]}
 ```
 
-LangChain4j appelle séquentiellement ces 2 fonctions (paralléliser ces appels serait un axe d’optimisation de notre application : [issue #13](https://github.com/spring-petclinic/spring-petclinic-langchain4j/issues/13)) puis renvoie les résultats à OpenAI.
+LangChain4j appelle séquentiellement ces 2 fonctions (paralléliser ces appels serait un axe d’optimisation de notre application : [issue #13](https://github.com/spring-petclinic/spring-petclinic-langchain4j/issues/13)) puis renvoie les résultats à OpenAI.
 
 Log partiel de la requête #2 :
 
@@ -528,7 +528,7 @@ Log partiel de la requête #2 :
 
 ```
 
-De ces 2 appels de fonctions, OpenAI déduit l’identifiant de Betty Davis égal à 2 ainsi que l’identifiant d’un chien lui aussi égal à 2. En réponse, il demande à LangChain4j d’appeler la fonction _addPetToOwner_ en lui passant ces deux identifiants, ainsi que le nom et la date de naissance donné par l’utilisateur.
+De ces 2 appels de fonctions, OpenAI déduit l’identifiant de Betty Davis égal à 2 ainsi que l’identifiant d’un chien lui aussi égal à 2. En réponse, il demande à LangChain4j d’appeler la fonction _addPetToOwner_ en lui passant ces deux identifiants, ainsi que le nom et la date de naissance donné par l’utilisateur.
 
 ```text
 2024-11-02T18:14:51.734+01:00 DEBUG 10650 --- [.openai.com/...] d.l.service.tool.DefaultToolExecutor     : About to execute ToolExecutionRequest { id = "call_7TdLNNZPsMD4ujev8wRytdyf", name = "addPetToOwner", arguments = "{"request":{"ownerId":2,"pet":{"name":"Moopsie","birthDate":{"year":2024,"month":10,"day":2},"type":{"id":2}}}}" } for memoryId 510e5396-3c19-46c2-991c-3200a653f90f
@@ -564,7 +564,7 @@ De ces 2 appels de fonctions, OpenAI déduit l’identifiant de Betty Davis ég
 }
 ```
 
-Cette fois-ci, LangChain4j doit passer un paramètre de type _AddPetRequest_ lors de l’appel à la fonction _addPetToOwner_. La structure de donnée a préalablement été communiquée au LLM lors de la description de la fonction mise à sa disposition :
+Cette fois-ci, LangChain4j doit passer un paramètre de type _AddPetRequest_ lors de l’appel à la fonction _addPetToOwner_. La structure de donnée a préalablement été communiquée au LLM lors de la description de la fonction mise à sa disposition :
 
 ```json
 {
@@ -651,7 +651,7 @@ Cette fois-ci, LangChain4j doit passer un paramètre de type _AddPetRequest_ lor
 
 Les résultats des 3 appels de fonction sont renvoyés à OpenAI dans une 3ième et dernière requête. Ce dernier conclue que l’ajout s’est bien passé et récapitule les informations enregistrées.
 
-Voici un **diagramme de séquences** illustrant les appels que nous venons de décrire :
+Voici un **diagramme de séquences** illustrant les appels que nous venons de décrire :
 
 {{< figure src="/wp-content/uploads/2024/11/LangChain4j-addPetToOwner.png" alt="" caption="" >}}
 
@@ -659,7 +659,7 @@ Voici un **diagramme de séquences** illustrant les appels que nous venons de d�
 Response Streaming
 
 La méthode _chat()_ déclarée dans le _@AiService_ renvoie une simple _String_. L’utilisateur doit attendre que le LLM ait généré l’intégralité de sa réponse avant de recevoir le résultat. Ceci est regrettable lorsqu’on sait qu’un LLM génère du texte un jeton à la fois.  
-La plupart des LLM propose un moyen de **diffuser la réponse jeton par jeton** au lieu d'attendre que l'ensemble du texte soit généré. Cette possibilité améliore l'expérience de l'utilisateur qui n'a alors pas besoin d'attendre une durée inconnue et peut commencer à lire la réponse presque immédiatement. LangChain4j supporte nativement cette [fonctionnalité de **Response Streaming**](https://docs.langchain4j.dev/tutorials/ai-services#streaming). Il sait streamer token par token en utilisant l’interface [TokenStream](https://github.com/langchain4j/langchain4j/blob/main/langchain4j/src/main/java/dev/langchain4j/service/TokenStream.java) comme type de réponse. Le client peut s’abonner aux flux de jetons renvoyé par le LLM et ainsi être notifié lorsqu’un nouveau jeton est disponible. Modifions la signature de notre méthode :
+La plupart des LLM propose un moyen de **diffuser la réponse jeton par jeton** au lieu d'attendre que l'ensemble du texte soit généré. Cette possibilité améliore l'expérience de l'utilisateur qui n'a alors pas besoin d'attendre une durée inconnue et peut commencer à lire la réponse presque immédiatement. LangChain4j supporte nativement cette [fonctionnalité de **Response Streaming**](https://docs.langchain4j.dev/tutorials/ai-services#streaming). Il sait streamer token par token en utilisant l’interface [TokenStream](https://github.com/langchain4j/langchain4j/blob/main/langchain4j/src/main/java/dev/langchain4j/service/TokenStream.java) comme type de réponse. Le client peut s’abonner aux flux de jetons renvoyé par le LLM et ainsi être notifié lorsqu’un nouveau jeton est disponible. Modifions la signature de notre méthode :
 
 ```typescript
 interface Assistant {
@@ -670,11 +670,11 @@ interface Assistant {
 }
 ```
 
-Remarque : cette version de l’application Spring Petclinic est développée sur une stack non réactive avec Spring MVC. Si elle l’avait été avec Spring Webflux, nous aurions pu utiliser le type **_Flux<String>_** à la place de _TokenStream_.
+Remarque : cette version de l’application Spring Petclinic est développée sur une stack non réactive avec Spring MVC. Si elle l’avait été avec Spring Webflux, nous aurions pu utiliser le type **_Flux<String>_** à la place de _TokenStream_.
 
 Le contrôleur REST [AssistantController](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/java/org/springframework/samples/petclinic/chat/AssistantController.java) doit à son tour être adapté. De la même manière que sur l’application web ChatGPT, nous utilisons la technologie **Server Sent Events** (SSE) pour que le serveur envoie au navigateur au fil de l’eau les réponses du LLM. Spring Framework supporte nativement SSE depuis 2015 via la classe **SseEmitter**, se référer à sa [documentation](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-async.html#mvc-ann-async-sse).
 
-Chaque token est envoyé dans un message structuré en JSON. L’onglet EventStream de Google Chrome donne un aperçu du résultat :
+Chaque token est envoyé dans un message structuré en JSON. L’onglet EventStream de Google Chrome donne un aperçu du résultat :
 
 {{< figure src="/wp-content/uploads/2024/11/event-stream-chrome.png" alt="" caption="" >}}
 
@@ -733,7 +733,7 @@ class AssistantController {
 
 A noter un hack (issue [#12](https://github.com/spring-petclinic/spring-petclinic-langchain4j/issues/12)) remplaçant les sauts de ligne du LLM pour pallier au [problème connu des sauts de lignes avec SSE](https://medium.com/@thiagosalvatore/the-line-break-problem-when-using-server-sent-events-sse-1159632d09a0).
 
-En interne, pour streamer la réponse du LLM, LangChain4j utilise l’interface [StreamingChatLanguageModel](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/model/chat/StreamingChatLanguageModel.java) (à la place de ChatLanguageModel). Dans le fichier de configuration [application.properties](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/resources/application.properties), les propriétés langchain4j.open-ai. **chat-model**.xxx sont renommées en langchain4j.open-ai. **streaming-chat-model**.xxx :
+En interne, pour streamer la réponse du LLM, LangChain4j utilise l’interface [StreamingChatLanguageModel](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/model/chat/StreamingChatLanguageModel.java) (à la place de ChatLanguageModel). Dans le fichier de configuration [application.properties](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/resources/application.properties), les propriétés langchain4j.open-ai. **chat-model**.xxx sont renommées en langchain4j.open-ai. **streaming-chat-model**.xxx :
 
 ```properties
 langchain4j.open-ai.streaming-chat-model.api-key=${OPENAI_API_KEY}
@@ -751,19 +751,19 @@ La [Pull Request #3 Response Streaming and SSE](https://github.com/spring-petcli
 L’ensemble des tools mis à disposition du LLM par Petclinic lui permettent d’accéder aux données des propriétaires, de leurs animaux et de leurs visites. Rien sur les vétérinaires officiant dans la clinique. Afin de permettre aux utilisateurs de poser des questions sur les vétérinaires, nous allons exploiter une autre fonctionnalité majeure des LLM et de LangChain4j : la **génération augmentée par récupération**, connue en anglais sous l’acronyme RAG pour Retrieval Augmented Generation. Un RAG permet de fournir à un LLM des informations complémentaires dont il pourrait avoir besoin pour répondre aux requêtes des utilisateurs, en particulier lorsqu'il s'agit de données plus récentes ou de **contenus privés non accessibles lors de son entraînement**.  
 Un RAG permet d’utiliser la recherche sémantique. Par exemple, dans la question suivante, l’utilisateur utilise des synonymes des spécialités déclarées en base de données dans le référentiel : radiography (radiographie) pour radiology (radiologue) et odontology (odontologie) pour dentistry (dentiste).
 
-> Question : « I'm looking for a veterinarian who specializes in both radiography and odontology for my pet »
+> Question : « I'm looking for a veterinarian who specializes in both radiography and odontology for my pet »
 
 A l’aide du RAG, l’application Petclinic retrouve 2 vétérinaires ayant la spécialité de radiology et de dentistry. L’utilisation d’un index inversé Lucene n’aurait pas permis d’arriver à ce résultat.
 
 {{< figure src="/wp-content/uploads/2024/11/langchain4j-question-llm.png" alt="" caption="" >}}
 
-Pour intégrer le RAG à Petclinic, nous devons procéder en 2 étapes : la phase d’ **ingestion (indexation)** des vétérinaires et la phase de **requêtage** (retrieval en anglais). La [documentation de LangChain4j sur le support des RAG](https://docs.langchain4j.dev/tutorials/rag) propose deux diagrammes illustrant les étapes d’ [indexation](https://docs.langchain4j.dev/tutorials/rag#indexing) et de [retrieval](https://docs.langchain4j.dev/tutorials/rag#retrieval).
+Pour intégrer le RAG à Petclinic, nous devons procéder en 2 étapes : la phase d’ **ingestion (indexation)** des vétérinaires et la phase de **requêtage** (retrieval en anglais). La [documentation de LangChain4j sur le support des RAG](https://docs.langchain4j.dev/tutorials/rag) propose deux diagrammes illustrant les étapes d’ [indexation](https://docs.langchain4j.dev/tutorials/rag#indexing) et de [retrieval](https://docs.langchain4j.dev/tutorials/rag#retrieval).
 
 ## Ingestion d’embeddings
 
 Afin de pouvoir être utilisées par le LLM, les données des 3 tables _vets_, _specialties_ et _vet\_specialties_ doivent préalablement être ingérées et stockées dans une base de données vectorielle. PostgreSQL avec l'extension [pgVector](https://github.com/pgvector/pgvector) est probablement le choix le plus populaire. Greenplum et Qdrant sont 2 autres bases de données vectorielles. [LangChain4j supporte plus de 25 bases vectorielles](https://docs.langchain4j.dev/integrations/embedding-stores/) avec des niveaux plus ou moins avancés.
 
-Lors de la phase d’ingestion, les données textuelles des vétérinaires (nom, prénom et spécialités) sont converties en vecteurs multidimensionnels appelés **embedding** puis stockés dans la base vectorielle. La documentation de LangChain4j parle **d’Embedding Stores**. Pour notre application d’exemple, par simplicité, nous allons utiliser la [base vectorielle en mémoire proposée par LangChain4j](https://docs.langchain4j.dev/integrations/embedding-stores/in-memory). Dans la classe de configuration Spring [AssistantConfiguration](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/java/org/springframework/samples/petclinic/chat/AssistantConfiguration.java), commençons par déclarer le bean de type [InMemoryEmbeddingStore](https://docs.langchain4j.dev/integrations/embedding-stores/in-memory) :
+Lors de la phase d’ingestion, les données textuelles des vétérinaires (nom, prénom et spécialités) sont converties en vecteurs multidimensionnels appelés **embedding** puis stockés dans la base vectorielle. La documentation de LangChain4j parle **d’Embedding Stores**. Pour notre application d’exemple, par simplicité, nous allons utiliser la [base vectorielle en mémoire proposée par LangChain4j](https://docs.langchain4j.dev/integrations/embedding-stores/in-memory). Dans la classe de configuration Spring [AssistantConfiguration](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/java/org/springframework/samples/petclinic/chat/AssistantConfiguration.java), commençons par déclarer le bean de type [InMemoryEmbeddingStore](https://docs.langchain4j.dev/integrations/embedding-stores/in-memory) :
 
 ```java
 @Bean
@@ -778,7 +778,7 @@ Le repo git [langchain4j-embeddings](https://github.com/langchain4j/langchain4j-
 
 Le modèle [**all-MiniLM-L6-v2**](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) est un modèle de langage basé sur la famille [MiniLM](https://github.com/microsoft/unilm/tree/master/minilm) conçue par Microsoft. Entrainé pour la similarité sémantique et les recherches de phrases, ce modèle de 86 Mo est compact et optimisé pour offrir des performances élevées en termes de qualité d'encodage de phrases, tout en restant léger et rapide. Il semble parfait pour notre **chatbot** et la **recherche de similarité**.
 
-Une fois le choix du modèle arrêté, ajoutons sa dépendance dans le pom.xml :
+Une fois le choix du modèle arrêté, ajoutons sa dépendance dans le pom.xml :
 
 ```xml
 <dependency>
@@ -799,7 +799,7 @@ EmbeddingModel embeddingModel() {
 ```
 
 
-L’ingestion des données vétérinaires est réalisée en moins d’une seconde au démarrage de l’application Petclinic via la classe [EmbeddingStoreInit](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/java/org/springframework/samples/petclinic/chat/EmbeddingStoreInit.java) :
+L’ingestion des données vétérinaires est réalisée en moins d’une seconde au démarrage de l’application Petclinic via la classe [EmbeddingStoreInit](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/java/org/springframework/samples/petclinic/chat/EmbeddingStoreInit.java) :
 
 ```java
 @Component
@@ -860,7 +860,7 @@ public class EmbeddingStoreInit {
 
 La classe EmbeddingStoreInit fait appel au [_VetRepository_](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java) pour charger tous vétérinaires de la base, les marshalle en un gros [Document](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/data/document/Document.java) JSON puis fait appel à la classe [EmbeddingStoreIngestor](https://docs.langchain4j.dev/tutorials/rag/#embedding-store-ingestor) de LangChain4j. Ce EmbeddingStoreIngestor est configuré avec le modèle d’embedding, la base vectorielle où les embeddings seront stockés et un [DocumentByLineSplitter](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j/src/main/java/dev/langchain4j/data/document/splitter/DocumentByLineSplitter.java) chargé de découper le volumineux document JSON en [TextSegment](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/data/segment/TextSegment.java) censé améliorer la qualité des recherches de similarité et de réduire la taille et le coût d'une invite envoyée au LLM.
 
-Une fois le EmbeddingStoreIngestor construit, la méthode **ingest()** est appelée pour ingérer le document. Comme le montre les logs ci-dessous, ce dernier est découpé en 33 segments de texte. Les embeddings sont calculés sur les 33 segments puis stockés dans la base vectorielle :
+Une fois le EmbeddingStoreIngestor construit, la méthode **ingest()** est appelée pour ingérer le document. Comme le montre les logs ci-dessous, ce dernier est découpé en 33 segments de texte. Les embeddings sont calculés sur les 33 segments puis stockés dans la base vectorielle :
 
 ```text
 EmbeddingStoreIngestor  : Starting to ingest 1 documents
@@ -877,7 +877,7 @@ A présent que l’ensemble des données vétérinaires sont stockées en base v
 
 Pour utiliser les fonctionnalités RAG, la classe @AiService [Assistant](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/java/org/springframework/samples/petclinic/chat/Assistant.java) passe par l’interface [RetrievalAugmentor](https://docs.langchain4j.dev/tutorials/rag/#retrieval-augmentor) et [son implémentation par défaut](https://docs.langchain4j.dev/tutorials/rag/#default-retrieval-augmentor) mise à disposition par LangChain4j. Cette interface est chargée d’enrichir le _ChatMessage_ avec des contenus pertinents extraits d’une ou plusieurs sources de données, comme par exemple notre base vectorielle en mémoire. Pour avoir un aperçu des composants manipulés par le RetrievalAugmentor, je vous invite à consulter le [schéma du paragraphe Advanced RAG](https://docs.langchain4j.dev/tutorials/rag/#advanced-rag) de la documentation de LangChain4j. On y voit l’utilisation d’un [ContentRetriever](https://docs.langchain4j.dev/tutorials/rag/#content-retriever) pour interroger une base vectorielle, un moteur de recherche, une base SQL ou bien encore un moteur de recherche.
 
-Dans Petclinic, nous déclarons un bean ContentRetriever de type [EmbeddingStoreContentRetriever](EmbeddingStoreContentRetriever) chargé de récupérer des données vétérinaires dans notre base vectorielle :
+Dans Petclinic, nous déclarons un bean ContentRetriever de type [EmbeddingStoreContentRetriever](EmbeddingStoreContentRetriever) chargé de récupérer des données vétérinaires dans notre base vectorielle :
 
 ```java
 @Bean
@@ -888,7 +888,7 @@ EmbeddingStoreContentRetriever contentRetriever(InMemoryEmbeddingStore<TextSegme
 ```
 
 
-En redémarrant l’application Petclinic puis en posant une question au chatbot, on s’aperçoit que LangChain4j complète le prompt de l’utilisateur en concaténant à la suite de sa question la liste des vétérinaires issus de la base vectorielle et qui se rapprochent sémantiquement de sa question :
+En redémarrant l’application Petclinic puis en posant une question au chatbot, on s’aperçoit que LangChain4j complète le prompt de l’utilisateur en concaténant à la suite de sa question la liste des vétérinaires issus de la base vectorielle et qui se rapprochent sémantiquement de sa question :
 
 ```text
 - method: POST
@@ -909,11 +909,11 @@ En redémarrant l’application Petclinic puis en posant une question au chatbot
 
 ## Routage de questions
 
-Le dernier point présenté dans cet article consiste à utiliser la fonctionnalité **[Query Router](https://docs.langchain4j.dev/tutorials/rag/#query-router)** de LangChain4j. Interroger la base vectorielle pour chaque question n’a pas nécessairement d’intérêt. Par exemple pour un simple « Hello » ou une question portant uniquement sur les propriétaires.  
+Le dernier point présenté dans cet article consiste à utiliser la fonctionnalité **[Query Router](https://docs.langchain4j.dev/tutorials/rag/#query-router)** de LangChain4j. Interroger la base vectorielle pour chaque question n’a pas nécessairement d’intérêt. Par exemple pour un simple « Hello » ou une question portant uniquement sur les propriétaires.  
 Comme son nom le laisse supposer, un Query Router est **responsable de router une requête utilisateur vers le ou les ContentRetriever appropriés** **si nécessaire**.
 
-L’implémentation de l’interface [QueryRouter](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/rag/query/router/QueryRouter.java) est à la charge du développeur. Pour déterminer si la question d’un utilisateur porte sur les vétérinaires, on aurait pu utiliser une simple recherche de la chaine de caractère « vet ». D’une part, on n’aurait pas supporter le multilingue et d’autre part on aurait interrogé la base vectorielle si l’utilisateur nous avait posé une question hors contexte sur, par exemples, les vétérans. **Qui mieux qu’un LLM peut déterminer la sémantique de la question ?**  
-La classe [VetQueryRouter](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/java/org/springframework/samples/petclinic/chat/VetQueryRouter.java) fait un premier appel au LLM pour répondre à la question  « Is the following query related to one or more veterinarians of the pet clinic? ». On demande au LLM de répondre par oui ou par non. Sé réponse détermine si l’usage du Embedding Store est nécessaire. Nul besoin ici d’utiliser de streaming.
+L’implémentation de l’interface [QueryRouter](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/rag/query/router/QueryRouter.java) est à la charge du développeur. Pour déterminer si la question d’un utilisateur porte sur les vétérinaires, on aurait pu utiliser une simple recherche de la chaine de caractère « vet ». D’une part, on n’aurait pas supporter le multilingue et d’autre part on aurait interrogé la base vectorielle si l’utilisateur nous avait posé une question hors contexte sur, par exemples, les vétérans. **Qui mieux qu’un LLM peut déterminer la sémantique de la question ?**  
+La classe [VetQueryRouter](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/java/org/springframework/samples/petclinic/chat/VetQueryRouter.java) fait un premier appel au LLM pour répondre à la question  « Is the following query related to one or more veterinarians of the pet clinic? ». On demande au LLM de répondre par oui ou par non. Sé réponse détermine si l’usage du Embedding Store est nécessaire. Nul besoin ici d’utiliser de streaming.
 
 ```java
 class VetQueryRouter implements QueryRouter {
@@ -951,7 +951,7 @@ class VetQueryRouter implements QueryRouter {
 ```
 
 
-La déclaration du VetQueryRouter au niveau de [AssistantConfiguration](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/java/org/springframework/samples/petclinic/chat/AssistantConfiguration.java) passe par l’utilisation de la méthode builder de la classe _DefaultRetrievalAugmentor_ :
+La déclaration du VetQueryRouter au niveau de [AssistantConfiguration](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/java/org/springframework/samples/petclinic/chat/AssistantConfiguration.java) passe par l’utilisation de la méthode builder de la classe _DefaultRetrievalAugmentor_ :
 
 ```java
 @Bean
@@ -963,7 +963,7 @@ RetrievalAugmentor retrievalAugmentor(ChatLanguageModel chatLanguageModel, Conte
 ```
 
 
-Petclinic utilisant désormais le _ChatLanguageModel_ et le _StreamingChatLanguageModel_, le fichier de configuration application.properties doit être complété :
+Petclinic utilisant désormais le _ChatLanguageModel_ et le _StreamingChatLanguageModel_, le fichier de configuration application.properties doit être complété :
 
 ```properties
 langchain4j.open-ai.streaming-chat-model.api-key=${OPENAI_API_KEY}
@@ -976,7 +976,7 @@ langchain4j.open-ai.chat-model.log-requests=true
 langchain4j.open-ai.chat-model.log-responses=true
 ```
 
-Dans les logs applicatifs, un premier appel est désormais envoyé au LLM avant toute autre appel :
+Dans les logs applicatifs, un premier appel est désormais envoyé au LLM avant toute autre appel :
 
 ```text
 - method: POST
@@ -997,22 +997,22 @@ Dans les logs applicatifs, un premier appel est désormais envoyé au LLM avant
 
 Cet article aura montré comment intégrer LangChain4j dans une application de gestion basée sur Spring Boot.
 
-Récapitulons les principales fonctionnalités de LangChain4j qui ont été mises en œuvre :
+Récapitulons les principales fonctionnalités de LangChain4j qui ont été mises en œuvre :
 
 1. **AI Service**: définit de manière déclarative l’interface entre notre application Java et un LLM.
-1. **Memory** : permet d’historiser les conversations entre l’utilisateur et le LLM, supporte le multi-utilisateurs et la persistance.
-1. **System prompt** : joue un rôle essentiel dans les LLM car il détermine la manière dont les modèles interprètent les requêtes des utilisateurs et y répondent.
-1. **Tooling**(ou **appel de fonction**) : permet au LLM d'appeler, si nécessaire, une ou plusieurs méthodes Java de l’application.
-1. **Streaming** : réponse au fil de l’eau, token par token, en utilisant côté client le Server-Sent Events.
+1. **Memory** : permet d’historiser les conversations entre l’utilisateur et le LLM, supporte le multi-utilisateurs et la persistance.
+1. **System prompt** : joue un rôle essentiel dans les LLM car il détermine la manière dont les modèles interprètent les requêtes des utilisateurs et y répondent.
+1. **Tooling**(ou **appel de fonction**) : permet au LLM d'appeler, si nécessaire, une ou plusieurs méthodes Java de l’application.
+1. **Streaming** : réponse au fil de l’eau, token par token, en utilisant côté client le Server-Sent Events.
 1. **RAG**: utilisation d’un embedding store en mémoire pour ingérer les données vétérinaires, faire des recherches de similarité et enrichir le prompt utilisateur en fonction d’une règle de routage.
 
-Personnellement, le développement de la version LangChain4j de Spring Petclinic m’aura permis de contribuer modestement au projet Open Source LangChain4j (PR [#49](https://github.com/langchain4j/langchain4j-spring/pull/49), [#50](https://github.com/langchain4j/langchain4j-spring/pull/50), [#51](https://github.com/langchain4j/langchain4j-spring/pull/51) et # [2000](https://github.com/langchain4j/langchain4j/pull/2000)).
+Personnellement, le développement de la version LangChain4j de Spring Petclinic m’aura permis de contribuer modestement au projet Open Source LangChain4j (PR [#49](https://github.com/langchain4j/langchain4j-spring/pull/49), [#50](https://github.com/langchain4j/langchain4j-spring/pull/50), [#51](https://github.com/langchain4j/langchain4j-spring/pull/51) et # [2000](https://github.com/langchain4j/langchain4j/pull/2000)).
 
 Je tiens à remercier mon fils Evan pour son [montage de ma video Youtube](https://youtu.be/hy2HDMjLr_8). Merci également à Antonio Goncalves, Julien Dubois, Guillaume Laforge et Valentin Deleplace pour leurs workshops sur LangChain4j avec [Azure OpenAI](https://moaw.dev/workshop/?src=gh:Azure-Samples/azure-openai-rag-workshop-java/docs/workshop-java-quarkus.md) et [Gemini](https://devfest2024.gdgnantes.com/sessions/hands_on_gemini_with_java_and_langchain4j_on_vertex_ai/).
 
 Si vous souhaitez contribuez à votre tour à [Spring Petclinic LangChain4j](https://github.com/spring-petclinic/spring-petclinic-langchain4j), des [issues](https://github.com/spring-petclinic/spring-petclinic-langchain4j/issues) vous attendent. L’ [issue #10](https://github.com/spring-petclinic/spring-petclinic-langchain4j/issues/10) vise notamment à intégrer d’autres LLM que OpenAI et Azure OpenAI. Parmi les candidats potentiels figurent Google Vertex AI Gemini, Ollama ou bien encore Mistral AI. Avis aux amatrices et aux amateurs.
 
-Ressources :
+Ressources :
 
 - [Documentation officielle LangChain4j](https://docs.langchain4j.dev/)
 - Repository Git [spring-petclinic-langchain4j](https://github.com/spring-petclinic/spring-petclinic-langchain4j)

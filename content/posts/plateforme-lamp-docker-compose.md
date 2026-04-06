@@ -50,7 +50,7 @@ Dans ce billet, vous trouverez le fichier docker-compose correspondant, un Docke
 
 ## Configuration Docker Compose
 
-Le fichier docker-compose.yml décrit en YAML les 3 conteneurs présentés en introduction :
+Le fichier docker-compose.yml décrit en YAML les 3 conteneurs présentés en introduction :
 
 ```yaml
 site:
@@ -81,7 +81,7 @@ database:
      - MYSQL_PASSWORD=password
 ```
 
-Voici quelques explications :
+Voici quelques explications :
 
 - Le conteneur **site** est créé à partir d’un Dockerfile que nous étudierons par la suite. Le port 80 d’Apache est exposé à l’hôte sur le port 80. Le répertoire _/Users/arey/dev/mysite/_ www contenant les pages PHP est monté dans le répertoire _/var/www/html/_ correspondant au répertoire home d’Apache. Enfin, ce conteneur dépend du conteneur database.
 - Le conteneur **database** utilise l’image officielle [**mysql** **:5.5**](https://registry.hub.docker.com/_/mysql/). Le port par défaut 3306 de MySQL est exposé aux autres conteneurs et à l’hôte. La base de données **mysite** est crée au démarrage du conteneur. Les credentials de l’administrateur et d’un utilisateur sont paramétrés.
@@ -131,27 +131,27 @@ $(boot2docker shellinit 2> /dev/null)
 boot2docker ip
 ```
 
-Le téléchargement des images, la construction de l’image _site_ et le démarrage des 3 conteneurs ne demandent que 2 lignes de commande :
+Le téléchargement des images, la construction de l’image _site_ et le démarrage des 3 conteneurs ne demandent que 2 lignes de commande :
 
 ```sh
 docker-compose build
 docker-compose up
 ```
 
-Une fois démarrés, phpMyAdmin est accessible depuis votre hôte sur l’adresse [http://192.168.59.104:8080/index.php](http://192.168.59.104:8080/index.php) (renseigner l’adresse IP obtenue précédemment)
+Une fois démarrés, phpMyAdmin est accessible depuis votre hôte sur l’adresse [http://192.168.59.104:8080/index.php](http://192.168.59.104:8080/index.php) (renseigner l’adresse IP obtenue précédemment)
 
 ## Chargement de la base de données
 
 Le site web ne peut pas fonctionner avec une **base vide**. La dernière étape consiste donc à **charger la base MySQL à partir d’un export de la base de données de production**.
 Une première solution est d’utiliser phpMyAdmin.
 Une seconde solution consiste à installer un client MySQL.
-Une 3ième est d’utiliser un conteneur docker doté d’un client MySQL :
+Une 3ième est d’utiliser un conteneur docker doté d’un client MySQL :
 
 ```sh
 docker run -v /Users/arey/dev/mysite/sql:/sql --link mysite_database_1:mysql -it arey/mysql-client -h mysql -ppassword -D mysite -e "source /sql/export.sql"
 ```
 
-Voici quelques explications :
+Voici quelques explications :
 
 - Le répertoire _/Users/arey/dev/mysite/sql_ contient le script _sql_
 - _mysite\_database\_1_ correspond au nom de l’image docker attribué par docker-compose
@@ -163,7 +163,7 @@ En 2 fichiers textes et une dizaine de lignes de commandes, vous disposerez d’
 
 Une fois mon projet de migration terminé, j’ai archivé ces 2 fichiers dans un repo git privé sur BitBucket puis j’ai supprimé les images téléchargées, libérant ainsi autant d’espace sur mon SSD.
 
-Références :
+Références :
 
 - [Conteneurisation d’un LAMP avec Docker](http://blog.lecacheur.com/2015/04/22/conteneurisation-dun-lamp-avec-docker/)
 - [Documentation officielle de Docker Compose](https://docs.docker.com/compose/)

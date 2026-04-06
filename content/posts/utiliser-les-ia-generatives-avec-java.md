@@ -19,7 +19,7 @@ post_views_count: "15878"
 summary: |-
   ## Au-delà des simples chatbots
 
-  Conférence : [Devoxx France 2024](https://www.devoxx.fr/){{ double-space-with-newline }}Date : 17 avril 2024{{ double-space-with-newline }}Speakers : [Abdellfetah Sghiouar](https://twitter.com/boredabdel) (Google), [Cédrick Lunven](https://twitter.com/clunven) (DataStax){{ double-space-with-newline }}Format : Deep Dive (3h){{ double-space-with-newline }}Slides : [https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/main/slides.pdf](_wp_link_placeholder){{ double-space-with-newline }}Vidéo Youtube : [https://www.youtube.com/watch?v=6n8JysFyVA8](https://www.youtube.com/watch?v=6n8JysFyVA8){{ double-space-with-newline }}Repo GitHub : [https://github.com/datastaxdevs/conference-2024-devoxx-france](https://github.com/datastaxdevs/conference-2024-devoxx-france)
+  Conférence : [Devoxx France 2024](https://www.devoxx.fr/){{ double-space-with-newline }}Date : 17 avril 2024{{ double-space-with-newline }}Speakers : [Abdellfetah Sghiouar](https://twitter.com/boredabdel) (Google), [Cédrick Lunven](https://twitter.com/clunven) (DataStax){{ double-space-with-newline }}Format : Deep Dive (3h){{ double-space-with-newline }}Slides : [https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/main/slides.pdf](_wp_link_placeholder){{ double-space-with-newline }}Vidéo Youtube : [https://www.youtube.com/watch?v=6n8JysFyVA8](https://www.youtube.com/watch?v=6n8JysFyVA8){{ double-space-with-newline }}Repo GitHub : [https://github.com/datastaxdevs/conference-2024-devoxx-france](https://github.com/datastaxdevs/conference-2024-devoxx-france)
 
   Dans ce Deep Dive de 3h (anciennement nommé Université à Devoxx France), Abdellfetah Sghiouar et Cédrick Lunven nous expliquent comment intégrer l'intelligence artificielle générative (la fameuse GenAI) dans nos applications Java, et ceci sans expertise en machine learning ou en Python (ce qui tombe bien). Après nous avoir initié aux Large Language Models (LLMs) et aux techniques de prompting, ils nous apprennent à coder en Java avec **LangChain4J** et **Spring AI** pour utiliser le **LLM Gemini** de Google dans nos projets Java.
 
@@ -27,7 +27,7 @@ summary: |-
 
   **Cédrick** est Developer Advocate chez DataStax{{ double-space-with-newline }}Il y’a 10 ans, il s’est fait connaitre par la communauté en créant le projet [**ff4j**](https://ff4j.org/).{{ double-space-with-newline }}Ces dernières années, il a énormément travaillé sur Cassandra. Cédrick contribue aux projets OpenSource Langchain4j et Spring AI. Je l’ai personnellement rencontré dans le cadre du projet [**Spring Petclinic Reactive**](https://github.com/spring-petclinic/spring-petclinic-reactive).
 
-  **Abdel** est Developer Advocate chez Google{{ double-space-with-newline }}Expert en Kubernetes, il travaille notamment sur le déploiement des solutions d’IA sur k8s.![](https://javaetmoi.com/wp-content/uploads/2024/04/word-image-2270-1.png){{ double-space-with-newline }}
+  **Abdel** est Developer Advocate chez Google{{ double-space-with-newline }}Expert en Kubernetes, il travaille notamment sur le déploiement des solutions d’IA sur k8s.![](https://javaetmoi.com/wp-content/uploads/2024/04/word-image-2270-1.png){{ double-space-with-newline }}
 tags:
   - cassandra
   - devoxx
@@ -48,10 +48,10 @@ url: /2024/04/utiliser-les-ia-generatives-avec-java/
 ---
 ## Au-delà des simples chatbots
 
-Conférence : [Devoxx France 2024](https://www.devoxx.fr/)  
-Date : 17 avril 2024  
-Speakers : [Abdellfetah Sghiouar](https://twitter.com/boredabdel) (Google), [Cédrick Lunven](https://twitter.com/clunven) (DataStax)  
-Format : Deep Dive (3h)  
+Conférence : [Devoxx France 2024](https://www.devoxx.fr/)  
+Date : 17 avril 2024  
+Speakers : [Abdellfetah Sghiouar](https://twitter.com/boredabdel) (Google), [Cédrick Lunven](https://twitter.com/clunven) (DataStax)  
+Format : Deep Dive (3h)  
 Slides : [https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/main/slides.pdf](_wp_link_placeholder)  
 Vidéo Youtube : [https://www.youtube.com/watch?v=6n8JysFyVA8](https://www.youtube.com/watch?v=6n8JysFyVA8)  
 Repo GitHub : [https://github.com/datastaxdevs/conference-2024-devoxx-france](https://github.com/datastaxdevs/conference-2024-devoxx-france)
@@ -64,7 +64,7 @@ L'approche **Retrieval Augmented Generation** (RAG) est illustrée par son inté
 Il y’a 10 ans, il s’est fait connaitre par la communauté en créant le projet [**ff4j**](https://ff4j.org/).  
 Ces dernières années, il a énormément travaillé sur Cassandra. Cédrick contribue aux projets OpenSource Langchain4j et Spring AI. Je l’ai personnellement rencontré dans le cadre du projet [**Spring Petclinic Reactive**](https://github.com/spring-petclinic/spring-petclinic-reactive).
 
-**Abdel** est Developer Advocate chez Google  
+**Abdel** est Developer Advocate chez Google  
 Expert en Kubernetes, il travaille notamment sur le déploiement des solutions d’IA sur k8s.![](/wp-content/uploads/2024/04/word-image-2270-1.png)  
 
 ## Introduction
@@ -73,9 +73,9 @@ Abdel souligne le rôle prépondérant de Google dans le domaine de l’IA Gener
 
 - La GenAI a émergé en 2017 avec l’invention du modèle **Transformer** par Google
 - En 2018, Google a créé le modèle de langage BERT qui a permis d’améliorer les performances en traitement automatique des langues (NLP en anglais).
-- En 2019, création de [AlphaFold](https://fr.wikipedia.org/wiki/AlphaFold) permettant de prédire comment une protéine se développe à partir de leur séquence en acides aminés. Là où un doctorant passé toutes ses études à prédire la structure d’une protéine, AlphaFold l’a fait pour toutes les protéines sur la terre
-- 2019 : Google ouvre en open source le modèle **text-to-text Transfer Transformer**.
-- 2021 : Google introduit **LaMDA**, un modèle de langage conçu spécifiquement pour améliorer les interactions conversationnelles entre les humains et les systèmes d'IA
+- En 2019, création de [AlphaFold](https://fr.wikipedia.org/wiki/AlphaFold) permettant de prédire comment une protéine se développe à partir de leur séquence en acides aminés. Là où un doctorant passé toutes ses études à prédire la structure d’une protéine, AlphaFold l’a fait pour toutes les protéines sur la terre
+- 2019 : Google ouvre en open source le modèle **text-to-text Transfer Transformer**.
+- 2021 : Google introduit **LaMDA**, un modèle de langage conçu spécifiquement pour améliorer les interactions conversationnelles entre les humains et les systèmes d'IA
 - 2022 : sorti du modèle de langage **PaLM**
 - 2023 : sorti de **PalM 2**
 - 2024 : lancement du chatbot [**Gemini**](https://en.wikipedia.org/wiki/Gemini_(chatbot)) (anciennement connu sous le nom de Bard)
@@ -88,30 +88,30 @@ Le **Machine Learning** (ML) inclue le **Deep Learning** qui inclue à son tour 
 Le ML nécessite des données d’entrainement et fait appel à la Data Science.  
 Le GenAI inclue **Image Gen** et **LLM**.
 
-Les **LLM** sont des **réseaux de neurones** basés sur l’architecture Transformers. Ils sont capables de reconnaitre, prédire et générer du langage.
+Les **LLM** sont des **réseaux de neurones** basés sur l’architecture Transformers. Ils sont capables de reconnaitre, prédire et générer du langage.
 
 Un LLM génère un mot à la fois. Il calcule la probabilité du prochain mot en se basant sur une approche statistique.
 
 Le fonctionnement d’un LLM et de l’IA générative est particulièrement bien illustré sur le site du **Financial Times** [ig.ft.com/generative-ai](https://ig.ft.com/generative-ai/)
 
-Le site [https://lifearchitect.ai/models/](https://lifearchitect.ai/models/) référence la taille de nombreux LLM :
+Le site [https://lifearchitect.ai/models/](https://lifearchitect.ai/models/) référence la taille de nombreux LLM :
 
 {{< figure src="/wp-content/uploads/2024/04/word-image-2270-2.png" alt="" caption="" >}}
 
 **PaLM 2** a été entrainé sur **340 milliards de paramètres** et, en ce mois d’avril 2024, bat tous les records.  
-Se référer à l’article [Pathways Language Model (PaLM): Scaling to 540 Billion Parameters for Breakthrough Performance](https://research.google/blog/pathways-language-model-palm-scaling-to-540-billion-parameters-for-breakthrough-performance/)
+Se référer à l’article [Pathways Language Model (PaLM): Scaling to 540 Billion Parameters for Breakthrough Performance](https://research.google/blog/pathways-language-model-palm-scaling-to-540-billion-parameters-for-breakthrough-performance/)
 
 D’après Abdel, les LLMs se sont démocratisés grâce à la disponibilité de cartes graphiques moins onéreuses et à la possibilité d’entrainer son modèle dans le Cloud.  
-Autre hypothèse formulée : les investisseurs croient désormais en l’IA !
+Autre hypothèse formulée : les investisseurs croient désormais en l’IA !
 
-Cas d’utilisation des LLM en 2024 :
+Cas d’utilisation des LLM en 2024 :
 
-- **Langage** : écrire du texte, faire des résumé, extraction de texte, créer un chat, classification, recherche, idéation
-- **Code** : génération de code (boilerplate), complétion de code (compagnon/assistant), chat, conversion de code
-- **Speech** : speech-to-speech (traduction), text-to-speech
-- **Vision** : génération d’images, édition, captioning, image Q&A, image search, génération des transcripts de vidéos (comme à Devoxxx France 2024 ;-)
+- **Langage** : écrire du texte, faire des résumé, extraction de texte, créer un chat, classification, recherche, idéation
+- **Code** : génération de code (boilerplate), complétion de code (compagnon/assistant), chat, conversion de code
+- **Speech** : speech-to-speech (traduction), text-to-speech
+- **Vision** : génération d’images, édition, captioning, image Q&A, image search, génération des transcripts de vidéos (comme à Devoxxx France 2024 ;-)
 
-Google propose de nombreuses offres regroupées dans le **portfolio Vertex AI** :
+Google propose de nombreuses offres regroupées dans le **portfolio Vertex AI** :
 
 {{< figure src="/wp-content/uploads/2024/04/word-image-2270-3.png" alt="" caption="" >}}
 
@@ -119,7 +119,7 @@ La première démo en Java de ce Deep Dive commence par l’utilisation de Verte
 
 {{< figure src="/wp-content/uploads/2024/04/word-image-2270-4.png" alt="" caption="" >}}
 
-La classe [Demo01\_VertexClientChat](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/main/devoxx-genai-vertexai-client/src/test/java/devoxx/demo/gemini/Demo01_VertexClientChat.java) fait appel à Gemini Pro pour répondre à quelques questions :
+La classe [Demo01\_VertexClientChat](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/main/devoxx-genai-vertexai-client/src/test/java/devoxx/demo/gemini/Demo01_VertexClientChat.java) fait appel à Gemini Pro pour répondre à quelques questions :
 
 ```java
 @Test
@@ -135,7 +135,7 @@ void testChat() throws Exception {
 ```
 
 Une seconde démo demande au LLM multimodal gemini-vision-pro de décrire la photo d’un coucher de soleil. Le code envoie simultanément au LLM l’image et la question. Le code Java dépend du client Java Gemini et donc de Vertex AI.  
-Extrait de la classe [Demo02\_VertexClientVisionPro](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/main/devoxx-genai-vertexai-client/src/test/java/devoxx/demo/gemini/Demo02_VertexClientVisionPro.java) :
+Extrait de la classe [Demo02\_VertexClientVisionPro](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/main/devoxx-genai-vertexai-client/src/test/java/devoxx/demo/gemini/Demo02_VertexClientVisionPro.java) :
 
 ```java
 @Test
@@ -168,13 +168,13 @@ Gemini 1.5 accepte en entrée un livre d’un million de mots. On est loin des p
 
 {{< figure src="/wp-content/uploads/2024/04/word-image-2270-5.png" alt="" caption="" >}}
 
-3 adresses permettent de tester Gemini :
+3 adresses permettent de tester Gemini :
 
 1. [https://console.cloud.google.com/vertex-ai/model-garden](https://console.cloud.google.com/vertex-ai/model-garden) :
-1. [https://ai.google.dev/](https://ai.google.dev/) : nécessite une clé
+1. [https://ai.google.dev/](https://ai.google.dev/) : nécessite une clé
 1. [https://ai.google.dev/examples](https://ai.google.dev/examples)
 
-Démo possible sur [https://gemini.google.com/app](https://gemini.google.com/app) avec un simple compte Google. Exemple « Quelle est la hauteur de la tour Eiffel ? »
+Démo possible sur [https://gemini.google.com/app](https://gemini.google.com/app) avec un simple compte Google. Exemple « Quelle est la hauteur de la tour Eiffel ? »
 
 {{< figure src="/wp-content/uploads/2024/04/word-image-2270-6.png" alt="" caption="" >}}
 
@@ -182,20 +182,20 @@ Démo possible sur [https://gemini.google.com/app](https://gemini.google.com/app
 
 **Gemma** est un modèle OpenSource mis à disposition par Google. Basé sur Gemini, Gemma est téléchargeable depuis [HuggingFace](https://huggingface.co/docs/transformers/model_doc/gemma). On peut le déployer n’importe où et l’utiliser en Java.
 
-Abdel poursuit ce talk par une démo de la webapp [bed-time-stories.web.app](https://bed-time-stories.web.app/) créée par Guillaume Laforge et qui permet de générer une histoire pour les enfants. La démo utilise Vertex AI. Abdel utilise Gemma avec quelques commandes curl pour générer une histoire.  
+Abdel poursuit ce talk par une démo de la webapp [bed-time-stories.web.app](https://bed-time-stories.web.app/) créée par Guillaume Laforge et qui permet de générer une histoire pour les enfants. La démo utilise Vertex AI. Abdel utilise Gemma avec quelques commandes curl pour générer une histoire.  
 Cedrick reprend la main.
 
 ## Langchain4j
 
 Le projet [**ollama**](https://github.com/ollama/ollama) permet de faire tourner des LLM en local sur son poste de dév.  
-On peut installer ollama sur Mac, Linux et Windows : [https://ollama.com/download](https://ollama.com/download)  
+On peut installer ollama sur Mac, Linux et Windows : [https://ollama.com/download](https://ollama.com/download)  
 Ollama vient avec une CLI permettant de récupérer un modèle de LLM comme gemma:2b et gemma:7b  
-Commande permettant de faire tourner un modèle :
+Commande permettant de faire tourner un modèle :
 
-> ollama run gemma:7b  
-Nul besoin de compte (mais peut-être d’une carte Nvidia ?)
+> ollama run gemma:7b  
+Nul besoin de compte (mais peut-être d’une carte Nvidia ?)
 
-Une fois le modèle démarré, on peut l’interroger à base d’une simple commande curl :
+Une fois le modèle démarré, on peut l’interroger à base d’une simple commande curl :
 
 ```bash
 curl http://localhost:11434/api/generate -d '{
@@ -221,10 +221,10 @@ void talkWithGemma() {
 L'interface **ChatLanguageModel** vient de **langchain4j-core** et la classe **OllamaChatModel** vient de **langchain4j-ollama**.
 
 Langchain4j sait manipuler des images. La classe [\_14\_ImageModel\_GenerateTest](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-langchain4j/src/test/java/devoxx/demo/_1_vertexai/_14_ImageModel_GenerateTest.java#L17) montre comment faire générer une photo d’un coucher de soleil sur une plage de Malibu au LLM Vertex AI. Cette fois ci, on utilise la librairie **langchain4j-vertexai** avec le builder **VertexAiImageModel**  
-D’autres classes d’abstraction de langchain4j existent : **LanguageModel**, **ImageModel**
+D’autres classes d’abstraction de langchain4j existent : **LanguageModel**, **ImageModel**
 
 [Langchain4j](https://github.com/langchain4j/langchain4j) est le leader fournissant le modèle théorique. Tous les fournisseurs de LLM implémentent le langage model, créent une Pull Request et la soumettent à la communauté. Particulièrement doués en IA, les chinois contribuent également.  
-Voici les LLM supportés par Lanchain4j :
+Voici les LLM supportés par Lanchain4j :
 
 {{< figure src="/wp-content/uploads/2024/04/word-image-2270-7.png" alt="" caption="" >}}
 
@@ -234,7 +234,7 @@ Se référer au test [\_10\_LanguageModelSayHello](https://github.com/datastaxde
 ## Spring AI
 
 Plus jeune et développé par l’équipe Spring, le framework [**Spring AI**](https://spring.io/projects/spring-ai) est un concurrent de Langchain4j.  
-Cédrick nous montre un HelloWorld en Spring Boot basé sur Gemini:
+Cédrick nous montre un HelloWorld en Spring Boot basé sur Gemini:
 
 ```java
 @SpringBootTest
@@ -255,7 +255,7 @@ class _01_LanguageModel_SayHelloTest {@Autowired
 ```
 
 La classe [\_01\_LanguageModel\_SayHelloTest](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-springai/src/test/java/devoxx/demo/_01_LanguageModel_SayHelloTest.java) montre l’utilisation de classes d’abstraction comme **UserMessage**, **Message**, **Prompt** ou bien encore **ChatResponse**.  
-La configuration du LLM est centralisée dans le fichier **_application.properties_** :
+La configuration du LLM est centralisée dans le fichier **_application.properties_** :
 
 ```properties
 spring.ai.vertex.ai.gemini.projectId=devoxxfrance
@@ -271,20 +271,20 @@ spring.ai.vertex.ai.gemini.chat.options.maxTokens=100
 ## Prompt Engineering
 
 La seule commande envoyée à un LLM est une ligne de texte, le fameux **prompt**.  
-Quelques bonnes pratiques permettant d’interagir avec le LLM nous sont données :
+Quelques bonnes pratiques permettant d’interagir avec le LLM nous sont données :
 
 {{< figure src="/wp-content/uploads/2024/04/word-image-2270-8.png" alt="" caption="" >}}
 
-Comme contraintes, il peut être intéressant de demander au LLM de ne pas répondre aux questions dont il ne connait pas la réponse. Cela permet de limiter les hallucinations. Exemple de contexte : _« Si l’on te pose des questions qui sort des objectifs qu’on t’a donné, répond que tu ne sais pas. »_  
+Comme contraintes, il peut être intéressant de demander au LLM de ne pas répondre aux questions dont il ne connait pas la réponse. Cela permet de limiter les hallucinations. Exemple de contexte : _« Si l’on te pose des questions qui sort des objectifs qu’on t’a donné, répond que tu ne sais pas. »_  
 Avec un prompt assez long, on peut souvent contourner les frontières du LLM.
 
 En complément de cette phrase, on envoie au LLM différents paramètres.
 
 {{< figure src="/wp-content/uploads/2024/04/word-image-2270-9.png" alt="" caption="" >}}
 
-**Température** comprise entre 0 et 1 : niveau d’expression qu’on donne au LLM  
-0 : plus précis, robotique  
-1 : créatif, hallucination possible  
+**Température** comprise entre 0 et 1 : niveau d’expression qu’on donne au LLM  
+0 : plus précis, robotique  
+1 : créatif, hallucination possible  
 Le choix de la température dépend des uses cases. Dans le cas d’une recherche documentaire par exemple, on emploie une température basse.
 
 **Top P** favorisant la diversité et la créativité.  
@@ -293,7 +293,7 @@ Spécifiez une valeur faible pour les réponses moins aléatoires et une valeur 
 
 **Top K** similaire au Top P, mais en moins dynamique
 
-**Tokens :** taille de la réponse  
+**Tokens :** taille de la réponse  
 Plus la réponse est longue, plus le cout augmente et sa précision baisse.
 
 Des techniques avancées de prompt engineering permettent d’améliorer la rédaction des prompts.
@@ -306,7 +306,7 @@ On envoie au LLM quelques exemples afin qu’ils comprennent mieux ce que l’on
 
 **Chain of Thoughts**
 
-Chaine de pensée : donner un raisonnement pour que le LLM trouve le résultat.
+Chaine de pensée : donner un raisonnement pour que le LLM trouve le résultat.
 
 {{< figure src="/wp-content/uploads/2024/04/word-image-2270-11.png" alt="" caption="" >}}
 
@@ -322,17 +322,17 @@ Les LLM savent désormais faire appel à des systèmes externes, comme par exemp
 
 ## Prompt Best Practices
 
-Nous sont données 10 bonnes pratiques de prompt engineering :
+Nous sont données 10 bonnes pratiques de prompt engineering :
 
 1. Un exemple vaut 100 instructions
 1. DARE Determine Appropriate Response
-    - Rôles, Personas, Public : votre vision
-    - Objectifs : votre mission
-    - Portée : si tu ne le sais pas, dis-le-moi !
+    - Rôles, Personas, Public : votre vision
+    - Objectifs : votre mission
+    - Portée : si tu ne le sais pas, dis-le-moi !
 1. Adapter la température au cas d’utilisation
 1. Utilisez un langage naturel détaillé pour dévoiler une chaîne d'invites
 1. Structurer les prompts. L’ordre est important. Cédrick recommande de spécifier au prompt quel est l’objectif
-1. Responsible AI and filters : lorsqu’on enlève les filtres d’un LLM OpenSource on peut avoir de grosses surprises (ex : débrayer la procédure de fabrication d’une bombe).
+1. Responsible AI and filters : lorsqu’on enlève les filtres d’un LLM OpenSource on peut avoir de grosses surprises (ex : débrayer la procédure de fabrication d’une bombe).
 1. Test, Measure, Improve, Repeat : revue par le même LLM ou même d’autres LLM
 1. Be specific, no open questions. Se limiter (ex: 500 caractères). Sinon le contexte dilue la question
 1. Review from multiple people
@@ -342,7 +342,7 @@ Nous sont données 10 bonnes pratiques de prompt engineering :
 
 Java permet d’utiliser des templates de prompt. Cédrick compare un template à une boite avec des trous, du publipostage Word, un template Velocity ou encore un template Mustache.  
 A cet effet, Langchain4j et Spring IA fournissent tous les 2 une classe **PromptTemplate**  
-La classe [\_16\_PromptTemplateTest](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-langchain4j/src/test/java/devoxx/demo/_1_vertexai/_16_PromptTemplateTest.java) donne un exemple d’utilisation :
+La classe [\_16\_PromptTemplateTest](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-langchain4j/src/test/java/devoxx/demo/_1_vertexai/_16_PromptTemplateTest.java) donne un exemple d’utilisation :
 
 ```java
 @Test
@@ -369,7 +369,7 @@ protected LanguageModel getLanguageModel(final String modelName) {
 
 ## Limitations des LLM
 
-Un LLM :
+Un LLM :
 
 - a une date de fraicheur des informations
 - n’a pas accès à la base documentaire de l’entreprise
@@ -394,15 +394,15 @@ Les composantes d’un vecteur sont appelés **Embeddings**.
 
 Le Prompt est également transformé en vecteur.  
 On recherche des vecteurs qui sont proches les uns des autres. Cela nécessite de calculer une **similarité** entre 2 vecteurs.  
-En maths, il y’a plusieurs possibilités de calculer une distance. Un slide est préférable à un long discours :
+En maths, il y’a plusieurs possibilités de calculer une distance. Un slide est préférable à un long discours :
 
 {{< figure src="/wp-content/uploads/2024/04/word-image-2270-14.png" alt="" caption="" >}}
 
 La plus connue est la **distance euclidienne**. Elle s’appelle **L2** et nécessite beaucoup de calculs.  
 Cédrick nous fait remarquer que la dimension des vecteurs d’une base vectorielle est multiple de 284.  
-Les bases vectorielles utilisent plus couramment la distance nommée « Angular distance » ou « **cosine** similarity »
+Les bases vectorielles utilisent plus couramment la distance nommée « Angular distance » ou « **cosine** similarity »
 
-Chaque base de données implémente sa propre formule. Le plus important consiste à trouver les vecteurs les plus proches. Le plus simple consiste à travailler sur la sphère unité. Je vous laisse apprécier :
+Chaque base de données implémente sa propre formule. Le plus important consiste à trouver les vecteurs les plus proches. Le plus simple consiste à travailler sur la sphère unité. Je vous laisse apprécier :
 
 {{< figure src="/wp-content/uploads/2024/04/word-image-2270-15.png" alt="" caption="" >}}
 
@@ -425,7 +425,7 @@ C’est une base tabulaire, ce qui signifie qu’on ne peut pas faire de jointur
 Cassandra ferait une parfaite matrice d’adjacence.  
 Les nœuds sont distribués et contiennent entre 2 à 4 To de données. L’ajout d’un nœud nécessite de répartir les données. Cassandra scale très bien. Les données sont redondées.
 
-La version 5 de Cassandra introduit le nouveau type **Vector** :
+La version 5 de Cassandra introduit le nouveau type **Vector** :
 
 ```sql
 CREATE TABLE IF NOT EXISTS vsearch.products (
@@ -445,7 +445,7 @@ USING 'StorageAttachedIndex';
 ```
 
 **ANN** est une famille d’algorithme de recherche approximative.  
-L’opérateur **ANN OF** permet d'effectuer efficacement des recherches ANN sur leurs données lors d’une recherche CQL :
+L’opérateur **ANN OF** permet d'effectuer efficacement des recherches ANN sur leurs données lors d’une recherche CQL :
 
 ```sql
 SELECT * FROM vsearch.products
@@ -455,20 +455,20 @@ LIMIT 1;
 
 Le site [ann-benchmarks.com](https://ann-benchmarks.com/) compare les performances brutes des algorithmes de recherche approximative des plus proches voisins.
 
-Aujourd’hui, presque toutes les bases utilisent la technique du **HNSW** (pour Hierarchical Navigable Small World) avec des Vector Index stockés dans plusieurs couches : Lucene (Elastic, Solr, OpenSearch, MongoDB), Weaviate, Qdrant, PGVector.
+Aujourd’hui, presque toutes les bases utilisent la technique du **HNSW** (pour Hierarchical Navigable Small World) avec des Vector Index stockés dans plusieurs couches : Lucene (Elastic, Solr, OpenSearch, MongoDB), Weaviate, Qdrant, PGVector.
 
 Lucene avait déjà implémenté l’algo HNSW. Cassandra l’a utilisé dans Cassandra. Un problème majeur à son utilisation est que Java utilise beaucoup de mémoire, notamment lorsque dataset et sharding augmentent. Les ingénieurs de Cassandra ont donc planché sur une autre solution.  
-Dans un premier temps, Cassandra a testé l’algo **DiskANN** (papier implémenté par Microsoft en C). lls l’ont recodé en Java et l’ont baptisé [**jVector**](https://github.com/jbellis/jvector). Le projet jVector utilise Java 21 et la nouvelle API Vector du projet Panama permettant d’exploiter les instructions SIMD.
+Dans un premier temps, Cassandra a testé l’algo **DiskANN** (papier implémenté par Microsoft en C). lls l’ont recodé en Java et l’ont baptisé [**jVector**](https://github.com/jbellis/jvector). Le projet jVector utilise Java 21 et la nouvelle API Vector du projet Panama permettant d’exploiter les instructions SIMD.
 
-**Vanama** stocke le graphe sur un seul layer et crée plus de liens que nécessaires. Les distances sont précalculées lors de l’indexation. En mémoire, on ne monte plus les vecteurs en entier, mais des données plus petites, les **centroids**, et ceci par quantification. Au lieu de travailler avec un Vecteur, on utilise des **centroids**.
+**Vanama** stocke le graphe sur un seul layer et crée plus de liens que nécessaires. Les distances sont précalculées lors de l’indexation. En mémoire, on ne monte plus les vecteurs en entier, mais des données plus petites, les **centroids**, et ceci par quantification. Au lieu de travailler avec un Vecteur, on utilise des **centroids**.
 
-Le plus souvent, dans des cas métiers, une recherche par vecteur n’est pas suffisante. Il est nécessaire d’exploiter des métadonnées : date d’indexation, auteur, prise en compte des habilitations …  
-Lecture conseillé : [5 Hard Problems in Vector Search, and How Cassandra Solves Them](https://thenewstack.io/5-hard-problems-in-vector-search-and-how-cassandra-solves-them/)
+Le plus souvent, dans des cas métiers, une recherche par vecteur n’est pas suffisante. Il est nécessaire d’exploiter des métadonnées : date d’indexation, auteur, prise en compte des habilitations …  
+Lecture conseillé : [5 Hard Problems in Vector Search, and How Cassandra Solves Them](https://thenewstack.io/5-hard-problems-in-vector-search-and-how-cassandra-solves-them/)
 
 Pour choisir sa base de données vectorielles, Cédrick conseille aux architectes d’utiliser le comparateur [Vector DB Comparison](https://superlinked.com/vector-db-comparison)
 
 Repartons dans notre IDE préféré pour montrer l’utilisation de **Langchain4j** et de **Cassandra**.  
-Cédrick utilise la nouvelle classe d’abstraction : **EmbeddingModel**  
+Cédrick utilise la nouvelle classe d’abstraction : **EmbeddingModel**  
 On lui donne du texte et il sort un vecteur.
 
 Code extrait de la classe [\_51\_EmbeddingModel](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-langchain4j/src/test/java/devoxx/demo/_5_vectorsearch/_51_EmbeddingModel.java#L10):
@@ -525,18 +525,18 @@ A ce jour, toutes les bases de données vectorielles ne savent pas encore implé
 
 ## Retrieval Augmented Generation (RAG)
 
-Le processus Retrieval Augmented Generation (RAG) consiste à optimiser le résultat d'un LLM. 2 types de RAG existent : naive et advanced.
+Le processus Retrieval Augmented Generation (RAG) consiste à optimiser le résultat d'un LLM. 2 types de RAG existent : naive et advanced.
 
 Un vecteur de dimension 1000 ne peut pas stocker l’intégralité d’un document. On découpe donc ce document en morceau (chunk). Il existe plusieurs techniques pour faire du chunking.  
-Des préprocesseurs commencent par lire les documents (avec par exemple [Apache Tika](https://tika.apache.org/) et [Apache PDFBox](https://pdfbox.apache.org/)), retirent les balises, normalisent l’encodage (UTF-8). Ceci pour ne conserver que le texte brut. Chaque extension de fichier (ex : markdown) demande un parseur.  
+Des préprocesseurs commencent par lire les documents (avec par exemple [Apache Tika](https://tika.apache.org/) et [Apache PDFBox](https://pdfbox.apache.org/)), retirent les balises, normalisent l’encodage (UTF-8). Ceci pour ne conserver que le texte brut. Chaque extension de fichier (ex : markdown) demande un parseur.  
 Sur OpenAI, on peut mettre entre 256 et 512 tokens par vecteur de dimension 1536.  
 Pour garder le contexte, les segments doivent se superposer.
 
 {{< figure src="/wp-content/uploads/2024/04/word-image-2270-16.png" alt="" caption="" >}}
 
-Astuce pour sauvegarder le segment : ajouter un hash dans les métadonnées du document, ce qui évite de le réindexer pour rien.
+Astuce pour sauvegarder le segment : ajouter un hash dans les métadonnées du document, ce qui évite de le réindexer pour rien.
 
-Nouvelle démo basée sur le test [\_62\_NaiveRag\_RetrievalTest](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-langchain4j/src/test/java/devoxx/demo/_6_rag/_62_NaiveRag_RetrievalTest.java) et montrant l’usage des interfaces **ContentRetriever** et **Assistant** de langchain4j :
+Nouvelle démo basée sur le test [\_62\_NaiveRag\_RetrievalTest](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-langchain4j/src/test/java/devoxx/demo/_6_rag/_62_NaiveRag_RetrievalTest.java) et montrant l’usage des interfaces **ContentRetriever** et **Assistant** de langchain4j :
 
 ```java
 @Test
@@ -560,7 +560,7 @@ Les **advanced RAG** consistent à mettre à disposition un **query router** uti
 Lors de longues discussions, on peut atteindre les limites du LLM. Il est alors possible de faire un résumer de l’historique de la conversation. Usage des Query Transformer et de la classe **CompressingQueryTransformer** de langchain4j.
 
 Lorsqu’il y’a plusieurs résultats, il faut les agréger via des Query Aggregator. Les algorithmes de **reranking** peuvent utiliser d’autres algorithmes. La star du reranking s’appelle [Cohere](https://cohere.com/rerank).  
-La classe de test [\_66\_AdvancedRag\_QueryReranking](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-langchain4j/src/test/java/devoxx/demo/_6_rag/_66_AdvancedRag_QueryReranking.java) en donne un exemple d’utilisation :
+La classe de test [\_66\_AdvancedRag\_QueryReranking](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-langchain4j/src/test/java/devoxx/demo/_6_rag/_66_AdvancedRag_QueryReranking.java) en donne un exemple d’utilisation :
 
 ```java
 @Test

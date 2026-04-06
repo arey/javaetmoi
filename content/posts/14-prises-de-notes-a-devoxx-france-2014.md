@@ -10,7 +10,7 @@ post_id: "1082"
 post_views_count: "6089"
 summary: |-
   En attendant que les vidéos des [différentes conférences de l’édition 2014](http://cfp.devoxx.fr/devoxxfr2014) de Devoxx France soient mises en ligne sur [Parleys](http://www.parleys.com/) et en complément des [supports](http://www.parleys.com/) déjà mis en ligne par certains Speakers, je mets librement à votre disposition les différentes notes que j’ai pu prendre sur mon laptop.
-  Les sujets sont variés : de Docker à Angular JS, en passant par Java 8. Certaines pourront être lues de manière autonome ; je pense par exemple au quickie [Outils pour manager une équipe](http://javaetmoi.com/wp-content/uploads/2014/04/Outils-pour-manager-une-équipe.pdf) et à la conférence [33 things your want to do better](http://javaetmoi.com/wp-content/uploads/2014/04/33-things-your-want-to-do-better.pdf). Pour être exploitables en l’état, d’autres notes demanderont à ce que vous ayez assisté à la conférence ou que vous ayez pu récupérer les supports de présentation.
+  Les sujets sont variés : de Docker à Angular JS, en passant par Java 8. Certaines pourront être lues de manière autonome ; je pense par exemple au quickie [Outils pour manager une équipe](http://javaetmoi.com/wp-content/uploads/2014/04/Outils-pour-manager-une-équipe.pdf) et à la conférence [33 things your want to do better](http://javaetmoi.com/wp-content/uploads/2014/04/33-things-your-want-to-do-better.pdf). Pour être exploitables en l’état, d’autres notes demanderont à ce que vous ayez assisté à la conférence ou que vous ayez pu récupérer les supports de présentation.
 
   [![devoxx-france-2014-les-cast-codeurs](http://javaetmoi.com/wp-content/uploads/2014/04/devoxx-france-2014-les-cast-codeurs-1024x502.jpg)](http://javaetmoi.com/wp-content/uploads/2014/04/devoxx-france-2014-les-cast-codeurs.jpg)
 tags:
@@ -32,11 +32,11 @@ url: /2014/04/14-prises-de-notes-a-devoxx-france-2014/
 
 ---
 En attendant que les vidéos des [différentes conférences de l’édition 2014](http://cfp.devoxx.fr/devoxxfr2014) de Devoxx France soient mises en ligne sur [Parleys](http://www.parleys.com/) et en complément des [supports](http://www.parleys.com/) déjà mis en ligne par certains Speakers, je mets librement à votre disposition les différentes notes que j’ai pu prendre sur mon laptop.
-Les sujets sont variés : de Docker à Angular JS, en passant par Java 8. Certaines pourront être lues de manière autonome ; je pense par exemple au quickie [Outils pour manager une équipe](/wp-content/uploads/2014/04/Outils-pour-manager-une-équipe.pdf) et à la conférence [33 things your want to do better](/wp-content/uploads/2014/04/33-things-your-want-to-do-better.pdf). Pour être exploitables en l’état, d’autres notes demanderont à ce que vous ayez assisté à la conférence ou que vous ayez pu récupérer les supports de présentation.
+Les sujets sont variés : de Docker à Angular JS, en passant par Java 8. Certaines pourront être lues de manière autonome ; je pense par exemple au quickie [Outils pour manager une équipe](/wp-content/uploads/2014/04/Outils-pour-manager-une-équipe.pdf) et à la conférence [33 things your want to do better](/wp-content/uploads/2014/04/33-things-your-want-to-do-better.pdf). Pour être exploitables en l’état, d’autres notes demanderont à ce que vous ayez assisté à la conférence ou que vous ayez pu récupérer les supports de présentation.
 
 [![devoxx-france-2014-les-cast-codeurs](/wp-content/uploads/2014/04/devoxx-france-2014-les-cast-codeurs.jpg)](/wp-content/uploads/2014/04/devoxx-france-2014-les-cast-codeurs.jpg)
 
-Sans plus attendre, voici donc mes 14 notes triées par ordre chronologique :
+Sans plus attendre, voici donc mes 14 notes triées par ordre chronologique :
 
 1. [Java 8 - Streams et Collectors](/wp-content/uploads/2014/04/Java-8-Streams-et-Collectors.pdf)
 1. [Créons un web component avec Polymer](/wp-content/uploads/2014/04/Créons-un-web-component-avec-Polymer.pdf)
@@ -53,4 +53,4 @@ Sans plus attendre, voici donc mes 14 notes triées par ordre chronologique :
 1. [Bootstrap your productivity with Spring Boot](/wp-content/uploads/2014/04/Bootstrap-your-productivity-with-Spring-Boot.pdf)
 1. [33 things your want to do better](/wp-content/uploads/2014/04/33-things-your-want-to-do-better.pdf)
 
-Bonne lecture, découverte ou redécouverte et, je l’espère, à l’année prochaine pour Devoxx France 2015 !!
+Bonne lecture, découverte ou redécouverte et, je l’espère, à l’année prochaine pour Devoxx France 2015 !!

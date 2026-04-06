@@ -28,15 +28,15 @@ Ce **billet propose 2 solutions** permettant à des développeurs [IntelliJ](htt
 
 Nativement, Eclipse embarque un formateur de code source Java bien connu des développeurs. Afin de pouvoir partager des règles de formatage, il propose des [fonctionnalités d’import / export](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fpreferences%2Fjava%2Fcodestyle%2Fref-preferences-formatter.htm). Au format XML, le fichier décrivant les règles de formatage est très répandu. Par exemple, le projet [Spring AMQP](http://projects.spring.io/spring-amqp/) fournit le fichier [eclipse-code-formatter.xml](https://github.com/spring-projects/spring-amqp/blob/master/eclipse-code-formatter.xml). Ces règles peuvent être importés dans STS mais également dans IntelliJ IDEA via le plugin [**Eclipse Code Formater**](https://plugins.jetbrains.com/plugin/6546). Afin qu’aucune différence ne puisse être constaté entre du code formaté sous Eclipse et sous IntelliJ, ce plugin embarque directement le code du formateur d’Eclipse. Il existe un [plugin similaire pour Netbeans](http://plugins.netbeans.org/plugin/50877/eclipse-code-formatter-for-java), mais je ne l’ai jamais testé.
 
-La principale limite du plugin Eclipse Code Formater réside dans le nombre de langages supportés : Java, GWT et JavaScript. Autrement dit, vos fichiers XML, pages JSP, HTML, et autres feuilles de styles CSS ne seront pas pris en compte. Le plugin est dépendant des fonctionnalités d’export d’Eclipse. Par exemple, il n’est actuellement pas possible d’exporter les règles de formatage du XML.
+La principale limite du plugin Eclipse Code Formater réside dans le nombre de langages supportés : Java, GWT et JavaScript. Autrement dit, vos fichiers XML, pages JSP, HTML, et autres feuilles de styles CSS ne seront pas pris en compte. Le plugin est dépendant des fonctionnalités d’export d’Eclipse. Par exemple, il n’est actuellement pas possible d’exporter les règles de formatage du XML.
 
 ## EditorConfig
 
-J’ai découvert l’outil [**EditorConfig**](http://editorconfig.org/) suite à une [pull request](https://github.com/spring-projects/spring-petclinic/pull/93) réalisée sur le projet Spring Petclinic. Cet outil a fait ses preuves puisque de [nombreux projets Open Source l’ont adopté](https://github.com/editorconfig/editorconfig/wiki/Projects-Using-EditorConfig) : AngularJS, Jenkins, Bootstrap, Wordpress …
+J’ai découvert l’outil [**EditorConfig**](http://editorconfig.org/) suite à une [pull request](https://github.com/spring-projects/spring-petclinic/pull/93) réalisée sur le projet Spring Petclinic. Cet outil a fait ses preuves puisque de [nombreux projets Open Source l’ont adopté](https://github.com/editorconfig/editorconfig/wiki/Projects-Using-EditorConfig) : AngularJS, Jenkins, Bootstrap, Wordpress …
 
-La configuration d’EditorConfig est bien plus restreinte que celle du formateur d’Eclipse : seulement [8 paramètres](https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties) dont le style d’indentation (espace ou tabulation), le nombre d’indentations, ou bien la suppression des espaces superflus en fin de ligne.
+La configuration d’EditorConfig est bien plus restreinte que celle du formateur d’Eclipse : seulement [8 paramètres](https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties) dont le style d’indentation (espace ou tabulation), le nombre d’indentations, ou bien la suppression des espaces superflus en fin de ligne.
 Là où il se distingue, c’est de pouvoir fixer l’encodage des fichiers et le type de retour à la ligne (Unix, Windows).
-Sa configuration est simple. Voici le fichier **_.editorconfig_** mis en place sur Petclinic :
+Sa configuration est simple. Voici le fichier **_.editorconfig_** mis en place sur Petclinic :
 
 ```default
 # Configuration racine pouvant être affinée pour chaque sous-répertoire

@@ -24,11 +24,11 @@ Dans le cadre de l’ **externalisation du développement** d’une application,
 
 ## Sonar, bien mais pas suffisant
 
-Dans ces 2 types de revues, la **qualité du code** est mesurée automatiquement par l’outil **[SonarQube](http://www.sonarqube.org/)**. Des seuils sont fixés pour chaque métrique :  taux de couverture de tests, nombre de défauts ... Accessible en ligne et documenté, le profil SonarQube fait office de référence sur les règles à respecter : de la simple règle de formatage du code à la gestion des exceptions.
+Dans ces 2 types de revues, la **qualité du code** est mesurée automatiquement par l’outil **[SonarQube](http://www.sonarqube.org/)**. Des seuils sont fixés pour chaque métrique :  taux de couverture de tests, nombre de défauts ... Accessible en ligne et documenté, le profil SonarQube fait office de référence sur les règles à respecter : de la simple règle de formatage du code à la gestion des exceptions.
 
-Pour autant, toutes les bonnes pratiques en termes de qualité du code et d’architecture ne peuvent pas être contrôlées par cet outil. Qui plus est, il est parfois possible de leurrer SonarQube. Par exemple, en utilisant des outils de génération automatique de tests unitaires (TU) ou en développement des TU sans assertions, on augmente artificiellement la couverture de code. **Une revue « manuelle » reste donc obligatoire**.
+Pour autant, toutes les bonnes pratiques en termes de qualité du code et d’architecture ne peuvent pas être contrôlées par cet outil. Qui plus est, il est parfois possible de leurrer SonarQube. Par exemple, en utilisant des outils de génération automatique de tests unitaires (TU) ou en développement des TU sans assertions, on augmente artificiellement la couverture de code. **Une revue « manuelle » reste donc obligatoire**.
 
-Les points qui sont surveillés lors de cette revue sont référencés dans une **check-list**. Ces points ont été répartis en 5 catégories :
+Les points qui sont surveillés lors de cette revue sont référencés dans une **check-list**. Ces points ont été répartis en 5 catégories :
 
 1. Code Design
 1. Architecture logicielle
@@ -37,7 +37,7 @@ Les points qui sont surveillés lors de cette revue sont référencés dans une 
 1. Sécurité
 
 Certains points sont spécifiques à l’architecture technique de l’application. Dans notre exemple, l’application web est décomposée en 3 couches et repose sur les technologies Spring MVC, CXF et JDBC.
-Sans surprise, de nombreuses de règles sont tirées de l’ouvrage de référence des développeurs « [Clean Code](http://www.amazon.fr/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)» d'Uncle Bobo. Les autres proviennent de bonnes pratiques, d’état de l’art et d’expériences.
+Sans surprise, de nombreuses de règles sont tirées de l’ouvrage de référence des développeurs « [Clean Code](http://www.amazon.fr/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)» d'Uncle Bobo. Les autres proviennent de bonnes pratiques, d’état de l’art et d’expériences.
 
 ## Code Design
 
@@ -65,7 +65,7 @@ Lever des exceptions dès que nécessaire (au plus tôt). Programmation défensi
 Traiter les exceptions au niveau le plus haut. Traiter les exceptions dans les niveaux intermédiaires que si nécessaire.**Frameworks**Utiliser les bibliothèques et frameworks référencés dans le catalogue des normes et standards l’EntrepriseL'ajout de dépendances tierces est soumise à dérogation et se devra d’être justifié.**Singleton**Ne pas utiliser le pattern Singleton.
 Laisser Spring gérer le cycle de vie des objets (beans de portée singleton)**Logs applicatifs**Messages de logs pertinents et contextualisés.
 L’encapsulation d’une exception apporte des informations complémentaires sur le contexte d’appel.
-Login de l’utilisateur affiché systématiquement grâce au MDC de SLF4J.Ne pas logger 2x la même erreur.Seules les erreurs techniques sont loggés avec le ERROR.**Découpage en couches**Respect du découpage en 3 couches : Contrôleur => Services métiers => DAO/Repository.
+Login de l’utilisateur affiché systématiquement grâce au MDC de SLF4J.Ne pas logger 2x la même erreur.Seules les erreurs techniques sont loggés avec le ERROR.**Découpage en couches**Respect du découpage en 3 couches : Contrôleur => Services métiers => DAO/Repository.
 Les services métiers et les DAO sont déclarés dans le contexte root.
 Les contrôleurs Spring MVC sont quant à eux déclarés dans un contexte enfant.
 

@@ -37,12 +37,12 @@ A vous de voir si vous souhaitez les tester puis les adopter, ou non.
 
 \[slideshare id=59714114&doc=2016-03-17-cesoutilsquivousfontgagnerdutemps-160318071738\]
 
-Les outils présentés dans le support de présentation sont les suivants :
+Les outils présentés dans le support de présentation sont les suivants :
 
-- Le rechargement à chaud : JRebel, Spring Loaded, HotSwap Agent / DCEVM
-- Expressions régulières : 2 applications web en ligne
-- Console et ligne de commande : Cmdr, le terminal IntelliJ et le plugin EasyShell pour Eclipse
-- Décompilateur Java : JD-GUI
-- Presse papiers : Ditto
-- Client REST : Postman
-- Client SSH : Putty Connection Manager
+- Le rechargement à chaud : JRebel, Spring Loaded, HotSwap Agent / DCEVM
+- Expressions régulières : 2 applications web en ligne
+- Console et ligne de commande : Cmdr, le terminal IntelliJ et le plugin EasyShell pour Eclipse
+- Décompilateur Java : JD-GUI
+- Presse papiers : Ditto
+- Client REST : Postman
+- Client SSH : Putty Connection Manager

@@ -12,7 +12,7 @@ guid: https://javaetmoi.com/?p=2443
 parent_post_id: null
 post_id: "2443"
 post_views_count: "770"
-summary: "Spring et Quarkus dans le même repository Git, ou presque. Cela vous intrigue ? {{ double-space-with-newline }}Figurez-vous qu’il y’a quelques mois, la lecture du très bon **livre [Understanding Quarkus 2.x](https://agoncal.teachable.com/p/ebook-understanding-quarkus)** d’Antonio Gongalves m’a donné envie de pratiquer ce framework alternatif à Spring Boot. Et pour apprendre une nouvelle technologie, quoi de plus stimulant que de se fixer un objectif. Je me suis donc donné comme challenge de migrer vers Quarkus l’application démo Spring Boot que je connais bien. Une fois migrée, l’application devait rester **iso-fonctionnelle**. {{ double-space-with-newline }}A travers leur repo [quarkus-petclinic](https://github.com/redhat-developer-demos/quarkus-petclinic), RedHat avait fait l’exercice avant moi. Malheureusement, l’historique Git a été écrasé, ne laissant aucune trace du chemin de migration parcouru. Pendant 3 mois, j'ai donc travaillé sur un nouveau fork que je suis fier de vous présenter : [**quarkus-spring-petclinic**](https://github.com/arey/quarkus-spring-petclinic). Ajouté à la communauté Spring Petclinic, ce fork a un double objectif :\n\n1. Montrer comment **migrer une application Spring Boot 3.4 vers Quarkus 3.21**, avec le minium d'effort et en modifiant le moins de code possible\n2. Utiliser les **extensions Spring** proposées par **Quarkus** pour garder un lien avec le monde Spring tout en soulignant l'effort de l'équipe Quarkus pour supporter Spring, un framework incontournable de l'écosystème Java\n\nLes **extensions Spring pour Quarkus** utilisées sont au nombre de quatre : **Spring DI**, **Spring Web**, **Spring Data JPA** et **Spring Cache**.{{ double-space-with-newline }}Le changement majeur aura été de porter le templating des pages HTML de **Thymeleaf** vers **Qute**.\n\nDébutant en Quarkus, le code proposé ne respecte peut-être pas toutes les règles de l’art prônées par l’équipe de dév Quarkus. Je m’en excuse par avance. Si vous voulez contribuer et corriger le tir : [issue](https://github.com/spring-petclinic/quarkus-spring-petclinic/issues) et [Pull Request](https://github.com/spring-petclinic/quarkus-spring-petclinic/pulls) sont les bienvenues.\n\n \n\nLe [différenciel complet](https://github.com/spring-petclinic/quarkus-spring-petclinic/compare/spring-boot-version...v3.21.0) entre la version Spring Boot et la version Quarkus de Petclinic peut-être visualisé sur Github."
+summary: "Spring et Quarkus dans le même repository Git, ou presque. Cela vous intrigue ? {{ double-space-with-newline }}Figurez-vous qu’il y’a quelques mois, la lecture du très bon **livre [Understanding Quarkus 2.x](https://agoncal.teachable.com/p/ebook-understanding-quarkus)** d’Antonio Gongalves m’a donné envie de pratiquer ce framework alternatif à Spring Boot. Et pour apprendre une nouvelle technologie, quoi de plus stimulant que de se fixer un objectif. Je me suis donc donné comme challenge de migrer vers Quarkus l’application démo Spring Boot que je connais bien. Une fois migrée, l’application devait rester **iso-fonctionnelle**. {{ double-space-with-newline }}A travers leur repo [quarkus-petclinic](https://github.com/redhat-developer-demos/quarkus-petclinic), RedHat avait fait l’exercice avant moi. Malheureusement, l’historique Git a été écrasé, ne laissant aucune trace du chemin de migration parcouru. Pendant 3 mois, j'ai donc travaillé sur un nouveau fork que je suis fier de vous présenter : [**quarkus-spring-petclinic**](https://github.com/arey/quarkus-spring-petclinic). Ajouté à la communauté Spring Petclinic, ce fork a un double objectif :\n\n1. Montrer comment **migrer une application Spring Boot 3.4 vers Quarkus 3.21**, avec le minium d'effort et en modifiant le moins de code possible\n2. Utiliser les **extensions Spring** proposées par **Quarkus** pour garder un lien avec le monde Spring tout en soulignant l'effort de l'équipe Quarkus pour supporter Spring, un framework incontournable de l'écosystème Java\n\nLes **extensions Spring pour Quarkus** utilisées sont au nombre de quatre : **Spring DI**, **Spring Web**, **Spring Data JPA** et **Spring Cache**.{{ double-space-with-newline }}Le changement majeur aura été de porter le templating des pages HTML de **Thymeleaf** vers **Qute**.\n\nDébutant en Quarkus, le code proposé ne respecte peut-être pas toutes les règles de l’art prônées par l’équipe de dév Quarkus. Je m’en excuse par avance. Si vous voulez contribuer et corriger le tir : [issue](https://github.com/spring-petclinic/quarkus-spring-petclinic/issues) et [Pull Request](https://github.com/spring-petclinic/quarkus-spring-petclinic/pulls) sont les bienvenues.\n\n \n\nLe [différenciel complet](https://github.com/spring-petclinic/quarkus-spring-petclinic/compare/spring-boot-version...v3.21.0) entre la version Spring Boot et la version Quarkus de Petclinic peut-être visualisé sur Github."
 tags:
   - quarkus
   - spring-boot
@@ -20,17 +20,17 @@ title: Spring Petclinic sous extensions Quarkus
 url: /2025/04/spring-petclinic-sous-extensions-quarkus/
 
 ---
-Spring et Quarkus dans le même repository Git, ou presque. Cela vous intrigue ?   
+Spring et Quarkus dans le même repository Git, ou presque. Cela vous intrigue ?   
 Figurez-vous qu’il y’a quelques mois, la lecture du très bon **livre [Understanding Quarkus 2.x](https://agoncal.teachable.com/p/ebook-understanding-quarkus)** d’Antonio Gongalves m’a donné envie de pratiquer ce framework alternatif à Spring Boot. Et pour apprendre une nouvelle technologie, quoi de plus stimulant que de se fixer un objectif. Je me suis donc donné comme challenge de migrer vers Quarkus l’application démo Spring Boot que je connais bien. Une fois migrée, l’application devait rester **iso-fonctionnelle**.   
 A travers leur repo [quarkus-petclinic](https://github.com/redhat-developer-demos/quarkus-petclinic), RedHat avait fait l’exercice avant moi. Malheureusement, l’historique Git a été écrasé, ne laissant aucune trace du chemin de migration parcouru. Pendant 3 mois, j'ai donc travaillé sur un nouveau fork que je suis fier de vous présenter : [**quarkus-spring-petclinic**](https://github.com/arey/quarkus-spring-petclinic). Ajouté à la communauté Spring Petclinic, ce fork a un double objectif :
 
 1. Montrer comment **migrer une application Spring Boot 3.4 vers Quarkus 3.21**, avec le minium d'effort et en modifiant le moins de code possible
 1. Utiliser les **extensions Spring** proposées par **Quarkus** pour garder un lien avec le monde Spring tout en soulignant l'effort de l'équipe Quarkus pour supporter Spring, un framework incontournable de l'écosystème Java
 
-Les **extensions Spring pour Quarkus** utilisées sont au nombre de quatre : **Spring DI**, **Spring Web**, **Spring Data JPA** et **Spring Cache**.  
+Les **extensions Spring pour Quarkus** utilisées sont au nombre de quatre : **Spring DI**, **Spring Web**, **Spring Data JPA** et **Spring Cache**.  
 Le changement majeur aura été de porter le templating des pages HTML de **Thymeleaf** vers **Qute**.
 
-Débutant en Quarkus, le code proposé ne respecte peut-être pas toutes les règles de l’art prônées par l’équipe de dév Quarkus. Je m’en excuse par avance. Si vous voulez contribuer et corriger le tir : [issue](https://github.com/spring-petclinic/quarkus-spring-petclinic/issues) et [Pull Request](https://github.com/spring-petclinic/quarkus-spring-petclinic/pulls) sont les bienvenues.
+Débutant en Quarkus, le code proposé ne respecte peut-être pas toutes les règles de l’art prônées par l’équipe de dév Quarkus. Je m’en excuse par avance. Si vous voulez contribuer et corriger le tir : [issue](https://github.com/spring-petclinic/quarkus-spring-petclinic/issues) et [Pull Request](https://github.com/spring-petclinic/quarkus-spring-petclinic/pulls) sont les bienvenues.
 
 {{< figure src="/wp-content/uploads/2025/04/word-image-2443-1.png" alt="" caption="" >}}
 
@@ -65,8 +65,8 @@ La migration a été faite avec une approche top-down : on part de la couche per
 
 L’ [extension Spring Data JPA](https://quarkus.io/guides/spring-data-jpa) pour Quarkus présente l’avantage de pouvoir conserver les **conventions de nommage des interfaces des repository Spring Data JPA**. Sous le capot, l’implémentation est générée à l’aide de **[Panache](https://quarkus.io/guides/hibernate-orm-panache)**. Les repository migrés peuvent continuer à implémenter les interfaces **JpaRepository** et **ListCrudRepository**, à utiliser les interfaces Spring Data **Page** et **Pageable** pour la pagination.
 
-Ce portage a permis de conserver 90% du code existant de la couche de persistance de Spring Petclinic. Je l’ai personnellement trouvé plus strict que l’original. Preuve en est ce premier exemple possible avec Spring Data JPA, mais qui ne fonctionne pas sous Quakus : déclarer sur l’interface OwnerRepository la méthode findPetTypes manipulant des entités JPA de type PetType et non de type Owner.  
-L’erreur suivante était générée pendant le build :
+Ce portage a permis de conserver 90% du code existant de la couche de persistance de Spring Petclinic. Je l’ai personnellement trouvé plus strict que l’original. Preuve en est ce premier exemple possible avec Spring Data JPA, mais qui ne fonctionne pas sous Quakus : déclarer sur l’interface OwnerRepository la méthode findPetTypes manipulant des entités JPA de type PetType et non de type Owner.  
+L’erreur suivante était générée pendant le build :
 
 > ```
 > Query annotations may only use interfaces to map results to non-entity types. Offending query string is "SELECT ptype FROM PetType ptype ORDER BY ptype.name" on method findPetTypes of Repository org.springframework.samples.petclinic.owner.OwnerRepository
@@ -83,7 +83,7 @@ L’erreur suivante était générée pendant le build :
 
 Le moyen de contournement a consisté tout simplement à découper en deux l’interface [OwnerRepository](https://github.com/spring-petclinic/quarkus-spring-petclinic/blame/v3.21.0/src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java). L’interface [PetTypeRepository](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java) a été ajoutée et a pour responsabilité l'accès aux PetType. On a ainsi un meilleur découplage.
 
-Second cas dysfonctionnant sous Quarkus :
+Second cas dysfonctionnant sous Quarkus :
 
 ```java
 public interface VetRepository extends Repository<Vet, Integer> {
@@ -91,7 +91,7 @@ public interface VetRepository extends Repository<Vet, Integer> {
 }
 ```
 
-Quarkus génère l’exception suivante :
+Quarkus génère l’exception suivante :
 
 ```text
 Caused by: io.quarkus.spring.data.deployment.UnableToParseMethodException: Method 'findAll' of repository 'org.springframework.samples.petclinic.vet.VetRepository' cannot be parsed as there is no proper 'By' clause in the name.
@@ -99,9 +99,9 @@ Caused by: io.quarkus.spring.data.deployment.UnableToParseMethodException: Metho
 
 La classe [**MethodNameParser**](https://github.com/quarkusio/quarkus/blob/main/extensions/spring-data-jpa/deployment/src/main/java/io/quarkus/spring/data/deployment/MethodNameParser.java) **ne supporte pas** le type de retour **Collection**. Triviale, la correction a consisté à le changer en **List**.
 
-Dernier changement mineur apporté à la couche de persistance : l’exception non checkée **DataAccessException** n’est pas supportée par Quarkus. Elle a donc été retirée de l’interface des méthodes des Repository.
+Dernier changement mineur apporté à la couche de persistance : l’exception non checkée **DataAccessException** n’est pas supportée par Quarkus. Elle a donc été retirée de l’interface des méthodes des Repository.
 
-Une fois migrée, l’interface [OwnerRepository](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java) n’a aucune adhérence à Quarkus ou Panache. Elle conserve ses **imports** sur les classes de **Spring Data Commons** et **Spring Data JPA** :
+Une fois migrée, l’interface [OwnerRepository](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java) n’a aucune adhérence à Quarkus ou Panache. Elle conserve ses **imports** sur les classes de **Spring Data Commons** et **Spring Data JPA** :
 
 ```java
 package org.springframework.samples.petclinic.owner;
@@ -125,7 +125,7 @@ public interface OwnerRepository extends JpaRepository<Owner, Integer> {
 ## Adaptation des scripts SQL
 
 Migrer les Repository Spring Data JPA, c’est bien. Les tester, c’est mieux. Les tests unitaires de Quarkus Spring Petclinic utilisent la base de données embarquées H2.   
-L’exécution du script [data.sql](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/resources/db/h2/data.sql) échouait avec l’erreur suivante :
+L’exécution du script [data.sql](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/resources/db/h2/data.sql) échouait avec l’erreur suivante :
 
 ```text
 Caused by: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Intégrité référentielle violation de contrainte: "FK35UIBOYRPFN1BNDRR5JORCJ0M: PUBLIC.VET_SPECIALTIES FOREIGN KEY(SPECIALTY_ID) REFERENCES PUBLIC.SPECIALTIES(ID) (4)"
@@ -135,7 +135,7 @@ INSERT INTO vet_specialties VALUES (4, 2) [23506-230]
 
 Cette différence de comportement s’explique par le fait que Quarkus utilise Hibernate pour générer le script DDL de création du schéma et non pas directement le script DDL [schema.sql](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/resources/db/h2/schema.sql). L’ordre des colonnes diffère entre le script DDL généré par Hibernate et le script SQL existant. Je n’ai pas trouvé la possibilité d’utiliser le script schema.sql. [Je ne suis apparemment pas le seul](https://github.com/quarkusio/quarkus/discussions/30193). Si vous avez une idée, vous pouvez contribuer à l’ [issue #8](https://github.com/spring-petclinic/quarkus-spring-petclinic/issues/8).
 
-En attendant de trouver une solution, j’ai modifié le script SQL en précisant le nom des colonnes dans l’instruction INSERT, ce qui est une bonne pratique :
+En attendant de trouver une solution, j’ai modifié le script SQL en précisant le nom des colonnes dans l’instruction INSERT, ce qui est une bonne pratique :
 
 {{< figure src="/wp-content/uploads/2025/04/word-image-2443-2.png" alt="" caption="" >}}
 
@@ -147,7 +147,7 @@ Migrer des assertions AssertJ vers les matchers Hamcrest peut être facilitée p
 
 Exemple avec la méthode shouldFindSingleOwnerWithPet() extrait de la classe [ClinicServiceTests](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/test/java/org/springframework/samples/petclinic/service/ClinicServiceTests.java):
 
-Avant migration sous AssertJ :
+Avant migration sous AssertJ :
 
 ```java
 @Test
@@ -208,7 +208,7 @@ void shouldInsertOwner() {
 
 Pour tester les Repository JPA, Spring Boot met à disposition l’annotation **@DataJpaTest** automatisant la configuration des classes de test. Elle s’occupe notamment de démarrer en mémoire une base de données embarquée H2, de créer son schéma et de charger un jeu de données de test.
 
-Pour arriver à un résultat similaire avec Quarkus, l’annotation @DataJpaTest a été remplacée par 2 annotations :
+Pour arriver à un résultat similaire avec Quarkus, l’annotation @DataJpaTest a été remplacée par 2 annotations :
 
 ```java
 @QuarkusTest
@@ -218,7 +218,7 @@ class ClinicServiceTests {
 
 L’annotation @ **QuarkusTestResource** permet de référencer la classe **H2DatabaseTestResource** (fournie par l’artefact **io.quarkus:quarkus-test-h2**) chargée de démarrer / arrêter un serveur H2.
 
-Par défaut, l’application Spring Petclinic démarre une base de données H2, la même que celle utilisée pour les tests. La propriété **quarkus.hibernate-orm.sql-load-script** du fichier [application.properties](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/resources/application.properties) a été positionnée sur **h2** :
+Par défaut, l’application Spring Petclinic démarre une base de données H2, la même que celle utilisée pour les tests. La propriété **quarkus.hibernate-orm.sql-load-script** du fichier [application.properties](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/resources/application.properties) a été positionnée sur **h2** :
 
 ```properties
 quarkus.datasource.db-kind=h2
@@ -232,9 +232,9 @@ A ce stade de la migration vers Quarkus, les tests unitaires de la couche de per
 
 ## Internationalisation
 
-Le support de l’internationalisation ( **i18n** pour les intimes) est incomplet dans Spring Petclinic (cf. issue [#1854](https://github.com/spring-projects/spring-petclinic/issues/1854)). Le **ressource bundle** [**messages**](https://github.com/spring-petclinic/quarkus-spring-petclinic/tree/v3.21.0/src/main/resources/messages) contient différent fichiers properties de traduction. Les clés sont utilisées dans certains templates Thymeleaf (ex : welcome) et pour les messages d’erreur (ex : required, typeMismatch.birthDate). Ce ressource bundle a pu être réutilisé dans la version Quarkus.
+Le support de l’internationalisation ( **i18n** pour les intimes) est incomplet dans Spring Petclinic (cf. issue [#1854](https://github.com/spring-projects/spring-petclinic/issues/1854)). Le **ressource bundle** [**messages**](https://github.com/spring-petclinic/quarkus-spring-petclinic/tree/v3.21.0/src/main/resources/messages) contient différent fichiers properties de traduction. Les clés sont utilisées dans certains templates Thymeleaf (ex : welcome) et pour les messages d’erreur (ex : required, typeMismatch.birthDate). Ce ressource bundle a pu être réutilisé dans la version Quarkus.
 
-Qute propose un [**mécanisme typesafe de ressource bundle**](https://quarkus.io/guides/qute-reference#type-safe-message-bundles) basé sur l’annotation **@ResourceBundle**. La classe [AppMessages](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/system/AppMessages.java) a été ajoutée à Petclinic. En voici un extrait contenant 3 clés :
+Qute propose un [**mécanisme typesafe de ressource bundle**](https://quarkus.io/guides/qute-reference#type-safe-message-bundles) basé sur l’annotation **@ResourceBundle**. La classe [AppMessages](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/system/AppMessages.java) a été ajoutée à Petclinic. En voici un extrait contenant 3 clés :
 
 ```java
 import io.quarkus.qute.i18n.Message;
@@ -253,9 +253,9 @@ public interface AppMessages {
 	String typeMismatch_birthDate();
 ```
 
-Le nom des clés des properties ne semble pas accepter le **caractère point** (ex : _@Message(value = "typeMismatch.birthDate"_). Certaines clés ont donc dû être renommées (ex : _typeMismatch.birthDate_ vers _typeMismatch\_birthDate_).
+Le nom des clés des properties ne semble pas accepter le **caractère point** (ex : _@Message(value = "typeMismatch.birthDate"_). Certaines clés ont donc dû être renommées (ex : _typeMismatch.birthDate_ vers _typeMismatch\_birthDate_).
 
-Au runtime, l’usage du ressource bundle Quarkus peut-être utilisé dans un template Qute via le namespace du message bundle. Exemple :
+Au runtime, l’usage du ressource bundle Quarkus peut-être utilisé dans un template Qute via le namespace du message bundle. Exemple :
 
 ```html
  {#for err in errors}
@@ -267,7 +267,7 @@ Au runtime, l’usage du ressource bundle Quarkus peut-être utilisé dans un te
 {/for}
 ```
 
-Ce même ressource bundle peut également être exploité depuis un contrôleur REST. La création de classe [I18nHelper](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/system/I18nHelper.java) permet d’exploiter dynamiquement l’en-tête HTTP **Accept-Language** :
+Ce même ressource bundle peut également être exploité depuis un contrôleur REST. La création de classe [I18nHelper](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/system/I18nHelper.java) permet d’exploiter dynamiquement l’en-tête HTTP **Accept-Language** :
 
 ```java
 @GetMapping("/")
@@ -364,7 +364,7 @@ Exemple du tag Thymeleaf inputField.html :
 </html>
 ```
 
-Exemple équivalent du tag Qute inputField.html :
+Exemple équivalent du tag Qute inputField.html :
 
 ```javascript
  {#let invalid=result.hasErrors(name)}
@@ -384,14 +384,14 @@ Exemple équivalent du tag Qute inputField.html :
 
 ## Binding du modèle
 
-Une fois les templates Thymeleaf converties en Qute, des ajustements ont été nécessaire du côté des contrôleurs web, notamment au niveau du **binding des champs du formulaire**. Le binding est le processus par lequel les données envoyées par l’utilisateur, généralement via un formulaire, sont automatiquement associées à un objet du modèle. Spring Web MVC gère le binding en utilisant des **DataBinder** qui convertissent automatiquement les paramètres de requête HTTP en propriétés d’un objet Java, en s’appuyant sur les noms des champs du formulaire et les conventions de nommage. Dans l’exemple suivant, la méthode _processCreationForm_ accepte en paramètre un objet de type Owner bindé avec les champs du formulaire [createOrUpdateOwnerForm.html](https://github.com/spring-projects/spring-petclinic/blob/main/src/main/resources/templates/owners/createOrUpdateOwnerForm.html) :
+Une fois les templates Thymeleaf converties en Qute, des ajustements ont été nécessaire du côté des contrôleurs web, notamment au niveau du **binding des champs du formulaire**. Le binding est le processus par lequel les données envoyées par l’utilisateur, généralement via un formulaire, sont automatiquement associées à un objet du modèle. Spring Web MVC gère le binding en utilisant des **DataBinder** qui convertissent automatiquement les paramètres de requête HTTP en propriétés d’un objet Java, en s’appuyant sur les noms des champs du formulaire et les conventions de nommage. Dans l’exemple suivant, la méthode _processCreationForm_ accepte en paramètre un objet de type Owner bindé avec les champs du formulaire [createOrUpdateOwnerForm.html](https://github.com/spring-projects/spring-petclinic/blob/main/src/main/resources/templates/owners/createOrUpdateOwnerForm.html) :
 
 ```java
 @PostMapping("/owners/new")
 public String processCreationForm(@Valid Owner owner, BindingResult result, RedirectAttributes redirectAttributes) {
 ```
 
-Positionnée sur le paramtètre owner, l’annotation **@Valid** permet d’exécuter la validation **Bean Validation / Hibernate Validator**. Je n’ai pas trouvé dans Quarkus l’équivalent des classes **BindingResult** et **RedirectAttibutes**. Ainsi, la signature de cette méthode s’allège en Quarkus :
+Positionnée sur le paramtètre owner, l’annotation **@Valid** permet d’exécuter la validation **Bean Validation / Hibernate Validator**. Je n’ai pas trouvé dans Quarkus l’équivalent des classes **BindingResult** et **RedirectAttibutes**. Ainsi, la signature de cette méthode s’allège en Quarkus :
 
 ```java
 @PostMapping("/owners/new")
@@ -400,7 +400,7 @@ public TemplateInstance processCreationForm(Owner owner) {
 
 On retrouve l’annotation Spring **@PostMapping** supportée par l’extension Quarkus. Le type de retour n’est plus une String correspondant à la vue MVC à afficher, mais une **TemplateInstance**.
 
-Pour binder la classe Owner, un changement a dû être opéré au niveau de la classe [Owner](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/owner/Owner.java) et de ses classes parentes [Person](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/model/Person.java) et [NamedEntity](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java) : **ajouter l’annotation JAX-RS @FormParam** sur les attributs bindés comme address. Extrait de la classe [Owner](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/owner/Owner.java) :
+Pour binder la classe Owner, un changement a dû être opéré au niveau de la classe [Owner](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/owner/Owner.java) et de ses classes parentes [Person](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/model/Person.java) et [NamedEntity](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java) : **ajouter l’annotation JAX-RS @FormParam** sur les attributs bindés comme address. Extrait de la classe [Owner](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/owner/Owner.java) :
 
 ```java
 public class Owner extends Person {
@@ -411,7 +411,7 @@ public class Owner extends Person {
 	private String address;
 ```
 
-Sans ce changement, voici le message d’erreur obtenu lors de la création d’un nouveau propriétaire d’animal de compagnie :
+Sans ce changement, voici le message d’erreur obtenu lors de la création d’un nouveau propriétaire d’animal de compagnie :
 
 ```text
 2025-04-12 17:36:04,095 ERROR [org.spr.sam.pet.sys.ExceptionMappers] (executor-thread-1) Internal server error: jakarta.ws.rs.NotSupportedException: HTTP 415 Unsupported Media Type
@@ -426,7 +426,7 @@ Pour terminer sur le binding du modèle, l’interface **org.springframework.ui.
 
 Dans le paragraphe précédent, nous avons vu comment récupérer de manière typée les données saisies par l’utilisateur dans l’interface web de Petclinic. Nous allons voir à présent comment il est possible de **valider les données** avant de les insérer en base de données.
 
-Le guide [Validation with Hibernate Validator](https://quarkus.io/guides/validation#a-frontend) explique comment mettre en place Bean Validation sur une API REST. L’annotation **@jakarta.validation.Valid** est supportée par Quakus. Pour autant, son usage n’a pas pu être conservé dans Petclinic. En effet, si on la laisse, Quarkus valide les données du Owner et, en cas d’erreur, ne rentre pas dans la méthode _processCreationForm_. Il renvoie directement un flux texte contenant le rapport d’erreur complet. Exemple de la soumission d’un formulaire vide :
+Le guide [Validation with Hibernate Validator](https://quarkus.io/guides/validation#a-frontend) explique comment mettre en place Bean Validation sur une API REST. L’annotation **@jakarta.validation.Valid** est supportée par Quakus. Pour autant, son usage n’a pas pu être conservé dans Petclinic. En effet, si on la laisse, Quarkus valide les données du Owner et, en cas d’erreur, ne rentre pas dans la méthode _processCreationForm_. Il renvoie directement un flux texte contenant le rapport d’erreur complet. Exemple de la soumission d’un formulaire vide :
 
 ```text
 ViolationReport{title='Constraint Violation', status=400, violations=[Violation{field='processCreationForm.owner.address', message='ne doit pas être vide'}, Violation{field='processCreationForm.owner.telephone', message='ne doit pas être vide'}, Violation{field='processCreationForm.owner.telephone', message='Telephone must be a 10-digit number'}, Violation{field='processCreationForm.owner.city', message='ne doit pas être vide'}, Violation{field='processCreationForm.owner.lastName', message='ne doit pas être vide'}, Violation{field='processCreationForm.owner.firstName', message='ne doit pas être vide'}]}
@@ -436,7 +436,7 @@ Dans Petclinic, on souhaite renvoyer le formulaire HTML en erreur avec le messag
 
 Dans la documentation Quakus Qute, je n’ai pas trouvé l’équivalent de ce que propose Spring Web MVC, grâce notamment à la classe **BindingResult**. Pour contourner cette limitation, j’ai introduit le record [**Result**](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/system/Result.java). L’appel au **Validator** Bean Validation est fait de manière impérative. Son résultat (un ensemble de ConstraintViolation) permet de construire une instance de Result.
 
-Exemple en Spring :
+Exemple en Spring :
 
 ```java
 @PostMapping("/owners/new")
@@ -452,7 +452,7 @@ public String processCreationForm(@Valid Owner owner, BindingResult result, Redi
 }
 ```
 
-Exemple équivalent en Quarkus :
+Exemple équivalent en Quarkus :
 
 ```java
 @PostMapping("/new")
@@ -469,13 +469,13 @@ public TemplateInstance processCreationForm(Owner owner) {
 
 Noter l’appel à la méthode **OwnerTemplates::ownerDetails()** dont nous allons étudier le fonctionnement dans le paragraphe suivant.
 
-A noter également un écart de fonctionnement entre les versions Spring Boot et Quarkus de Petclinic : lors de la soumission d’un formulaire (POST), la version Spring utilise une **redirection http** pour rediriger l’utilisateur sur l’URL de consultation (GET). Nativement, Quarkus et Qute ne supportent pas ce fonctionnement. Pour être iso-fonctionnel, il aurait fallu utiliser [Quarkus Renarde qui supporte les redirections](https://docs.quarkiverse.io/quarkus-renarde/1.x/index.html#_redirects_after_post) et le [scope flash](https://docs.quarkiverse.io/quarkus-renarde/1.x/index.html#_flash_scope).
+A noter également un écart de fonctionnement entre les versions Spring Boot et Quarkus de Petclinic : lors de la soumission d’un formulaire (POST), la version Spring utilise une **redirection http** pour rediriger l’utilisateur sur l’URL de consultation (GET). Nativement, Quarkus et Qute ne supportent pas ce fonctionnement. Pour être iso-fonctionnel, il aurait fallu utiliser [Quarkus Renarde qui supporte les redirections](https://docs.quarkiverse.io/quarkus-renarde/1.x/index.html#_redirects_after_post) et le [scope flash](https://docs.quarkiverse.io/quarkus-renarde/1.x/index.html#_flash_scope).
 
 Enfin, dans la version Spring, la classe [PetValidator](https://github.com/spring-projects/spring-petclinic/blob/main/src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java) assure la validation des champs obligatoires name, type et birthDate. Dans la version Quarkus, cette classe a été supprimée au profit de l’utilisation de l'annotations **@NotNull** ajoutée sur classe Pet et du support de Bean Validation.
 
 ## Templates Qute type-safe
 
-Dans la version Quarkus de Petclinic, on note l’introduction de 3 nouvelles classes annotées chacune avec **@CheckedTemplate :** [OwnerTemplates](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/owner/OwnerTemplates.java), [PetTemplates](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/owner/PetTemplates.java) et [VetTemplates](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/vet/VetTemplates.java). Appelées depuis les contrôleurs REST, leurs méthodes natives permettent de sélectionner le template à rendre, ceci de manière type-safe. Exemple de la classe [OwnerTemplates](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/owner/OwnerTemplates.java) :
+Dans la version Quarkus de Petclinic, on note l’introduction de 3 nouvelles classes annotées chacune avec **@CheckedTemplate :** [OwnerTemplates](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/owner/OwnerTemplates.java), [PetTemplates](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/owner/PetTemplates.java) et [VetTemplates](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/vet/VetTemplates.java). Appelées depuis les contrôleurs REST, leurs méthodes natives permettent de sélectionner le template à rendre, ceci de manière type-safe. Exemple de la classe [OwnerTemplates](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/owner/OwnerTemplates.java) :
 
 ```java
 @CheckedTemplate(basePath = "owners")
@@ -509,7 +509,7 @@ La migration des tests des contrôleurs REST vers Quarkus demande un peu de trav
 
 Combinée à l’annotation **@QuarkusTest**, l’annotation **@TestHTTPEndpoint** permet de tester spécifiquement un contrôleur REST. Le support par Quarkus des annotations Spring demande quelques ajustements. En effet, la classe QuarkusTestExtension fait appel à la classe [SpringWebEndpointProvider](https://github.com/quarkusio/quarkus/blob/3.21.0/extensions/spring-web/core/runtime/src/main/java/io/quarkus/spring/web/runtime/SpringWebEndpointProvider.java) qui s’attend à ce qu’une annotation **@RequestMapping** annote le contrôleur REST testé. Pour être testable, **le code de prod a dû être refactoré** : il a été nécessaire de déclarer une annotation **@RequestMapping** au top niveau de chaque contrôleur REST.
 
-Avant la mise en place du test OwnerControllerTests :
+Avant la mise en place du test OwnerControllerTests :
 
 ```java
 @RestController
@@ -519,7 +519,7 @@ class OwnerController {
 	public TemplateInstance initCreationForm() {
 ```
 
-Après la mise en place du test OwnerControllerTests :
+Après la mise en place du test OwnerControllerTests :
 
 ```java
 @RestController
@@ -609,7 +609,7 @@ Bien que le nom des méthodes ait changé, le code fonctionnel consistant à che
 
 Les formulaires de l’application Petclinic permettent de saisir la **date de naissance** d’un animal ainsi que sa d **ate de visite** à la clinique vétérinaire. Ces champs dates peuvent être laissées **vides**. La validation des données saisies est faite côté serveur.
 
-Or, la classe _org.jboss.resteasy.reactive.server.core.parameters.converters._ **_LocalDateParamConverter_ ne supporte pas les chaines vides** :
+Or, la classe _org.jboss.resteasy.reactive.server.core.parameters.converters._ **_LocalDateParamConverter_ ne supporte pas les chaines vides** :
 
 ```text
 Caused by: java.time.format.DateTimeParseException: Text '' could not be parsed at index 0 at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108) at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010) at java.base/java.time.LocalDate.parse(LocalDate.java:435) at org.jboss.resteasy.reactive.server.core.parameters.converters.LocalDateParamConverter.convert(LocalDateParamConverter.java:24) at org.jboss.resteasy.reactive.server.core.parameters.converters.LocalDateParamConverter.convert(LocalDateParamConverter.java:6) at org.jboss.resteasy.reactive.server.core.parameters.converters.TemporalParamConverter.convert(TemporalParamConverter.java:29) ... 14 more
@@ -621,7 +621,7 @@ Sur le même modèle que le PetTypeFormatter vu précédemment, la classe [**Loc
 
 Spring Petclinic utilise Spring Cache et **Caffeine** pour mettre en cache la liste des vétérinaires. La version Quarkus s’appuie sur l’ [Extension Quarkus for Spring Cache API](https://quarkus.io/guides/spring-cache) qui permet de conserver l’usage de l’annotation **@Cacheable** de **Spring Cache**.
 
-Une **différence de comportemen** t entre Quarkus et Spring Boot a été identifiée lors des tests. En effet, apposée initialement sur les méthodes du repository VetRepository, les annotations @Cacheable n’étaient prises en compte par Quarkus. Une correction a consisté à déplacer l’annotation @Cacheable au niveau du contrôleur [VetController](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/vet/VetController.java) :
+Une **différence de comportemen** t entre Quarkus et Spring Boot a été identifiée lors des tests. En effet, apposée initialement sur les méthodes du repository VetRepository, les annotations @Cacheable n’étaient prises en compte par Quarkus. Une correction a consisté à déplacer l’annotation @Cacheable au niveau du contrôleur [VetController](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/java/org/springframework/samples/petclinic/vet/VetController.java) :
 
 ```java
 @GetMapping
@@ -658,7 +658,7 @@ public TemplateInstance showVetList(@RequestParam(defaultValue = "1") int page) 
 
 ## Propriétés Spring Boot
 
-Déclarée le temps de la migration puis supprimée une fois celle-ci terminée, l’ [extension Quarkus for Spring Boot properties](https://quarkus.io/extensions/io.quarkus/quarkus-spring-boot-properties/) a permis d’identifier les clés Quarkus à convertir dans le fichier [application.properties](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/resources/application.properties). C’est le cas par exemple de la **durée du cache des ressources statiques**, configurées par défaut à 24h dans Quarkus, ramenée à 12h dans Petclinic.
+Déclarée le temps de la migration puis supprimée une fois celle-ci terminée, l’ [extension Quarkus for Spring Boot properties](https://quarkus.io/extensions/io.quarkus/quarkus-spring-boot-properties/) a permis d’identifier les clés Quarkus à convertir dans le fichier [application.properties](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/resources/application.properties). C’est le cas par exemple de la **durée du cache des ressources statiques**, configurées par défaut à 24h dans Quarkus, ramenée à 12h dans Petclinic.
 
 ```properties
 // Avant
@@ -671,7 +671,7 @@ quarkus.http.static-resources.max-age=12h
 
 En complément des tests unitaires, Spring Petclinic utilise [**Testcontainers**](https://testcontainers.com/) pour ses tests d’intégration avec les bases MySQL et PostgreSQL. C’est par exemple le cas du test @SpringBootTest [PostgresIntegrationTests](https://github.com/spring-projects/spring-petclinic/blob/main/src/test/java/org/springframework/samples/petclinic/PostgresIntegrationTests.java) qui démarre une base PostgreSQL configurée dans le fichier [docker-compose.yml](https://github.com/spring-projects/spring-petclinic/blob/main/docker-compose.yml), utilisant à ce titre la dépendance **spring-boot-docker-compose**.
 
-Le support par Quarkus de la bibliothèque Testcontainers est particulièrement bien aboutie et presque transparent. La version @QuarkusTest de [PostgresIntegrationTests](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/test/java/org/springframework/samples/petclinic/PostgresIntegrationTests.java) ressemble à un test sans Docker :
+Le support par Quarkus de la bibliothèque Testcontainers est particulièrement bien aboutie et presque transparent. La version @QuarkusTest de [PostgresIntegrationTests](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/test/java/org/springframework/samples/petclinic/PostgresIntegrationTests.java) ressemble à un test sans Docker :
 
 ```java
 @QuarkusTest
@@ -729,7 +729,7 @@ public class Profiles {
 ```
 
 Notez la présence de **2 profils Quarkus** **posgres-it** et **mysql-it** dédiés aux tests d’intégrations   
-Dans le fichier [application.properties](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/resources/application.properties), une ligne a été ajoutée pour chacun de ces profils :
+Dans le fichier [application.properties](https://github.com/spring-petclinic/quarkus-spring-petclinic/blob/v3.21.0/src/main/resources/application.properties), une ligne a été ajoutée pour chacun de ces profils :
 
 ```properties
 %postgres-it.quarkus.datasource.db-kind=postgresql
@@ -746,7 +746,7 @@ Le [guide Building a Native Executable](https://quarkus.io/guides/building-nativ
 
 Contrairement à la version Spring Boot qui s’appuyait sur une base H2, la version Quarkus requière le démarrage d’une base PosgreSQL ou MySQL.
 
-L’installation de GraalVM (ex : sdk install java 21-graal ) et la déclaration de la variable d’environnement GRAALVM\_HOME est nécessaire.
+L’installation de GraalVM (ex : sdk install java 21-graal ) et la déclaration de la variable d’environnement GRAALVM\_HOME est nécessaire.
 
 ```bash
 ./mvnw package -Dnative -Dquarkus.profile=postgres
@@ -764,9 +764,9 @@ Quarkus Spring Petclinic démarre en 126 millisecondes :
 
 ## Conclusion
 
-A travers ce billet, vous aurez entre-aperçu les différentes **étapes nécessaires** pour **migrer vers Quarkus et Qute** une **application Spring Web MVC** avec **Thymeleaf** comme moteur de templating et **Spring Data JPA** pour la persistance. L’usage des **extensions Quarkus pour Spring** facilite grandement cette migration. Les ingénieurs de chez Quarkus ont fait du très bon travail. Malgré les quelques écarts de fonctionnement soulignés dans cet article, j’en ai été assez bluffé. Bravo à eux !
+A travers ce billet, vous aurez entre-aperçu les différentes **étapes nécessaires** pour **migrer vers Quarkus et Qute** une **application Spring Web MVC** avec **Thymeleaf** comme moteur de templating et **Spring Data JPA** pour la persistance. L’usage des **extensions Quarkus pour Spring** facilite grandement cette migration. Les ingénieurs de chez Quarkus ont fait du très bon travail. Malgré les quelques écarts de fonctionnement soulignés dans cet article, j’en ai été assez bluffé. Bravo à eux !
 
-J’ai profité de cette migration pour soumettre une dizaine de Pull Request dans la version originale de Spring Petclinic (ex : PR [#1775](https://github.com/spring-projects/spring-petclinic/pull/1775)).
+J’ai profité de cette migration pour soumettre une dizaine de Pull Request dans la version originale de Spring Petclinic (ex : PR [#1775](https://github.com/spring-projects/spring-petclinic/pull/1775)).
 
 Débutant en Quarkus, je ne serais pas surpris d’apprendre par mes lecteurs des axes d’améliorations. Utilisateur et amateur de Spring depuis 20 ans, j’ai essayé de rester neutre. **A vous de comparer les 2 versions de Petclinic et de vous faire votre avis**. Mon ressenti personnelle est que l’éco-système Java se porte bien et que la concurrence est saine et stimulante !
 
