@@ -55,38 +55,10 @@ Ce billet est découpé en 2 parties :
 ## Tableau comparatif Dozer vs mapping manuel en Java
 
 Extrait d’un **retour d’expérience**, le tableau ci-dessous dresse les avantages et les inconvénients de Dozer par rapport à une approche manuelle. A vous de pondérer chaque avantage / inconvénient en fonction de vos exigences.
-<table>
-<thead><tr><th></th><th>Dozer</th><th>Java</th></tr></thead>
-<tbody>
-<tr>
-<th>Avantages</th>
-<td><ul>
-<li>Lisibilité du XML pour mapper les champs : profondeur du chemin de la propriété, découplage entre la correspondance source/destination et la règle de transformation, conversion implicite en fonction des types source et destination</li>
-<li>Réutilisation du code : transformations réutilisables</li>
-<li>Structure le développement de mappings</li>
-<li>Le mapping sert à la fois pour créer un nouvel objet et compléter un objet existant</li>
-<li>Mapping bi-directionnel offert</li>
-</ul></td>
-<td><ul>
-<li>Simplicité</li>
-<li>Pile d’appel claire lors du debug</li>
-<li>Type safe</li>
-</ul></td>
-</tr>
-<tr>
-<th>Inconvénients</th>
-<td><ul>
-<li>Faibles performances</li>
-<li>Mapping non compilé : pas de complétion dans l’IDE, refactoring nécessitant des recherches dans le XML</li>
-<li>Utilisation de converter pour gérer les cas compliqués (et ne pas faire appel à du code Java après le mapping Dozer).</li>
-<li>Apprentissage du framework et des bonnes pratiques</li>
-</ul></td>
-<td><ul>
-<li>Verbosité du code Java pour les tests de nullité et le code d’instanciation</li>
-</ul></td>
-</tr>
-</tbody>
-</table>
+| | **Dozer** | **Java** |
+|---|---|---|
+| **Avantages** | - Lisibilité du XML pour mapper les champs : profondeur du chemin de la propriété, découplage entre la correspondance source/destination et la règle de transformation, conversion implicite en fonction des types source et destination<br>- Réutilisation du code : transformations réutilisables<br>- Structure le développement de mappings<br>- Le mapping sert à la fois pour créer un nouvel objet et compléter un objet existant<br>- Mapping bi-directionnel offert | - Simplicité<br>- Pile d’appel claire lors du debug<br>- Type safe |
+| **Inconvénients** | - Faibles performances<br>- Mapping non compilé : pas de complétion dans l’IDE, refactoring nécessitant des recherches dans le XML<br>- Utilisation de converter pour gérer les cas compliqués (et ne pas faire appel à du code Java après le mapping Dozer).<br>- Apprentissage du framework et des bonnes pratiques | - Verbosité du code Java pour les tests de nullité et le code d’instanciation |
 
 En fonction de votre expertise, ce tableau pourrait être adapter avec d’autres frameworks.
 

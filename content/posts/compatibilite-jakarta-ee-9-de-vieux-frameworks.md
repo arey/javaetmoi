@@ -103,57 +103,9 @@ java -jar %MIGRATION_TOOL% -profile=EE %M2_REPO%\javax\faces\jsf-api\1.2_14\jsf-
 Le fichier JAR jsf-api-1.2\_14-jakarta.jar généré est désormais compatible Jakarta EE 9.  
 Extrait de la classe FacesServlet :
 
-<table>
-<thead><tr><th>jsf-api-1.2_14.jar compatible Java EE 8</th><th>jsf-api-1.2_14-jakarta.jar migré à Jakarta EE 9</th></tr></thead>
-<tbody><tr>
-<td><pre><code>package javax.faces.webapp;
-
-import javax.faces.FacesException;
-import javax.faces.FactoryFinder;
-import javax.faces.context.FacesContext;
-import javax.faces.context.FacesContextFactory;
-import javax.faces.lifecycle.Lifecycle;
-import javax.faces.lifecycle.LifecycleFactory;
-import javax.servlet.Servlet;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.UnavailableException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-public final class FacesServlet implements Servlet {</code></pre></td>
-<td><pre><code>package jakarta.faces.webapp;
-
-import jakarta.faces.FacesException;
-import jakarta.faces.FactoryFinder;
-import jakarta.faces.context.FacesContext;
-import jakarta.faces.context.FacesContextFactory;
-import jakarta.faces.lifecycle.Lifecycle;
-import jakarta.faces.lifecycle.LifecycleFactory;
-import jakarta.servlet.Servlet;
-import jakarta.servlet.ServletConfig;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
-import jakarta.servlet.UnavailableException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-public final class FacesServlet implements Servlet {</code></pre></td>
-</tr></tbody>
-</table>
+| **jsf-api-1.2\_14.jar compatible Java EE 8** | **jsf-api-1.2\_14-jakarta.jar migré à Jakarta EE 9** |
+|---|---|
+| `package javax.faces.webapp;`<br><br>`import javax.faces.FacesException;`<br>`import javax.faces.FactoryFinder;`<br>`import javax.faces.context.FacesContext;`<br>`import javax.faces.context.FacesContextFactory;`<br>`import javax.faces.lifecycle.Lifecycle;`<br>`import javax.faces.lifecycle.LifecycleFactory;`<br>`import javax.servlet.Servlet;`<br>`import javax.servlet.ServletConfig;`<br>`import javax.servlet.ServletException;`<br>`import javax.servlet.ServletRequest;`<br>`import javax.servlet.ServletResponse;`<br>`import javax.servlet.UnavailableException;`<br>`import javax.servlet.http.HttpServletRequest;`<br>`import javax.servlet.http.HttpServletResponse;`<br><br>`import java.io.IOException;`<br>`import java.util.ResourceBundle;`<br>`import java.util.logging.Level;`<br>`import java.util.logging.Logger;`<br><br>`public final class FacesServlet implements Servlet {` | `package jakarta.faces.webapp;`<br><br>`import jakarta.faces.FacesException;`<br>`import jakarta.faces.FactoryFinder;`<br>`import jakarta.faces.context.FacesContext;`<br>`import jakarta.faces.context.FacesContextFactory;`<br>`import jakarta.faces.lifecycle.Lifecycle;`<br>`import jakarta.faces.lifecycle.LifecycleFactory;`<br>`import jakarta.servlet.Servlet;`<br>`import jakarta.servlet.ServletConfig;`<br>`import jakarta.servlet.ServletException;`<br>`import jakarta.servlet.ServletRequest;`<br>`import jakarta.servlet.ServletResponse;`<br>`import jakarta.servlet.UnavailableException;`<br>`import jakarta.servlet.http.HttpServletRequest;`<br>`import jakarta.servlet.http.HttpServletResponse;`<br><br>`import java.io.IOException;`<br>`import java.util.ResourceBundle;`<br>`import java.util.logging.Level;`<br>`import java.util.logging.Logger;`<br><br>`public final class FacesServlet implements Servlet {` |
 
 3\. Renouveler l'opération pour le JAR du code source.  
 Exemple sur jsf-api-1.2\_14-sources.jar :

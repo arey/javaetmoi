@@ -40,27 +40,23 @@ Le [différenciel complet](https://github.com/spring-petclinic/quarkus-spring-pe
 
 Spring Petclinic supporte les 2 principales plateformes de **build** de l’ecosystème Java, à savoir **Maven** et **Gradle**. Pour chaque dépendance Spring Boot, le tableau ci-dessous dresse l’équivalent utilisé sur la version Quarkus :
 
-<table>
-<thead><tr><th>Dépendances Spring Boot</th><th>Dépendances Quarkus correspondantes</th><th>Commentaire</th></tr></thead>
-<tbody>
-<tr><td>spring-boot-starter-actuator</td><td>quarkus-smallrye-health</td><td><a href="https://github.com/smallrye/smallrye-health/">SmallRye Health</a> est une implementation de la <a href="https://github.com/eclipse/microprofile-health/">MicroProfile Health</a>.</td></tr>
-<tr><td>spring-boot-starter-cache</td><td>cache-api<br>caffeine<br>quarkus-spring-cache</td><td>Extension Spring Cache pour Quarkus<br>Quarkus utilise par défaut Caffeine.</td></tr>
-<tr><td>spring-boot-starter-data-jpa</td><td>quarkus-spring-data-jpa<br>quarkus-narayana-jta</td><td>Extension Spring Data JPA pour Quarkus<br>Quarkus s’appuie sur Hibernate ORM et Panache. Le gestionnaire de transactions JTA est à ajouter manuellement.</td></tr>
-<tr><td>spring-boot-starter-web</td><td>quarkus-spring-web<br>quarkus-rest-jackson</td><td>L’extension Spring Web pour Quarkus requère quarkus-rest-jackson ou quarkus-resteasy-jackson.</td></tr>
-<tr><td>spring-boot-starter-validation</td><td>quarkus-hibernate-validator</td><td>Les versions Spring Boot et Quarkus de Petclinic s’appuient toutes 2 sur Hibernate Validator.</td></tr>
-<tr><td>spring-boot-starter-thymeleaf</td><td>quarkus-qute</td><td>Pas de correspondance directe car Quarkus utilise Qute pour le templating.</td></tr>
-<tr><td>spring-boot-starter-test</td><td>quarkus-junit5<br>quarkus-junit5-mockito<br>quarkus-test-h2<br>rest-assured</td><td>Rest Assured remplace MockMvc pour tester les contrôleurs REST.</td></tr>
-<tr><td>h2</td><td>quarkus-jdbc-h2</td><td></td></tr>
-<tr><td>mysql-connector-j</td><td>quarkus-jdbc-mysql</td><td>En plus des drivers JDBC, tire le pool de connexions Agroal qui remplace HikariCP.</td></tr>
-<tr><td>postgresql</td><td>quarkus-jdbc-postgresql</td><td></td></tr>
-<tr><td>webjars-locator-lite</td><td>quarkus-web-dependency-locator</td><td>Utiles pour les webjars.</td></tr>
-<tr><td>spring-boot-devtools</td><td></td><td>Pas de correspondance directe. Quarkus inclue le mode dev par défaut.</td></tr>
-<tr><td>spring-boot-docker-compose</td><td></td><td>Utilisé par les tests d’intégration reposant sur Testcontainers.<br>Pas d’équivalent côté Quarkus qui sait nativement démarrer des conteneurs Docker lorsqu’aucune configuration n’est précisée.</td></tr>
-<tr><td>(spring-core et spring-beans)</td><td>quarkus-spring-di</td><td>Support des annotations Spring d’injection de dépendance, mais en tirant ArC, une implémentation light de CDI spécifique à Quarkus.</td></tr>
-<tr><td></td><td>quarkus-container-image-docker</td><td>Création d’images Docker multi-plateformes.</td></tr>
-</tbody>
-</table>
-
+| **Dépendances Spring Boot**      | **Dépendances Quarkus correspondantes**                                             | **Commentaire**                                                                                                                                                                                  |
+|----------------------------------|-------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `spring-boot-starter-actuator`   | `quarkus-smallrye-health`                                                           | [SmallRye Health](https://github.com/smallrye/smallrye-health/) est une implementation de la [MicroProfile Health](https://github.com/eclipse/microprofile-health/).                             |
+| `spring-boot-starter-cache`      | `cache-api`<br>`caffeine`<br>`quarkus-spring-cache`                                 | Extension Spring Cache pour Quarkus<br>Quarkus utilise par défaut Caffeine.                                                                                                                      |
+| `spring-boot-starter-data-jpa`   | `quarkus-spring-data-jpa`<br>`quarkus-narayana-jta`                                 | Extension Spring Data JPA pour Quarkus<br>Quarkus s’appuie sur Hibernate ORM et Panache. Le gestionnaire de transactions JTA est à ajouter manuellement.                                         |
+| `spring-boot-starter-web`        | `quarkus-spring-web`<br>`quarkus-rest-jackson`                                      | L’extension Spring Web pour Quarkus requère quarkus-rest-jackson ou quarkus-resteasy-jackson.                                                                                                    |
+| `spring-boot-starter-validation` | `quarkus-hibernate-validator`                                                       | Les versions Spring Boot et Quarkus de Petclinic s’appuient toutes 2 sur Hibernate Validator.                                                                                                    |
+| `spring-boot-starter-thymeleaf`  | `quarkus-qute`                                                                      | Pas de correspondance directe car Quarkus utilise Qute pour le templating.                                                                                                                       |
+| `spring-boot-starter-test`       | `quarkus-junit5`<br>`quarkus-junit5-mockito`<br>`quarkus-test-h2`<br>`rest-assured` | Rest Assured remplace MockMvc pour tester les contrôleurs REST.                                                                                                                                  |
+| `h2`                             | `quarkus-jdbc-h2`                                                                   |                                                                                                                                                                                                  |
+| `mysql-connector-j`              | `quarkus-jdbc-mysql`                                                                | En plus des drivers JDBC, tire le pool de connexions Agroal qui remplace HikariCP.                                                                                                               |
+| `postgresql`                     | `quarkus-jdbc-postgresql`                                                           |                                                                                                                                                                                                  |
+| `webjars-locator-lite`           | `quarkus-web-dependency-locator`                                                    | Utiles pour les webjars.                                                                                                                                                                         |
+| `spring-boot-devtools`           |                                                                                     | Pas de correspondance directe. Quarkus inclue le mode dev par défaut.                                                                                                                            |
+| `spring-boot-docker-compose`     |                                                                                     | Utilisé par les tests d’intégration reposant sur Testcontainers.<br>Pas d’équivalent côté Quarkus qui sait nativement démarrer des conteneurs Docker lorsqu’aucune configuration n’est précisée. |
+| `(spring-core et spring-beans)`  | `quarkus-spring-di`                                                                 | Support des annotations Spring d’injection de dépendance, mais en tirant ArC, une implémentation light de CDI spécifique à Quarkus.                                                              |
+|                                  | `quarkus-container-image-docker`                                                    | Création d’images Docker multi-plateformes.                                                                                                                                                      |
 
 Les dépendances vers les 2 **webjars** **bootstrap** et **font-awesome** sont restés inchangées.  
 La migration a été faite avec une approche top-down : on part de la couche persistance pour remonter vers la couche de présentation.
