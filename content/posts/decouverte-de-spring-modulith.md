@@ -57,42 +57,16 @@ Avant de plonger dans le code, prenons un peu de hauteur. Spring Modulith repose
 
 À partir de cette convention d’organisation, Spring Modulith propose un ensemble de fonctionnalités complémentaires :
 
-**Fonctionnalité**
-
-**Description**
-
-**Vérification structurelle**
-
-Lors de la construction de l’application, le test d’architecture `ApplicationModules.verify()` vérifie qu'aucun module n'accède aux packages internes d'un autre module et qu'il n'existe pas de dépendances cycliques.
-
-**Communication par événements**
-
-`ApplicationEventPublisher` et `@ApplicationModuleListener` permettent de découpler les modules sans appel direct entre beans Spring.
-
-**Registre de publication des événements**
-
-Persiste chaque événement en base de données (table `event_publication`) avant l'exécution du listener, ce qui garantit la livraison des évenements au moins une fois (le _at-least-once delivery_).
-
-**Moments**
-
-
- Publie automatiquement des événements temporels ( `DayHasPassed`, `HourHasPassed` …) pour remplacer les `@Scheduled`.
-
-**Tests d'intégration modulaires**
-
-`@ApplicationModuleTest` restreint le chargement du contexte Spring Boot au module applicatif testé. L'API `Scenario` orchestre les tests asynchrones.
-
-**Documentation**
-
-L’API `Documenter` produit des diagrammes C4 PlantUML et des Application _Module Canvas_ AsciiDoc décrivant l'architecture du code.
-
-**Actuator**
-
-La sonde `/actuator/modulith` expose le graphe de modules applicatifs au runtime.
-
-**Observabilité**
-
-L’artefact `spring-modulith-observability` instrumente automatiquement les beans exposés et génère des _spans_ Micrometer pour chaque interaction inter-modules.
+| **Fonctionnalité** | **Description** |
+|---|---|
+| **Vérification structurelle** | Lors de la construction de l’application, le test d’architecture `ApplicationModules.verify()` vérifie qu’aucun module n’accède aux packages internes d’un autre module et qu’il n’existe pas de dépendances cycliques. |
+| **Communication par événements** | `ApplicationEventPublisher` et `@ApplicationModuleListener` permettent de découpler les modules sans appel direct entre beans Spring. |
+| **Registre de publication des événements** | Persiste chaque événement en base de données (table `event_publication`) avant l’exécution du listener, ce qui garantit la livraison des évenements au moins une fois (le _at-least-once delivery_). |
+| **Moments** | Publie automatiquement des événements temporels (`DayHasPassed`, `HourHasPassed` …) pour remplacer les `@Scheduled`. |
+| **Tests d’intégration modulaires** | `@ApplicationModuleTest` restreint le chargement du contexte Spring Boot au module applicatif testé. L’API `Scenario` orchestre les tests asynchrones. |
+| **Documentation** | L’API `Documenter` produit des diagrammes C4 PlantUML et des Application _Module Canvas_ AsciiDoc décrivant l’architecture du code. |
+| **Actuator** | La sonde `/actuator/modulith` expose le graphe de modules applicatifs au runtime. |
+| **Observabilité** | L’artefact `spring-modulith-observability` instrumente automatiquement les beans exposés et génère des _spans_ Micrometer pour chaque interaction inter-modules. |
 
 La [documentation officielle de Spring Modulith](%5D(https:/docs.spring.io/spring-modulith/reference/index.html) est très complète. Je vous encourage à vous y référer. Dans les paragraphes qui suivent, nous allons voir concrètement comment chaque fonctionnalité a été intégrée dans [Spring Petclinic](https://github.com/spring-projects/spring-petclinic), ceci en 11 étapes. Pour rappel, cette application Spring Boot créée en 2003 met en scène une clinique vétérinaire avec ses propriétaires d'animaux, ses vétérinaires et la prise de rendez-vous.
 
@@ -201,25 +175,12 @@ Spring Modulith détecte automatiquement les modules à partir des **sous-packag
 
 Les modules identifiés étaient à ce stade au nombre de quatre :
 
-**Module**
-
-**Package racine**
-
-owner
-
-`org.springframework.samples.petclinic.owner`
-
-vet
-
-`org.springframework.samples.petclinic.vet`
-
-system
-
-`org.springframework.samples.petclinic.system`
-
-model
-
-`org.springframework.samples.petclinic.model`
+| **Module** | **Package racine** |
+|---|---|
+| owner | `org.springframework.samples.petclinic.owner` |
+| vet | `org.springframework.samples.petclinic.vet` |
+| system | `org.springframework.samples.petclinic.system` |
+| model | `org.springframework.samples.petclinic.model` |
 
 {{< figure src="/wp-content/uploads/2026/03/word-image-2642-1.png" alt="" caption="" >}}
 

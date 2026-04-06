@@ -103,11 +103,10 @@ java -jar %MIGRATION_TOOL% -profile=EE %M2_REPO%\javax\faces\jsf-api\1.2_14\jsf-
 Le fichier JAR jsf-api-1.2\_14-jakarta.jar généré est désormais compatible Jakarta EE 9.  
 Extrait de la classe FacesServlet :
 
-**jsf-api-1.2\_14.jar compatible Java EE 8**
-
-**jsf-api-1.2\_14-jakarta.jar migré à Jakarta EE 9**
-
-`package javax.faces.webapp;
+<table>
+<thead><tr><th>jsf-api-1.2_14.jar compatible Java EE 8</th><th>jsf-api-1.2_14-jakarta.jar migré à Jakarta EE 9</th></tr></thead>
+<tbody><tr>
+<td><pre><code>package javax.faces.webapp;
 
 import javax.faces.FacesException;
 import javax.faces.FactoryFinder;
@@ -129,9 +128,8 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public final class FacesServlet implements Servlet {`
-
-`package jakarta.faces.webapp;
+public final class FacesServlet implements Servlet {</code></pre></td>
+<td><pre><code>package jakarta.faces.webapp;
 
 import jakarta.faces.FacesException;
 import jakarta.faces.FactoryFinder;
@@ -153,7 +151,9 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public final class FacesServlet implements Servlet {`
+public final class FacesServlet implements Servlet {</code></pre></td>
+</tr></tbody>
+</table>
 
 3\. Renouveler l'opération pour le JAR du code source.  
 Exemple sur jsf-api-1.2\_14-sources.jar :
