@@ -98,3 +98,61 @@ Comments are served from `data/comments.yaml` via `layouts/partials/wp-comments.
 - Clarity's own `layouts/partials/comments.html` (for Disqus/Giscus) is not used — our custom partial is invoked via the `body-end` hook instead
 - Do not add a `content/search.md` or `content/archives.md` — these are PaperMod-specific and have no Clarity equivalent
 
+## Hugo Theme Override System
+
+Hugo resolves templates with this priority: **project `layouts/` > theme `layouts/`**. Project-level files are never overwritten by theme upgrades.
+
+### How to override a theme template
+
+Copy the file from the theme to the same relative path in the project root:
+
+```bash
+# Example: override a partial
+cp themes/hugo-clarity/layouts/partials/header.html layouts/partials/header.html
+
+# Example: override a default template
+cp themes/hugo-clarity/layouts/_default/single.html layouts/_default/single.html
+```
+
+Edit the copy — Hugo will use the project version automatically.
+
+### Clarity-specific extension points
+
+Clarity explicitly supports two SASS override files at the **project root** (do not edit theme files):
+
+| File | Purpose |
+|---|---|
+| `assets/sass/_custom.sass` | Additional styles and general CSS overrides |
+| `assets/sass/_override.sass` | Override Clarity's SASS variables (`$theme`, colors, fonts) |
+
+Clarity also supports two **template hooks** — create these files to inject HTML without copying full partials:
+
+| Hook | Injected at |
+|---|---|
+| `layouts/partials/hooks/head-end.html` | Before `</head>` |
+| `layouts/partials/hooks/body-end.html` | Before `</body>` |
+
+### Current project overrides
+
+| Project file | Overrides | Notes |
+|---|---|---|
+| `layouts/partials/header.html` | `themes/.../header.html` | Adds full-width banner above nav; nav changed to sticky |
+| `layouts/partials/sidebar.html` | `themes/.../sidebar.html` | Adds Devoxx France + Blogs Java sections |
+| `layouts/_default/_markup/render-image.html` | `themes/.../_markup/render-image.html` | Guards against nil `$.Page.File` on virtual pages |
+| `assets/sass/_custom.sass` | `themes/.../sass/_custom.sass` | Banner width (100vw) + nav sticky positioning |
+| `layouts/partials/hooks/body-end.html` | *(hook, no theme equivalent)* | Invokes `wp-comments.html` |
+
+### Theme upgrade checklist
+
+Before running `git submodule update --remote themes/hugo-clarity`, diff the files we override:
+
+```bash
+git -C themes/hugo-clarity diff HEAD origin/main -- \
+  layouts/partials/header.html \
+  layouts/partials/sidebar.html \
+  layouts/_default/_markup/render-image.html
+```
+
+If Clarity changed a file we override, manually merge upstream changes into our version before updating. See `README.md` for the full upgrade procedure.
+
+
