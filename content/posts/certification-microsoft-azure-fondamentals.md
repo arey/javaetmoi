@@ -8,9 +8,8 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - retour-d'expérience
-cover:
-  alt: azure-fundamentals-600x600
-  image: /wp-content/uploads/2020/02/azure-fundamentals-600x600-1.png
+featureImage: /wp-content/uploads/2020/02/azure-fundamentals-600x600-1.png
+featureImageAlt: azure-fundamentals-600x600
 date: "2020-02-08T18:35:40+00:00"
 guid: https://javaetmoi.com/?p=2080
 parent_post_id: null

@@ -237,7 +237,7 @@ Cette implémentation n’est pas parfaite dans le sens où Salesforce ne renvoi
 
 **Ressources** :
 
-- [OAuth 2 Resource Owner Password Credentials Flow](-%09https:/guide-api-rest.marmicode.fr/securite-des-apis-rest/oauth-2/oauth-2-authorization-code-flow) (Marmicode)
+- [OAuth 2 Resource Owner Password Credentials Flow](https:/guide-api-rest.marmicode.fr/securite-des-apis-rest/oauth-2/oauth-2-authorization-code-flow) (Marmicode)
 - [Getting Started with OAuth 2.0 by Ryan Boyd - Chapter 4. Resource Owner Password Flow](https://www.oreilly.com/library/view/getting-started-with/9781449317843/ch04.html) (Oreilly library)
 - [Using Spring Security 5 to integrate with OAuth 2-secured services such as Facebook and GitHub](https://spring.io/blog/2018/03/06/using-spring-security-5-to-integrate-with-oauth-2-secured-services-such-as-facebook-and-github) (Spring Blog)
 - [Spring Security OAuth 5.2 Migration Sample](https://github.com/jgrandja/spring-security-oauth-5-2-migrate) (GitHub)

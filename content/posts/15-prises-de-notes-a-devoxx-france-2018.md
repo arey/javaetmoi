@@ -9,9 +9,8 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - conférence
-cover:
-  alt: ""
-  image: /wp-content/uploads/2018/04/IMG_20180420_090935.jpg
+featureImage: /wp-content/uploads/2018/04/IMG_20180420_090935.jpg
+featureImageAlt: ""
 date: "2018-04-27T16:23:25+00:00"
 guid: http://javaetmoi.com/?p=1826
 parent_post_id: null

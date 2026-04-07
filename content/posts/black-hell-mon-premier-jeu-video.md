@@ -23,9 +23,8 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - retour-d'expérience
-cover:
-  alt: 2019-02 - Black Hell - Ecran accueil
-  image: /wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png
+featureImage: /wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png
+featureImageAlt: 2019-02 - Black Hell - Ecran accueil
 date: "2019-02-11T16:27:37+00:00"
 guid: http://javaetmoi.com/?p=1906
 parent_post_id: null

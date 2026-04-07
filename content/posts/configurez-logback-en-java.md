@@ -8,9 +8,8 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - retour-d'expérience
-cover:
-  alt: logback-logo
-  image: /wp-content/uploads/2018/03/logback-logo.jpg
+featureImage: /wp-content/uploads/2018/03/logback-logo.jpg
+featureImageAlt: logback-logo
 date: "2018-03-30T17:01:59+00:00"
 guid: http://javaetmoi.com/?p=1811
 parent_post_id: null

@@ -8,9 +8,8 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - conférence
-cover:
-  alt: devoxx-france-2024-banniere-generative-ai-avec-java
-  image: /wp-content/uploads/2024/04/devoxx-france-2024-banniere-generative-ai-avec-java.png
+featureImage: /wp-content/uploads/2024/04/devoxx-france-2024-banniere-generative-ai-avec-java.png
+featureImageAlt: devoxx-france-2024-banniere-generative-ai-avec-java
 date: "2024-04-21T14:27:40+00:00"
 guid: https://javaetmoi.com/?p=2270
 parent_post_id: null

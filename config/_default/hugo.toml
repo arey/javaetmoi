@@ -1,0 +1,19 @@
+baseURL = "https://javaetmoi.com/"
+languageCode = "fr-FR"
+title = "Java & Moi"
+theme = "hugo-clarity"
+DefaultContentLanguage = "fr"
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[outputFormats.RSS]
+mediaType = "application/rss+xml"
+baseName = "feed"
+
+[pagination]
+pagerSize = 10

@@ -9,9 +9,8 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - spring
-cover:
-  alt: spring-webflux
-  image: /wp-content/uploads/2017/12/spring-webflux.png
+featureImage: /wp-content/uploads/2017/12/spring-webflux.png
+featureImageAlt: spring-webflux
 date: "2017-12-07T17:26:12+00:00"
 guid: http://javaetmoi.com/?p=1794
 parent_post_id: null

@@ -236,8 +236,8 @@ Pour les applications comportant de nombreux écrans, afin de réduire les coût
 
 Références :
 
-- [RichFaces Migration Guide. 3.3.x - 4.x Migration](•%09https:/community.jboss.org/wiki/RichFacesMigrationGuide33x-4xMigration)
-- [RichFaces 3.3 - > 4.x migration guide. Unleashed](•%09https:/community.jboss.org/wiki/RichFaces33-4xMigrationGuideUnleashed)
+- [RichFaces Migration Guide. 3.3.x - 4.x Migration](https://community.jboss.org/wiki/RichFacesMigrationGuide33x-4xMigration)
+- [RichFaces 3.3 - > 4.x migration guide. Unleashed](https://community.jboss.org/wiki/RichFaces33-4xMigrationGuideUnleashed)
 - [Write a JSF 2 custom EL resolver](http://www.java-tutorial.ch/java-server-faces/write-a-jsf-2-custom-el-resolver)
 - [For JSF 2.0, How to Enable EL 2.2 on Tomcat 6](http://www.javaplex.com/for-jsf-2-how-to-enable-el-2-2-on-tomcat-6/)
 - [JSF 2 Configuration parameters](http://www.java-tutorial.ch/java-server-faces/jsf-2-configuration-parameters)

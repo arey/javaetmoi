@@ -1,6 +1,6 @@
 
 <!-- fetch /data/comments.yaml -->
-{{ $site_comments := .Site.Data.comments }}
+{{ $site_comments := hugo.Data.comments }}
 
 <!-- /data/comments.yaml not found: skip rendering -->
 {{ $page := . }}

@@ -8,9 +8,8 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - conférence
-cover:
-  alt: word-image-2335-1
-  image: /wp-content/uploads/2024/04/word-image-2335-1.jpeg
+featureImage: /wp-content/uploads/2024/04/word-image-2335-1.jpeg
+featureImageAlt: word-image-2335-1
 date: "2024-04-26T17:55:09+00:00"
 guid: https://javaetmoi.com/?p=2335
 parent_post_id: null

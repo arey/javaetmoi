@@ -216,5 +216,5 @@ Ressources :
 - [Log tagging creates smarter application logs #awesomelogs](https://stackify.com/get-smarter-log-management-with-log-tags/) (Alexandra Altaver)
 - [Logging best practices in an app or add-on for Splunk Enterprise](https://dev.splunk.com/enterprise/docs/developapps/addsupport/logging/loggingbestpractices/)
 - [Changing de log Logging Level at the Runtime  for a Spring Boot Application](https://www.baeldung.com/spring-boot-changing-log-level-at-runtime) (Baeldung)
-- [Log Forging by CRLF Injection](-%09https:/www.srccodes.com/log-forging-by-crlf-log-injection-owasp-security-vulnerability-attacks-crlf) (Abhijit Ghosh)
+- [Log Forging by CRLF Injection](https://www.srccodes.com/log-forging-by-crlf-log-injection-owasp-security-vulnerability-attacks-crlf) (Abhijit Ghosh)
 - [Mask sensitive data in logs](https://medium.com/@kolapkar.dhaval/mask-sensitive-data-in-logs-7e06496e56c1) (Dhaval Kolapkar)

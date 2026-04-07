@@ -7,9 +7,8 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - retour-d'expérience
-cover:
-  alt: 2019-03 - Dashboard Grafana dockerisé - grafana
-  image: /wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png
+featureImage: /wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png
+featureImageAlt: 2019-03 - Dashboard Grafana dockerisé - grafana
 date: "2019-03-28T17:27:32+00:00"
 guid: http://javaetmoi.com/?p=1959
 parent_post_id: null

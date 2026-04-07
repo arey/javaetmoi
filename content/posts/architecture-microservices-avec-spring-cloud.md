@@ -9,9 +9,8 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - spring
-cover:
-  alt: 2018-08-24-Architecture-microservices-avec-Spring-Cloud
-  image: /wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg
+featureImage: /wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg
+featureImageAlt: 2018-08-24-Architecture-microservices-avec-Spring-Cloud
 date: "2018-10-04T05:58:31+00:00"
 guid: http://javaetmoi.com/?p=1869
 parent_post_id: null
@@ -531,6 +530,6 @@ Ressources :
 - [Repo Git spring-petclinic/spring-petclinic-microservices de l’application Spring Petclinic Microservices](https://github.com/spring-petclinic/spring-petclinic-microservices/)
 - [Repo Git spring-petclinic/spring-petclinic-microservices-config de la configuration de Spring Petclinic Microservices](https://github.com/spring-petclinic/spring-petclinic-microservices-config)
 - [Microservices a definition of this new architectural term (Martin Fowler)](https://martinfowler.com/articles/microservices.html)
-- [The rise of Java microframeworks (E4developer)](The%20rise%20of%20Java%20microframeworks%20(E4developer)s%20%0Dhttps:/openclassrooms.com/fr/courses/4668056-construisez-des-microservices/5122300-apprehendez-larchitecture-microservices%0D)
+- [The rise of Java microframeworks (E4developer)](https://www.e4developer.com/2018/06/02/the-rise-of-java-microframeworks/)
 - [Spring Cloud Config official documentation](https://cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html)
 - [Appréhendez l’architecture Microservices](https://openclassrooms.com/fr/courses/4668056-construisez-des-microservices/5122300-apprehendez-larchitecture-microservices) (OpenClassrooms)

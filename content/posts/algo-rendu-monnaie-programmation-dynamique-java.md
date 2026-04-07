@@ -9,9 +9,8 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - retour-d'expérience
-cover:
-  alt: 300px-Rendu_monnaie.svg
-  image: /wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png
+featureImage: /wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png
+featureImageAlt: 300px-Rendu_monnaie.svg
 date: "2017-07-01T08:07:45+00:00"
 guid: http://javaetmoi.com/?p=1742
 parent_post_id: null

@@ -10,9 +10,8 @@ author: admin
 categories:
   - retour-d'expérience
   - spring
-cover:
-  alt: Bannière Spring PetClinic Modulith
-  image: /wp-content/uploads/2026/04/Sans-titre.png
+featureImage: /wp-content/uploads/2026/04/Sans-titre.png
+featureImageAlt: Bannière Spring PetClinic Modulith
 date: "2026-04-06T13:26:43+00:00"
 guid: https://javaetmoi.com/?p=2642
 parent_post_id: null
@@ -548,5 +547,5 @@ Ayant encore peu d’expérience avec Spring Modulith, je suis ouvert à toute p
 - [Spring Modulith examples](https://github.com/spring-projects/spring-modulith/tree/main/spring-modulith-examples) : les exemples fournis par l'équipe Spring
 - [Guide to Modulith with Spring Boot](https://piotrminkowski.com/2023/10/13/guide-to-modulith-with-spring-boot/) : article de blog de Piotr Mińkowski datant de 2023
 - [spring-modulith-with-ddd](https://github.com/xsreality/spring-modulith-with-ddd) : code source d’une application Modular Monolith basée sur Spring Modulith et le Domain Driven Design
-- [Migrating to Modular Monolith using Spring Modulith and IntelliJ IDEA](-%09https:/blog.jetbrains.com/idea/2026/02/migrating-to-modular-monolith-using-spring-modulith-and-intellij-idea)
+- [Migrating to Modular Monolith using Spring Modulith and IntelliJ IDEA](https:/blog.jetbrains.com/idea/2026/02/migrating-to-modular-monolith-using-spring-modulith-and-intellij-idea)
 - [Monolith First](https://martinfowler.com/bliki/MonolithFirst.html) : article de Martin Fowler datant de 2015  
