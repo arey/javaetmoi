@@ -10,7 +10,8 @@ author: admin
 categories:
   - retour-d'expérience
   - spring
-featureImage: /wp-content/uploads/2026/04/Sans-titre.png
+thumbnail: /wp-content/uploads/2026/03/logo-spring-modulith.png
+featureImage: /wp-content/uploads/2026/04/banner-spring-petclinic-modulith.png
 featureImageAlt: Bannière Spring PetClinic Modulith
 date: "2026-04-06T13:26:43+00:00"
 guid: https://javaetmoi.com/?p=2642
@@ -32,7 +33,7 @@ title: Découverte de Spring Modulith
 url: /2026/04/decouverte-de-spring-modulith/
 
 ---
-{{< figure src="/wp-content/uploads/2026/03/image.png" alt="" caption="" >}}
+![:left](/wp-content/uploads/2026/03/logo-spring-modulith.png)
 
 En 2025, j’ai eu l’opportunité de mettre en place [**Spring Modulith**](https://spring.io/projects/spring-modulith) sur une nouvelle application web. Pour partager cette expérience avec mes collègues, j’ai préparé une démonstration live montrant comment intégrer Spring Modulith dans une application Spring Boot.
 
