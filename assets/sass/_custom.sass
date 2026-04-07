@@ -1,0 +1,23 @@
+// Banner above nav: stretch to full viewport width even inside the max-width centered body
+.site_banner_wrap
+  display: block
+  width: 100vw
+  margin-left: calc(50% - 50vw)
+  background: #fff
+  line-height: 0
+
+  a
+    display: block
+    line-height: 0
+
+  .site_banner_img
+    display: block
+    width: 100%
+    height: auto
+
+// Move nav below banner by switching from fixed to sticky + full viewport width
+.nav_header
+  position: sticky !important
+  top: 0
+  width: 100vw !important
+  margin-left: calc(50% - 50vw)
