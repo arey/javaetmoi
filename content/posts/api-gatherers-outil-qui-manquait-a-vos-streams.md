@@ -7,6 +7,8 @@ author: admin
 categories:
   - conférence
 date: "2025-04-25T06:09:01+00:00"
+thumbnail: /wp-content/uploads/2025/04/word-image-2551-1-edited.jpeg
+featureImage: /wp-content/uploads/2025/04/word-image-2551-1-edited.jpeg
 footnotes: ""
 guid: https://javaetmoi.com/?p=2551
 parent_post_id: null

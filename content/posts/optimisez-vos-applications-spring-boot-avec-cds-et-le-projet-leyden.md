@@ -8,6 +8,9 @@ categories:
   - conférence
   - spring
 date: "2025-04-21T12:04:33+00:00"
+thumbnail: /wp-content/uploads/2025/04/word-image-2482-1.jpeg
+featureImage: /wp-content/uploads/2025/04/word-image-2482-1.jpeg
+featureImageAlt: "Sébastien Deleuze at Devoxx France 2025"
 footnotes: ""
 guid: https://javaetmoi.com/?p=2482
 parent_post_id: null

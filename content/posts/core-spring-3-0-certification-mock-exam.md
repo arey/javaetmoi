@@ -4,6 +4,8 @@ author: admin
 categories:
   - spring
 date: "2012-02-26T16:22:40+00:00"
+thumbnail: /wp-content/uploads/2012/02/CertitfiedSpring_Professional.png
+featureImage: /wp-content/uploads/2012/02/CertitfiedSpring_Professional.png
 guid: http://javaetmoi.com/?p=18
 parent_post_id: null
 post_id: "18"

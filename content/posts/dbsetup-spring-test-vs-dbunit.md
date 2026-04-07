@@ -4,6 +4,9 @@ author: admin
 categories:
   - test
 date: "2013-09-06T16:46:25+00:00"
+thumbnail: /wp-content/uploads/2013/09/test-database.jpg
+featureImage: /wp-content/uploads/2013/09/test-database.jpg
+featureImageAlt: "test-database"
 guid: http://javaetmoi.com/?p=757
 parent_post_id: null
 post_id: "757"

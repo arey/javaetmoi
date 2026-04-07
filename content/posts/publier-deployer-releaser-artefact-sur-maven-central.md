@@ -4,6 +4,9 @@ author: admin
 categories:
   - maven
 date: "2014-09-08T04:30:59+00:00"
+thumbnail: /wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-search.png
+featureImage: /wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-search.png
+featureImageAlt: "2014-09-publier-sur-maven-central-javaetmoi-search"
 guid: http://javaetmoi.com/?p=1184
 parent_post_id: null
 post_id: "1184"

@@ -4,6 +4,8 @@ author: admin
 categories:
   - conférence
 date: "2022-04-24T15:22:06+00:00"
+thumbnail: /wp-content/uploads/2022/04/2022-04-21-10-ans-Devoxx-France.jpg
+featureImage: /wp-content/uploads/2022/04/2022-04-21-10-ans-Devoxx-France.jpg
 guid: https://javaetmoi.com/?p=2187
 parent_post_id: null
 post_id: "2187"

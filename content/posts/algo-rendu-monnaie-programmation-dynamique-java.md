@@ -12,6 +12,7 @@ categories:
 featureImage: /wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png
 featureImageAlt: 300px-Rendu_monnaie.svg
 date: "2017-07-01T08:07:45+00:00"
+thumbnail: /wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png
 guid: http://javaetmoi.com/?p=1742
 parent_post_id: null
 post_id: "1742"

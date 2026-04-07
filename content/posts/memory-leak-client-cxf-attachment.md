@@ -5,6 +5,9 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2014-02-22T09:28:31+00:00"
+thumbnail: /wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg
+featureImage: /wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg
+featureImageAlt: "2014-02-cxf-attachments-memory-leak-2"
 guid: http://javaetmoi.com/?p=977
 parent_post_id: null
 post_id: "977"

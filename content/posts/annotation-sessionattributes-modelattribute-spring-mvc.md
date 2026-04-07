@@ -4,6 +4,9 @@ author: admin
 categories:
   - spring
 date: "2014-10-14T04:53:33+00:00"
+thumbnail: /wp-content/uploads/2014/05/logo-spring-highres.png
+featureImage: /wp-content/uploads/2014/05/logo-spring-highres.png
+featureImageAlt: "logo-spring-highres"
 guid: http://javaetmoi.com/?p=1216
 parent_post_id: null
 post_id: "1216"

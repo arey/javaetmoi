@@ -4,6 +4,8 @@ author: admin
 categories:
   - spring
 date: "2012-10-27T17:29:57+00:00"
+thumbnail: /wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png
+featureImage: /wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png
 guid: http://javaetmoi.com/?p=324
 parent_post_id: null
 post_id: "324"

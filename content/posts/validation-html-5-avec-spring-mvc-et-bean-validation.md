@@ -4,6 +4,9 @@ author: admin
 categories:
   - spring
 date: "2014-09-16T06:40:53+00:00"
+thumbnail: /wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png
+featureImage: /wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png
+featureImageAlt: "Logo HTML 5"
 guid: http://javaetmoi.com/?p=1199
 parent_post_id: null
 post_id: "1199"

@@ -5,6 +5,9 @@ author: admin
 categories:
   - conférence
 date: "2015-04-14T04:28:48+00:00"
+thumbnail: /wp-content/uploads/2015/04/spark-logo.png
+featureImage: /wp-content/uploads/2015/04/spark-logo.png
+featureImageAlt: "spark-logo"
 guid: http://javaetmoi.com/?p=1343
 parent_post_id: null
 post_id: "1343"

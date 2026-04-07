@@ -4,6 +4,9 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2014-11-09T11:15:07+00:00"
+thumbnail: /wp-content/uploads/2014/11/logstash.png
+featureImage: /wp-content/uploads/2014/11/logstash.png
+featureImageAlt: "logstash"
 guid: http://javaetmoi.com/?p=1254
 parent_post_id: null
 post_id: "1254"

@@ -6,6 +6,8 @@ categories:
   - maven
   - retour-d'expérience
 date: "2025-07-05T17:06:00+00:00"
+thumbnail: /wp-content/uploads/2025/07/Screenshot-site-JSpecify.png
+featureImage: /wp-content/uploads/2025/07/Screenshot-site-JSpecify.png
 guid: https://javaetmoi.com/?p=2599
 parent_post_id: null
 post_id: "2599"

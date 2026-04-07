@@ -4,6 +4,9 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2015-10-01T05:17:30+00:00"
+thumbnail: /wp-content/uploads/2015/09/hibernate-validator-logo.png
+featureImage: /wp-content/uploads/2015/09/hibernate-validator-logo.png
+featureImageAlt: "hibernate-validator-logo"
 guid: http://javaetmoi.com/?p=1462
 parent_post_id: null
 post_id: "1462"

@@ -5,6 +5,9 @@ categories:
   - maven
   - test
 date: "2014-03-04T09:27:15+00:00"
+thumbnail: /wp-content/uploads/2014/03/tester-code-javascript-webapp-logo.png
+featureImage: /wp-content/uploads/2014/03/tester-code-javascript-webapp-logo.png
+featureImageAlt: "tester-code-javascript-webapp-logo"
 guid: http://javaetmoi.com/?p=995
 parent_post_id: null
 post_id: "995"

@@ -4,6 +4,9 @@ author: admin
 categories:
   - conférence
 date: "2016-04-30T15:04:09+00:00"
+thumbnail: /wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg
+featureImage: /wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg
+featureImageAlt: "2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016"
 guid: http://javaetmoi.com/?p=1560
 parent_post_id: null
 post_id: "1560"

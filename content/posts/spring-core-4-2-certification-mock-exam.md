@@ -4,6 +4,9 @@ author: admin
 categories:
   - spring
 date: "2016-01-18T07:05:32+00:00"
+thumbnail: /wp-content/uploads/2016/01/spring-pro-cert.jpg
+featureImage: /wp-content/uploads/2016/01/spring-pro-cert.jpg
+featureImageAlt: "spring-pro-cert"
 guid: http://javaetmoi.com/?p=1508
 parent_post_id: null
 post_id: "1508"

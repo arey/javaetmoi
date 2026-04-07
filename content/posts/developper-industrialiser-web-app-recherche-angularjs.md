@@ -4,6 +4,9 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2014-02-09T19:13:56+00:00"
+thumbnail: /wp-content/uploads/2014/02/angular-musicbrainz-screenshot.png
+featureImage: /wp-content/uploads/2014/02/angular-musicbrainz-screenshot.png
+featureImageAlt: "Angular MusicBrainz web app screenshot"
 guid: http://javaetmoi.com/?p=898
 parent_post_id: null
 post_id: "898"

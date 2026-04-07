@@ -4,6 +4,8 @@ categories:
   - retour-d'expérience
   - spring
 date: "2019-11-28T08:37:31+00:00"
+thumbnail: /wp-content/uploads/2019/11/spring-cloud-netflix.png
+featureImage: /wp-content/uploads/2019/11/spring-cloud-netflix.png
 guid: https://javaetmoi.com/?p=2045
 parent_post_id: null
 post_id: "2045"

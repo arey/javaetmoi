@@ -11,6 +11,7 @@ categories:
 featureImage: /wp-content/uploads/2020/02/azure-fundamentals-600x600-1.png
 featureImageAlt: azure-fundamentals-600x600
 date: "2020-02-08T18:35:40+00:00"
+thumbnail: /wp-content/uploads/2020/02/azure-fundamentals-600x600-1.png
 guid: https://javaetmoi.com/?p=2080
 parent_post_id: null
 post_id: "2080"

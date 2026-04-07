@@ -4,6 +4,9 @@ author: admin
 categories:
   - test
 date: "2013-06-22T13:29:03+00:00"
+thumbnail: /wp-content/uploads/2013/06/deploiement-tests-selenium-autonomes.png
+featureImage: /wp-content/uploads/2013/06/deploiement-tests-selenium-autonomes.png
+featureImageAlt: "Automatisation de lexécition de tests Selenium autonomes"
 guid: http://javaetmoi.com/?p=707
 parent_post_id: null
 post_id: "707"

@@ -4,6 +4,9 @@ author: admin
 categories:
   - maven
 date: "2012-04-12T19:42:24+00:00"
+thumbnail: /wp-content/uploads/2012/04/logo_github.png
+featureImage: /wp-content/uploads/2012/04/logo_github.png
+featureImageAlt: "logo_github"
 guid: http://javaetmoi.com/?p=81
 parent_post_id: null
 post_id: "81"

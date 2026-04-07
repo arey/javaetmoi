@@ -4,6 +4,9 @@ author: admin
 categories:
   - conférence
 date: "2012-04-20T20:17:10+00:00"
+thumbnail: /wp-content/uploads/2012/04/2012-04-18-11.56.37.jpg
+featureImage: /wp-content/uploads/2012/04/2012-04-18-11.56.37.jpg
+featureImageAlt: "Hands-on-Lab Le Président est ... de Devoxx France 2012"
 guid: http://javaetmoi.com/?p=148
 parent_post_id: null
 post_id: "148"

@@ -4,6 +4,8 @@ author: admin
 categories:
   - conférence
 date: "2017-04-09T18:16:16+00:00"
+thumbnail: /wp-content/uploads/2017/04/vuejs-emmanuel.png
+featureImage: /wp-content/uploads/2017/04/vuejs-emmanuel.png
 guid: http://javaetmoi.com/?p=1677
 parent_post_id: null
 post_id: "1677"

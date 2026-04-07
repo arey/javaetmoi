@@ -12,6 +12,7 @@ categories:
 featureImage: /wp-content/uploads/2018/04/IMG_20180420_090935.jpg
 featureImageAlt: ""
 date: "2018-04-27T16:23:25+00:00"
+thumbnail: /wp-content/uploads/2018/04/IMG_20180420_090935.jpg
 guid: http://javaetmoi.com/?p=1826
 parent_post_id: null
 post_id: "1826"

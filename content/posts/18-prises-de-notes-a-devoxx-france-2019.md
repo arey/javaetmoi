@@ -10,6 +10,7 @@ categories:
 featureImage: /wp-content/uploads/2019/05/Devoxx-France-2019-banner.png
 featureImageAlt: Devoxx France 2019
 date: "2019-05-03T17:28:03+00:00"
+thumbnail: /wp-content/uploads/2019/05/Devoxx-France-2019-banner.png
 guid: https://javaetmoi.com/?p=1987
 parent_post_id: null
 post_id: "1987"

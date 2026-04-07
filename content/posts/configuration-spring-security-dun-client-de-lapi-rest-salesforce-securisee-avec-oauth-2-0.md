@@ -5,6 +5,8 @@ categories:
   - retour-d'expérience
   - spring
 date: "2021-11-06T16:53:05+00:00"
+thumbnail: /wp-content/uploads/2021/11/oauth2%5Flogo.png
+featureImage: /wp-content/uploads/2021/11/oauth2%5Flogo.png
 guid: https://javaetmoi.com/?p=2138
 parent_post_id: null
 post_id: "2138"

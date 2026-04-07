@@ -4,6 +4,9 @@ author: admin
 categories:
   - conférence
 date: "2014-04-19T08:41:24+00:00"
+thumbnail: /wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-photo.jpg
+featureImage: /wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-photo.jpg
+featureImageAlt: "angular-from-scratch-devoxx-france-2014"
 guid: http://javaetmoi.com/?p=1068
 parent_post_id: null
 post_id: "1068"

@@ -5,6 +5,8 @@ author: admin
 categories:
   - conférence
 date: "2024-04-21T15:26:06+00:00"
+thumbnail: /wp-content/uploads/2024/04/Lucian%5Fat%5FDevoxxFr2024.jpeg
+featureImage: /wp-content/uploads/2024/04/Lucian%5Fat%5FDevoxxFr2024.jpeg
 guid: https://javaetmoi.com/?p=2298
 parent_post_id: null
 post_id: "2298"

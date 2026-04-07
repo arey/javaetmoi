@@ -10,6 +10,7 @@ categories:
 featureImage: /wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png
 featureImageAlt: 2019-03 - Dashboard Grafana dockerisé - grafana
 date: "2019-03-28T17:27:32+00:00"
+thumbnail: /wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png
 guid: http://javaetmoi.com/?p=1959
 parent_post_id: null
 post_id: "1959"

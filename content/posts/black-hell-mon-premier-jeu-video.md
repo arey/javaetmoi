@@ -26,6 +26,7 @@ categories:
 featureImage: /wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png
 featureImageAlt: 2019-02 - Black Hell - Ecran accueil
 date: "2019-02-11T16:27:37+00:00"
+thumbnail: /wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png
 guid: http://javaetmoi.com/?p=1906
 parent_post_id: null
 post_id: "1906"

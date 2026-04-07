@@ -5,6 +5,8 @@ categories:
   - retour-d'expérience
   - spring
 date: "2022-07-03T12:25:17+00:00"
+thumbnail: /wp-content/uploads/2022/07/logo-spring-boot.png
+featureImage: /wp-content/uploads/2022/07/logo-spring-boot.png
 guid: https://javaetmoi.com/?p=2217
 parent_post_id: null
 post_id: "2217"

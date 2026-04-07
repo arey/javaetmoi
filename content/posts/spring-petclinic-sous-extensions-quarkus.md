@@ -7,6 +7,8 @@ categories:
   - retour-d'expérience
   - spring
 date: "2025-04-13T16:55:14+00:00"
+thumbnail: /wp-content/uploads/2025/04/word-image-2443-1.png
+featureImage: /wp-content/uploads/2025/04/word-image-2443-1.png
 footnotes: ""
 guid: https://javaetmoi.com/?p=2443
 parent_post_id: null

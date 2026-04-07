@@ -4,6 +4,9 @@ author: admin
 categories:
   - conférence
 date: "2014-04-23T15:28:37+00:00"
+thumbnail: /wp-content/uploads/2014/04/devoxx-france-2014-les-cast-codeurs.jpg
+featureImage: /wp-content/uploads/2014/04/devoxx-france-2014-les-cast-codeurs.jpg
+featureImageAlt: "devoxx-france-2014-les-cast-codeurs"
 guid: http://javaetmoi.com/?p=1082
 parent_post_id: null
 post_id: "1082"

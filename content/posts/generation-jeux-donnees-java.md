@@ -4,6 +4,9 @@ author: admin
 categories:
   - test
 date: "2016-03-24T07:36:23+00:00"
+thumbnail: /wp-content/uploads/2016/03/artist.png
+featureImage: /wp-content/uploads/2016/03/artist.png
+featureImageAlt: "artist"
 guid: http://javaetmoi.com/?p=1553
 parent_post_id: null
 post_id: "1553"

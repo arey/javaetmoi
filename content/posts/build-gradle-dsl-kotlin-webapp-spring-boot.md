@@ -11,6 +11,7 @@ categories:
 featureImage: /wp-content/uploads/2017/11/gradle-logo.png
 featureImageAlt: gradle-logo
 date: "2017-11-22T07:40:41+00:00"
+thumbnail: /wp-content/uploads/2017/11/gradle-logo.png
 guid: http://javaetmoi.com/?p=1786
 parent_post_id: null
 post_id: "1786"

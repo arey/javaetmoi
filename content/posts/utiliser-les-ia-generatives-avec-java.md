@@ -11,6 +11,7 @@ categories:
 featureImage: /wp-content/uploads/2024/04/devoxx-france-2024-banniere-generative-ai-avec-java.png
 featureImageAlt: devoxx-france-2024-banniere-generative-ai-avec-java
 date: "2024-04-21T14:27:40+00:00"
+thumbnail: /wp-content/uploads/2024/04/devoxx-france-2024-banniere-generative-ai-avec-java.png
 guid: https://javaetmoi.com/?p=2270
 parent_post_id: null
 post_id: "2270"

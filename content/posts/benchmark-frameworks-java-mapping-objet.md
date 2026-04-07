@@ -5,6 +5,9 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2015-09-16T05:20:37+00:00"
+thumbnail: /wp-content/uploads/2015/09/logo-java-performance.png
+featureImage: /wp-content/uploads/2015/09/logo-java-performance.png
+featureImageAlt: "logo-java-performance"
 guid: http://javaetmoi.com/?p=1442
 parent_post_id: null
 post_id: "1442"

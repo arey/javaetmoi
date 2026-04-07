@@ -4,6 +4,9 @@ author: admin
 categories:
   - conférence
 date: "2015-11-13T13:00:47+00:00"
+thumbnail: /wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg
+featureImage: /wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg
+featureImageAlt: "elasticon-patis-2015-keynote"
 guid: http://javaetmoi.com/?p=1480
 parent_post_id: null
 post_id: "1480"

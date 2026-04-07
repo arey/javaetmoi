@@ -11,6 +11,7 @@ categories:
 featureImage: /wp-content/uploads/2018/03/logback-logo.jpg
 featureImageAlt: logback-logo
 date: "2018-03-30T17:01:59+00:00"
+thumbnail: /wp-content/uploads/2018/03/logback-logo.jpg
 guid: http://javaetmoi.com/?p=1811
 parent_post_id: null
 post_id: "1811"

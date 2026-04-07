@@ -4,6 +4,9 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2013-12-16T14:23:37+00:00"
+thumbnail: /wp-content/uploads/2013/12/logo-elastisearch.png
+featureImage: /wp-content/uploads/2013/12/logo-elastisearch.png
+featureImageAlt: "Logo Elastisearch"
 guid: http://javaetmoi.com/?p=879
 parent_post_id: null
 post_id: "879"

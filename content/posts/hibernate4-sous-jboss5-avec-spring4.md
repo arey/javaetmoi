@@ -5,6 +5,9 @@ author: admin
 categories:
   - orm
 date: "2014-04-10T18:50:07+00:00"
+thumbnail: /wp-content/uploads/2014/04/logo-hibernate.png
+featureImage: /wp-content/uploads/2014/04/logo-hibernate.png
+featureImageAlt: "logo-hibernate"
 guid: http://javaetmoi.com/?p=1051
 parent_post_id: null
 post_id: "1051"

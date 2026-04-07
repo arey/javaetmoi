@@ -4,6 +4,9 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2014-03-24T18:26:20+00:00"
+thumbnail: /wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png
+featureImage: /wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png
+featureImageAlt: "Architecture JBoss Messaging"
 guid: http://javaetmoi.com/?p=1019
 parent_post_id: null
 post_id: "1019"

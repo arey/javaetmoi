@@ -12,6 +12,7 @@ categories:
 featureImage: /wp-content/uploads/2017/12/spring-webflux.png
 featureImageAlt: spring-webflux
 date: "2017-12-07T17:26:12+00:00"
+thumbnail: /wp-content/uploads/2017/12/spring-webflux.png
 guid: http://javaetmoi.com/?p=1794
 parent_post_id: null
 post_id: "1794"

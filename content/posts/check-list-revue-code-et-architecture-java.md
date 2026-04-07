@@ -4,6 +4,9 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2015-08-27T05:20:24+00:00"
+thumbnail: /wp-content/uploads/2015/08/clean_code_72_color.png
+featureImage: /wp-content/uploads/2015/08/clean_code_72_color.png
+featureImageAlt: "clean_code_logo"
 guid: http://javaetmoi.com/?p=1435
 parent_post_id: null
 post_id: "1435"

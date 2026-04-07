@@ -6,6 +6,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2025-04-22T17:54:32+00:00"
+thumbnail: /wp-content/uploads/2025/04/word-image-2508-3.png
+featureImage: /wp-content/uploads/2025/04/word-image-2508-3.png
 footnotes: ""
 guid: https://javaetmoi.com/?p=2508
 parent_post_id: null

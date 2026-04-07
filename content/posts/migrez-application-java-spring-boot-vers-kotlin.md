@@ -12,6 +12,7 @@ categories:
 featureImage: /wp-content/uploads/2017/09/Kotlin_logo.png
 featureImageAlt: Logo Kotlin
 date: "2017-09-25T16:50:26+00:00"
+thumbnail: /wp-content/uploads/2017/09/Kotlin_logo.png
 guid: http://javaetmoi.com/?p=1753
 parent_post_id: null
 post_id: "1753"

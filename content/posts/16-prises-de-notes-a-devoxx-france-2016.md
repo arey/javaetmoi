@@ -4,6 +4,9 @@ author: admin
 categories:
   - conférence
 date: "2016-05-12T17:14:54+00:00"
+thumbnail: /wp-content/uploads/2016/05/2016_04_21_Devoxx_France_2016_keynote.jpg
+featureImage: /wp-content/uploads/2016/05/2016_04_21_Devoxx_France_2016_keynote.jpg
+featureImageAlt: "2016_04_21_Devoxx_France_2016_keynote"
 guid: http://javaetmoi.com/?p=1580
 parent_post_id: null
 post_id: "1580"

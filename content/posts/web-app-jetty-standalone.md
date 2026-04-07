@@ -5,6 +5,9 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2015-06-03T05:19:45+00:00"
+thumbnail: /wp-content/uploads/2015/04/jetty-logo.png
+featureImage: /wp-content/uploads/2015/04/jetty-logo.png
+featureImageAlt: "jetty-logo"
 guid: http://javaetmoi.com/?p=1339
 parent_post_id: null
 post_id: "1339"

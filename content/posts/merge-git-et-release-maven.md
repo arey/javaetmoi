@@ -4,6 +4,9 @@ author: admin
 categories:
   - maven
 date: "2016-09-06T15:58:15+00:00"
+thumbnail: /wp-content/uploads/2016/09/merge1.png
+featureImage: /wp-content/uploads/2016/09/merge1.png
+featureImageAlt: "merge1"
 guid: http://javaetmoi.com/?p=1630
 parent_post_id: null
 post_id: "1630"

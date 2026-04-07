@@ -8,6 +8,9 @@ categories:
   - retour-d'expérience
   - spring
 date: "2025-06-16T06:57:01+00:00"
+thumbnail: /wp-content/uploads/2025/06/jooq-the-easiest-way-to-write-sql-in-java.png
+featureImage: /wp-content/uploads/2025/06/jooq-the-easiest-way-to-write-sql-in-java.png
+featureImageAlt: "jOOQ: The easiest way to write SQL in Java"
 footnotes: ""
 guid: https://javaetmoi.com/?p=2580
 parent_post_id: null

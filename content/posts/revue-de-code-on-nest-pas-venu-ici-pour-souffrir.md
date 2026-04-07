@@ -4,6 +4,8 @@ author: admin
 categories:
   - conférence
 date: "2024-05-03T13:15:02+00:00"
+thumbnail: /wp-content/uploads/2024/05/image.png
+featureImage: /wp-content/uploads/2024/05/image.png
 guid: https://javaetmoi.com/?p=2356
 parent_post_id: null
 post_id: "2356"

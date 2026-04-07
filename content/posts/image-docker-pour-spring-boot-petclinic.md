@@ -4,6 +4,9 @@ author: admin
 categories:
   - maven
 date: "2016-11-08T16:22:45+00:00"
+thumbnail: /wp-content/uploads/2016/11/docker-logo.png
+featureImage: /wp-content/uploads/2016/11/docker-logo.png
+featureImageAlt: "docker-logo"
 guid: http://javaetmoi.com/?p=1651
 parent_post_id: null
 post_id: "1651"

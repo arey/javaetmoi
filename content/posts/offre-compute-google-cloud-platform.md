@@ -5,6 +5,9 @@ author: admin
 categories:
   - conférence
 date: "2016-07-04T17:09:05+00:00"
+thumbnail: /wp-content/uploads/2016/06/Didier-Girard-à-la-formation-Google.jpg
+featureImage: /wp-content/uploads/2016/06/Didier-Girard-à-la-formation-Google.jpg
+featureImageAlt: "Didier Girard à la formation Google"
 guid: http://javaetmoi.com/?p=1618
 parent_post_id: null
 post_id: "1618"

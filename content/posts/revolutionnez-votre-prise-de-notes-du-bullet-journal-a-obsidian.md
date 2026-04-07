@@ -5,6 +5,8 @@ author: admin
 categories:
   - conférence
 date: "2025-10-30T16:45:25+00:00"
+thumbnail: /wp-content/uploads/2025/10/DevFest-Nantes-2025-Obsidian.jpg
+featureImage: /wp-content/uploads/2025/10/DevFest-Nantes-2025-Obsidian.jpg
 guid: https://javaetmoi.com/?p=2612
 parent_post_id: null
 post_id: "2612"

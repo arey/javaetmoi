@@ -11,6 +11,7 @@ categories:
 featureImage: /wp-content/uploads/2017/09/300px-Minimum_spanning_tree.svg_.png
 featureImageAlt: 300px-Minimum_spanning_tree.svg
 date: "2017-09-16T10:28:59+00:00"
+thumbnail: /wp-content/uploads/2017/09/300px-Minimum_spanning_tree.svg_.png
 guid: http://javaetmoi.com/?p=1759
 parent_post_id: null
 post_id: "1759"

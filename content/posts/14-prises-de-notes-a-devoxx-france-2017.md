@@ -4,6 +4,8 @@ author: admin
 categories:
   - conférence
 date: "2017-04-25T19:03:47+00:00"
+thumbnail: /wp-content/uploads/2017/04/2017-04-14-prises-de-notes-à-Devoxx-France-2017.jpg
+featureImage: /wp-content/uploads/2017/04/2017-04-14-prises-de-notes-à-Devoxx-France-2017.jpg
 guid: http://javaetmoi.com/?p=1699
 parent_post_id: null
 post_id: "1699"

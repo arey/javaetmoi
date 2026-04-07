@@ -4,6 +4,9 @@ author: admin
 categories:
   - spring
 date: "2013-02-26T10:35:42+00:00"
+thumbnail: /wp-content/uploads/2013/02/architecture-middle-indexation.png
+featureImage: /wp-content/uploads/2013/02/architecture-middle-indexation.png
+featureImageAlt: "Chaque mise à jour d’une entité métier implique une opération d’indexation atomique."
 guid: http://javaetmoi.com/?p=604
 parent_post_id: null
 post_id: "604"

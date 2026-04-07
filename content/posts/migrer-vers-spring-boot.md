@@ -4,6 +4,9 @@ author: admin
 categories:
   - spring
 date: "2016-08-29T16:05:29+00:00"
+thumbnail: /wp-content/uploads/2016/07/screenshot-petclinic.jpg
+featureImage: /wp-content/uploads/2016/07/screenshot-petclinic.jpg
+featureImageAlt: "screenshot-petclinic"
 guid: http://javaetmoi.com/?p=1623
 parent_post_id: null
 post_id: "1623"

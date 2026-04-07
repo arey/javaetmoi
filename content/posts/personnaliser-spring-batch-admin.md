@@ -4,6 +4,9 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2015-06-23T19:15:14+00:00"
+thumbnail: /wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg
+featureImage: /wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg
+featureImageAlt: "spring-batch-admin-screenshot"
 guid: http://javaetmoi.com/?p=1410
 parent_post_id: null
 post_id: "1410"

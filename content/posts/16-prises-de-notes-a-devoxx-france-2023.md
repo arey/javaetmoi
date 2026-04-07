@@ -4,6 +4,8 @@ author: admin
 categories:
   - conférence
 date: "2023-04-16T17:44:34+00:00"
+thumbnail: /wp-content/uploads/2023/04/Devoxx-France-2023.jpg
+featureImage: /wp-content/uploads/2023/04/Devoxx-France-2023.jpg
 guid: https://javaetmoi.com/?p=2236
 parent_post_id: null
 post_id: "2236"

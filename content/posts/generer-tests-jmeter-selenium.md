@@ -5,6 +5,9 @@ author: admin
 categories:
   - test
 date: "2012-05-26T18:51:06+00:00"
+thumbnail: /wp-content/uploads/2012/05/jmeter-viewstate-extractor.png
+featureImage: /wp-content/uploads/2012/05/jmeter-viewstate-extractor.png
+featureImageAlt: "Extracteur dexpression régulière JMeter"
 guid: http://javaetmoi.com/?p=166
 parent_post_id: null
 post_id: "166"
