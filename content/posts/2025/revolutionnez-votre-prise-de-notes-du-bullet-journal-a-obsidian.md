@@ -5,8 +5,7 @@ author: admin
 categories:
   - conférence
 date: "2025-10-30T16:45:25+00:00"
-thumbnail: /wp-content/uploads/2025/10/DevFest-Nantes-2025-Obsidian.jpg
-featureImage: /wp-content/uploads/2025/10/DevFest-Nantes-2025-Obsidian.jpg
+thumbnail: /wp-content/uploads/2025/10/Obsidian_logo.png
 guid: https://javaetmoi.com/?p=2612
 parent_post_id: null
 post_id: "2612"
@@ -16,6 +15,8 @@ summary: |-
   Dans son talk, Hoani nous présente le logiciel **[Obsidian](https://obsidian.md/)**, la manière dont **il l'utilise au quotidien** pour **noter** et **gérer son activité**, qu'elle soit professionnelle ou personnelle.<br>Je suis sorti de sa présentation quelque peu désarçonné. Hoani utilise Obsidian comme un **Bullet Journal** (qu'on appelle aussi « **bujo** ») numérique pour compiler **notes**, **pense-bêtes**, **objectifs**, **rappels**, **tracking**, **plannings** et **coups de coeur**. Son utilisation est vraiment avancée et très régulière. Je ne me voyais pas passer autant de temps que lui sur Obsidian.
 
   L'autre domaine dans lequel Obsidian semble exceller consiste en la possibilité de se créer un **Second Cerveau**. Les notes peuvent être reliées ensemble à l'aide de **Map Of Content** (MOC). Une alternative aux **hashtags** et l'organisation hiérarchisée en **dossiers** et sous-dossiers.<br>Une note de type Map of Content s'assimile à une thématique, un sujet principal, auquel on rattache bidirectionnellement des notes et qui va faire office de table de matières et de tableau de bord. La création de sous-MOCs spécialisés reste possible. On se rapproche du web, des liens hypertextes et du **mind mapping**.<br>Dans ce billet, j'aimerais vous restituer la prestation d'Hoani et vous laisser découvrir son utilisation Obsidian.
+  
+  ![Photo du talk de oani Cross à DevFest Nantes 2025](/wp-content/uploads/2025/10/DevFest-Nantes-2025-Obsidian.jpg)
 tags:
   - devfest
   - obsidian
