@@ -18,6 +18,8 @@ summary: |-
   Les quelques slides de leur introduction sont disponibles sur [Google Docs](https://docs.google.com/presentation/d/1bkdvm96-9tPe-ldCVjziDhccV3lzS_DDeFibCQ_cY54/edit#slide=id.g4f013f4ff4_0_20). Le projet GitHub du **lab Troll of Fame** contenant les 5 repos se trouve quant à lui ici : [**trollaklass**](https://github.com/trollaklass)
 
   Au travers de ce cours billet, je tenais à mettre en avant leur travail et à partager mon enthousiasme. De chez vous, n’hésitez pas à suivre ce Lab pour vous familiariser avec les tests de propriétés. Le [README.md](https://github.com/trollaklass/troll-of-fame-java/blob/master/README.md) contient l’énoncé des 6 étapes et l’explication des concepts associés. Comme son nom l’indique, la **branche** [**solution**](https://github.com/trollaklass/troll-of-fame-java/tree/solution) contient l’ensemble des solutions.
+
+  ![Tests de propriétés : écrire moins de tests, trouver plus de bugs](/wp-content/uploads/2020/02/devfest_paris_2020.png)
 title: 'Tests de propriétés : écrire moins de tests, trouver plus de bugs'
 url: /2020/02/tests-de-proprietes-ecrire-moins-de-tests-trouver-plus-de-bugs/
 

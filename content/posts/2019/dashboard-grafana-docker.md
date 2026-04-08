@@ -23,6 +23,8 @@ summary: |-
   J’ai profité de ce changement pour améliorer le packaging **Docker** de Grafana et en simplifier l’accès. Pour accéder au dashboard personnalisé exposant l’évolution du nombre d’animaux et de propriétaires, un _docker-compose up_ suivi d’un clic sur l’ [URL du dashboard](http://localhost:3000/d/69JXeR0iw/spring-petclinic-metrics) sont désormais suffisant.<br>**Ce billet présente les configurations Docker et Grafana mises en oeuvre**.
 
   [![Dashboard Grafana Spring Petclinic Metrics](http://javaetmoi.com/wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana-1024x675.png)](http://javaetmoi.com/wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png)
+
+  ![2019-03 - Dashboard Grafana dockerisé - grafana](/wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png)
 tags:
   - docker
   - grafana

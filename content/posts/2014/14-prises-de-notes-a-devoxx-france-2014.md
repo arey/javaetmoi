@@ -16,6 +16,8 @@ summary: |-
   Les sujets sont variés : de Docker à Angular JS, en passant par Java 8. Certaines pourront être lues de manière autonome ; je pense par exemple au quickie [Outils pour manager une équipe](http://javaetmoi.com/wp-content/uploads/2014/04/Outils-pour-manager-une-équipe.pdf) et à la conférence [33 things your want to do better](http://javaetmoi.com/wp-content/uploads/2014/04/33-things-your-want-to-do-better.pdf). Pour être exploitables en l’état, d’autres notes demanderont à ce que vous ayez assisté à la conférence ou que vous ayez pu récupérer les supports de présentation.
 
   [![devoxx-france-2014-les-cast-codeurs](http://javaetmoi.com/wp-content/uploads/2014/04/devoxx-france-2014-les-cast-codeurs-1024x502.jpg)](http://javaetmoi.com/wp-content/uploads/2014/04/devoxx-france-2014-les-cast-codeurs.jpg)
+
+  ![devoxx-france-2014-les-cast-codeurs](/wp-content/uploads/2014/04/devoxx-france-2014-les-cast-codeurs.jpg)
 tags:
   - agile
   - angularjs

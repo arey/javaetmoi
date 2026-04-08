@@ -21,6 +21,8 @@ summary: |-
 
   La formation est découpée en 4 modules.
   Les notes ci-dessous m’auront permis d’obtenir [ma certification](https://www.youracclaim.com/earner/earned/badge/e18659c6-5f65-4efa-becd-c4293079ea4b) du premier coup. J’espère qu’elles vous aideront à vous préparer. En rouge, sont notés les mots clés, concepts et noms de produits à retenir par cœur.
+
+  ![azure-fundamentals-600x600](/wp-content/uploads/2020/02/azure-fundamentals-600x600-1.png)
 tags:
   - azure
   - cloud

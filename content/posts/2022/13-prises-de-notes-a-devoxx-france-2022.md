@@ -18,6 +18,8 @@ summary: |-
   Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les visionner ou si vous souhaitez garder une trace écrite de ce que vous y avez appris, je mets librement à disposition l’ensemble de **mes 13 notes** prises au cours de ces 3 jours riches en contenus et en découvertes. Entre les retards SNCF et mon Macbook vieillissant qui fait des siennes, le nombre est moindre que les années précédentes. Mais promis, j’essaierai de me rattraper en 2023 :-)
 
   Fait marquant, cette édition 2022 n’aura pas fait place à de nouvelles technos hypes. On peut se souvenir de Quarkus en 2019, Kafka en 2016 ou bien encore Angular.JS en 2013. Cette 10ième édition aura été celle de la maturité : **retours d’expérience**, **architecture**, **état de l’art**, **sécurisation du code** et **approfondissement du fonctionnement de la plateforme Java** étaient au rendez-vous.
+
+  ![13 prises de notes à Devoxx France 2022](/wp-content/uploads/2022/04/2022-04-21-10-ans-Devoxx-France.jpg)
 tags:
   - argo
   - cloud

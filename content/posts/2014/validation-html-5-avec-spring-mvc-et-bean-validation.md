@@ -18,6 +18,8 @@ summary: |-
 
   Dans une application web **, valider les écrans de saisie côté client** permet de donner un retour rapide à l’utilisateur. Avant HTML 5, le développeur web était bien démuni pour implémenter ces contrôles de surface sur le Navigateur. Certes, HTML 4 permettait de spécifier la taille max des champs de saisie (balise _maxLength_) et leur caractère obligatoire ou non (balise _required_). Les autres contrôles effectués côté serveur étaient alors bien souvent recodés en JavaScript à l’aide de jQuery, de CSS et de quelques plugins.
   Aujourd’hui, HTML 5 se démocratise et le code JavaScript de validation devrait bientôt s’alléger drastiquement. En effet, cette spécification permet de standardiser la validation des champs de saisie côté client. Le développeur a désormais la possibilité de spécifier le type de champs (ex : nombre, date, URL …), des valeurs min et max ou bien encore un pattern de validation à l’aide d’une expression régulière.
+
+  ![Logo HTML 5](/wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png)
 tags:
   - bean-validation
   - hibernate

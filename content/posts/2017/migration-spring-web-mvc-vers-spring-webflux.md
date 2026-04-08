@@ -23,6 +23,8 @@ summary: |-
   Conçu avant tout pour exposer des **API REST** attaquant des bases NoSQL non bloquantes dans des architecture micro-services, Spring WebFlux peut être utilisé sur des applications web dont les **IHM** sont rendues côté serveur (ex : avec Thymeleaf ou Freemarker).
 
   J’ai récemment migré vers Spring WebFlux la [version Kotlin et Spring Boot de l’application démo Spring Petclinic](http://github.com/spring-petclinic/spring-petclinic-kotlin). Dans ce court billet, je voulais vous lister les adaptations mises en œuvre dans le [commit 279b2e7](https://github.com/spring-petclinic/spring-petclinic-kotlin/commit/279b2e7c58906d9a765e7229043c7d563f016b1c).
+
+  ![spring-webflux](/wp-content/uploads/2017/12/spring-webflux.png)
 tags:
   - spring-mvc
   - spring-webflux

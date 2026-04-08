@@ -18,6 +18,8 @@ summary: |-
 
   Dans l’article [Elastifiez la base MusicBrainz sur OpenShift](http://javaetmoi.com/2013/11/musicbrainz-elasticsearch-angularjs-openshift/), je proposais 2 méthodes pour installer la base de données : récupérer une VM ou un dump de la base PostgreSQL. Dans les 2 cas, la procédure d’installation demandait une intervention humaine.
   Ce billet vous en propose une 3ième : automatiser l’installation de base de données à l’aide de [**Docker**](https://www.docker.com/). Après **quelques lignes de commande** et un peu de **patience** le temps de l’import du dump PostgreSQL, vous pourrez vous connecter localement à la base musicale contenant des données à jour.
+
+  ![docker-logo](/wp-content/uploads/2015/07/docker-logo.jpg)
 tags:
   - docker
   - postresql

@@ -26,6 +26,8 @@ summary: |-
   Pour orchestrer le démarrage des conteneurs, gérer leur configuration et définir leurs interactions, l’utilisation de l’outil [**Docker Compose**](https://docs.docker.com/compose/) paraissait évidente.
 
   Dans ce billet, vous trouverez le fichier docker-compose correspondant, un Dockerfile personnalisant l’image officielle php:5.6-apache, les lignes de commandes démarrant les conteneurs sous MacOSX et alimentant la base à partir d’un script SQL.
+
+  ![docker-logo](/wp-content/uploads/2015/07/docker-logo.jpg)
 tags:
   - apache
   - docker

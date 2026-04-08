@@ -15,6 +15,8 @@ summary: |-
   ![spring-pro-cert](http://javaetmoi.com/wp-content/uploads/2016/01/spring-pro-cert.jpg)Four years ago, I’ve published a first [mock exam for the Spring Core 3.0 Certification](http://javaetmoi.com/2012/02/core-spring-3-0-certification-mock-exam/). Encouraged by Michael and Alan, I’ve updated this **free** **mock exam** for the [Spring Professional certification based on the Spring Core 4.2 course](http://pivotal.io/academy#certification).
 
   According to the [Core Spring 4.2 Certification Study Guide](http://javaetmoi.com/wp-content/uploads/2016/01/Core-Spring-4.2-Certification-Study-Guide.pdf), 3 new topics have been added to the **Spring Core 4.2 mock exam**: **REST**, **Microservices** and **Spring Cloud**. They replace older topics: JMX, JMS and Remoting.
+
+  ![spring-pro-cert](/wp-content/uploads/2016/01/spring-pro-cert.jpg)
 tags:
   - aop
   - certification

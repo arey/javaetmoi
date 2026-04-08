@@ -28,6 +28,8 @@ summary: |-
   **Cédrick** est Developer Advocate chez DataStax<br>Il y’a 10 ans, il s’est fait connaitre par la communauté en créant le projet [**ff4j**](https://ff4j.org/).<br>Ces dernières années, il a énormément travaillé sur Cassandra. Cédrick contribue aux projets OpenSource Langchain4j et Spring AI. Je l’ai personnellement rencontré dans le cadre du projet [**Spring Petclinic Reactive**](https://github.com/spring-petclinic/spring-petclinic-reactive).
 
   **Abdel** est Developer Advocate chez Google<br>Expert en Kubernetes, il travaille notamment sur le déploiement des solutions d’IA sur k8s.![](https://javaetmoi.com/wp-content/uploads/2024/04/word-image-2270-1.png)<br>
+
+  ![devoxx-france-2024-banniere-generative-ai-avec-java](/wp-content/uploads/2024/04/devoxx-france-2024-banniere-generative-ai-avec-java.png)
 tags:
   - cassandra
   - devoxx

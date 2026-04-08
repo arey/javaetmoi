@@ -25,6 +25,8 @@ summary: |-
   Les sujets sont variés : le **langage Java** bien évidemment, des **frameworks** comme Spring et RxJS, de l’ **outillage** pour vos test tests et vos builds, de l’ **infrastructure** avec Docker et Kubernetes, de l’ **architecture** avec DDD et OpenAPI, sans oublier des sujets plus connexes tels la place du développeur en entreprise ou bien l’apprentissage du code aux enfants.
 
   [![](http://javaetmoi.com/wp-content/uploads/2018/04/IMG_20180420_090935-1024x685.jpg)](http://javaetmoi.com/wp-content/uploads/2018/04/IMG_20180420_090935.jpg)
+
+  ![](/wp-content/uploads/2018/04/IMG_20180420_090935.jpg)
 tags:
   - ddd
   - devoxx

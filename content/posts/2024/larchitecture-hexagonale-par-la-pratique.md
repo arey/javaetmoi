@@ -24,6 +24,8 @@ summary: |-
   A cet effet, il s’appuiera sur l’API publique [SWAPI](https://swapi.dev/) permettant d’accéder à un référentiel de vaisseaux à disposition. L’application sélectionne les vaisseaux qui permettent d’effectuer la mission de sauvetage. Le code source est disponible dans le repo GitLab de Julien : [hexagonal-architecture-java-springboot](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot)
 
   Julien commence par rappeler les inconvénients d’une **architecture 3-tiers** basée sur le triptyque **Contrôleur -> Service -> Persistance**
+
+  ![L’Architecture Hexagonale par la pratique](/wp-content/uploads/2024/04/word-image-2317-2.jpeg)
 tags:
   - architecture
   - ddd

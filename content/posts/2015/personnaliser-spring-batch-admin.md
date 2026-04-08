@@ -24,6 +24,8 @@ summary: |-
   - Exécuter un job suite à la réception d’un fichier
   - Router un message en fonction du résultat de l’exécution d’un job
   - Ajouter un contrôleur REST
+
+  ![spring-batch-admin-screenshot](/wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg)
 tags:
   - spring-batch
   - spring-integration

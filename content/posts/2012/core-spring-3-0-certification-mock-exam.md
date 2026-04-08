@@ -14,6 +14,8 @@ summary: |-
   Le **framework Spring** est à l’honneur dans le premier article de ce tout jeune blog. En effet, début février  j’ai eu l’opportunité de passer la **[Certification Core Spring 3.0](http://www.springsource.com/training/certification/springprofessional "SpringSource Certified Spring Professionnal")**. Et par ce billet, je tenais faire part de mon **retour d’expérience** mais surtout vous offrir librement un **examen blanc**.
 
   Comme pré-requis pour passer la certification,  sachez tout d’abord qu’il est nécessaire de  suivre la **formation officielle de 4 jours** estampillée SpringSource. En France, elle est exclusivement assurée par le cabinet d’architecture Zenika. Mon formateur fut l’un de co-auteurs du très bon livre Spring par la Pratique.
+
+  ![Core Spring 3.0 Certification Mock Exam](/wp-content/uploads/2012/02/CertitfiedSpring_Professional.png)
 tags:
   - aop
   - certification

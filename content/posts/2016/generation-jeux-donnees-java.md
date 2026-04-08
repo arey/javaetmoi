@@ -14,6 +14,8 @@ post_views_count: "6162"
 summary: |-
   Les **jeux de données** font partie intégrante des tests. Elaborer un jeu de données demande une **connaissance fonctionnelle**, aussi bien sur la nature des données que sur le scénario de test envisagé. Utiliser des jeux de **données** **réalistes** participe à la compréhension du **scénario de test** et, donc, à sa documentation.
   S’il vous était possible de **générer** ces fameux jeux de données, seriez-vous intéressés ?C’est précisément l’objet de ce billet et d’un modeste **outil** baptisé **JavaBean Marshaller**.
+
+  ![artist](/wp-content/uploads/2016/03/artist.png)
 tags:
   - javapoet
   - test

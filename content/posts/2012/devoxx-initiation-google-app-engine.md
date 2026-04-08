@@ -17,6 +17,8 @@ summary: |-
   Nommé « [Le Président est …](http://www.devoxx.com/pages/viewpage.action?pageId=6128177)» \[1\], ce code labs fut co-animé par [Didier Girard](http://www.devoxx.com/display/FR12/Didier+Girard) (SFEIR), [Ludovic Champenois](http://www.devoxx.com/display/FR12/Ludovic+Champenois) (Google), [Martin Görner](http://www.devoxx.com/display/FR12/Martin+Gorner) (Google) et [Patrice de Saint Steban](https://twitter.com/#!/patoudss) (SFEIR). Il consistait à développer en 3h un site web visant à annoncer au soir du 6 mai 2012 le nom du nouveau Président. Une seule contrainte : accueillir un trafic potentiel de 50 millions d’utilisateurs et pouvoir tenir **un pic  de charge de 2 millions d’utilisateurs** aux alentours de 20h. En guise d’exemple, une [application démo](http://electionfr2012.appspot.com/) \[2\] était déjà disponible en ligne.
 
   D’actualités et évoquant des chiffres qui exciteraient tout architecte, ce code labs fut la parfaite occasion de m’initier à Google App Engine. Au cours de ce billet, je vous relaterai ce que j’y ai appris et vous donnerai accès au code source que vous pourrez à votre tour déployer sur le PaaS de Google.
+
+  ![Hands-on-Lab Le Président est ... de Devoxx France 2012](/wp-content/uploads/2012/04/2012-04-18-11.56.37.jpg)
 tags:
   - app-engine
   - bigtable

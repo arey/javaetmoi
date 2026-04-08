@@ -25,6 +25,8 @@ summary: |-
   Pris au jeu, j’ai progressivement enrichi l’application afin d’illustrer plusieurs fonctionnalités clés de Spring Modulith. J’ai ensuite mis ce fork à disposition de la communauté Spring Petclinic dont le code source complet est disponible sur GitHub : [spring-petclinic-modulith](https://github.com/spring-petclinic/spring-petclinic-modulith).
 
   Dans ce billet, je vous propose de découvrir Spring Modulith, puis de suivre pas à pas comment l’application démo Spring Petclinic a été enrichie pour tirer parti de ses fonctionnalités.
+
+  ![Bannière Spring PetClinic Modulith](/wp-content/uploads/2026/04/banner-spring-petclinic-modulith.png)
 tags:
   - spring-boot
   - spring-modulith

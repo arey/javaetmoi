@@ -20,6 +20,8 @@ summary: |-
   Sous l’égide d’Eclipse, Java EE a été rebaptisé Jakarta EE. La fondation a récupéré la base de code Java et les TCK. En **2019** est sortie une version **Jakarta EE 8** pleinement compatible avec Java EE 8. Comme seul changement notable pour les dév **, le groupId des artefacts Maven a été renommé de javax à jakarta**. Le patch du numéro de version a été incrémenté. A titre d’exemple, l’artefact jakarta.faces:jakarta.faces-api:2.3.1 est identique à javax.faces:javax.faces-api:2.3. Pas si anodin, ce changement de GAV Maven fait que notre outil de build peut être amené, via le mécanisme de dépendances transitives, à placer dans le classpath deux mêmes artefacts ayant des groupId différents. Les exclusions maven permettent de corriger le tir.
 
   En décembre 2020, la communauté Java est secouée par la sortie de **Java EE 9**. 20 ans de rétrocompatibilité s’écroulent. Oracle a souhaité conserver la **marque Java**. Les **packages javax.\* de la spécification Java EE ont été renommés en jakarta.\***. Certains sous-packages ont également été renommés.  <br> Pour exemple, la classe **_Marshaller_** de l’API JAXB change de package : de _javax.xml.bind.Marshaller_ vers jakarta.xml.bind.Marshaller
+
+  ![Compatibilité Jakarta EE 9 de vieux frameworks](/wp-content/uploads/2024/08/Jakarta_ee_logo.png)
 tags:
   - javaee
   - spring-boot

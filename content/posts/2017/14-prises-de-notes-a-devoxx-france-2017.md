@@ -16,6 +16,8 @@ summary: |-
   Il y’en a pour tous les goûts : du Java pur et dur, du framework avec Spring, du front avec Vue.js, des conteneurs avec Docker Swarm mode, des nouvelles approches de développement avec la programmation réactive, des patterns d’architecture avec les microservices, CQRS et l’Event-Sourcing, du legacy tendance avec les logs, et du Big Data avec Elasticsearch.
 
   [![](http://javaetmoi.com/wp-content/uploads/2017/04/2017-04-14-prises-de-notes-à-Devoxx-France-2017-1024x582.jpg)](http://javaetmoi.com/wp-content/uploads/2017/04/2017-04-14-prises-de-notes-à-Devoxx-France-2017.jpg)
+
+  ![14 prises de notes à Devoxx France 2017](/wp-content/uploads/2017/04/2017-04-14-prises-de-notes-à-Devoxx-France-2017.jpg)
 tags:
   - cloud
   - cqrs

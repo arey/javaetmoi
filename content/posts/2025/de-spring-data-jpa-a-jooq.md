@@ -26,6 +26,8 @@ summary: |-
   L’usage de jOOQ se rapproche de l’utilisation de JdbcTemplate. Le développeur maitrise le nombre de requêtes envoyées à la base de données relationnelle. Ce qui les différencie, c’est la syntaxe : pas de SQL, mais une **API Java fluide** et **type-safe** spécifique à jOOQ qu’il va falloir appréhender. Rassurez-vous, cette API se rapproche du SQL : on y retrouve les mots clés **select**, **update**, **insertInto**, **where**, **from**, **join**, **on**, **as**… A ceux-ci, on ajoute des mots clés spécifiques à jOOQ : **paginate**, **fetch**, **convertFrom** … La [**documentation**](https://www.jooq.org/learn/) de jOOQ est très **complète**. On y apprend comment écrire des requêtes complexes à base de window function ou de Common Table Expressions (CTE) et comment utiliser des fonctionnalités avancées de SQL que peu de frameworks ORM supportent nativement : [JSON functions](https://www.jooq.org/doc/latest/manual/sql-building/column-expressions/json-functions/), [PIVOT](https://blog.jooq.org/how-to-use-sql-pivot-to-compare-two-tables-in-your-database/), [MERGE](https://www.jooq.org/doc/latest/manual/sql-building/sql-statements/merge-statement/), [UNION](https://www.jooq.org/doc/latest/manual/sql-building/sql-statements/select-statement/set-operations/set-operation-union/) …
 
   Cet article a pour objectif d’expliquer les **étapes** adoptées pour **migrer l’implémentation Spring Data JPA des repository vers jOOQ**. Des exemples de code avant / après y sont proposés.
+
+  ![jOOQ: The easiest way to write SQL in Java](/wp-content/uploads/2025/06/jooq-the-easiest-way-to-write-sql-in-java.png)
 tags:
   - devoxx
   - jooq

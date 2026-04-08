@@ -15,6 +15,8 @@ summary: |-
   [![jenkins-build-history](http://javaetmoi.com/wp-content/uploads/2013/07/jenkins-build-history-300x220.png)](http://javaetmoi.com/wp-content/uploads/2013/07/jenkins-build-history.png) A Devoxx France, lorsqu’Axel Fontaine vante les mérites du **Continuous Delivery** et que Ludovic Cinquin affirme que **Facebook est mis en production 2 fois par jour**, avouez que cela a de quoi vous laisser rêveur ? En attendant de travailler un jour dans des structures ayant compris que des **livraisons fréquentes** et **automatisées** permettent de gagner en fiabilité, en agilité et de développer leur business, vous n’avez d’autres choix que de vous approprier les processus établis où vous intervenez et de les améliorer à votre niveau.
 
   Dans les grands comptes où je suis intervenu, la mouvance **Devops** prônant de tels processus n’avait pas encore percé. Quelques **outils** sont bien mis en place. Mais pour autant, **MOE** et **exploitation** sont 2 **équipes** bien **distinctes**. L’exploitation peut elle-même être scindée en 2 : production et intégration (hors-prod). C’est précisément dans ce contexte que s’inscrit  cet article. Il montre comment utiliser un **serveur d’intégration continue** pour releaser puis **déployer une application** sur les environnements autorisés.
+
+  ![jenkins-build-history](/wp-content/uploads/2013/07/jenkins-build-history.png)
 tags:
   - devops
   - jenkins

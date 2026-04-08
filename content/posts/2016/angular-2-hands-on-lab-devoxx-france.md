@@ -20,6 +20,8 @@ summary: |-
   ![2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016](http://javaetmoi.com/wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016-1024x576.jpg)
 
   ##
+
+  ![2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016](/wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg)
 tags:
   - angular2
   - devoxx

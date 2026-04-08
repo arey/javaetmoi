@@ -28,6 +28,8 @@ summary: |-
 
   1. Une première dressant les **avantages** et les **inconvénients** d’utiliser **Dozer** par rapport à une **approche manuelle**,
   2. et une seconde présentant les résultats d’un **micro-benchmark** comparant plusieurs frameworks : **Dozer**, **Orika**, **Selma**, **MapStruct** et **ModelMapper**.
+
+  ![logo-java-performance](/wp-content/uploads/2015/09/logo-java-performance.png)
 tags:
   - benchmark
   - dozer

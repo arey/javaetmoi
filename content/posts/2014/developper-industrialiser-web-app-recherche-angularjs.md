@@ -24,6 +24,8 @@ summary: |-
   8. Utiliser l’ **usine de développement** JavaScript disponible sur le Cloud : Travis CI, Coversall.io et David
 
   Le code source de l’application est bien entendu [disponible sur GitHub](https://github.com/arey/angular-musicbrainz) et [testable en ligne](http://angular-musicbrainz.javaetmoi.com/).
+
+  ![Angular MusicBrainz web app screenshot](/wp-content/uploads/2014/02/angular-musicbrainz-screenshot.png)
 tags:
   - angularjs
   - bootstrap

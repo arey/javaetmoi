@@ -16,6 +16,8 @@ summary: |-
   ![](http://javaetmoi.com/wp-content/uploads/2017/04/vuejs-emmanuel-150x150.png)Emmanuel et Aurélien sont consultants web chez Zenika Lille. Familiarisés avec Angular, ils ont découvert VueJS au travers d’un projet personnel.
   VueJS nous est présenté comme une librairie (et non un framework) dédiée à la création d’interfaces web HTML. Il se veut **simple** et efficace, idéal pour créer rapidement une application web. Ses concepts principaux sont les **Vues**(il ne s’appelle pas Vue.js pour rien), les **Directives**, les **Composants** et le **Binding**. Tels les Web Components, Vue.js utilise le **Shadow DOM** pour scoper le style CSS des composants.
   Après cette courte introduction, place au CodeLab.
+
+  ![Codez le lab Vue.js de Devoxx France 2017](/wp-content/uploads/2017/04/vuejs-emmanuel.png)
 tags:
   - devoxx
   - javascript

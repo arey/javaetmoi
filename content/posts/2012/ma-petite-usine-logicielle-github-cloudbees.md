@@ -20,6 +20,8 @@ summary: |-
 
   En bonus, si vous développez des projets open source, vous n’aurez même pas à sortir votre carte bancaire.
   [![cloudbees-github-jenkins](http://javaetmoi.com/wp-content/uploads/2012/12/cloudbees-github-jenkins.png)](http://javaetmoi.com/wp-content/uploads/2012/12/cloudbees-github-jenkins.png)
+
+  ![cloudbees-github-jenkins](/wp-content/uploads/2012/12/cloudbees-github-jenkins.png)
 tags:
   - buildhive
   - cloudbees

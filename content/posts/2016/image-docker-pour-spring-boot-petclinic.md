@@ -18,6 +18,8 @@ summary: |-
 
   1. Comment l’image Docker a été construire
   2. Et comment l’utiliser pour tester Petclinic
+
+  ![docker-logo](/wp-content/uploads/2016/11/docker-logo.png)
 tags:
   - docker
   - maven

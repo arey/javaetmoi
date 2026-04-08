@@ -15,6 +15,8 @@ summary: |-
   _« Près de 2 ans passés chez un client en tant que référent technique d’un **middle de recherche** basé sur le moteur de recherche [Elasticsearch](http://www.elasticsearch.org/), il me paraît aujourd’hui opportun de vous faire part des différentes **problématiques** rencontrées au cours des **développements** et de son **exploitation**. »_
 
   En 2 versions majeures et une montée de version d’Elasticsearch, les problématiques abordées ont été nombreuses : occupation mémoire, ré-indexation sans interruption de service, Split Brain, IDF et partitionnement. Prêts pour ce retour d’expérience ? »
+
+  ![Logo Elastisearch](/wp-content/uploads/2013/12/logo-elastisearch.png)
 tags:
   - elasticsearch
   - nosql

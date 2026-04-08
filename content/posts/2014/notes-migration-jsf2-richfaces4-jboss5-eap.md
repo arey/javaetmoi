@@ -17,6 +17,8 @@ summary: |-
   Plus classique, la seconde difficulté consistait à **monter les versions de JSF et de Richfaces** d’une application existante.
   J’ai arrêté mon étude après avoir migré le premier écran de cette application. Ayant conservé quelques notes, je me suis dit qu’elles pourraient intéresser certains ou certaines d’entre vous.
   Ce billet commence par expliquer comment **désinstaller JSF 1.2**, se poursuit par le déploiement du **Showcase de Richfaces 4.3.5** dans JBoss 5.1 EAP et se termine par la mise à disposition de mes **notes de migration**.
+
+  ![JBoss Richfaces Logo](/wp-content/uploads/2014/06/2014-07-jsf2-richfaces4-dans-jboss5-richfaces-logo.png)
 tags:
   - jboss
   - jsf

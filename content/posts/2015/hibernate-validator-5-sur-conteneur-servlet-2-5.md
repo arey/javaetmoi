@@ -19,6 +19,8 @@ summary: |-
 
   Essayer et vous tomberez au runtime sur l’exception suivante :
   NoSuchMethodError: javax.el.ExpressionFactory.newInstance()Ljavax/el/ExpressionFactory)
+
+  ![hibernate-validator-logo](/wp-content/uploads/2015/09/hibernate-validator-logo.png)
 tags:
   - el
   - hibernate-validator

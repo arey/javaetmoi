@@ -21,6 +21,8 @@ summary: |-
   Que doit-on savoir ? Pour commencer, on ne saura jamais tout et il faudra vivre avec. Personne ne sait tout. Même le plus capé des architectes.
 
   Comme fil conducteur, Cyrille et Eric prennent un **exemple réel** issu du monde des **télécommunications**. <br>Pour cahier des charges, le client précise que le **système** va **recevoir des fichiers chaque minute** et doit **les intégrer tous les 15mn**. Contexte : ces fichiers viennent d’équipements télécom.
+
+  ![Les clés de l'architecture pour les dévs](/wp-content/uploads/2025/04/word-image-2508-3.png)
 tags:
   - architecture
   - devoxx

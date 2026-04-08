@@ -16,6 +16,8 @@ summary: |-
   Les améliorations à apporter sont réalisées en séance en pair programming ou bien consignées directement dans le code à l’aide d’un TODO. Je profite de ces moments privilégiés pour expliquer et/ou échanger autour des règles de coding et d’architecture logicielle.
 
   Dans le cadre de l’ **externalisation du développement** d’une application, les revues de code se pratiquent différemment. En effet, la livraison du code intervient souvent après un long effet tunnel. Dès le début des développements, les développeurs doivent connaître mes attentes. Ce billet a pour objectif de les formaliser de manière synthétique.
+
+  ![clean_code_logo](/wp-content/uploads/2015/08/clean_code_72_color.png)
 title: Check-list revue de code Java
 url: /2015/08/check-list-revue-code-et-architecture-java/
 

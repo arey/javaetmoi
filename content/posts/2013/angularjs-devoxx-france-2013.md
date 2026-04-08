@@ -26,6 +26,8 @@ summary: |-
   Your name:
   Hello {{me}}!
   ```
+
+  ![Université AngularJS ou le futur du développement Web à devoxxx France 2013](/wp-content/uploads/2013/04/devoxxfr-2013-angularjs.jpg)
 tags:
   - angularjs
   - devoxx

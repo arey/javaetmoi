@@ -34,6 +34,8 @@ summary: |-
   Après mesures et calculs, l’utilisation de la **pagination** sur des plages de 100, de 1 000 ou même de 10 000 enregistrements a également été écartée. Dans notre contexte, cela aurait dégradé les performances. Le choix de rester sur l’utilisation d’un **curseur JDBC** a été maintenu.<br>A cette occasion, nous avons remarqué que les temps de mise en place d’un curseur Oracle pour préparer 1 millions ou 10 millions d’enregistrements étaient du même ordre de grandeur.
 
   Utilisant déjà l’une des techniques proposées par Spring Batch pour paralléliser notre traitement batch, pourquoi ne pas refaire appel à ses loyaux services ?
+
+  ![Modèle physique de données des tables MASTERPIECE, MUSIC_ALBUM et MOVIE](/wp-content/uploads/2012/11/ParallélisationTraitementsBatch%5FMPD.jpg)
 tags:
   - elasticsearch
   - spring-batch

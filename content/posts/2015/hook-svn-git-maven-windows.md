@@ -17,6 +17,8 @@ summary: |-
 
   Pour contrer tout oubli, il est possible de systématiser l’exécution du build Maven avant de commiter. Les outils de gestion de configuration SVN et Git offrent un mécanisme de hook. Lors de la phase de pre-commit, on va demander au SCM d’exécuter un script de hook chargé de vérifier le code source. En cas d’erreur, le commit est refusé.
   Ecrire de tels scripts n’est pas compliqué sous Linux car beaucoup d’exemples existent. Par contre, **sous Windows**, c’est plus rare. **L’objet d** **e cet article est donc de vous donner des exemples de scripts de hook de pre-commit et de vous expliquer comment les configurer dans Tortoise SVN et Git.**
+
+  ![logo-maven](/wp-content/uploads/2014/12/logo-maven.gif)
 tags:
   - git
   - maven

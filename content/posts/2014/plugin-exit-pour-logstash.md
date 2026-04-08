@@ -16,6 +16,8 @@ summary: |-
   Une utilisation répandue de LogStash consiste à alimenter Elasticsearch à partir de fichiers de logs.
   Extensible via un mécanisme de plugins, LogStash sait gérer plusieurs types de source et plusieurs types de destinations.
   **Une utilisation alternative de LogStash consiste à l’utiliser comme batch d’indexation**. Le fichier à indexer a une fin. Et **l’utilisateur souhaite que LogStash s’arrête une fois les données importées**.
+
+  ![logstash](/wp-content/uploads/2014/11/logstash.png)
 tags:
   - elasticsearch
   - jruby

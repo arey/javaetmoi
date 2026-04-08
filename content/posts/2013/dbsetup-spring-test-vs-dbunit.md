@@ -19,6 +19,8 @@ summary: |-
   Mais voilà, commençant à apprécier les avantages de la configuration en Java offerte par Spring et les **APIs fluides** des frameworks FestAssert ou ElasticSearch utilisés sur l’application, l’idée d’ **écrire des jeux de données en Java** me plaisait bien. Et justement, il y’a quelques temps, l’argumentaire de l’article [Why use DbSetup?](http://dbsetup.ninja-squad.com/approach.html) ne m’avait pas laissé indifférent. C’était donc l’occasion d’utiliser cette jeune librairie développée par [les français de Ninja Squad](http://ninja-squad.fr/team) et qui mérite de se faire connaitre, j’ai nommé **[DbSetup](http://dbsetup.ninja-squad.com/)**.
 
   Le [guide utilisateur de DbSetup](http://dbsetup.ninja-squad.com/user-guide.html) étant particulièrement bien conçu, l'objectif de cet article n’est pas de vous en faire une simple traduction, mais de vous donner envie de l’essayer et de vous présenter la manière dont je l’ai mis en oeuvre. Celle-ci s’éloigne en effet quelque peu de celle présentée dans la documentation, la faute à mes vieux réflexes d’utilisateur de DbUnit et au bienheureux **[rollback pattern](http://xunitpatterns.com/Transaction%20Rollback%20Teardown.html)** de Spring.<br>
+
+  ![test-database](/wp-content/uploads/2013/09/test-database.jpg)
 tags:
   - database
   - dbsetup

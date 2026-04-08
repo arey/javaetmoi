@@ -34,6 +34,8 @@ summary: |-
   3. **Représentation** : comment documenter ? Faut-il préférer un diagramme ou une liste à puce ?
 
   Arc42 propose de documenter une application en **12 chapitres**. Chaque chapitre est lui-même généralement composé de 3 sous-parties. <br>Dans de ce talk, Damien s’appuie sur un projet fictif pour illustrer chacun des 12 chapitres. Ce projet consiste à développer une application de billetterie pour les JO. Il en profitera pour nous présenter des **outils de génération de diagrammes** (PlantUML et Mermaid), des **outils de modélisation** (C4 et Structurizr) et des **outils de génération de documentation** (avec CLI et donc intégrable à la CI).
+
+  ![word-image-2335-1](/wp-content/uploads/2024/04/word-image-2335-1.jpeg)
 tags:
   - arc42
   - asciidoc

@@ -21,6 +21,8 @@ summary: |-
   Par ailleurs, pour apprécier la démarche, une connaissance minimaliste d’Angular me paraissait également indispensable.
   Durant les 3 heures du Lab, nous avons pu implémenter 11 des 12 étapes prévues initialement (la dernière étant en bonus). Timing parfaitement respecté. Si vous n’avez pas eu la chance d’assister à cette présentation et si vous disposez de 3 heures devant vous, je vous conseille de tenter de le réaliser chez vous.
   Les slides du workshop, le code source de départ, les solutions et les tests unitaires sous Jasmine sont disponibles dans le repo Github [angular-from-scratch](https://github.com/zenika/angular-from-scratch) de Zenika.
+
+  ![angular-from-scratch-devoxx-france-2014](/wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-photo.jpg)
 tags:
   - angularjs
   - devoxx

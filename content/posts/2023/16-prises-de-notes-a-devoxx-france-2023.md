@@ -16,6 +16,8 @@ summary: |-
   D'ici quelques jours / semaines, après un repos bien mérité des organisateurs, **l’intégralité des vidéos des keynotes, conférences et universités présentées lors de Devoxx France** **2023** seront disponibles sur Youtube sur la [**chaîne Devoxx FR**](https://www.youtube.com/channel/UCsVPQfo5RZErDL41LoWvk0A/videos). Mes notes pourrons vous aider à vous faire rapidement un aperçu de leur contenu avant de les visionner.
 
   Tout comme l'édition précédente, je n'y aurais pas été découvrir les dernières technos hypes de 2023. Paradoxalement, il m'a semblé y avoir plus de conférences sur le SQL que le NoSQL. Kubernetes, les applications natives, le Craft et Docker auront été au rendez-vous de cette 11ième édition.
+
+  ![16 prises de notes à Devoxx France 2023](/wp-content/uploads/2023/04/Devoxx-France-2023.jpg)
 tags:
   - accelerate
   - architecture

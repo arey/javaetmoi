@@ -18,6 +18,8 @@ summary: |-
   A priori, vous n’avez rien à envier à la richesse grandissante de l’écosystème JavaScript, de l’outillage et des frameworks MV\* côté clients. Et pourtant, quelque chose vous manque cruellement. En effet, depuis que RIA et Ajax se sont imposés, votre application Java contient davantage de code JavaScript qu’il y’a 10 ans. S’appuyant sur des librairies telles que jQuery ou Underscore, ce code JavaScript est typiquement embarqué dans votre **WAR**. Pour le valider, les développeurs doivent démarrer leur conteneur web et accéder à l’écran sur lequel le code est utilisé. Firebug ou Chrome sont alors vos meilleurs amis pour la mise au point du script.
 
   Ce code JavaScript n’est généralement pas documenté. Le tester manuellement demande du temps.  Les modifications sont sources d’erreur. Tout changement est donc périlleux. Si, à l’instar de vos tests JUnit pour vous classes Java, vous disposiez de **tests JavaScript**, vous en seriez comblés. Or, c’est précisément ce qu’il vous manque. Et c’est là où **Jasmine** et **son plugin maven** viennent à votre rescousse.
+
+  ![tester-code-javascript-webapp-logo](/wp-content/uploads/2014/03/tester-code-javascript-webapp-logo.png)
 tags:
   - htmlunit
   - jasmine

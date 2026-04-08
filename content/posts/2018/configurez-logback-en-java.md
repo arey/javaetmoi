@@ -33,6 +33,8 @@ summary: |-
   La configuration des logs reste paramétrable via un fichier de properties externe. En effet, le paramétrage peut différer d’un environnement de déploiement à l’autre (ex : chemin du répertoire des fichiers logs). La configuration Logback reste extensible par l’inclusion d’un fichier XML au format Joran.
 
   Dans cet article, je vais vous présenter quelques bouts de code simplifié manipulant l’API Java de Logback.
+
+  ![logback-logo](/wp-content/uploads/2018/03/logback-logo.jpg)
 tags:
   - logback
 title: Configurez Logback en Java

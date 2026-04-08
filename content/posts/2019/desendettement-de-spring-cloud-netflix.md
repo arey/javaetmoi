@@ -22,6 +22,8 @@ summary: |-
   Cet article retrace les différentes étapes de
   migration. J’espère qu’il vous sera utile si vous avez le même chemin à
   parcourir.
+
+  ![Désendettement de Spring Cloud Netflix](/wp-content/uploads/2019/11/spring-cloud-netflix.png)
 tags:
   - hystrix
   - resilience4j

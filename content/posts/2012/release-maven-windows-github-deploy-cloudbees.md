@@ -27,6 +27,8 @@ summary: |-
   1. **Configuration maven pour GitHub**
   2. **Problème de passphrase SSH spécifique à Windows**
   3. **Configuration maven du repo CloudBees
+
+  ![logo_github](/wp-content/uploads/2012/04/logo_github.png)
 tags:
   - cloudbees
   - git

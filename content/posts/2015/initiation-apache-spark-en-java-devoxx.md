@@ -24,6 +24,8 @@ summary: |-
   1. Un [gitbook Initiation à Spark avec Java 8 et Scala](http://javaetmoi.com/wp-content/uploads/2015/04/initiation-a-spark-avec-java-8-et-scala.pdf).  Avec ses 33 pages, ce livre contient à la fois la présentation réalisée en séance par les speakers ainsi que les intitulés des exercices.
   2. [Les jeu de données](http://javaetmoi.com/wp-content/uploads/2016/01/initiation-apache-spark-data.zip) au format CSV et JSON nécessaires pour le Lab
   3. La [configuration maven pour Java ou sbt pour Scala](http://javaetmoi.com/wp-content/uploads/2016/01/initiation-apache-spark-build.zip).
+
+  ![spark-logo](/wp-content/uploads/2015/04/spark-logo.png)
 tags:
   - bigdata
   - devoxx

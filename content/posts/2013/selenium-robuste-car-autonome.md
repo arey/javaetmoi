@@ -15,6 +15,8 @@ summary: |-
   De nos jours, l’utilisation d’un serveur d’ **intégration continue** pour déployer son application puis exécuter ses **tests [Selenium](http://seleniumhq.org/)** s’est relativement démocratisée. Néanmoins, l’investissement réalisé pour l’écriture de ces tests peut rapidement être mis à mal par le coût associé à leur maintenance. En effet, les tests d’IHM sont de nature plus **instables** que de simples tests unitaires. Outre des problématiques de rendu et de transversalité des fonctionnalités testées, l’une des principales difficultés réside dans la **répétabilité des tests**. Les **données de test** y jouent pour beaucoup. Cette difficulté est décuplée lorsque votre application repose sur une **architecture SOA** dont les services SOAP, XML ou bien REST sont hébergés par des tiers : vous n’avez aucune maitrise sur les données de l’environnement testé, ni sur sa stabilité.
   Des tests qui échouent régulièrement à cause de données ayant été modifiées rendent laborieuse la détection de véritables **régressions**.
   Cet article propose une solution appliquée depuis 2 ans sur une application de taille modeste (35 000 LOC pour 20 écrans).
+
+  ![Automatisation de lexécition de tests Selenium autonomes](/wp-content/uploads/2013/06/deploiement-tests-selenium-autonomes.png)
 tags:
   - selenium
   - soa

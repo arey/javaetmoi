@@ -25,6 +25,8 @@ summary: |-
   Le packaging est assuré par différents plugins Maven.
 
   Disposer d’une JVM et le seul pré-requis. Sachant qu’OpenJDK est installé sur la plupart des distributions Linux, ce n’est pas nécessairement une contrainte. Seule la version de Java devra être vérifiée avec soin.
+
+  ![jetty-logo](/wp-content/uploads/2015/04/jetty-logo.png)
 tags:
   - devops
   - jetty

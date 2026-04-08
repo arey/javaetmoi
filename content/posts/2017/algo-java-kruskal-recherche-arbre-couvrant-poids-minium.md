@@ -24,6 +24,8 @@ summary: |-
   Une application pratique de l'algorithme de Kruskal consiste à relier tous les ordinateurs d'un même réseau local avec une longueur optimale de fibre optique.
 
   Dans ce billet, vous trouverez une implémentation Java de cet algorithme. Il m'aura permis de résoudre le [problème Fibre Optique donné en finale du concours du Meilleur Dev de France 2017](https://www.isograd.com/FR/solutionconcours.php).
+
+  ![300px-Minimum_spanning_tree.svg](/wp-content/uploads/2017/09/300px-Minimum_spanning_tree.svg_.png)
 tags:
   - algorithme
   - java

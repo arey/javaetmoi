@@ -18,6 +18,8 @@ summary: |-
   In my last blog entry, I have published a [french study guide / notes](http://javaetmoi.com/2012/09/certified-spring-enterprise-integration-specialist-study-notes/) to the exam. Since, I received a few emails asking me some materials in English.
 
   Opposed to the Spring Core Certification, I didn’t find any mock exams for the . So I decided to create a mock exam like I did in my [Core Spring 3.0 Certification Mock Exam blog entry](http://javaetmoi.com/2012/02/core-spring-3-0-certification-mock-exam/).  The questions are close to the real Enterprise Integration with Spring exam and I hope will help you in practicing for the test or to test your Spring Integration proficiently. I have tried to keep my exam accurate, based on my real exam-experience.
+
+  ![Enterprise Spring Integration Certification Mock Exam](/wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png)
 tags:
   - certification
   - exam

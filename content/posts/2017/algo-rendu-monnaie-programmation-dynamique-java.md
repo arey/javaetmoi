@@ -22,6 +22,8 @@ summary: |-
   Par exemple, dans le système monétaire de l’Euro, la manière la plus optimale de rendre 6 euros consiste à rendre un billet de 5 € et une pièce de 1 €, même si d’autres combinaisons existent (ex : 3 x 2 € ou 6 x 1 €).
 
   Dans le cas d’un système monétaire non canonique, utiliser un [algorithme glouton](https://fr.wikipedia.org/wiki/Algorithme_glouton) ne donnera pas nécessairement un résultat optimal. Il est nécessaire de passer par la méthode algorithmique dite de [programmation dynamique](https://fr.wikipedia.org/wiki/Programmation_dynamique).
+
+  ![300px-Rendu_monnaie.svg](/wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png)
 tags:
   - algorithme
   - java

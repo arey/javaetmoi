@@ -18,6 +18,8 @@ summary: |-
   Les changements techniques étant bien trop transverses à l’application, la stratégie de [Feature Toggle](http://martinfowler.com/bliki/FeatureToggle.html) ne pouvait s’appliquer. Nous nous sommes donc dirigés vers une technique assimilable au [Feature Branch](http://martinfowler.com/bliki/FeatureBranch.html) ; notre migration technique n’étant rien d’autre qu’une feature comme une autre.  Logiquement, une branche dédiée à la migration a été créée.
 
   Notre stratégie fut de **merger régulièrement dans cette branche le code issu de la branche de développement**. Une fois la migration terminée, la branche de migration a été à son tour mergée dans la branche de développement.
+
+  ![Workflow de promotion en continue du trunk vers la branche](/wp-content/uploads/2013/03/2013-03-promotion-continue-avec-git-svn.png)
 tags:
   - git
   - svn

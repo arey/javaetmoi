@@ -18,6 +18,8 @@ summary: |-
   Voici un exemple de formulaire :
 
   [![](http://javaetmoi.com/wp-content/uploads/2017/05/2017-05-Formulaire-dynamique-en-Vue.js-1024x694.png)](http://javaetmoi.com/wp-content/uploads/2017/05/2017-05-Formulaire-dynamique-en-Vue.js.png)
+
+  ![Formulaire dynamique en Vue.Js](/wp-content/uploads/2017/05/2017-05-Formulaire-dynamique-en-Vue.js.png)
 tags:
   - javascript
   - vue.js

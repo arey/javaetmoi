@@ -20,6 +20,8 @@ summary: |-
   J’ai la chance de travailler dans une équipe ou l’outil [Selenium](https://selenium.dev/) \[2\] de tests IHM est rentré dans les mœurs. L’automatisation de leur exécution y joue un rôle indéniable. Notre hiérarchie s’est fortement impliquée ; elle a investi de l’énergie et du budget. Un DSL a été mis au point pour faciliter leur écriture et leur maintenance. Alors quand on peut les rentabiliser encore davantage, autant le faire. J’ai donc proposé de ne maintenir que les tests Selenium et de **générer les tests JMeter à partir de tests Selenium**.
 
   Cet article a pour objectif de vous présenter la démarche adoptée. Si vous êtes intéressés, vous pourrez librement l’adapter en fonction de votre contexte projet.
+
+  ![Extracteur dexpression régulière JMeter](/wp-content/uploads/2012/05/jmeter-viewstate-extractor.png)
 tags:
   - jmeter
   - selenium

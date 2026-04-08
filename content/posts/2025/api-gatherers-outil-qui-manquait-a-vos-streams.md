@@ -24,6 +24,8 @@ summary: |-
   L’article [The Gatherer API](https://dev.java/learn/api/streams/gatherers/) permet également d’approfondir votre étude des Gatherers. Notez que le site [dev.java](https://dev.java/) permet désormais d’exécuter des snippets Java (pas directement dans le navigateur, mais sur un serveur Cloud).
 
   Toutes les classes et interfaces de l’API Gatherers ont été ajoutées au **package java.util.stream**.
+
+  ![L’API Gatherers : l’outil qui manquait à vos Streams](/wp-content/uploads/2025/04/word-image-2551-1-edited.jpeg)
 tags:
   - devoxx
   - java
