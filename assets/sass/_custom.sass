@@ -22,7 +22,7 @@
   width: 100vw !important
   margin-left: calc(50% - 50vw)
 
-// Make markdown links visible in post excerpt summaries
+// Make markdown links visible in post excerpt summaries (but not the "Lire la suite" button)
 .pale
-  a
+  a:not(.button)
     color: $theme
