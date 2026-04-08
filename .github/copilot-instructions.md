@@ -15,13 +15,31 @@ hugo --logLevel error
 
 There is no test suite or linter — `hugo build` (exit code 0, no ERROR lines) is the validation step.
 
+## Verification Workflow
+
+After making changes, the agent should:
+
+1. **Start the dev server** (if not already running) and check for build errors:
+   ```bash
+   hugo serve --port 1313
+   ```
+   Verify the output contains no `ERROR` lines. The site reloads automatically on file changes.
+
+2. **Verify visual rendering** using the MCP Google Chrome DevTools server (`mcp_io_github_chr_*` tools):
+   - Navigate to the relevant page: `mcp_io_github_chr_navigate_page` with `http://localhost:1313/`
+   - Take a screenshot: `mcp_io_github_chr_take_screenshot`
+   - Inspect computed styles or DOM elements when debugging visual issues: `mcp_io_github_chr_evaluate_script`
+   - Check the HTML snapshot: `mcp_io_github_chr_take_snapshot`
+
+   These tools require the Chrome browser to be open and the MCP Chrome DevTools server to be running.
+
 ## Architecture
 
 This is a **Hugo static blog** (`javaetmoi.com`) migrated from WordPress using wp2hugo. The theme is **Hugo Clarity** (`themes/hugo-clarity/`, installed as a git submodule).
 
 ### Content layout
 
-- `content/posts/` — blog articles, one flat `.md` file per post (~110+ posts)
+- `content/posts/{year}/` — blog articles, one flat `.md` file per post (~114 posts), organized by year (2012–2026)
 - `content/pages/{slug}/index.md` — static pages as leaf bundles (about, spring)
 - `data/comments.yaml` — WordPress comments exported from the old site
 - `data/library.yaml` — book/resource library data
