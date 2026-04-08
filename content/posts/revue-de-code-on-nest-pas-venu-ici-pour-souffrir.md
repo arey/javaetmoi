@@ -11,7 +11,7 @@ parent_post_id: null
 post_id: "2356"
 post_views_count: "6988"
 summary: |-
-  {{ double-space-with-newline }}Conférence : [Devoxx France 2024](https://www.devoxx.fr/){{ double-space-with-newline }}Vidéo Youtube : [https://www.youtube.com/watch?v=KeM1cjKiMr4](https://www.youtube.com/watch?v=KeM1cjKiMr4){{ double-space-with-newline }}Date : 18 avril 2024{{ double-space-with-newline }}Speakerines : [Pauline Rambaud](https://twitter.com/@pauinegu) et [Anne-Laure de Boissieu](https://twitter.com/AnneLaure2B) (Bedrock Streaming){{ double-space-with-newline }}Format : Conférence (45mn)
+  <br>Conférence : [Devoxx France 2024](https://www.devoxx.fr/)<br>Vidéo Youtube : [https://www.youtube.com/watch?v=KeM1cjKiMr4](https://www.youtube.com/watch?v=KeM1cjKiMr4)<br>Date : 18 avril 2024<br>Speakerines : [Pauline Rambaud](https://twitter.com/@pauinegu) et [Anne-Laure de Boissieu](https://twitter.com/AnneLaure2B) (Bedrock Streaming)<br>Format : Conférence (45mn)
 
   Déjà donnée à plusieurs reprises dans différents meetups et conférences, Pauline et Anne-Laure ont repensé spécialement cette présentation pour Devoxx France. Quel honneur !
 

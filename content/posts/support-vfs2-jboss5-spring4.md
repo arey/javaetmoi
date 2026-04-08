@@ -12,9 +12,9 @@ parent_post_id: null
 post_id: "1032"
 post_views_count: "13380"
 summary: |-
-  Ce billet solutionne un problème rencontré lors de la **montée de version du famework Spring**  de la version 3.2 à la **version** **4.0**. En effet, le déploiement d’une application sous **JBoss 5.1 EAP** échouait dès l’initialisation du contexte Spring. Plus précisément, une exception était levée lorsque Spring scanne le classpath à la recherche de beans Spring annotés par les annotations  @Repository, @Service, @Controller …{{ double-space-with-newline }}Comme le montre la pile d’appel complète ci-dessous, l’exception **java.lang.ClassNotFoundException: org.jboss.vfs.VFS** est encapsulée dans l’exception **java.lang.IllegalStateException: Could not detect JBoss VFS infrastructure**
+  Ce billet solutionne un problème rencontré lors de la **montée de version du famework Spring**  de la version 3.2 à la **version** **4.0**. En effet, le déploiement d’une application sous **JBoss 5.1 EAP** échouait dès l’initialisation du contexte Spring. Plus précisément, une exception était levée lorsque Spring scanne le classpath à la recherche de beans Spring annotés par les annotations  @Repository, @Service, @Controller …<br>Comme le montre la pile d’appel complète ci-dessous, l’exception **java.lang.ClassNotFoundException: org.jboss.vfs.VFS** est encapsulée dans l’exception **java.lang.IllegalStateException: Could not detect JBoss VFS infrastructure**
 
-  Ce problème ne m’était initialement pas apparu lors des développements sous Eclipse avec le plugin JBoss Tools pour WTP : Spring n’a aucun mai à trouver les beans d’un WAR ou d’un EAR explosé. Cette erreur s’est manifestée  lors du déploiement manuel de l’EAR dans le répertoire deploy de JBoss puis du démarrage du serveur par la commande run.bat.{{ double-space-with-newline }}
+  Ce problème ne m’était initialement pas apparu lors des développements sous Eclipse avec le plugin JBoss Tools pour WTP : Spring n’a aucun mai à trouver les beans d’un WAR ou d’un EAR explosé. Cette erreur s’est manifestée  lors du déploiement manuel de l’EAR dans le répertoire deploy de JBoss puis du démarrage du serveur par la commande run.bat.<br>
 tags:
   - bug
   - jboss

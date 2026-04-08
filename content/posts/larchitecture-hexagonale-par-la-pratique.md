@@ -14,11 +14,11 @@ post_views_count: "19384"
 summary: |-
   ## Le live coding qui rendra vos applications plus pérennes
 
-  Conférence : [Devoxx France 2024](https://www.devoxx.fr/){{ double-space-with-newline }}Date : 19 avril 2024 {{ double-space-with-newline }}Speakers : [Julien Topçu](https://twitter.com/JulienTopcu) ( [Shodo](https://shodo.io/)) {{ double-space-with-newline }}Format : Conférence (45mn) {{ double-space-with-newline }}Repo GitLab : [https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot){{ double-space-with-newline }}Vidéo Youtube : [https://www.youtube.com/watch?v=-dXN8wkN0yk](https://www.youtube.com/watch?v=-dXN8wkN0yk)
+  Conférence : [Devoxx France 2024](https://www.devoxx.fr/)<br>Date : 19 avril 2024 <br>Speakers : [Julien Topçu](https://twitter.com/JulienTopcu) ( [Shodo](https://shodo.io/)) <br>Format : Conférence (45mn) <br>Repo GitLab : [https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot)<br>Vidéo Youtube : [https://www.youtube.com/watch?v=-dXN8wkN0yk](https://www.youtube.com/watch?v=-dXN8wkN0yk)
 
   Cette session de live coding se déroule dans l’univers de Starwars et commence par une **citation de Maitre Yoda** :
 
-  ![](https://javaetmoi.com/wp-content/uploads/2024/04/word-image-2317-1.png){{ double-space-with-newline }}
+  ![](https://javaetmoi.com/wp-content/uploads/2024/04/word-image-2317-1.png)<br>
   En 45mn, Julien doit développer le système **Rebels Rescue** visant à reconstituer des flottes de sauvetage. N’en déplaise à l’Empire, les technos seront Spring Boot et Java 21.
 
   A cet effet, il s’appuiera sur l’API publique [SWAPI](https://swapi.dev/) permettant d’accéder à un référentiel de vaisseaux à disposition. L’application sélectionne les vaisseaux qui permettent d’effectuer la mission de sauvetage. Le code source est disponible dans le repo GitLab de Julien : [hexagonal-architecture-java-springboot](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot)

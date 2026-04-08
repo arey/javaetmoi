@@ -15,7 +15,7 @@ parent_post_id: null
 post_id: "2551"
 post_views_count: "1738"
 summary: |-
-  Date : 16 avril 2025{{ double-space-with-newline }}Conférence : [Devoxx France 2025](https://www.devoxx.fr/){{ double-space-with-newline }}Speaker : [José Paumard](https://www.linkedin.com/in/jos%C3%A9-paumard-2458ba5/) (Oracle){{ double-space-with-newline }}Format : Conférence 45 mn {{ double-space-with-newline }}Support : [slides sur Speakerdeck](https://speakerdeck.com/josepaumard/lapi-gatherer-loutil-qui-manquait-a-vos-streams-4df175d2-6466-479e-bff1-369a2cad324a) / [replay Youtube](https://www.youtube.com/watch?v=__piR-N9pXA)
+  Date : 16 avril 2025<br>Conférence : [Devoxx France 2025](https://www.devoxx.fr/)<br>Speaker : [José Paumard](https://www.linkedin.com/in/jos%C3%A9-paumard-2458ba5/) (Oracle)<br>Format : Conférence 45 mn <br>Support : [slides sur Speakerdeck](https://speakerdeck.com/josepaumard/lapi-gatherer-loutil-qui-manquait-a-vos-streams-4df175d2-6466-479e-bff1-369a2cad324a) / [replay Youtube](https://www.youtube.com/watch?v=__piR-N9pXA)
 
   **Java Developer Advocate** chez Oracle, **José Paumard** nous présente la nouvelle [**API Gatherers**](https://docs.oracle.com/en/java/javase/24/core/stream-gatherers.html) qui, depuis Java 24, vient se greffer sur l’ **API Stream** Java sortie il y’a 11 ans avec Java 8.
 

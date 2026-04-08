@@ -17,7 +17,7 @@ summary: |-
 
   Dans cet article, je ne vous expliquerai pas comment utiliser [SLF4J](http://www.slf4j.org/), [Logback](http://logback.qos.ch/), [Log4j 2](https://logging.apache.org/log4j/2.x/) ou la controversée [API de Logging](https://docs.oracle.com/javase/8/docs/technotes/guides/logging/index.html) du langage Java. C’est un prérequis que bon nombre d’entre vous connaissent déjà. Beaucoup de ressources existent à ce sujet, en commençant par leurs documentations officielles.
 
-  Non, **je vous y exposerai plutôt les bonnes pratiques que je préconise**, tant au niveau d’une application que d’une organisation. Je répondrai également aux questions les plus courantes : **quand utiliser tel ou tel niveau de log ?** **que mettre dans les messages de logs ?**{{ double-space-with-newline }}Nom de mon blog oblige, j'utiliserai des exemples venant du monde Java. Mais vous pourrez aisément transposer ces bonnes pratiques à d’autres technologies. Et bien entendu, elles sont à adapter en fonction de votre contexte et de vos besoins.
+  Non, **je vous y exposerai plutôt les bonnes pratiques que je préconise**, tant au niveau d’une application que d’une organisation. Je répondrai également aux questions les plus courantes : **quand utiliser tel ou tel niveau de log ?** **que mettre dans les messages de logs ?**<br>Nom de mon blog oblige, j'utiliserai des exemples venant du monde Java. Mais vous pourrez aisément transposer ces bonnes pratiques à d’autres technologies. Et bien entendu, elles sont à adapter en fonction de votre contexte et de vos besoins.
 tags:
   - elasticsearch
   - logback

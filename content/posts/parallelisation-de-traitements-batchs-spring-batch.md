@@ -16,7 +16,7 @@ post_views_count: "17193"
 summary: |-
   ## Contexte
 
-  Récemment, j’ai participé au développement d’un batch capable d’indexer dans le moteur de recherche [Elasticsearch](http://www.elasticsearch.org/) des données provenant d’une **base de données** tierce. Développé en Java, ce batch s’appuie sur [Spring Batch](http://static.springsource.org/spring-batch/), le plus célèbre framework de traitements par lot de l’écosystème Java{{ double-space-with-newline }}Plus précisément, ce batch est décomposé en 2 jobs Spring Batch, très proches l’un de l’autre :
+  Récemment, j’ai participé au développement d’un batch capable d’indexer dans le moteur de recherche [Elasticsearch](http://www.elasticsearch.org/) des données provenant d’une **base de données** tierce. Développé en Java, ce batch s’appuie sur [Spring Batch](http://static.springsource.org/spring-batch/), le plus célèbre framework de traitements par lot de l’écosystème Java<br>Plus précisément, ce batch est décomposé en 2 jobs Spring Batch, très proches l’un de l’autre :
 
   1. le premier est capable d’initialiser à partir de zéro le moteur de recherche
   2. et le second traite uniquement les mouvements quotidiens de données.
@@ -31,7 +31,7 @@ summary: |-
 
   Les optimisations d’un DBA consistant à utiliser des **tables temporaires** et des **procédures stockées** n’ont pas été concluantes : trop peu de gains (10 à 20%) pour une réécriture partielle de notre batch, et avec le risque d’engendrer des régressions.
 
-  Après mesures et calculs, l’utilisation de la **pagination** sur des plages de 100, de 1 000 ou même de 10 000 enregistrements a également été écartée. Dans notre contexte, cela aurait dégradé les performances. Le choix de rester sur l’utilisation d’un **curseur JDBC** a été maintenu.{{ double-space-with-newline }}A cette occasion, nous avons remarqué que les temps de mise en place d’un curseur Oracle pour préparer 1 millions ou 10 millions d’enregistrements étaient du même ordre de grandeur.
+  Après mesures et calculs, l’utilisation de la **pagination** sur des plages de 100, de 1 000 ou même de 10 000 enregistrements a également été écartée. Dans notre contexte, cela aurait dégradé les performances. Le choix de rester sur l’utilisation d’un **curseur JDBC** a été maintenu.<br>A cette occasion, nous avons remarqué que les temps de mise en place d’un curseur Oracle pour préparer 1 millions ou 10 millions d’enregistrements étaient du même ordre de grandeur.
 
   Utilisant déjà l’une des techniques proposées par Spring Batch pour paralléliser notre traitement batch, pourquoi ne pas refaire appel à ses loyaux services ?
 tags:
