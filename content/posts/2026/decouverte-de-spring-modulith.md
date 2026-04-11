@@ -70,7 +70,7 @@ Avant de plonger dans le code, prenons un peu de hauteur. Spring Modulith repose
 | **Actuator** | La sonde `/actuator/modulith` expose le graphe de modules applicatifs au runtime. |
 | **Observabilité** | L’artefact `spring-modulith-observability` instrumente automatiquement les beans exposés et génère des _spans_ Micrometer pour chaque interaction inter-modules. |
 
-La [documentation officielle de Spring Modulith](%5D(https:/docs.spring.io/spring-modulith/reference/index.html) est très complète. Je vous encourage à vous y référer. Dans les paragraphes qui suivent, nous allons voir concrètement comment chaque fonctionnalité a été intégrée dans [Spring Petclinic](https://github.com/spring-projects/spring-petclinic), ceci en 11 étapes. Pour rappel, cette application Spring Boot créée en 2003 met en scène une clinique vétérinaire avec ses propriétaires d'animaux, ses vétérinaires et la prise de rendez-vous.
+La [documentation officielle de Spring Modulith](https:/docs.spring.io/spring-modulith/reference/index.html) est très complète. Je vous encourage à vous y référer. Dans les paragraphes qui suivent, nous allons voir concrètement comment chaque fonctionnalité a été intégrée dans [Spring Petclinic](https://github.com/spring-projects/spring-petclinic), ceci en 11 étapes. Pour rappel, cette application Spring Boot créée en 2003 met en scène une clinique vétérinaire avec ses propriétaires d'animaux, ses vétérinaires et la prise de rendez-vous.
 
 ## Étape 1 - Ajouter les dépendances Maven
 
@@ -187,7 +187,7 @@ Spring Modulith attribue un rôle bien défini à chaque package :
 1. Le **package racine du module**(ex : `vet/` _)_ expose l'API publique : les types que les autres modules ont le droit d'utiliser
 1. Les **sous-packages** (ex : `vet/internal/`) sont considérés comme internes : leur utilisation est interdite depuis les autres modules
 
-Pour chaque module de Spring Petclinic, j'ai donc commencé par déplacer les classes d'implémentation — contrôleurs, repositories, entités JPA dans un sous-package nommé `internal`(nom de package donné par convention, mais tout autre nommage est possible). A ma grande surprise, le package racine de chaque module était vide : les 3 modules étaient parfaitement découplés.
+Pour chaque module de Spring Petclinic, j'ai donc commencé par déplacer les classes d'implémentation — contrôleurs, repositories, entités JPA dans un sous-package nommé `internal` (nom de package donné par convention, mais tout autre nommage est possible). A ma grande surprise, le package racine de chaque module était vide : les 3 modules étaient parfaitement découplés.
 
 Les classes de test suivent la même organisation. Trivial, ce refactoring peut paraitre déroutant. Il présente pourtant un gain immédiat : on rend explicite ce qui relève de l'API publique du module et ce qui est un détail d'implémentation. Et c'est Spring Modulith qui garantit que cette frontière est respectée via le test `verify()` **_._**
 
@@ -302,7 +302,7 @@ package org.springframework.samples.petclinic.system;
 
 Ces garde-fous architecturaux sont ici exploités par le [ModularityTests](https://github.com/spring-petclinic/spring-petclinic-modulith/blob/4.0.0/src/test/java/org/springframework/samples/petclinic/ModularityTests.java). Si un développeur (ou un agent de codage) introduit une dépendance non autorisée, le test échoue immédiatement.
 
-## Étape 7 — L'Event Publication Registry
+## Étape 7 - L'Event Publication Registry
 
 Sans harnais de sécurité, un événement publié mais dont le listener échoue serait perdu à jamais. L'[Event Publication Registry](https://docs.spring.io/spring-modulith/reference/events.html#publication-registry) résout ce problème en persistant chaque événement en base de données **avant** l'exécution du listener.   
  Spring Modulith supporte 4 technologies de persistance : JDBC, JPA, MongoDB et Neo4j.   
@@ -390,6 +390,7 @@ Notez ici l’utilisation de l' **API Scenario** de Spring Modulith Test. On dé
 
 Les logs d’exécution du test donnent un aperçu des beans Spring chargés par `@ApplicationModuleTest` :
 
+```text
 Bootstrapping @org.springframework.modulith.test.ApplicationModuleTest for Owner in mode STANDALONE (class org.springframework.samples.petclinic.PetClinicApplication)…
 
 \# Owner  
@@ -405,7 +406,7 @@ Bootstrapping @org.springframework.modulith.test.ApplicationModuleTest for Owner
  o ….ui.PetController  
  o ….ui.PetTypeFormatter  
  o ….ui.VisitController
-
+```
 
  Appartenant au module system, la classe de test existante [CrashControllerIntegrationTests](https://github.com/spring-petclinic/spring-petclinic-modulith/blob/main/src/test/java/org/springframework/samples/petclinic/system/internal/CrashControllerIntegrationTests.java) a pu bénéficier de l’annotation `@ApplicationModuleTest`.   
  Contrairement à `@SpringBootTest`, `@ApplicationModuleTest` n’expose pas d’attribut `properties`. Cette limitation a pu être contournée grâce à l’annotation `TestPropertySource` de Spring Test.
@@ -534,8 +535,8 @@ Un appel GET sur l’URL `http://localhost:8080/actuator/modulith ` renvoie le g
 }
 ```
 
-##   
-Conclusion
+
+## Conclusion
 
 Vous l’aurez vu : **intégrer Spring Modulith** dans **Spring Petclinic** s'est fait **facilement** et de manière très **progressive**. Un projet d’entreprise n’exploitera pas nécessairement toutes les fonctionnalités présentées dans cet article. Seules les étapes 1 à 5 sont obligatoires. Le fait de pouvoir ouvrir certains sous-packages à d’autres modules permet d’intégrer Spring Modulith dans des applications legacy, le temps de refactorer le code. D’expérience **, le plus simple consiste néanmoins à intégrer Spring Modulith dès la mise en œuvre de l’architecture logicielle d’un nouveau monolith modulaire**.
 
