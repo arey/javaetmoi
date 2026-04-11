@@ -1,5 +1,7 @@
-# IDE
+### IDE
 .idea
 
-# Hugo
-public/
+### Hugo
+# Generated files by hugo
+/public/
+/resources/_gen/
