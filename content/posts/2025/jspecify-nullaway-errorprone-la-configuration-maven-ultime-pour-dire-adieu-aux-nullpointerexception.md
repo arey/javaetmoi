@@ -7,11 +7,19 @@ categories:
   - retour-d'expérience
 date: "2025-07-05T17:06:00+00:00"
 thumbnail: /wp-content/uploads/2025/07/jspecify-logo.svg
-featureImage: /wp-content/uploads/2025/07/Screenshot-site-JSpecify.png
 guid: https://javaetmoi.com/?p=2599
 parent_post_id: null
 post_id: "2599"
-summary: '<br>La gestion de la **nullabilité** en Java a longtemps été source de bugs et de fragmentation. Contrairement à Kotlin par exemple, Java ne possède pas encore nativement de moyen d’exprimer la nullité d’un type. Qui n’aura donc jamais ragé contre une **NullPointerException** survenue en production ? En juin 2024, avec l’arrivée de la spécification [**JSpecify**](https://jspecify.dev/), soutenue par des acteurs majeurs comme Google, Microsoft, JetBrains, Oracle, Sonar ou bien encore Broadcom (Spring), l’écosystème Java dispose enfin d’une **bibliothèque unifiée d’annotations de nullité**. Pour bénéficier d’une détection efficace des NullPointerException dès la compilation, il est nécessaire de coupler JSpecify à des outils d’analyse statique comme [**NullAway**](https://github.com/uber/NullAway) (Uber) et [**ErrorProne**](https://errorprone.info/) (Google). <br> Ce court article explique comment mettre en place sur un projet d’entreprise la **configuration Maven** correspondante qui fera casser votre build et votre CI lorsque vous essayerez de passer une variable _null_ en paramètre d’une méthode qui ne les accepte pas.'
+summary: |-
+ La gestion de la **nullabilité** en Java a longtemps été source de bugs et de fragmentation.
+ Contrairement à Kotlin par exemple, Java ne possède pas encore nativement de moyen d’exprimer la nullité d’un type.
+ Qui n’aura donc jamais ragé contre une `NullPointerException` survenue en production ? En juin 2024, avec l’arrivée de la spécification [**JSpecify**](https://jspecify.dev/), soutenue par des acteurs majeurs comme Google, Microsoft, JetBrains, Oracle, Sonar ou bien encore Broadcom (Spring), 
+ l’écosystème Java dispose enfin d’une **bibliothèque unifiée d’annotations de nullité**.
+ Pour bénéficier d’une détection efficace des NullPointerException dès la compilation, il est nécessaire de coupler JSpecify à des outils d’analyse statique comme [**NullAway**](https://github.com/uber/NullAway) (Uber) et [**ErrorProne**](https://errorprone.info/) (Google).
+ 
+ Ce court article explique comment mettre en place sur un projet d’entreprise la **configuration Maven** correspondante qui fera casser votre build et votre CI lorsque vous essayerez de passer une variable `null` en paramètre d’une méthode qui ne les accepte pas.
+ 
+ ![Screenshot du site de JSpecify](/wp-content/uploads/2025/07/Screenshot-site-JSpecify.png)
 tags:
   - errorprone
   - jspecify
@@ -22,8 +30,9 @@ url: /2025/07/jspecify-nullaway-errorprone-la-configuration-maven-ultime-pour-di
 
 ---
   
-La gestion de la **nullabilité** en Java a longtemps été source de bugs et de fragmentation. Contrairement à Kotlin par exemple, Java ne possède pas encore nativement de moyen d’exprimer la nullité d’un type. Qui n’aura donc jamais ragé contre une **NullPointerException** survenue en production ? En juin 2024, avec l’arrivée de la spécification [**JSpecify**](https://jspecify.dev/), soutenue par des acteurs majeurs comme Google, Microsoft, JetBrains, Oracle, Sonar ou bien encore Broadcom (Spring), l’écosystème Java dispose enfin d’une **bibliothèque unifiée d’annotations de nullité**. Pour bénéficier d’une détection efficace des NullPointerException dès la compilation, il est nécessaire de coupler JSpecify à des outils d’analyse statique comme [**NullAway**](https://github.com/uber/NullAway) (Uber) et [**ErrorProne**](https://errorprone.info/) (Google).   
- Ce court article explique comment mettre en place sur un projet d’entreprise la **configuration Maven** correspondante qui fera casser votre build et votre CI lorsque vous essayerez de passer une variable _null_ en paramètre d’une méthode qui ne les accepte pas.
+La gestion de la **nullabilité** en Java a longtemps été source de bugs et de fragmentation. Contrairement à Kotlin par exemple, Java ne possède pas encore nativement de moyen d’exprimer la nullité d’un type.
+Qui n’aura donc jamais ragé contre une `NullPointerException` survenue en production ? En juin 2024, avec l’arrivée de la spécification [**JSpecify**](https://jspecify.dev/), soutenue par des acteurs majeurs comme Google, Microsoft, JetBrains, Oracle, Sonar ou bien encore Broadcom (Spring), l’écosystème Java dispose enfin d’une **bibliothèque unifiée d’annotations de nullité**. Pour bénéficier d’une détection efficace des NullPointerException dès la compilation, il est nécessaire de coupler JSpecify à des outils d’analyse statique comme [**NullAway**](https://github.com/uber/NullAway) (Uber) et [**ErrorProne**](https://errorprone.info/) (Google).   
+Ce court article explique comment mettre en place sur un projet d’entreprise la **configuration Maven** correspondante qui fera casser votre build et votre CI lorsque vous essayerez de passer une variable `null` en paramètre d’une méthode qui ne les accepte pas.
 
 {{< figure src="/wp-content/uploads/2025/07/Screenshot-site-JSpecify.png" alt="" caption="" >}}
 
