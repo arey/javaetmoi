@@ -100,7 +100,21 @@ Chaque note .md suit la structuration suivante :
 
 Le tableau suivant présente la [syntaxe Markdown supportée par Obsidian](https://help.obsidian.md/obsidian-flavored-markdown) :
 
-SyntaxDescription`[[Link]]`[Internal links](https://help.obsidian.md/links)`![[Link]]`[Embed files](https://help.obsidian.md/embeds)`![[Link#^id]]`[Block references](https://help.obsidian.md/links#Link%20to%20a%20block%20in%20a%20note)`^id`[Defining a block](https://help.obsidian.md/links#Link%20to%20a%20block%20in%20a%20note)`[^id]`[Footnotes](https://help.obsidian.md/syntax#Footnotes)`%%Text%%`[Comments](https://help.obsidian.md/syntax#Comments)`~~Text~~`[Strikethroughs](https://help.obsidian.md/syntax#Bold,%20italics,%20highlights)`==Text==`[Highlights](https://help.obsidian.md/syntax#Bold,%20italics,%20highlights)```` ``` ````[Code blocks](https://help.obsidian.md/syntax#Code%20blocks)`- [ ]`[Incomplete task](https://help.obsidian.md/syntax#Task%20lists)`- [x]`[Completed task](https://help.obsidian.md/syntax#Task%20lists)`> [!note]`[Callouts](https://help.obsidian.md/callouts)(see link)[Tables](https://help.obsidian.md/advanced-syntax#Tables)
+| Syntax        | Description           |
+|---------------|-----------------------|
+| [[Link]]      | Liens internes        |
+| ![[Link]]     | Inclusion de fichiers |
+| ![[Link#^id]] | Références de bloc    |
+| ^id           | Définition d'un bloc  |
+| [^id]         | Notes de bas de page  |
+| %%Text%%      | Commentaires          |
+| ~~Text~~      | Barré                 |
+| ==Text==      | Surlignage            |
+| ```           | Bloc de code          |
+| - [ ]         | Tâche incomplète      |
+| - [x]         | Tâche terminée        |
+| > [!note]     | Callout (note, info…) |
+| (see link)    | Tableaux              |
 
 Dans son dossier **Bujo**, Hoani s'appuie sur le plugin [Periodic Notes](https://github.com/liamcain/obsidian-periodic-notes) pour gérer ses notes périodiques et les hiérarchise en année / trimestre / mois / jours.
 
