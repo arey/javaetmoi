@@ -9,7 +9,6 @@ categories:
   - spring
 date: "2025-06-16T06:57:01+00:00"
 thumbnail: /wp-content/uploads/2025/06/jooq-the-easiest-way-to-write-sql-in-java.png
-featureImage: /wp-content/uploads/2025/06/jooq-the-easiest-way-to-write-sql-in-java.png
 featureImageAlt: "jOOQ: The easiest way to write SQL in Java"
 footnotes: ""
 guid: https://javaetmoi.com/?p=2580
@@ -17,8 +16,6 @@ parent_post_id: null
 post_id: "2580"
 post_views_count: "1518"
 summary: |-
-  ![jOOQ: The easiest way to write SQL in Java](https://javaetmoi.com/wp-content/uploads/2025/06/jooq-the-easiest-way-to-write-sql-in-java.png)
-
   Lors de la conférence Devoxx France 2025, j’ai participé à un hands-on lab de 2h intitulé [Sortir des ORMs avec jOOQ](https://www.devoxx.fr/agenda-2025/talk/sortir-des-orms-avec-jooq/). Acronyme de « **Java Object Oriented Querying** », **jOOQ** se présente comme une **alternative à JPA** permettant d’ **écrire des requêtes SQL** en Java via une **fluent API**. Animé par Sylvain Decout et Samuel Lefebvre, cet atelier visait à migrer une application Spring Boot / JPA vers jOOQ à l’aide du **starter Spring Boot** pour jOOQ. Pour les curieux, le repo de l’atelier est disponible sur Github : [jooq-handson](https://github.com/sylvaindecout/jooq-handson).
 
   Fort de cette découverte, je me suis à mon tour prêté à l’exercice de migrer vers jOOQ la couche de persistance Spring Data JPA de l’application démo Spring Petclinic. Un nouveau fork est né : [**spring-petclinic-jooq**](https://github.com/spring-petclinic/spring-petclinic-jooq). Bienvenue à ce dernier dans la communauté Spring Petclinic.
@@ -26,8 +23,6 @@ summary: |-
   L’usage de jOOQ se rapproche de l’utilisation de JdbcTemplate. Le développeur maitrise le nombre de requêtes envoyées à la base de données relationnelle. Ce qui les différencie, c’est la syntaxe : pas de SQL, mais une **API Java fluide** et **type-safe** spécifique à jOOQ qu’il va falloir appréhender. Rassurez-vous, cette API se rapproche du SQL : on y retrouve les mots clés **select**, **update**, **insertInto**, **where**, **from**, **join**, **on**, **as**… A ceux-ci, on ajoute des mots clés spécifiques à jOOQ : **paginate**, **fetch**, **convertFrom** … La [**documentation**](https://www.jooq.org/learn/) de jOOQ est très **complète**. On y apprend comment écrire des requêtes complexes à base de window function ou de Common Table Expressions (CTE) et comment utiliser des fonctionnalités avancées de SQL que peu de frameworks ORM supportent nativement : [JSON functions](https://www.jooq.org/doc/latest/manual/sql-building/column-expressions/json-functions/), [PIVOT](https://blog.jooq.org/how-to-use-sql-pivot-to-compare-two-tables-in-your-database/), [MERGE](https://www.jooq.org/doc/latest/manual/sql-building/sql-statements/merge-statement/), [UNION](https://www.jooq.org/doc/latest/manual/sql-building/sql-statements/select-statement/set-operations/set-operation-union/) …
 
   Cet article a pour objectif d’expliquer les **étapes** adoptées pour **migrer l’implémentation Spring Data JPA des repository vers jOOQ**. Des exemples de code avant / après y sont proposés.
-
-  ![jOOQ: The easiest way to write SQL in Java](/wp-content/uploads/2025/06/jooq-the-easiest-way-to-write-sql-in-java.png)
 tags:
   - devoxx
   - jooq
@@ -38,7 +33,7 @@ title: De Spring Data JPA à jOOQ
 url: /2025/06/de-spring-data-jpa-a-jooq/
 
 ---
-![jOOQ: The easiest way to write SQL in Java](/wp-content/uploads/2025/06/jooq-the-easiest-way-to-write-sql-in-java.png)
+![:left](/wp-content/uploads/2025/06/logo-jooq.png)
 
 Lors de la conférence Devoxx France 2025, j’ai participé à un hands-on lab de 2h intitulé [Sortir des ORMs avec jOOQ](https://www.devoxx.fr/agenda-2025/talk/sortir-des-orms-avec-jooq/). Acronyme de « **Java Object Oriented Querying** », **jOOQ** se présente comme une **alternative à JPA** permettant d’ **écrire des requêtes SQL** en Java via une **fluent API**. Animé par Sylvain Decout et Samuel Lefebvre, cet atelier visait à migrer une application Spring Boot / JPA vers jOOQ à l’aide du **starter Spring Boot** pour jOOQ. Pour les curieux, le repo de l’atelier est disponible sur Github : [jooq-handson](https://github.com/sylvaindecout/jooq-handson).
 
