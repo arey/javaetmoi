@@ -6,23 +6,28 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2025-04-22T17:54:32+00:00"
-thumbnail: /wp-content/uploads/2025/04/word-image-2508-3.png
-featureImage: /wp-content/uploads/2025/04/word-image-2508-3.png
+thumbnail: /logo/logo-devoxx-france.png
+featureImage: /wp-content/uploads/2025/04/word-image-2508-1.jpeg
 footnotes: ""
 guid: https://javaetmoi.com/?p=2508
 parent_post_id: null
 post_id: "2508"
 post_views_count: "711"
 summary: |-
-  Conférence : [Devoxx France 2025](https://www.devoxx.fr/)<br>Date : 17 avril 2025<br>Speakers : [Cyrille Martraire](https://www.linkedin.com/in/martraire/?originalSubdomain=fr) (Arolla), [Eric Le Merdy](https://www.linkedin.com/in/eric-le-merdy-bb60704/?originalSubdomain=fr) (QuickSign) remplaçant de [Christian Sperandio](https://www.linkedin.com/in/christian-sperandio-25182a12) (Arolla)<br>Format : Conférence (45mn) / [Replay Youtube](https://www.youtube.com/watch?v=ZoYDxF_7LoI&t=528s)
+  Conférence : [Devoxx France 2025](https://www.devoxx.fr/)<br>
+  Date : 17 avril 2025<br>
+  Speakers : [Cyrille Martraire](https://www.linkedin.com/in/martraire/?originalSubdomain=fr) (Arolla), [Eric Le Merdy](https://www.linkedin.com/in/eric-le-merdy-bb60704/?originalSubdomain=fr) (QuickSign) remplaçant de [Christian Sperandio](https://www.linkedin.com/in/christian-sperandio-25182a12) (Arolla)<br>
+  Format : Conférence (45mn) / [Replay Youtube](https://www.youtube.com/watch?v=ZoYDxF_7LoI&t=528s)
 
-  Cette conférence a pour **objectif** d’ **ouvrir les portes** en nous donnant les **clés de l’architecture**. Pour seconder Cyrille, Eric a du remplacer Christian au pied levé. <br>Un constat est posé. Sur les **dix dernières années**, les **systèmes** ont changé : ils sont devenus **modulaires**, de plus en plus **distribués**. La modularité permise par le Cloud permet de répartir la charge. Il y’a **de** **plus en plus d’interconnexions entre briques applicatives**. <br>**L’architecture bouge tout le temps**, évolue constamment. <br>![Cyrille Martraire et Eric Le Merdy sur la scène de Devoxx France 2025](https://javaetmoi.com/wp-content/uploads/2025/04/word-image-2508-1.jpeg)
+  Cette conférence a pour **objectif** d’ **ouvrir les portes** en nous donnant les **clés de l’architecture**. Pour seconder Cyrille, Eric a du remplacer Christian au pied levé. <br>
+  Un constat est posé. Sur les **dix dernières années**, les **systèmes** ont changé : ils sont devenus **modulaires**, de plus en plus **distribués**. La modularité permise par le Cloud permet de répartir la charge. Il y’a **de** **plus en plus d’interconnexions entre briques applicatives**. <br>
+  **L’architecture bouge tout le temps**, évolue constamment. <br>
+  ![Cyrille Martraire et Eric Le Merdy sur la scène de Devoxx France 2025](https://javaetmoi.com/wp-content/uploads/2025/04/word-image-2508-1.jpeg)
 
   Que doit-on savoir ? Pour commencer, on ne saura jamais tout et il faudra vivre avec. Personne ne sait tout. Même le plus capé des architectes.
 
-  Comme fil conducteur, Cyrille et Eric prennent un **exemple réel** issu du monde des **télécommunications**. <br>Pour cahier des charges, le client précise que le **système** va **recevoir des fichiers chaque minute** et doit **les intégrer tous les 15mn**. Contexte : ces fichiers viennent d’équipements télécom.
-
-  ![Les clés de l'architecture pour les dévs](/wp-content/uploads/2025/04/word-image-2508-3.png)
+  Comme fil conducteur, Cyrille et Eric prennent un **exemple réel** issu du monde des **télécommunications**. <br>
+  Pour cahier des charges, le client précise que le **système** va **recevoir des fichiers chaque minute** et doit **les intégrer tous les 15mn**. Contexte : ces fichiers viennent d’équipements télécom.
 tags:
   - architecture
   - devoxx
@@ -38,7 +43,6 @@ Format : Conférence (45mn) / [Replay Youtube](https://www.youtube.com/watch?v=Z
 Cette conférence a pour **objectif** d’ **ouvrir les portes** en nous donnant les **clés de l’architecture**. Pour seconder Cyrille, Eric a du remplacer Christian au pied levé.   
 Un constat est posé. Sur les **dix dernières années**, les **systèmes** ont changé : ils sont devenus **modulaires**, de plus en plus **distribués**. La modularité permise par le Cloud permet de répartir la charge. Il y’a **de** **plus en plus d’interconnexions entre briques applicatives**.   
 **L’architecture bouge tout le temps**, évolue constamment.   
-![Cyrille Martraire et Eric Le Merdy sur la scène de Devoxx France 2025](/wp-content/uploads/2025/04/word-image-2508-1.jpeg)
 
 Que doit-on savoir ? Pour commencer, on ne saura jamais tout et il faudra vivre avec. Personne ne sait tout. Même le plus capé des architectes.
 
@@ -146,7 +150,7 @@ Un renommage serait possible mais il est recommandé de positionner 2 champs pou
 Autre clé : **on ne change pas un contrat**. A partir du moment où il est publié, on doit rester dans la même version majeure pour toujours. Contracts are forever. On ne doit pas casser les clients existants.
 
 Cyrille rappelle les utiles à l’heure de l’IA :   
-\- **Architectural Decision Records** ( **ADR)** : template   
+\- **Architectural Decision Records** (**ADR)** : template   
 \- **ArchUnit** : try architecture tests
 
 ![](/wp-content/uploads/2025/04/word-image-2508-18.png)
