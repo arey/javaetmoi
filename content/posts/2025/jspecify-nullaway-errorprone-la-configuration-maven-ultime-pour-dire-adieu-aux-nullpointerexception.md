@@ -49,7 +49,7 @@ Ajoutez simplement la dépendance suivante au niveau de la balise <dependencies>
 </dependency>
 ```
 
-A ce stade, les IDE comme [IntelliJ supportant JSpecify](https://www.jetbrains.com/idea/whatsnew/#page__content-jspecify-support) seront à même de détecter des erreurs. Exemple extrait de [Sring Petclinic](https://github.com/spring-projects/spring-petclinic) dont les packages Java sont annotés avec **@NullMarked** :
+A ce stade, les IDE comme [IntelliJ supportant JSpecify](https://www.jetbrains.com/idea/whatsnew/#page__content-jspecify-support) seront à même de détecter des erreurs. Exemple extrait de [Sring Petclinic](https://github.com/spring-projects/spring-petclinic) dont les packages Java sont annotés avec `@NullMarked` :
 
 ![](/wp-content/uploads/2025/07/word-image-2599-1.png)
 
@@ -99,21 +99,21 @@ Pour faire échouer le build Maven dans le cas où un développeur ne respectera
 
 **Explications clés :**
 
-- L'option **-Xep:NullAway:ERROR** fait échouer le build Maven lorsqu’un éventuel NullPointerException est détecté. Par défaut, de simples WARNING sont générés dans la console et risquent donc de passer inaperçus.  
+- L'option `-Xep:NullAway:ERROR` fait échouer le build Maven lorsqu’un éventuel NullPointerException est détecté. Par défaut, de simples WARNING sont générés dans la console et risquent donc de passer inaperçus.  
 
-- L’option - **Xplugin:ErrorProne** active le plugin ErrorProne.  
+- L’option - `-Xplugin:ErrorProne` active le plugin ErrorProne.  
 
-- L’option **-XepDisableAllChecks** désactive toutes les règles de vérification de code ErrorProne. On n’utilise ici ErrorProne que pour la nullsafety. Libre à vousd’utiliser pleinement ErrorProne ou pas.  
+- L’option `-XepDisableAllChecks` désactive toutes les règles de vérification de code ErrorProne. On n’utilise ici ErrorProne que pour la nullsafety. Libre à vousd’utiliser pleinement ErrorProne ou pas.  
 
-- L’option **-XepOpt:NullAway:AnnotatedPackages=com.javaetmoi.myapp** active NullAway sur le package Java racine de l’application métier. A noter que cette option peut être remplacer par **-XepOpt:NullAway:OnlyNullMarked** afin de ne scanner que les packages annotés avec **@NullMarked**.  
+- L’option `-XepOpt:NullAway:AnnotatedPackages=com.javaetmoi.myapp` active NullAway sur le package Java racine de l’application métier. A noter que cette option peut être remplacer par `-XepOpt:NullAway:OnlyNullMarked` afin de ne scanner que les packages annotés avec `@NullMarked`.  
 
-- A contrario, l’option **-XepOpt:NullAway:UnannotatedSubPackages=com.javaetMoi.myapp.controller.api,com.javaetMoi.myapp.controller.dto** désactive NullAway sur une liste de sous-packages. Cela permet d’exclure le code généré par des plugins comme cxf-codegen-plugin ou MapStruct qui ne supportent pas encore JSpecify.  
+- A contrario, l’option `-XepOpt:NullAway:UnannotatedSubPackages=com.javaetMoi.myapp.controller.api,com.javaetMoi.myapp.controller.dto` désactive NullAway sur une liste de sous-packages. Cela permet d’exclure le code généré par des plugins comme cxf-codegen-plugin ou MapStruct qui ne supportent pas encore JSpecify.  
 
-- Dans le cadre d’utilisation de JSpecify dans un projet legacy, il peut-être intéressant d’exclure de l’analsyse les classes de tests avec l'option **-XepExcludedPaths:.\*/src/test/java/.\***  
+- Dans le cadre d’utilisation de JSpecify dans un projet legacy, il peut-être intéressant d’exclure de l’analsyse les classes de tests avec l'option `-XepExcludedPaths:.*/src/test/java/.*`  
 
-- L'option **-XepOpt:NullAway:JSpecifyMode=true** active le support complet de JSpecify et exploite pleinement la [sémantique de JSpecify](https://github.com/uber/NullAway/wiki/JSpecify-Support), notamment au niveau des types génériques.   
+- L'option `-XepOpt:NullAway:JSpecifyMode=true` active le support complet de JSpecify et exploite pleinement la [sémantique de JSpecify](https://github.com/uber/NullAway/wiki/JSpecify-Support), notamment au niveau des types génériques.   
 
-- L'argument javac **-XDaddTypeAnnotationsToSymbol=true** est requis par la version 0.12.11 de NullAway lors de l'[utilisation d'une version de Java antérieure à **Java 22**](https://github.com/uber/NullAway/wiki/JSpecify-Support#supported-jdk-versions).
+- L'argument javac `-XDaddTypeAnnotationsToSymbol=true` est requis par la version 0.12.11 de NullAway lors de l'[utilisation d'une version de Java antérieure à **Java 22**](https://github.com/uber/NullAway/wiki/JSpecify-Support#supported-jdk-versions).
 
 Toutes les options de [NullAway](https://github.com/uber/NullAway) peuvent être retrouvées sur sa page de [Configuration](https://github.com/uber/NullAway/wiki/Configuration).
 

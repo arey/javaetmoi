@@ -63,7 +63,7 @@ Cette configuration présente les 2 avantages suivants :
 1. Les JARs embarqués dans l'EAR priment sur celles fournies par JBoss 5.1 et le JRE.
 1. Chaque application déployée sur le même serveur possède son propre UnifiedLoaderRepository (ULR). Le chargement des classes est isolé et n'interfère pas. Elles sont également isolées du chargement des applications tierces (ex: jmx-console et admin-console).
 
-La configuration du fichier **jboss-app.xml** à déposer dans le répertoire META-INF de l’EAR est décrite sur la page [ClassLoadingConfiguration](https://community.jboss.org/wiki/ClassLoadingConfiguration) du wiki JBoss. En voici un exemple :
+La configuration du fichier `jboss-app.xml` à déposer dans le répertoire META-INF de l’EAR est décrite sur la page [ClassLoadingConfiguration](https://community.jboss.org/wiki/ClassLoadingConfiguration) du wiki JBoss. En voici un exemple :
 Lors de la **migration** d’une application d’un **serveur d’application** vers un autre, il est fréquent d’être confronté à des problématiques de **conflits de librairies**. C’est par exemple le cas lorsqu’une application initialement déployée sur un Websphere Application Server 6.1  doit migrer sur **JBoss 5.1 EAP** (version commerciale de JBoss AS).
 Pour rappel, WAS 6.1 implémente J2EE 1.4 et s’exécute donc sur Java 5. Quant à JBoss 5.1 EAP, il implémente la norme Java EE 5, embarque donc de nombreuses implémentations des standards tels que JPA 1, JSF 1.2 et JAX-WS 1, et tourne sur Java 6.<!--more-->
 
@@ -99,7 +99,7 @@ Cette configuration présente les 2 avantages suivants :
 1. Les JARs embarqués dans l'EAR priment sur celles fournies par JBoss 5.1 et le JRE.
 1. Chaque application déployée sur le même serveur possède son propre UnifiedLoaderRepository (ULR). Le chargement des classes est isolé et n'interfère pas. Elles sont également isolées du chargement des applications tierces (ex: jmx-console et admin-console).
 
-La configuration du fichier **jboss-app.xml** à déposer dans le répertoire META-INF de l’EAR est décrite sur la page [ClassLoadingConfiguration](https://community.jboss.org/wiki/ClassLoadingConfiguration) du wiki JBoss. En voici un exemple :
+La configuration du fichier `jboss-app.xml` à déposer dans le répertoire META-INF de l’EAR est décrite sur la page [ClassLoadingConfiguration](https://community.jboss.org/wiki/ClassLoadingConfiguration) du wiki JBoss. En voici un exemple :
 \[gist id="4451751"\]
 
 ## Configuration maven
@@ -158,7 +158,7 @@ Cette configuration présente les 2 avantages suivants :
 1. Les JARs embarqués dans l'EAR priment sur celles fournies par JBoss 5.1 et le JRE.
 1. Chaque application déployée sur le même serveur possède son propre UnifiedLoaderRepository (ULR). Le chargement des classes est isolé et n'interfère pas. Elles sont également isolées du chargement des applications tierces (ex: jmx-console et admin-console).
 
-La configuration du fichier **jboss-app.xml** à déposer dans le répertoire META-INF de l’EAR est décrite sur la page [ClassLoadingConfiguration](https://community.jboss.org/wiki/ClassLoadingConfiguration) du wiki JBoss. En voici un exemple :
+La configuration du fichier `jboss-app.xml` à déposer dans le répertoire META-INF de l’EAR est décrite sur la page [ClassLoadingConfiguration](https://community.jboss.org/wiki/ClassLoadingConfiguration) du wiki JBoss. En voici un exemple :
 \[gist id="4451751"\]
 
 ## Configuration maven

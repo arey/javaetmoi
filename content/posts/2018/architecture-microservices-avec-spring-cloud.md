@@ -81,7 +81,7 @@ Chacun des 4 microservices métiers **customers**, **vets**, **visits** et **api
 
 Par exemple, le module [spring-petclinic-visits-service](https://github.com/spring-petclinic/spring-petclinic-microservices/tree/v2.0.3/spring-petclinic-visits-service) comporte 4 classes :
 
-1. [VisitsServiceApplication](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/v2.0.3/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java): la classe main du microservice annotée avec l’annotation _@SpringBootApplication_ ainsi que l’annotation Spring Cloud _@_ _EnableDiscoveryClient_ dont nous verrons l’intérêt par la suite.
+1. [VisitsServiceApplication](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/v2.0.3/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java): la classe main du microservice annotée avec l’annotation `@SpringBootApplication` ainsi que l’annotation Spring Cloud _@_ _EnableDiscoveryClient_ dont nous verrons l’intérêt par la suite.
 1. [Visit](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/v2.0.3/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/model/Visit.java): entité JPA représentant une visite et référençant l’animal par son ID (et non son type Java) dans un soucis de découplage des microservices.
 1. [VisitRepository](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/v2.0.3/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/model/VisitRepository.java): interface Spring Data JPA implémentant le pattern Repository et permettant d’accéder aux visites stockées dans une base relationnelle (HSQLDB ou MySQL).
 1. [VisitResource](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/v2.0.3/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java): contrôleur REST exposant une API pour créer une visite et lister les visites d’un animal. L’usage d’annotations Lombok permet d’alléger le code, mais n’a rien d’obligatoire.
@@ -152,7 +152,7 @@ Le serveur de config est packagé sous forme d’un JAR Spring Cloud. Pour crée
 </dependency>
 ```
 
-1. Ajouter l’annotation **@EnableConfigServer** sur la classe main.
+1. Ajouter l’annotation `@EnableConfigServer` sur la classe main.
 
 Dans son fichier de configuration [bootstrap.yml](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/bootstrap.yml), on retrouve le port 8888 utilisé précédemment, mais surtout l’URL du repo Git hébergeant les fichiers de configuration :
 
@@ -256,7 +256,7 @@ A l’instar de ce qui a été fait pour le serveur de configuration, il est né
 
 1. Partir d’une application vierge Spring Boot
 1. Déclarer l’artefact **spring-cloud-starter-netflix-eureka-server**
-1. Ajouter l’annotation **@EnableEurekaServer** sur la classe main
+1. Ajouter l’annotation `@EnableEurekaServer` sur la classe main
 1. Déclarer l’artefact **spring-cloud-starter-config** et configurer l’adresse du serveur de configuration (idem pour tous les microservices)
 
 Configurer le serveur Eureka par l’intermédiaire du fichier [discovery-server.xml](https://github.com/spring-petclinic/spring-petclinic-microservices-config/blob/master/discovery-server.yml) (le nom de fichier correspond au nom de l’application _spring.application.name_) :
@@ -278,7 +278,7 @@ A ce stade, le serveur Eureka peut être démarré.
 Chaque microservice doit ensuite intégrer un **client Eureka** chargé de dialoguer avec le serveur Eureka :
 
 1. Commencer par déclarer le starter **spring-cloud-starter-netflix-eureka-client**
-1. Sur la classe main du microservice, ajouter l’annotation **@EnableDiscoveryClient** entraperçu sur la classe [VisitsServiceApplication](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/v2.0.3/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java).
+1. Sur la classe main du microservice, ajouter l’annotation `@EnableDiscoveryClient` entraperçu sur la classe [VisitsServiceApplication](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/v2.0.3/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java).
 
 L’annotation [@EnableDiscoveryClient](https://github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/discovery/EnableDiscoveryClient.java) active l’implémentation Eureka de l’interface Spring Cloud [DiscoveryClient](https://github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/discovery/DiscoveryClient.java) chargée d’enregistrer le microservice et de localiser ses pairs. A noter que Spring Cloud supporte d’autres annuaires de service : [Consul de Hashicorp](https://www.consul.io/) et [Apache Zookeeper](https://zookeeper.apache.org/).
 
@@ -330,7 +330,7 @@ public class CustomersServiceClient {
 ```
 
 Le host de l’URL a une particularité : ce n’est ni un nom de domaine, ni un nom de serveur, ni même une adresse IP. Ici, on utilise l’ID du microservice, celui utilisé pour s’enregistrer auprès du serveur Eureka.
-L’autre particularité concerne le nom donné à l’instance du bean implémentant l’interface Spring MVC [RestTemplate](https://github.com/spring-projects/spring-framework/blob/master/spring-web/src/main/java/org/springframework/web/client/RestTemplate.java) : **_loadBalanced_** _RestTemplate_.
+L’autre particularité concerne le nom donné à l’instance du bean implémentant l’interface Spring MVC [RestTemplate](https://github.com/spring-projects/spring-framework/blob/master/spring-web/src/main/java/org/springframework/web/client/RestTemplate.java) : `loadBalanced` _RestTemplate_.
 
 Dans la configuration Spring du microservice [ApiGatewayApplication](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/387f824fd9f4ce6e1693b43eec9fc35867fc9f3e/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java), le bean RestTemplate est annoté avec l’annotation Spring Cloud [@LoadBalanced](https://github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/loadbalancer/LoadBalanced.java) :
 
@@ -416,7 +416,7 @@ Parti d’une application Spring Cloud rudimentaire, 2 dépendances Maven ont é
 </dependency>
 ```
 
-L’annotation **@EnableAdminServer** a été ajoutée sur la classe main :
+L’annotation `@EnableAdminServer` a été ajoutée sur la classe main :
 
 ```java
 @Configuration
@@ -457,7 +457,7 @@ Spring Boot Admin n’est pas limité à l’affichage d’informations dans de 
 
 Afin de pouvoir tracer et debugger les appels HTTP entre nos microservices, un mécanisme de **traces distribuées** a été mis en œuvre à l’aide du client **Spring Cloud Sleuth** et du serveur **Zipkin**. L’interface graphique du serveur **Zipkin** permet de les consulter les piles d’appel et les adhérences entre microservices.
 
-En pratique, le serveur Zipkin se déploie dans une image Docker. Sa personnalisation n’est plus supportée par l’équipe de Dév. Dans Petclinic, par simplicité, son intégration a été réalisée dans le module [spring-petclinic-tracing-server](https://github.com/spring-petclinic/spring-petclinic-microservices/tree/master/spring-petclinic-tracing-server) sous forme d’une application Spring Boot configurée avec l’annotation dépréciée **@EnableZipkinServer**.
+En pratique, le serveur Zipkin se déploie dans une image Docker. Sa personnalisation n’est plus supportée par l’équipe de Dév. Dans Petclinic, par simplicité, son intégration a été réalisée dans le module [spring-petclinic-tracing-server](https://github.com/spring-petclinic/spring-petclinic-microservices/tree/master/spring-petclinic-tracing-server) sous forme d’une application Spring Boot configurée avec l’annotation dépréciée `@EnableZipkinServer`.
 
 L’interface est disponible sur l’URL : [http://localhost:9411/zipkin/](http://localhost:9411/zipkin/) [![](/wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Zipkin-1.png)](/wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Zipkin-1.png)
 
@@ -470,7 +470,7 @@ Sur une période de temps, Zipkin sait générer un diagramme de dépendances en
 L’architecture de Petclinic repose sur un ensemble de **8 microservices**, tous basés sur Spring Boot. Livrables sous forme d’un simple **JAR**, leur déploiement ne nécessite qu’un simple **JRE Java 8**.
 Pour déployer Petclinic chez un fournisseur **Cloud** proposant une offre de type **Container as a Service** (CaaS), les microservices doivent être packagés sous forme d’images Docker. Petclinic vient avec un exemple de packaging Docker pour un déploiement local (sur le poste de dév) à l’aide de **Docker Compose**.
 
-Dans le [POM parent](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/pom.xml), le profile Maven _buildDocker_ permet de construire les images Docker à l’aide du plugin Maven de Spotify : ./mvnw clean install -PbuildDocker
+Dans le [POM parent](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/pom.xml), le profile Maven `buildDocker` permet de construire les images Docker à l’aide du plugin Maven de Spotify : ./mvnw clean install -PbuildDocker
 
 Une fois les images construites, on peut toutes les démarrer en une seule commande : docker-compose up
 

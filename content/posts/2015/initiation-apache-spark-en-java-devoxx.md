@@ -134,7 +134,7 @@ public class FirstRDD {
 Le paramètre _"local\[\*\]"_ précise à Spark d’exécuter les traitements sur un cluster local et en profitant de tous les cœurs disponibles.
 
 La lecture du fichier texte à la mode Java 7 renvoie un RDD de String.
-L’appel à la méthode _count()_ déclenche une action. 100 000 lignes comptabilisées.
+L’appel à la méthode `count()` déclenche une action. 100 000 lignes comptabilisées.
 
 Les fichiers de type CSV sont particulièrement bien adaptés à Spark : chaque ligne correspond à un élément. Néanmoins, Sparl offre la possibilité de charger du JSON à l’aide du parseur Jackson. On utilise alors un RDD de tuple RDD\[(String, String)\] : le path est la clé, la valeur est le contenu entier du fichier JSON.
 
@@ -207,7 +207,7 @@ double mean = ratings
 ```
 
 Les transformations de filtre et de mapping utilisent les lambdas de Java 8.
-L’action _mean()_ est terminale. Elle déclenche la distribution du calcul sur les workers.
+L’action `mean()` est terminale. Elle déclenche la distribution du calcul sur les workers.
 
 En interne, des acteurs Akka discutent ensemble. Les données sont échangées via de la sérialisation Java. Pour gagner en performance, il est possible d’utiliser Kryo pour sérialiser les données.
 L’obtention de la note maximale attribuée par l’utilisateur n°200 ressemble au calcul de la moyenne. Sauf l’action finale diffère :
@@ -278,7 +278,7 @@ Depuis la version 1.3, la notion de SchemaRDD a été remplacée par celle de **
 
 Le 3ième et dernier Workshop réalisé au cours de ce Lab consiste à charger un fichier JSON contenant un tableau de produits dans un DataFrame puis à l’interroger en SQL.
 
-La méthode _sql()_ est une simple transformation que l'on peut chainer avec tout autre transformation, et en particulier d’autres requêtes SQL.
+La méthode `sql()` est une simple transformation que l'on peut chainer avec tout autre transformation, et en particulier d’autres requêtes SQL.
 
 Avant de pouvoir d’utiliser le SQL il faut ajouter dans le _pom.xml_ la dépendance vers le **module spark-sql**:
 

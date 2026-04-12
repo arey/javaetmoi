@@ -143,9 +143,9 @@ Le répertoire webapp ne se trouve pas dans le répertoire src/main/webapp mais 
 
 Dans notre exemple, la web app utilise un descripteur de déploiement web.xml. Optionnel depuis Servlet 3.0, l’appel à la méthode _setDescriptor_ est facultatif.
 
-Enfin, le port HTTP utilisé dans notre exemple est le 8080. Ce dernier aurait pu être passé en paramètre du _main()_ ou bien chargé depuis un fichier de configuration.
+Enfin, le port HTTP utilisé dans notre exemple est le 8080. Ce dernier aurait pu être passé en paramètre du `main()` ou bien chargé depuis un fichier de configuration.
 
-Lors de l’appel à la méthode _start()_, le conteneur Jetty démarre. L’application web est ensuite aussitôt démarrée. Il n’y a pas réellement de phase de déploiement.
+Lors de l’appel à la méthode `start()`, le conteneur Jetty démarre. L’application web est ensuite aussitôt démarrée. Il n’y a pas réellement de phase de déploiement.
 
 ## Arrêter proprement Jetty
 

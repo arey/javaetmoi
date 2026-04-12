@@ -76,7 +76,7 @@ Voici un extrait du [pom.xml](https://github.com/spring-projects/spring-petclini
 
 Le plugin est configuré pour utiliser la **version Maven** pour **tagger** l’image Docker.
 
-La balise **useConfigFile** précise au plugin d’aller rechercher les paramètres d’authentification au registre Docker dans le fichier de configuration Docker. Sur mon mac, ce fichier de configuration **config.json** se situe dans le répertoire  ~/.docker :
+La balise `useConfigFile` précise au plugin d’aller rechercher les paramètres d’authentification au registre Docker dans le fichier de configuration Docker. Sur mon mac, ce fichier de configuration `config.json` se situe dans le répertoire  ~/.docker :
 
 ```js
 {

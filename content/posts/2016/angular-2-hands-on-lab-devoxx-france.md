@@ -94,7 +94,7 @@ L’application Quizz est constituée des 7 composants suivants :
 1. **Summary**: page listant les résultats des questions d’un quizz
 
 Ces composants sont tous localisés dans le répertoire _src/app/components_ de votre projet. Chaque composant dispose d’un répertoire dédié.
-Techniquement, un composant est une classe JavaScript décorée avec l’annotation **@Component** et explicitement exportée (mot clé **export** d’ES6).
+Techniquement, un composant est une classe JavaScript décorée avec l’annotation `@Component` et explicitement exportée (mot clé **export** d’ES6).
 
 Un composant peut disposer d’une **vue**. Cette dernière est déclarée en tant que propriété **_template_** ou **_templateUrl_** du @Component. L’attribut **_templateUrl_** référence un template HTML externe (comme sous Angular 1) et **_template_** permet d’utiliser les backquotes TS pour déclarer un template inline.
 
@@ -165,7 +165,7 @@ Au premier abord, cette nouvelle syntaxe peut dérouter. Les speakers ne s’en 
 
 En pratique, le **Parent** passe une information à son **Enfant** (propriété **_@Input_**). C’est l’Enfant qui met à jour son état. L’Enfant peut communiquer avec son Parent via l’event binding (propriété **_@Output_**). [Le slide State Managment](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/21) schématise ce comportement. Des ressemblances existent avec l’ [architecture Flux](https://facebook.github.io/react/blog/2014/05/06/flux.html).
 
-Dans le [slide d’exemple](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/22), le composant _ThemeCard_ implémente l’interface _AfterViewInit_. Facultative, l’utilisation de cette interface TypeScript permet à l’IDE de mettre en garde le développeur si il omet d’implémenter la fonction _ngAfterViewInit()_.
+Dans le [slide d’exemple](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/22), le composant _ThemeCard_ implémente l’interface `AfterViewInit`. Facultative, l’utilisation de cette interface TypeScript permet à l’IDE de mettre en garde le développeur si il omet d’implémenter la fonction `ngAfterViewInit()`.
 
 La convention de nommage suivante est à respecter pour le double data-binding :
 
@@ -219,7 +219,7 @@ Ce qu’il est important de comprendre, c’est que **chaque composant peut êtr
 Le [slide Component Router](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/25) illustre la configuration des routes et leur utilisation dans un template inline.
 Utilisé dans le template, l’attribut **\[routerLink\]** crée un lien hypertexte vers un autre composant.
 L’élément **<router-outlet>** équivaut au ng-view d’Angular 1.
-L’annotation **@RouteConfig** permet de déclarer les routes. La syntaxe des points de suspensions du path (ex : '/details/ **…'**) permet de déléguer le routage à un autre composant.
+L’annotation `@RouteConfig` permet de déclarer les routes. La syntaxe des points de suspensions du path (ex : '/details/ **…'**) permet de déléguer le routage à un autre composant.
 Dans le constructeur d’un composant, il est possible de récupérer le paramètre d’URL via la classe **RouteParams**.
 
 Le [slide Bootstraping the Router](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/26) illustre l’initialisation du routeur qui a lieu dans le fichier principal (app.ts).
@@ -280,7 +280,7 @@ Angular 2 propose 2 types de providers :
 1. [**Local**](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/29) : permet d’utiliser un provider dans un composant. En ES6, il est nécessaire d’utiliser l’annotation @Inject
 1. [**Global**](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/30): injection à la racine de l’application. Mises-en garde : comme en Angular 1, tout provider est un singleton.
 
-La fonction **provide()** d’angular-core permet de configurer les providers. [Le slide Providers Configuration](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/32)  montre 3 syntaxes différentes.
+La fonction `provide()` d’angular-core permet de configurer les providers. [Le slide Providers Configuration](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/32)  montre 3 syntaxes différentes.
 
 Le [**step-4**](https://github.com/manekinekko/angular2-codelab/blob/master/STEPS.md#step-4-technology-component) consiste à afficher les questions d’une technologie, à maintenir les choix de l’utilisateur et à naviguer entre les questions.
 Pour vous y aider, le service **QuestionStore** est mis à votre disposition :
@@ -386,7 +386,7 @@ constructor(questionsStore: QuestionsStore) {
 
 Les filtres d’Angular 1 ont été renommées en **pipes**. Le concept et la syntaxe restent inchangés. Leur fonctionnement s’inspire des pipes Linux. Ils s’utilisent dans les templates pour transformer ou formater une donnée. Un pipe peut accepter des paramètres.
 Angular 2 vient avec un certains nombres de [built-ins pipes](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/37): DatePipe, UpperCase …
-L’étape 6 consiste à créer son propre Pipe. Le slide [Custom Pipes](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/36) montre comment utiliser l’annotation **@Pipe** pour déclarer un Pipe. Appuyez-vous sur cette exemple pour implémenter le [**step-6**](https://github.com/manekinekko/angular2-codelab/blob/master/STEPS.md#step-6-add-a-pipe).
+L’étape 6 consiste à créer son propre Pipe. Le slide [Custom Pipes](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/36) montre comment utiliser l’annotation `@Pipe` pour déclarer un Pipe. Appuyez-vous sur cette exemple pour implémenter le [**step-6**](https://github.com/manekinekko/angular2-codelab/blob/master/STEPS.md#step-6-add-a-pipe).
 
 Comme vous pouvez le constater, l’implémentation du **MarkPipe** est concise :
 

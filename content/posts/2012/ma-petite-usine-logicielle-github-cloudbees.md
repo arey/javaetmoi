@@ -73,8 +73,8 @@ Afin de pouvoir intégrer un projet mavenisé dans l’usine de développement, 
 
 Toute cette configuration est détaillée dans un précédent billet intitulé [Release Maven sous Windows d’un projet GitHub déployé sur CloudBees](/2012/04/release-maven-windows-github-deploy-cloudbees/). Vous y trouverez notamment comment configurer les différentes balises maven au travers 2 fichiers :
 
-- **pom.xml** : <scm>, <distributionManagement>, <repositories> et <extensions>
-- **settings.xml** : <servers>
+- `pom.xml` : <scm>, <distributionManagement>, <repositories> et <extensions>
+- `settings.xml` : <servers>
 
 Gage de son intérêt, le projet github [maven-config-github-cloudbees](https://github.com/arey/maven-config-github-cloudbees/) à l’origine de l’article a été forké par [Ryan Cambell](http://www.cloudbees.com/company-team.cb) et est désormais proposé dans la [Cloudbees Community](https://github.com/cloudbees) de GitHub.
 

@@ -82,9 +82,9 @@ Par convention, le fichier de configuration ehcache.xml a été déplacé à la 
 Au niveau des dépendances, le starter **spring-boot-starter-test** tire tous les frameworks de tests utilisés par Petclinic :  **JUnit**, **Spring Test**, **AssertJ**, **Mockito**, Json Path et Hamcrest.
 Un peu comme Unitils en son temps, Spring Boot facilite l’utilisation conjointe de ces différents frameworks. Et la version 1.4.0 de Spring Boot améliore encore leur intégration.
 
-Ainsi, l’annotation **@MockBean** permet de créer un mock avec Mockito, de l’enregistrer au sein du contexte applicatif Spring et de l’injecter dans votre classe de tests unitaires. Nul besoin désormais de faire appel explicitement à la méthode _Mockito::mock()._
+Ainsi, l’annotation `@MockBean` permet de créer un mock avec Mockito, de l’enregistrer au sein du contexte applicatif Spring et de l’injecter dans votre classe de tests unitaires. Nul besoin désormais de faire appel explicitement à la méthode _Mockito::mock()._
 
-En fonction de la couche applicative à laquelle la classe testée appartient, la configuration Spring du test associé peut être auto-détectée. Ainsi, pour la couche web Spring MVC, l’annotation **@WebMvcTest** détecte tous les beans annotés avec @Controller, @ControllerAdvice et @JsonComponent puis configure l’instance de MockMvc. La classe de test _[OwnerControllerTests](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/test/java/org/springframework/samples/petclinic/web/OwnerControllerTests.java)_ la montre en action.
+En fonction de la couche applicative à laquelle la classe testée appartient, la configuration Spring du test associé peut être auto-détectée. Ainsi, pour la couche web Spring MVC, l’annotation `@WebMvcTest` détecte tous les beans annotés avec @Controller, @ControllerAdvice et @JsonComponent puis configure l’instance de MockMvc. La classe de test _[OwnerControllerTests](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/test/java/org/springframework/samples/petclinic/web/OwnerControllerTests.java)_ la montre en action.
 
 ## Autres changements
 

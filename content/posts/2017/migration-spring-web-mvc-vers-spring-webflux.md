@@ -50,11 +50,11 @@ Spring Web MVC s’appuie sur l’API Servlet. Pour preuve, toutes les classes d
 
 ## Une migration quasi-transparente
 
-Spring WebFlux réutilisent les classes et annotations bien connues des développeurs Spring MVC : **@Controller**, **@RequestMapping**, @ModelAttribute, Model ou bien encore @InitBinder.
+Spring WebFlux réutilisent les classes et annotations bien connues des développeurs Spring MVC : `@Controller`, `@RequestMapping`, @ModelAttribute, Model ou bien encore @InitBinder.
 La migration vers Spring WebFlux du code de production est donc relativement simple.
 
 Les contrôleurs doivent être ajustés afin de ne plus utiliser les classes du module spring-webmvc. Ces changements sont identifiés dès la phase de compilation.
-Dans l’exemple ci-dessous, la classe **ModelAndView** a été remplacée par la classe **Model**:
+Dans l’exemple ci-dessous, la classe `ModelAndView` a été remplacée par la classe `Model`:
 
 Utilisation de ModelAndView avec Spring Web MVC :
 
@@ -79,11 +79,11 @@ fun showOwner(@PathVariable("ownerId") ownerId: Int, model: Model): String {
 ```
 
 Au cours de la migration, des incompatibilités ont été détectées au runtime et lors de l’exécution des tests unitaires.
-Ce fut notamment le cas de la classe **ModelMap** qui provoquait une erreur lors de la résolution des paramètres :
+Ce fut notamment le cas de la classe `ModelMap` qui provoquait une erreur lors de la résolution des paramètres :
 
 _java.lang.IllegalStateException: Failed to invoke handler method with resolved arguments: \[0\]\[type=java.lang.Integer\]\[value=1\],\[1\]\[type=org.springframework.validation.support.BindingAwareConcurrentModel\]\[value={owner=org.springframework.samples.petclinic.owner.Owner@373c0f9b, types=\[bird, cat, dog, hamster, lizard, snake\]}\] on public java.lang.String org.springframework.samples.petclinic.owner.PetController.initUpdateForm(int,org.springframework.ui.ModelMap)_ _at org.springframework.web.reactive.result.method.InvocableHandlerMethod.lambda$invoke$0(InvocableHandlerMethod.java:160) ~\[spring-webflux-5.0.1.RELEASE.jar:5.0.1.RELEASE\]_ _at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:118) \[reactor-core-3.1.1.RELEASE.jar:3.1.1.RELEASE\]_
 
-Pour corriger ce problème, la classe **ModelMap** a été remplacée par **Model** dans les handlers de requêtes.
+Pour corriger ce problème, la classe `ModelMap` a été remplacée par `Model` dans les handlers de requêtes.
 
 Utilisation de ModelMap avec Spring Web MVC :
 
@@ -114,13 +114,13 @@ La migration a demandé davantage d’effort pour les tests unitaires de la couc
 
 Spring WebFlux ne permet plus de tester en boîte blanche les contrôleurs. **La classe MockMvc n’existe plus**. Et il est désormais impossible de vérifier l’état du model ou le nom de la vue rendue par le contrôleur.
 
-Pour tester les contrôleurs, Spring WebFlux propose d’utiliser la classe **WebTestClient**, le pendant de la classe [WebClient](http://www.baeldung.com/spring-5-webclient) pour les tests. WebTestClient a été pensé avant tout pour tester les retours au format JSON. Tester du HTML est moins simple. Il est nécessaire d’évaluer les templates Thymeleaf, ce qui présente néanmoins l’avantage de les tester. Lorsque l’on souhaite effectuer des assertions XPath, il est nécessaire de normaliser le HTML au format XHTML (fermer les balises).
+Pour tester les contrôleurs, Spring WebFlux propose d’utiliser la classe `WebTestClient`, le pendant de la classe [WebClient](http://www.baeldung.com/spring-5-webclient) pour les tests. WebTestClient a été pensé avant tout pour tester les retours au format JSON. Tester du HTML est moins simple. Il est nécessaire d’évaluer les templates Thymeleaf, ce qui présente néanmoins l’avantage de les tester. Lorsque l’on souhaite effectuer des assertions XPath, il est nécessaire de normaliser le HTML au format XHTML (fermer les balises).
 
 Si l’on prend exemple sur la classe de test [OwnerControllerTest](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/d52b733dc1eabded1677622879a380b6a7b2ab3d/src/test/kotlin/org/springframework/samples/petclinic/owner/OwnerControllerTest.kt), son en-tête a dû être modifiée en 3 points :
 
-1. L’annotation @WebMvcTest est remplacée par **@WebFluxTest**
-1. La classe de configuration **ThymeleafAutoConfiguration** a été ajoutée
-1. Injecté, le bean **WebTestClient** remplace MockMvc
+1. L’annotation @WebMvcTest est remplacée par `@WebFluxTest`
+1. La classe de configuration `ThymeleafAutoConfiguration` a été ajoutée
+1. Injecté, le bean `WebTestClient` remplace MockMvc
 
 En-tête d’une classe de test d’un contrôleur Spring Web MVC :
 
@@ -148,7 +148,7 @@ class OwnerControllerTest {
 ```
 
 Attardons-nous à présent sur l’une des méthodes de test. Par exemple, celle qui teste la soumission d’un formulaire invalide.
-Avec Spring Web MVC, les assertions s’appuient sur les méthodes **attributeHasErrors** et **attributeHasFieldErrors** de l’objet renvoyait par la méthode model() :
+Avec Spring Web MVC, les assertions s’appuient sur les méthodes `attributeHasErrors` et `attributeHasFieldErrors` de l’objet renvoyait par la méthode model() :
 
 ```java
 @Test

@@ -44,7 +44,7 @@ url: /2018/03/configurez-logback-en-java/
 [![](/wp-content/uploads/2018/03/logback-logo.jpg)](/wp-content/uploads/2018/03/logback-logo.jpg)
 
 Afin de **normaliser** la **configuration Logback** des applications web sur lesquelles j’interviens, j’ai récemment eu besoin de programmer Logback via son **API en Java** et non en utilisant la syntaxe XML Joran.
-Moins courant que le traditionnel **logback.xml**, cette possibilité de configurer Logback par le code offre davantage de possibilités, ne serait-ce que par son caractère dynamique.
+Moins courant que le traditionnel `logback.xml`, cette possibilité de configurer Logback par le code offre davantage de possibilités, ne serait-ce que par son caractère dynamique.
 
 Par le passé, j’avais déjà eu l’occasion de manipuler l’API Logback dans des tests unitaires afin de changer dynamiquement le niveau de log des loggers.
 Cette fois-ci, je l’ai utilisé pour déclarer les différents appenders et configurer toute l’ **infrastructure applicative de logs**:
@@ -63,7 +63,7 @@ Dans cet article, je vais vous présenter quelques bouts de code simplifié mani
 Notre étude de cas porte sur une application web démarrée dans un conteneur de servlets (ex : Tomcat) ou un serveur d’application (ex : JBoss).
 Pour logger, les développeurs utilisent l’API SLF4J. Logback a été retenue comme implémentation de SLF4J.
 
-Pour brancher la configuration Java, le moyen le plus courant est d’utiliser un **ServletContextListener** dédié. Afin d’être démarré en premier, ce listener est déclaré tout en haut du web.xml, en tête des autres listeners (avant le listener Spring).
+Pour brancher la configuration Java, le moyen le plus courant est d’utiliser un `ServletContextListener` dédié. Afin d’être démarré en premier, ce listener est déclaré tout en haut du web.xml, en tête des autres listeners (avant le listener Spring).
 
 Outre la configuration Logback, on retrouve également dans ce listener la configuration SLF4J. Par exemple, pour initialiser le **bridge JUL SLF4JBridgeHandler**.
 
@@ -80,12 +80,12 @@ public class LogbackListener extends ContextAwareBase implements ServletContextL
     }
 ```
 
-A noter l’utilisation de la classe helper **ContextAwareBase** dont nous verrons l’usage par la suite.
+A noter l’utilisation de la classe helper `ContextAwareBase` dont nous verrons l’usage par la suite.
 
 ## Accèder au LoggerContext
 
-Afin de pouvoir programmer Logback, il est nécessaire de récupérer l’instance de **LoggerContext**. Classe centrale de Logback, [LoggerContext](https://github.com/qos-ch/logback/blob/master/logback-classic/src/main/java/ch/qos/logback/classic/LoggerContext.java) implémente l’interface ILoggerFactory de SLF4J.
-Pour la récupérer, on demande à SLF4J de nous retourner l’interface en passant par la méthode statique getILoggerFactory de la classe utilitaire **LoggerFactory** de SLF4J.
+Afin de pouvoir programmer Logback, il est nécessaire de récupérer l’instance de `LoggerContext`. Classe centrale de Logback, [LoggerContext](https://github.com/qos-ch/logback/blob/master/logback-classic/src/main/java/ch/qos/logback/classic/LoggerContext.java) implémente l’interface ILoggerFactory de SLF4J.
+Pour la récupérer, on demande à SLF4J de nous retourner l’interface en passant par la méthode statique getILoggerFactory de la classe utilitaire `LoggerFactory` de SLF4J.
 
 Un bout de code est bien plus parlant. Pour s’y retrouver entre SLF4J et Logback, le nom qualifié des classes est utilisé :
 
@@ -97,7 +97,7 @@ private LoggerContext getLogbackContext() {
 
 ## Usage du ContextAwareBase
 
-La classe **ContextAwareBase** héritée par notre _LogbackListener_ est une classe utilitaire proposée par Logback. Elle implémente l’interface _ContextAware_. Elle apporte 2 fonctionnalités :
+La classe `ContextAwareBase` héritée par notre _LogbackListener_ est une classe utilitaire proposée par Logback. Elle implémente l’interface _ContextAware_. Elle apporte 2 fonctionnalités :
 
 - Conserver en mémoire le contexte Logback (accessible via la méthode _getContext_) pour un accès ultérieur plus rapide.
 - Fournir des méthodes de logs internes : _addInfo_, _addWarn_ et _addError_. A priori, cela peut paraître étrange, mais vous allez bientôt connaître la raison.
@@ -140,7 +140,7 @@ private void configureJdkLoggingBridgeHandler() {
 
 Bien plus safe que l’appel à la méthode SLF4JBridgeHandler:: removeHandlersForRootLogger, le code ci-dessus retire le ConsoleHandler mais laisse ceux éventuellement ajoutés par le serveur d’application.
 
-La méthode _isBridgeHandlerAvailable()_ teste l’existence du bridge dans le classpath :
+La méthode `isBridgeHandlerAvailable()` teste l’existence du bridge dans le classpath :
 
 ```java
 private boolean isBridgeHandlerAvailable() {
@@ -222,7 +222,7 @@ private ConsoleAppender<ILoggingEvent> consoleAppender() {
 }
 ```
 
-Comme son nom l’indique, la classe **PatternLayoutEncoder** permet d’indiquer à Logback le format d’affichage des logs. Voici un exemple de pattern :
+Comme son nom l’indique, la classe `PatternLayoutEncoder` permet d’indiquer à Logback le format d’affichage des logs. Voici un exemple de pattern :
 
 ```java
 private static final String CONSOLE_LOG_PATTERN =     "%d{HH:mm:ss.SSS} | %highlight(%-5level) | %cyan(%-50.50logger{49}) | %-200m %C.%M\\(%F:%L\\)%n";
@@ -344,7 +344,7 @@ L’exposition des MBean sur HTTP est possible à l’aide de librairies tierces
 
 La configuration Logback présentée dans cet article pourrait être complétée par :
 
-- La configuration d’un appender **LogstashEncoder** permettant de générer les logs au format JSON et de les indexer les logs dans Elasticsearch
+- La configuration d’un appender `LogstashEncoder` permettant de générer les logs au format JSON et de les indexer les logs dans Elasticsearch
 - La déclaration conditionnelle de l’appender Console sur le poste de dév (utilisation d’un fichier properties ou d’un paramètre de JVM)
 - L’utilisation du **contexte MDC** pour afficher systématiquement dans les logs le login de l’utilisateur authentifié et l’identifiant de la session
 - Un mécanisme d’extension de la configuration Logback par l’inclusion d’un fichier XML ou d’une classe Java externe.

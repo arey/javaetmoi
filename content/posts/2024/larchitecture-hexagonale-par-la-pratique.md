@@ -152,7 +152,7 @@ class FleetAssembler implements AssembleAFleet {@Override
     }
 ```
 
-L’implémentation de la méthode _getStarShipsHavingPassengersCapacity()_ demande d’introduire l’interface [StartSheepInventory](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/domain/src/main/java/rebelsrescue/fleet/spi/StarShipInventory.java) contenant l’unique méthode _starShips()_. Cette interface est ajoutée au package **spi** pour aller chercher l’inventaire par appel d’une API externe.
+L’implémentation de la méthode `getStarShipsHavingPassengersCapacity()` demande d’introduire l’interface [StartSheepInventory](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/domain/src/main/java/rebelsrescue/fleet/spi/StarShipInventory.java) contenant l’unique méthode `starShips()`. Cette interface est ajoutée au package **spi** pour aller chercher l’inventaire par appel d’une API externe.
 
 ```java
 private List<StarShip> getStarShipsHavingPassengersCapacity() {
@@ -165,7 +165,7 @@ private List<StarShip> getStarShipsHavingPassengersCapacity() {
 }
 ```
 
-Dans la classe _FleetAssembler_, l’inventory _StarShipInventory_ est injecté par constructeur :
+Dans la classe `FleetAssembler`, l’inventory _StarShipInventory_ est injecté par constructeur :
 
 ```java
 private final StarShipInventory starshipsInventory;public FleetAssembler(StarShipInventory starShipsInventory) {
@@ -173,7 +173,7 @@ private final StarShipInventory starshipsInventory;public FleetAssembler(StarShi
 }
 ```
 
-L’écriture du TU nécessite une instance de _FleetAssembler_. Pour simuler l’extérieur, on un **stub**. Technique intéressante : Julien se passe ici de Mockito et **crée le stub à l’aide d’une fonction lambda** :
+L’écriture du TU nécessite une instance de `FleetAssembler`. Pour simuler l’extérieur, on un **stub**. Technique intéressante : Julien se passe ici de Mockito et **crée le stub à l’aide d’une fonction lambda** :
 
 ```java
 //Given
@@ -201,7 +201,7 @@ public ResponseEntity<FleetResource> assembleAFleet(@RequestBody RescueFleetRequ
 }
 ```
 
-L’IDE ne trouve pas d’instance de bean _AssembleAFleet_. Ce qui est normal car le Domain n’a pas de dépendance vers Spring et la classe _FleetAssembler_ ne peut donc pas être annotée par l’annotation **@Component** de Spring.   
+L’IDE ne trouve pas d’instance de bean `AssembleAFleet`. Ce qui est normal car le Domain n’a pas de dépendance vers Spring et la classe `FleetAssembler` ne peut donc pas être annotée par l’annotation `@Component` de Spring.   
 Pour résoudre cette problématique, certains développeurs utilisent des fabriques de bean. Julien n’est pas fan et préfère l’usage du **component scan**. **Il fait en sorte que ce soit Spring qui connaisse notre domaine et non l’inverse**. Pour cela, il introduit les 2 annotations customs   
 [@DomainService](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/domain/src/main/java/ddd/DomainService.java) et [@Stub](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/domain/src/main/java/ddd/Stub.java) qu’il place dans un package **ddd**.
 
@@ -242,7 +242,7 @@ Pour terminer l’application, il reste à développer le client Swapi à l’ai
 La classe [SwapiClient](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/infrastructure/src/main/java/rebelsrescue/swapi/SwapiClient.java) implémente l’interface _StarShipInventory_. A noter que dans l’infrastructure, on peut utiliser l’annotation Spring _@Component_. L’API REST de Swapi est paginée. Le domaine ne sera pas pollué par le choix technique de Swapi.   
  De la même manière, les données inutilisées renvoyées Swapi n’auront pas leur place dans le Domain. L’usage de Swapi n’aura pas d’impact sur le Domain : type String de passengers alors que Julien veut un integer dans le Domain, champs nommés différemment …
 
-La classe SwapiClient modélise le modèle de Swapi à l’aide des 2 records [SwapiReponse](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/infrastructure/src/main/java/rebelsrescue/swapi/model/SwapiResponse.java) et [SwapiStarship](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/infrastructure/src/main/java/rebelsrescue/swapi/model/SwapiStarShip.java). Elle utilise le _RestTemplate_ de Spring et convertit le modèle Swapi vers domaine (notion d’ **adaptateurs**). Elle traite également les cas particuliers comme les chaines _« n/a »_ et « _unknnown »_ renvoyées par l’API Swapi dans le nombre de passengers mais aussi le séparateur de millier. Ces traitements sont gérés dans l’adaptateur.
+La classe SwapiClient modélise le modèle de Swapi à l’aide des 2 records [SwapiReponse](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/infrastructure/src/main/java/rebelsrescue/swapi/model/SwapiResponse.java) et [SwapiStarship](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/infrastructure/src/main/java/rebelsrescue/swapi/model/SwapiStarShip.java). Elle utilise le `RestTemplate` de Spring et convertit le modèle Swapi vers domaine (notion d’ **adaptateurs**). Elle traite également les cas particuliers comme les chaines _« n/a »_ et « _unknnown »_ renvoyées par l’API Swapi dans le nombre de passengers mais aussi le séparateur de millier. Ces traitements sont gérés dans l’adaptateur.
 
 
 L’adaptateur agit comme une **anticorruption layer** et retire les _n/a_ et _unknown_. Il nettoie les données pour avoir un Domain propre.

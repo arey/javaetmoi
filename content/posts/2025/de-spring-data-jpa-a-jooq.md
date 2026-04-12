@@ -39,13 +39,13 @@ Lors de la conférence Devoxx France 2025, j’ai participé à un hands-on lab 
 
 Fort de cette découverte, je me suis à mon tour prêté à l’exercice de migrer vers jOOQ la couche de persistance Spring Data JPA de l’application démo Spring Petclinic. Un nouveau fork est né : [**spring-petclinic-jooq**](https://github.com/spring-petclinic/spring-petclinic-jooq). Bienvenue à ce dernier dans la communauté Spring Petclinic.
 
-L’usage de jOOQ se rapproche de l’utilisation de JdbcTemplate. Le développeur maitrise le nombre de requêtes envoyées à la base de données relationnelle. Ce qui les différencie, c’est la syntaxe : pas de SQL, mais une **API Java fluide** et **type-safe** spécifique à jOOQ qu’il va falloir appréhender. Rassurez-vous, cette API se rapproche du SQL : on y retrouve les mots clés **select**, **update**, **insertInto**, **where**, **from**, **join**, **on**, **as**… A ceux-ci, on ajoute des mots clés spécifiques à jOOQ : **paginate**, **fetch**, **convertFrom** … La [**documentation**](https://www.jooq.org/learn/) de jOOQ est très **complète**. On y apprend comment écrire des requêtes complexes à base de window function ou de Common Table Expressions (CTE) et comment utiliser des fonctionnalités avancées de SQL que peu de frameworks ORM supportent nativement : [JSON functions](https://www.jooq.org/doc/latest/manual/sql-building/column-expressions/json-functions/), [PIVOT](https://blog.jooq.org/how-to-use-sql-pivot-to-compare-two-tables-in-your-database/), [MERGE](https://www.jooq.org/doc/latest/manual/sql-building/sql-statements/merge-statement/), [UNION](https://www.jooq.org/doc/latest/manual/sql-building/sql-statements/select-statement/set-operations/set-operation-union/) …
+L’usage de jOOQ se rapproche de l’utilisation de JdbcTemplate. Le développeur maitrise le nombre de requêtes envoyées à la base de données relationnelle. Ce qui les différencie, c’est la syntaxe : pas de SQL, mais une **API Java fluide** et **type-safe** spécifique à jOOQ qu’il va falloir appréhender. Rassurez-vous, cette API se rapproche du SQL : on y retrouve les mots clés `select`, `update`, `insertInto`, `where`, `from`, `join`, `on`, `as`… A ceux-ci, on ajoute des mots clés spécifiques à jOOQ : `paginate`, `fetch`, `convertFrom` … La [**documentation**](https://www.jooq.org/learn/) de jOOQ est très **complète**. On y apprend comment écrire des requêtes complexes à base de window function ou de Common Table Expressions (CTE) et comment utiliser des fonctionnalités avancées de SQL que peu de frameworks ORM supportent nativement : [JSON functions](https://www.jooq.org/doc/latest/manual/sql-building/column-expressions/json-functions/), [PIVOT](https://blog.jooq.org/how-to-use-sql-pivot-to-compare-two-tables-in-your-database/), [MERGE](https://www.jooq.org/doc/latest/manual/sql-building/sql-statements/merge-statement/), [UNION](https://www.jooq.org/doc/latest/manual/sql-building/sql-statements/select-statement/set-operations/set-operation-union/) …
 
 Cet article a pour objectif d’expliquer les **étapes** adoptées pour **migrer l’implémentation Spring Data JPA des repository vers jOOQ**. Des exemples de code avant / après y sont proposés.
 
 ## Configuration du build
 
-[Spring Boot supporte nativement l’usage des versions commerciales et Open Source de jOOQ](https://docs.spring.io/spring-boot/reference/data/sql.html#data.sql.jooq). Dans le **pom.xml** ou le fichier **build.gradle**, commencer par déclarer le starter Spring Boot pour jOOQ **spring-boot-starter-jooq** :
+[Spring Boot supporte nativement l’usage des versions commerciales et Open Source de jOOQ](https://docs.spring.io/spring-boot/reference/data/sql.html#data.sql.jooq). Dans le `pom.xml` ou le fichier `build.gradle`, commencer par déclarer le starter Spring Boot pour jOOQ `spring-boot-starter-jooq` :
 
 ```xml
 <dependency>
@@ -105,9 +105,9 @@ L’étape suivante consiste à générer les classes Java à partir du schéma 
 
 ```
 
-La classe org.jooq.meta.extensions.ddl. **DDLDatabase** provenant de l’extension [jooq-meta-extensions](https://www.jooq.org/doc/latest/manual/code-generation/codegen-meta-sources/codegen-ddl/) permet au plugin jooq-codegen-maven d’exploiter le script DDL src/main/resources/db/h2/ [schema.sql](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/v3.4.2/src/main/resources/db/h2/schema.sql) utilisé par défaut lors du démarrage de l’application avec le profil Spring par défaut.
+La classe org.jooq.meta.extensions.ddl.`DDLDatabase` provenant de l’extension [jooq-meta-extensions](https://www.jooq.org/doc/latest/manual/code-generation/codegen-meta-sources/codegen-ddl/) permet au plugin jooq-codegen-maven d’exploiter le script DDL src/main/resources/db/h2/ [schema.sql](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/v3.4.2/src/main/resources/db/h2/schema.sql) utilisé par défaut lors du démarrage de l’application avec le profil Spring par défaut.
 
-Dans le package org.jooq.generated.tables, l’exécution du plugin jOOQ génère une **classe Vets** héritant de la classe TableImpl<VetsRecord> et modélisant la table éponyme. La **classe VetsRecord** a également été générée dans le sous-package records. Elle représente une ligne de la table pets.
+Dans le package org.jooq.generated.tables, l’exécution du plugin jOOQ génère une classe `Vets` héritant de la classe TableImpl<VetsRecord> et modélisant la table éponyme. La classe `VetsRecord` a également été générée dans le sous-package records. Elle représente une ligne de la table pets.
 
 
 Nous verrons leurs usages lors de la migration de la classe PetRepository.
@@ -116,7 +116,7 @@ Nous verrons leurs usages lors de la migration de la classe PetRepository.
 
 **L’une des forces de jOOQ est qu’il sait cohabiter aux côtés de JPA**. On peut donc migrer au fil de l’eau les respositories d’une application et même choisir de conserver les 2 solutions en fonction des besoins. Cette capacité a été pratique dans le travail de migration : chaque repository a été migré l’un après l’autre. L’application Petclinic est restée fonctionnelle tout du long.
 
-Premier changement notable : la nature des repositories qui passent d’une interface héritant de l’interface **Repository** de **Spring Data JPA** à une **classe concrète** qu’on annote avec **@Repository** et dont le constructeur accepte une instance de **DSLContext**.
+Premier changement notable : la nature des repositories qui passent d’une interface héritant de l’interface `Repository` de **Spring Data JPA** à une **classe concrète** qu’on annote avec `@Repository` et dont le constructeur accepte une instance de `DSLContext`.
 
 Avant :
 
@@ -156,8 +156,8 @@ public List<PetType> findPetTypes() {
 }
 ```
 
-On retrouve ici tous les éléments de la requête SQL, mais avec une syntaxe Java jOOQ équivalente. Le mot clé SQL « SELECT » est remplacé par la méthode **selectFrom()**, le « ORDER BY » par la méthode **orderBy()**. A noter que nous n’utilisons pas de chaines de caractères pour nommer les tables et les colonnes, mais les constantes générées par le plugin jOOQ. Ainsi, en cas de changement de schéma (ex : nom de colonne renommée), le code Java ne compilera plus et il faudra l’adapter. Avec cette approche, les erreurs de syntaxe ne sont plus possibles. On perçoit ici toute la sécurité apportée par la type-safety de jOOQ.   
-Enfin, la méthode **fetchInto()** mappe les lignes retournées par la base dans une liste d’instance de PetType.
+On retrouve ici tous les éléments de la requête SQL, mais avec une syntaxe Java jOOQ équivalente. Le mot clé SQL « SELECT » est remplacé par la méthode `selectFrom()`, le « ORDER BY » par la méthode `orderBy()`. A noter que nous n’utilisons pas de chaines de caractères pour nommer les tables et les colonnes, mais les constantes générées par le plugin jOOQ. Ainsi, en cas de changement de schéma (ex : nom de colonne renommée), le code Java ne compilera plus et il faudra l’adapter. Avec cette approche, les erreurs de syntaxe ne sont plus possibles. On perçoit ici toute la sécurité apportée par la type-safety de jOOQ.   
+Enfin, la méthode `fetchInto()` mappe les lignes retournées par la base dans une liste d’instance de PetType.
 
 Là où JPA et Hibernate nous facilitaient la sauvegarde de nos entités JPA, jOOQ va demander un travail nettement plus important. En effet, la méthode save() de l’interface CrudRepository de Spring Data JPA ne demandait qu’à être appelée. La magie des ORM opérait grâce aux annotations JPA apposées sur les entités. jOOQ nécessite de prévoir les 2 requêtes SQL correspondantes et d’effectuer à la main le binding des propriétés du Owner vers les colonnes. Exemple de sauvegarde d’un Owner :
 
@@ -187,11 +187,11 @@ private Map<Field<?>, Object> mapOwnerToRecord(Owner owner) {
 
 Rien de compliqué, mais un peu plus verbeux.   
 L’un des principaux avantages de jOOQ consiste à maitriser le nombre de requêtes SQL envoyées à la base. En l’occurrence, dans cet exemple, une seule et unique requête de type UPDATE est envoyée lors d’un mise à jour.   
-Avec l’implémentation Spring Data JPA, dans le cadre de la mise à jour d’un Owner, [comme expliqué dans l’article Skip Select Before Insert in Spring Data JPA](https://www.baeldung.com/spring-data-jpa-skip-select-insert), Spring Data JPA appelle la méthode **merge()** de l’entity manager JPA qui, si l’entité n’est pas en cache, va charger le Owner en exécutant autant de requêtes SQL de type SELECT que nécessaires.
+Avec l’implémentation Spring Data JPA, dans le cadre de la mise à jour d’un Owner, [comme expliqué dans l’article Skip Select Before Insert in Spring Data JPA](https://www.baeldung.com/spring-data-jpa-skip-select-insert), Spring Data JPA appelle la méthode `merge()` de l’entity manager JPA qui, si l’entité n’est pas en cache, va charger le Owner en exécutant autant de requêtes SQL de type SELECT que nécessaires.
 
 Autre différence notable : jOOQ laisse décider du ou des champs à mettre à jour. Dans notre exemple, les Pets associés à leur Owner ne seront par exemple pas mis à jour. Avec JPA, on utilisait le **cascading** et l’attribut cascade des annotations comme @OneToMany.
 
-Dans la même idée, lors de requêtes de type SELECT, les **jointures** entre tables devront être systématiquement précisées. A titre d’exemple, charger un animal et son type nécessitera un appel à **join()** :
+Dans la même idée, lors de requêtes de type SELECT, les **jointures** entre tables devront être systématiquement précisées. A titre d’exemple, charger un animal et son type nécessitera un appel à `join()` :
 
 ```java
 @Transactional(readOnly = true)
@@ -240,14 +240,14 @@ private static Vet toVet(Record4<Integer, String, String, List<Specialty>> row) 
 
 jOOQ permet d’imbriquer plusieurs multiset afin de charger les visites des animaux d’un propriétaire en une seule requête. Je vous renvoie à la classe [OwnerRepository](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/main/src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java).
 
-Pour finir, les écrans « Find Owners » et « Veterinarians » affichent les résultats de manière paginée. jOOQ supporte la pagination au travers de la [Seek Method](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/main/src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java) (aussi appelée [Keyset paging](https://blog.jooq.org/faster-sql-pagination-with-keysets-continued/)) ou du [calcul des méta-données de pagination en une seule requête SQL](https://blog.jooq.org/calculating-pagination-metadata-without-extra-roundtrips-in-sql/). C’est cette dernière approche qui a été utilisée sur jOOQ Petclinic afin de garder iso-fonctionnels les **écrans paginés**. Les plus curieux peuvent se référer à l’implémentation de la méthode findAll(Pageable pageable) de [VetRepository](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/main/src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java) et à la méthode paginate() du [JooqHelper](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/main/src/main/java/org/springframework/samples/petclinic/system/JooqHelper.java). Sur le même modèle que ce que propose Spring Data, des **records Pageable** et **Page** ont été introduits dans la base de code.   
+Pour finir, les écrans « Find Owners » et « Veterinarians » affichent les résultats de manière paginée. jOOQ supporte la pagination au travers de la [Seek Method](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/main/src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java) (aussi appelée [Keyset paging](https://blog.jooq.org/faster-sql-pagination-with-keysets-continued/)) ou du [calcul des méta-données de pagination en une seule requête SQL](https://blog.jooq.org/calculating-pagination-metadata-without-extra-roundtrips-in-sql/). C’est cette dernière approche qui a été utilisée sur jOOQ Petclinic afin de garder iso-fonctionnels les **écrans paginés**. Les plus curieux peuvent se référer à l’implémentation de la méthode findAll(Pageable pageable) de [VetRepository](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/main/src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java) et à la méthode paginate() du [JooqHelper](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/main/src/main/java/org/springframework/samples/petclinic/system/JooqHelper.java). Sur le même modèle que ce que propose Spring Data, des records `Pageable` et `Page` ont été introduits dans la base de code.   
 ![](/wp-content/uploads/2025/06/word-image-2580-2.png)
 
 ## Au revoir JPA
 
 Une fois l’ensemble des Repository migrés, la dernière étape a consisté à retirer la dépendance spring-boot-starter-data-jpa ainsi que toutes les annotations JPA apposées sur les entités (@Entity, @Table, @ ManyToMany …).
 
-Débarrassé de JPA, nous pouvons revoir en partie le design de l’application qui avait été limité par ce dernier. En effet, [les entités JPA ne peuvent pas être modélisées avec des record Java](ManyToMany). Suite à la migration vers jOOQ, les entités du domaine métier de Spring Petclinic n’ont plus d’adhérence avec la couche de persistance. Les **classes immutables** ont pu être converties en **record**. Exemple du value object [Speciality](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/v3.4.2/src/main/java/org/springframework/samples/petclinic/vet/Specialty.java) :
+Débarrassé de JPA, nous pouvons revoir en partie le design de l’application qui avait été limité par ce dernier. En effet, [les entités JPA ne peuvent pas être modélisées avec des record Java](ManyToMany). Suite à la migration vers jOOQ, les entités du domaine métier de Spring Petclinic n’ont plus d’adhérence avec la couche de persistance. Les **classes immutables** ont pu être converties en `record`. Exemple du value object [Speciality](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/v3.4.2/src/main/java/org/springframework/samples/petclinic/vet/Specialty.java) :
 
 ```java
 public record Specialty(Integer id, String name) {

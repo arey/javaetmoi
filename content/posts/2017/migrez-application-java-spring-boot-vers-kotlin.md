@@ -241,7 +241,7 @@ fun getPets(): List<Pet> =
         pets.sortedWith(compareBy({ it.name }))
 ```
 
-La méthode **find()** permet de rechercher un élément dans une collection. A noter l’utilisation de l’opérateur **?:** qui permet de lever une exception si find renvoie null.
+La méthode `find()` permet de rechercher un élément dans une collection. A noter l’utilisation de l’opérateur `?:` qui permet de lever une exception si find renvoie null.
 Extrait de la classe [PetTypeFormatter.kt](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/165ce34e501da7a18ef4318edb16aafeb439145f/src/test/kotlin/org/springframework/samples/petclinic/owner/PetTypeFormatterTest.kt):
 
 ```kotlin

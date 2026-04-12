@@ -31,8 +31,8 @@ Dans ce deuxième ticket, j’aimerais vous parler du projet [**Hibernate Hydrat
 
 **Origine des lazy exceptions**
 
-En quoi consistent ce projet et cette fameuse fonctionnalité ? Eh bien, sous certaines conditions, résoudre un **problème récurrent** lors de l’utilisation d’Hibernate. En effet, lorsque l’on tente d’accéder à un **objet détaché de la session Hibernate**, ce dernier n’est pas forcément entièrement chargé en mémoire : son proxy ou ses propriétés peuvent ne pas être initialisés, ce qui est par exemple le cas d’une relation déclarée comme **paresseuse** (ou **lazy**). Et c’est à cet instant-là, qu’Hibernate lève la tant redoutée _**LazyInitializationException**_.  
-Par objet détaché, j’entends un objet évincé de la session (retirée du cache de premier niveau par un _session.clear()_ ou un _evict()_) ou dont la session est fermée ( _session.close()_)  
+En quoi consistent ce projet et cette fameuse fonctionnalité ? Eh bien, sous certaines conditions, résoudre un **problème récurrent** lors de l’utilisation d’Hibernate. En effet, lorsque l’on tente d’accéder à un **objet détaché de la session Hibernate**, ce dernier n’est pas forcément entièrement chargé en mémoire : son proxy ou ses propriétés peuvent ne pas être initialisés, ce qui est par exemple le cas d’une relation déclarée comme **paresseuse** (ou **lazy**). Et c’est à cet instant-là, qu’Hibernate lève la tant redoutée `LazyInitializationException`.  
+Par objet détaché, j’entends un objet évincé de la session (retirée du cache de premier niveau par un `session.clear()` ou un `evict()`) ou dont la session est fermée ( `session.close()`)  
 Dans une application, ce phénomène est susceptible de se produire à plusieurs niveaux :
 
 - **Couche** **présentation** : contrôleur (ex : action Struts) ou rendu de la vue (ex : JSP)
@@ -53,7 +53,7 @@ Personnellement, je recommande généralement à ce que les transactions soient 
 Pour rappel, le pré-chargement des relations peut être configuré de 2 manières :
 
 1. **statiquement** au niveau du **mapping** Hibernate (en XML ou par annotations)
-1. **dynamiquement** lors du requêtage en **HQL** ( _JOIN FETCH_) ou par l’API **Criteria** (méthode _setFetchMode()_)
+1. **dynamiquement** lors du requêtage en **HQL** ( `JOIN FETCH`) ou par l’API **Criteria** (méthode `setFetchMode()`)
 
 Par défaut, dans Hibernate 3.x, les associations vers une autre entité ou une collection d’entités sont chargées tardivement ; c’est-à-dire à la demande, lorsque l’on essaie d’accéder à l’entité ou à la collection (et que la session est ouverte). Qui plus est, les stratégies définies statiquement ne sont pas forcément utilisées lors d’un requêtage HQL.
 
@@ -75,7 +75,7 @@ Employee employee = (Employee) session.get(Employee.class, 1);
 LazyLoadingUtil.deepHydrate(session, employee);
 ```
 
-Techniquement, la méthode _deepHydrate()_ utilise le méta-modèle Hibernate (interface _ClassMetadata_) pour **parcourir l’ensemble du graphe des objets persistés** et déterminer le type des propriétés et des relations du modèle. Ainsi, elle peut naviguer **récursivement** dans le graphe. Les **proxy** rencontrés sont initialisés puis résolus. Les **collections persistantes** sont initialisés puis itérés.
+Techniquement, la méthode `deepHydrate()` utilise le méta-modèle Hibernate (interface `ClassMetadata`) pour **parcourir l’ensemble du graphe des objets persistés** et déterminer le type des propriétés et des relations du modèle. Ainsi, elle peut naviguer **récursivement** dans le graphe. Les **proxy** rencontrés sont initialisés puis résolus. Les **collections persistantes** sont initialisés puis itérés.
 
 Dans le cas d’un **graphe cyclique**, un mécanisme de garde permet d’éviter toute boucle infinie.
 

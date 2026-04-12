@@ -483,7 +483,7 @@ Comme vous le verrai, l’API de **$http** ressemble beaucoup à celle de Angula
 
 Les intercepteurs permettent de transformer une requête http, par exemple pour ajouter des headers HTTP.
 
-Pour résoudre cet exercice, il vous sera utile de savoir qu’un composant possède un **cycle de vie** et qu’on peut brancher du code à chaque étape. Comme son nom d’L’étape _created()_ permet d’exécuter du code initialisant les données du composant.
+Pour résoudre cet exercice, il vous sera utile de savoir qu’un composant possède un **cycle de vie** et qu’on peut brancher du code à chaque étape. Comme son nom d’L’étape `created()` permet d’exécuter du code initialisant les données du composant.
 
 **Solution**
 
@@ -516,7 +516,7 @@ import VueResource from 'vue-resource';
 Vue.use(VueResource);
 ```
 
-Dans App.vue, implémentez la méthode _getProduits()_ faisant appel à l’API REST. Cette méthode est appelée pendant le cycle de vie du composant, une fois celui-ci créé :
+Dans App.vue, implémentez la méthode `getProduits()` faisant appel à l’API REST. Cette méthode est appelée pendant le cycle de vie du composant, une fois celui-ci créé :
 
 ```js
 created() {

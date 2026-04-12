@@ -68,7 +68,7 @@ Request #125](https://github.com/spring-petclinic/spring-petclinic-microservices
    vers **spring-cloud-starter-gateway**
 
 - La seconde étape a nécessité de migrer de Spring Web vers **Spring Webflux**. Étape extrêmement simple puisqu’elle consiste à supprimer le starter _spring-boot-starter-web_ du _pom.xml_. La dépendance vers Spring Webflux est tirée transitivement par _spring-cloud-starter-gateway_
-- L’annotation **@EnableZuulProxy** a été **retirée** de la classe principale
+- L’annotation `@EnableZuulProxy` a été **retirée** de la classe principale
 - Suite à la migration vers Spring Webflux, la page d’accueil _/static/index.html_ n’était plus mappée vers /   
  Une solution de contournement a nécessité de déclarer un Router. Se référer à l’ [issue Spring Boot #9785](https://github.com/spring-projects/spring-boot/issues/9785)
 - Enfin, les **règles** **de** **routage Zuul** déclarées dans le fichier application.yml ont dû être **transposées** vers Spring Cloud Gateway
@@ -203,8 +203,8 @@ L’utilisation du RestTemplate pour appeler puis agréger le résultat de 2 mic
 
 ## Du Spring RestTemplate au Spring WebFlux WebClient
 
-A l’instar du RestTemplate, **WebClient** peut être automatiquement configuré pour utiliser un
-LoadBalancerClient via l’utilisation de l’annotation **@LoadBalanced** :
+A l’instar du `RestTemplate`, **`WebClient`** peut être automatiquement configuré pour utiliser un
+LoadBalancerClient via l’utilisation de l’annotation `@LoadBalanced` :
 
 ```java
 @Bean
@@ -324,7 +324,7 @@ private Mono<Visits> emptyVisitsForPets() {
 ```
 
 Le test unitaire [ApiGatewayControllerTest](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/test/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayControllerTest.java)
-s’assure que le coupe circuit est opérationnel :
+s’assure que le coupe-circuit est opérationnel :
 
 ```java
 @ExtendWith(SpringExtension.class)

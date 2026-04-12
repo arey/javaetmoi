@@ -197,7 +197,7 @@ Les slides 84 à 99 expliquent comment coder un client Cassandra en Java :
 1. Création de l’objet **Session**: une fois l’objet Cluster créé, il faut créer un objet Session qui va permettre d’exécuter des requêtes CQL.
 1. Exécution d’une requête CQL puis récupération des données renvoyées
 1. Utilisation d’un **PreparedStatement**(recommandée)
-1. Exécution de requêtes **asynchrones**: le _executeAsync()_ renvoie la main après avoir d’envoyer des écritures dans le cluster. On boucle ensuite sur la liste de Futures pour attendre la fin de l’écriture. Guava permet de simplifier l’écriture : _Futures.successFulAsList(futures)_
+1. Exécution de requêtes **asynchrones**: le `executeAsync()` renvoie la main après avoir d’envoyer des écritures dans le cluster. On boucle ensuite sur la liste de Futures pour attendre la fin de l’écriture. Guava permet de simplifier l’écriture : `Futures.successfulAsList(futures)`
 
 ## Lab – Part 2
 

@@ -69,7 +69,7 @@ export OPENAI_API_KEY=demo
 
 ## Déclarer les starters Spring Boot
 
-La [documentation Spring Boot Integration](https://docs.langchain4j.dev/tutorials/spring-boot-integration) de LangChain4j explique comment les starters Spring Boot aident à configurer l’usage des larges modèles de langages, des embedding models et des embedding stores par le biais de propriétés à déclarer dans le fichier **application.properties** (ou application.yaml).
+La [documentation Spring Boot Integration](https://docs.langchain4j.dev/tutorials/spring-boot-integration) de LangChain4j explique comment les starters Spring Boot aident à configurer l’usage des larges modèles de langages, des embedding models et des embedding stores par le biais de propriétés à déclarer dans le fichier `application.properties` (ou application.yaml).
 
 Dans le pom.xml de Spring Petclinic, commençons par déclarer les deux dépendances **langchain4j-spring-boot-starter** et **langchain4j-open-ai-spring-boot-starter** :
 
@@ -114,7 +114,7 @@ Sur le même principe, la propriété _langchain4j.open-ai. **streaming-chat-mod
 
 Dans la suite de cet article, le code Java dédié au chatbot est localisé dans un package dédié : [org.springframework.samples.petclinic.chat](https://github.com/spring-petclinic/spring-petclinic-langchain4j/tree/main/src/main/java/org/springframework/samples/petclinic/chat).
 
-Dans le code métier, l’interaction avec le LLM se fait au travers d’une simple interface Java nommée [**Assistant**](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/java/org/springframework/samples/petclinic/chat/Assistant.java) et annotée avec l’annotation **@AiService**. LangChain4j propose un mécanisme similaire à Spring Data et Square Retrofit : on définit de manière déclarative une interface respectant des conventions de nommage et, au runtime, LangChain4j fournit une implémentation de cette interface. Se référer à la documentation [AI Services](https://docs.langchain4j.dev/tutorials/ai-services) pour davantage d’explications.  
+Dans le code métier, l’interaction avec le LLM se fait au travers d’une simple interface Java nommée [**Assistant**](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/java/org/springframework/samples/petclinic/chat/Assistant.java) et annotée avec l’annotation `@AiService`. LangChain4j propose un mécanisme similaire à Spring Data et Square Retrofit : on définit de manière déclarative une interface respectant des conventions de nommage et, au runtime, LangChain4j fournit une implémentation de cette interface. Se référer à la documentation [AI Services](https://docs.langchain4j.dev/tutorials/ai-services) pour davantage d’explications.  
 L’interface Assistant propose une seule et unique méthode **chat**. Celle-ci accepte une question de l’utilisateur et renvoie la réponse du LLM sous forme de String.
 
 ```typescript
@@ -134,7 +134,7 @@ Le bean implémentant cette interface est mise à disposition par Spring et pour
 
 ## Prompter un Message Système
 
-Pour répondre à l’utilisateur, nous **guidons le comportement du LLM** en définissant un « **system message** » via l’annotation **@SystemMessage**.  Les directives sont externalisées dans le fichier texte [system.st](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/resources/prompts/system.st) :
+Pour répondre à l’utilisateur, nous **guidons le comportement du LLM** en définissant un « **system message** » via l’annotation `@SystemMessage`.  Les directives sont externalisées dans le fichier texte [system.st](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/resources/prompts/system.st) :
 
 ```text
 You are a friendly AI assistant designed to help with the management of a veterinarian pet clinic called Spring Petclinic.
@@ -312,8 +312,8 @@ record OwnersResponse(List<Owner> owners) {
 
 En interne, la classe _AssistantTool_ utilise le repository Spring Data JPA [OwnerRepository](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java) utilisé par l’application.  
 Apposée au niveau de l’annotation @Tool, **la description aide le LLM à comprendre quand appeler la fonction**.  
-La fonction _getAllOwners()_ ne prend pas de paramètre. Elle retourne le record _OwnersResponse_ qui contient une liste de _Owner_. La classe Owner est une entité JPA existante et utilisée pour l’IHM. Cet exemple démontre donc les capacités de LangChain4j à réutiliser le code existant.  
-Une fois la fonction appelée, LangChain4j convertit le record _OwnersResponse_ au format JSON pour que le LLM puisse le traiter.
+La fonction `getAllOwners()` ne prend pas de paramètre. Elle retourne le record `OwnersResponse` qui contient une liste de _Owner_. La classe Owner est une entité JPA existante et utilisée pour l’IHM. Cet exemple démontre donc les capacités de LangChain4j à réutiliser le code existant.  
+Une fois la fonction appelée, LangChain4j convertit le record `OwnersResponse` au format JSON pour que le LLM puisse le traiter.
 
 A noter que la méthode _getAllOwners_ n’aurait pas sa place dans une application d’entreprise. L’application démo Spring Petclinic compte seulement 10 propriétaires. Renvoyer toutes les données de la base ne pose donc pas de problème de performance. Néanmoins, dans une vraie application de gestion, **proposer une méthode de recherche multi-critères serait préférable**. C’est ce que propose l’ [issue #9](https://github.com/spring-petclinic/spring-petclinic-langchain4j/issues/9).
 
@@ -663,7 +663,7 @@ Voici un **diagramme de séquences** illustrant les appels que nous venons de d�
 ##   
 Response Streaming
 
-La méthode _chat()_ déclarée dans le _@AiService_ renvoie une simple _String_. L’utilisateur doit attendre que le LLM ait généré l’intégralité de sa réponse avant de recevoir le résultat. Ceci est regrettable lorsqu’on sait qu’un LLM génère du texte un jeton à la fois.  
+La méthode `chat()` déclarée dans le _@AiService_ renvoie une simple _String_. L’utilisateur doit attendre que le LLM ait généré l’intégralité de sa réponse avant de recevoir le résultat. Ceci est regrettable lorsqu’on sait qu’un LLM génère du texte un jeton à la fois.  
 La plupart des LLM propose un moyen de **diffuser la réponse jeton par jeton** au lieu d'attendre que l'ensemble du texte soit généré. Cette possibilité améliore l'expérience de l'utilisateur qui n'a alors pas besoin d'attendre une durée inconnue et peut commencer à lire la réponse presque immédiatement. LangChain4j supporte nativement cette [fonctionnalité de **Response Streaming**](https://docs.langchain4j.dev/tutorials/ai-services#streaming). Il sait streamer token par token en utilisant l’interface [TokenStream](https://github.com/langchain4j/langchain4j/blob/main/langchain4j/src/main/java/dev/langchain4j/service/TokenStream.java) comme type de réponse. Le client peut s’abonner aux flux de jetons renvoyé par le LLM et ainsi être notifié lorsqu’un nouveau jeton est disponible. Modifions la signature de notre méthode :
 
 ```typescript
@@ -683,7 +683,7 @@ Chaque token est envoyé dans un message structuré en JSON. L’onglet EventStr
 
 {{< figure src="/wp-content/uploads/2024/11/event-stream-chrome.png" alt="" caption="" >}}
 
-Dans le contrôleur, l’appel à la méthode _chat()_ est fait en asynchrone par un ExecutorService. L’appelant n’est pas bloqué. L’envoie des tokens au client (dans notre cas au navigateur) est assuré par l’appel à la classe SseEmitter.
+Dans le contrôleur, l’appel à la méthode `chat()` est fait en asynchrone par un ExecutorService. L’appelant n’est pas bloqué. L’envoie des tokens au client (dans notre cas au navigateur) est assuré par l’appel à la classe SseEmitter.
 
 ```java
 @RestController
@@ -865,7 +865,7 @@ public class EmbeddingStoreInit {
 
 La classe EmbeddingStoreInit fait appel au [_VetRepository_](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java) pour charger tous vétérinaires de la base, les marshalle en un gros [Document](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/data/document/Document.java) JSON puis fait appel à la classe [EmbeddingStoreIngestor](https://docs.langchain4j.dev/tutorials/rag/#embedding-store-ingestor) de LangChain4j. Ce EmbeddingStoreIngestor est configuré avec le modèle d’embedding, la base vectorielle où les embeddings seront stockés et un [DocumentByLineSplitter](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j/src/main/java/dev/langchain4j/data/document/splitter/DocumentByLineSplitter.java) chargé de découper le volumineux document JSON en [TextSegment](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/data/segment/TextSegment.java) censé améliorer la qualité des recherches de similarité et de réduire la taille et le coût d'une invite envoyée au LLM.
 
-Une fois le EmbeddingStoreIngestor construit, la méthode **ingest()** est appelée pour ingérer le document. Comme le montre les logs ci-dessous, ce dernier est découpé en 33 segments de texte. Les embeddings sont calculés sur les 33 segments puis stockés dans la base vectorielle :
+Une fois le EmbeddingStoreIngestor construit, la méthode `ingest()` est appelée pour ingérer le document. Comme le montre les logs ci-dessous, ce dernier est découpé en 33 segments de texte. Les embeddings sont calculés sur les 33 segments puis stockés dans la base vectorielle :
 
 ```text
 EmbeddingStoreIngestor  : Starting to ingest 1 documents
