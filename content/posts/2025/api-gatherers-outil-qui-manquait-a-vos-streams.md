@@ -7,7 +7,7 @@ author: admin
 categories:
   - conférence
 date: "2025-04-25T06:09:01+00:00"
-thumbnail: /wp-content/uploads/2025/04/word-image-2551-1-edited.jpeg
+thumbnail: /logo/logo-java-duke.png
 featureImage: /wp-content/uploads/2025/04/word-image-2551-1-edited.jpeg
 footnotes: ""
 guid: https://javaetmoi.com/?p=2551
@@ -45,9 +45,7 @@ Tout comme l’API Collector, José commence par rappeler que l’API Gatherers 
 
 L’article [The Gatherer API](https://dev.java/learn/api/streams/gatherers/) permet également d’approfondir votre étude des Gatherers. Notez que le site [dev.java](https://dev.java/) permet désormais d’exécuter des snippets Java (pas directement dans le navigateur, mais sur un serveur Cloud).
 
-Toutes les classes et interfaces de l’API Gatherers ont été ajoutées au **package java.util.stream**.
-
-{{< figure src="/wp-content/uploads/2025/04/word-image-2551-1-edited.jpeg" alt="" caption="" >}}
+Toutes les classes et interfaces de l’API Gatherers ont été ajoutées au `java.util.stream`.
 
 ## Opérations intermédiaires et terminales d’un Stream
 
@@ -60,14 +58,16 @@ Viktor assimile l’API Stream à celle d’un **Builder**: on décrit un pipeli
 
 Exemples d’ **opération terminales** proposées par l’API Stream :
 
-- reduce() : opération de réduction
-- findFirst() : renvoie un objet de type Optional qui encapsule le premier élément du Stream s'il existe, ne consomme pas tous les éléments du Streams.
-- collect() : prend en paramètre un Collector
-- toList() : méthode raccourcie disponible depuis Java 16
+- `reduce() : opération de réduction
+- `findFirst()` : renvoie un objet de type Optional qui encapsule le premier élément du Stream s'il existe, ne consomme pas tous les éléments du Streams.
+- `collect()` : prend en paramètre un Collector
+- `toList()` : méthode raccourcie disponible depuis Java 16
 
-Les Collector permettent de créer ses propres opérations de réduction. Gatherer est le pendant des Collector pour les opérations intermédiaires. Une différence notable est qu’un Collector ne peut pas interrompre un Stream : il ne le connait pas.
+Les Collector permettent de créer ses propres opérations de réduction. Gatherer est le pendant des Collector pour les opérations intermédiaires.
+Une différence notable est qu’un Collector ne peut pas interrompre un Stream : il ne le connait pas.
 
-Le JDK propose de nombreuses **opérations intermédiaires** comme map(), filter(), dropWhile(), limit() ou bien encore mapMulti() ajoutée plus récemment. L’API Gatherers va nous permettre de créer nos propres opérations intermédiaires. Ce n’était pas possible jusque-là. Parmi ces opérations intermédiaires, il existe des **opérations stateless** comme filter() et des **opérations statefull** come sorted() qui doivent consommer tous les éléments du stream avant de produire quelque chose vers le down stream.
+Le JDK propose de nombreuses **opérations intermédiaires** comme `map()`, `filter()`, `dropWhile()`, `limit()` ou bien encore `mapMulti()` ajoutée plus récemment.
+L’API Gatherers va nous permettre de créer nos propres opérations intermédiaires. Ce n’était pas possible jusque-là. Parmi ces opérations intermédiaires, il existe des **opérations stateless** comme filter() et des **opérations statefull** come sorted() qui doivent consommer tous les éléments du stream avant de produire quelque chose vers le down stream.
 
 Il n’y avait pas moyen de créer d’opérations intermédiaires jusqu’aux Gatherers.
 
@@ -85,10 +85,10 @@ interface Gatherer<T, A, R> {
 - **A** : type mutable utilisé en interne par les Gatherers
 - **R** : type des éléments poussés dans le down stream
 
-Avec sa méthode principale **integrator(),** José compare l’interface **Gatherer** à une interface fonctionnelle de type Supplier.
+Avec sa méthode principale `integrator()`, José compare l’interface `Gatherer` à une interface fonctionnelle de type `Supplier`.
 
-L’interface Gatherer met à disposition **3 interfaces fonctionnelles** imbriquées dont nous étudierons le fonctionnement : **Downstream**, **Greedy** et **Integrator**.   
-Exemple de le l’ **interface Integrator** :
+L’interface Gatherer met à disposition **3 interfaces fonctionnelles** imbriquées dont nous étudierons le fonctionnement : `Downstream`, `Greedy` et `Integrator`.   
+Exemple de le l’interface `Integrator` :
 
 ```java
 @FunctionalInterface
@@ -103,7 +103,7 @@ Afin de pouvoir utiliser le Gatherer, l’interface Stream de l’API Stream pro
 Stream<R> downStream = upstream.gather(gatherer);
 ```
 
-Le JDK s’enrichit de la **classe factory Gatherers**(notez son pluriel) utilisées par les différentes implémentations des méthodes **of()** de l’interface Gatherer.
+Le JDK s’enrichit de la classe factory `Gatherers` (notez son pluriel) utilisées par les différentes implémentations des méthodes `of()` de l'interface `Gatherer.
 
 ## Publier dans le Downstream
 
@@ -116,9 +116,11 @@ Gatherer<T, ?, R> gatherer = Gatherer.of(
 );
 ```
 
-Le **booléen renvoyé** en retour est important. Son fonctionnement est subtil : renvoyer **false** permet l’ **arrêt du traitement des éléments suivants**. Il ne se passe alors plus rien lorsqu’on pousse des éléments au downStream qui n’en accepte désormais plus. Aucune exception n’est levée. Cela peut surprendre.
+Le **booléen renvoyé** en retour est important. Son fonctionnement est subtil : renvoyer **false** permet l'**arrêt du traitement des éléments suivants**.
+Il ne se passe alors plus rien lorsqu’on pousse des éléments au downStream qui n’en accepte désormais plus. Aucune exception n’est levée. Cela peut surprendre.
 
-Dans le jargon de l’API Gatherer, lorsqu’un Integrator retourne directement la valeur du downstream.push(element), on dit qu’il est **Greedy**. Il traitera nécessairement tous les éléments du Stream. Son exécution est optimisée. Exemple :
+Dans le jargon de l’API Gatherer, lorsqu’un Integrator retourne directement la valeur du `downstream.push(element)`, on dit qu’il est **Greedy**.
+Il traitera nécessairement tous les éléments du `Stream`. Son exécution est optimisée. Exemple :
 
 ```java
 Gatherer<T, ?, R> gatherer = Gatherer.of(
@@ -126,7 +128,7 @@ Gatherer<T, ?, R> gatherer = Gatherer.of(
 );
 ```
 
-Lorsqu’un Integrator n’utilise pas de coupe-circuit et consomme donc l’intégralité des éléments reçus, il est recommandé d’utiliser la méthode factory **Integrator.ofGreedy()** pour instancier un Integrator :
+Lorsqu’un Integrator n’utilise pas de coupe-circuit et consomme donc l’intégralité des éléments reçus, il est recommandé d’utiliser la méthode factory `Integrator.ofGreedy()` pour instancier un `Integrator` :
 
 ```java
 Gatherer<T, ?, R> gatherer = Gatherer.of(
@@ -134,13 +136,15 @@ Gatherer<T, ?, R> gatherer = Gatherer.of(
 );
 ```
 
-Un Downstream possède un **état** nommé **rejecting**. La méthode isRejecting() de l’interface Downstream propose d’y accéder. Cet état a 3 propriétés :
+Un `Downstream` possède un **état** nommé **rejecting**.
+La méthode `isRejecting()` de l’interface Downstream propose d’y accéder. Cet état a 3 propriétés :
 
-1. Commence à **false**
-1. Ne peut commuter que de **false vers true** (ne peut pas se rouvrir)
-1. L’état de peut **commuter** que lors d’un **push()** =\> règle spécifique aux API du JDK
+1. Commence à `false`
+1. Ne peut commuter que de `false` vers `true` (ne peut pas se rouvrir)
+1. L’état ne peut **commuter** que lors d’un `push()` =\> règle spécifique aux API du JDK
 
-José nous met en garde : dans un Integrator, l’appel à la méthode isRejecting() ne sert à rien. Il s’agit d’une fausse optimisation qui s’apparente à du code mort.
+José nous met en garde : dans un `Integrator`, l’appel à la méthode `isRejecting()` ne sert à rien.
+Il s’agit d’une fausse optimisation qui s’apparente à du code mort.
 
 ```java
 (_, element, downstream) -> {
@@ -151,11 +155,11 @@ José nous met en garde : dans un Integrator, l’appel à la méthode isRejecti
 }
 ```
 
-José continue sa présentation en nous expliquant les bonnes pratiques à adopter lorsqu’on publie sur le Downstream :
+José continue sa présentation en nous expliquant les bonnes pratiques à adopter lorsqu’on publie sur le `Downstream` :
 
-- Ne pas faire de test isRejecting() sur le Downstream
-- Privilégiez l’usage de la méthode allMath() plus efficace que takeWhile()
-- Fermer les ressources si nécessaire. Lorsque le Stream agit sur un fichier, il faut fermer le fichier et ne pas oublier le try with ressources
+- Ne pas faire de test `isRejecting()` sur le `Downstream`
+- Privilégiez l’usage de la méthode `allMath()` plus efficace que `takeWhile()`
+- Fermer les ressources si nécessaire. Lorsque le `Stream` agit sur un fichier, il faut fermer le fichier et ne pas oublier le try with ressources
 
 Exemple exempté de bugs :
 
@@ -167,14 +171,15 @@ Exemple exempté de bugs :
 }
 ```
 
-Un Downstream n’est **pas un objet thread-safe**. Il est donc nécessaire de ne pas générer d’effet de bord sur les données externes. Attention aux race conditions et plus particulièrement dans les **parallel streams**.   
-A ce titre, la méthode **Gatherer.oSequential()** permet de créer un Gatherer séquentiel (non parallélisable).
+Un `Downstream` n’est **pas un objet thread-safe**. Il est donc nécessaire de ne pas générer d’effet de bord sur les données externes. Attention aux race conditions et plus particulièrement dans les **parallel streams**.   
+A ce titre, la méthode `Gatherer.oSequential()` permet de créer un Gatherer séquentiel (non parallélisable).
 
-L’élément **state** est un état mutable pouvant être utilisé par le Gatherer. En complément de l’Integrator, il est nécessaire de fournir à l’API de création d’un Gatherer un **Supplier** chargé d’initialiser l’état du state.
+L’élément **state** est un état mutable pouvant être utilisé par le Gatherer.
+En complément de l'`Integrator`, il est nécessaire de fournir à l’API de création d'un Gatherer un **Supplier** chargé d’initialiser l’état du state.
 
 Exemple d’un Gatherer limitant le nombre d’éléments et initialisant un compteur :
 
-```pascal
+```java
 class Counter { long count = 0L; }
 
 var gatherer = Gatherer.ofSequential(
@@ -188,9 +193,9 @@ var gatherer = Gatherer.ofSequential(
 });
 ```
 
-A noter que l’opérateur **var** retient le type des classes anonymes.
+A noter que l’opérateur `var` retient le type des classes anonymes.
 
-Pour agir sur l’ensemble des données du Gatherer, on peut stocker les éléments dans une collection tel qu’un HashSet dans l’exemple suivant « Distinct Gatherer »:
+Pour agir sur l’ensemble des données du Gatherer, on peut stocker les éléments dans une collection telle qu’un `HashSet` dans l’exemple suivant « Distinct Gatherer »:
 
 ```java
 var gatherer = Gatherer.ofSequential(
@@ -204,7 +209,7 @@ var gatherer = Gatherer.ofSequential(
 });
 ```
 
-Pour publier l’état final d’un Gatherer, on peut ajouter après l’Initializer et l’Integrator une 3ième lambda de type **BiConsumer** agitant comme **finisher** et pouvant consommer tous les éléments du state :
+Pour publier l’état final d’un Gatherer, on peut ajouter après l'`Initializer` et l'`Integrator` une 3ième lambda de type `BiConsumer` agissant comme **finisher** et pouvant consommer tous les éléments du state :
 
 ```java
 var gatherer = Gatherer.ofSequential(
@@ -219,15 +224,15 @@ var gatherer = Gatherer.ofSequential(
 
 Les développeurs Java peuvent choisir de construire un Gather supportant ou non le parallélisme et les parallel Streams. A cet effet, 2 méthodes de type fabrique sont à leur disposition :
 
-1. **Gatherer.of()**
-1. **Gatherer.ofSequential()**
+1. `Gatherer.of()`
+1. `Gatherer.ofSequential()`
 
 Pour supporter le parallélisme, l’API Gatherer adopte le principe suivant : **un objet state par thread**. Cela permet de ne pas utiliser de collections synchronisées dégradant les performances.   
 Dans chaque Stream parallèle, on a donc autant de state que de threads. A la fin de l’opération intermédiaire, il est nécessaire d’utiliser un **Combiner** pour combiner tous les états.   
 ![](/wp-content/uploads/2025/04/word-image-2551-2.png)
 
 
-Ce **Combiner** est un **4ième paramètre** à passer à la méthode factory **of()** :
+Ce **Combiner** est un **4ième paramètre** à passer à la méthode factory `of()` :
 
 ```java
 var gatherer = Gatherer.of(
@@ -246,11 +251,13 @@ var gatherer = Gatherer.of(
 );
 ```
 
-Les Sequential Gatherers ne peuvent pas être appelés en même temps depuis différents thhreads. Ils ne possèdent pas de Combiner. Pour autant, José nous explique que l’API Stream est capable de séquencer les appels vers un **Sequential Gatherer**. Cette fonctionnalité est nouvelle et donc à utiliser avec précaution. Tester les perfs.
+Les Sequential Gatherers ne peuvent pas être appelés en même temps depuis différents thhreads.
+Ils ne possèdent pas de Combiner. Pour autant, José nous explique que l’API Stream est capable de séquencer les appels vers un **Sequential Gatherer**.
+Cette fonctionnalité est nouvelle et donc à utiliser avec précaution. Tester les perfs.
 
 {{< figure src="/wp-content/uploads/2025/04/word-image-2551-3.png" alt="" caption="" >}}
 
-Pour aller plus loin, José nous invite à consulter le repo GitHub [SvenWoltmann/stream-gatherers](https://github.com/SvenWoltmann/stream-gatherers). Le JDK vient avec de nouveaux Gatherers comme scan(), fold() ou bien encore mapConcurrent().   
-Des librairies tierces comme [gatherers4j](https://github.com/tginsberg/gatherers4j) proposent également leur propres gatherers : reverse(), repeat(n), groupBy(fn) …
+Pour aller plus loin, José nous invite à consulter le repo GitHub [SvenWoltmann/stream-gatherers](https://github.com/SvenWoltmann/stream-gatherers). Le JDK vient avec de nouveaux Gatherers comme `scan()`, `fold()` ou bien encore `mapConcurrent()`.   
+Des librairies tierces comme [gatherers4j](https://github.com/tginsberg/gatherers4j) proposent également leur propres gatherers : `reverse()`, `repeat(n)`, `groupBy(fn)`...
 
-Pour conclure, retenons qu’ **un Gatherer est construit sur 4 éléments**. Tous ne sont pas obligatoires.
+Pour conclure, retenons qu’**un Gatherer est construit sur 4 éléments**. Tous ne sont pas obligatoires.
