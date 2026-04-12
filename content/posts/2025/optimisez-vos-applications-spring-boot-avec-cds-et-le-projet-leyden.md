@@ -8,7 +8,7 @@ categories:
   - conférence
   - spring
 date: "2025-04-21T12:04:33+00:00"
-thumbnail: /wp-content/uploads/2025/04/word-image-2482-1.jpeg
+thumbnail: /logo/logo-spring-boot.webp
 featureImage: /wp-content/uploads/2025/04/word-image-2482-1.jpeg
 featureImageAlt: "Sébastien Deleuze at Devoxx France 2025"
 footnotes: ""
@@ -16,7 +16,28 @@ guid: https://javaetmoi.com/?p=2482
 parent_post_id: null
 post_id: "2482"
 post_views_count: "1455"
-summary: "Conférence : [Devoxx France 2025](https://www.devoxx.fr/)<br>Date : 17 avril 2025<br>Speaker : [Sébastien Deleuze](https://seb.deleuze.fr/) (Broadcom)<br>Format : Conférence (45 mn) / [Replay Youtube](https://www.youtube.com/watch?v=4EAxhhSWgw4)\n\nSébastien est Core Commiter sur [Spring Framework](https://spring.io/projects/spring-framework). Il intervient également sur des sujets transverses au portfolio Spring : support de Kotlin, null-safety (avec [JSpecify](https://jspecify.dev/)) et les sujets d’optimisation. Dans ce talk, il a pour ambition de nous montrer **comment améliorer l’efficacité de 80% des applications Spring**, que ce soit de nouvelles applications ou des applications Legacy.\n\n \n\nLes raisons d’améliorer l’efficacité de nos applications sont multiples :\n\n- **Baisser le cout** de run des applications\n- **Développement durable** pour diminuer la consommation d’énergie, de mémoire et de CPU\n- **Optimiser** les applications pour les **containers** (sur le Cloud ou OnPremise)\n\nPour arriver à nos fins, Sébastien nous propose 3 technologies :\n\n1. **CDS** : techno relativement vieille mais qui s’est améliorée au fil des versions de Java\n2. **AOT cache** : Java 24 permet d’utiliser l’AOT cache qui est une version améliorée CDS. Sébastien prédit l’exploision de AOT Cache avec la LTS Java 25\n3. **AOT cache with profiling** : technologie expérimentale et prometeuse"
+summary: |-
+  Conférence : [Devoxx France 2025](https://www.devoxx.fr/)<br>
+  Date : 17 avril 2025<br>Speaker : [Sébastien Deleuze](https://seb.deleuze.fr/) (Broadcom)<br>
+  Format : Conférence (45 mn) / [Replay Youtube](https://www.youtube.com/watch?v=4EAxhhSWgw4)
+
+  Sébastien est Core Commiter sur [Spring Framework](https://spring.io/projects/spring-framework).
+  Il intervient également sur des sujets transverses au portfolio Spring : support de Kotlin, null-safety (avec [JSpecify](https://jspecify.dev/)) et les sujets d’optimisation.
+  Dans ce talk, il a pour ambition de nous montrer **comment améliorer l’efficacité de 80% des applications Spring**, que ce soit de nouvelles applications ou des applications Legacy.
+
+  Les raisons d’améliorer l’efficacité de nos applications sont multiples :
+
+  - **Baisser le cout** de run des applications
+  - **Développement durable** pour diminuer la consommation d’énergie, de mémoire et de CPU
+  - **Optimiser** les applications pour les **containers** (sur le Cloud ou OnPremise)
+
+  Pour arriver à nos fins, Sébastien nous propose 3 technologies :
+
+  1. **CDS** : techno relativement vieille mais qui s’est améliorée au fil des versions de Java
+  2. **AOT cache** : Java 24 permet d’utiliser l’AOT cache qui est une version améliorée CDS. Sébastien prédit l’exploision de AOT Cache avec la LTS Java 25
+  3. **AOT cache with profiling** : technologie expérimentale et prometeuse
+  
+  ![Sébastien Deleuze at Devoxx France 2025](/wp-content/uploads/2025/04/word-image-2482-1.jpeg)
 tags:
   - devoxx
   - spring-boot
@@ -31,8 +52,6 @@ Speaker : [Sébastien Deleuze](https://seb.deleuze.fr/) (Broadcom)
 Format : Conférence (45 mn) / [Replay Youtube](https://www.youtube.com/watch?v=4EAxhhSWgw4)
 
 Sébastien est Core Commiter sur [Spring Framework](https://spring.io/projects/spring-framework). Il intervient également sur des sujets transverses au portfolio Spring : support de Kotlin, null-safety (avec [JSpecify](https://jspecify.dev/)) et les sujets d’optimisation. Dans ce talk, il a pour ambition de nous montrer **comment améliorer l’efficacité de 80% des applications Spring**, que ce soit de nouvelles applications ou des applications Legacy.
-
-{{< figure src="/wp-content/uploads/2025/04/word-image-2482-1.jpeg" alt="Sébastien Deleuze at Devoxx France 2025" caption="Sébastien Deleuze at Devoxx France 2025" >}}
 
 Les raisons d’améliorer l’efficacité de nos applications sont multiples :
 
@@ -56,7 +75,7 @@ Ces 3 technologies nécessitent un **training run**. Cette « exécution d’ent
 
 ## 1\. Class Data Sharing (CDS)
 
-Disponible depuis **Java 9**(2017), **CDS** a continué à évoluer au fil des versions de Java.
+Disponible depuis **Java 9** (2017), **CDS** a continué à évoluer au fil des versions de Java.
 
 Par facilité (notamment pour la fonctionnalité d’extraction), un prérequis conseillé par Sébastien consiste à utiliser **Java 17** et **Spring Boot 3.3** et +.
 
@@ -64,12 +83,16 @@ Pour utiliser la fonctionnalité [CDS](https://docs.spring.io/spring-framework/r
 
 La création de l’archive CDS nécessite 2 paramètres de JVM :
 
-- **-Dspring.context.exit=onRefresh** : démarrage les beans singletons Spring non lazy puis arrête l’application.
-- **-XX:ArchiveClassesAtExit=spring-petclinic.jsa** : création de l’archive CDS lorsque la JVM s’arrête.
+- `-Dspring.context.exit=onRefresh` : démarrage les beans singletons Spring non lazy puis arrête l’application.
+- `-XX:ArchiveClassesAtExit=spring-petclinic.jsa` : création de l’archive CDS lorsque la JVM s’arrête.
 
 {{< figure src="/wp-content/uploads/2025/04/word-image-2482-3.png" alt="java -Dspring.context.exit=onRefresh" caption="java -Dspring.context.exit=onRefresh" >}}
 
-Les **plugins Maven** et **Gradle** de **Spring Boot** permettent de créer un **JAR auto-exécutable**. Disposer d’une seul JAR est bien pratique pour le déploiement et le téléchargement d’une application depuis le repository Maven d’entreprise, mais **pas efficiente** avec CDS qui ne supporte pas les JAR imbriqués. La version 3.3 de Spring Boot a facilité le [support de CDS](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.3-Release-Notes#cds-support) en ajoutant une **fonctionnalité d’auto-extraction du JAR** via le paramètre **-Djarmode=tools**. Son utilisation est illustrée par la commande suivante :
+Les **plugins Maven** et **Gradle** de **Spring Boot** permettent de créer un **JAR auto-exécutable**.
+Disposer d’une seul JAR est bien pratique pour le déploiement et le téléchargement d’une application depuis le repository Maven d’entreprise, mais **pas efficiente**
+avec CDS qui ne supporte pas les JAR imbriqués. La version 3.3 de Spring Boot a facilité le [support de CDS](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.3-Release-Notes#cds-support) en ajoutant une **fonctionnalité d’auto-extraction 
+du JAR** via le paramètre `-Djarmode=tools`.
+Son utilisation est illustrée par la commande suivante :
 
 ```bash
 java -Djarmode=tools -jar spring-petclinic.jar extract
@@ -151,22 +174,22 @@ Pensée dans le cadre du **projet Leyden**, La [JEP 483 Ahead-of-Time Class Load
 
 La création du cache AOT nécessite 2 étapes :
 
-La **1ière étape** consiste à générer le **fichier .aotconf** à l’aide de l’option **-XX:AOTMode=record** et la ligne de commande suivante :
+La **1ière étape** consiste à générer le fichier `.aotconf` à l’aide de l’option `-XX:AOTMode=record` et la ligne de commande suivante :
 
 ```bash
 java -XX:AOTMode=record -XX:AOTConfiguration=spring-petclinic.aotconf \
 -jar spring-petclinic.jar
 ```
 
-Au préalable, comme avec CDS, le JAR auto-exécutable aura été extrait à l’aide de **-Djarmode=tools**.
+Au préalable, comme avec CDS, le JAR auto-exécutable aura été extrait à l’aide de `-Djarmode=tools`.
 
-La 2 **ième étape** consiste à générer un **fichier .aot** avec l’option **-XX:AOTMode=create** et la ligne de commande suivante :
+La **2ième étape** consiste à générer un fichier `.aot` avec l’option `-XX:AOTMode=create`` et la ligne de commande suivante :
 
 ```bash
 java -XX:AOTMode=create -XX:AOTConfiguration=spring-petclinic.aotconf -XX:AOTCache=spring-petclinic.aot -jar spring-petclinic.jar
 ```
 
-Le t **emps de démarrage de Spring Petclinic** **descend à 1,3 secondes** :
+Le **temps de démarrage de Spring Petclinic** **descend à 1,3 secondes** :
 
 {{< figure src="/wp-content/uploads/2025/04/word-image-2482-8.png" alt="Spring Petclinic startup time (seconds)" caption="Spring Petclinic startup time (seconds)" >}}
 
