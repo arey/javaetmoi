@@ -17,3 +17,7 @@ baseName = "feed"
 
 [pagination]
 pagerSize = 10
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
