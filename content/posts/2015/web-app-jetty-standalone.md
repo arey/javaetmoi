@@ -5,8 +5,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2015-06-03T05:19:45+00:00"
-thumbnail: /wp-content/uploads/2015/04/jetty-logo.png
-featureImage: /wp-content/uploads/2015/04/jetty-logo.png
+thumbnail: wp-content/uploads/2015/04/jetty-logo.png
+featureImage: wp-content/uploads/2015/04/jetty-logo.png
 featureImageAlt: "jetty-logo"
 guid: http://javaetmoi.com/?p=1339
 parent_post_id: null
@@ -26,7 +26,7 @@ summary: |-
 
   Disposer d’une JVM et le seul pré-requis. Sachant qu’OpenJDK est installé sur la plupart des distributions Linux, ce n’est pas nécessairement une contrainte. Seule la version de Java devra être vérifiée avec soin.
 
-  ![jetty-logo](/wp-content/uploads/2015/04/jetty-logo.png)
+  ![jetty-logo](wp-content/uploads/2015/04/jetty-logo.png)
 tags:
   - devops
   - jetty
@@ -35,7 +35,7 @@ title: Embarquer Jetty dans une web app
 url: /2015/06/web-app-jetty-standalone/
 
 ---
-[![jetty-logo](/wp-content/uploads/2015/04/jetty-logo.png)](/wp-content/uploads/2015/04/jetty-logo.png) Une fois le développement d’une **application web** terminé, vient le moment (douloureux ou non) de son **installation sur un serveur**. En général, plusieurs pré-requis sont nécessaires : JRE, **serveur d’application**, base de données … Aujourd’hui, Docker et/ou des outils comme Ansible et Puppet facilitent le provisionning du middleware. Néanmoins, il est possible de simplifier encore davantage cette phase d’installation. Des applications comme Sonar et Jenkins le font depuis des années : **packager l’application avec son propre conteneur de Servlets** et sa propre base de données. Afin de pouvoir déployer des applications les plus légères possibles, les architectures micro-services poussent dans ce sens. Et c’est d’ailleurs ce que proposent des frameworks comme Play Framework et Spring Boot. Ce dernier permet en effet de créer un JAR exécutable démarrant au choix un Tomcat ou un Jetty.
+[![jetty-logo](wp-content/uploads/2015/04/jetty-logo.png)](wp-content/uploads/2015/04/jetty-logo.png) Une fois le développement d’une **application web** terminé, vient le moment (douloureux ou non) de son **installation sur un serveur**. En général, plusieurs pré-requis sont nécessaires : JRE, **serveur d’application**, base de données … Aujourd’hui, Docker et/ou des outils comme Ansible et Puppet facilitent le provisionning du middleware. Néanmoins, il est possible de simplifier encore davantage cette phase d’installation. Des applications comme Sonar et Jenkins le font depuis des années : **packager l’application avec son propre conteneur de Servlets** et sa propre base de données. Afin de pouvoir déployer des applications les plus légères possibles, les architectures micro-services poussent dans ce sens. Et c’est d’ailleurs ce que proposent des frameworks comme Play Framework et Spring Boot. Ce dernier permet en effet de créer un JAR exécutable démarrant au choix un Tomcat ou un Jetty.
 
 **Ce billet  explique pas à pas comment embarquer un conteneur Jetty dans sa propre application**. Nul besoin d’utiliser Spring ou Scala.
 
@@ -136,7 +136,7 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
- [![2015-05 - WAR-less Java web application with Jetty](/wp-content/uploads/2015/04/2015-05-WAR-less-Java-web-application-with-Jetty.png)](/wp-content/uploads/2015/04/2015-05-WAR-less-Java-web-application-with-Jetty.png) Une 1ière subtilité réside dans l’utilisation du _ClassLoader_ du thread courant. Sans quoi, en dehors d’un IDE, le répertoire webapp ne sera pas trouvé.
+ [![2015-05 - WAR-less Java web application with Jetty](wp-content/uploads/2015/04/2015-05-WAR-less-Java-web-application-with-Jetty.png)](wp-content/uploads/2015/04/2015-05-WAR-less-Java-web-application-with-Jetty.png) Une 1ière subtilité réside dans l’utilisation du _ClassLoader_ du thread courant. Sans quoi, en dehors d’un IDE, le répertoire webapp ne sera pas trouvé.
 
 La 2nde subtilité vient du fait que l’artefact construit est de type JAR et non un WAR. Bien qu’elle y ressemble, l’arborescence du projet n’est donc pas celle d’un WAR.
 Le répertoire webapp ne se trouve pas dans le répertoire src/main/webapp mais dans src/main/resources/webapp. Ainsi, lors de la construction du JAR, le répertoire webapp sera copié à la racine du JAR sans configuration maven particulière.

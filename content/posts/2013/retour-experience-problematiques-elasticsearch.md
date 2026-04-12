@@ -4,8 +4,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2013-12-16T14:23:37+00:00"
-thumbnail: /wp-content/uploads/2013/12/logo-elastisearch.png
-featureImage: /wp-content/uploads/2013/12/logo-elastisearch.png
+thumbnail: wp-content/uploads/2013/12/logo-elastisearch.png
+featureImage: wp-content/uploads/2013/12/logo-elastisearch.png
 featureImageAlt: "Logo Elastisearch"
 guid: http://javaetmoi.com/?p=879
 parent_post_id: null
@@ -16,7 +16,7 @@ summary: |-
 
   En 2 versions majeures et une montée de version d’Elasticsearch, les problématiques abordées ont été nombreuses : occupation mémoire, ré-indexation sans interruption de service, Split Brain, IDF et partitionnement. Prêts pour ce retour d’expérience ? »
 
-  ![Logo Elastisearch](/wp-content/uploads/2013/12/logo-elastisearch.png)
+  ![Logo Elastisearch](wp-content/uploads/2013/12/logo-elastisearch.png)
 tags:
   - elasticsearch
   - nosql
@@ -24,7 +24,7 @@ title: Retour d’expérience sur les problématiques Elasticsearch
 url: /2013/12/retour-experience-problematiques-elasticsearch/
 
 ---
-{{< figure src="/wp-content/uploads/2013/12/logo-elastisearch.png" alt="Logo Elastisearch" caption="Logo Elastisearch" >}}
+{{< figure src="wp-content/uploads/2013/12/logo-elastisearch.png" alt="Logo Elastisearch" caption="Logo Elastisearch" >}}
 
 _« Près de 2 ans passés chez un client en tant que référent technique d’un **middle de recherche** basé sur le moteur de recherche [Elasticsearch](http://www.elasticsearch.org/), il me paraît aujourd’hui opportun de vous faire part des différentes **problématiques** rencontrées au cours des **développements** et de son **exploitation**. »_
 
@@ -37,7 +37,7 @@ Malgré ce dispositif, il est parfois nécessaire ou préférable de **reconstru
 
 En fonction de la sollicitation de la base de données source et du cluster Elasticsearch, l’alimentation d’un index de plusieurs dizaines de millions de documents peut prendre jusqu’à **2h**. Or, les services de recherche ont une **haute disponibilité** avec un SLA de 24/7. Hors de question de les interrompre pendant cette plage horaire de maintenance.
 
-{{< figure src="/wp-content/uploads/2013/12/2013-12-problematiques-elastisearch-alias.jpg" alt="2013-12-problematiques-elastisearch-alias" caption="2013-12-problematiques-elastisearch-alias" >}}
+{{< figure src="wp-content/uploads/2013/12/2013-12-problematiques-elastisearch-alias.jpg" alt="2013-12-problematiques-elastisearch-alias" caption="2013-12-problematiques-elastisearch-alias" >}}
 
 La solution à ce problème est illustrée sur le schéma  suivant :
 
@@ -65,7 +65,7 @@ Au cours des développements et des tests de montée en charge du middle de rech
 
 ### TRI DES RÉSULTATS
 
-{{< figure src="/wp-content/uploads/2013/12/2013-12-problematiques-elastisearch-tri.png" alt="2013-12-problematiques-elastisearch-tri" caption="2013-12-problematiques-elastisearch-tri" >}}
+{{< figure src="wp-content/uploads/2013/12/2013-12-problematiques-elastisearch-tri.png" alt="2013-12-problematiques-elastisearch-tri" caption="2013-12-problematiques-elastisearch-tri" >}}
 
 Une  attente récurrente des utilisateurs est de pouvoir **trier leurs résultats** en fonction de **critères prédéfinis**.  Or, **nativement**, les résultats sont ordonnés en fonction d’un **score** calculé par chaque instance Lucene et agrégé par Elasticsearch. En fonction des règles de mapping et de recherche définies par les développeurs **, les résultats les plus pertinents remontent en tête**.  
 Pour ordonner les résultats différemment, Elasticsearch propose des [fonctionnalités de tri](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-request-sort.html). Ces fonctionnalités étaient disponibles dans la **version 0.19.2** que nous utilisions. Nous nous sommes donc naturellement appuyés dessus pour implémenter des tris ressemblants aux cas présentés dans la capture d’écran ci-jointe.
@@ -143,7 +143,7 @@ Batch d’indexation en erreur
 Lors de la montée de version d’Elasticsearch de la **version 0.90.2 à 0.90.3**, le batch d’indexation est tombé en _OutOfMemoryError_. Configuré avec  512 mo de Xmx, le batch n’avait jusque-là jamais posé de problème particulier.  
 Multi-threadé, le batch a été paramétré pour traiter simultanément 5000 documents par thread. L’empreinte mémoire des documents indexés est relativement petite, de l’ordre de 1 ou 2 ko.
 
-{{< figure src="/wp-content/uploads/2013/12/2013-12-problematiques-elastisearch-dynatrace2.jpg" alt="2013-12-problematiques-elastisearch-dynatrace2" caption="2013-12-problematiques-elastisearch-dynatrace2" >}}
+{{< figure src="wp-content/uploads/2013/12/2013-12-problematiques-elastisearch-dynatrace2.jpg" alt="2013-12-problematiques-elastisearch-dynatrace2" caption="2013-12-problematiques-elastisearch-dynatrace2" >}}
 
 Entre les 2 versions, notre profiler Java nous a montré qu’à volumétrie égale (25 000 requêtes), l’empreinte mémoire des instances de la classe **_IndexRequest_** était passée de **29 Mo à 823 Mo**:  
 
@@ -151,7 +151,7 @@ Ayant identifié le problème, j’ai remonté le [bug 3624](https://github.com/
 
 ## SPLIT BRAIN
 
-{{< figure src="/wp-content/uploads/2013/12/2013-12-problematiques-elastisearch-splitbrain1.png" alt="2013-12-problematiques-elastisearch-splitbrain1" caption="2013-12-problematiques-elastisearch-splitbrain1" >}}
+{{< figure src="wp-content/uploads/2013/12/2013-12-problematiques-elastisearch-splitbrain1.png" alt="2013-12-problematiques-elastisearch-splitbrain1" caption="2013-12-problematiques-elastisearch-splitbrain1" >}}
 
 Durant les premiers mois d’exploitation de notre cluster Elasticsearch, nous sommes tombés sur le phénomène du Split Brain.  
 Techniquement, notre cluster Elasticsearch comporte 2 nœuds. Chaque nœud est réparti sur site géographique distinct. Chaque nœud héberge un seul index Elasticsearch formé d’un shard et d’un réplica.  
@@ -187,7 +187,7 @@ Pour autant, utiliser le partitionnement apporte un certain nombre d’ **inconv
 - Ordre incorrect des éléments d’une facette
 - Scoring potentiellement différents sur deux partitions
 
-{{< figure src="/wp-content/uploads/2013/12/2013-12-problematiques-elastisearch-sharding.png" alt="2013-12-problematiques-elastisearch-sharding" caption="2013-12-problematiques-elastisearch-sharding" >}}
+{{< figure src="wp-content/uploads/2013/12/2013-12-problematiques-elastisearch-sharding.png" alt="2013-12-problematiques-elastisearch-sharding" caption="2013-12-problematiques-elastisearch-sharding" >}}
 
 Par ailleurs, il est connu par l’équipe en charge du développement d’Elasticsearch [que partitionnement et pagination ne font pas bon ménage](https://groups.google.com/forum/#!searchin/elasticsearch/distributed$20sorting/elasticsearch/TJKfuEv9AbU/mKtCR2HIfVMJ). En effet, [sans routage efficace](http://www.elasticsearch.org/blog/customizing-your-document-routing/), le coût nécessaire pour trier les documents croît exponentiellement en fonction du numéro de page demandé. Le diagramme ci-dessous met en évidence cette complexité :  
 

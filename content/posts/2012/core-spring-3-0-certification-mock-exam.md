@@ -4,8 +4,8 @@ author: admin
 categories:
   - spring
 date: "2012-02-26T16:22:40+00:00"
-thumbnail: /wp-content/uploads/2012/02/CertitfiedSpring_Professional.png
-featureImage: /wp-content/uploads/2012/02/CertitfiedSpring_Professional.png
+thumbnail: wp-content/uploads/2012/02/CertitfiedSpring_Professional.png
+featureImage: wp-content/uploads/2012/02/CertitfiedSpring_Professional.png
 guid: http://javaetmoi.com/?p=18
 parent_post_id: null
 post_id: "18"
@@ -15,7 +15,7 @@ summary: |-
 
   Comme pré-requis pour passer la certification,  sachez tout d’abord qu’il est nécessaire de  suivre la **formation officielle de 4 jours** estampillée SpringSource. En France, elle est exclusivement assurée par le cabinet d’architecture Zenika. Mon formateur fut l’un de co-auteurs du très bon livre Spring par la Pratique.
 
-  ![Core Spring 3.0 Certification Mock Exam](/wp-content/uploads/2012/02/CertitfiedSpring_Professional.png)
+  ![Core Spring 3.0 Certification Mock Exam](wp-content/uploads/2012/02/CertitfiedSpring_Professional.png)
 tags:
   - aop
   - certification
@@ -44,7 +44,7 @@ Afin que vous puissiez estimer votre niveau et/ou préparer au mieux votre certi
 Vous trouverez cet examen sous 2 formes :
 
 - un **fichier au format PDF**, les réponses sont en fin de document :
-  [spring-certification-3-mock-exam-antoine](/wp-content/uploads/2012/02/spring-certification-3-mock-exam-antoine.pdf)
+  [spring-certification-3-mock-exam-antoine](wp-content/uploads/2012/02/spring-certification-3-mock-exam-antoine.pdf)
 - une **version en ligne** de l’examen publiée sur le site Skill Guru :
   [http://www.skill-guru.com/test/258/core-spring-3.0-certification-mock-exam](http://www.skill-guru.com/test/258/core-spring-3.0-certification-mock-exam)
 
@@ -57,7 +57,7 @@ Répartition non officielle par thème des 50 questions :
 - Container  (13)
 - Test (5)
 - AOP (10)
-- Data Access (5)![](/wp-content/uploads/2012/02/CertitfiedSpring_Professional.png)
+- Data Access (5)![](wp-content/uploads/2012/02/CertitfiedSpring_Professional.png)
 - Transactions (5)
 - Spring MVC (3)
 - Spring Security (3)

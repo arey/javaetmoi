@@ -4,8 +4,8 @@ author: admin
 categories:
   - conférence
 date: "2015-03-31T16:32:57+00:00"
-thumbnail: /wp-content/uploads/2015/03/nosql-matters-logo.png
-featureImage: /wp-content/uploads/2015/03/nosql-matters-logo.png
+thumbnail: wp-content/uploads/2015/03/nosql-matters-logo.png
+featureImage: wp-content/uploads/2015/03/nosql-matters-logo.png
 featureImageAlt: "nosql-matters-logo"
 guid: http://javaetmoi.com/?p=1324
 parent_post_id: null
@@ -18,7 +18,7 @@ summary: |-
   Ce fut donc l’occasion rêvée d’approfondir mes connaissances sur le sujet et de m’aérer l’esprit.
   Cerise sur le gâteau, cette conférence m’aura permis d’apprécier la qualité de speaker de deux anciens collègues, Bruno Guedes et Lucian Precup.
 
-  ![nosql-matters-logo](/wp-content/uploads/2015/03/nosql-matters-logo.png)
+  ![nosql-matters-logo](wp-content/uploads/2015/03/nosql-matters-logo.png)
 tags:
   - elasticsearch
   - nosql
@@ -26,7 +26,7 @@ title: NoSQL Matters Paris 2015
 url: /2015/03/nosql-matters-paris-2015/
 
 ---
-[![nosql-matters-logo](/wp-content/uploads/2015/03/nosql-matters-logo.png)](/wp-content/uploads/2015/03/nosql-matters-logo.png)
+[![nosql-matters-logo](wp-content/uploads/2015/03/nosql-matters-logo.png)](wp-content/uploads/2015/03/nosql-matters-logo.png)
 
 Ayant gagné une place par le groupe utilisateurs Elasticsearch (que je remercie une nouvelle fois), j’ai eu l’opportunité d’assister pour la première fois à une conférence dédiée au NoSQL. Parmi la centaine de participants, je devais sans nul doute être le plus néophyte. Certes, je connais relativement bien Elasticsearch pour l’avoir mis en œuvre, mais l’écosystème d’Hadoop et des bases de données NoSQL restait pour moi encore très vague.
 Ce fut donc l’occasion rêvée d’approfondir mes connaissances sur le sujet et de m’aérer l’esprit.
@@ -48,7 +48,7 @@ Se sont ensuite enchaînées différentes conférences portant sur Hadoop, Spark
 
 ## Le retour du SQL
 
- [![NoSQL Matters - Lucian Precup](/wp-content/uploads/2015/03/NoSQL-Matters-Lucian-Precup.jpg)](/wp-content/uploads/2015/03/NoSQL-Matters-Lucian-Precup.jpg)
+ [![NoSQL Matters - Lucian Precup](wp-content/uploads/2015/03/NoSQL-Matters-Lucian-Precup.jpg)](wp-content/uploads/2015/03/NoSQL-Matters-Lucian-Precup.jpg)
 
 Un des thèmes récurrent de cette conférence fut paradoxalement le **SQL**. En effet, contrairement au monde des bases de données relationnelles, aucun standard de requêtage n’a émergé pour les bases NoSQL. Certes, des frameworks tels qu’ [Hibernate OGM](http://hibernate.org/ogm/) ou [Spring Data](http://projects.spring.io/spring-data/) permettent d’avoir un cadre commun. Mais encore faut-il appréhender leurs API. Lorsqu’ils souhaitent faire parler ces données, le Data Scientist a besoin d’un langage expressif. Souvent venu de la BI, il est familiarisé avec le SQL. Relativement récents, **[HAdoop With Queries (HAWQ)](http://pivotal.io/big-data/white-paper/a-true-sql-engine-for-hadoop-pivotal-hd-hawq)** et [**Spark SQL**](https://spark.apache.org/sql/) offrent désormais la possibilité d’interroger des péta-octets de données en utilisant le SQL.
 
@@ -80,7 +80,7 @@ Il n’y a pas de réponse type. Les 2 scénarios doivent être envisagés et ch
 Une migration sera privilégiée pour une application bien architecturée et comportant peu de tables. Une réécriture donne l’opportunité de changer d’architecture (ex : API REST API).
 Pour nous aider à prendre une décision, Tug nous montre quelques outils sur lesquels nous appuyer :
 
-[![NoSQL Matters - MongoDB](/wp-content/uploads/2015/03/NoSQL-Matters-MongoDB.jpg)](/wp-content/uploads/2015/03/NoSQL-Matters-MongoDB.jpg)
+[![NoSQL Matters - MongoDB](wp-content/uploads/2015/03/NoSQL-Matters-MongoDB.jpg)](wp-content/uploads/2015/03/NoSQL-Matters-MongoDB.jpg)
 
 ## Bilan
 

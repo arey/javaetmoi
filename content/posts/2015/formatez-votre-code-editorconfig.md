@@ -4,8 +4,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2015-12-04T07:27:57+00:00"
-thumbnail: /wp-content/uploads/2015/11/editorconfig-stickers.png
-featureImage: /wp-content/uploads/2015/11/editorconfig-stickers.png
+thumbnail: wp-content/uploads/2015/11/editorconfig-stickers.png
+featureImage: wp-content/uploads/2015/11/editorconfig-stickers.png
 featureImageAlt: "editorconfig-stickers"
 guid: http://javaetmoi.com/?p=1488
 parent_post_id: null
@@ -16,7 +16,7 @@ summary: |-
   Parmi les normes de développements d’une entreprise ou d’un projet Open Source, un chapitre couvre généralement les règles de formatage. C’est par exemple le cas du [guide de style de code](https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Code-Style) du projet Spring Framework. Ces règles peuvent également être définies au sein d’un outil de qualimétrie comme [SonarQube](http://nemo.sonarqube.org/coding_rules#qprofile=java-sonar-way-45126|activation=true). Chaque violation de règle entraine alors un défaut.
   Ce **billet propose 2 solutions** permettant à des développeurs [IntelliJ](https://www.jetbrains.com/idea/), [Spring Tools Suite](https://spring.io/tools) (STS) et [Eclipse](https://eclipse.org/home/index.php) de travailler ensemble.
 
-  ![editorconfig-stickers](/wp-content/uploads/2015/11/editorconfig-stickers.png)
+  ![editorconfig-stickers](wp-content/uploads/2015/11/editorconfig-stickers.png)
 tags:
   - eclipse
   - editorconfig
@@ -25,7 +25,7 @@ title: Formatez votre code
 url: /2015/12/formatez-votre-code-editorconfig/
 
 ---
-[![editorconfig-stickers](/wp-content/uploads/2015/11/editorconfig-stickers.png)](/wp-content/uploads/2015/11/editorconfig-stickers.png) Lors du démarrage d’un projet sur lequel plusieurs développeurs vont être amenés à travailler, se pose très tôt la question des **styles et règles de formatage** à appliquer au code. En effet, afin de pouvoir comparer l’historique des révisions d’un fichier, une bonne pratique veut que l’on ne change pas les règles de formatage au cours de route. Si tel était le cas, les changements importants seraient noyés par les changements d’indentations et autres retours à la ligne.
+[![editorconfig-stickers](wp-content/uploads/2015/11/editorconfig-stickers.png)](wp-content/uploads/2015/11/editorconfig-stickers.png) Lors du démarrage d’un projet sur lequel plusieurs développeurs vont être amenés à travailler, se pose très tôt la question des **styles et règles de formatage** à appliquer au code. En effet, afin de pouvoir comparer l’historique des révisions d’un fichier, une bonne pratique veut que l’on ne change pas les règles de formatage au cours de route. Si tel était le cas, les changements importants seraient noyés par les changements d’indentations et autres retours à la ligne.
 Parmi les normes de développements d’une entreprise ou d’un projet Open Source, un chapitre couvre généralement les règles de formatage. C’est par exemple le cas du [guide de style de code](https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Code-Style) du projet Spring Framework. Ces règles peuvent également être définies au sein d’un outil de qualimétrie comme [SonarQube](http://nemo.sonarqube.org/coding_rules#qprofile=java-sonar-way-45126|activation=true). Chaque violation de règle entraine alors un défaut.
 Ce **billet propose 2 solutions** permettant à des développeurs [IntelliJ](https://www.jetbrains.com/idea/), [Spring Tools Suite](https://spring.io/tools) (STS) et [Eclipse](https://eclipse.org/home/index.php) de travailler ensemble.
 

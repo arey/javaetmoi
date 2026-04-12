@@ -5,8 +5,8 @@ author: admin
 categories:
   - maven
 date: "2012-12-15T09:08:10+00:00"
-thumbnail: /wp-content/uploads/2012/12/cloudbees-github-jenkins.png
-featureImage: /wp-content/uploads/2012/12/cloudbees-github-jenkins.png
+thumbnail: wp-content/uploads/2012/12/cloudbees-github-jenkins.png
+featureImage: wp-content/uploads/2012/12/cloudbees-github-jenkins.png
 featureImageAlt: "cloudbees-github-jenkins"
 guid: http://javaetmoi.com/?p=436
 parent_post_id: null
@@ -21,7 +21,7 @@ summary: |-
   En bonus, si vous développez des projets open source, vous n’aurez même pas à sortir votre carte bancaire.
   [![cloudbees-github-jenkins](http://javaetmoi.com/wp-content/uploads/2012/12/cloudbees-github-jenkins.png)](http://javaetmoi.com/wp-content/uploads/2012/12/cloudbees-github-jenkins.png)
 
-  ![cloudbees-github-jenkins](/wp-content/uploads/2012/12/cloudbees-github-jenkins.png)
+  ![cloudbees-github-jenkins](wp-content/uploads/2012/12/cloudbees-github-jenkins.png)
 tags:
   - buildhive
   - cloudbees
@@ -39,7 +39,7 @@ Dans ce billet, je vais donc vous expliquer comment créer **votre propre usine 
 Le gain : à chaque commit poussé dans GitHub, votre **code** est **compilé**, **testé** unitairement puis **déployé** dans un **repository maven public** dédié aux Snapshots. Par ailleurs, vous pourrez effectuer des **releases maven** en local depuis votre poste de développement ; les artefacts construits seront mis à disposition dans un repository maven dédié. Tout développeur pourra librement référencer l’un ou l’autre de ces repository et utiliser votre code.
 
 En bonus, si vous développez des projets open source, vous n’aurez même pas à sortir votre carte bancaire.
-[![cloudbees-github-jenkins](/wp-content/uploads/2012/12/cloudbees-github-jenkins.png)](/wp-content/uploads/2012/12/cloudbees-github-jenkins.png)
+[![cloudbees-github-jenkins](wp-content/uploads/2012/12/cloudbees-github-jenkins.png)](wp-content/uploads/2012/12/cloudbees-github-jenkins.png)
 
 ## Composants de l’usine de développement
 
@@ -86,23 +86,23 @@ Depuis la console d’administration de Jenkins, vérifier que le _[Jenkins GIT 
 
 Dans la section _CloudBees DEV@Cloud Authorization_, configurer l’URL du chemin d’accès au repository Github qui sera utilisée par le plugin GitHub:
 
-[![cloudbees-build-authorization](/wp-content/uploads/2012/12/cloudbees-build-authorization.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-build-authorization/)
+[![cloudbees-build-authorization](wp-content/uploads/2012/12/cloudbees-build-authorization.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-build-authorization/)
 
 Dans la section _Gestion de code source_ du build Jenkins, sélectionner l’option _Git Repositories_ puis renseigner le _Repository URL_.
 La syntaxe à utiliser est la suivante : https://github.com/<username>/<repository name>.gitExemple : https://github.com/arey/hibernate-hydrate.git
-[![cloudbees-build-git](/wp-content/uploads/2012/12/cloudbees-build-git.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-build-git/)
+[![cloudbees-build-git](wp-content/uploads/2012/12/cloudbees-build-git.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-build-git/)
 
 Afin que Jenkins lance le build lors de la réception d’un hook en provenance de GitHub, sélectionner la case _Build when a change is pushed to GitHub_ dans le panneau ci-dessous :
-[![cloudbees-jenkins-build-trigger](/wp-content/uploads/2012/12/cloudbees-jenkins-build-trigger.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-jenkins-build-trigger/)
+[![cloudbees-jenkins-build-trigger](wp-content/uploads/2012/12/cloudbees-jenkins-build-trigger.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-jenkins-build-trigger/)
 
 La version de maven, le chemin vers le pom.xml racine ainsi que le goal à exécuter peuvent être configurés dans la section _Build_ :
-[![cloudbees-jenkins-maven](/wp-content/uploads/2012/12/cloudbees-jenkins-maven.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-jenkins-maven/) Lorsqu’aucun goal n’est précisé, Jenkins exécute un _install_.
+[![cloudbees-jenkins-maven](wp-content/uploads/2012/12/cloudbees-jenkins-maven.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-jenkins-maven/) Lorsqu’aucun goal n’est précisé, Jenkins exécute un _install_.
 
 A la fin du build, on indique à Jenkins de déployer les artefacts dans le repository CloudBees des Snapshots :
-[![cloudbees-jenkins-deploy](/wp-content/uploads/2012/12/cloudbees-jenkins-deploy.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-jenkins-deploy/)
+[![cloudbees-jenkins-deploy](wp-content/uploads/2012/12/cloudbees-jenkins-deploy.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-jenkins-deploy/)
 
 Afin d’exploiter au mieux le plugin GitHub de Jenkins et laisser Jenkins configurer les hooks dans GitHub, il est possible de renseigner votre login / mot de passe dans l’encart GitHub Web Hook accessible depuis le menu _Administration Jenkins > Configurer le Système_.
-[![cloudbees-jenkins-github-web-hook](/wp-content/uploads/2012/12/cloudbees-jenkins-github-web-hook.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-jenkins-github-web-hook/)
+[![cloudbees-jenkins-github-web-hook](wp-content/uploads/2012/12/cloudbees-jenkins-github-web-hook.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-jenkins-github-web-hook/)
 
 Dernière étape de la mise en place de notre usine de développement : la configuration de GitHub.
 
@@ -112,10 +112,10 @@ Pour que Jenkins soit notifié à chaque push dans GitHub et relancer ainsi le b
 La _WebHook URL_ doit référencer votre forge  logicielle CloudBees.
 Syntaxe : **https:// _<cloudbees username>_.ci.cloudbees.com/github-webhook/**
 Exemple : https://javaetmoi.ci.cloudbees.com/github-webhook/
-[![github-webhook-cloudbees](/wp-content/uploads/2012/12/github-webhook-cloudbees.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/github-webhook-cloudbees/) Cette configuration n’est a priori pas nécessaire si vous utilisez le plugin GitHub Jenkins. Ce dernier se charge en effet d’ajouter les WebHooks pour vous.
+[![github-webhook-cloudbees](wp-content/uploads/2012/12/github-webhook-cloudbees.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/github-webhook-cloudbees/) Cette configuration n’est a priori pas nécessaire si vous utilisez le plugin GitHub Jenkins. Ce dernier se charge en effet d’ajouter les WebHooks pour vous.
 
 Pour que CloudBees ait les habilitations nécessaires pour accéder à l’ensemble de vos repository GitHub, sa **clé publique** doit être ajoutée dans la partie _SSH Keys_ accessible via le menu d’administration de GitHub :
-[![github-ssh-keys](/wp-content/uploads/2012/12/githun-ssh-keys.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/githun-ssh-keys/)
+[![github-ssh-keys](wp-content/uploads/2012/12/githun-ssh-keys.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/githun-ssh-keys/)
 
 En principe, si je n’ai rien omis de mentionner dans ce guide, tout est prêt. Et pour vérifier que votre usine de développement est opérationnelle, vous avez le choix entre :
 

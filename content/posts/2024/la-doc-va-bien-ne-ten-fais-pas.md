@@ -8,10 +8,10 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - conférence
-featureImage: /wp-content/uploads/2024/04/word-image-2335-1.jpeg
+featureImage: wp-content/uploads/2024/04/word-image-2335-1.jpeg
 featureImageAlt: word-image-2335-1
 date: "2024-04-26T17:55:09+00:00"
-thumbnail: /wp-content/uploads/2024/04/word-image-2335-1.jpeg
+thumbnail: wp-content/uploads/2024/04/word-image-2335-1.jpeg
 guid: https://javaetmoi.com/?p=2335
 parent_post_id: null
 post_id: "2335"
@@ -35,7 +35,7 @@ summary: |-
 
   Arc42 propose de documenter une application en **12 chapitres**. Chaque chapitre est lui-même généralement composé de 3 sous-parties. <br>Dans de ce talk, Damien s’appuie sur un projet fictif pour illustrer chacun des 12 chapitres. Ce projet consiste à développer une application de billetterie pour les JO. Il en profitera pour nous présenter des **outils de génération de diagrammes** (PlantUML et Mermaid), des **outils de modélisation** (C4 et Structurizr) et des **outils de génération de documentation** (avec CLI et donc intégrable à la CI).
 
-  ![word-image-2335-1](/wp-content/uploads/2024/04/word-image-2335-1.jpeg)
+  ![word-image-2335-1](wp-content/uploads/2024/04/word-image-2335-1.jpeg)
 tags:
   - arc42
   - asciidoc
@@ -80,7 +80,7 @@ Ce template nous guide et nous pose les bonnes questions :
 Arc42 propose de documenter une application en **12 chapitres**. Chaque chapitre est lui-même généralement composé de 3 sous-parties.   
 Dans de ce talk, Damien s’appuie sur un projet fictif pour illustrer chacun des 12 chapitres. Ce projet consiste à développer une application de billetterie pour les JO. Il en profitera pour nous présenter des **outils de génération de diagrammes** (PlantUML et Mermaid), des **outils de modélisation** (C4 et Structurizr) et des **outils de génération de documentation** (avec CLI et donc intégrable à la CI).
 
-{{< figure src="/wp-content/uploads/2024/04/word-image-2335-1.jpeg" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/04/word-image-2335-1.jpeg" alt="" caption="" >}}
 
 ## 1\. Introduction et objectifs
 
@@ -93,7 +93,7 @@ Dans le projet fictif, OpenAPI est utilisé pour documenter les API REST.
 L’outil [**OpenAPI Generator**](https://openapi-generator.tech/) permet de générer la documentation AsciiDoc. L’équipe aurait pu également faire le choix de générer un site statique.   
 Pour documenter une API, Julien préfère l’outil [**ReDoc**](https://github.com/Redocly/redoc): plus moderne, l’interface est plus pratique. Preuve en est, elle est utilisée nativement dans IntelliJ lors de l’édition d’une spécification OpenAPI.
 
-{{< figure src="/wp-content/uploads/2024/04/word-image-2335-2.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/04/word-image-2335-2.png" alt="" caption="" >}}
 
 
 Ces 2 outils exploitent les informations du contrat d’interface. Julien rappelle la nécessité de documenter au maximum le contrat d’interface.   
@@ -114,7 +114,7 @@ La modélisation C4 documente l'architecture d'un système logiciel en utilisant
 
 Exemple de diagramme de contexte conçu à l’aide de [C4-PlantUML](https://github.com/plantuml-stdlib/C4-PlantUML) :
 
-![](/wp-content/uploads/2024/04/word-image-2335-3.png)
+![](wp-content/uploads/2024/04/word-image-2335-3.png)
 
 ## 4\. Stratégie de solution
 
@@ -122,7 +122,7 @@ Résumé et explication des décisions fondamentales et des stratégies de solut
 Exemple : un fort trafic sur le site lors de l’ouverture de la billetterie a suscité la mise en œuvre d’une solution de file d’attente à l’achat. On ajoute dans la documentation d’un lien vers l’étude menée.   
 On peut utiliser ici un simple tableau :
 
-{{< figure src="/wp-content/uploads/2024/04/word-image-2335-4.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/04/word-image-2335-4.png" alt="" caption="" >}}
 
 ## 5\. Vue en boites
 
@@ -133,7 +133,7 @@ Décomposition du système en boîte avec différents niveaux d’abstraction. O
 1. Level 3 : Components
 1. Level 4 : Code (diagramme de classes)
 
-{{< figure src="/wp-content/uploads/2024/04/word-image-2335-5.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/04/word-image-2335-5.png" alt="" caption="" >}}
 
 Depuis la vue Context, on peut zoomer dans l’une des vues Container, et ainsi de suite.   
 Par expérience, Damien nous explique que le niveau 4 est peu utilisé.
@@ -143,7 +143,7 @@ La problématique n°2 de C4 est provoquée par l’auto-layout des outils lorsq
 
 Créé par Simon Brown comme C4, l’outil [**Structurizr**](https://structurizr.com/) permet de créer des diagrammes clairs et informatifs qui illustrent la structure d'un système logiciel. Il s’appuie sur le domain specific language [Structurizr DSL](https://docs.structurizr.com/dsl) supporté dans VS Code et IntelliJ :
 
-{{< figure src="/wp-content/uploads/2024/04/word-image-2335-6.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/04/word-image-2335-6.png" alt="" caption="" >}}
 
 Les diagrammes Structurizr sont dynamiques et permettent de zoomer.   
 Les avantages :
@@ -154,7 +154,7 @@ Les avantages :
 
 Pour documenter les applications **Angular**, l’outil [**Compodoc**](https://compodoc.app/) créé par Vincent Ogloblinsky nous est conseillé. Compodoc permet de zoomer sur des modules Angular, de représenter les routes et s’appuie sur la JSDoc.
 
-{{< figure src="/wp-content/uploads/2024/04/word-image-2335-7.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/04/word-image-2335-7.png" alt="" caption="" >}}
 
 Pour **React** et **Vue.js**, Damien n’a pas trouvé d’autres outils que **Storybook**.
 
@@ -164,7 +164,7 @@ La vue exécution décrit le comportement concret des briques du système à tra
 On y retrouve différents types de diagrammes UML : activités, flux, séquences …   
 Exemple d’un diagramme de séquence généré avec **[Mermaid](https://mermaid.js.org/)**:
 
-{{< figure src="/wp-content/uploads/2024/04/sequence-achat-billet.png" alt="sequence achat billet" caption="sequence achat billet" >}}
+{{< figure src="wp-content/uploads/2024/04/sequence-achat-billet.png" alt="sequence achat billet" caption="sequence achat billet" >}}
 
 Mairmaid est très bien intégré dans GitLab et GitHub qui savent nativement afficher le rendu graphique des diagrammes, contrairement à **[PlantUML](https://plantuml.com/fr/)** qui nécessite l’installation de [GraphViz](https://plantuml.com/fr/graphviz-dot).
 
@@ -185,7 +185,7 @@ Une de ses fonctionnalités pratiques est de pouvoir zoomer sur une table en aff
 
 Exemple : zoom sur la table Track et ses relations au 2ième degré
 
-![](/wp-content/uploads/2024/04/word-image-2335-9.png)
+![](wp-content/uploads/2024/04/word-image-2335-9.png)
 
 ## 9\. Décisions d’architecture
 
@@ -216,7 +216,7 @@ Tableau listant les **termes techniques et métier** les plus importants.
 Dans le cadre du **Domain-Driven Design** (DDD) et de l' **Ubiquitous Language**, un glossaire joue un rôle crucial en centralisant et en formalisant la terminologie propre au domaine métier.   
 Un glossaire permet également de maintenir une **traduction de référence** (ex : anglais <-> français).
 
-Damien cite les **annotations Java** de Cyrille Martraire permettant d’extraire le glossaire et dont je vous avais [déjà parlé en 2016](/wp-content/uploads/2016/05/Devoxx_France-2016-Live_documentation.pdf).
+Damien cite les **annotations Java** de Cyrille Martraire permettant d’extraire le glossaire et dont je vous avais [déjà parlé en 2016](wp-content/uploads/2016/05/Devoxx_France-2016-Live_documentation.pdf).
 
 ## Bilan de arc42
 
@@ -236,7 +236,7 @@ Damien nous recommande le framework **[Diataxis](https://diataxis.fr/)** qui enc
 1. **Concepts** : comment fonctionne l’outil
 1. **Documentation de référence**
 
-![](/wp-content/uploads/2024/04/word-image-2335-10.png)  
+![](wp-content/uploads/2024/04/word-image-2335-10.png)  
 La [documentation de Quarkus](https://quarkus.io/guides/doc-concept) s’appuie désormais sur le concept Diataxis.
 
 ## Conclusion

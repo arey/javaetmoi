@@ -4,8 +4,8 @@ author: admin
 categories:
   - maven
 date: "2014-09-08T04:30:59+00:00"
-thumbnail: /wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-search.png
-featureImage: /wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-search.png
+thumbnail: wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-search.png
+featureImage: wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-search.png
 featureImageAlt: "2014-09-publier-sur-maven-central-javaetmoi-search"
 guid: http://javaetmoi.com/?p=1184
 parent_post_id: null
@@ -16,7 +16,7 @@ summary: |-
 
   [![2014-09-publier-sur-maven-central-javaetmoi-search](http://javaetmoi.com/wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-search-1024x510.png)](http://javaetmoi.com/wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-search.png)
 
-  ![2014-09-publier-sur-maven-central-javaetmoi-search](/wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-search.png)
+  ![2014-09-publier-sur-maven-central-javaetmoi-search](wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-search.png)
 tags:
   - maven
 title: Publiez vos artefacts sur Maven Central
@@ -25,7 +25,7 @@ url: /2014/09/publier-deployer-releaser-artefact-sur-maven-central/
 ---
 Lorsque vous rendez open-source un projet, même le plus modeste soit-il, quoi de plus naturel que de vouloir faciliter son utilisation par la communauté de développeurs intéressés ? Dans le monde Java, le dépôt de binaires Open Source le plus connu est le **Central Repository**, également connu sous le nom de [**Maven Central**](http://central.sonatype.org/). En effet, lors de la construction d’un projet Java, [Apache Maven](http://maven.apache.org/) essaie par défaut de localiser ses dépendances depuis Maven Central. D’autres outils de build comme Gradle et Ant/Ivy y font également référence. Géré par Sonatype et reposant sur Nexus, **Maven Central est accessible en écriture par les développeurs Open-Source en faisant la demande**. Ayant récemment publié des artefacts sur ce repo, ce billet présente les différentes étapes qui m’ont permis d’y arriver.
 
-[![2014-09-publier-sur-maven-central-javaetmoi-search](/wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-search.png)](/wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-search.png)
+[![2014-09-publier-sur-maven-central-javaetmoi-search](wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-search.png)](wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-search.png)
 
 ## Les limites d’un repository personnel
 
@@ -53,7 +53,7 @@ L’accès au Jira permet également d’ [ouvrir un ticket Jira de demande de c
 Dans la demande [OSSRH-11327](https://issues.sonatype.org/browse/OSSRH-11327), le groupId _com.javaetmoi_ m’a été accordé. Cela me permet de publier des artefacts avec des « sous » groupId comme _com.javaetmoi.core_.
 Moins de 24h après, [Joel Orlina](http://blog.sonatype.com/author/jorlina/) avait traité ma demandé.
 
-[![2014-09-publier-sur-maven-central-javaetmoi-jira](/wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-jira.png)](/wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-jira.png)
+[![2014-09-publier-sur-maven-central-javaetmoi-jira](wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-jira.png)](wp-content/uploads/2014/09/2014-09-publier-sur-maven-central-javaetmoi-jira.png)
 
 ## Préparer sa signature PGP
 

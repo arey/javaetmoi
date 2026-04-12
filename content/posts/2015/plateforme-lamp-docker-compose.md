@@ -4,8 +4,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2015-07-15T05:31:19+00:00"
-thumbnail: /wp-content/uploads/2015/07/docker-logo.jpg
-featureImage: /wp-content/uploads/2015/07/docker-logo.jpg
+thumbnail: wp-content/uploads/2015/07/docker-logo.jpg
+featureImage: wp-content/uploads/2015/07/docker-logo.jpg
 featureImageAlt: "docker-logo"
 guid: http://javaetmoi.com/?p=1429
 parent_post_id: null
@@ -27,7 +27,7 @@ summary: |-
 
   Dans ce billet, vous trouverez le fichier docker-compose correspondant, un Dockerfile personnalisant l’image officielle php:5.6-apache, les lignes de commandes démarrant les conteneurs sous MacOSX et alimentant la base à partir d’un script SQL.
 
-  ![docker-logo](/wp-content/uploads/2015/07/docker-logo.jpg)
+  ![docker-logo](wp-content/uploads/2015/07/docker-logo.jpg)
 tags:
   - apache
   - docker
@@ -38,7 +38,7 @@ title: Plateforme LAMP avec Docker Compose
 url: /2015/07/plateforme-lamp-docker-compose/
 
 ---
-[![docker-logo](/wp-content/uploads/2015/07/docker-logo.jpg)](/wp-content/uploads/2015/07/docker-logo.jpg)
+[![docker-logo](wp-content/uploads/2015/07/docker-logo.jpg)](wp-content/uploads/2015/07/docker-logo.jpg)
 
 Afin de préparer la migration technique d’un site web, j’ai eu besoin de reconstruire un environnement à l’identique de la production.
 

@@ -5,8 +5,8 @@ categories:
   - retour-d'expérience
   - spring
 date: "2022-07-03T12:25:17+00:00"
-thumbnail: /wp-content/uploads/2022/07/logo-spring-boot.png
-featureImage: /wp-content/uploads/2022/07/logo-spring-boot.png
+thumbnail: wp-content/uploads/2022/07/logo-spring-boot.png
+featureImage: wp-content/uploads/2022/07/logo-spring-boot.png
 guid: https://javaetmoi.com/?p=2217
 parent_post_id: null
 post_id: "2217"
@@ -24,7 +24,7 @@ Dans une **grande entreprise**, le **développement d’applications métiers** 
 Le **démarrage d’une nouvelle application Java** peut être accélérée de bien des manières : usage d’outils Low Code comme [Palmyra](https://www.vermeg.com/fr/produit-palmyra/), générateur de squelettes d’application comme [JHipster](https://www.jhipster.tech/), utilisation d’applications blanches déclinées par catégorie d’appli (ex : batch, web), copier/coller/élagage d’une application de référence, guide de démarrage sous forme wiki … Chaque technique présente ses avantages et ses inconvénients. Mais certaines ne couvrent pas toutes les règles évoquées précédemment.  
 Afin d’ **accélérer le développement** d’une nouvelle application, mon objectif était de générer un **squelette d’application minimaliste** dont le code généré est parfaitement maitrisé et avec des **dépendances choisies à la carte** par le tech lead. Libre à lui ensuite de retravailler le code généré pour mettre en place l’architecture cible de l’application, en choisissant par exemple de partir sur une architecture hexagonale.
 
-{{< figure src="/wp-content/uploads/2022/07/logo-spring-boot.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2022/07/logo-spring-boot.png" alt="" caption="" >}}
 
 Bien connu des développeurs Spring Boot, je me suis appuyé sur le code backend faisant tourner le site [https://start.spring.io/](https://start.spring.io/), à savoir le projet **[Spring Initializr](https://github.com/spring-io/initializr)** conçu et maintenu majoritairement par Stéphane Nicoll. Léger, codé en Java, reposant sur Spring Boot et documenté, ce projet a été conçu pour être personnalisé et extensible. Cela en a fait un excellent candidat.  
 La première mouture de ce générateur développé en quelques jours m’aura permis de générer :
@@ -110,7 +110,7 @@ Comme fil conducteur de ce billet, je vous propose de construire l’initializr 
 
 Depuis IntelliJ IDEA, voici les dépendances proposées :
 
-{{< figure src="/wp-content/uploads/2022/07/image-1.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2022/07/image-1.png" alt="" caption="" >}}
 
 Le code source de javaetmoi-initializr est disponible sur le repository : [arey/javaetmoi-initializr](https://github.com/arey/javaetmoi-initializr).
 
@@ -426,7 +426,7 @@ public class SwaggerController {
 
 **6.** La classe **_[TestOpenApiContributor](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/openapi/TestOpenApiContributor.java)_** ajoute un fichier _hello.http_ facilitant le test de l’API depuis IntelliJ :
 
-{{< figure src="/wp-content/uploads/2022/07/image-2.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2022/07/image-2.png" alt="" caption="" >}}
 
 ```xml
 <dependency>

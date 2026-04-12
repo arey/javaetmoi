@@ -13,8 +13,8 @@ categories:
   - retour-d'expérience
   - spring
 date: "2024-11-11T18:34:24+00:00"
-thumbnail: /wp-content/uploads/2024/11/logo%5Flangchain4j.png
-featureImage: /wp-content/uploads/2024/11/logo%5Flangchain4j.png
+thumbnail: wp-content/uploads/2024/11/logo%5Flangchain4j.png
+featureImage: wp-content/uploads/2024/11/logo%5Flangchain4j.png
 featureImageAlt: "Logo du framework LangChain4j"
 footnotes: ""
 guid: https://javaetmoi.com/?p=2391
@@ -28,7 +28,7 @@ summary: |-
 
   Pour illustrer cet article, nous utiliserons l’illustre application démo **Spring Petclinic** et son récent fork dédié à LangChain4j : [**spring-petclinic-langchain4j**](https://github.com/spring-petclinic/spring-petclinic-langchain4j)<br>Propulsé par Spring Boot, Spring Petclinic s’appuie sur **Spring Data JPA** pour l’accès aux données et **Thymeleaf** pour la couche présentation HTML / CSS / JavaScript.<br>En septembre 2024, Oded Shopen, contributeur en 2020 du fork [Spring Petclinic Cloud](https://github.com/spring-petclinic/spring-petclinic-cloud/), [a proposé une intégration de Spring AI dans Spring Petclinic](https://spring.io/blog/2024/09/26/ai-meets-spring-petclinic-implementing-an-ai-assistant-with-spring-ai-part-i). De son travail, est né le projet [spring-petclinic-ai](https://github.com/spring-petclinic/spring-petclinic-ai). Le repository [spring-petclinic-langchain4j](https://github.com/spring-petclinic/spring-petclinic-langchain4j) est un **portage** du framework **[Spring AI](https://spring.io/projects/spring-ai/)** vers **LangChain4j**. Y a été ajouté notamment une fonctionnalité de **streaming**.<br>Extraits du sample, les exemples de code s’appuient sur les versions 3.3 de Spring Boot et **0.35.0 de LangChaing4j**.
 
-  ![Logo du framework LangChain4j](/wp-content/uploads/2024/11/logo%5Flangchain4j.png)
+  ![Logo du framework LangChain4j](wp-content/uploads/2024/11/logo%5Flangchain4j.png)
 tags:
   - genai
   - langchain4j
@@ -38,7 +38,7 @@ title: Intégrer un Chatbot dans une webapp Java avec LangChain4j
 url: /2024/11/integrer-un-chatbot-dans-une-webapp-java-avec-langchain4j/
 
 ---
-{{< figure src="/wp-content/uploads/2024/11/logo%5Flangchain4j.png" alt="Logo du framework LangChain4j" caption="Logo du framework LangChain4j" >}}
+{{< figure src="wp-content/uploads/2024/11/logo%5Flangchain4j.png" alt="Logo du framework LangChain4j" caption="Logo du framework LangChain4j" >}}
 
 Cet article explique comment intégrer un **chatbot** utilisant l’ **IA générative** dans une **application de gestion** codée en **Java**.
 
@@ -159,7 +159,7 @@ If you need access to pet owners or pet types, list and locate them without aski
 
 Sans cette directive, le LLM demande l’autorisation de rechercher l’ID de Betty :
 
-{{< figure src="/wp-content/uploads/2024/11/chat0.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/11/chat0.png" alt="" caption="" >}}
 
 ## Déclarer un contrôleur REST
 
@@ -185,13 +185,13 @@ class AssistantController {
 
 Démarrer l’application Spring Boot et vérifier le fonctionnement du chatbot via un simple appel curl :
 
-{{< figure src="/wp-content/uploads/2024/11/curl1.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/11/curl1.png" alt="" caption="" >}}
 
 ## Paramétrer la mémoire conversationnelle de l’assistant
 
 A ce stade, le chatbot n’a pas encore de mémoire. Il ne peut donc pas s’aider des précédents échanges pour générer une réponse. Voici un des exemples des plus connus :
 
-{{< figure src="/wp-content/uploads/2024/11/curl2.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/11/curl2.png" alt="" caption="" >}}
 
 Pour remédier à ce problème, nous déclarons un bean Spring de type [**ChatMemory**](https://docs.langchain4j.dev/tutorials/ai-services#chat-memory) qui conserve l’ **historique des 10 derniers messages**.
 
@@ -209,7 +209,7 @@ class AssistantConfiguration {
 
 Le prénom donné lors du premier appel est désormais réutilisé par le LLM lors du deuxième appel :
 
-{{< figure src="/wp-content/uploads/2024/11/curl3.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/11/curl3.png" alt="" caption="" >}}
 
 Par défaut, les messages sont sauvegardés en mémoire dans un [InMemoryChatMemoryStore](https://github.com/langchain4j/langchain4j/blob/aa0e48816657640eda75879f1c29c0348643575c/langchain4j-core/src/main/java/dev/langchain4j/store/memory/chat/InMemoryChatMemoryStore.java#L15). En cas de **redémarrage** de l’application, les messages volatiles sont perdus. Avec **plusieurs instances** de la même application sans affinité de sessions, l’historique des messages est réparti sur différentes JVM. Cela pose également problème. Une solution consiste à implémenter l’interface [ChatMemoryStore](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/store/memory/chat/ChatMemoryStore.java) afin de **persister les messages** en base ou dans un cache distribué. Se référer à l’exemple [ServiceWithPersistentMemoryForEachUserExample.java](https://github.com/langchain4j/langchain4j-examples/blob/main/other-examples/src/main/java/ServiceWithPersistentMemoryForEachUserExample.java).
 
@@ -319,7 +319,7 @@ A noter que la méthode _getAllOwners_ n’aurait pas sa place dans une applicat
 
 Interrogeons à présent le chatbot avec la question _« Please list the owners that come to the clinic. »_ et regardons le flux d’échange entre l’application Petclinic et OpenAI.
 
-{{< figure src="/wp-content/uploads/2024/11/chat1.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/11/chat1.png" alt="" caption="" >}}
 
 Au préalable, dans le fichier _application.properties_, nous avons activé les logs des requêtes et réponses envoyées à OpenAI :
 
@@ -460,7 +460,7 @@ Ajoutons à présent les fonctions permettant à un vétérinaire de déclarer u
 
 > _Add a dog for Betty Davis. His name is Moopsie. His birthday is on 2 October 2024._
 >
-> {{< figure src="/wp-content/uploads/2024/11/agent-question.png" alt="" caption="" >}}
+> {{< figure src="wp-content/uploads/2024/11/agent-question.png" alt="" caption="" >}}
 
 Dans la classe _AssistantTool_, ajoutons une seconde fonction _addPetToOwner_ permettant à un vétérinaire de déclarer un nouvel animal de compagnie à l’un de ses clients :
 
@@ -658,7 +658,7 @@ Les résultats des 3 appels de fonction sont renvoyés à OpenAI dans une 3ième
 
 Voici un **diagramme de séquences** illustrant les appels que nous venons de décrire :
 
-{{< figure src="/wp-content/uploads/2024/11/LangChain4j-addPetToOwner.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/11/LangChain4j-addPetToOwner.png" alt="" caption="" >}}
 
 ##   
 Response Streaming
@@ -681,7 +681,7 @@ Le contrôleur REST [AssistantController](https://github.com/spring-petclinic/sp
 
 Chaque token est envoyé dans un message structuré en JSON. L’onglet EventStream de Google Chrome donne un aperçu du résultat :
 
-{{< figure src="/wp-content/uploads/2024/11/event-stream-chrome.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/11/event-stream-chrome.png" alt="" caption="" >}}
 
 Dans le contrôleur, l’appel à la méthode `chat()` est fait en asynchrone par un ExecutorService. L’appelant n’est pas bloqué. L’envoie des tokens au client (dans notre cas au navigateur) est assuré par l’appel à la classe SseEmitter.
 
@@ -760,7 +760,7 @@ Un RAG permet d’utiliser la recherche sémantique. Par exemple, dans la questi
 
 A l’aide du RAG, l’application Petclinic retrouve 2 vétérinaires ayant la spécialité de radiology et de dentistry. L’utilisation d’un index inversé Lucene n’aurait pas permis d’arriver à ce résultat.
 
-{{< figure src="/wp-content/uploads/2024/11/langchain4j-question-llm.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/11/langchain4j-question-llm.png" alt="" caption="" >}}
 
 Pour intégrer le RAG à Petclinic, nous devons procéder en 2 étapes : la phase d’ **ingestion (indexation)** des vétérinaires et la phase de **requêtage** (retrieval en anglais). La [documentation de LangChain4j sur le support des RAG](https://docs.langchain4j.dev/tutorials/rag) propose deux diagrammes illustrant les étapes d’ [indexation](https://docs.langchain4j.dev/tutorials/rag#indexing) et de [retrieval](https://docs.langchain4j.dev/tutorials/rag#retrieval).
 

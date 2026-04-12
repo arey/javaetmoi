@@ -4,8 +4,8 @@ author: admin
 categories:
   - conférence
 date: "2016-04-30T15:04:09+00:00"
-thumbnail: /wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg
-featureImage: /wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg
+thumbnail: wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg
+featureImage: wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg
 featureImageAlt: "2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016"
 guid: http://javaetmoi.com/?p=1560
 parent_post_id: null
@@ -21,7 +21,7 @@ summary: |-
 
   ##
 
-  ![2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016](/wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg)
+  ![2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016](wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg)
 tags:
   - angular2
   - devoxx
@@ -35,7 +35,7 @@ Lors de l’édition 2013 de Devoxx France, [je découvrais la simplicité de co
 Ce billet s’adresse à celles et ceux qui n’ont pas pu assister à ce Lab et qui **ont envie de découvrir** [**Angular 2**](https://angular.io/). Il s’appuie sur les ressources mises à disposition par les speakers.
 En7 étapes, vous développerez une application de Quizz avec la beta 11 d’Angular 2.
 
-![2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016](/wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg)
+![2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016](wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg)
 
 ##  Installation du post de dév
 
@@ -85,7 +85,7 @@ Il s’agit du concept principal d’Angular 2. Un composant Angular 2 combine d
 
 L’application Quizz est constituée des 7 composants suivants :
 
-1. **![](/wp-content/uploads/2016/04/lab-docker1.png)Ng2CodelabApp**: une application Angular 2 est elle même un composant. C’est le composant parent de tous les autres composants.
+1. **![](wp-content/uploads/2016/04/lab-docker1.png)Ng2CodelabApp**: une application Angular 2 est elle même un composant. C’est le composant parent de tous les autres composants.
 1. **Toolbar**: barre de navigation située en haut de l’écran
 1. **Home**: page d’accueil affichant une liste de thèmes (TypeScript, ECMAScript 6, Angular 2 et React). Le détail de chaque thème est géré par le composant ThemeCard.
 1. **ThemeCard**: affiche le nom du thème, une image, son descriptif et propose un bouton permettant de commencer le quizz associé.
@@ -140,7 +140,7 @@ Enfin, dans [app.js](https://github.com/manekinekko/angular2-codelab/blob/step-1
 import { Ng2CodelabApp } from './app/ng2-codelab';
 
 A la fin de cette étape, la page d’accueil n’affiche qu’un simple sablier.
-![lab2-angular2-devoxxfr2016](/wp-content/uploads/2016/04/lab2-angular2-devoxxfr2016.png)
+![lab2-angular2-devoxxfr2016](wp-content/uploads/2016/04/lab2-angular2-devoxxfr2016.png)
 
 ## Step 2 – Templates et cycle de vie
 

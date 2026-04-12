@@ -4,8 +4,8 @@ author: admin
 categories:
   - test
 date: "2013-09-06T16:46:25+00:00"
-thumbnail: /wp-content/uploads/2013/09/test-database.jpg
-featureImage: /wp-content/uploads/2013/09/test-database.jpg
+thumbnail: wp-content/uploads/2013/09/test-database.jpg
+featureImage: wp-content/uploads/2013/09/test-database.jpg
 featureImageAlt: "test-database"
 guid: http://javaetmoi.com/?p=757
 parent_post_id: null
@@ -20,7 +20,7 @@ summary: |-
 
   Le [guide utilisateur de DbSetup](http://dbsetup.ninja-squad.com/user-guide.html) étant particulièrement bien conçu, l'objectif de cet article n’est pas de vous en faire une simple traduction, mais de vous donner envie de l’essayer et de vous présenter la manière dont je l’ai mis en oeuvre. Celle-ci s’éloigne en effet quelque peu de celle présentée dans la documentation, la faute à mes vieux réflexes d’utilisateur de DbUnit et au bienheureux **[rollback pattern](http://xunitpatterns.com/Transaction%20Rollback%20Teardown.html)** de Spring.<br>
 
-  ![test-database](/wp-content/uploads/2013/09/test-database.jpg)
+  ![test-database](wp-content/uploads/2013/09/test-database.jpg)
 tags:
   - database
   - dbsetup
@@ -31,7 +31,7 @@ title: DbSetup, une alternative à DbUnit
 url: /2013/09/dbsetup-spring-test-vs-dbunit/
 
 ---
-{{< figure src="/wp-content/uploads/2013/09/test-database.jpg" alt="test-database" caption="test-database" >}}
+{{< figure src="wp-content/uploads/2013/09/test-database.jpg" alt="test-database" caption="test-database" >}}
 
 Lors du développement de **tests d’intégration**, j’ai récemment eu besoin de charger une base de données à l’aide de jeux de données. Pour écrire mon premier test, j’ai simplement commencé par écrire un fichier SQL. En un appel de méthode (JdbcTestUtils::executeSqlScript) ou une ligne de déclaration XML (<jdbc:script location="" />), Spring m’aidait à charger mes données.  
 Pour tous ceux qui se sont déjà prêtés à l’exercice, maintenir des jeux de données est relativement fastidieux, qui plus en SQL. Cette solution n’était donc pas pérenne.

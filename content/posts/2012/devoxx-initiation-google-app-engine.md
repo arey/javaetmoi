@@ -4,8 +4,8 @@ author: admin
 categories:
   - conférence
 date: "2012-04-20T20:17:10+00:00"
-thumbnail: /wp-content/uploads/2012/04/2012-04-18-11.56.37.jpg
-featureImage: /wp-content/uploads/2012/04/2012-04-18-11.56.37.jpg
+thumbnail: wp-content/uploads/2012/04/2012-04-18-11.56.37.jpg
+featureImage: wp-content/uploads/2012/04/2012-04-18-11.56.37.jpg
 featureImageAlt: "Hands-on-Lab Le Président est ... de Devoxx France 2012"
 guid: http://javaetmoi.com/?p=148
 parent_post_id: null
@@ -18,7 +18,7 @@ summary: |-
 
   D’actualités et évoquant des chiffres qui exciteraient tout architecte, ce code labs fut la parfaite occasion de m’initier à Google App Engine. Au cours de ce billet, je vous relaterai ce que j’y ai appris et vous donnerai accès au code source que vous pourrez à votre tour déployer sur le PaaS de Google.
 
-  ![Hands-on-Lab Le Président est ... de Devoxx France 2012](/wp-content/uploads/2012/04/2012-04-18-11.56.37.jpg)
+  ![Hands-on-Lab Le Président est ... de Devoxx France 2012](wp-content/uploads/2012/04/2012-04-18-11.56.37.jpg)
 tags:
   - app-engine
   - bigtable
@@ -40,7 +40,7 @@ Nommé « [Le Président est …](http://www.devoxx.com/pages/viewpage.action?pa
 
 D’actualités et évoquant des chiffres qui exciteraient tout architecte, ce code labs fut la parfaite occasion de m’initier à Google App Engine. Au cours de ce billet, je vous relaterai ce que j’y ai appris et vous donnerai accès au code source que vous pourrez à votre tour déployer sur le PaaS de Google.
 
-[![Hands-on-Lab "Le Président est ..." de Devoxx France 2012](/wp-content/uploads/2012/04/2012-04-18-11.56.37.jpg)](/wp-content/uploads/2012/04/2012-04-18-11.56.37.jpg)**Présentation de Google App**
+[![Hands-on-Lab "Le Président est ..." de Devoxx France 2012](wp-content/uploads/2012/04/2012-04-18-11.56.37.jpg)](wp-content/uploads/2012/04/2012-04-18-11.56.37.jpg)**Présentation de Google App**
 
 App Engine est un serveur d’application pensé pour le Cloud. Visant historiquement les applications Python, il adresse aujourd’hui les applications Java.
 

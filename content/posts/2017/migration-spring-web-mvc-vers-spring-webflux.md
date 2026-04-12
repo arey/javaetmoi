@@ -9,10 +9,10 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - spring
-featureImage: /wp-content/uploads/2017/12/spring-webflux.png
+featureImage: wp-content/uploads/2017/12/spring-webflux.png
 featureImageAlt: spring-webflux
 date: "2017-12-07T17:26:12+00:00"
-thumbnail: /wp-content/uploads/2017/12/spring-webflux.png
+thumbnail: wp-content/uploads/2017/12/spring-webflux.png
 guid: http://javaetmoi.com/?p=1794
 parent_post_id: null
 post_id: "1794"
@@ -24,7 +24,7 @@ summary: |-
 
   J’ai récemment migré vers Spring WebFlux la [version Kotlin et Spring Boot de l’application démo Spring Petclinic](http://github.com/spring-petclinic/spring-petclinic-kotlin). Dans ce court billet, je voulais vous lister les adaptations mises en œuvre dans le [commit 279b2e7](https://github.com/spring-petclinic/spring-petclinic-kotlin/commit/279b2e7c58906d9a765e7229043c7d563f016b1c).
 
-  ![spring-webflux](/wp-content/uploads/2017/12/spring-webflux.png)
+  ![spring-webflux](wp-content/uploads/2017/12/spring-webflux.png)
 tags:
   - spring-mvc
   - spring-webflux
@@ -32,7 +32,7 @@ title: Migration Spring MVC vers Spring WebFlux
 url: /2017/12/migration-spring-web-mvc-vers-spring-webflux/
 
 ---
-[![](/wp-content/uploads/2017/12/spring-webflux.png)](/wp-content/uploads/2017/12/spring-webflux.png)[**Spring WebFlux**](https://docs.spring.io/spring-framework/docs/5.0.1.RELEASE/spring-framework-reference/web-reactive.html#spring-webflux) est une **fonctionnalit** **é majeure** de **Spring Framework 5**. Disposant de son propre module Maven (spring-weblux), ce **nouveau framework web** se positionne comme une **alternative** **à Spring Web MVC.** Ce dernier a été conçu par-dessus l’API Servlet. Spring WebFlux l’a été pour les **applications r** **éactives**, avec I/O non bloquantes, asynchrones, **à faible latence**, basées sur des serveurs comme Netty, Undertow ou compatibles Servlets 3.1 et +.
+[![](wp-content/uploads/2017/12/spring-webflux.png)](wp-content/uploads/2017/12/spring-webflux.png)[**Spring WebFlux**](https://docs.spring.io/spring-framework/docs/5.0.1.RELEASE/spring-framework-reference/web-reactive.html#spring-webflux) est une **fonctionnalit** **é majeure** de **Spring Framework 5**. Disposant de son propre module Maven (spring-weblux), ce **nouveau framework web** se positionne comme une **alternative** **à Spring Web MVC.** Ce dernier a été conçu par-dessus l’API Servlet. Spring WebFlux l’a été pour les **applications r** **éactives**, avec I/O non bloquantes, asynchrones, **à faible latence**, basées sur des serveurs comme Netty, Undertow ou compatibles Servlets 3.1 et +.
 Spring WebFlux s’éloigne du modèle d’un thread par requête HTTP et se base désormais sur le projet [**Reactor**](https://projectreactor.io/) pour orchestrer le traitement des requêtes.
 Conçu avant tout pour exposer des **API REST** attaquant des bases NoSQL non bloquantes dans des architecture micro-services, Spring WebFlux peut être utilisé sur des applications web dont les **IHM** sont rendues côté serveur (ex : avec Thymeleaf ou Freemarker).
 

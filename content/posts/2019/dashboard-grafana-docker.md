@@ -7,10 +7,10 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - retour-d'expérience
-featureImage: /wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png
+featureImage: wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png
 featureImageAlt: 2019-03 - Dashboard Grafana dockerisé - grafana
 date: "2019-03-28T17:27:32+00:00"
-thumbnail: /wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png
+thumbnail: wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png
 guid: http://javaetmoi.com/?p=1959
 parent_post_id: null
 post_id: "1959"
@@ -24,7 +24,7 @@ summary: |-
 
   [![Dashboard Grafana Spring Petclinic Metrics](http://javaetmoi.com/wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana-1024x675.png)](http://javaetmoi.com/wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png)
 
-  ![2019-03 - Dashboard Grafana dockerisé - grafana](/wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png)
+  ![2019-03 - Dashboard Grafana dockerisé - grafana](wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png)
 tags:
   - docker
   - grafana
@@ -41,7 +41,7 @@ Récemment, j’ai poursuivi le travail initié par Kevin Crawley pour intégrer
 J’ai profité de ce changement pour améliorer le packaging **Docker** de Grafana et en simplifier l’accès. Pour accéder au dashboard personnalisé exposant l’évolution du nombre d’animaux et de propriétaires, un _docker-compose up_ suivi d’un clic sur l’ [URL du dashboard](http://localhost:3000/d/69JXeR0iw/spring-petclinic-metrics) sont désormais suffisant.  
 **Ce billet présente les configurations Docker et Grafana mises en oeuvre**.
 
-[![Dashboard Grafana Spring Petclinic Metrics](/wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png)](/wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png)
+[![Dashboard Grafana Spring Petclinic Metrics](wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png)](wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png)
 
 ## Docker compose
 
@@ -116,7 +116,7 @@ scrape_configs:
 
 Les métriques préfixées par _petclinic\__ sont accessibles depuis l’interface web de Prometheus [http://localhost:9091/](http://localhost:9091/) :
 
-{{< figure src="/wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-prometheus.png" alt="Prometheus UI" caption="Prometheus UI" >}}
+{{< figure src="wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-prometheus.png" alt="Prometheus UI" caption="Prometheus UI" >}}
 
 Dans l’exemple ci-dessus, la métrique
 petclinic\_pet\_seconds\_count comptabilise le nombre d’appels différents au contrôleur

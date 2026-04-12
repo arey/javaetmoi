@@ -4,8 +4,8 @@ author: admin
 categories:
   - conférence
 date: "2017-04-09T18:16:16+00:00"
-thumbnail: /wp-content/uploads/2017/04/vuejs-emmanuel.png
-featureImage: /wp-content/uploads/2017/04/vuejs-emmanuel.png
+thumbnail: wp-content/uploads/2017/04/vuejs-emmanuel.png
+featureImage: wp-content/uploads/2017/04/vuejs-emmanuel.png
 guid: http://javaetmoi.com/?p=1677
 parent_post_id: null
 post_id: "1677"
@@ -17,7 +17,7 @@ summary: |-
   VueJS nous est présenté comme une librairie (et non un framework) dédiée à la création d’interfaces web HTML. Il se veut **simple** et efficace, idéal pour créer rapidement une application web. Ses concepts principaux sont les **Vues**(il ne s’appelle pas Vue.js pour rien), les **Directives**, les **Composants** et le **Binding**. Tels les Web Components, Vue.js utilise le **Shadow DOM** pour scoper le style CSS des composants.
   Après cette courte introduction, place au CodeLab.
 
-  ![Codez le lab Vue.js de Devoxx France 2017](/wp-content/uploads/2017/04/vuejs-emmanuel.png)
+  ![Codez le lab Vue.js de Devoxx France 2017](wp-content/uploads/2017/04/vuejs-emmanuel.png)
 tags:
   - devoxx
   - javascript
@@ -26,16 +26,16 @@ title: Codez le lab Vue.js de Devoxx France 2017
 url: /2017/04/codez-lab-vue-js-devoxx-france-2017/
 
 ---
-Au cours des précédentes éditions de Devoxx France, je me suis familiarisé avec les frameworks JavaScript du moment : [AngularJS](/2013/04/angularjs-devoxx-france-2013/) en 2013 puis [Angular 2](/2016/04/angular-2-hands-on-lab-devoxx-france/) et [ReactJS](/wp-content/uploads/2016/05/Devoxx_France-2016-Let_s_React.pdf) en 2016. Cette année, ce fut au tour d’un nouveau venu, à savoir **Vue.js**. Je l’ai testé au travers du [Hands-on Lab](http://cfp.devoxx.fr/2017/talk/USM-5688/Apres_Angular_et_React,_voici_..._VueJS) animé par Emmanuel Demey et Aurélien Loyer. Si vous n’avez pas eu la chance d’y participer, cet article a pour humble **objectif de vous aider à réaliser ce Lab par vous-même**, tel un **tutoriel**. Il complète le code disponible sur le [dépôt GitHub du Lab](https://github.com/Gillespie59/devoxx-vuejs/) ainsi que [les slides consultables en ligne](http://slides.com/emmanueldemey-1/deck-13). Vous pouvez également l’utiliser pour étudier à quoi ressemble une application Vue.js et découvrir ses principaux concepts.
+Au cours des précédentes éditions de Devoxx France, je me suis familiarisé avec les frameworks JavaScript du moment : [AngularJS](/2013/04/angularjs-devoxx-france-2013/) en 2013 puis [Angular 2](/2016/04/angular-2-hands-on-lab-devoxx-france/) et [ReactJS](wp-content/uploads/2016/05/Devoxx_France-2016-Let_s_React.pdf) en 2016. Cette année, ce fut au tour d’un nouveau venu, à savoir **Vue.js**. Je l’ai testé au travers du [Hands-on Lab](http://cfp.devoxx.fr/2017/talk/USM-5688/Apres_Angular_et_React,_voici_..._VueJS) animé par Emmanuel Demey et Aurélien Loyer. Si vous n’avez pas eu la chance d’y participer, cet article a pour humble **objectif de vous aider à réaliser ce Lab par vous-même**, tel un **tutoriel**. Il complète le code disponible sur le [dépôt GitHub du Lab](https://github.com/Gillespie59/devoxx-vuejs/) ainsi que [les slides consultables en ligne](http://slides.com/emmanueldemey-1/deck-13). Vous pouvez également l’utiliser pour étudier à quoi ressemble une application Vue.js et découvrir ses principaux concepts.
 
-![](/wp-content/uploads/2017/04/vuejs-emmanuel.png)Emmanuel et Aurélien sont consultants web chez Zenika Lille. Familiarisés avec Angular, ils ont découvert VueJS au travers d’un projet personnel.
+![](wp-content/uploads/2017/04/vuejs-emmanuel.png)Emmanuel et Aurélien sont consultants web chez Zenika Lille. Familiarisés avec Angular, ils ont découvert VueJS au travers d’un projet personnel.
 VueJS nous est présenté comme une librairie (et non un framework) dédiée à la création d’interfaces web HTML. Il se veut **simple** et efficace, idéal pour créer rapidement une application web. Ses concepts principaux sont les **Vues**(il ne s’appelle pas Vue.js pour rien), les **Directives**, les **Composants** et le **Binding**. Tels les Web Components, Vue.js utilise le **Shadow DOM** pour scoper le style CSS des composants.
 Après cette courte introduction, place au CodeLab.
 
 ## L’application Zenika Ecommerce
 
 Au cours de ce CodelLab, vous allez développer une petite application de e-commerce dédiée à la vente de bières (nos speakers ne sont pas Lillois pour rien).
-![](/wp-content/uploads/2017/04/screenshot-zenika-ecommerce.png)
+![](wp-content/uploads/2017/04/screenshot-zenika-ecommerce.png)
 
 La page est décomposée en 2 parties :
 
@@ -86,7 +86,7 @@ Lors de la conception du binding de Vue.js, son concepteur n’a pas souhaité u
 Pour créer une application Vue.JS, à l’instar de ember-cli et angular-cli, on peut utiliser l’interface en ligne de commande (command-line interface) **vue-cli**. L’utilitaire vue-cli propose **différents types de squelette** : du plus basique à celui basé sur webpack. Dans le Lab, nous utiliserons le **squelette webpack**.
 
 A la fin du PW1, la d’accueil du template Vue.js doit s’ouvrir dans votre navigateur :
-![](/wp-content/uploads/2017/04/screenshot-template-vue.png)
+![](wp-content/uploads/2017/04/screenshot-template-vue.png)
 
 Le **code source** de l’application que vous allez compléter au cours du Lab se trouve dans le répertoire **src/**.
 Le fichier **main.js** est le point d’entrée de l’application. On y retrouve la déclaration de la **vue racine** de l’application :

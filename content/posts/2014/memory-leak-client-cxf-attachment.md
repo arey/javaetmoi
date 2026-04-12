@@ -5,8 +5,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2014-02-22T09:28:31+00:00"
-thumbnail: /wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg
-featureImage: /wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg
+thumbnail: wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg
+featureImage: wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg
 featureImageAlt: "2014-02-cxf-attachments-memory-leak-2"
 guid: http://javaetmoi.com/?p=977
 parent_post_id: null
@@ -19,7 +19,7 @@ summary: |-
 
   [![2014-02-cxf-attachments-memory-leak-2](http://javaetmoi.com/wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg)](http://javaetmoi.com/wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg)
 
-  ![2014-02-cxf-attachments-memory-leak-2](/wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg)
+  ![2014-02-cxf-attachments-memory-leak-2](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg)
 tags:
   - cxf
   - jmeter
@@ -33,16 +33,16 @@ Les tests de charge d’une nouvelle fonctionnalité m’a récemment permis de 
 
 Les symptômes ont été observés dans les conditions suivantes. Un tir de charge avec JMeter simule l’upload de fichiers de 4 Mo. Trente utilisateurs connectés simultanément uploadent des fichiers PDF. D’une durée de 5mn, le scénario fonctionnel mettant en jeu l’upload de fichiers est réitéré pendant 3h. A l’issu du tir, aucune erreur technique ou fonctionnelle n’est remontée. Par contre, l’analyse de l’empreinte mémoire est suspecte : non seulement cette nouvelle fonctionnalité a nécessité davantage de mémoire que lors des tirs précédents, mais surtout : **la mémoire n’est jamais libérée**, même après l’expiration des sessions utilisateurs.
 
-[![2014-02-cxf-attachments-memory-leak-2](/wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg)](/wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg)
+[![2014-02-cxf-attachments-memory-leak-2](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg)](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg)
 
 ## Origine du problème
 
 Un Heap Dump de la JVM a permis de déterminer le type d’objets résidents en mémoire et également de quelles classes ces objets ont été alloués. Dans mon cas, près de 300 Mo de tableaux de bytes occupaient la Heap. La plupart de ces tableaux occupaient 5 Mo.
 La pile d’appel ci-dessous montre que ces tableaux sont créés par le client CXF, et plus précisément par la classe [_AttachmentSerializer_](http://cxf.apache.org/javadoc/latest/org/apache/cxf/attachment/AttachmentSerializer.html) chargée de sérialiser en XML le [_SoapMessage_](https://cxf.apache.org/javadoc/latest/org/apache/cxf/binding/soap/SoapMessage.html) émis par le client CXF.
 
-[![2014-02-cxf-attachments-memory-leak-5](/wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-5.jpg)](/wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-5.jpg) Reproductible sur un poste de développement, le debugger d’Eclipse permet de diagnostique que les 5 Mo de tableau de bytes correspondent au message SOAP et sa pièce-jointe encodée en base 64 :
+[![2014-02-cxf-attachments-memory-leak-5](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-5.jpg)](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-5.jpg) Reproductible sur un poste de développement, le debugger d’Eclipse permet de diagnostique que les 5 Mo de tableau de bytes correspondent au message SOAP et sa pièce-jointe encodée en base 64 :
 
-[![2014-02-cxf-attachments-memory-leak-7](/wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-7.jpg)](/wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-7.jpg) En interne, la classe [_ClientImpl_](http://grepcode.com/file/repo1.maven.org/maven2/org.apache.cxf/cxf-rt-core/2.4.0/org/apache/cxf/endpoint/ClientImpl.java) de CXF maintient une _Map_ _requestcontext_  associant un thread à un message SOAP.  Les derniers messages émis par le client CXF sont stockés dans cette _Map_. Au final, **plus le nombre de threads faisant appel au client CXF est élevé, plus CXF demandera de mémoire**.
+[![2014-02-cxf-attachments-memory-leak-7](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-7.jpg)](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-7.jpg) En interne, la classe [_ClientImpl_](http://grepcode.com/file/repo1.maven.org/maven2/org.apache.cxf/cxf-rt-core/2.4.0/org/apache/cxf/endpoint/ClientImpl.java) de CXF maintient une _Map_ _requestcontext_  associant un thread à un message SOAP.  Les derniers messages émis par le client CXF sont stockés dans cette _Map_. Au final, **plus le nombre de threads faisant appel au client CXF est élevé, plus CXF demandera de mémoire**.
 
 ## Correction
 

@@ -4,8 +4,8 @@ author: admin
 categories:
   - conférence
 date: "2014-04-19T08:41:24+00:00"
-thumbnail: /wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-photo.jpg
-featureImage: /wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-photo.jpg
+thumbnail: wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-photo.jpg
+featureImage: wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-photo.jpg
 featureImageAlt: "angular-from-scratch-devoxx-france-2014"
 guid: http://javaetmoi.com/?p=1068
 parent_post_id: null
@@ -22,7 +22,7 @@ summary: |-
   Durant les 3 heures du Lab, nous avons pu implémenter 11 des 12 étapes prévues initialement (la dernière étant en bonus). Timing parfaitement respecté. Si vous n’avez pas eu la chance d’assister à cette présentation et si vous disposez de 3 heures devant vous, je vous conseille de tenter de le réaliser chez vous.
   Les slides du workshop, le code source de départ, les solutions et les tests unitaires sous Jasmine sont disponibles dans le repo Github [angular-from-scratch](https://github.com/zenika/angular-from-scratch) de Zenika.
 
-  ![angular-from-scratch-devoxx-france-2014](/wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-photo.jpg)
+  ![angular-from-scratch-devoxx-france-2014](wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-photo.jpg)
 tags:
   - angularjs
   - devoxx
@@ -32,7 +32,7 @@ url: /2014/04/lab-angularjs-from-scratch-devoxx-france-2014/
 ---
 Lors de Devoxx France 2013, je découvrais AngularJS lors de l’Université sur AngularJS animée par Thierry Chatel. Enthousiasmé par ce framework, je vous faisais ici même [une restitution de cette Université](/2013/04/angularjs-devoxx-france-2013/). Depuis un an, j’ai poursuivi mon initiation en codant un [front-end pour Elasticsearch avec Angular](/2014/02/developper-industrialiser-web-app-recherche-angularjs/). Lorsque j’ai découvert que [Matthieu Lux](http://swiip.github.io/) et [Olivier Huber](https://twitter.com/@olivierhuber) proposaient le [**Hand’s-on-Lab** **« Angular JS from scratch : comprendre Angular en le refaisant de zéro »**](http://cfp.devoxx.fr/devoxxfr2014/talk/FWA-551/AngularJS%20from%20scratch%20:%20comprendre%20Angular%20en%20le%20re-faisant%20de%20z%C3%A9ro) à [Devoxx France 2014](http://www.devoxx.fr/), j’y ai vu l’occasion ou jamais d’approfondir mes connaissances et de découvrir les mécanismes se cachant derrière la magie d’Angular.
 
-[![angular-from-scratch-devoxx-france-2014](/wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-photo.jpg)](/wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-photo.jpg)
+[![angular-from-scratch-devoxx-france-2014](wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-photo.jpg)](wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-photo.jpg)
 
 Ce workshop a eu un beau succès : une salle comble 10 minutes avant son début et [une place sur le podium des meilleures sessions de la matinée](https://twitter.com/Swiip/status/456721029897781248/photo/1).
 Pour coder les différents exercices sans avoir à se tourner régulièrement vers les solutions, de solides connaissances en JavaScript étaient nécessaires : héritage par prototype, constructeur, portée du this, couteau suisse underscore (each, clone, isEqual) …
@@ -43,7 +43,7 @@ Les slides du workshop, le code source de départ, les solutions et les tests un
 L’objectif de ce billet est de vous accompagner dans la réalisation du Lab. Je me focaliserai sur les mécanismes qui permettent de recoder [le traditionnel « Hello Word » d’Angular](http://igorminar.github.io/ng-slides/angular-intro/#16). Vous y trouverez donc une version édulcorée du code du Lab. Garde-fous contre les boucles infinies et comparaisons par valeur n’y seront pas abordés.
 Afin de mieux comprendre où s’inscrivent les différentes étapes qui permettent de réimplémenter Angular, je m’appuierai régulièrement sur le schéma présenté par Olivier au début du Lab :
 
-[![angular-from-scratch-devoxx-france-2014-schema](/wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-digest.png)](/wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-digest.png)
+[![angular-from-scratch-devoxx-france-2014-schema](wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-digest.png)](wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-digest.png)
 
 Le code complet de ce billet est [disponible dans jsfiddle](http://jsfiddle.net/Elryk/gkk4m/) et également sous forme de [gist](https://gist.github.com/arey/11011876).
 Afin de pouvoir plus facilement se référer au code source d’Angular, le nom des méthodes et des objets utilisés dans ce Lab reprend volontairement ceux d’Angular.
@@ -274,7 +274,7 @@ scope.$apply(function () {
 })
 ```
 
- [![angular-hello-world](/wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-hello-world.png)](http://jsfiddle.net/Elryk/gkk4m/)
+ [![angular-hello-world](wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-hello-world.png)](http://jsfiddle.net/Elryk/gkk4m/)
 
 ## Conclusion
 

@@ -7,10 +7,10 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - retour-d'expérience
-featureImage: /wp-content/uploads/2019/05/Devoxx-France-2019-banner.png
+featureImage: wp-content/uploads/2019/05/Devoxx-France-2019-banner.png
 featureImageAlt: Devoxx France 2019
 date: "2019-05-03T17:28:03+00:00"
-thumbnail: /wp-content/uploads/2019/05/Devoxx-France-2019-banner.png
+thumbnail: wp-content/uploads/2019/05/Devoxx-France-2019-banner.png
 guid: https://javaetmoi.com/?p=1987
 parent_post_id: null
 post_id: "1987"
@@ -26,7 +26,7 @@ summary: |-
 
   [![](https://javaetmoi.com/wp-content/uploads/2019/05/Devoxx-France-2019-1024x554.jpg)](https://javaetmoi.com/wp-content/uploads/2019/05/Devoxx-France-2019.jpg)
 
-  ![Devoxx France 2019](/wp-content/uploads/2019/05/Devoxx-France-2019-banner.png)
+  ![Devoxx France 2019](wp-content/uploads/2019/05/Devoxx-France-2019-banner.png)
 tags:
   - bigdata
   - devoxx
@@ -52,25 +52,25 @@ Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les vi
 
 Lors de cette édition 2019, les 2 frameworks hypes du moment **Quarkus** et **Micronaut** étaient sur le devant de la scène en permettant de développer des applications Java modernes et natives grâce à **GraalVM**. Poussée par l’essor des **microservices**, l’intégration de Java à **Docker** et son orchestrateur **Kubernetes** est de plus en plus poussée. Les indémodables étaient également de la partie : design d’ **API REST**, **montée de version de Java**, **qualimétrie, JavaEE**(oups, pardon, JakartaEE) et **sécurité**.
 
-[![](/wp-content/uploads/2019/05/Devoxx-France-2019.jpg)](/wp-content/uploads/2019/05/Devoxx-France-2019.jpg)
+[![](wp-content/uploads/2019/05/Devoxx-France-2019.jpg)](wp-content/uploads/2019/05/Devoxx-France-2019.jpg)
 
 Mes notes classées par ordre de préférence :
 
-1. [Quarkus : pourquoi et comment faire une appli Java Cloud Native avec Graal VM](/wp-content/uploads/2019/04/2019-04-17-Quarkus.pdf) (Emmanuel Bernard et Clément Escoffier)
-1. [D’architecte à Métarchitecte : une évolution nécessaire](/wp-content/uploads/2019/05/2019-04-19-Darchitecte-à-Métarchitecte.pdf) (Rémi Cocula)
-1. [Construire son JDK en 10 étapes](/wp-content/uploads/2019/04/2019-04-17-Construire-son-JDK-en-10-étapes.pdf) (José Paumard)
-1. [Observabilité, Mythes, réalité et Chaos](/wp-content/uploads/2019/04/2019-04-18-Observabilité-Mythes-réalité-et-Chaos.pdf) (Benjamin Gakic)
-1. [Cycle de vie des applications dans Kubernetes](/wp-content/uploads/2019/04/2019-04-17-Kubernetes-Application-Lyfe-Cycle.pdf) (Charles Sabourdin et Jean-Christophe Sirot)
-1. [Micronaut, le framework JVM ultra-light du futur](/wp-content/uploads/2019/04/2019-04-17-Micronaut.pdf) (Olivier Revial)
-1. [La gestion de l’authentification et de l’autorisation dans une architecture microservices ? Pas de soucis !](/wp-content/uploads/2019/04/2019-04-18-Authentification-et-autorisation-dans-une-archi-Microservices.pdf) (Vivien Maleze et Florian Garcia)
-1. [Du monolithe aux microservices chez leboncoin](/wp-content/uploads/2019/04/2019-04-18-Du-monolithe-aux-microservices-chez-leboncoin.pdf) (Eric Lefevre-Ardant)
-1. [Un turbo dans ton workflow GitHub](/wp-content/uploads/2019/05/2019-04-18-Un-turbo-dans-ton-workflow-GitHub.pdf) (Alain Hélaïli)
-1. [Sonar Smash](/wp-content/uploads/2019/05/2019-04-18-Sonar-Smash.pdf) (Helen Wallace et James Mac Mahon)
-1. [De Java 8 à Java 11 sur un gros projet : les pièges à éviter](/wp-content/uploads/2019/04/2019-04-18-De-Java-8-à-Java-11.pdf) (Alexis Dmytryk et Thomas Collignon)
-1. [Oubliez Java EE, voilà Jakarta EE !](/wp-content/uploads/2019/05/2019-04-19-Jakarta-EE.pdf) (Jean-François James et Sébastien Blanc)
-1. [La JVM et Docker, vers une symbiose parfaite](/wp-content/uploads/2019/05/2019-04-19-JVM-et-Docker.pdf) (Guillaume Scheibel)
-1. [Migrer ses APIs vers GraphQL : pourquoi ? comment !](/wp-content/uploads/2019/05/2019-04-19-Migrate-you-API-to-GraphQL.pdf) (Guillaume Scheibel)
-1. [Au secours, mon projet BigData est en production!](/wp-content/uploads/2019/05/2019-04-19-Mon-projet-BigData-est-en-prod.pdf) (Vincent Devillers)
-1. [SpringBoot avec Kotlin, Kofu et les Coroutines](/wp-content/uploads/2019/05/2019-04-19-SpringBoot-avec-Kotlin-Kofu-et-les-Coroutines.pdf) (Sébastien Deleuze)
-1. [50 points de contrôle d'une API REST](/wp-content/uploads/2019/05/2019-04-19-50-points-de-contrôle-dune-API-REST.pdf) (François-Guillaume Ribreau)
-1. [Dev environments: use the nix, Luke!](/wp-content/uploads/2019/05/2019-04-18-Use-the-nix.pdf) (Clément Delafargue et Hussein Ait-Lahcen)
+1. [Quarkus : pourquoi et comment faire une appli Java Cloud Native avec Graal VM](wp-content/uploads/2019/04/2019-04-17-Quarkus.pdf) (Emmanuel Bernard et Clément Escoffier)
+1. [D’architecte à Métarchitecte : une évolution nécessaire](wp-content/uploads/2019/05/2019-04-19-Darchitecte-à-Métarchitecte.pdf) (Rémi Cocula)
+1. [Construire son JDK en 10 étapes](wp-content/uploads/2019/04/2019-04-17-Construire-son-JDK-en-10-étapes.pdf) (José Paumard)
+1. [Observabilité, Mythes, réalité et Chaos](wp-content/uploads/2019/04/2019-04-18-Observabilité-Mythes-réalité-et-Chaos.pdf) (Benjamin Gakic)
+1. [Cycle de vie des applications dans Kubernetes](wp-content/uploads/2019/04/2019-04-17-Kubernetes-Application-Lyfe-Cycle.pdf) (Charles Sabourdin et Jean-Christophe Sirot)
+1. [Micronaut, le framework JVM ultra-light du futur](wp-content/uploads/2019/04/2019-04-17-Micronaut.pdf) (Olivier Revial)
+1. [La gestion de l’authentification et de l’autorisation dans une architecture microservices ? Pas de soucis !](wp-content/uploads/2019/04/2019-04-18-Authentification-et-autorisation-dans-une-archi-Microservices.pdf) (Vivien Maleze et Florian Garcia)
+1. [Du monolithe aux microservices chez leboncoin](wp-content/uploads/2019/04/2019-04-18-Du-monolithe-aux-microservices-chez-leboncoin.pdf) (Eric Lefevre-Ardant)
+1. [Un turbo dans ton workflow GitHub](wp-content/uploads/2019/05/2019-04-18-Un-turbo-dans-ton-workflow-GitHub.pdf) (Alain Hélaïli)
+1. [Sonar Smash](wp-content/uploads/2019/05/2019-04-18-Sonar-Smash.pdf) (Helen Wallace et James Mac Mahon)
+1. [De Java 8 à Java 11 sur un gros projet : les pièges à éviter](wp-content/uploads/2019/04/2019-04-18-De-Java-8-à-Java-11.pdf) (Alexis Dmytryk et Thomas Collignon)
+1. [Oubliez Java EE, voilà Jakarta EE !](wp-content/uploads/2019/05/2019-04-19-Jakarta-EE.pdf) (Jean-François James et Sébastien Blanc)
+1. [La JVM et Docker, vers une symbiose parfaite](wp-content/uploads/2019/05/2019-04-19-JVM-et-Docker.pdf) (Guillaume Scheibel)
+1. [Migrer ses APIs vers GraphQL : pourquoi ? comment !](wp-content/uploads/2019/05/2019-04-19-Migrate-you-API-to-GraphQL.pdf) (Guillaume Scheibel)
+1. [Au secours, mon projet BigData est en production!](wp-content/uploads/2019/05/2019-04-19-Mon-projet-BigData-est-en-prod.pdf) (Vincent Devillers)
+1. [SpringBoot avec Kotlin, Kofu et les Coroutines](wp-content/uploads/2019/05/2019-04-19-SpringBoot-avec-Kotlin-Kofu-et-les-Coroutines.pdf) (Sébastien Deleuze)
+1. [50 points de contrôle d'une API REST](wp-content/uploads/2019/05/2019-04-19-50-points-de-contrôle-dune-API-REST.pdf) (François-Guillaume Ribreau)
+1. [Dev environments: use the nix, Luke!](wp-content/uploads/2019/05/2019-04-18-Use-the-nix.pdf) (Clément Delafargue et Hussein Ait-Lahcen)

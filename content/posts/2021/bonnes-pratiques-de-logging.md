@@ -4,8 +4,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2021-01-03T11:44:26+00:00"
-thumbnail: /wp-content/uploads/2021/01/logo-splunk.jpg
-featureImage: /wp-content/uploads/2021/01/logo-splunk.jpg
+thumbnail: wp-content/uploads/2021/01/logo-splunk.jpg
+featureImage: wp-content/uploads/2021/01/logo-splunk.jpg
 guid: https://javaetmoi.com/?p=2100
 parent_post_id: null
 post_id: "2100"
@@ -19,7 +19,7 @@ summary: |-
 
   Non, **je vous y exposerai plutôt les bonnes pratiques que je préconise**, tant au niveau d’une application que d’une organisation. Je répondrai également aux questions les plus courantes : **quand utiliser tel ou tel niveau de log ?** **que mettre dans les messages de logs ?**<br>Nom de mon blog oblige, j'utiliserai des exemples venant du monde Java. Mais vous pourrez aisément transposer ces bonnes pratiques à d’autres technologies. Et bien entendu, elles sont à adapter en fonction de votre contexte et de vos besoins.
 
-  ![Bonnes pratiques de logging](/wp-content/uploads/2021/01/logo-splunk.jpg)
+  ![Bonnes pratiques de logging](wp-content/uploads/2021/01/logo-splunk.jpg)
 tags:
   - elasticsearch
   - logback
@@ -30,7 +30,7 @@ title: Bonnes pratiques de logging
 url: /2021/01/bonnes-pratiques-de-logging/
 
 ---
-![](/wp-content/uploads/2020/12/lof-file-1.png)
+![](wp-content/uploads/2020/12/lof-file-1.png)
 
 Publier en 2021 un article sur les logs n’est pas très novateur ; je vous l’accorde. Le **logging** est une pratique vieille comme l’informatique, ou presque. C’est une **pratique universelle** qu’on retrouve **quel que soit le langage de programmation** et quel que soit le type d’application. Pour autant, elle est survolée en fac et en école d’ingénieur. Les dévs apprennent bien souvent à logger sur le tas, en fonction de leurs besoins et de ce qui est déjà mis en place sur leur application. Rares sont également les entreprises mettant à disposition des normes et des bonnes pratiques en termes de traces applicatives.
 
@@ -58,8 +58,8 @@ Depuis une dizaine d’années, ont émergés de nombreux systèmes de collecte 
 
 
 {{< gallery cols="1" >}}  
-{{< figure src="/wp-content/uploads/2021/01/logo-splunk.jpg" alt="" caption="" >}}  
-{{< figure src="/wp-content/uploads/2021/01/logo-elastic.png" alt="" caption="" >}}  
+{{< figure src="wp-content/uploads/2021/01/logo-splunk.jpg" alt="" caption="" >}}  
+{{< figure src="wp-content/uploads/2021/01/logo-elastic.png" alt="" caption="" >}}  
 {{< /gallery >}}  
 
 Les logs générés par les applicatifs sont soit directement envoyés à ces systèmes par le réseau (risque de perte de logs en cas d’indisponilité du SIEM), soit générés temporairement sur le système de fichier puis ingérés via un collecteur préalablement installé sur l’hôte.

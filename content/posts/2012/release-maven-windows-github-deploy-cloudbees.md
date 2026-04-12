@@ -4,8 +4,8 @@ author: admin
 categories:
   - maven
 date: "2012-04-12T19:42:24+00:00"
-thumbnail: /wp-content/uploads/2012/04/logo_github.png
-featureImage: /wp-content/uploads/2012/04/logo_github.png
+thumbnail: wp-content/uploads/2012/04/logo_github.png
+featureImage: wp-content/uploads/2012/04/logo_github.png
 featureImageAlt: "logo_github"
 guid: http://javaetmoi.com/?p=81
 parent_post_id: null
@@ -28,7 +28,7 @@ summary: |-
   2. **Problème de passphrase SSH spécifique à Windows**
   3. **Configuration maven du repo CloudBees
 
-  ![logo_github](/wp-content/uploads/2012/04/logo_github.png)
+  ![logo_github](wp-content/uploads/2012/04/logo_github.png)
 tags:
   - cloudbees
   - git
@@ -38,7 +38,7 @@ title: Release Maven sous Windows d’un projet GitHub déployé sur CloudBees
 url: /2012/04/release-maven-windows-github-deploy-cloudbees/
 
 ---
-[![logo_github](/wp-content/uploads/2012/04/logo_github.png)](/wp-content/uploads/2012/04/logo_github.png) Habitué aux releases maven avec SVN, j’ai rencontré quelques difficultés pour effectuer la première release du projet [Hibernate Hydrate](https://github.com/arey/hibernate-hydrate) \[1\] hébergé sur GitHub et présenté dans un [précédent billet](/2012/03/hibernate-dites-adieu-aux-lazy-initialization-exception/).
+[![logo_github](wp-content/uploads/2012/04/logo_github.png)](wp-content/uploads/2012/04/logo_github.png) Habitué aux releases maven avec SVN, j’ai rencontré quelques difficultés pour effectuer la première release du projet [Hibernate Hydrate](https://github.com/arey/hibernate-hydrate) \[1\] hébergé sur GitHub et présenté dans un [précédent billet](/2012/03/hibernate-dites-adieu-aux-lazy-initialization-exception/).
 
 Pour rappel, lors d’une release, le plugin maven accède au gestionnaire de code source pour commiter les modifications effectuées sur les pom.xml et créer un tag. Il déploie ensuite les artefacts sur le repo maven distant.
 
@@ -74,7 +74,7 @@ scm:git:ssh://server_name[:port]/path_to_repository
 
 A noter une syntaxe légèrement différent au chemin SSH affiché sur GitHub : **/arey** et non **:arey**, le **caractère :** étant utilisé pour préciser le port de connexion.
 
-[![URL SSH de GitHub](/wp-content/uploads/2012/04/github-ssh-url.png)](/wp-content/uploads/2012/04/github-ssh-url.png)
+[![URL SSH de GitHub](wp-content/uploads/2012/04/github-ssh-url.png)](wp-content/uploads/2012/04/github-ssh-url.png)
 
 Pour tester la configuration maven, vous pouvez par exemple utiliser le plugin scm pour **créer un tag**. C’est ce plugin qui est utilisé par le plugin release.
 
@@ -114,7 +114,7 @@ En résumé, vous allez demander à git d’utiliser PuTTY pour communiquer en S
 
 1. Télécharger puis décompresser l’archive **putty.zip** librement téléchargeable depuis le [site de Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) \[5\].
 1. Utiliser **[PuTTYGen.exe](http://marc.terrier.free.fr/docputty/Chapter8.html#pubkey-puttygen)** \[6\] pour **convertir** au format PuTTY (.ppk) **votre clé RSA GitHub** généré avec open SSH.
-1. Exécuter **[pageant.exe](http://marc.terrier.free.fr/docputty/Chapter9.html#pageant)** \[7\], ajouter la clé au format PuTTY and saisir le passphrase [![](/wp-content/uploads/2012/04/variables-environnement-git-ssh-plink.png)](/wp-content/uploads/2012/04/variables-environnement-git-ssh-plink.png)
+1. Exécuter **[pageant.exe](http://marc.terrier.free.fr/docputty/Chapter9.html#pageant)** \[7\], ajouter la clé au format PuTTY and saisir le passphrase [![](wp-content/uploads/2012/04/variables-environnement-git-ssh-plink.png)](wp-content/uploads/2012/04/variables-environnement-git-ssh-plink.png)
 1. Déclarer la variable d’environnement **GIT\_SSH** en spécifiant le **chemin vers [plink.exe](http://marc.terrier.free.fr/docputty/Chapter7.html#plink)** \[8\], outil de connexion en ligne de commande utilisé pour automatiser des connexions.
 
 Pour tester la configuration, ouvrir une nouvelle fenêtre de commande et exécuter la commande suivante :
@@ -209,7 +209,7 @@ Lors d’un déploiement distant (ex : mvn deploy), maven doit disposer des para
 </server>
 ```
 
- [![](/wp-content/uploads/2012/04/github-webdav-username.png)](/wp-content/uploads/2012/04/github-webdav-username.png)
+ [![](wp-content/uploads/2012/04/github-webdav-username.png)](wp-content/uploads/2012/04/github-webdav-username.png)
 
 Attention, bien que le mot de passe soit celui que vous utilisez pour vous connecter à vore compte CloudBees, le **username** ne correspond pas à votre adresse email, mais celui spécifié dans la forge CloudBees comme le montre la capture d’écran ci-contre.
 

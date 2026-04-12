@@ -4,8 +4,8 @@ author: admin
 categories:
   - spring
 date: "2012-09-29T11:18:22+00:00"
-thumbnail: /wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png
-featureImage: /wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png
+thumbnail: wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png
+featureImage: wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png
 guid: http://javaetmoi.com/?p=230
 parent_post_id: null
 post_id: "230"
@@ -15,7 +15,7 @@ summary: |-
 
   [![](http://javaetmoi.com/wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist-300x63.png)](http://javaetmoi.com/wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png) Comme à l’accoutumée avec les certifications Spring, la [formation officielle Spring Enterprise Integration](http://www.zenika.com/formation_enterprise_integration_avec_spring.html "Formation Enterprise Integration avec Spring") est pré-requise. Elaborée par SpringSource et dispensée par Zenika, cette formation couvre de nombreux sujets basés sur Spring Framework 3 et différents projets du Portfolio Spring :
 
-  ![Certified Spring Enterprise Integration Specialist Study Notes](/wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png)
+  ![Certified Spring Enterprise Integration Specialist Study Notes](wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png)
 tags:
   - certification
   - jms
@@ -35,7 +35,7 @@ url: /2012/09/certified-spring-enterprise-integration-specialist-study-notes/
 ---
 En l’espace de 8 mois, me voici doté d’une deuxième certification Spring. Après la certification Spring Core dont je vous ai fait écho dans mon tout [premier billet](/2012/02/core-spring-3-0-certification-mock-exam/ "Core Spring 3.0 Certification Mock Exam"), j’ai eu l’opportunité de préparer la certification Spring Integration Specialist.
 
-[![](/wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png)](/wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png) Comme à l’accoutumée avec les certifications Spring, la [formation officielle Spring Enterprise Integration](http://www.zenika.com/formation_enterprise_integration_avec_spring.html "Formation Enterprise Integration avec Spring") est pré-requise. Elaborée par SpringSource et dispensée par Zenika, cette formation couvre de nombreux sujets basés sur Spring Framework 3 et différents projets du Portfolio Spring :
+[![](wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png)](wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png) Comme à l’accoutumée avec les certifications Spring, la [formation officielle Spring Enterprise Integration](http://www.zenika.com/formation_enterprise_integration_avec_spring.html "Formation Enterprise Integration avec Spring") est pré-requise. Elaborée par SpringSource et dispensée par Zenika, cette formation couvre de nombreux sujets basés sur Spring Framework 3 et différents projets du Portfolio Spring :
 
 - Multi-Threading et Scheduling
 - Spring Remoting
@@ -57,7 +57,7 @@ Ces fiches reprennent une à une toutes les questions abordées dans _l’Enterp
 Au regard de la formation, lorsqu’il m’a semblé que des points importants n’avaient pas été abordés, j’ai ajouté des questions/réponses repérables par leur police en italique.
 Vous trouverez ces fiches sous 2 formes :
 
-- un **fichier au format PDF**: [spring-integration-specialist-certification-study-notes-antoine.pdf](/wp-content/uploads/2012/09/spring-integration-specialist-certification-study-notes-antoine.pdf)
+- un **fichier au format PDF**: [spring-integration-specialist-certification-study-notes-antoine.pdf](wp-content/uploads/2012/09/spring-integration-specialist-certification-study-notes-antoine.pdf)
 - une **version HTML en ligne** publiée à la suite de ce billet :
 
 ## Remoting

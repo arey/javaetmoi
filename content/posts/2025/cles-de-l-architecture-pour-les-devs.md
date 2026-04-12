@@ -6,8 +6,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2025-04-22T17:54:32+00:00"
-thumbnail: /logo/logo-devoxx-france.png
-featureImage: /wp-content/uploads/2025/04/word-image-2508-1.jpeg
+thumbnail: logo/logo-devoxx-france.png
+featureImage: wp-content/uploads/2025/04/word-image-2508-1.jpeg
 footnotes: ""
 guid: https://javaetmoi.com/?p=2508
 parent_post_id: null
@@ -52,11 +52,11 @@ Pour cahier des charges, le client précise que le **système** va **recevoir de
 Première question à se poser : « est-ce possible de synchroniser la temporalité ? ».  
 Réponse du client : « Non, ce n’est pas possible ».   
 La brique centrale est nommée **Aggregator**.   
-![Diagramme de contexte C4 du système](/wp-content/uploads/2025/04/word-image-2508-2.png)
+![Diagramme de contexte C4 du système](wp-content/uploads/2025/04/word-image-2508-2.png)
 
 [Diagramme de contexte C4](https://c4model.com/diagrams/system-context) correspondant :
 
-{{< figure src="/wp-content/uploads/2025/04/word-image-2508-3.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2025/04/word-image-2508-3.png" alt="" caption="" >}}
 
 **Première clé** donnée dans ce talk : commencer par **identifier le problème**.   
 Comment l’appliquer : quel est le but ? Ici c’est d’agréger les données reçues.   
@@ -70,7 +70,7 @@ Toujours Up pour recevoir les données. Calcule de données toutes les 15mn.
 
 2nde contrainte : **performance**  
 Le besoin initial mentionnait la réception d’un fichier par minute. En questionnant le métier, on dénombre un fichier par équipement. Sachant qu’il y’a 50 équipements, cela ferait 50 fichiers. Pas tout à fait, puisqu’un équipement compte 40 000 capteurs. Au total, ce sont **6 milliards de données** que le système devra traiter toutes les 15 minutes.   
-![Quality Attributes Clusters](/wp-content/uploads/2025/04/word-image-2508-4.png)  
+![Quality Attributes Clusters](wp-content/uploads/2025/04/word-image-2508-4.png)  
 La formule de calcul de l’agrégation est compliquée ; ce n’est pas de simples additions.   
 Le métier souhaiterait que le calcul soit instantané. Jouant sur le cout financier d’une telle exigence, Eric a réussi à négocier avec le client un temps de traitement de 2 minutes max. Cette durée est acceptable au vu du besoin : anticiper les pannes et remonter des alertes.
 
@@ -85,10 +85,10 @@ Une **troisième clé** nous est donnée : **penser modulaire** pour adresser le
 Voyons à présent comment implémenter ces 2 sous-domaines.   
 On pourrait partir sur 2 services. Mais dans un premier temps, Eric propose de **commencer par seul service**, **plus simple**, **plus facile à implémenter** et livrer. Par contre, afin de préparer un éventuel futur découplage, on utilise l’approche pragmatique de **modular monolith**. Bel exercice de **frugalité** : une solution distribuée est remplacée par un monolith.
 
-{{< figure src="/wp-content/uploads/2025/04/word-image-2508-5.png" alt="Modular monolith" caption="Modular monolith" >}}
+{{< figure src="wp-content/uploads/2025/04/word-image-2508-5.png" alt="Modular monolith" caption="Modular monolith" >}}
 
 L’architecture se pense à différents niveaux, à plusieurs.   
-![Architectural perspectives](/wp-content/uploads/2025/04/word-image-2508-6.png)  
+![Architectural perspectives](wp-content/uploads/2025/04/word-image-2508-6.png)  
 Les architectes d’entreprise ont souvent une vue d’ensemble globale. Les développeurs vont quant à eux s’intéresser davantage aux technologies.   
 Un conseil, garder en tête cet objectif : bien s’entendre avec tout le monde
 
@@ -101,40 +101,40 @@ Les différents types d’architectures ont leurs avantages et inconvénients. V
 
 Parmi les contraintes techniques, le vrai **risque** consiste à tenir le **délai de traitement d’agrégation des données** en dessous des 2 minutes. La première étape consiste à lever ce risque. Il faut lever ce risque et commencer les développements.
 
-{{< figure src="/wp-content/uploads/2025/04/word-image-2508-7.png" alt="Integration options between modules 1" caption="Integration options between modules 1" >}}
+{{< figure src="wp-content/uploads/2025/04/word-image-2508-7.png" alt="Integration options between modules 1" caption="Integration options between modules 1" >}}
 
-{{< figure src="/wp-content/uploads/2025/04/word-image-2508-8.png" alt="Integration options between modules 2" caption="Integration options between modules 2" >}}
+{{< figure src="wp-content/uploads/2025/04/word-image-2508-8.png" alt="Integration options between modules 2" caption="Integration options between modules 2" >}}
 
 **Réversible**, l’ **architecture n°2 est retenue** avec une approche **hexagonale**. On reste pragmatique : les deux sous-domaines s’appellent dans la même JVM par appel de fonction. Cyrille rappelle que l’architecture hexagonale demande de créer un peu plus de code, mais ce n’est pas les 30 secondes que met la création d’une interface qui va les ralentir. Cela permet de prévoir des options pas chères pour être réversible et changer son architecture en cours de route. Les décisions sont réversibles.
 
-{{< figure src="/wp-content/uploads/2025/04/word-image-2508-9.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2025/04/word-image-2508-9.png" alt="" caption="" >}}
 
 Une première version de l’application est déployée en production. Passent 1mn, puis 2, puis 5. On coupe tout. Trop long. Cela ne marche pas. Cyrille invite à célébrer ce constat : **on sait que çà ne marche pas**. Et on l’a découvert très vite.
 
 La cause est rapidement identifiée : l’agrégateur du monolith est mono-thread. 3 solutions son envisagées :   
 **1\. Solution 1** : **mono instance** avec du **multi-threading**. Plus de vCPU, worker pools.   
-![](/wp-content/uploads/2025/04/word-image-2508-10.png)  
+![](wp-content/uploads/2025/04/word-image-2508-10.png)  
 **2\. Solution 2** : **multi instance avec du pub-sub**. Rien à faire. On s’appuie sur un service du Cloud Provider. Clé : on reconnait les problèmes difficiles et on les délègue à du middleware en managé.   
-![](/wp-content/uploads/2025/04/word-image-2508-11.png)  
+![](wp-content/uploads/2025/04/word-image-2508-11.png)  
 **3\. Solution 3** : combine multi-thread et multi-instance : trop compliqué et trop chère. Combine tous les inconvénients. A ne pas faire.
 
 Approche choisie : solution 2. L’architecture est l’art du **tradeoff** (du compromis).
 
-![](/wp-content/uploads/2025/04/word-image-2508-12.png)
+![](wp-content/uploads/2025/04/word-image-2508-12.png)
 
 La solution retenue impose la **fin du modular monolith**. Nécessité de passer en **micro-services** : 2 services, 2 deployments et N services
 
 Réfléchissons à présent sur ce qui pourrait mal se passer avec un **tuyau asynchrone** : messages en double ou triple, manque de ressources, messages perdus …   
-![](/wp-content/uploads/2025/04/word-image-2508-13.png)  
+![](wp-content/uploads/2025/04/word-image-2508-13.png)  
 Le fournisseur de Cloud garantie une partie des problèmes évoqués.   
 Cyrille rappelle la nécessité d’un consumer à être **idempotent** pour gérer les messages en double.
 
-{{< figure src="/wp-content/uploads/2025/04/word-image-2508-14.png" alt="Pubsub architecture tradeoffs" caption="Pubsub architecture tradeoffs" >}}
+{{< figure src="wp-content/uploads/2025/04/word-image-2508-14.png" alt="Pubsub architecture tradeoffs" caption="Pubsub architecture tradeoffs" >}}
 
 Avant de faire un choix sur l’implémentation de l’adaptateur et assurer la persistance des données (ex : PostgreSQL vs Redis), **Eric propose de rester en mémoire pour tester rapidement en prod**. Cela **permet** de gagner du temps et **de** **vérifier les hypothèses**.   
 On va livrer en prod un mock. Pas de honte. Vrai essaie sur de vraies machines avec les vraies données. On utilise la prod, le vrai environnement.
 
-![](/wp-content/uploads/2025/04/word-image-2508-15.png)  
+![](wp-content/uploads/2025/04/word-image-2508-15.png)  
 Le calcul dure moins de 2 minutes : l’hypothèse est validée. L’adaptateur peut désormais être implémenté avec Redis.
 
 Message de fond : **l’architecture est évolutive**. Il ne faut pas la mettre en place dès le début. L’architecture est dynamique. Tout bouge.
@@ -142,18 +142,18 @@ Message de fond : **l’architecture est évolutive**. Il ne faut pas la mettre 
 L’application est composée de 2 systèmes qui doivent se parler. Un contrat JSON est définit entre dispatcher et aggregator. Le contrat est très explicite avec les unités.   
 Cyrille fait remarquer un problème de typo sur un champ : latency **y**\_ms avec 2 lettres y
 
-{{< figure src="/wp-content/uploads/2025/04/word-image-2508-16.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2025/04/word-image-2508-16.png" alt="" caption="" >}}
 
 Un renommage serait possible mais il est recommandé de positionner 2 champs pour respecter le contrat.
 
-![](/wp-content/uploads/2025/04/word-image-2508-17.png)  
+![](wp-content/uploads/2025/04/word-image-2508-17.png)  
 Autre clé : **on ne change pas un contrat**. A partir du moment où il est publié, on doit rester dans la même version majeure pour toujours. Contracts are forever. On ne doit pas casser les clients existants.
 
 Cyrille rappelle les utiles à l’heure de l’IA :   
 \- **Architectural Decision Records** (**ADR)** : template   
 \- **ArchUnit** : try architecture tests
 
-![](/wp-content/uploads/2025/04/word-image-2508-18.png)
+![](wp-content/uploads/2025/04/word-image-2508-18.png)
 
 Autres clés proposées par Cyrille pour avoir des **réunions constructives**.   
 Commencer par **time boxer les réunions**. Utiliser un tableau blanc ou numérique.   
@@ -169,4 +169,4 @@ Alterner raisonnement individuel et raisonnement en équipe :
 - **Rester simple**
 - **Books** : toutes ces attitudes nécessaires à l’Architecture restent inchangées depuis 30 ans : couplage et cohésion, contrats, modularités, API … Cet apprentissage est pérenne et en vaut donc la peine. Les livres recommandés par Cyrille resteront intemporels.
 
-{{< figure src="/wp-content/uploads/2025/04/word-image-2508-19.png" alt="3 livres recommandés par Cyrille Martraire" caption="3 livres recommandés par Cyrille Martraire" >}}
+{{< figure src="wp-content/uploads/2025/04/word-image-2508-19.png" alt="3 livres recommandés par Cyrille Martraire" caption="3 livres recommandés par Cyrille Martraire" >}}

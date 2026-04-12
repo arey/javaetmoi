@@ -4,8 +4,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2013-08-01T18:13:55+00:00"
-thumbnail: /wp-content/uploads/2013/07/git-logo.png
-featureImage: /wp-content/uploads/2013/07/git-logo.png
+thumbnail: wp-content/uploads/2013/07/git-logo.png
+featureImage: wp-content/uploads/2013/07/git-logo.png
 featureImageAlt: "Logo du SCM GIT"
 guid: http://javaetmoi.com/?p=735
 parent_post_id: null
@@ -18,12 +18,12 @@ title: Ecraser une branche par une autre avec Git
 url: /2013/08/ecraser-une-branche-par-une-autre-avec-git/
 
 ---
-[![Logo du SCM GIT](/wp-content/uploads/2013/07/git-logo.png)](/wp-content/uploads/2013/07/git-logo.png) Dans le cycle de vie d’une application, il arrive parfois qu’ **une branche prenne le pas sur une autre  branche** et qu’il soit nécessaire d’écraser la seconde par la première. Prenons l’exemple d’une application où, par convention, le master (ou le trunk sous SVN) est considéré comme la branche de développement (axée vers le futur) et que l’utilisation du système de branches soit habituellement consacrée aux branches de maintenance. Dans certaines circonstances (ex : nouveaux développements à commencer pour la version N+2, migration technique à réaliser …), une branche peut prendre le dessus du master. Afin de retrouver la convention d’origine, une **recopie de la branche sur le master** va, à termes, être nécessaire. Que ce soit avec Git ou git-svn, nous allons voir comment **[Git](http://git-scm.com/)** peut nous y aider en **quelques lignes de commande**.
+[![Logo du SCM GIT](wp-content/uploads/2013/07/git-logo.png)](wp-content/uploads/2013/07/git-logo.png) Dans le cycle de vie d’une application, il arrive parfois qu’ **une branche prenne le pas sur une autre  branche** et qu’il soit nécessaire d’écraser la seconde par la première. Prenons l’exemple d’une application où, par convention, le master (ou le trunk sous SVN) est considéré comme la branche de développement (axée vers le futur) et que l’utilisation du système de branches soit habituellement consacrée aux branches de maintenance. Dans certaines circonstances (ex : nouveaux développements à commencer pour la version N+2, migration technique à réaliser …), une branche peut prendre le dessus du master. Afin de retrouver la convention d’origine, une **recopie de la branche sur le master** va, à termes, être nécessaire. Que ce soit avec Git ou git-svn, nous allons voir comment **[Git](http://git-scm.com/)** peut nous y aider en **quelques lignes de commande**.
 
 ## Mise en scène
 
 L’ **historique de commits** ci-dessous illustre les explications qui suivront :
-[![Historique des commits réalisés avec Git](/wp-content/uploads/2013/07/2013-08-ecraser-branche-avec-git-svn-1.png)](/wp-content/uploads/2013/07/2013-08-ecraser-branche-avec-git-svn-1.png)
+[![Historique des commits réalisés avec Git](wp-content/uploads/2013/07/2013-08-ecraser-branche-avec-git-svn-1.png)](wp-content/uploads/2013/07/2013-08-ecraser-branche-avec-git-svn-1.png)
 
 Cet historique des commits commence par la branche _master_ sur laquelle les fonctionnalités A et B ont été commitées. La branche _maBranche_ est alors créée à partir du commit de la fonctionnalité B. Un premier merge no fast-forward est créé pour récupérer la fonctionnalité E de _master_ dans _maBranche_ : le commit de merge « _Merge branch ‘master’ into maBranche_ » est créé.
 
@@ -44,7 +44,7 @@ Voici les 4 lignes de commandes à exécuter pour réaliser cet écrasement de b
    **git merge --no-ff maBranche**
 
 Sortie console sur notre exemple de la commande Git n°4 :
-[![Log du git merge --no-ff maBranche](/wp-content/uploads/2013/07/2013-08-ecraser-branche-avec-git-svn-2.png)](/wp-content/uploads/2013/07/2013-08-ecraser-branche-avec-git-svn-2.png)
+[![Log du git merge --no-ff maBranche](wp-content/uploads/2013/07/2013-08-ecraser-branche-avec-git-svn-2.png)](wp-content/uploads/2013/07/2013-08-ecraser-branche-avec-git-svn-2.png)
 
 Comme attendu, le fichier _Hotfix.txt_ ayant été ajouté lors du commit _Hotfix_ est supprimé du _master_. Si, dans un autre exemple, le commit _Hotfix_ avait modifié une ligne du fichier _FeatureE.txt_, un _revert_ de cette modification aurait alors été effectué.
 

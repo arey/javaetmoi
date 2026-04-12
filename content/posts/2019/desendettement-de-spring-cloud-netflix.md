@@ -4,8 +4,8 @@ categories:
   - retour-d'expérience
   - spring
 date: "2019-11-28T08:37:31+00:00"
-thumbnail: /wp-content/uploads/2019/11/spring-cloud-netflix.png
-featureImage: /wp-content/uploads/2019/11/spring-cloud-netflix.png
+thumbnail: wp-content/uploads/2019/11/spring-cloud-netflix.png
+featureImage: wp-content/uploads/2019/11/spring-cloud-netflix.png
 guid: https://javaetmoi.com/?p=2045
 parent_post_id: null
 post_id: "2045"
@@ -23,7 +23,7 @@ summary: |-
   migration. J’espère qu’il vous sera utile si vous avez le même chemin à
   parcourir.
 
-  ![Désendettement de Spring Cloud Netflix](/wp-content/uploads/2019/11/spring-cloud-netflix.png)
+  ![Désendettement de Spring Cloud Netflix](wp-content/uploads/2019/11/spring-cloud-netflix.png)
 tags:
   - hystrix
   - resilience4j
@@ -34,7 +34,7 @@ title: Désendettement de Spring Cloud Netflix
 url: /2019/11/desendettement-de-spring-cloud-netflix/
 
 ---
-[![](/wp-content/uploads/2019/11/spring-cloud-netflix.png)](/wp-content/uploads/2019/11/spring-cloud-netflix.png)Le projet  [Spring Cloud Netflix](https://spring.io/projects/spring-cloud-netflix) facilite l’intégration de différents projets de la suite [Netflix OSS](https://netflix.github.io/) dans des applications Spring Boot / Spring Cloud : Eureka, Zuul 1, Ribbon, Hystrix, Archaius, Feign. Jusqu’en 2018, le projet [Spring Petclinic Microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) dont j’assure la maintenance utilisait ces 4 premiers projets.
+[![](wp-content/uploads/2019/11/spring-cloud-netflix.png)](wp-content/uploads/2019/11/spring-cloud-netflix.png)Le projet  [Spring Cloud Netflix](https://spring.io/projects/spring-cloud-netflix) facilite l’intégration de différents projets de la suite [Netflix OSS](https://netflix.github.io/) dans des applications Spring Boot / Spring Cloud : Eureka, Zuul 1, Ribbon, Hystrix, Archaius, Feign. Jusqu’en 2018, le projet [Spring Petclinic Microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) dont j’assure la maintenance utilisait ces 4 premiers projets.
 
 Or, certains des projets historiques de Netflix OSS ne sont plus activement développés. Ils sont rentrés en mode maintenance. C’est notamment le cas d’ [Hystrix](https://github.com/Netflix/Hystrix#hystrix-status), de Zuul 1 et de Ribbon. En décembre 2018, lors de l’annonce de la [sortie de Spring Cloud Greenwich RC1](https://spring.io/blog/2018/12/12/spring-cloud-greenwich-rc1-available-now), Pivotal recommande de migrer vers des projets tiers et de nouveaux modules Spring Cloud :
 

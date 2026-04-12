@@ -4,8 +4,8 @@ author: admin
 categories:
   - maven
 date: "2016-09-06T15:58:15+00:00"
-thumbnail: /wp-content/uploads/2016/09/merge1.png
-featureImage: /wp-content/uploads/2016/09/merge1.png
+thumbnail: wp-content/uploads/2016/09/merge1.png
+featureImage: wp-content/uploads/2016/09/merge1.png
 featureImageAlt: "merge1"
 guid: http://javaetmoi.com/?p=1630
 parent_post_id: null
@@ -18,7 +18,7 @@ summary: |-
 
   Comme cas d’études, prenons l’exemple du repo Git helloworld :![merge1](http://javaetmoi.com/wp-content/uploads/2016/09/merge1.png)
 
-  ![merge1](/wp-content/uploads/2016/09/merge1.png)
+  ![merge1](wp-content/uploads/2016/09/merge1.png)
 tags:
   - git
   - maven
@@ -30,7 +30,7 @@ L’utilisation conjointe de **Maven** pour réaliser des release et de **git-fl
 En effet, lorsque vous travaillez avec des branches (quel que soit le SCM), une bonne pratique veut que chaque branche possède son propre numéro de version. Afin d’éviter des collisions de nommage, cette pratique devient indispensable lorsque vous utilisez un serveur d’intégration continue pour publier les artefacts construits dans un repo Maven.
 Une fois une branche crée à partir d’une autre, chaque branche vit sa vie. Des releases Maven peuvent être réalisées de part et d’autre. Là où cela devient tendu, c’est lorsque vous devez reporter les commits d’une branche vers une autre. **Des conflits de merge sur le numéro de version Maven apparaissent alors inévitablement**. Lorsque votre application multi-modules comporte 15 pom.xml, c’est 15 conflits qu’il va falloir gérer manuellement. Il est effectivement risqué de conserver aveuglément la version du pom.xml local ou distant, car d’autres changements (et vrais conflits) peuvent se produire dans d’autres sections du pom.xml.
 
-Comme cas d’études, prenons l’exemple du repo Git helloworld :![merge1](/wp-content/uploads/2016/09/merge1.png)
+Comme cas d’études, prenons l’exemple du repo Git helloworld :![merge1](wp-content/uploads/2016/09/merge1.png)
 
 Une application HelloWorld construite avec Maven a été releasée avec Maven en version 1.0.0 sur la branche **develop**. La prochaine version renseignée sur develop est 1.1.0-SNAPSHOT.
 Une branche de maintenance **release/1.0.x** a ensuite été créée à partir du tag pointant sur le commit _« \[maven-release-plugin\] prepare release helloworld-1.0.0 »._ Une faute d’orthographe a été corrigée. Afin de la livrer en production rapidement, une version 1.0.1 a été réalisée avec Maven.
@@ -105,7 +105,7 @@ Merge made by the 'recursive' strategy.
  2 files changed, 2 insertions(+), 2 deletions(-)
 ```
 
-![merge2](/wp-content/uploads/2016/09/merge2.png)
+![merge2](wp-content/uploads/2016/09/merge2.png)
 
 Le script Python respecte le workflow git-flow. De ce fait, les merge dans le master des branches de release et de hotfix conservent le numéro de version de ces dernières.
 

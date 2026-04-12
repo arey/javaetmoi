@@ -8,10 +8,10 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - conférence
-featureImage: /wp-content/uploads/2018/04/IMG_20180418_132919.jpg
+featureImage: wp-content/uploads/2018/04/IMG_20180418_132919.jpg
 featureImageAlt: cof
 date: "2018-04-22T15:08:55+00:00"
-thumbnail: /wp-content/uploads/2018/04/IMG_20180418_132919.jpg
+thumbnail: wp-content/uploads/2018/04/IMG_20180418_132919.jpg
 guid: http://javaetmoi.com/?p=1820
 parent_post_id: null
 post_id: "1820"
@@ -25,7 +25,7 @@ summary: |-
 
   [![](http://javaetmoi.com/wp-content/uploads/2018/04/IMG_20180418_132919-1024x638.jpg)](http://javaetmoi.com/wp-content/uploads/2018/04/IMG_20180418_132919.jpg)
 
-  ![cof](/wp-content/uploads/2018/04/IMG_20180418_132919.jpg)
+  ![cof](wp-content/uploads/2018/04/IMG_20180418_132919.jpg)
 tags:
   - cassandra
   - devoxx
@@ -40,7 +40,7 @@ Le Lab était construit autour d’un support de présentation et de 5 exercices
 
 Ce billet a pour objectif de permettre aux développeurs n’ayant pas eu la chance de suivre ce Lab de profiter du travail préparatif des 2 speakers (un grand merci à eux) en lui donnant de la visibilité. Vous pourrez ainsi vous former par vous-même à Cassandra. Les explications données dans ce billet complètent les slides mais ne remplacent pas leur lecture.
 
-[![](/wp-content/uploads/2018/04/IMG_20180418_132919.jpg)](/wp-content/uploads/2018/04/IMG_20180418_132919.jpg)
+[![](wp-content/uploads/2018/04/IMG_20180418_132919.jpg)](wp-content/uploads/2018/04/IMG_20180418_132919.jpg)
 
 ## Installation de CCM
 

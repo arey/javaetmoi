@@ -8,7 +8,7 @@ categories:
   - retour-d'expérience
   - spring
 date: "2025-06-16T06:57:01+00:00"
-thumbnail: /wp-content/uploads/2025/06/jooq-the-easiest-way-to-write-sql-in-java.png
+thumbnail: wp-content/uploads/2025/06/jooq-the-easiest-way-to-write-sql-in-java.png
 featureImageAlt: "jOOQ: The easiest way to write SQL in Java"
 footnotes: ""
 guid: https://javaetmoi.com/?p=2580
@@ -33,7 +33,7 @@ title: De Spring Data JPA à jOOQ
 url: /2025/06/de-spring-data-jpa-a-jooq/
 
 ---
-![:left](/wp-content/uploads/2025/06/logo-jooq.png)
+![:left](wp-content/uploads/2025/06/logo-jooq.png)
 
 Lors de la conférence Devoxx France 2025, j’ai participé à un hands-on lab de 2h intitulé [Sortir des ORMs avec jOOQ](https://www.devoxx.fr/agenda-2025/talk/sortir-des-orms-avec-jooq/). Acronyme de « **Java Object Oriented Querying** », **jOOQ** se présente comme une **alternative à JPA** permettant d’ **écrire des requêtes SQL** en Java via une **fluent API**. Animé par Sylvain Decout et Samuel Lefebvre, cet atelier visait à migrer une application Spring Boot / JPA vers jOOQ à l’aide du **starter Spring Boot** pour jOOQ. Pour les curieux, le repo de l’atelier est disponible sur Github : [jooq-handson](https://github.com/sylvaindecout/jooq-handson).
 
@@ -241,7 +241,7 @@ private static Vet toVet(Record4<Integer, String, String, List<Specialty>> row) 
 jOOQ permet d’imbriquer plusieurs multiset afin de charger les visites des animaux d’un propriétaire en une seule requête. Je vous renvoie à la classe [OwnerRepository](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/main/src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java).
 
 Pour finir, les écrans « Find Owners » et « Veterinarians » affichent les résultats de manière paginée. jOOQ supporte la pagination au travers de la [Seek Method](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/main/src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java) (aussi appelée [Keyset paging](https://blog.jooq.org/faster-sql-pagination-with-keysets-continued/)) ou du [calcul des méta-données de pagination en une seule requête SQL](https://blog.jooq.org/calculating-pagination-metadata-without-extra-roundtrips-in-sql/). C’est cette dernière approche qui a été utilisée sur jOOQ Petclinic afin de garder iso-fonctionnels les **écrans paginés**. Les plus curieux peuvent se référer à l’implémentation de la méthode findAll(Pageable pageable) de [VetRepository](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/main/src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java) et à la méthode paginate() du [JooqHelper](https://github.com/spring-petclinic/spring-petclinic-jooq/blob/main/src/main/java/org/springframework/samples/petclinic/system/JooqHelper.java). Sur le même modèle que ce que propose Spring Data, des records `Pageable` et `Page` ont été introduits dans la base de code.   
-![](/wp-content/uploads/2025/06/word-image-2580-2.png)
+![](wp-content/uploads/2025/06/word-image-2580-2.png)
 
 ## Au revoir JPA
 

@@ -4,8 +4,8 @@ author: admin
 categories:
   - conférence
 date: "2020-02-17T16:58:30+00:00"
-thumbnail: /wp-content/uploads/2020/02/devfest_paris_2020.png
-featureImage: /wp-content/uploads/2020/02/devfest_paris_2020.png
+thumbnail: wp-content/uploads/2020/02/devfest_paris_2020.png
+featureImage: wp-content/uploads/2020/02/devfest_paris_2020.png
 guid: https://javaetmoi.com/?p=2092
 parent_post_id: null
 post_id: "2092"
@@ -19,12 +19,12 @@ summary: |-
 
   Au travers de ce cours billet, je tenais à mettre en avant leur travail et à partager mon enthousiasme. De chez vous, n’hésitez pas à suivre ce Lab pour vous familiariser avec les tests de propriétés. Le [README.md](https://github.com/trollaklass/troll-of-fame-java/blob/master/README.md) contient l’énoncé des 6 étapes et l’explication des concepts associés. Comme son nom l’indique, la **branche** [**solution**](https://github.com/trollaklass/troll-of-fame-java/tree/solution) contient l’ensemble des solutions.
 
-  ![Tests de propriétés : écrire moins de tests, trouver plus de bugs](/wp-content/uploads/2020/02/devfest_paris_2020.png)
+  ![Tests de propriétés : écrire moins de tests, trouver plus de bugs](wp-content/uploads/2020/02/devfest_paris_2020.png)
 title: 'Tests de propriétés : écrire moins de tests, trouver plus de bugs'
 url: /2020/02/tests-de-proprietes-ecrire-moins-de-tests-trouver-plus-de-bugs/
 
 ---
-[![](/wp-content/uploads/2020/02/devfest_paris_2020.png)](/wp-content/uploads/2020/02/devfest_paris_2020.png) Lors de l’excellente conférence [**DevFest Paris 2020**](https://devfest.gdgparis.com/) qui s’est tenue le 14 février au Palais des Congrès d’Issy-les-Moulineaux, j’ai découvert une typologie de tests dont je n’avais jamais entendu parler : les **tests de propriétés**(property based tests en anglais).
+[![](wp-content/uploads/2020/02/devfest_paris_2020.png)](wp-content/uploads/2020/02/devfest_paris_2020.png) Lors de l’excellente conférence [**DevFest Paris 2020**](https://devfest.gdgparis.com/) qui s’est tenue le 14 février au Palais des Congrès d’Issy-les-Moulineaux, j’ai découvert une typologie de tests dont je n’avais jamais entendu parler : les **tests de propriétés**(property based tests en anglais).
 
 Pendant 2h, **[Thomas Haessle](https://twitter.com/Oteku)** (CTO de Cutii) et **[Julien Debon](https://twitter.com/sir4ur0n)** (Tech Lead chez Décathlon) nous ont fait travailler sur un **Code lab** disponible en pas moins de 5 langages de programmation : JavaScript, Java, OCaml, Haskell et Rust. Comme vous vous en doutez, j’ai suivi le lab Java.
 

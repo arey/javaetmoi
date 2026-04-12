@@ -5,8 +5,8 @@ categories:
   - conférence
   - spring
 date: "2024-04-21T16:38:47+00:00"
-thumbnail: /wp-content/uploads/2024/04/word-image-2317-2.jpeg
-featureImage: /wp-content/uploads/2024/04/word-image-2317-2.jpeg
+thumbnail: wp-content/uploads/2024/04/word-image-2317-2.jpeg
+featureImage: wp-content/uploads/2024/04/word-image-2317-2.jpeg
 guid: https://javaetmoi.com/?p=2317
 parent_post_id: null
 post_id: "2317"
@@ -25,7 +25,7 @@ summary: |-
 
   Julien commence par rappeler les inconvénients d’une **architecture 3-tiers** basée sur le triptyque **Contrôleur -> Service -> Persistance**
 
-  ![L’Architecture Hexagonale par la pratique](/wp-content/uploads/2024/04/word-image-2317-2.jpeg)
+  ![L’Architecture Hexagonale par la pratique](wp-content/uploads/2024/04/word-image-2317-2.jpeg)
 tags:
   - architecture
   - ddd
@@ -47,7 +47,7 @@ Vidéo Youtube : [https://www.youtube.com/watch?v=-dXN8wkN0yk](https://www.youtu
 
 Cette session de live coding se déroule dans l’univers de Starwars et commence par une **citation de Maitre Yoda** :
 
-![](/wp-content/uploads/2024/04/word-image-2317-1.png)  
+![](wp-content/uploads/2024/04/word-image-2317-1.png)  
 
 En 45mn, Julien doit développer le système **Rebels Rescue** visant à reconstituer des flottes de sauvetage. N’en déplaise à l’Empire, les technos seront Spring Boot et Java 21.
 
@@ -55,7 +55,7 @@ A cet effet, il s’appuiera sur l’API publique [SWAPI](https://swapi.dev/) pe
 
 Julien commence par rappeler les inconvénients d’une **architecture 3-tiers** basée sur le triptyque **Contrôleur -> Service -> Persistance**
 
-{{< figure src="/wp-content/uploads/2024/04/word-image-2317-2.jpeg" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/04/word-image-2317-2.jpeg" alt="" caption="" >}}
 
 Très utile, cette architecture n-tiers vieillit mal.   
  En théorie, la **logique métier** doit être centralisée dans la couche service. Mais en pratique, on la voit **diluée** partout, jusque dans les procédures stockées …   
@@ -103,7 +103,7 @@ Le maven-enforcer-plugin bannit toutes les librairies qui ne sont pas en scope t
 
 Dans une architecture hexagonale, l’extérieur du Domain est appelé l’ **infrastructure.**
 
-![](/wp-content/uploads/2024/04/word-image-2317-3.jpeg)
+![](wp-content/uploads/2024/04/word-image-2317-3.jpeg)
 
 Les interfaces d’entrée et de sorties du domaine sont rangées au niveau des frontières nommées **API** et **SPI** :   
 \- **Application Programming Interface** Java à ne pas confondre avec API REST.   
@@ -213,13 +213,13 @@ Pour résoudre cette problématique, certains développeurs utilisent des fabriq
  * </p>
  *
  * @see <a href=
- * "https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf">Domain-Driven Design Reference</a>
+ * "https://www.domainlanguage.comwp-content/uploads/2016/05/DDD_Reference_2015-03.pdf">Domain-Driven Design Reference</a>
  */
 @Retention(RetentionPolicy.RUNTIME)
 public @interface DomainService {}
 ```
 
-Cette annotation permet de documenter les classes en faisant référence au document [Domain-Driven Design Reference](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf) d’Eric Evans, le père du DDD.
+Cette annotation permet de documenter les classes en faisant référence au document [Domain-Driven Design Reference](https://www.domainlanguage.comwp-content/uploads/2016/05/DDD_Reference_2015-03.pdf) d’Eric Evans, le père du DDD.
 
 Dans la couche d’infrastructure, la classe [DomainConfiguration](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/infrastructure/src/main/java/rebelsrescue/configuration/DomainConfiguration.java) configure Spring pour scanner les beans annotés par **_@DomainService_** et **_@Stub_**
 
@@ -253,4 +253,4 @@ Julien termine sa présentation en introduisant volontairement une régression. 
 
 Architecture finale de l’application Rebels Rescue :
 
-{{< figure src="/wp-content/uploads/2024/04/word-image-2317-4.jpeg" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/04/word-image-2317-4.jpeg" alt="" caption="" >}}

@@ -4,8 +4,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2013-03-19T19:48:16+00:00"
-thumbnail: /wp-content/uploads/2013/03/2013-03-promotion-continue-avec-git-svn.png
-featureImage: /wp-content/uploads/2013/03/2013-03-promotion-continue-avec-git-svn.png
+thumbnail: wp-content/uploads/2013/03/2013-03-promotion-continue-avec-git-svn.png
+featureImage: wp-content/uploads/2013/03/2013-03-promotion-continue-avec-git-svn.png
 featureImageAlt: "Workflow de promotion en continue du trunk vers la branche"
 guid: http://javaetmoi.com/?p=626
 parent_post_id: null
@@ -19,7 +19,7 @@ summary: |-
 
   Notre stratégie fut de **merger régulièrement dans cette branche le code issu de la branche de développement**. Une fois la migration terminée, la branche de migration a été à son tour mergée dans la branche de développement.
 
-  ![Workflow de promotion en continue du trunk vers la branche](/wp-content/uploads/2013/03/2013-03-promotion-continue-avec-git-svn.png)
+  ![Workflow de promotion en continue du trunk vers la branche](wp-content/uploads/2013/03/2013-03-promotion-continue-avec-git-svn.png)
 tags:
   - git
   - svn
@@ -34,7 +34,7 @@ Les changements techniques étant bien trop transverses à l’application, la s
 
 Notre stratégie fut de **merger régulièrement dans cette branche le code issu de la branche de développement**. Une fois la migration terminée, la branche de migration a été à son tour mergée dans la branche de développement.
 
-[![Workflow de promotion en continue du trunk vers la branche](/wp-content/uploads/2013/03/2013-03-promotion-continue-avec-git-svn.png)](/wp-content/uploads/2013/03/2013-03-promotion-continue-avec-git-svn.png)
+[![Workflow de promotion en continue du trunk vers la branche](wp-content/uploads/2013/03/2013-03-promotion-continue-avec-git-svn.png)](wp-content/uploads/2013/03/2013-03-promotion-continue-avec-git-svn.png)
 
 ## Git svn à la rescousse
 

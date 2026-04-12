@@ -4,8 +4,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2014-02-09T19:13:56+00:00"
-thumbnail: /wp-content/uploads/2014/02/angular-musicbrainz-screenshot.png
-featureImage: /wp-content/uploads/2014/02/angular-musicbrainz-screenshot.png
+thumbnail: wp-content/uploads/2014/02/angular-musicbrainz-screenshot.png
+featureImage: wp-content/uploads/2014/02/angular-musicbrainz-screenshot.png
 featureImageAlt: "Angular MusicBrainz web app screenshot"
 guid: http://javaetmoi.com/?p=898
 parent_post_id: null
@@ -25,7 +25,7 @@ summary: |-
 
   Le code source de l’application est bien entendu [disponible sur GitHub](https://github.com/arey/angular-musicbrainz) et [testable en ligne](http://angular-musicbrainz.javaetmoi.com/).
 
-  ![Angular MusicBrainz web app screenshot](/wp-content/uploads/2014/02/angular-musicbrainz-screenshot.png)
+  ![Angular MusicBrainz web app screenshot](wp-content/uploads/2014/02/angular-musicbrainz-screenshot.png)
 tags:
   - angularjs
   - bootstrap
@@ -60,7 +60,7 @@ Au travers de ce article, je vous présenterai comment :
 
 Le code source de l’application est bien entendu [disponible sur GitHub](https://github.com/arey/angular-musicbrainz) et [testable en ligne](http://angular-musicbrainz.javaetmoi.com/).
 
-{{< figure src="/wp-content/uploads/2014/02/angular-musicbrainz-screenshot.png" alt="Angular MusicBrainz web app screenshot" caption="Angular MusicBrainz web app screenshot" >}}
+{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-screenshot.png" alt="Angular MusicBrainz web app screenshot" caption="Angular MusicBrainz web app screenshot" >}}
 
 ## Démarrer un projet avec Angular Seed
 
@@ -173,7 +173,7 @@ L’application repose sur 4 **services** implémentés dans le fichier [service
 
 Les templates HTML reposent sur 5 **filtres** personnalisés
 
-**Nom du filtre****Utilisation****Rendu****interpolate**{ 'v%VERSION%' \| interpolate }V1.0**joinBy**{{hit.\_source.tags \| joinBy:' - '}}pop - rock - blues**reverse**ng-repeat="rating in facets.rating.entries \| reverse"[![angular-musicbrainz-rating](/wp-content/uploads/2014/02/angular-musicbrainz-rating.png)](/wp-content/uploads/2014/02/angular-musicbrainz-rating.png)**artistTypeLabel**{{type.term \| artistTypeLabel}}Artiste (fr) ou Artist (en)**yearFormat**{{range \| yearFormat}}Avant 1970 (fr)
+**Nom du filtre****Utilisation****Rendu****interpolate**{ 'v%VERSION%' \| interpolate }V1.0**joinBy**{{hit.\_source.tags \| joinBy:' - '}}pop - rock - blues**reverse**ng-repeat="rating in facets.rating.entries \| reverse"[![angular-musicbrainz-rating](wp-content/uploads/2014/02/angular-musicbrainz-rating.png)](wp-content/uploads/2014/02/angular-musicbrainz-rating.png)**artistTypeLabel**{{type.term \| artistTypeLabel}}Artiste (fr) ou Artist (en)**yearFormat**{{range \| yearFormat}}Avant 1970 (fr)
 
 Pour les détails d’implémentation, se référer au code source [filters.js](https://github.com/arey/angular-musicbrainz/blob/v1.0/app/js/filters.js) et aux tests unitaires qui les documentent [filterSpecs.js.](https://github.com/arey/angular-musicbrainz/blob/v1.0/test/unit/filtersSpec.js)
 
@@ -181,7 +181,7 @@ Pour les détails d’implémentation, se référer au code source [filters.js](
 
 2 **widgets graphiques** ont été réalisés à l’aide de **directives**:
 
-**Directive****Utilisation****Rendu****Cover**<cover album-id="hit.\_source.id"> </cover>[![angular-musicbrainz-cover](/wp-content/uploads/2014/02/angular-musicbrainz-cover.png)](/wp-content/uploads/2014/02/angular-musicbrainz-cover.png)**Rank**<rank score="hit.\_source.rating.score"> </rank>[![angular-musicbrainz-rank](/wp-content/uploads/2014/02/angular-musicbrainz-rank1.png)](/wp-content/uploads/2014/02/angular-musicbrainz-rank1.png)
+**Directive****Utilisation****Rendu****Cover**<cover album-id="hit.\_source.id"> </cover>[![angular-musicbrainz-cover](wp-content/uploads/2014/02/angular-musicbrainz-cover.png)](wp-content/uploads/2014/02/angular-musicbrainz-cover.png)**Rank**<rank score="hit.\_source.rating.score"> </rank>[![angular-musicbrainz-rank](wp-content/uploads/2014/02/angular-musicbrainz-rank1.png)](wp-content/uploads/2014/02/angular-musicbrainz-rank1.png)
 
 A noter que la [directive rating d’Angular Bootsrap](http://angular-ui.github.io/bootstrap/#/rating) offre une alternative à la directive rank. Cette dernière reprend la CSS de [MusicBrainz](http://musicbrainz.org/artist/a3cb23fc-acd3-4ce0-8f36-1e5aa6a18432/ratings) permettant d’ajuster le dégradé des étoiles au pixel près.
 
@@ -381,7 +381,7 @@ Le projet [UI Bootstrap](http://angular-ui.github.io/bootstrap/) propose une dou
 
 Notre web app de recherche utilise 3 de ses directives:
 
-DirectiveVisuelExemple d’utilisation dans les templates HTML**typeahead**[![angular-musicbrainz-typeahead](/wp-content/uploads/2014/02/angular-musicbrainz-typeahead.png)](/wp-content/uploads/2014/02/angular-musicbrainz-typeahead.png)
+DirectiveVisuelExemple d’utilisation dans les templates HTML**typeahead**[![angular-musicbrainz-typeahead](wp-content/uploads/2014/02/angular-musicbrainz-typeahead.png)](wp-content/uploads/2014/02/angular-musicbrainz-typeahead.png)
 
 ```xhtml
 <input type="text"
@@ -392,7 +392,7 @@ in autocomplete($viewValue)
 | filter:$viewValue" />
 ```
 
-**pagination**[![angular-musicbrainz-pagination](/wp-content/uploads/2014/02/angular-musicbrainz-pagination.png)](/wp-content/uploads/2014/02/angular-musicbrainz-pagination.png)
+**pagination**[![angular-musicbrainz-pagination](wp-content/uploads/2014/02/angular-musicbrainz-pagination.png)](wp-content/uploads/2014/02/angular-musicbrainz-pagination.png)
 
 ```xhtml
 <pagination total-items="totalItems"
@@ -404,7 +404,7 @@ on-select-page="selectPage(page)">
 </pagination>
 ```
 
-**pager**[![angular-musicbrainz-pager](/wp-content/uploads/2014/02/angular-musicbrainz-pager.png)](/wp-content/uploads/2014/02/angular-musicbrainz-pager.png)
+**pager**[![angular-musicbrainz-pager](wp-content/uploads/2014/02/angular-musicbrainz-pager.png)](wp-content/uploads/2014/02/angular-musicbrainz-pager.png)
 
 ```xhtml
 <pager total-items="totalItems"
@@ -504,7 +504,7 @@ describe('search', function () {
 
 Créé par l’un des développeurs d’Angular, Karma a l’avantage de connaître le fonctionnement interne d’Angular. Cette faculté lui permet de résoudre les problèmes de requêtes Ajax souvent rencontrés dans les tests Selenium. Adieux les tempos ou autre  [_waitForElement_](http://agilesoftwaretesting.com/selenium-wait-for-ajax-the-right-way/).
 
-{{< figure src="/wp-content/uploads/2014/02/angular-musicbrainz-e2e.png" alt="angular-musicbrainz-e2e" caption="angular-musicbrainz-e2e" >}}
+{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-e2e.png" alt="angular-musicbrainz-e2e" caption="angular-musicbrainz-e2e" >}}
 
 Exécution des tests end-to-end dans Chrome :  
 
@@ -530,9 +530,9 @@ return undefined;
 
 Soit directement depuis IntelliJ IDEA après configuration :
 
-{{< figure src="/wp-content/uploads/2014/02/angular-musicbrainz-jshint.png" alt="angular-musicbrainz-jshint" caption="angular-musicbrainz-jshint" >}}
+{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-jshint.png" alt="angular-musicbrainz-jshint" caption="angular-musicbrainz-jshint" >}}
 
-{{< figure src="/wp-content/uploads/2014/02/angular-musicbrainz-jshint2.png" alt="angular-musicbrainz-jshint2" caption="angular-musicbrainz-jshint2" >}}
+{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-jshint2.png" alt="angular-musicbrainz-jshint2" caption="angular-musicbrainz-jshint2" >}}
 
 JSHint a toute sa place sur un projet de grande taille sur lesquels de nombreux développeurs travaillent puis se relaieront pour sa maintenance. Sur de plus modestes applications comme angular-musicbainz , il a le mérite de former et de mettre en garde des développeurs JavaScript Junior.
 
@@ -561,7 +561,7 @@ after_success:
 
 On demande à Travis d’installer le client Grunt avant d’exécuter les tests unitaires et de publier la couverture de code. A chaque commit dans le repo GitHub, le build est lancé. La sortie console s’affiche en temps réel :
 
-{{< figure src="/wp-content/uploads/2014/02/angular-musicbrainz-travis.png" alt="angular-musicbrainz-travis" caption="angular-musicbrainz-travis" >}}
+{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-travis.png" alt="angular-musicbrainz-travis" caption="angular-musicbrainz-travis" >}}
 
 
 En cas d’échec du build, vous pouvez être notifiés par email , IRC, webhook ...
@@ -570,23 +570,23 @@ Outre la génération d’un rapport de couverture de code testé, la commande g
 
 L’ [historique des builds du projet angular-musicbrainz](https://coveralls.io/r/arey/angular-musicbrainz) est accessible en ligne :
 
-{{< figure src="/wp-content/uploads/2014/02/angular-musicbrainz-coveralls1.png" alt="angular-musicbrainz-coveralls1" caption="angular-musicbrainz-coveralls1" >}}
+{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-coveralls1.png" alt="angular-musicbrainz-coveralls1" caption="angular-musicbrainz-coveralls1" >}}
 
 
 Le [taux de couverture du build n°494581](https://coveralls.io/builds/494581) est également consultable en ligne :
 
-{{< figure src="/wp-content/uploads/2014/02/angular-musicbrainz-coveralls1.png" alt="angular-musicbrainz-coveralls1" caption="angular-musicbrainz-coveralls1" >}}
+{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-coveralls1.png" alt="angular-musicbrainz-coveralls1" caption="angular-musicbrainz-coveralls1" >}}
 
 
 Autre service en ligne intéressant : pouvoir vérifier rapidement que les dépendances d’une application sont à jour. C’est ce que propose **[David](https://www.david-dm.org/)**. Voici visuellement la synthèse proposée par David pour les [dépendances de dev d’angular-musicbainz](https://david-dm.org/arey/angular-musicbrainz#info=devDependencies) :
 
-{{< figure src="/wp-content/uploads/2014/02/angular-musicbrainz-david.png" alt="angular-musicbrainz-david" caption="angular-musicbrainz-david" >}}
+{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-david.png" alt="angular-musicbrainz-david" caption="angular-musicbrainz-david" >}}
 
 A noter qu’un service similaire pour les dépendances utilisées par Bower serait intéressant.
 
 Chacun de ces services propose un **badge** dynamique. Pratique, ces badges peuvent être affichés dans le README.MD :
 
-## [![angular-musicbrainz-build-status](/wp-content/uploads/2014/02/angular-musicbrainz-build-status.png)](/wp-content/uploads/2014/02/angular-musicbrainz-build-status.png)  
+## [![angular-musicbrainz-build-status](wp-content/uploads/2014/02/angular-musicbrainz-build-status.png)](wp-content/uploads/2014/02/angular-musicbrainz-build-status.png)  
 Conclusion
 
 Ce long billet m’aura permis de vous faire découvrir les différentes facettes du monde JavaScript dont j’ai fait connaissance tout au long du développement de cette petite application web de recherche.  

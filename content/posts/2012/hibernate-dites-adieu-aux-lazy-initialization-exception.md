@@ -4,8 +4,8 @@ author: admin
 categories:
   - orm
 date: "2012-03-30T20:39:43+00:00"
-thumbnail: /wp-content/uploads/2012/03/logo%5Fhibernate.png
-featureImage: /wp-content/uploads/2012/03/logo%5Fhibernate.png
+thumbnail: wp-content/uploads/2012/03/logo%5Fhibernate.png
+featureImage: wp-content/uploads/2012/03/logo%5Fhibernate.png
 featureImageAlt: "logo_hibernate"
 guid: http://javaetmoi.com/?p=54
 parent_post_id: null
@@ -25,7 +25,7 @@ title: Dites adieu aux LazyInitializationException
 url: /2012/03/hibernate-dites-adieu-aux-lazy-initialization-exception/
 
 ---
-{{< figure src="/wp-content/uploads/2012/03/logo%5Fhibernate.png" alt="logo\_hibernate" caption="logo\_hibernate" >}}
+{{< figure src="wp-content/uploads/2012/03/logo%5Fhibernate.png" alt="logo\_hibernate" caption="logo\_hibernate" >}}
 
 Dans ce deuxième ticket, j’aimerais vous parler du projet [**Hibernate Hydrate**](https://github.com/arey/hibernate-hydrate) \[1\] que j’ai récemment publié sur GitHub. Au cœur de ce projet : une seule classe Java proposant **une unique fonctionnalité**. En quelques années, c’est la seconde fois que j’ai eu besoin de coder ce genre de fonctionnalité. Aussi, je me suis dit qu’il serait pratique de l’avoir sous le coude pour une prochaine fois et, au passage, vous en faire profiter.
 

@@ -4,8 +4,8 @@ author: admin
 categories:
   - spring
 date: "2014-10-14T04:53:33+00:00"
-thumbnail: /wp-content/uploads/2014/05/logo-spring-highres.png
-featureImage: /wp-content/uploads/2014/05/logo-spring-highres.png
+thumbnail: wp-content/uploads/2014/05/logo-spring-highres.png
+featureImage: wp-content/uploads/2014/05/logo-spring-highres.png
 featureImageAlt: "logo-spring-highres"
 guid: http://javaetmoi.com/?p=1216
 parent_post_id: null
@@ -20,7 +20,7 @@ title: Démystifier l’annotation @SessionAttributes de Spring MVC
 url: /2014/10/annotation-sessionattributes-modelattribute-spring-mvc/
 
 ---
-[![logo-spring-highres](/wp-content/uploads/2014/05/logo-spring-highres.png)](/wp-content/uploads/2014/05/logo-spring-highres.png) Le développement d’applications web requière une vigilance toute particulière quant à l’utilisation de la **session web**. Spring MVC offre les mécanismes permettant aux développeurs de ne plus manipuler directement l’objet **_HttpSession_** mis à disposition par le conteneur web. Les 2 annotations **_@Scope("session")_** et **_@SessionAttributes_** en font parties. Dans ce billet, je vous expliquerai **le fonctionnement de l’annotation _@SessionAttributes_** qu’il est essentiel de maitriser avant d’utiliser. Nous verrons qu’elle fonctionne de pair avec l’annotation **_@ModelAttribute_** et qu’elle permet de simuler une **portée conversation**. Nous commencerons cet article par rappeler ce qu’est **un modèle** et nous le terminerons en **testant** **unitairement** du code qui utilise _@SessionAttributes_.
+[![logo-spring-highres](wp-content/uploads/2014/05/logo-spring-highres.png)](wp-content/uploads/2014/05/logo-spring-highres.png) Le développement d’applications web requière une vigilance toute particulière quant à l’utilisation de la **session web**. Spring MVC offre les mécanismes permettant aux développeurs de ne plus manipuler directement l’objet **_HttpSession_** mis à disposition par le conteneur web. Les 2 annotations **_@Scope("session")_** et **_@SessionAttributes_** en font parties. Dans ce billet, je vous expliquerai **le fonctionnement de l’annotation _@SessionAttributes_** qu’il est essentiel de maitriser avant d’utiliser. Nous verrons qu’elle fonctionne de pair avec l’annotation **_@ModelAttribute_** et qu’elle permet de simuler une **portée conversation**. Nous commencerons cet article par rappeler ce qu’est **un modèle** et nous le terminerons en **testant** **unitairement** du code qui utilise _@SessionAttributes_.
 
 ## Le modèle de Spring MVC
 
@@ -108,7 +108,7 @@ En effet, avant d’invoquer la méthode _@RequestMapping_ cible, Spring MVC com
 
 Le diagramme d’activités ci-dessous illustre le mécanisme complet :
 
-[![2014-09-spring-mvc-sessionattributes-diagram](/wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-diagram1.png)](/wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-diagram1.png)
+[![2014-09-spring-mvc-sessionattributes-diagram](wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-diagram1.png)](wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-diagram1.png)
 
 ## Libérer la mémoire
 
@@ -181,7 +181,7 @@ myOtherBeanB -- MyOtherBean [name=My Other Bean B]
 
 Page affichée dans le navigateur :
 
-[![2014-09-spring-mvc-sessionattributes-screenshot1](/wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot1.jpg)](/wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot1.jpg) Analyse :
+[![2014-09-spring-mvc-sessionattributes-screenshot1](wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot1.jpg)](wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot1.jpg) Analyse :
 
 - Les 4 méthodes annotées par _@ModelAttribute_ sont appelées avant la méthode _@RequestMapping_.
 - Les beans créés par chacune de ces méthodes sont disponibles dans le modèle dès l’appel à la méthode _@RequestMapping_.
@@ -208,7 +208,7 @@ myBean1 -- MyBean [name=My Bean 1]
 
 Page affichée dans le navigateur :
 
-[![2014-09-spring-mvc-sessionattributes-screenshot2](/wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot2.jpg)](/wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot2.jpg) Analyse :
+[![2014-09-spring-mvc-sessionattributes-screenshot2](wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot2.jpg)](wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot2.jpg) Analyse :
 
 - Lors de l’appel à la méthode _@RequestMapping_:
 
@@ -237,7 +237,7 @@ myBean3 -- MyBean [name=My Bean 3]
 
 Page affichée dans le navigateur :
 
-[![2014-09-spring-mvc-sessionattributes-screenshot3](/wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot3.jpg)](/wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot3.jpg) Analyse :
+[![2014-09-spring-mvc-sessionattributes-screenshot3](wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot3.jpg)](wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot3.jpg) Analyse :
 
 - L’URL /endession est mappée sur le contrôleur _MyController_ déjà utilisé lors du 1er accès à l’URL /dosomething
 - Seule l’une des 4 méthodes annotées avec _@ModelAttribute_ est appelée : _addMyBean2ToRequestScope_. Les 3 autres méthodes ne sont pas appelées car les beans qu’elles créent sont déjà présent en session.
@@ -246,7 +246,7 @@ Page affichée dans le navigateur :
 
 ### Second appel à other
 
- [![2014-09-spring-mvc-sessionattributes-screenshot4](/wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot4.jpg)](/wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot4.jpg)
+ [![2014-09-spring-mvc-sessionattributes-screenshot4](wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot4.jpg)](wp-content/uploads/2014/10/2014-09-spring-mvc-sessionattributes-screenshot4.jpg)
 
 Injecté dans le handler, le bean myBean1 n'est plus disponible en session.
 public String otherHandlingMethod(Model model, HttpServletRequest request, HttpSession session, @ModelAttribute("myBean1") MyBean myBean) {

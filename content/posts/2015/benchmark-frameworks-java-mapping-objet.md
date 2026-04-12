@@ -5,8 +5,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2015-09-16T05:20:37+00:00"
-thumbnail: /wp-content/uploads/2015/09/logo-java-performance.png
-featureImage: /wp-content/uploads/2015/09/logo-java-performance.png
+thumbnail: wp-content/uploads/2015/09/logo-java-performance.png
+featureImage: wp-content/uploads/2015/09/logo-java-performance.png
 featureImageAlt: "logo-java-performance"
 guid: http://javaetmoi.com/?p=1442
 parent_post_id: null
@@ -29,7 +29,7 @@ summary: |-
   1. Une première dressant les **avantages** et les **inconvénients** d’utiliser **Dozer** par rapport à une **approche manuelle**,
   2. et une seconde présentant les résultats d’un **micro-benchmark** comparant plusieurs frameworks : **Dozer**, **Orika**, **Selma**, **MapStruct** et **ModelMapper**.
 
-  ![logo-java-performance](/wp-content/uploads/2015/09/logo-java-performance.png)
+  ![logo-java-performance](wp-content/uploads/2015/09/logo-java-performance.png)
 tags:
   - benchmark
   - dozer
@@ -41,7 +41,7 @@ title: Benchmark de frameworks de mapping objet
 url: /2015/09/benchmark-frameworks-java-mapping-objet/
 
 ---
-[![logo-java-performance](/wp-content/uploads/2015/09/logo-java-performance.png)](/wp-content/uploads/2015/09/logo-java-performance.png) Ce billet a pour origine un commentaire posté dans [mon précédent billet](/2015/08/check-list-revue-code-et-architecture-java/) et dans lequel Laurent demandait un **retour d’expérience** sur l’utilisation de **frameworks Java de mapping objet vers objet** tels [Dozer](https://github.com/DozerMapper/dozer) ou [ModelMapper](http://modelmapper.org/).
+[![logo-java-performance](wp-content/uploads/2015/09/logo-java-performance.png)](wp-content/uploads/2015/09/logo-java-performance.png) Ce billet a pour origine un commentaire posté dans [mon précédent billet](/2015/08/check-list-revue-code-et-architecture-java/) et dans lequel Laurent demandait un **retour d’expérience** sur l’utilisation de **frameworks Java de mapping objet vers objet** tels [Dozer](https://github.com/DozerMapper/dozer) ou [ModelMapper](http://modelmapper.org/).
 
 Dans l’architecture d’une **applicative n-tiers**, une couche de mapping objet / objet peut intervenir à plusieurs niveaux :
 
@@ -80,7 +80,7 @@ Le diagramme ci-dessous présente résultats obtenus avec la configuration suiva
 - RAM: 16GB
 - JVM: Oracle 1.8.0\_25 64 bits
 
-[![](/wp-content/uploads/2015/09/2015-09-mapping-objet-objet2.png)](/wp-content/uploads/2015/09/2015-09-mapping-objet-objet2.png)
+[![](wp-content/uploads/2015/09/2015-09-mapping-objet-objet2.png)](wp-content/uploads/2015/09/2015-09-mapping-objet-objet2.png)
 
 Comme on pouvait s’y attendre, les performances du code écrit à la main sont les meilleures.
 Selma et MapStruct se rapprochent le plus des performances d’un code écrit manuellement. Ce résultat s’explique par le fait qu’ils génèrent le code source à l’aide de l’ **Annotation Processor** introduit par Java 6 (JSR-269).

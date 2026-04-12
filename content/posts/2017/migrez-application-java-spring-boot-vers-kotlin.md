@@ -9,10 +9,10 @@ author: admin
 categories:
   - retour-d'expérience
   - spring
-featureImage: /wp-content/uploads/2017/09/Kotlin_logo.png
+featureImage: wp-content/uploads/2017/09/Kotlin_logo.png
 featureImageAlt: Logo Kotlin
 date: "2017-09-25T16:50:26+00:00"
-thumbnail: /wp-content/uploads/2017/09/Kotlin_logo.png
+thumbnail: wp-content/uploads/2017/09/Kotlin_logo.png
 guid: http://javaetmoi.com/?p=1753
 parent_post_id: null
 post_id: "1753"
@@ -24,7 +24,7 @@ summary: |-
 
   Pour découvrir ce nouveau venu dans la galaxie des langages de programmation, je me suis intéressé à migrer vers Kotlin l’application démo Spring Petclinic développée en Java et Spring Boot. Je souhaitais ici partager son code source : [**spring-petclinic-kotlin**](https://github.com/spring-petclinic/spring-petclinic-kotlin) et énumérer les différences notables avec sa version Java.
 
-  ![Logo Kotlin](/wp-content/uploads/2017/09/Kotlin_logo.png)
+  ![Logo Kotlin](wp-content/uploads/2017/09/Kotlin_logo.png)
 tags:
   - kotlin
   - spring-boot
@@ -32,7 +32,7 @@ title: Découvrir Kotlin en migrant une webapp Spring Boot
 url: /2017/09/migrez-application-java-spring-boot-vers-kotlin/
 
 ---
-![](/wp-content/uploads/2017/09/Kotlin_logo.png)
+![](wp-content/uploads/2017/09/Kotlin_logo.png)
 
 Lors la dernière conférence Google I/O qui s’est tenue en mai 2017, Google a officialisé le **support de Kotlin sur Android**. Google n’est pas le seul acteur de l’IT à miser sur ce nouveau langage créé par JetBrains (l’éditeur de l’IDE IntelliJ) et s’exécutant sur la JVM (mais pas que). En effet, dès février 2016, [Pivotal proposait de développer des applications **Spring Boot** avec Kotlin](https://spring.io/blog/2016/02/15/developing-spring-boot-applications-with-kotlin). En janvier 2017, ils annonçaient que [la version 5 du **framework Spring** proposerait des **fonctionnalités exclusives à Kotlin**](https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0). Chez Gradle, le langage Kotlin est désormais privilégié au détriment de Groovy.
 

@@ -8,10 +8,10 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - retour-d'expérience
-featureImage: /wp-content/uploads/2018/03/logback-logo.jpg
+featureImage: wp-content/uploads/2018/03/logback-logo.jpg
 featureImageAlt: logback-logo
 date: "2018-03-30T17:01:59+00:00"
-thumbnail: /wp-content/uploads/2018/03/logback-logo.jpg
+thumbnail: wp-content/uploads/2018/03/logback-logo.jpg
 guid: http://javaetmoi.com/?p=1811
 parent_post_id: null
 post_id: "1811"
@@ -34,14 +34,14 @@ summary: |-
 
   Dans cet article, je vais vous présenter quelques bouts de code simplifié manipulant l’API Java de Logback.
 
-  ![logback-logo](/wp-content/uploads/2018/03/logback-logo.jpg)
+  ![logback-logo](wp-content/uploads/2018/03/logback-logo.jpg)
 tags:
   - logback
 title: Configurez Logback en Java
 url: /2018/03/configurez-logback-en-java/
 
 ---
-[![](/wp-content/uploads/2018/03/logback-logo.jpg)](/wp-content/uploads/2018/03/logback-logo.jpg)
+[![](wp-content/uploads/2018/03/logback-logo.jpg)](wp-content/uploads/2018/03/logback-logo.jpg)
 
 Afin de **normaliser** la **configuration Logback** des applications web sur lesquelles j’interviens, j’ai récemment eu besoin de programmer Logback via son **API en Java** et non en utilisant la syntaxe XML Joran.
 Moins courant que le traditionnel `logback.xml`, cette possibilité de configurer Logback par le code offre davantage de possibilités, ne serait-ce que par son caractère dynamique.

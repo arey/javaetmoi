@@ -4,8 +4,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2013-01-05T09:41:40+00:00"
-thumbnail: /wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png
-featureImage: /wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png
+thumbnail: wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png
+featureImage: wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png
 featureImageAlt: "@Copyright JBoss - Classe chargée en priorité depuis lEAR"
 guid: http://javaetmoi.com/?p=520
 parent_post_id: null
@@ -15,7 +15,7 @@ summary: |-
   Lors de la **migration** d’une application d’un **serveur d’application** vers un autre, il est fréquent d’être confronté à des problématiques de **conflits de librairies**. C’est par exemple le cas lorsqu’une application initialement déployée sur un Websphere Application Server 6.1  doit migrer sur **JBoss 5.1 EAP** (version commerciale de JBoss AS).
   Pour rappel, WAS 6.1 implémente J2EE 1.4 et s’exécute donc sur Java 5. Quant à JBoss 5.1 EAP, il implémente la norme Java EE 5, embarque donc de nombreuses implémentations des standards tels que JPA 1, JSF 1.2 et JAX-WS 1, et tourne sur Java 6.
 
-  ![@Copyright JBoss - Classe chargée en priorité depuis lEAR](/wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png)
+  ![@Copyright JBoss - Classe chargée en priorité depuis lEAR](wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png)
 tags:
   - classloader
   - hibernate
@@ -53,7 +53,7 @@ Configuration embarquée dans l’EAR.
 
 ## Configurer le classloader de l’application
 
-{{< figure align="alignright" width=300 src="/wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png" alt="@Copyright JBoss - Classe chargée en priorité depuis l'EAR" caption="@Copyright JBoss - Classe chargée en priorité depuis l'EAR" >}}
+{{< figure align="alignright" width=300 src="wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png" alt="@Copyright JBoss - Classe chargée en priorité depuis l'EAR" caption="@Copyright JBoss - Classe chargée en priorité depuis l'EAR" >}}
 
 Pour mettre en œuvre la solution n°3 concernant à « scoper » l’application, il est nécessaire de configurer le chargement des classes de JBoss . Une description détaillée de son fonctionnement est disponible sur la page [JBossClassLoadingUseCases](https://community.jboss.org/wiki/JBossClassLoadingUseCases) du wiki de JBoss.
 Dans notre cas, La configuration des classes loaders nécessaire est **deployment scoped** et **Java2ParentDelegation** **désactivé**. Cette configuration est représentée par la figure ci-contre.
@@ -89,7 +89,7 @@ Configuration embarquée dans l’EAR.
 
 ## Configurer le classloader de l’application
 
-{{< figure align="alignright" width=300 src="/wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png" alt="@Copyright JBoss - Classe chargée en priorité depuis l'EAR" caption="@Copyright JBoss - Classe chargée en priorité depuis l'EAR" >}}
+{{< figure align="alignright" width=300 src="wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png" alt="@Copyright JBoss - Classe chargée en priorité depuis l'EAR" caption="@Copyright JBoss - Classe chargée en priorité depuis l'EAR" >}}
 
 Pour mettre en œuvre la solution n°3 concernant à « scoper » l’application, il est nécessaire de configurer le chargement des classes de JBoss . Une description détaillée de son fonctionnement est disponible sur la page [JBossClassLoadingUseCases](https://community.jboss.org/wiki/JBossClassLoadingUseCases) du wiki de JBoss.
 Dans notre cas, La configuration des classes loaders nécessaire est **deployment scoped** et **Java2ParentDelegation** **désactivé**. Cette configuration est représentée par la figure ci-contre.
@@ -148,7 +148,7 @@ Configuration embarquée dans l’EAR.
 
 ## Configurer le classloader de l’application
 
-{{< figure align="alignright" width=300 src="/wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png" alt="@Copyright JBoss - Classe chargée en priorité depuis l'EAR" caption="@Copyright JBoss - Classe chargée en priorité depuis l'EAR" >}}
+{{< figure align="alignright" width=300 src="wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png" alt="@Copyright JBoss - Classe chargée en priorité depuis l'EAR" caption="@Copyright JBoss - Classe chargée en priorité depuis l'EAR" >}}
 
 Pour mettre en œuvre la solution n°3 concernant à « scoper » l’application, il est nécessaire de configurer le chargement des classes de JBoss . Une description détaillée de son fonctionnement est disponible sur la page [JBossClassLoadingUseCases](https://community.jboss.org/wiki/JBossClassLoadingUseCases) du wiki de JBoss.
 Dans notre cas, La configuration des classes loaders nécessaire est **deployment scoped** et **Java2ParentDelegation** **désactivé**. Cette configuration est représentée par la figure ci-contre.

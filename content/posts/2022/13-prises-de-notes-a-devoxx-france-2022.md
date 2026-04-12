@@ -4,8 +4,8 @@ author: admin
 categories:
   - conférence
 date: "2022-04-24T15:22:06+00:00"
-thumbnail: /wp-content/uploads/2022/04/2022-04-21-10-ans-Devoxx-France.jpg
-featureImage: /wp-content/uploads/2022/04/2022-04-21-10-ans-Devoxx-France.jpg
+thumbnail: wp-content/uploads/2022/04/2022-04-21-10-ans-Devoxx-France.jpg
+featureImage: wp-content/uploads/2022/04/2022-04-21-10-ans-Devoxx-France.jpg
 guid: https://javaetmoi.com/?p=2187
 parent_post_id: null
 post_id: "2187"
@@ -19,7 +19,7 @@ summary: |-
 
   Fait marquant, cette édition 2022 n’aura pas fait place à de nouvelles technos hypes. On peut se souvenir de Quarkus en 2019, Kafka en 2016 ou bien encore Angular.JS en 2013. Cette 10ième édition aura été celle de la maturité : **retours d’expérience**, **architecture**, **état de l’art**, **sécurisation du code** et **approfondissement du fonctionnement de la plateforme Java** étaient au rendez-vous.
 
-  ![13 prises de notes à Devoxx France 2022](/wp-content/uploads/2022/04/2022-04-21-10-ans-Devoxx-France.jpg)
+  ![13 prises de notes à Devoxx France 2022](wp-content/uploads/2022/04/2022-04-21-10-ans-Devoxx-France.jpg)
 tags:
   - argo
   - cloud
@@ -44,20 +44,20 @@ Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les vi
 
 Fait marquant, cette édition 2022 n’aura pas fait place à de nouvelles technos hypes. On peut se souvenir de Quarkus en 2019, Kafka en 2016 ou bien encore Angular.JS en 2013. Cette 10ième édition aura été celle de la maturité : **retours d’expérience**, **architecture**, **état de l’art**, **sécurisation du code** et **approfondissement du fonctionnement de la plateforme Java** étaient au rendez-vous.
 
-{{< figure src="/wp-content/uploads/2022/04/2022-04-21-10-ans-Devoxx-France.jpg" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2022/04/2022-04-21-10-ans-Devoxx-France.jpg" alt="" caption="" >}}
 
 Mes notes classées par ordre de préférence :
 
-1. [**Loom nous protègera-t-il du Braquage Tempor**](/wp-content/uploads/2022/04/2022-04-20-Loom.pdf) **[el ?](/wp-content/uploads/2022/04/2022-04-20-Loom.pdf)**\- José Paumard et Rémi Forax
-1. **[OAuth 2.1 expliqué simplement (même si tu n’es pas dev) !](/wp-content/uploads/2022/04/2022-04-21-OAuth-2.1-expliqué-simplement.pdf)** \- Julien Topçu
-1. **[Mieux maitriser TLS, OpenSSL et les certificats](/wp-content/uploads/2022/04/2022-04-22-TLS-OpenSSL-et-les-certificats.pdf)** \- Mathieu Humbert
-1. **[Architecture microservices et coherence des données : mais on fait comment dans la vraie vie ?](/wp-content/uploads/2022/04/2022-04-22-Architecture-microservices-et-cohérence-de-données.pdf)**\- Jean-François James
-1. **[Valhalla, to the hell and back](/wp-content/uploads/2022/04/2022-04-22-Valhalla-to-the-hell-and-back.pdf)**\- Rémi Forax
-1. **[Major migration made easy](/wp-content/uploads/2022/04/2022-04-21-Major-migration-made-easy.pdf)** \- Tim te Beek
-1. **[Cybersécurité et générateur de nombres aléatoires](/wp-content/uploads/2022/04/2022-04-21-Cybersécurité-et-générateur-de-nombres-aléatoires.pdf)** \- Mathis Hammel
-1. **[Comprendre GraphQL](/wp-content/uploads/2022/04/2022-04-20-Comprendre-GraphQL.pdf)** \- Guillaume Scheibel et Geoffroy Couprie
-1. **[Connaissez-vous vraiment JWT ?](/wp-content/uploads/2022/04/2022-04-21-Connaissez-vous-vraiment-JWT.pdf)** \- Karim Pinchon
-1. **[A la découverte des Docker Dev Environments](/wp-content/uploads/2022/04/2022-04-22-Docker-Dev-Environment.pdf)**\- Djordje Lukic et Guillaume Lours
-1. **[Pourquoi DevOps ne tient pas ses promesses ?](/wp-content/uploads/2022/04/2022-04-22-Pourquoi-DevOps-ne-tient-pas-ses-promesses.pdf)**\- Gérôme Egron et Guillaume Mathieu
-1. **[Dans les coulisses du Cloud](/wp-content/uploads/2022/04/2022-04-21-Dans-les-coulisses-du-Cloud.pdf)**\- Cécile Morange
-1. **[Construire et déployer son application avec Argo dans Kubernetes](/wp-content/uploads/2022/04/2022-04-21-Déployer-dans-k8s-avec-Argo.pdf)** \- Paul-Henry Perrissel et Nicolas Mpacko Tongo
+1. [**Loom nous protègera-t-il du Braquage Tempor**](wp-content/uploads/2022/04/2022-04-20-Loom.pdf) **[el ?](wp-content/uploads/2022/04/2022-04-20-Loom.pdf)**\- José Paumard et Rémi Forax
+1. **[OAuth 2.1 expliqué simplement (même si tu n’es pas dev) !](wp-content/uploads/2022/04/2022-04-21-OAuth-2.1-expliqué-simplement.pdf)** \- Julien Topçu
+1. **[Mieux maitriser TLS, OpenSSL et les certificats](wp-content/uploads/2022/04/2022-04-22-TLS-OpenSSL-et-les-certificats.pdf)** \- Mathieu Humbert
+1. **[Architecture microservices et coherence des données : mais on fait comment dans la vraie vie ?](wp-content/uploads/2022/04/2022-04-22-Architecture-microservices-et-cohérence-de-données.pdf)**\- Jean-François James
+1. **[Valhalla, to the hell and back](wp-content/uploads/2022/04/2022-04-22-Valhalla-to-the-hell-and-back.pdf)**\- Rémi Forax
+1. **[Major migration made easy](wp-content/uploads/2022/04/2022-04-21-Major-migration-made-easy.pdf)** \- Tim te Beek
+1. **[Cybersécurité et générateur de nombres aléatoires](wp-content/uploads/2022/04/2022-04-21-Cybersécurité-et-générateur-de-nombres-aléatoires.pdf)** \- Mathis Hammel
+1. **[Comprendre GraphQL](wp-content/uploads/2022/04/2022-04-20-Comprendre-GraphQL.pdf)** \- Guillaume Scheibel et Geoffroy Couprie
+1. **[Connaissez-vous vraiment JWT ?](wp-content/uploads/2022/04/2022-04-21-Connaissez-vous-vraiment-JWT.pdf)** \- Karim Pinchon
+1. **[A la découverte des Docker Dev Environments](wp-content/uploads/2022/04/2022-04-22-Docker-Dev-Environment.pdf)**\- Djordje Lukic et Guillaume Lours
+1. **[Pourquoi DevOps ne tient pas ses promesses ?](wp-content/uploads/2022/04/2022-04-22-Pourquoi-DevOps-ne-tient-pas-ses-promesses.pdf)**\- Gérôme Egron et Guillaume Mathieu
+1. **[Dans les coulisses du Cloud](wp-content/uploads/2022/04/2022-04-21-Dans-les-coulisses-du-Cloud.pdf)**\- Cécile Morange
+1. **[Construire et déployer son application avec Argo dans Kubernetes](wp-content/uploads/2022/04/2022-04-21-Déployer-dans-k8s-avec-Argo.pdf)** \- Paul-Henry Perrissel et Nicolas Mpacko Tongo

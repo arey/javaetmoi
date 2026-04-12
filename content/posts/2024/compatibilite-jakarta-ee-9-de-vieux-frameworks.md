@@ -4,8 +4,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2024-08-25T15:54:14+00:00"
-thumbnail: /wp-content/uploads/2024/08/Jakarta_ee_logo.png
-featureImage: /wp-content/uploads/2024/08/Jakarta_ee_logo.png
+thumbnail: wp-content/uploads/2024/08/Jakarta_ee_logo.png
+featureImage: wp-content/uploads/2024/08/Jakarta_ee_logo.png
 guid: https://javaetmoi.com/?p=2374
 parent_post_id: null
 post_id: "2374"
@@ -21,7 +21,7 @@ summary: |-
 
   En décembre 2020, la communauté Java est secouée par la sortie de **Java EE 9**. 20 ans de rétrocompatibilité s’écroulent. Oracle a souhaité conserver la **marque Java**. Les **packages javax.\* de la spécification Java EE ont été renommés en jakarta.\***. Certains sous-packages ont également été renommés.  <br> Pour exemple, la classe **_Marshaller_** de l’API JAXB change de package : de _javax.xml.bind.Marshaller_ vers jakarta.xml.bind.Marshaller
 
-  ![Compatibilité Jakarta EE 9 de vieux frameworks](/wp-content/uploads/2024/08/Jakarta_ee_logo.png)
+  ![Compatibilité Jakarta EE 9 de vieux frameworks](wp-content/uploads/2024/08/Jakarta_ee_logo.png)
 tags:
   - javaee
   - spring-boot
@@ -34,7 +34,7 @@ url: /2024/08/compatibilite-jakarta-ee-9-de-vieux-frameworks/
 
 En **2017**, **Oracle** a fait **don de la spécification Java EE** (précédemment connu sous le nom de J2EE) à la fondation **Eclipse**. Java EE regroupe différentes API utilisées aussi bien par des serveurs d’applications, des containers de servlets et des frameworks comme Quarkus ou Spring : **Servlet**, JSP, JSF, JPA, JTA, JAX-WS, JAX-RS, JAXB, WebSocket, Bean Validation, CDI, EL …   
 
-![](/wp-content/uploads/2024/08/Jakarta_ee_logo.png)
+![](wp-content/uploads/2024/08/Jakarta_ee_logo.png)
 
 Sous l’égide d’Eclipse, Java EE a été rebaptisé Jakarta EE. La fondation a récupéré la base de code Java et les TCK. En **2019** est sortie une version **Jakarta EE 8** pleinement compatible avec Java EE 8. Comme seul changement notable pour les dév **, le groupId des artefacts Maven a été renommé de javax à jakarta**. Le patch du numéro de version a été incrémenté. A titre d’exemple, l’artefact jakarta.faces:jakarta.faces-api:2.3.1 est identique à javax.faces:javax.faces-api:2.3. Pas si anodin, ce changement de GAV Maven fait que notre outil de build peut être amené, via le mécanisme de dépendances transitives, à placer dans le classpath deux mêmes artefacts ayant des groupId différents. Les exclusions maven permettent de corriger le tir.
 
@@ -178,4 +178,4 @@ Enfin, d’autres outils que celui d’Apache existe, par exemple [Eclipse Trans
 - [Javax to Jakarta Namespace Ecosystem Progress](https://jakarta.ee/blogs/javax-jakartaee-namespace-ecosystem-progress/) (Jakarta EE)
 - [Using IntelliJ IDEA's migration tool](https://www.jetbrains.com/guide/java/tutorials/migrating-javax-jakarta/use-migration-tool/) (Jetbrains)
 - [Eclipse Transformer](https://github.com/eclipse/transformer) (GitHub)
-- [Javax to Jakarta Tales From the Crypt](https://communityovercode.org/wp-content/uploads/2023/10/javax-to-jakarta-tales-from-the-crypt-v2-shawn-mckinney.pdf) (Shawn McKinney)  
+- [Javax to Jakarta Tales From the Crypt](https://communityovercode.orgwp-content/uploads/2023/10/javax-to-jakarta-tales-from-the-crypt-v2-shawn-mckinney.pdf) (Shawn McKinney)  

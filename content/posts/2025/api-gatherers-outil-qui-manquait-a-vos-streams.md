@@ -7,8 +7,8 @@ author: admin
 categories:
   - conférence
 date: "2025-04-25T06:09:01+00:00"
-thumbnail: /logo/logo-java-duke.png
-featureImage: /wp-content/uploads/2025/04/word-image-2551-1-edited.jpeg
+thumbnail: logo/logo-java-duke.png
+featureImage: wp-content/uploads/2025/04/word-image-2551-1-edited.jpeg
 footnotes: ""
 guid: https://javaetmoi.com/?p=2551
 parent_post_id: null
@@ -25,7 +25,7 @@ summary: |-
 
   Toutes les classes et interfaces de l’API Gatherers ont été ajoutées au **package java.util.stream**.
 
-  ![L’API Gatherers : l’outil qui manquait à vos Streams](/wp-content/uploads/2025/04/word-image-2551-1-edited.jpeg)
+  ![L’API Gatherers : l’outil qui manquait à vos Streams](wp-content/uploads/2025/04/word-image-2551-1-edited.jpeg)
 tags:
   - devoxx
   - java
@@ -229,7 +229,7 @@ Les développeurs Java peuvent choisir de construire un Gather supportant ou non
 
 Pour supporter le parallélisme, l’API Gatherer adopte le principe suivant : **un objet state par thread**. Cela permet de ne pas utiliser de collections synchronisées dégradant les performances.   
 Dans chaque Stream parallèle, on a donc autant de state que de threads. A la fin de l’opération intermédiaire, il est nécessaire d’utiliser un **Combiner** pour combiner tous les états.   
-![](/wp-content/uploads/2025/04/word-image-2551-2.png)
+![](wp-content/uploads/2025/04/word-image-2551-2.png)
 
 
 Ce **Combiner** est un **4ième paramètre** à passer à la méthode factory `of()` :
@@ -255,7 +255,7 @@ Les Sequential Gatherers ne peuvent pas être appelés en même temps depuis dif
 Ils ne possèdent pas de Combiner. Pour autant, José nous explique que l’API Stream est capable de séquencer les appels vers un **Sequential Gatherer**.
 Cette fonctionnalité est nouvelle et donc à utiliser avec précaution. Tester les perfs.
 
-{{< figure src="/wp-content/uploads/2025/04/word-image-2551-3.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2025/04/word-image-2551-3.png" alt="" caption="" >}}
 
 Pour aller plus loin, José nous invite à consulter le repo GitHub [SvenWoltmann/stream-gatherers](https://github.com/SvenWoltmann/stream-gatherers). Le JDK vient avec de nouveaux Gatherers comme `scan()`, `fold()` ou bien encore `mapConcurrent()`.   
 Des librairies tierces comme [gatherers4j](https://github.com/tginsberg/gatherers4j) proposent également leur propres gatherers : `reverse()`, `repeat(n)`, `groupBy(fn)`...

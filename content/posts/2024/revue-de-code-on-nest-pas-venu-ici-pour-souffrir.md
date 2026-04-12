@@ -4,8 +4,8 @@ author: admin
 categories:
   - conférence
 date: "2024-05-03T13:15:02+00:00"
-thumbnail: /wp-content/uploads/2024/05/image.png
-featureImage: /wp-content/uploads/2024/05/image.png
+thumbnail: wp-content/uploads/2024/05/image.png
+featureImage: wp-content/uploads/2024/05/image.png
 guid: https://javaetmoi.com/?p=2356
 parent_post_id: null
 post_id: "2356"
@@ -44,7 +44,7 @@ Afin de démontrer à l’assistance qu’un commentaire laissé dans une **revu
 
 Développeuses GO, Anne-Laure et Pauline rappellent que **la revue de code fait partie intégrante du métier de développeur**. Elle consiste à examiner le code écrit par un autre développeur afin d'en améliorer la qualité, détecter les bugs et s'assurer du respect des normes de codage. Il existe différents types de revue. Au cours de cette présentation, elles se focaliseront sur les revues centrées sur le delta du code écrit pour corriger bug ou implémenter une feature.
 
-![](/wp-content/uploads/2024/05/word-image-2356-1.jpeg)
+![](wp-content/uploads/2024/05/word-image-2356-1.jpeg)
 
 ## Intérêts d’une revue de code
 
@@ -70,7 +70,7 @@ Autre bonne pratique : mettre à disposition de la **documentation** pour les no
 
 Créer un **modèle de template pour les Pull Request** (PR) permet de faciliter la création d’une demande de changement et donner du contexte aux reviewers. GitHub et GitLab proposent cette fonctionnalité. Elle permet au développeur de se poser les questions essentielles à la bonne délimitation de sa PR. Dans le template, on peut retrouver les questions des [Five W's](https://fr.wikipedia.org/wiki/QQOQCCP) mais également la référence à la User Story implémentée (ex : lien Jira).  
 
-{{< figure src="/wp-content/uploads/2024/05/image.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/05/image.png" alt="" caption="" >}}
 
 ##   
 Definition of Done de la PR
@@ -143,9 +143,9 @@ Les **corvées** représentent des **tâches simples** qui **doivent être effec
 
 Pauline et Anne-Laure nous invitent à sélectionner un **sous-ensemble** de ces libellés et même à les **personnaliser**. A titre d’exemple, elles-mêmes utilisent **applause** à la place de **praise**. Elles n’utilisent pas thought et chore mais ont introduit 2 autres notations : **todo** et **typo**.   
 Pour standardiser les revues et faciliter la vue des nouveaux arrivants, elles mettent à disposition de leurs équipes un **markdown** avec les libellés et les emojis associés :   
-![](/wp-content/uploads/2024/05/word-image-2356-2.png)
+![](wp-content/uploads/2024/05/word-image-2356-2.png)
 
-{{< figure src="/wp-content/uploads/2024/05/word-image-2356-3.jpeg" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/05/word-image-2356-3.jpeg" alt="" caption="" >}}
 
 Les **commentaires conventionnels de commit** permettent de moins souffrir grâce à :
 

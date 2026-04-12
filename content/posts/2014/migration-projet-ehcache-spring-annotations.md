@@ -4,8 +4,8 @@ author: admin
 categories:
   - spring
 date: "2014-12-01T05:53:51+00:00"
-thumbnail: /wp-content/uploads/2014/05/logo-spring-highres.png
-featureImage: /wp-content/uploads/2014/05/logo-spring-highres.png
+thumbnail: wp-content/uploads/2014/05/logo-spring-highres.png
+featureImage: wp-content/uploads/2014/05/logo-spring-highres.png
 featureImageAlt: "logo-spring-highres"
 guid: http://javaetmoi.com/?p=1273
 parent_post_id: null
@@ -22,7 +22,7 @@ summary: |-
   Hébergé sur Google Code, ce projet n’est aujourd’hui plus maintenu. Il ne supporte pas Spring 4.x. Rattrapant son retard, la version 3.1 du framework Spring a été enrichi de sa propre annotation @Cacheable. Comme à son habitude, Spring permet de s’abstraire de la solution de cache sous-jacente (ex : ConcurrentMap, EhCache, Guava …) en proposant une API générique. Les débuts de cette API ont été difficiles (cf. SPR-10237 à laquelle j’ai participé). Aujourd’hui mature, implémentant la JSR-107 JCache, il n’y a aucune raison pour ne pas migrer dessus.
   Relativement court **, ce billet explique pas à pas comment migrer de ehcache-spring-annotations vers le support de cache du framework Spring**.
 
-  ![logo-spring-highres](/wp-content/uploads/2014/05/logo-spring-highres.png)
+  ![logo-spring-highres](wp-content/uploads/2014/05/logo-spring-highres.png)
 tags:
   - ehcache
   - spring-framework
@@ -32,7 +32,7 @@ url: /2014/12/migration-projet-ehcache-spring-annotations/
 ---
 EhCache est sans nul doute le framework open source de gestion de cache applicatif le plus populaire parmi les développeurs Java. Polyvalent, **EhCache** peut être mis en œuvre dans les différentes couches d’une application web :
 
-- [![logo-spring-highres](/wp-content/uploads/2014/05/logo-spring-highres.png)](/wp-content/uploads/2014/05/logo-spring-highres.png) Persistance : utilisé comme cache de niveau 2 de JPA / Hibernate pour stocker des entités et le résultat des requêtes en base.
+- [![logo-spring-highres](wp-content/uploads/2014/05/logo-spring-highres.png)](wp-content/uploads/2014/05/logo-spring-highres.png) Persistance : utilisé comme cache de niveau 2 de JPA / Hibernate pour stocker des entités et le résultat des requêtes en base.
 - Service métier : mise en cache du résultat d’un service métier ou d’un appel de web service
 - Présentation : cache de pages ou de fragments de page HTML
 

@@ -5,8 +5,8 @@ categories:
   - maven
   - test
 date: "2014-03-04T09:27:15+00:00"
-thumbnail: /wp-content/uploads/2014/03/tester-code-javascript-webapp-logo.png
-featureImage: /wp-content/uploads/2014/03/tester-code-javascript-webapp-logo.png
+thumbnail: wp-content/uploads/2014/03/tester-code-javascript-webapp-logo.png
+featureImage: wp-content/uploads/2014/03/tester-code-javascript-webapp-logo.png
 featureImageAlt: "tester-code-javascript-webapp-logo"
 guid: http://javaetmoi.com/?p=995
 parent_post_id: null
@@ -19,7 +19,7 @@ summary: |-
 
   Ce code JavaScript n’est généralement pas documenté. Le tester manuellement demande du temps.  Les modifications sont sources d’erreur. Tout changement est donc périlleux. Si, à l’instar de vos tests JUnit pour vous classes Java, vous disposiez de **tests JavaScript**, vous en seriez comblés. Or, c’est précisément ce qu’il vous manque. Et c’est là où **Jasmine** et **son plugin maven** viennent à votre rescousse.
 
-  ![tester-code-javascript-webapp-logo](/wp-content/uploads/2014/03/tester-code-javascript-webapp-logo.png)
+  ![tester-code-javascript-webapp-logo](wp-content/uploads/2014/03/tester-code-javascript-webapp-logo.png)
 tags:
   - htmlunit
   - jasmine
@@ -33,7 +33,7 @@ title: Tester le code JavaScript de vos webapp Java
 url: /2014/03/tester-code-javascript-webapp-java/
 
 ---
-[![tester-code-javascript-webapp-logo](/wp-content/uploads/2014/03/tester-code-javascript-webapp-logo.png)](/wp-content/uploads/2014/03/tester-code-javascript-webapp-logo.png) Vous développez une **application web** en **Java**. Le couche présentation est assurée typiquement par un **framework MVC** situé côté **serveur** : Spring MVC, Struts 2, Tapestry ou bien encore JSF.  Votre projet est parfaitement industrialisé : infrastructure de build sous maven, intégration continue, tests unitaires, tests Selenium, analyse qualimétrique via Sonar.
+[![tester-code-javascript-webapp-logo](wp-content/uploads/2014/03/tester-code-javascript-webapp-logo.png)](wp-content/uploads/2014/03/tester-code-javascript-webapp-logo.png) Vous développez une **application web** en **Java**. Le couche présentation est assurée typiquement par un **framework MVC** situé côté **serveur** : Spring MVC, Struts 2, Tapestry ou bien encore JSF.  Votre projet est parfaitement industrialisé : infrastructure de build sous maven, intégration continue, tests unitaires, tests Selenium, analyse qualimétrique via Sonar.
 
 A priori, vous n’avez rien à envier à la richesse grandissante de l’écosystème JavaScript, de l’outillage et des frameworks MV\* côté clients. Et pourtant, quelque chose vous manque cruellement. En effet, depuis que RIA et Ajax se sont imposés, votre application Java contient davantage de code JavaScript qu’il y’a 10 ans. S’appuyant sur des librairies telles que jQuery ou Underscore, ce code JavaScript est typiquement embarqué dans votre **WAR**. Pour le valider, les développeurs doivent démarrer leur conteneur web et accéder à l’écran sur lequel le code est utilisé. Firebug ou Chrome sont alors vos meilleurs amis pour la mise au point du script.
 
@@ -59,7 +59,7 @@ Le fichier [PasswordSpec.js](https://github.com/arey/jasmine-test-webapp/blob/bi
 
 Le plugin pour maven **[jasmine-maven-plugin](http://searls.github.com/jasmine-maven-plugin/)** permet d’ **exécuter vos tests Jasmine**(aussi appelés **specs**) lors de la **phase de test** de votre **build maven**.
 
-[![tester-code-javascript-webapp-arbo](/wp-content/uploads/2014/03/tester-code-javascript-webapp-arbo.png)](/wp-content/uploads/2014/03/tester-code-javascript-webapp-arbo.png) Le **[pom.xml](https://github.com/arey/jasmine-test-webapp/blob/billet/pom.xml)** du projet **[jasmine-test-webapp](https://github.com/arey/jasmine-test-webapp)** donne un exemple de configuration du plugin. Pour mieux comprendre sa configuration, vous présenter l’organisation du projet est nécessaire.
+[![tester-code-javascript-webapp-arbo](wp-content/uploads/2014/03/tester-code-javascript-webapp-arbo.png)](wp-content/uploads/2014/03/tester-code-javascript-webapp-arbo.png) Le **[pom.xml](https://github.com/arey/jasmine-test-webapp/blob/billet/pom.xml)** du projet **[jasmine-test-webapp](https://github.com/arey/jasmine-test-webapp)** donne un exemple de configuration du plugin. Pour mieux comprendre sa configuration, vous présenter l’organisation du projet est nécessaire.
 
 L’arborescence du projet suit les conventions maven d’un war. Pages dynamiques et ressources statiques se trouvent dans le répertoire **_src/main/webapp_**.
 
@@ -126,7 +126,7 @@ Jasmine-maven-plugin permet de tirer parti cette fonctionnalité. A sa configura
 Le plugin [jasmine-maven-plugin](http://searls.github.io/jasmine-maven-plugin/) permet de développer en TDD sans avoir à lancer un clean test à chaque changement de code.
 La commande mvn jasmine:bdd  lance un serveur web qui scrute tout changement dans le répertoire du code JavaScript et des tests JavaScript. Rafraichir la fenêtre de son navigateur permet de réexécuter les tests.
 
-[![tester-code-javascript-webapp-bdd](/wp-content/uploads/2014/03/tester-code-javascript-webapp-bdd.png)](/wp-content/uploads/2014/03/tester-code-javascript-webapp-bdd.png)
+[![tester-code-javascript-webapp-bdd](wp-content/uploads/2014/03/tester-code-javascript-webapp-bdd.png)](wp-content/uploads/2014/03/tester-code-javascript-webapp-bdd.png)
 
 ## Couverture de tests
 
@@ -142,7 +142,7 @@ Configuration du saga-maven-plugin
 ```
 
 Des **rapports Cobertura** et **HTML** sont générés dans le sous-répertoire _target/coverage_ pendant la **phase verify** de maven :
-[![tester-code-javascript-webapp-saga](/wp-content/uploads/2014/03/tester-code-javascript-webapp-saga.png)](/wp-content/uploads/2014/03/tester-code-javascript-webapp-saga.png)
+[![tester-code-javascript-webapp-saga](wp-content/uploads/2014/03/tester-code-javascript-webapp-saga.png)](wp-content/uploads/2014/03/tester-code-javascript-webapp-saga.png)
 
 ## Utilisation de PhantomJS
 

@@ -4,8 +4,8 @@ author: admin
 categories:
   - test
 date: "2013-06-22T13:29:03+00:00"
-thumbnail: /wp-content/uploads/2013/06/deploiement-tests-selenium-autonomes.png
-featureImage: /wp-content/uploads/2013/06/deploiement-tests-selenium-autonomes.png
+thumbnail: wp-content/uploads/2013/06/deploiement-tests-selenium-autonomes.png
+featureImage: wp-content/uploads/2013/06/deploiement-tests-selenium-autonomes.png
 featureImageAlt: "Automatisation de lexécition de tests Selenium autonomes"
 guid: http://javaetmoi.com/?p=707
 parent_post_id: null
@@ -16,7 +16,7 @@ summary: |-
   Des tests qui échouent régulièrement à cause de données ayant été modifiées rendent laborieuse la détection de véritables **régressions**.
   Cet article propose une solution appliquée depuis 2 ans sur une application de taille modeste (35 000 LOC pour 20 écrans).
 
-  ![Automatisation de lexécition de tests Selenium autonomes](/wp-content/uploads/2013/06/deploiement-tests-selenium-autonomes.png)
+  ![Automatisation de lexécition de tests Selenium autonomes](wp-content/uploads/2013/06/deploiement-tests-selenium-autonomes.png)
 tags:
   - selenium
   - soa
@@ -47,7 +47,7 @@ Sur le même principe, s’affranchir des **éléments d’infrastructure** perm
 
 En pratique, les tests sont exécutés par une commande maven qui construit l’application, la démarre avec un profil Spring standalone (utilisation de l’infrastructure de test et activation des mocks) puis exécute les tests Selenium.  La base de données embarquée est initiée avec des données du référentiel. Si besoin est, des modifications spécifiques au scénario de tests peuvent être effectuées avec le démarrage d’un test.
 Le schéma suivant illustre l’application de ces différentes étapes :
-[![Automatisation de l'exécition de tests Selenium autonomes](/wp-content/uploads/2013/06/deploiement-tests-selenium-autonomes.png)](/wp-content/uploads/2013/06/deploiement-tests-selenium-autonomes.png)
+[![Automatisation de l'exécition de tests Selenium autonomes](wp-content/uploads/2013/06/deploiement-tests-selenium-autonomes.png)](wp-content/uploads/2013/06/deploiement-tests-selenium-autonomes.png)
 
 Cette typologie de test présente des avantages comme des inconvénients :
 **Avantages****Inconvénients**

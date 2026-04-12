@@ -9,10 +9,10 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - retour-d'expérience
-featureImage: /wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png
+featureImage: wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png
 featureImageAlt: 300px-Rendu_monnaie.svg
 date: "2017-07-01T08:07:45+00:00"
-thumbnail: /wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png
+thumbnail: wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png
 guid: http://javaetmoi.com/?p=1742
 parent_post_id: null
 post_id: "1742"
@@ -23,7 +23,7 @@ summary: |-
 
   Dans le cas d’un système monétaire non canonique, utiliser un [algorithme glouton](https://fr.wikipedia.org/wiki/Algorithme_glouton) ne donnera pas nécessairement un résultat optimal. Il est nécessaire de passer par la méthode algorithmique dite de [programmation dynamique](https://fr.wikipedia.org/wiki/Programmation_dynamique).
 
-  ![300px-Rendu_monnaie.svg](/wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png)
+  ![300px-Rendu_monnaie.svg](wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png)
 tags:
   - algorithme
   - java
@@ -31,7 +31,7 @@ title: Implémentation Java de l'algorithme de rendu de monnaie par programmatio
 url: /2017/07/algo-rendu-monnaie-programmation-dynamique-java/
 
 ---
-[![](/wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png)](/wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png) Dans ce billet, j’ai eu l’envie de vous partager mon implémentation Java du très célèbre [problème du rendu de monnaie](https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_rendu_de_monnaie) dont voici l’énoncé : étant donné un système de monnaie, comment rendre de façon optimale une somme donnée, c'est-à-dire avec le nombre minimal de pièces et de billets ?
+[![](wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png)](wp-content/uploads/2017/07/300px-Rendu_monnaie.svg_.png) Dans ce billet, j’ai eu l’envie de vous partager mon implémentation Java du très célèbre [problème du rendu de monnaie](https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_rendu_de_monnaie) dont voici l’énoncé : étant donné un système de monnaie, comment rendre de façon optimale une somme donnée, c'est-à-dire avec le nombre minimal de pièces et de billets ?
 Par exemple, dans le système monétaire de l’Euro, la manière la plus optimale de rendre 6 euros consiste à rendre un billet de 5 € et une pièce de 1 €, même si d’autres combinaisons existent (ex : 3 x 2 € ou 6 x 1 €).
 
 Dans le cas d’un système monétaire non canonique, utiliser un [algorithme glouton](https://fr.wikipedia.org/wiki/Algorithme_glouton) ne donnera pas nécessairement un résultat optimal. Il est nécessaire de passer par la méthode algorithmique dite de [programmation dynamique](https://fr.wikipedia.org/wiki/Programmation_dynamique).

@@ -5,8 +5,8 @@ author: admin
 categories:
   - conférence
 date: "2016-07-04T17:09:05+00:00"
-thumbnail: /wp-content/uploads/2016/06/Didier-Girard-à-la-formation-Google.jpg
-featureImage: /wp-content/uploads/2016/06/Didier-Girard-à-la-formation-Google.jpg
+thumbnail: wp-content/uploads/2016/06/Didier-Girard-à-la-formation-Google.jpg
+featureImage: wp-content/uploads/2016/06/Didier-Girard-à-la-formation-Google.jpg
 featureImageAlt: "Didier Girard à la formation Google"
 guid: http://javaetmoi.com/?p=1618
 parent_post_id: null
@@ -44,7 +44,7 @@ Large, la gamme de services Google Cloud Platform est répartie en 4 offres :
 
 Cet article se focalisera sur l’ **offre Compute**. Mais avant d’aller plus loin, arrêtons-nous un moment sur ce qui est l’une des forces de la plateforme Cloud de Google : son infrastructure.
 
-![Didier Girard à la formation Google](/wp-content/uploads/2016/06/Didier-Girard-à-la-formation-Google.jpg)
+![Didier Girard à la formation Google](wp-content/uploads/2016/06/Didier-Girard-à-la-formation-Google.jpg)
 
 ## L’Infrastructure de Google
 

@@ -4,8 +4,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2013-11-15T19:35:01+00:00"
-thumbnail: /wp-content/uploads/2013/11/logo-musicbrainz.jpg
-featureImage: /wp-content/uploads/2013/11/logo-musicbrainz.jpg
+thumbnail: wp-content/uploads/2013/11/logo-musicbrainz.jpg
+featureImage: wp-content/uploads/2013/11/logo-musicbrainz.jpg
 featureImageAlt: "logo-musicbrainz"
 guid: http://javaetmoi.com/?p=782
 parent_post_id: null
@@ -20,7 +20,7 @@ summary: |-
 
   Cet article a pour objectif de décrire les différentes étapes qui m’ont été nécessaires pour réaliser ma démo et d’expliquer ce que j’ai librement rendu accessible sur [GitHub](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/core/batch/item/EsDocumentWriter.java) et [Internet](http://musicsearch.javaetmoi.com/).
 
-  ![logo-musicbrainz](/wp-content/uploads/2013/11/logo-musicbrainz.jpg)
+  ![logo-musicbrainz](wp-content/uploads/2013/11/logo-musicbrainz.jpg)
 tags:
   - angularjs
   - cloud
@@ -31,7 +31,7 @@ title: Elastifiez la base MusicBrainz sur OpenShift
 url: /2013/11/musicbrainz-elasticsearch-angularjs-openshift/
 
 ---
-{{< figure src="/wp-content/uploads/2013/11/logo-musicbrainz.jpg" alt="logo-musicbrainz" caption="logo-musicbrainz" >}}
+{{< figure src="wp-content/uploads/2013/11/logo-musicbrainz.jpg" alt="logo-musicbrainz" caption="logo-musicbrainz" >}}
 
 Pour les besoins d’un workshop sur Elasticsearch, je me suis amusé à **indexer une encyclopédie musicale** et à mettre en ligne une petite **application HTML 5** permettant de réaliser des **recherches**.
 
@@ -45,7 +45,7 @@ Cet article a pour objectif de décrire les différentes étapes qui m’ont ét
 
 Le diagramme suivant présente l’architecture mise en place.
 
-{{< figure src="/wp-content/uploads/2013/11/2013-11-musicbrainz-elastique.png" alt="batch-indexation-musicbrainz" caption="batch-indexation-musicbrainz" >}}
+{{< figure src="wp-content/uploads/2013/11/2013-11-musicbrainz-elastique.png" alt="batch-indexation-musicbrainz" caption="batch-indexation-musicbrainz" >}}
 
 Un batch d’indexation se connecte via JDBC à la base de données de MusicBrainz et indexe les albums de musique dans Elasticsearch. Une application HTML 5 permet d’interroger l’index Elasticsearch.
 
@@ -59,7 +59,7 @@ Parce que la base PostgreSQL du sites MusicBrainz.org n’est pas accessible dep
 
 Pour ma part, j’ai opté pour la solution la plus simple : installer une VM. Disponible au format OVA, elle peut être déployée aussi bien dans VirtualBox ou que dans VMWare. Le [guide d’installation de la VM](http://musicbrainz.org/doc/MusicBrainz_Server/Setup) terminé, 2 étapes seront ensuite nécessaires pour que le host puisse accéder à la base PostgreSQL :
 
-1. _[![2013-11-virtualbox-musicbrainz-nat](/wp-content/uploads/2013/11/2013-11-virtualbox-musicbrainz-nat.png)](/wp-content/uploads/2013/11/2013-11-virtualbox-musicbrainz-nat.png)_**Configurer la redirection de port** : VirtualBox permet de rediriger les connexions TCP établies sur un port de l’host vers un autre port de la VM. La base PostgreSQL écoutant sur le port 5432, la règle suivante peut être ajoutée via l’interface de VirtualBox : _PostgreSQL database - TCP - host : 5432 / guest : 5432_
+1. _[![2013-11-virtualbox-musicbrainz-nat](wp-content/uploads/2013/11/2013-11-virtualbox-musicbrainz-nat.png)](wp-content/uploads/2013/11/2013-11-virtualbox-musicbrainz-nat.png)_**Configurer la redirection de port** : VirtualBox permet de rediriger les connexions TCP établies sur un port de l’host vers un autre port de la VM. La base PostgreSQL écoutant sur le port 5432, la règle suivante peut être ajoutée via l’interface de VirtualBox : _PostgreSQL database - TCP - host : 5432 / guest : 5432_
 1. **Configurer PostgreSQL**: par mesure de sécurité, la base PostgreSQL ne permet pas d’accès distant. Pour que le batch exécuté depuis l’OS hôte puisse s’y connecter, [ces instructions](http://www.cyberciti.biz/tips/postgres-allow-remote-access-tcp-connection.html) doivent être suivies. Démarrer la VM, s’y connecter (login : vm / musicbrainz) et éditer les 2 fichiers de configuration _ph\_hba.conf_ et _postgresql.conf_.
 
 Depuis l’hôte, il est à présent possible de se connecter à la base à partir de n’importe quel client SQL (SQuireL, pgAdmin …). Utiliser les paramètres de connexion suivants :
@@ -651,7 +651,7 @@ Quelques minutes plus tard, quelques **265 169 albums sont indexés**.
 
 Pour exploiter l’index nouvellement créé, rien de tel qu’une petite interface en HTML 5. Pour se faire, [Lucian Precup](https://twitter.com/lucianprecup) m’a autorisé à adapter une page qu’il avait mis au point dans le cadre de l’atelier [Construisons un moteur de recherche](http://agenda2013.scrumday.fr/event/149) tenu lors de la Scrum Day 2013. Réalisée en **AngularJS**, jQuery et Boostrap, cette page propose une zone de recherche full-text, offre de l’autosuggestion et affiche le résultat de recherche de manière paginée. Quelques filtres et directives Angular ont été ajoutés pour, par exemple, gérer les appréciations des mélomanes.  La capture d’écran  ci-dessous donne un aperçu du rendu graphique :
 
-[![workshop-demo-screenshot](/wp-content/uploads/2013/11/2013-11-search-gui-screenshot.png)](/wp-content/uploads/2013/11/2013-11-search-gui-screenshot.png)  
+[![workshop-demo-screenshot](wp-content/uploads/2013/11/2013-11-search-gui-screenshot.png)](wp-content/uploads/2013/11/2013-11-search-gui-screenshot.png)  
 Déployée sur OVH, l’application Angular est accessible à l’adresse **[http://musicsearch.javaetmoi.com/](http://musicsearch.javaetmoi.com/)**
 
 ## Requêtes de recherche
@@ -821,7 +821,7 @@ Voici un extrait du résultat retourné par Elasticsearch :
 ## Dans le Cloud avec OpenShift
 
 A la recherche d’un hébergeur me permettant d’installer mon index en ligne, je suis tombé sur le billet [Searching with ElasticSearch on OpenShift](https://www.openshift.com/blogs/searching-with-elasticsearch-on-openshift) de Marek Jelen, évangéliste **OpenShift**. C’était l’occasion de découvrir l’offre **Cloud de RedHat**, et cela sans sortir ma carte bancaire. En effet, OpenShift offre 3 Gems limitées à 512 Mo de RAM et de 1 Go d’espace disque. Avec un index de 160 Mo, c’était amplement suffisant.  
-[![Elasticsearch et Nginx sur OpenShift](/wp-content/uploads/2013/11/2013-11-musicbrainz-openshift.png)](/wp-content/uploads/2013/11/2013-11-musicbrainz-openshift.png)
+[![Elasticsearch et Nginx sur OpenShift](wp-content/uploads/2013/11/2013-11-musicbrainz-openshift.png)](wp-content/uploads/2013/11/2013-11-musicbrainz-openshift.png)
 
 Les explications du billet sont claires. Parti du cartouche **_Do-It-Yourself 0.1_** contenant une simple distribution Linux, l’installation d’Elasticsearch se fait classiquement. Des variables systèmes prédéfinies doivent être utilisées pour spécifier l’adresse IP (OPENSHIFT\_DIY\_IP), le port HTTP (OPENSHIFT\_DIY\_PORT) et le répertoire d’installation (OPENSHIFT\_DATA\_DIR).  
 Si vous le souhaitez, l’installation des plugins [eshead](http://mobz.github.io/elasticsearch-head/) et [bigdesk](https://github.com/lukas-vlcek/bigdesk/) est possible.
@@ -831,7 +831,7 @@ Afin de résoudre l’exception _BindException\[Address already in use\]_ au dé
 Une fois Elasticsearch démarré, seul le port HTTP est accessible depuis Internet. C’est le port utilisé par l’IHM de recherche. Le port utilisé par le client TCP Elastisearch n’est quant à lui pas accessible. Le Batch d’indexation s’exécutant en local ne peut donc pas alimenter directement le cluster Elasticsearch. Par facilité, je me suis contenté d’uploader par SFTP mon index local (répertoire data\\musicbrainz)  sur le serveur OpenShift.  
 Un redémarrage d’Elasticsearch et l’index est visible via Eshead :
 
-{{< figure src="/wp-content/uploads/2013/11/2013-11-musicbrainz-eshead.png" alt="Index musicbrainz vu dans Eshead" caption="Index musicbrainz vu dans Eshead" >}}
+{{< figure src="wp-content/uploads/2013/11/2013-11-musicbrainz-eshead.png" alt="Index musicbrainz vu dans Eshead" caption="Index musicbrainz vu dans Eshead" >}}
 
 Le [plugin Jetty](https://github.com/sonian/elasticsearch-jetty) pour Elasticsearch et le [cartouche Nginx](http://cartreflect-claytondev.rhcloud.com/reflect?github=gsterjov/openshift-nginx-cart#nginx) pour OpenShift permettent de **sécuriser** l’accès au serveur Elasticsearch, rendant possible la configuration d’un reverse proxy avec authentification basic HTTP.
 

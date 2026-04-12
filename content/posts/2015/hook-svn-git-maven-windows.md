@@ -4,8 +4,8 @@ author: admin
 categories:
   - maven
 date: "2015-01-13T06:29:47+00:00"
-thumbnail: /wp-content/uploads/2014/12/logo-maven.gif
-featureImage: /wp-content/uploads/2014/12/logo-maven.gif
+thumbnail: wp-content/uploads/2014/12/logo-maven.gif
+featureImage: wp-content/uploads/2014/12/logo-maven.gif
 featureImageAlt: "logo-maven"
 guid: http://javaetmoi.com/?p=1286
 parent_post_id: null
@@ -18,7 +18,7 @@ summary: |-
   Pour contrer tout oubli, il est possible de systématiser l’exécution du build Maven avant de commiter. Les outils de gestion de configuration SVN et Git offrent un mécanisme de hook. Lors de la phase de pre-commit, on va demander au SCM d’exécuter un script de hook chargé de vérifier le code source. En cas d’erreur, le commit est refusé.
   Ecrire de tels scripts n’est pas compliqué sous Linux car beaucoup d’exemples existent. Par contre, **sous Windows**, c’est plus rare. **L’objet d** **e cet article est donc de vous donner des exemples de scripts de hook de pre-commit et de vous expliquer comment les configurer dans Tortoise SVN et Git.**
 
-  ![logo-maven](/wp-content/uploads/2014/12/logo-maven.gif)
+  ![logo-maven](wp-content/uploads/2014/12/logo-maven.gif)
 tags:
   - git
   - maven
@@ -27,7 +27,7 @@ title: Hook SVN et Git pour Maven sous Windows
 url: /2015/01/hook-svn-git-maven-windows/
 
 ---
-[![logo-maven](/wp-content/uploads/2014/12/logo-maven.gif)](/wp-content/uploads/2014/12/logo-maven.gif) Désormais ancrées dans le quotidien des développeurs, les plateformes d’ **intégration continue** permettent de détecter rapidement tout problème de compilation, de tests en erreur ou même d’ [ajout de défauts remontés par SonarQube](http://www.sonarqube.org/analysis-vs-preview-vs-incremental-preview-in-sonarqube/). L’objectif fixé par le team leader est de ne pas faire échouer le build et, si c’est malheureusement le cas, tout arrêter pour le réparer. Sur certains projets, le gage donné au développeur ayant cassé le build est de ramener les viennoiseries le lendemain.
+[![logo-maven](wp-content/uploads/2014/12/logo-maven.gif)](wp-content/uploads/2014/12/logo-maven.gif) Désormais ancrées dans le quotidien des développeurs, les plateformes d’ **intégration continue** permettent de détecter rapidement tout problème de compilation, de tests en erreur ou même d’ [ajout de défauts remontés par SonarQube](http://www.sonarqube.org/analysis-vs-preview-vs-incremental-preview-in-sonarqube/). L’objectif fixé par le team leader est de ne pas faire échouer le build et, si c’est malheureusement le cas, tout arrêter pour le réparer. Sur certains projets, le gage donné au développeur ayant cassé le build est de ramener les viennoiseries le lendemain.
 Pour être certain de ne pas faire chauffer sa carte de paiement, **une bonne pratique consiste à exécuter une ligne de commande maven (ou gradle) avant chaque commit dans le gestionnaire de code source**. Cependant, sur certains changements que l’on juge mineur, il peut être tentant de passer outre. Aujourd’hui, les PC ou les Mac multi-coeurs avec SSD permettent de lancer un build sans freezer le poste de développement. C’est donc davantage par excès de confiance qu’à cause du temps d’attente qu’il arrive de casser Jenkins, Bamboo ou bien encore TeamCity.
 
 Pour contrer tout oubli, il est possible de systématiser l’exécution du build Maven avant de commiter. Les outils de gestion de configuration SVN et Git offrent un mécanisme de hook. Lors de la phase de pre-commit, on va demander au SCM d’exécuter un script de hook chargé de vérifier le code source. En cas d’erreur, le commit est refusé.
@@ -35,7 +35,7 @@ Ecrire de tels scripts n’est pas compliqué sous Linux car beaucoup d’exempl
 
 ## Hook SVN
 
- [![logo-svn](/wp-content/uploads/2014/12/logo-svn.png)](/wp-content/uploads/2014/12/logo-svn.png) Deux types de hook existent dans Subversion : des hooks clients et des hooks serveurs.
+ [![logo-svn](wp-content/uploads/2014/12/logo-svn.png)](wp-content/uploads/2014/12/logo-svn.png) Deux types de hook existent dans Subversion : des hooks clients et des hooks serveurs.
 Pour ne pas transformer le serveur SVN en serveur d’intégration continue, ce sont les hooks clients qui vont ici nous intéresser.
 Le script appelé par le hook n’est rien d’autre qu’un .bat.
 L’exemple de script _pre-commit.bat_ ci-dessous est localisé dans le même répertoire que le POM reactor du projet. Un pré-requis est que Maven et Java sont dans le PATH de Windows.
@@ -66,7 +66,7 @@ Etapes de configuration du mode global :
    - Woking copy path : chemin vers le pom parent de l'application
    - Command line to execute : pre-commit.bat
 
-**[![2014-12-hook-maven-git-svn-sous-windows-svn-hook-global-config](/wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-global-config.jpg)](/wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-global-config.jpg)** Etapes de configuration du mode local :
+**[![2014-12-hook-maven-git-svn-sous-windows-svn-hook-global-config](wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-global-config.jpg)](wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-global-config.jpg)** Etapes de configuration du mode local :
 
 1. Sélectionner le répertoire racine du projet SVN
 1. Ouvrir le menu contextuel et sélectionner le menu _TortoiseSVN > Properties_
@@ -80,11 +80,11 @@ Etapes de configuration du mode global :
       1. Apply property recursively
 1. Commiter ces modifications de manière récursive sur l'ensemble des sous répertoires du projet SVN
 
-[![2014-12-hook-maven-git-svn-sous-windows-svn-hook-local-properties](/wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-local-properties.png)](/wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-local-properties.png) Remarque : les hooks clients sont une fonctionnalité propre à TortoiseSVN. De ce fait, le client en ligne de commande _svn.exe_ ou bien encore le plugin Subversive d’Eclipse ne reconnaissent pas la propriété _tsvn:precommithook_.
+[![2014-12-hook-maven-git-svn-sous-windows-svn-hook-local-properties](wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-local-properties.png)](wp-content/uploads/2014/12/2014-12-hook-maven-git-svn-sous-windows-svn-hook-local-properties.png) Remarque : les hooks clients sont une fonctionnalité propre à TortoiseSVN. De ce fait, le client en ligne de commande _svn.exe_ ou bien encore le plugin Subversive d’Eclipse ne reconnaissent pas la propriété _tsvn:precommithook_.
 
 ## Hook Git
 
- [![logo-git](/wp-content/uploads/2014/12/logo-git.jpg)](/wp-content/uploads/2014/12/logo-git.jpg) Git appartenant à la catégorie des DVCS, il n’existe pas de hook server. La configuration s’effectue donc au niveau du repository Git local. Les scripts de hook sont à positionner dans le sous-répertoire _.git\\hooks_. Par défaut, ce répertoire contient des exemples post-fixés par l’extension _.sample_. Le nom des scripts est conventionné et correspond au nom de la phase à laquelle il est exécuté. Ainsi, le script de hook exécuté avant le commit se nomme **_pre-commit_**.
+ [![logo-git](wp-content/uploads/2014/12/logo-git.jpg)](wp-content/uploads/2014/12/logo-git.jpg) Git appartenant à la catégorie des DVCS, il n’existe pas de hook server. La configuration s’effectue donc au niveau du repository Git local. Les scripts de hook sont à positionner dans le sous-répertoire _.git\\hooks_. Par défaut, ce répertoire contient des exemples post-fixés par l’extension _.sample_. Le nom des scripts est conventionné et correspond au nom de la phase à laquelle il est exécuté. Ainsi, le script de hook exécuté avant le commit se nomme **_pre-commit_**.
 Sous Windows, **Msysgit** est le client Git le plus populaire. Basé sur les utilitaires [Msys](http://www.mingw.org/wiki/MSYS), le script ne doitpas être écrit en script batch comme c’est le cas avec SVN, mais en bash Linux.
 
 Voici un exemple de sript shell _pre-commit_ :

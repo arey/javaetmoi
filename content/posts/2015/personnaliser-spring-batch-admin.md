@@ -4,8 +4,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2015-06-23T19:15:14+00:00"
-thumbnail: /wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg
-featureImage: /wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg
+thumbnail: wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg
+featureImage: wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg
 featureImageAlt: "spring-batch-admin-screenshot"
 guid: http://javaetmoi.com/?p=1410
 parent_post_id: null
@@ -25,7 +25,7 @@ summary: |-
   - Router un message en fonction du résultat de l’exécution d’un job
   - Ajouter un contrôleur REST
 
-  ![spring-batch-admin-screenshot](/wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg)
+  ![spring-batch-admin-screenshot](wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg)
 tags:
   - spring-batch
   - spring-integration
@@ -33,7 +33,7 @@ title: Personnaliser Spring Batch Admin
 url: /2015/06/personnaliser-spring-batch-admin/
 
 ---
-[![spring-batch-admin-screenshot](/wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg)](/wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg) Pour rappel, **Spring Batch Admin** est une **console de supervision des traitements par lots implémentés avec Spring Batch**. En plus d'un **frontal web**, elle offre une **API JSON** et expose des métriques via JMX.
+[![spring-batch-admin-screenshot](wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg)](wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg) Pour rappel, **Spring Batch Admin** est une **console de supervision des traitements par lots implémentés avec Spring Batch**. En plus d'un **frontal web**, elle offre une **API JSON** et expose des métriques via JMX.
 Bien que dépendant du projet Spring Batch, Spring Batch Admin dispose de [son propre repo GitHub](https://github.com/spring-projects/spring-batch-admin) et de son propre cycle de vie. Cet article se base sur la [version 2.0.0.M1 sortie en janvier 2015.](https://spring.io/blog/2015/01/16/spring-batch-and-spring-batch-admin-releases) Développé en Spring MVC et composé de 3 JARs, Spring Batch Admin peut aussi bien être intégrée dans une application existante que déployée dans son propre WAR.
 
 Ouvert aux extensions, Spring Batch Admin a tout pour devenir un véritable **serveur de batchs** : monitoring, chargement et mise à jour à chaud de la configuration des jobs, ordonnancement, exécution de jobs sur réception de fichiers …

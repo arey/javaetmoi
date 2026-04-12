@@ -4,8 +4,8 @@ author: admin
 categories:
   - maven
 date: "2016-11-08T16:22:45+00:00"
-thumbnail: /wp-content/uploads/2016/11/docker-logo.png
-featureImage: /wp-content/uploads/2016/11/docker-logo.png
+thumbnail: wp-content/uploads/2016/11/docker-logo.png
+featureImage: wp-content/uploads/2016/11/docker-logo.png
 featureImageAlt: "docker-logo"
 guid: http://javaetmoi.com/?p=1651
 parent_post_id: null
@@ -19,7 +19,7 @@ summary: |-
   1. Comment l’image Docker a été construire
   2. Et comment l’utiliser pour tester Petclinic
 
-  ![docker-logo](/wp-content/uploads/2016/11/docker-logo.png)
+  ![docker-logo](wp-content/uploads/2016/11/docker-logo.png)
 tags:
   - docker
   - maven
@@ -28,7 +28,7 @@ title: Image Docker pour Spring Boot Petclinic
 url: /2016/11/image-docker-pour-spring-boot-petclinic/
 
 ---
-![docker-logo](/wp-content/uploads/2016/11/docker-logo.png)Par le passé, j’ai publié 2 images Docker sur le registre **Docker Hub**, l’équivalent du Maven Central Repository pour Docker : un [client MySQL](https://hub.docker.com/r/arey/mysql-client/) et [une base PostgreSQL MusicBrainz](https://hub.docker.com/r/arey/musicbrainz-database/). Ces images étaient construites puis publiées automatiquement à partir d’un dépôt GitHub contenant un Dockerfile et, éventuellement, un script Shell.
+![docker-logo](wp-content/uploads/2016/11/docker-logo.png)Par le passé, j’ai publié 2 images Docker sur le registre **Docker Hub**, l’équivalent du Maven Central Repository pour Docker : un [client MySQL](https://hub.docker.com/r/arey/mysql-client/) et [une base PostgreSQL MusicBrainz](https://hub.docker.com/r/arey/musicbrainz-database/). Ces images étaient construites puis publiées automatiquement à partir d’un dépôt GitHub contenant un Dockerfile et, éventuellement, un script Shell.
 
 Plus récemment, j’ai souhaité mettre à disposition une **image Docker de l’** [**application Spring Petclinic basée sur Angular 1 et Spring Boot.**](https://github.com/spring-petclinic/spring-petclinic-angular1) Ce billet explique :
 

@@ -4,8 +4,8 @@ author: admin
 categories:
   - conférence
 date: "2015-11-13T13:00:47+00:00"
-thumbnail: /wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg
-featureImage: /wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg
+thumbnail: wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg
+featureImage: wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg
 featureImageAlt: "elasticon-patis-2015-keynote"
 guid: http://javaetmoi.com/?p=1480
 parent_post_id: null
@@ -18,7 +18,7 @@ summary: |-
 
   [![elasticon-patis-2015-keynote](http://javaetmoi.com/wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg)](http://javaetmoi.com/wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg)
 
-  ![elasticon-patis-2015-keynote](/wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg)
+  ![elasticon-patis-2015-keynote](wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg)
 tags:
   - bigdata
   - elasticsearch
@@ -33,7 +33,7 @@ Sur les 12 représentations mondiales, la 3ième date de la tournée européenne
 
 Invité par la société [Adelean](http://adelean.com/), j’ai pu y participé. Pour toutes celles et ceux qui n’ont pas eu cette chance, ce billet me permet de vous faire partager cette journée.
 
-[![elasticon-patis-2015-keynote](/wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg)](/wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg)
+[![elasticon-patis-2015-keynote](wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg)](wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg)
 
 # Plongée dans le produit et la roadmap
 

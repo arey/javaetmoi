@@ -4,8 +4,8 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2014-03-24T18:26:20+00:00"
-thumbnail: /wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png
-featureImage: /wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png
+thumbnail: wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png
+featureImage: wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png
 featureImageAlt: "Architecture JBoss Messaging"
 guid: http://javaetmoi.com/?p=1019
 parent_post_id: null
@@ -22,7 +22,7 @@ summary: |-
 
   [![Architecture JBoss Messaging](http://javaetmoi.com/wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png)](http://javaetmoi.com/wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png)
 
-  ![Architecture JBoss Messaging](/wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png)
+  ![Architecture JBoss Messaging](wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png)
 tags:
   - bug
   - jboss
@@ -40,13 +40,13 @@ Pour fil conducteur, prenons l’exemple d’une application Java EE déployée 
 
 JBoss Messaging supportant le **multi-tenancy**, cet article explique comment mettre en œuvre la 2ième solution.
 
-[![Architecture JBoss Messaging](/wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png)](/wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png)
+[![Architecture JBoss Messaging](wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png)](wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png)
 
 ## Solution
 
 Le [manuel d’administration de JBoss Messaging](https://access.redhat.com/site/documentation/en-US/JBoss_Enterprise_Application_Platform_Common_Criteria_Certification/5/html/JBoss_Messaging_User_Guide/) explique clairement comment configurer JBoss Messaging en cluster ; les files JMS sont alors partagées pour tous les serveurs JBoss du même cluster. Par contre, elle reste évasive sur l’utilisation d’une même base de données pour plusieurs serveurs qui ne seraient pas en cluster.
 
-[![2014-04-jboss-messaging-meme-schema-tables-jbm](/wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema-tables-jbm.jpg)](/wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema-tables-jbm.jpg) Techniquement, les files JMS et leurs messages sont sauvegardées dans un ensemble de 11 tables, préfixées par le trigramme JBM\_.
+[![2014-04-jboss-messaging-meme-schema-tables-jbm](wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema-tables-jbm.jpg)](wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema-tables-jbm.jpg) Techniquement, les files JMS et leurs messages sont sauvegardées dans un ensemble de 11 tables, préfixées par le trigramme JBM\_.
 Notre objectif est que la source de données dédiée à JBoss Messaging soit la même pour tous les serveurs. Ces tables sont ainsi partagées par l’ensemble des serveurs JBoss.
 
 Sans paramétrage particulier, l’émission simultanée de plusieurs messages JMS à partir de serveurs différents génère les warnings suivants :

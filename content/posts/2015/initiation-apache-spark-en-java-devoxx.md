@@ -5,8 +5,8 @@ author: admin
 categories:
   - conférence
 date: "2015-04-14T04:28:48+00:00"
-thumbnail: /wp-content/uploads/2015/04/spark-logo.png
-featureImage: /wp-content/uploads/2015/04/spark-logo.png
+thumbnail: wp-content/uploads/2015/04/spark-logo.png
+featureImage: wp-content/uploads/2015/04/spark-logo.png
 featureImageAlt: "spark-logo"
 guid: http://javaetmoi.com/?p=1343
 parent_post_id: null
@@ -25,7 +25,7 @@ summary: |-
   2. [Les jeu de données](http://javaetmoi.com/wp-content/uploads/2016/01/initiation-apache-spark-data.zip) au format CSV et JSON nécessaires pour le Lab
   3. La [configuration maven pour Java ou sbt pour Scala](http://javaetmoi.com/wp-content/uploads/2016/01/initiation-apache-spark-build.zip).
 
-  ![spark-logo](/wp-content/uploads/2015/04/spark-logo.png)
+  ![spark-logo](wp-content/uploads/2015/04/spark-logo.png)
 tags:
   - bigdata
   - devoxx
@@ -37,7 +37,7 @@ title: Initiation à Apache Spark avec Java
 url: /2015/04/initiation-apache-spark-en-java-devoxx/
 
 ---
-[![spark-logo](/wp-content/uploads/2015/04/spark-logo.png)](/wp-content/uploads/2015/04/spark-logo.png)
+[![spark-logo](wp-content/uploads/2015/04/spark-logo.png)](wp-content/uploads/2015/04/spark-logo.png)
 
 En cette édition 2015 de Devoxx France, [**Apache Spark**](https://spark.apache.org/) est l’une des technologies qui se démarque, comme le furent Docker et Java 8 en 2014 ou AngularJS en 2013. Connu pour être le digne successeur d’Hadoop, le framework Spark fait partie des [outils Big-Data que j’ai découvert lors de la conférence NoSQL Matters 2015](/2015/03/nosql-matters-paris-2015/).
 
@@ -45,9 +45,9 @@ Présenté par Hayssam Saleh et Olivier Girardot, [le Hands-on-Lab « Initiation
 
 Si vous n’avez pas eu la chance de pouvoir assister à ce Lab, toutes les ressources utilisées lors du Lab ont été mises en lignes pour le suivre en offline (ou le terminer à la maison).
 
-1. Un [gitbook Initiation à Spark avec Java 8 et Scala](/wp-content/uploads/2015/04/initiation-a-spark-avec-java-8-et-scala.pdf).  Avec ses 33 pages, ce livre contient à la fois la présentation réalisée en séance par les speakers ainsi que les intitulés des exercices.
-1. [Les jeu de données](/wp-content/uploads/2016/01/initiation-apache-spark-data.zip) au format CSV et JSON nécessaires pour le Lab
-1. La [configuration maven pour Java ou sbt pour Scala](/wp-content/uploads/2016/01/initiation-apache-spark-build.zip).
+1. Un [gitbook Initiation à Spark avec Java 8 et Scala](wp-content/uploads/2015/04/initiation-a-spark-avec-java-8-et-scala.pdf).  Avec ses 33 pages, ce livre contient à la fois la présentation réalisée en séance par les speakers ainsi que les intitulés des exercices.
+1. [Les jeu de données](wp-content/uploads/2016/01/initiation-apache-spark-data.zip) au format CSV et JSON nécessaires pour le Lab
+1. La [configuration maven pour Java ou sbt pour Scala](wp-content/uploads/2016/01/initiation-apache-spark-build.zip).
 
 Bien qu’ayant particulièrement bien préparés leur présentation, Hayssam et Olivier ont surestimé la vélocité de leur auditoire. Nous n’avons en effet eu le temps que de coder 3 des 9 workshops prévus initialement. Les présentateurs ont donné aux participants le choix d’utiliser Java 8 ou Scala. La grande majorité de l’assistance a choisi Java ; ce fut également mon cas.
 Dans ce billet, je compte vous restituer ce que j’ai appris au cours de ces 3h de Lab. Je vous relaierai les **bonnes pratiques** dispensées par Hayssam qui a récemment passé la certification Spark. Pour vous aider, j’ai publié le code Java sur le projet [github initiation-spark-java](https://github.com/arey/initiation-spark-java).

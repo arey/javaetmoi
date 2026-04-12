@@ -7,8 +7,8 @@ categories:
   - retour-d'expérience
   - spring
 date: "2025-04-13T16:55:14+00:00"
-thumbnail: /wp-content/uploads/2025/04/word-image-2443-1.png
-featureImage: /wp-content/uploads/2025/04/word-image-2443-1.png
+thumbnail: wp-content/uploads/2025/04/word-image-2443-1.png
+featureImage: wp-content/uploads/2025/04/word-image-2443-1.png
 footnotes: ""
 guid: https://javaetmoi.com/?p=2443
 parent_post_id: null
@@ -34,7 +34,7 @@ Le changement majeur aura été de porter le templating des pages HTML de **Thym
 
 Débutant en Quarkus, le code proposé ne respecte peut-être pas toutes les règles de l’art prônées par l’équipe de dév Quarkus. Je m’en excuse par avance. Si vous voulez contribuer et corriger le tir : [issue](https://github.com/spring-petclinic/quarkus-spring-petclinic/issues) et [Pull Request](https://github.com/spring-petclinic/quarkus-spring-petclinic/pulls) sont les bienvenues.
 
-{{< figure src="/wp-content/uploads/2025/04/word-image-2443-1.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2025/04/word-image-2443-1.png" alt="" caption="" >}}
 
 Le [différenciel complet](https://github.com/spring-petclinic/quarkus-spring-petclinic/compare/spring-boot-version...v3.21.0) entre la version Spring Boot et la version Quarkus de Petclinic peut-être visualisé sur Github.
 
@@ -139,7 +139,7 @@ Cette différence de comportement s’explique par le fait que Quarkus utilise H
 
 En attendant de trouver une solution, j’ai modifié le script SQL en précisant le nom des colonnes dans l’instruction INSERT, ce qui est une bonne pratique :
 
-{{< figure src="/wp-content/uploads/2025/04/word-image-2443-2.png" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2025/04/word-image-2443-2.png" alt="" caption="" >}}
 
 ## Portage des tests AssertJ vers Hamcrest
 

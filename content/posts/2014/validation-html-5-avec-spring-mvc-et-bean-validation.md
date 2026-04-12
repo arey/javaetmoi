@@ -4,8 +4,8 @@ author: admin
 categories:
   - spring
 date: "2014-09-16T06:40:53+00:00"
-thumbnail: /wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png
-featureImage: /wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png
+thumbnail: wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png
+featureImage: wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png
 featureImageAlt: "Logo HTML 5"
 guid: http://javaetmoi.com/?p=1199
 parent_post_id: null
@@ -19,7 +19,7 @@ summary: |-
   Dans une application web **, valider les écrans de saisie côté client** permet de donner un retour rapide à l’utilisateur. Avant HTML 5, le développeur web était bien démuni pour implémenter ces contrôles de surface sur le Navigateur. Certes, HTML 4 permettait de spécifier la taille max des champs de saisie (balise _maxLength_) et leur caractère obligatoire ou non (balise _required_). Les autres contrôles effectués côté serveur étaient alors bien souvent recodés en JavaScript à l’aide de jQuery, de CSS et de quelques plugins.
   Aujourd’hui, HTML 5 se démocratise et le code JavaScript de validation devrait bientôt s’alléger drastiquement. En effet, cette spécification permet de standardiser la validation des champs de saisie côté client. Le développeur a désormais la possibilité de spécifier le type de champs (ex : nombre, date, URL …), des valeurs min et max ou bien encore un pattern de validation à l’aide d’une expression régulière.
 
-  ![Logo HTML 5](/wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png)
+  ![Logo HTML 5](wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png)
 tags:
   - bean-validation
   - hibernate
@@ -31,7 +31,7 @@ title: Validation HTML 5 avec Spring MVC et Bean Validation
 url: /2014/09/validation-html-5-avec-spring-mvc-et-bean-validation/
 
 ---
-[![Logo HTML 5](/wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png)](/wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png)
+[![Logo HTML 5](wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png)](wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png)
 
 Cet article explique comment **étendre Spring MVC pour générer le code HTML 5** **des champs de saisie** (input fields) à partir des **annotations Bean Validation** (JSR 330) apposées sur des Entités ou de simples DTO.
 
@@ -43,7 +43,7 @@ Aujourd’hui, HTML 5 se démocratise et le code JavaScript de validation devrai
 Dans l’exemple ci-dessous exploitant les capacités du HTML 5, **Google Chrome gère nativement la validation du formulaire et l’affichage du message d’erreur**.
 Les icones sont obtenus à l’aide d’un style CSS utilisant les pseudo-classes _input:required:invalid_, _input:focus:invalid_ et input:required:valid.
 
-[![2014-08-input-spring-mvc-en-html5-email-erreur](/wp-content/uploads/2014/09/2014-08-input-spring-mvc-en-html5-email-erreur1.png)](/wp-content/uploads/2014/09/2014-08-input-spring-mvc-en-html5-email-erreur1.png) Voici la représentation HTML de ce formulaire :
+[![2014-08-input-spring-mvc-en-html5-email-erreur](wp-content/uploads/2014/09/2014-08-input-spring-mvc-en-html5-email-erreur1.png)](wp-content/uploads/2014/09/2014-08-input-spring-mvc-en-html5-email-erreur1.png) Voici la représentation HTML de ce formulaire :
 
 ```xhtml
 <form id="customer" action="/htmlvalidation" method="post">
@@ -90,7 +90,7 @@ Dans la suite de cet article, **nous verrons comment Spring MVC peut générer c
 Attention toutefois, chaque navigateur implémente différemment cette norme.
 Par exemple, sous Google Chrome 36, les champs de type _date_ sont particulièrement aboutis, avec masque de saisie et calendrier ; voir ci-dessous la représentation de la ligne HTML _Birthdate:_ <input type="date" name="birthdate"> . Par contre, ni Internet Explorer 11 ni Firefox 31 ne fournissent un tel confort de saisie.
 
-[![Champs de saisie d'une date HTML 5 sous Google Chrome](/wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-date-sous-chrome.png)](/wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-date-sous-chrome.png)
+[![Champs de saisie d'une date HTML 5 sous Google Chrome](wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-date-sous-chrome.png)](wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-date-sous-chrome.png)
 
 ## Bean Validation
 

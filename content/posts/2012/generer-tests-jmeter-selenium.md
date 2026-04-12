@@ -5,8 +5,8 @@ author: admin
 categories:
   - test
 date: "2012-05-26T18:51:06+00:00"
-thumbnail: /wp-content/uploads/2012/05/jmeter-viewstate-extractor.png
-featureImage: /wp-content/uploads/2012/05/jmeter-viewstate-extractor.png
+thumbnail: wp-content/uploads/2012/05/jmeter-viewstate-extractor.png
+featureImage: wp-content/uploads/2012/05/jmeter-viewstate-extractor.png
 featureImageAlt: "Extracteur dexpression régulière JMeter"
 guid: http://javaetmoi.com/?p=166
 parent_post_id: null
@@ -21,7 +21,7 @@ summary: |-
 
   Cet article a pour objectif de vous présenter la démarche adoptée. Si vous êtes intéressés, vous pourrez librement l’adapter en fonction de votre contexte projet.
 
-  ![Extracteur dexpression régulière JMeter](/wp-content/uploads/2012/05/jmeter-viewstate-extractor.png)
+  ![Extracteur dexpression régulière JMeter](wp-content/uploads/2012/05/jmeter-viewstate-extractor.png)
 tags:
   - jmeter
   - selenium
@@ -187,7 +187,7 @@ Classe maison, TestElementTree associe un élément de test (classe héritant de
 
 Voici le résultat du générateur vu depuis le client lourd JMeter :
 
-[![Extracteur d'expression régulière JMeter](/wp-content/uploads/2012/05/jmeter-viewstate-extractor.png)](/wp-content/uploads/2012/05/jmeter-viewstate-extractor.png)
+[![Extracteur d'expression régulière JMeter](wp-content/uploads/2012/05/jmeter-viewstate-extractor.png)](wp-content/uploads/2012/05/jmeter-viewstate-extractor.png)
 
 ## Génération
 
@@ -217,7 +217,7 @@ Classe maison, TestElementTree associe un élément de test (classe héritant de
 
 Voici le résultat du générateur vu depuis le client lourd JMeter :
 
-[![Extracteur d'expression régulière JMeter](/wp-content/uploads/2012/05/jmeter-viewstate-extractor.png)](/wp-content/uploads/2012/05/jmeter-viewstate-extractor.png)
+[![Extracteur d'expression régulière JMeter](wp-content/uploads/2012/05/jmeter-viewstate-extractor.png)](wp-content/uploads/2012/05/jmeter-viewstate-extractor.png)
 
 ## Génération
 

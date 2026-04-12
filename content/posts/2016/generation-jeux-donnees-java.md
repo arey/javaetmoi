@@ -4,8 +4,8 @@ author: admin
 categories:
   - test
 date: "2016-03-24T07:36:23+00:00"
-thumbnail: /wp-content/uploads/2016/03/artist.png
-featureImage: /wp-content/uploads/2016/03/artist.png
+thumbnail: wp-content/uploads/2016/03/artist.png
+featureImage: wp-content/uploads/2016/03/artist.png
 featureImageAlt: "artist"
 guid: http://javaetmoi.com/?p=1553
 parent_post_id: null
@@ -15,7 +15,7 @@ summary: |-
   Les **jeux de données** font partie intégrante des tests. Elaborer un jeu de données demande une **connaissance fonctionnelle**, aussi bien sur la nature des données que sur le scénario de test envisagé. Utiliser des jeux de **données** **réalistes** participe à la compréhension du **scénario de test** et, donc, à sa documentation.
   S’il vous était possible de **générer** ces fameux jeux de données, seriez-vous intéressés ?C’est précisément l’objet de ce billet et d’un modeste **outil** baptisé **JavaBean Marshaller**.
 
-  ![artist](/wp-content/uploads/2016/03/artist.png)
+  ![artist](wp-content/uploads/2016/03/artist.png)
 tags:
   - javapoet
   - test
@@ -46,7 +46,7 @@ Partant de ce constat, je me suis demandé s’il était possible de remédier �
 
 Disponible en Open Source sur github, le [**projet JavaBean Marshaller**](https://github.com/arey/javabean-marshaller) fournit la classe utilitaire [JavaBeanMarshaller](https://github.com/arey/javabean-marshaller/blob/master/src/main/java/com/javaetmoi/javabean/JavaBeanMarshaller.java). En paramètre de la méthode **_generateJavaCode_**, vous passez l’objet racine de votre grappe d’objets Java. En sortie, **une classe Java permettant de réinstancier votre grappe sera créée.**
 
-Un exemple sera bien plus parlant. Prenons le diagramme de classes ci-dessous.![artist](/wp-content/uploads/2016/03/artist.png)
+Un exemple sera bien plus parlant. Prenons le diagramme de classes ci-dessous.![artist](wp-content/uploads/2016/03/artist.png)
 Non représentés sur ce diagramme, les classes _Album_ et _Artiste_ possèdent des getter / setter et constructeur sans argument.
 
 Imaginons l’instance d’une classe _Artist_ référençant un seul et unique _Album_.

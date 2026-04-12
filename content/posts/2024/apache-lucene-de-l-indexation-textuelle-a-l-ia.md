@@ -5,8 +5,8 @@ author: admin
 categories:
   - conférence
 date: "2024-04-21T15:26:06+00:00"
-thumbnail: /wp-content/uploads/2024/04/Lucian%5Fat%5FDevoxxFr2024.jpeg
-featureImage: /wp-content/uploads/2024/04/Lucian%5Fat%5FDevoxxFr2024.jpeg
+thumbnail: wp-content/uploads/2024/04/Lucian%5Fat%5FDevoxxFr2024.jpeg
+featureImage: wp-content/uploads/2024/04/Lucian%5Fat%5FDevoxxFr2024.jpeg
 guid: https://javaetmoi.com/?p=2298
 parent_post_id: null
 post_id: "2298"
@@ -28,7 +28,7 @@ Format : Tools in action (30 mn)
 
 Lors de cette 12ième édition de Devoxx France, j’ai eu l’agréable surprise de voir 4 anciens collègues animer un talk : [Guillaume Darmont](https://www.devoxx.fr/schedule/talk/?id=20254) sur Java Flight Recorder et Java Mission Control, [Florian Boulay](https://www.devoxx.fr/schedule/speaker-details/?id=38855) sur emacs, [Stéphane Landelle](https://www.devoxx.fr/schedule/speaker-details/?id=44309) sur Netty et [Lucian Precup](https://www.devoxx.fr/schedule/talk/?id=29378) sur Lucene. Avec ce dernier, nous avons mis en œuvre Elasticsearch sur une application métier au cœur du SI d’une grande entreprise. C’était il y’a plus de 10 ans. Expert en moteur de recherche, je me souviens encore Lucian m’expliquer ce qu’est un index inversé.
 
-{{< figure src="/wp-content/uploads/2024/04/Lucian%5Fat%5FDevoxxFr2024.jpeg" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/04/Lucian%5Fat%5FDevoxxFr2024.jpeg" alt="" caption="" >}}
 
 Lucian commence par sonder son public. Fait notable, dans l’assistance, personne n’utilise un moteur de recherche qui ne serait pas basé sur [**Apache Lucene**](https://lucene.apache.org/), technologie à la base de milliers de moteur de recherche et dont Lucian va nous retracer l’histoire.
 
@@ -40,7 +40,7 @@ Développé en Java, Lucian nous explique les raisons de la longévité de Lucen
 1. Permet la réalisation de nombreux cas d’utilisation métiers
 
 Sur X / Twitter, Lucian suit les contributeurs de Lucene depuis 2010 et voit régulièrement annoncer des améliorations très impressionnantes.   
-![](/wp-content/uploads/2024/04/word-image-2298-2.jpeg)
+![](wp-content/uploads/2024/04/word-image-2298-2.jpeg)
 
 Pendant longtemps, le projet Lucene fut le projet OSS qui a découvert le plus de bug dans la JVM.   
 La dernière amélioration notable de Lucene consiste à bénéficier de l’ [API Vector](https://www.baeldung.com/java-vector-api) pour améliorer les performances en utilisant les instructions SIMD des processeurs.
@@ -72,19 +72,19 @@ Lucian prend l’exemple de 3 documents à indexer :
 
 Ces phrases sont tokenisées en termes puis stockées dans un index dit inversés. Cet index ressemble à une Map ayant pour clé les termes et pour valeur l’ensemble des éléments référençant le token.
 
-{{< figure src="/wp-content/uploads/2024/04/word-image-2298-3.jpeg" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/04/word-image-2298-3.jpeg" alt="" caption="" >}}
 
 
 Des raffinements sont possibles : suppression des majuscules, stemming (gestion du singulier et du pluriel), stopwords (comme les articles) …
 
-![](/wp-content/uploads/2024/04/word-image-2298-4.jpeg)
+![](wp-content/uploads/2024/04/word-image-2298-4.jpeg)
 
 Un index inversé est extrêmement performant, les recherches booléennes très rapides.   
 Cette toute première version de Lucene serait un bon exercice pour un candidat, un étudiant ou même Chat GPT
 
 Lucene a continué d’évoluer pour supporter l’ **auto-complétion** avec **nGram**. Un index est spécialement créé avec toutes les étapes d’une auto-complétion (cet index pourrait être gros et il est donc compressé).
 
-![](/wp-content/uploads/2024/04/word-image-2298-5.jpeg)
+![](wp-content/uploads/2024/04/word-image-2298-5.jpeg)
 
 Chose amusante, les premières versions de Lucene ne supportaient pas les nombres.   
 Il fallait utiliser des pseudo nombres et utiliser du padding et comparer des chaines de caractère. Exemple : "00001" < "00004"
@@ -99,15 +99,15 @@ Lucene sait donc stocker les données en colonne comme le fait la base NoSQL Cas
 Vient ensuite le besoin de faire des recherches sur des données spatiales   
 Ce sujet est complexe si on veut être rapide. Nécessité de structures particulières : Type Geo Point, Geo Shape …
 
-![](/wp-content/uploads/2024/04/word-image-2298-6.jpeg)  
+![](wp-content/uploads/2024/04/word-image-2298-6.jpeg)  
 Lucene est devenue une base de données spatiales, peut être l’une des plus performantes d’après Lucian ?
 
 Ces dernières années, l’ **IA Générative** est arrivée.   
 Cela a poussé Lucene à introduire de la **recherche vectorielle**. La vectorisation permet de représenter des documents sous forme de nombres dans un espace mathématique, ce qui facilite leur analyse et leur traitement par des algorithmes. Chaque élément dans ce vecteur représente une caractéristique du document.   
 Lucene permet de classer des documents (textes ou images) dans une base vectorielle.   
-![](/wp-content/uploads/2024/04/word-image-2298-7.jpeg)
+![](wp-content/uploads/2024/04/word-image-2298-7.jpeg)
 
-![](/wp-content/uploads/2024/04/word-image-2298-8.jpeg)
+![](wp-content/uploads/2024/04/word-image-2298-8.jpeg)
 
 Lucene supporte plusieurs centaines de dimensions. Le Vector Search est désormais possible grâce à la représentation vectorielle d’un texte. Les mots « clémentine » et « mandarine » peuvent alors être positionnés au même endroit (plus besoin d’utiliser les synonymes)
 
@@ -116,7 +116,7 @@ Les vecteurs creux sont moins couteux.
 Le vecteur va être ajouté au document transformé, et un algorithme de similarité va être utilisé pour retrouver le document le plus pertinent.
 
 Exemple de « Term expansion » :  
-![](/wp-content/uploads/2024/04/word-image-2298-9.jpeg)
+![](wp-content/uploads/2024/04/word-image-2298-9.jpeg)
 
 ## Retrieval Augmented Generation (RAG)
 
@@ -126,7 +126,7 @@ Ces LLM sont programmés pour générer des mots, d’où les hallucinations. Il
 Une solution consiste à générer du texte augmenté par récupération.   
 Le RAG mélange moteur de recherche et LLM.
 
-{{< figure src="/wp-content/uploads/2024/04/word-image-2298-10.jpeg" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/04/word-image-2298-10.jpeg" alt="" caption="" >}}
 
 
 Avec les User Query, on n’utilise plus du fulltext search.
@@ -135,7 +135,7 @@ Avec les User Query, on n’utilise plus du fulltext search.
 
 Le Hands-On Lab [RAGtime : Discuter avec vos propres données](https://www.devoxx.fr/en/schedule/talk/?id=29366) était consacré au buzzword de 2024.
 
-{{< figure src="/wp-content/uploads/2024/04/word-image-2298-11.jpeg" alt="" caption="" >}}
+{{< figure src="wp-content/uploads/2024/04/word-image-2298-11.jpeg" alt="" caption="" >}}
 
 ## Ressources
 
