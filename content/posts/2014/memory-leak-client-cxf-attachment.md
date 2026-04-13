@@ -17,7 +17,7 @@ summary: |-
 
   Les symptômes ont été observés dans les conditions suivantes. Un tir de charge avec JMeter simule l’upload de fichiers de 4 Mo. Trente utilisateurs connectés simultanément uploadent des fichiers PDF. D’une durée de 5mn, le scénario fonctionnel mettant en jeu l’upload de fichiers est réitéré pendant 3h. A l’issu du tir, aucune erreur technique ou fonctionnelle n’est remontée. Par contre, l’analyse de l’empreinte mémoire est suspecte : non seulement cette nouvelle fonctionnalité a nécessité davantage de mémoire que lors des tirs précédents, mais surtout : **la mémoire n’est jamais libérée**, même après l’expiration des sessions utilisateurs.
 
-  [![2014-02-cxf-attachments-memory-leak-2](http://javaetmoi.com/wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg)](http://javaetmoi.com/wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg)
+  [![2014-02-cxf-attachments-memory-leak-2](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg)](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg)
 
   ![2014-02-cxf-attachments-memory-leak-2](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-2.jpg)
 tags:

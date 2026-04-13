@@ -13,7 +13,7 @@ parent_post_id: null
 post_id: "1442"
 post_views_count: "22999"
 summary: |-
-  [![logo-java-performance](http://javaetmoi.com/wp-content/uploads/2015/09/logo-java-performance.png)](http://javaetmoi.com/wp-content/uploads/2015/09/logo-java-performance.png) Ce billet a pour origine un commentaire posté dans [mon précédent billet](http://javaetmoi.com/2015/08/check-list-revue-code-et-architecture-java/) et dans lequel Laurent demandait un **retour d’expérience** sur l’utilisation de **frameworks Java de mapping objet vers objet** tels [Dozer](https://github.com/DozerMapper/dozer) ou [ModelMapper](http://modelmapper.org/).
+  [![logo-java-performance](wp-content/uploads/2015/09/logo-java-performance.png)](wp-content/uploads/2015/09/logo-java-performance.png) Ce billet a pour origine un commentaire posté dans [mon précédent billet](http://javaetmoi.com/2015/08/check-list-revue-code-et-architecture-java/) et dans lequel Laurent demandait un **retour d’expérience** sur l’utilisation de **frameworks Java de mapping objet vers objet** tels [Dozer](https://github.com/DozerMapper/dozer) ou [ModelMapper](http://modelmapper.org/).
 
   Dans l’architecture d’une **applicative n-tiers**, une couche de mapping objet / objet peut intervenir à plusieurs niveaux :
 

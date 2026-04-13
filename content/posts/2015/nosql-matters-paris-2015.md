@@ -12,7 +12,7 @@ parent_post_id: null
 post_id: "1324"
 post_views_count: "3399"
 summary: |-
-  [![nosql-matters-logo](http://javaetmoi.com/wp-content/uploads/2015/03/nosql-matters-logo-300x300.png)](http://javaetmoi.com/wp-content/uploads/2015/03/nosql-matters-logo.png)
+  [![nosql-matters-logo](wp-content/uploads/2015/03/nosql-matters-logo.png)](wp-content/uploads/2015/03/nosql-matters-logo.png)
 
   Ayant gagné une place par le groupe utilisateurs Elasticsearch (que je remercie une nouvelle fois), j’ai eu l’opportunité d’assister pour la première fois à une conférence dédiée au NoSQL. Parmi la centaine de participants, je devais sans nul doute être le plus néophyte. Certes, je connais relativement bien Elasticsearch pour l’avoir mis en œuvre, mais l’écosystème d’Hadoop et des bases de données NoSQL restait pour moi encore très vague.
   Ce fut donc l’occasion rêvée d’approfondir mes connaissances sur le sujet et de m’aérer l’esprit.

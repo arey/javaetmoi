@@ -20,7 +20,7 @@ summary: |-
 
   JBoss Messaging supportant le **multi-tenancy**, cet article explique comment mettre en œuvre la 2ième solution.
 
-  [![Architecture JBoss Messaging](http://javaetmoi.com/wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png)](http://javaetmoi.com/wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png)
+  [![Architecture JBoss Messaging](wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png)](wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png)
 
   ![Architecture JBoss Messaging](wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema.png)
 tags:

@@ -16,7 +16,7 @@ summary: |-
 
   Invité par la société [Adelean](http://adelean.com/), j’ai pu y participé. Pour toutes celles et ceux qui n’ont pas eu cette chance, ce billet me permet de vous faire partager cette journée.
 
-  [![elasticon-patis-2015-keynote](http://javaetmoi.com/wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg)](http://javaetmoi.com/wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg)
+  [![elasticon-patis-2015-keynote](wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg)](wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg)
 
   ![elasticon-patis-2015-keynote](wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg)
 tags:

@@ -17,7 +17,7 @@ parent_post_id: null
 post_id: "1759"
 post_views_count: "12755"
 summary: |-
-  [![Arbre couvrant de poids minimum](http://javaetmoi.com/wp-content/uploads/2017/09/300px-Minimum_spanning_tree.svg_.png)](http://javaetmoi.com/wp-content/uploads/2017/09/300px-Minimum_spanning_tree.svg_.png)
+  [![Arbre couvrant de poids minimum](wp-content/uploads/2017/09/300px-Minimum_spanning_tree.svg_.png)](wp-content/uploads/2017/09/300px-Minimum_spanning_tree.svg_.png)
 
   Faisant partie des [algorithmes de la théorie des graphes](https://fr.wikipedia.org/wiki/Cat%C3%A9gorie:Algorithme_de_la_th%C3%A9orie_des_graphes "Catégorie:Algorithme de la théorie des graphes"), l' [algorithme de Kruskal](https://fr.wikipedia.org/wiki/Algorithme_de_Kruskal) permet de rechercher un arbre recouvrant de poids minimum.
 

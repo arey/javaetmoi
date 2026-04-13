@@ -13,7 +13,7 @@ parent_post_id: null
 post_id: "1343"
 post_views_count: "30983"
 summary: |-
-  [![spark-logo](http://javaetmoi.com/wp-content/uploads/2015/04/spark-logo.png)](http://javaetmoi.com/wp-content/uploads/2015/04/spark-logo.png)
+  [![spark-logo](wp-content/uploads/2015/04/spark-logo.png)](wp-content/uploads/2015/04/spark-logo.png)
 
   En cette édition 2015 de Devoxx France, [**Apache Spark**](https://spark.apache.org/) est l’une des technologies qui se démarque, comme le furent Docker et Java 8 en 2014 ou AngularJS en 2013. Connu pour être le digne successeur d’Hadoop, le framework Spark fait partie des [outils Big-Data que j’ai découvert lors de la conférence NoSQL Matters 2015](http://javaetmoi.com/2015/03/nosql-matters-paris-2015/).
 
@@ -21,9 +21,9 @@ summary: |-
 
   Si vous n’avez pas eu la chance de pouvoir assister à ce Lab, toutes les ressources utilisées lors du Lab ont été mises en lignes pour le suivre en offline (ou le terminer à la maison).
 
-  1. Un [gitbook Initiation à Spark avec Java 8 et Scala](http://javaetmoi.com/wp-content/uploads/2015/04/initiation-a-spark-avec-java-8-et-scala.pdf).  Avec ses 33 pages, ce livre contient à la fois la présentation réalisée en séance par les speakers ainsi que les intitulés des exercices.
-  2. [Les jeu de données](http://javaetmoi.com/wp-content/uploads/2016/01/initiation-apache-spark-data.zip) au format CSV et JSON nécessaires pour le Lab
-  3. La [configuration maven pour Java ou sbt pour Scala](http://javaetmoi.com/wp-content/uploads/2016/01/initiation-apache-spark-build.zip).
+  1. Un [gitbook Initiation à Spark avec Java 8 et Scala](wp-content/uploads/2015/04/initiation-a-spark-avec-java-8-et-scala.pdf).  Avec ses 33 pages, ce livre contient à la fois la présentation réalisée en séance par les speakers ainsi que les intitulés des exercices.
+  2. [Les jeu de données](wp-content/uploads/2016/01/initiation-apache-spark-data.zip) au format CSV et JSON nécessaires pour le Lab
+  3. La [configuration maven pour Java ou sbt pour Scala](wp-content/uploads/2016/01/initiation-apache-spark-build.zip).
 
   ![spark-logo](wp-content/uploads/2015/04/spark-logo.png)
 tags:

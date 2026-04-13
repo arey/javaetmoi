@@ -17,7 +17,7 @@ summary: |-
   Ce billet s’adresse à celles et ceux qui n’ont pas pu assister à ce Lab et qui **ont envie de découvrir** [**Angular 2**](https://angular.io/). Il s’appuie sur les ressources mises à disposition par les speakers.
   En7 étapes, vous développerez une application de Quizz avec la beta 11 d’Angular 2.
 
-  ![2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016](http://javaetmoi.com/wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016-1024x576.jpg)
+  ![2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016](wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg)
 
   ##
 

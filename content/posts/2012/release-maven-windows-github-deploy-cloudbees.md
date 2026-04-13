@@ -12,7 +12,7 @@ parent_post_id: null
 post_id: "81"
 post_views_count: "14394"
 summary: |-
-  [![logo_github](http://javaetmoi.com/wp-content/uploads/2012/04/logo_github-229x300.png)](http://javaetmoi.com/wp-content/uploads/2012/04/logo_github.png) Habitué aux releases maven avec SVN, j’ai rencontré quelques difficultés pour effectuer la première release du projet [Hibernate Hydrate](https://github.com/arey/hibernate-hydrate) \[1\] hébergé sur GitHub et présenté dans un [précédent billet](http://javaetmoi.com/2012/03/hibernate-dites-adieu-aux-lazy-initialization-exception/).
+  [![logo_github](wp-content/uploads/2012/04/logo_github.png)](wp-content/uploads/2012/04/logo_github.png) Habitué aux releases maven avec SVN, j’ai rencontré quelques difficultés pour effectuer la première release du projet [Hibernate Hydrate](https://github.com/arey/hibernate-hydrate) \[1\] hébergé sur GitHub et présenté dans un [précédent billet](http://javaetmoi.com/2012/03/hibernate-dites-adieu-aux-lazy-initialization-exception/).
 
   Pour rappel, lors d’une release, le plugin maven accède au gestionnaire de code source pour commiter les modifications effectuées sur les pom.xml et créer un tag. Il déploie ensuite les artefacts sur le repo maven distant.
 

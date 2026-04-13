@@ -18,7 +18,7 @@ parent_post_id: null
 post_id: "1753"
 post_views_count: "7609"
 summary: |-
-  ![](http://javaetmoi.com/wp-content/uploads/2017/09/Kotlin_logo-150x150.png)
+  ![](wp-content/uploads/2017/09/Kotlin_logo.png)
 
   Lors la dernière conférence Google I/O qui s’est tenue en mai 2017, Google a officialisé le **support de Kotlin sur Android**. Google n’est pas le seul acteur de l’IT à miser sur ce nouveau langage créé par JetBrains (l’éditeur de l’IDE IntelliJ) et s’exécutant sur la JVM (mais pas que). En effet, dès février 2016, [Pivotal proposait de développer des applications **Spring Boot** avec Kotlin](https://spring.io/blog/2016/02/15/developing-spring-boot-applications-with-kotlin). En janvier 2017, ils annonçaient que [la version 5 du **framework Spring** proposerait des **fonctionnalités exclusives à Kotlin**](https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0). Chez Gradle, le langage Kotlin est désormais privilégié au détriment de Groovy.
 

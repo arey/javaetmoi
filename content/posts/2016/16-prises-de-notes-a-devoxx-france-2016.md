@@ -16,9 +16,9 @@ summary: |-
 
   Les sujets sont variés : des **Microservices** avec Spring Boot et Spring Cloud, du **Big Data** avec Kafka et Elasticsearch, du **Front End** avec ECMAScript 2015 et React, du **Java 8** et **9** ou bien encore de la **méthodologie** avec les revues de code et de la living documentation.
 
-  Certaines notes pourront être lues de manière autonome ; je pense par exemple au quickie [Comment rater ses revues de code ?](http://javaetmoi.com/wp-content/uploads/2016/05/Devoxx_France-2016-Comment_rater_ses_revues_de_code.pdf) et à la conférence [Stack Overflow behind the scenes](http://javaetmoi.com/wp-content/uploads/2016/05/Devoxx_France-2016-Stack_Overflow_behind_the_scenes.pdf). Pour être exploitables en l’état, d’autres notes demanderont à ce que vous ayez assisté à la conférence ou que vous ayez pu récupérer les supports de présentation.
+  Certaines notes pourront être lues de manière autonome ; je pense par exemple au quickie [Comment rater ses revues de code ?](wp-content/uploads/2016/05/Devoxx_France-2016-Comment_rater_ses_revues_de_code.pdf) et à la conférence [Stack Overflow behind the scenes](wp-content/uploads/2016/05/Devoxx_France-2016-Stack_Overflow_behind_the_scenes.pdf). Pour être exploitables en l’état, d’autres notes demanderont à ce que vous ayez assisté à la conférence ou que vous ayez pu récupérer les supports de présentation.
 
-  ![2016_04_21_Devoxx_France_2016_keynote](http://javaetmoi.com/wp-content/uploads/2016/05/2016_04_21_Devoxx_France_2016_keynote.jpg)
+  ![2016_04_21_Devoxx_France_2016_keynote](wp-content/uploads/2016/05/2016_04_21_Devoxx_France_2016_keynote.jpg)
 tags:
   - ddd
   - devoxx

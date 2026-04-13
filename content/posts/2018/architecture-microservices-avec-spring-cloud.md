@@ -29,7 +29,7 @@ summary: |-
 
   Pour fonctionner, les différents microservices composant l’application Petclinic reposent sur différentes briques techniques matérialisées sur le diagramme d’architecture ci-dessous :
 
-  [![](http://javaetmoi.com/wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg)](http://javaetmoi.com/wp-content/uploads/2018/09/Diapositive1.jpg)
+  [![](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg)](wp-content/uploads/2018/09/Diapositive1.jpg)
 
   ![2018-08-24-Architecture-microservices-avec-Spring-Cloud](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg)
 tags:

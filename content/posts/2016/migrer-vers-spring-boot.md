@@ -15,7 +15,7 @@ summary: |-
   Cela fait un an que je contribue activement à la maintenance de l’application **Spring Petclinic**. Développée initialement par les créateurs du framework Spring, Juergen Hoeller et Rob Harrop, cette application démo a évolué au fur et à mesure des montées de version du framework.  Elle est passée d’une approche full XML, à une approche mixte annotations + XML. Une branche est également disponible pour la configuration Java.
   Récemment, nous avons mis à disposition une branche basée sur **Spring Boot 1.4.0**. L’objectif de ce billet est de vous expliquer quels ont été les impacts d’une telle migration.
 
-  ![screenshot-petclinic](http://javaetmoi.com/wp-content/uploads/2016/07/screenshot-petclinic-1024x688.jpg)
+  ![screenshot-petclinic](wp-content/uploads/2016/07/screenshot-petclinic.jpg)
 tags:
   - spring-boot
 title: Migrer vers Spring Boot

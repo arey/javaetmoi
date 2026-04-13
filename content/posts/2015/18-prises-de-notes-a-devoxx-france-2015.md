@@ -16,9 +16,9 @@ summary: |-
 
   Les sujets sont variés : du **Machine Learning** avec Watson, Spark et MMLib, du **Reactive Programming** avec RxJava et Vert.x, du **Java 9**, du **Spring 4.1** ou bien encore du Docker.
 
-  Certaines notes pourront être lues de manière autonome ; je pense par exemple au quickie [Stratégie de mise en place de revues de code](http://javaetmoi.com/wp-content/uploads/2015/04/Devoxx_France_2015-Strat%C3%A9gie_de_mise_en_place_de_revues_de_code.pdf) et à la conférence [Livrer chaque jour ce qui est prêt !.](ploads/2015/04/Devoxx_France_2015-Livrer_chaque_jour_ce_qui_est_pret.pdf) Pour être exploitables en l’état, d’autres notes demanderont à ce que vous ayez assisté à la conférence ou que vous ayez pu récupérer les supports de présentation.
+  Certaines notes pourront être lues de manière autonome ; je pense par exemple au quickie [Stratégie de mise en place de revues de code](wp-content/uploads/2015/04/Devoxx_France_2015-Strat%C3%A9gie_de_mise_en_place_de_revues_de_code.pdf) et à la conférence [Livrer chaque jour ce qui est prêt !.](ploads/2015/04/Devoxx_France_2015-Livrer_chaque_jour_ce_qui_est_pret.pdf) Pour être exploitables en l’état, d’autres notes demanderont à ce que vous ayez assisté à la conférence ou que vous ayez pu récupérer les supports de présentation.
 
-  [![Keynote des organisateurs](http://javaetmoi.com/wp-content/uploads/2015/04/Keynote-des-organisateurs-1024x768.jpg)](http://javaetmoi.com/wp-content/uploads/2015/04/Keynote-des-organisateurs.jpg)
+  [![Keynote des organisateurs](wp-content/uploads/2015/04/Keynote-des-organisateurs.jpg)](wp-content/uploads/2015/04/Keynote-des-organisateurs.jpg)
 
   ![Keynote des organisateurs](wp-content/uploads/2015/04/Keynote-des-organisateurs.jpg)
 tags:

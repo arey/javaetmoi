@@ -12,7 +12,7 @@ parent_post_id: null
 post_id: "1254"
 post_views_count: "6594"
 summary: |-
-  [![logstash](http://javaetmoi.com/wp-content/uploads/2014/11/logstash-187x300.png)](http://javaetmoi.com/wp-content/uploads/2014/11/logstash.png) Ce billet a pour objectif de vous présenter un cas d’usage du **plugin exit** pour LogStash.
+  [![logstash](wp-content/uploads/2014/11/logstash.png)](wp-content/uploads/2014/11/logstash.png) Ce billet a pour objectif de vous présenter un cas d’usage du **plugin exit** pour LogStash.
   Une utilisation répandue de LogStash consiste à alimenter Elasticsearch à partir de fichiers de logs.
   Extensible via un mécanisme de plugins, LogStash sait gérer plusieurs types de source et plusieurs types de destinations.
   **Une utilisation alternative de LogStash consiste à l’utiliser comme batch d’indexation**. Le fichier à indexer a une fin. Et **l’utilisateur souhaite que LogStash s’arrête une fois les données importées**.

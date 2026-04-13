@@ -12,7 +12,7 @@ parent_post_id: null
 post_id: "1199"
 post_views_count: "24640"
 summary: |-
-  [![Logo HTML 5](http://javaetmoi.com/wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo-150x150.png)](http://javaetmoi.com/wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png)
+  [![Logo HTML 5](wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png)](wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png)
 
   Cet article explique comment **étendre Spring MVC pour générer le code HTML 5** **des champs de saisie** (input fields) à partir des **annotations Bean Validation** (JSR 330) apposées sur des Entités ou de simples DTO.
 

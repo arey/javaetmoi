@@ -12,7 +12,7 @@ parent_post_id: null
 post_id: "667"
 post_views_count: "20933"
 summary: |-
-  [![Université AngularJS ou le futur du développement Web à devoxxx France 2013](http://javaetmoi.com/wp-content/uploads/2013/04/devoxxfr-2013-angularjs-300x218.jpg)](http://javaetmoi.com/wp-content/uploads/2013/04/devoxxfr-2013-angularjs.jpg)
+  [![Université AngularJS ou le futur du développement Web à devoxxx France 2013](wp-content/uploads/2013/04/devoxxfr-2013-angularjs.jpg)](wp-content/uploads/2013/04/devoxxfr-2013-angularjs.jpg)
 
   A deux semaines de sa première formation en entreprise sur **AngularJS**, répétition générale pour Thierry Chatel devant 200 développeurs avides d’en apprendre un peu plus sur le dernier né des frameworks JavaScript de **Google**. Développeur Java / Swing chez IBM au début des années 2000, Thierry s’est ensuite dirigé vers du conseil en architecture avant de découvrir AngularJS durant l’été 2011. Depuis, il y consacre beaucoup d’énergie et anime notamment le site [FrAngular.com](http://www.frangular.com/), premier blog francophone dédié à ce framework.
   Assez parlé de sa personne, lui-même n’en serait que trop gêné.

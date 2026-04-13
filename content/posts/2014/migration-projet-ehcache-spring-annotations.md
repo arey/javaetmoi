@@ -14,7 +14,7 @@ post_views_count: "5308"
 summary: |-
   EhCache est sans nul doute le framework open source de gestion de cache applicatif le plus populaire parmi les développeurs Java. Polyvalent, **EhCache** peut être mis en œuvre dans les différentes couches d’une application web :
 
-  - [![logo-spring-highres](http://javaetmoi.com/wp-content/uploads/2014/05/logo-spring-highres-300x225.png)](http://javaetmoi.com/wp-content/uploads/2014/05/logo-spring-highres.png) Persistance : utilisé comme cache de niveau 2 de JPA / Hibernate pour stocker des entités et le résultat des requêtes en base.
+  - [![logo-spring-highres](wp-content/uploads/2014/05/logo-spring-highres.png)](wp-content/uploads/2014/05/logo-spring-highres.png) Persistance : utilisé comme cache de niveau 2 de JPA / Hibernate pour stocker des entités et le résultat des requêtes en base.
   - Service métier : mise en cache du résultat d’un service métier ou d’un appel de web service
   - Présentation : cache de pages ou de fragments de page HTML
 

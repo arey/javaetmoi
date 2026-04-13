@@ -13,7 +13,7 @@ post_views_count: "18098"
 summary: |-
   Last month, I passed the [Enterprise Integration with Spring](http://mylearn.vmware.com/mgrReg/plan.cfm?plan=31113&ui=www_cert) exam (EIwS 1.x) with a score of 90%. This test is also known as Certified Enterprise Integration Specialist exam. Before passing this exam, you have to attend [Enterprise Integration with Spring training](http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&a=one&id_subject=17833) from SpringSource or a Certified Partner.
 
-  ![](http://javaetmoi.com/wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist-300x63.png)
+  ![](wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png)
 
   In my last blog entry, I have published a [french study guide / notes](http://javaetmoi.com/2012/09/certified-spring-enterprise-integration-specialist-study-notes/) to the exam. Since, I received a few emails asking me some materials in English.
 

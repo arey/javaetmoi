@@ -24,7 +24,7 @@ summary: |-
 
   Cet article se focalisera sur l’ **offre Compute**. Mais avant d’aller plus loin, arrêtons-nous un moment sur ce qui est l’une des forces de la plateforme Cloud de Google : son infrastructure.
 
-  ![Didier Girard à la formation Google](http://javaetmoi.com/wp-content/uploads/2016/06/Didier-Girard-à-la-formation-Google-1024x656.jpg)
+  ![Didier Girard à la formation Google](wp-content/uploads/2016/06/Didier-Girard-à-la-formation-Google.jpg)
 tags:
   - cloud
   - docker

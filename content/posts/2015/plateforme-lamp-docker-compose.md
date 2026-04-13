@@ -12,7 +12,7 @@ parent_post_id: null
 post_id: "1429"
 post_views_count: "16261"
 summary: |-
-  [![docker-logo](http://javaetmoi.com/wp-content/uploads/2015/07/docker-logo-300x265.jpg)](http://javaetmoi.com/wp-content/uploads/2015/07/docker-logo.jpg)
+  [![docker-logo](wp-content/uploads/2015/07/docker-logo.jpg)](wp-content/uploads/2015/07/docker-logo.jpg)
 
   Afin de préparer la migration technique d’un site web, j’ai eu besoin de reconstruire un environnement à l’identique de la production.
 

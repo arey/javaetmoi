@@ -15,7 +15,7 @@ summary: |-
   Implémentation de référence de [Bean Validation 1.1](http://beanvalidation.org/), [Hibernate Validator 5.x requière une implémentation d'Unified Expression Language respectant la JSR-341](http://docs.jboss.org/hibernate/validator/5.1/reference/en-US/html/validator-gettingstarted.html#validator-gettingstarted-uel) (correspond aux [**EL 2.2**](https://jcp.org/en/jsr/detail?id=341)).
   EL 2.2 étant apparue avec Java EE 6, il n’est donc pas possible d’utiliser Hibernate Validator 5 dans un serveur d’application Java EE 5 et un conteneur de servlets 2.5. C’est pourquoi [Hibernate Validator 5 ne fonctionne pas avec Tomcat 6](http://hibernate.org/validator/faq/#does-hibernate-validator-5-x-work-with-tomcat-6).
 
-  [![hibernate-validator-logo](http://javaetmoi.com/wp-content/uploads/2015/09/hibernate-validator-logo.png)](http://javaetmoi.com/wp-content/uploads/2015/09/hibernate-validator-logo.png)
+  [![hibernate-validator-logo](wp-content/uploads/2015/09/hibernate-validator-logo.png)](wp-content/uploads/2015/09/hibernate-validator-logo.png)
 
   Essayer et vous tomberez au runtime sur l’exception suivante :
   NoSuchMethodError: javax.el.ExpressionFactory.newInstance()Ljavax/el/ExpressionFactory)
