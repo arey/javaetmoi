@@ -1,5 +1,5 @@
 baseURL = "https://javaetmoi.com/"
-languageCode = "fr-FR"
+languageCode = "fr"
 title = "Java & Moi"
 theme = "hugo-clarity"
 DefaultContentLanguage = "fr"
