@@ -26,3 +26,29 @@
 .pale
   a:not(.button)
     color: $theme
+
+// TOC at top of sidebar (non-sticky)
+.sidebar_toc
+  padding: 1rem 1rem 1.5rem
+  margin-bottom: 1rem
+  border-bottom: 1px solid rgba(0,0,0,0.1)
+  h2
+    margin-top: 0
+    margin-bottom: 0.5rem
+    font-size: 1rem
+    text-transform: uppercase
+    letter-spacing: 0.05em
+  nav#TableOfContents
+    ul
+      list-style: none
+      padding-left: 0.75rem
+      margin: 0
+      li
+        margin: 0.2rem 0
+        a
+          font-size: 0.875rem
+          line-height: 1.4
+          color: inherit
+          text-decoration: none
+          &:hover
+            color: $theme

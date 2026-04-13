@@ -1,5 +1,5 @@
 description = "Développeur Java, Spring & co, et fier de l'être"
-introDescription = "Développeur Java passionné depuis 1999. Spécialisé Spring, CI/CD et architecture. Retrouvez mes notes de conférences et retours d'expérience."
+introDescription = "Développeur Java, Spring & co, et fier de l'être."
 introURL = "about/"
 enableSearch = true
 mainSections = ["posts"]
@@ -17,5 +17,5 @@ centerLogo = true
 showShare = true
 
 [author]
-name = "Antoine Rey"
+name = "Java & Moi"
 photo = "wp-content/uploads/2012/02/JavaOne2000.jpg"

@@ -9,6 +9,7 @@ thumbnail: wp-content/uploads/2025/10/Obsidian_logo.png
 guid: https://javaetmoi.com/?p=2612
 parent_post_id: null
 post_id: "2612"
+toc: true
 summary: |-
   Lors de la conférence [Devfest Nantes 2025](https://devfest2025.gdgnantes.com/), j'ai assisté au talk d' **[Hoani Cross](https://linktr.ee/hoani.cross)** portant sur la **prise de notes**. Loin d'être nouveau, ce sujet m'a particulièrement interpellé. Figurez-vous en effet qu'une partie des **articles publiés sur ce blog** (dont celui que vous avez sous les yeux) vient des notes rédigées lors de conférences, de projets personnels ou bien encore de ma veille techno.
 
@@ -35,7 +36,7 @@ Dans ce billet, j'aimerais vous restituer la prestation d'Hoani et vous laisser 
 
 {{< figure src="wp-content/uploads/2025/10/DevFest-Nantes-2025-Obsidian.jpg" alt="" caption="" >}}
 
-# Du papier à Obsidian
+## Du papier à Obsidian
 
 Senior backend architect chez Sfeir, Hoani Cross nous explique avoir utilisé de nombreux carnets manuscrits pour apprendre et structurer sa pensée. Hoani pratique le Bullet Journal et son talk se veut être un partage de ses résultats après des années de pratiques.  
 Hoani commence par nous rappeler les **bienfaits** de prendre des notes :
@@ -77,7 +78,7 @@ L'une des forces du logiciel Obsidian réside dans le fait qu'il soit multiplafe
 
 À noter que l'utilisation d'un repo Git rend possible le partage en équipe d'un coffre Obsidian.
 
-# Utilisation d'Obsidian
+## Utilisation d'Obsidian
 
 Le coffre d'Hoani contient toutes ses données, tant personnelles que professionnelles. Cela peut poser un problème de confidentialité : faire sortir des données pros sur son ordi perso peut être contraire aux règles de sécurité de son entreprise.
 
@@ -130,7 +131,7 @@ Chaque jour, Hoani ouvre son Daily du jour et
 - Crée une tâche quand nécessaire
 - Termine les tâches accomplies
 
-# Le bénéfice du numérique
+## Le bénéfice du numérique
 
 Comparé au manuscrit, les bénéfices du numérique sont nombreux :
 
@@ -167,7 +168,7 @@ L'ajout de **barres de progression** est possible via le plugin [Progressbar](ht
 Le numérique permet de créer d' **autres types de notes périodiques** que le daily. On peut, par exemple, se fixer des objectifs annuels (ex: courir un marathon), suivre visuellement leurs avancements puis, une fois la période écoulée, faire un bilan de la période et définir de nouveaux objectifs. Hoani insiste sur le fait que l'ouverture et la fermeture d'une période doit être vécue comme un rituel.  
 Pour automatiser la création de ces différentes notes périodiques, on peut s'aider du plugin [Templater](https://silentvoid13.github.io/Templater/) qui ajoute à Obsidian un langage de **templating** permettant d'exécuter des **fonctions** **JavaScript**. Ce plugin permet de pré-sélectionner un template en fonction du nom du fichier créé.
 
-# Conclusion
+## Conclusion
 
 Après la démonstration de son **utilisation avancée d'Obsidian**, Hoani reconnaît que le **démarrage peut être long**, qu'il peut être **difficile** de décider quoi noter et surtout **comment organiser son coffre**. Son conseil est de rester rigoureux, y noter ce que l'on souhaite et faire en sorte que cela reste amusant et donc pas une corvée. Ses slides sont en ligne : [\[Devfest Nantes 25\] Révolutionnez votre prise de notes - du Bullet Journal à Obsidian](https://docs.google.com/presentation/d/1PGu22MX_v3q34QKaUvci7ug9hPScYXPSIjAyAhgfToY/edit). Son [repo GitHub](https://github.com/hcross/obsidian) rend public ses templates Obsidian.
 

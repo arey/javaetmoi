@@ -1,5 +1,11 @@
 {{ $s := site.Params }}
 <aside class="sidebar">
+  {{- if .Params.toc }}
+  <div class="sidebar_toc">
+    <h2>{{ T "overview" }}</h2>
+    {{ .TableOfContents }}
+  </div>
+  {{- end }}
   <section class="sidebar_inner">
     <br>
     {{ partial "search/widget" . }}
