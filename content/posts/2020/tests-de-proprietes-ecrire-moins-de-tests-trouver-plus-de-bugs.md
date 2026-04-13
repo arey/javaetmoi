@@ -4,6 +4,7 @@ author: admin
 categories:
   - conférence
 date: "2020-02-17T16:58:30+00:00"
+toc: true
 thumbnail: wp-content/uploads/2020/02/devfest_paris_2020.png
 featureImage: wp-content/uploads/2020/02/devfest_paris_2020.png
 guid: https://javaetmoi.com/?p=2092

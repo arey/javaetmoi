@@ -4,6 +4,7 @@ author: admin
 categories:
   - maven
 date: "2015-01-13T06:29:47+00:00"
+toc: true
 thumbnail: wp-content/uploads/2014/12/logo-maven.gif
 featureImage: wp-content/uploads/2014/12/logo-maven.gif
 featureImageAlt: "logo-maven"

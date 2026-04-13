@@ -4,6 +4,7 @@ author: admin
 categories:
   - conférence
 date: "2013-04-02T16:44:53+00:00"
+toc: true
 thumbnail: wp-content/uploads/2013/04/devoxxfr-2013-angularjs.jpg
 featureImage: wp-content/uploads/2013/04/devoxxfr-2013-angularjs.jpg
 featureImageAlt: "Université AngularJS ou le futur du développement Web à devoxxx France 2013"

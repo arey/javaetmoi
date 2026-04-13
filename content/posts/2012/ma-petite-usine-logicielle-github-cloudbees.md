@@ -5,6 +5,7 @@ author: admin
 categories:
   - maven
 date: "2012-12-15T09:08:10+00:00"
+toc: true
 thumbnail: wp-content/uploads/2012/12/cloudbees-github-jenkins.png
 featureImage: wp-content/uploads/2012/12/cloudbees-github-jenkins.png
 featureImageAlt: "cloudbees-github-jenkins"

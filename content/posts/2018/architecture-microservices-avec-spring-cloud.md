@@ -12,6 +12,7 @@ categories:
 featureImage: wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg
 featureImageAlt: 2018-08-24-Architecture-microservices-avec-Spring-Cloud
 date: "2018-10-04T05:58:31+00:00"
+toc: true
 thumbnail: wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg
 guid: http://javaetmoi.com/?p=1869
 parent_post_id: null

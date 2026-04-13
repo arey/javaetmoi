@@ -11,6 +11,7 @@ categories:
 featureImage: wp-content/uploads/2018/04/IMG_20180418_132919.jpg
 featureImageAlt: cof
 date: "2018-04-22T15:08:55+00:00"
+toc: true
 thumbnail: wp-content/uploads/2018/04/IMG_20180418_132919.jpg
 guid: http://javaetmoi.com/?p=1820
 parent_post_id: null

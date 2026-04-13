@@ -5,6 +5,7 @@ author: admin
 categories:
   - orm
 date: "2014-04-10T18:50:07+00:00"
+toc: true
 thumbnail: wp-content/uploads/2014/04/logo-hibernate.png
 featureImage: wp-content/uploads/2014/04/logo-hibernate.png
 featureImageAlt: "logo-hibernate"

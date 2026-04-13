@@ -4,6 +4,7 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2013-12-16T14:23:37+00:00"
+toc: true
 thumbnail: wp-content/uploads/2013/12/logo-elastisearch.png
 featureImage: wp-content/uploads/2013/12/logo-elastisearch.png
 featureImageAlt: "Logo Elastisearch"

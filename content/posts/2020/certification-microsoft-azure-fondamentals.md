@@ -11,6 +11,7 @@ categories:
 featureImage: wp-content/uploads/2020/02/azure-fundamentals-600x600-1.png
 featureImageAlt: azure-fundamentals-600x600
 date: "2020-02-08T18:35:40+00:00"
+toc: true
 thumbnail: wp-content/uploads/2020/02/azure-fundamentals-600x600-1.png
 guid: https://javaetmoi.com/?p=2080
 parent_post_id: null
@@ -35,7 +36,7 @@ url: /2020/02/certification-microsoft-azure-fondamentals/
 La formation est découpée en 4 modules.
 Les notes ci-dessous m’auront permis d’obtenir [ma certification](https://www.youracclaim.com/earner/earned/badge/e18659c6-5f65-4efa-becd-c4293079ea4b) du premier coup. J’espère qu’elles vous aideront à vous préparer. En rouge, sont notés les mots clés, concepts et noms de produits à retenir par cœur.
 
-# Certification AZ-900
+## Certification AZ-900
 
 Certification AZ-900 : passage obligatoire pour toutes les autres certifications Azure (ex : AZ-203 : Developing Solutions for Microsoft Azure)
 Durée : 1h
@@ -45,7 +46,7 @@ Les 5 à 7 premières questions : on ne peut pas revenir sur ses réponses
 L’examen est en anglais, chinois ou japonais.
 Pour vous y préparer, vous pouvez suivre le [parcours d’apprentissage « Principes de base d’Azur ».](https://docs.microsoft.com/fr-fr/learn/paths/azure-fundamentals/)
 
-## Module 1 – Cloud Concepts
+### Module 1 – Cloud Concepts
 
 Pourquoi : agilité, scalability / élasticité, sécurité, haute disponibilité / high availability (SLA), fault tolerance, on demand self-service, accessiblité / global reach (accessible de n’importe où), disaster recovery, customer latency capabilities, maitrise des coûts / predictive cost considerations
 
@@ -83,7 +84,7 @@ Responsabilités :
 - PaaS (Azure Function ou Azure Webapp) : Microsoft gère la maj de l’OS, le client gère les données, les accès (AD en local ou Azure) et l’application
 - SaaS (Office 365) : applications hébergées dans Azure que le client a besoin de configurer : l’admin doit configurer les accès à Outlook et Teams
 
-## Module 2 – Core Azure Services
+### Module 2 – Core Azure Services
 
  **Regions**
 
@@ -241,7 +242,7 @@ Le cout d’un Storage est calculé en fonction de la capacité de stockage, le 
 - Donne des recommandations sur le HA, la sécurité, les performances et le coût.
 - Identifie les opportunités de diminuer les coûts en arrêtant / supprimant des VM non utilisées
 
-## Module 3 – Security, privacy
+### Module 3 – Security, privacy
 
  **Shared security**
 
@@ -396,7 +397,7 @@ Document signé entre le client et Microsoft
 
 - Permet de chiffrer les emails
 
-## Module 4 – Azure pricing and support
+### Module 4 – Azure pricing and support
 
 **Azure subscriptions**
 

@@ -4,6 +4,7 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2015-11-02T06:12:35+00:00"
+toc: true
 thumbnail: wp-content/uploads/2015/07/docker-logo.jpg
 featureImage: wp-content/uploads/2015/07/docker-logo.jpg
 featureImageAlt: "docker-logo"

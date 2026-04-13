@@ -4,6 +4,7 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2013-05-23T18:45:16+00:00"
+toc: true
 guid: http://javaetmoi.com/?p=692
 parent_post_id: null
 post_id: "692"

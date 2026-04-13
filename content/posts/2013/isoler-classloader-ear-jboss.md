@@ -4,6 +4,7 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2013-01-05T09:41:40+00:00"
+toc: true
 thumbnail: wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png
 featureImage: wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png
 featureImageAlt: "@Copyright JBoss - Classe chargée en priorité depuis lEAR"

@@ -6,6 +6,7 @@ categories:
   - spring
   - test
 date: "2012-12-01T17:54:55+00:00"
+toc: true
 thumbnail: wp-content/uploads/2012/11/ParallélisationTraitementsBatch%5FMPD.jpg
 featureImage: wp-content/uploads/2012/11/ParallélisationTraitementsBatch%5FMPD.jpg
 featureImageAlt: "Modèle physique de données des tables MASTERPIECE, MUSIC_ALBUM et MOVIE"

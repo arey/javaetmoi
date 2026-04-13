@@ -4,6 +4,7 @@ author: admin
 categories:
   - conférence
 date: "2015-11-13T13:00:47+00:00"
+toc: true
 thumbnail: wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg
 featureImage: wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg
 featureImageAlt: "elasticon-patis-2015-keynote"
@@ -35,9 +36,9 @@ Invité par la société [Adelean](http://adelean.com/), j’ai pu y participé.
 
 [![elasticon-patis-2015-keynote](wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg)](wp-content/uploads/2015/11/elasticon-patis-2015-keynote.jpeg)
 
-# Plongée dans le produit et la roadmap
+## Plongée dans le produit et la roadmap
 
-## Keynote de Shay Banon
+### Keynote de Shay Banon
 
 Créateur du moteur de recherche Elasticsearch, Shay Banon a tout naturellement ouvert cette journée. Ce fut pour lui l’occasion de retracer la genèse de son bébé.
 L’histoire d’Elasticsearch a commencé il y’a 15 ans par une **application de cuisine** baptisée iCook et que Shay avait développé pour sa femme. Basée sur Spring, Hibernate et Eclipse RCP, la fonctionnalité centrale était la barre de recherche positionnée sur la page d’accueil. Shay a très vite compris que le SQL n’était pas adapté à la recherche full text. Il a donc adapté l’architecture pour utiliser Apache Lucene. Voyant que son API de haut niveau pouvait adresser d’autres cas d’utilisation que la cuisine, il l’a open sourcé sous le nom de **Compass**.
@@ -72,7 +73,7 @@ La keynote se termine par une liste de sociétés utilisatrices de solutions Ela
 
 Bien connus des développeurs, des acteurs comme GitHub ou Stackoverflow n’ont pas été cités.
 
-## Elasticsearch 2 by Climton Gormley
+### Elasticsearch 2 by Climton Gormley
 
 Team Leader d’Elasticsearch, Climton Gormley a un background de **développeur Perl**. C’est l’un des tout premiers utilisateur d’Elasticsearch qui a contribué au développement de la communauté sur IRC et la mailing list.
 
@@ -105,7 +106,7 @@ Climton termine son talk par la roadmap d’Elasticsearch :
   - Simplifier le pipeline alimentation de l’index
   - [Nouveau langage de script](https://github.com/elastic/elasticsearch/issues/13084). Propriétaire, il a été pensé pour fiabiliser le cluster.
 
-## Kibana 4 par Boaz Leskes
+### Kibana 4 par Boaz Leskes
 
 Software Developer chez Elastic, Boaz précise que Kibana 4 est une réécriture complète de Kibana 3. Regroupées par thèmes, en voici les nouveautés :
 
@@ -127,7 +128,7 @@ Software Developer chez Elastic, Boaz précise que Kibana 4 est une réécriture
   - Page de status du serveur Kibana
   - Niveau de logs configurable
 
-## Ingest par Shay Banon
+### Ingest par Shay Banon
 
 Par le terme « **Ingest**», on entend extraire des données et les pousser dans ES.
 
@@ -162,7 +163,7 @@ Plusieurs projets bâtis au dessus de Beats existent dans le GitHub elastic :
 
 A l’instar de **Metricsbeat**, de nouveaux projets basés sur Beats verront le jour.
 
-## Extensions par Steve Mayzak
+### Extensions par Steve Mayzak
 
 Steve se présente comme Solutions Architect Team Lead. Au cours de sa session, il nous a présenté différentes extensions d’Elasticsearch. Produits commerciaux, ils sont offerts lors de la souscription d’un support ES.
 
@@ -193,13 +194,13 @@ De **prochaines extensions** sont dors et déjà inscrites à la roadmap d’Ela
 - Réplications de cluster sur plusieurs data center (ex d’usage : Disaster Recovery)
 - Utilisation d’ES pour du Machine learning
 
-## Found : Elasticsearch as a Service par Morten Ingrebrigsten
+### Found : Elasticsearch as a Service par Morten Ingrebrigsten
 
  [**Found**](https://www.elastic.co/found) est présenté comme le seul service complet hébergeant les produits Elastic. Gage de qualité pour les DSI, son support est assuré par l’équipe de développement ELK.
 Basé sur Docker, 2 offres sont disponibles : Standard et Premium.
 L’offre Found on Premise package toute la stack ELPK pour un déploiement sur un Cloud privé ou public.
 
-## Elasticsearch for Apache Hadoop
+### Elasticsearch for Apache Hadoop
 
 Ingénieur Elastic, Costin Lea est venu nous parler du produit **[Elasticsearch for Apache Hadoop](https://www.elastic.co/products/hadoop)**. Costin commence par nous rappeler que l’écosystème Hadoop est très vaste: Hive, Storm, HDFS, Cloudera, Hortonworks.
 
@@ -237,11 +238,11 @@ La Roadmap d’ES-Hadoop est la suivante :
 - Intégration avec Marvel
 - Machine Learning : utilisation dans Spark d’informations connues. Les workers Hadoop ne communiquant pas ensemble, le partage de données permettra l’alléger la charge globale de travail
 
-# Retours d’expérience
+## Retours d’expérience
 
 L’après-midi a été consacrée à différents retours d’expérience de mise en place d’Elasticsearch dans de grandes entreprises : Orange, ERDF, Natixis, PSA et AXA.
 
-## How Orange is moving its French web search engine to Elastic products
+### How Orange is moving its French web search engine to Elastic products
 
 Depuis 1996, Orange propose sur son portail un moteur de recherche destiné aux Internautes francophones. Le moteur propose des recherches thématiques. Derrière chaque recherche thématique, il y’a une [technologie propriétaire différente.](https://www.elastic.co/blog/how-elasticsearch-helped-orange-to-build-out-their-website-search) Depuis 2013, [Orange migre peu à peu tous ces moteurs thématiques vers Elasticsearch](http://blog.lemoteur.fr/pourquoi-le-moteur-de-recherche-dorange-est-un-utilisateur-delasticsearch/).
 Le 1er moteur thématique a été mis en prod en 2014.
@@ -278,7 +279,7 @@ Pour finir, voici quelques chiffres sur l’indexation :
 - 4,2 To d’index
 - Durée d’indexation de 2h45 (avec leur ancien système, c’était de 10 ou 12h)
 
-## Centralisation de grands volumes de logs chez ErDF
+### Centralisation de grands volumes de logs chez ErDF
 
 Architecte chez ErDF, Vladislav Pernin présente l’architecture basée sur la stack ELK, Kafka et Ansible retenue pour gérer ses logs. [Ses slides sont disponibles sur Speaker Deck](https://speakerdeck.com/vladislavpernin/elastic-on-tour-paris-centralisation-de-grands-volumes-de-logs).
 
@@ -385,7 +386,7 @@ Pour superviser cette architecture, ils génèrent un log toutes les 5 secondes 
 
 A l’avenir, la volumétrie va être x 100.
 
-## Comment Natixis Financement a enrichi sa vision client avec Elasticsearch
+### Comment Natixis Financement a enrichi sa vision client avec Elasticsearch
 
 Natixis est la banque de financements du Groupe Banque Populaire Caisse d’Epargne. Elle vend des prêts personnels et du crédit revolving. Cette entité compte aujourd’hui 6 millions de clients.
 
@@ -402,7 +403,7 @@ Quelques chiffres :
 
 Aucune donnée confidentielle n’est stockée dans ES.
 
-## Kibana l’efficience à PSA
+### Kibana l’efficience à PSA
 
 Architecte Big Data à PSA Peugeot Citroën, Alexandre Fricker débute son intervention par nous confier que PSA n’autorise l’utilisation de composants Open Source que depuis 2006.
 En 2015, leur stack de développement a été open sourcé.
@@ -423,7 +424,7 @@ De nouveaux usages sont encore possibles :
 L’architecture technique est simple. Tous les projets sont hébergés sur un cluster 8 nœuds.
 1 index est créé par projet.
 
-## Panel de discussion avec Axa
+### Panel de discussion avec Axa
 
 Fabien Janssens, IT Solution Design chez Axa, conclue cette journée par une intervention sous forme de questions / réponses.
 Il rappelle que la donnée est au cœur du business d’Axa. Leurs données centrales sont leurs clients et leurs contrats.

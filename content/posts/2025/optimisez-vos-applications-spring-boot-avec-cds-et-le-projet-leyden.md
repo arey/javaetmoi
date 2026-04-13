@@ -8,6 +8,7 @@ categories:
   - conférence
   - spring
 date: "2025-04-21T12:04:33+00:00"
+toc: true
 thumbnail: logo/logo-spring-boot.webp
 featureImage: wp-content/uploads/2025/04/word-image-2482-1.jpeg
 featureImageAlt: "Sébastien Deleuze at Devoxx France 2025"

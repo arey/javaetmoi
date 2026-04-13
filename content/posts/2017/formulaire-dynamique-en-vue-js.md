@@ -4,6 +4,7 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2017-05-18T16:15:36+00:00"
+toc: true
 thumbnail: wp-content/uploads/2017/05/2017-05-Formulaire-dynamique-en-Vue.js.png
 featureImage: wp-content/uploads/2017/05/2017-05-Formulaire-dynamique-en-Vue.js.png
 guid: http://javaetmoi.com/?p=1726

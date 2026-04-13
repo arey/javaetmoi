@@ -26,6 +26,7 @@ categories:
 featureImage: wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png
 featureImageAlt: 2019-02 - Black Hell - Ecran accueil
 date: "2019-02-11T16:27:37+00:00"
+toc: true
 thumbnail: wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png
 guid: http://javaetmoi.com/?p=1906
 parent_post_id: null
@@ -41,7 +42,7 @@ url: /2019/02/black-hell-mon-premier-jeu-video/
 ---
 [![](wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png)](wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png) Pour ce premier article de 2019, je vous propose un **voyage dans le temps**, au contenu plus personnel. J’ai récemment dîné avec mon vieil ami Nicolas Lidzborski qui travaille chez Google aux US et que je n’avais pas revu depuis une dizaine d’années. Comme toute retrouvaille, nous nous sommes remémorés des souvenirs du Lycée, ses profs et son club IF. De sa chambre d’ado, Nicolas a retrouvé une illustration que nous avions réalisé pendant le **[concours Soft la Nuit](ftp://shamash.lpi.ac-poitiers.fr/pub/soft-qui-peut/sqp.txt)** de 1996, un marathon de 24h pendant lequel 20 équipes de 4 jeunes devaient développer un logiciel. Et oui, mon premier **hackaton** commence à dater. Afin de pouvoir se qualifier, nous avions du présenter des projets personnels. Mon [jeu vidéo Black Hell](https://github.com/arey/black-hell) en faisait partie. Par curiosité, et avec un brin de nostalgie, je suis parti à la recherche d’un backup de disquette. J’en ai ressorti code source et binaire. Et surprise : avec l’émulateur [DOSBox](https://www.dosbox.com/), j’ai réussi à le faire tourner, à la fois sous Windows 10 et MacOS.
 
-# Présentation du jeu
+## Présentation du jeu
 
 Blach Hell est un shoot’em up, ou plutôt 2 **shoot’em up** : le mode solo et le mode 2 joueurs (sur le même écran) n’ont rien à voir.
 
@@ -63,7 +64,7 @@ Pour celles et ceux qui souhaitent voir à quoi ce mode ressemble sans avoir à 
 
 Partie en mode 2 joueurs
 
-# Caractéristiques techniques
+## Caractéristiques techniques
 
 Ce jeu a été développé en **Turbo Pascal 6**. De nombreuses routines de manipulation d’interrupteurs et d’optimisation de code sont codées en **Assembleur x86**.  
 Le jeu pèse 2,7 Mo. Il peut être compressé en une **archive ZIP de moins d’1 Mo**, ce qui lui permettait d’être distribué sur une disque de 1,44 Mo.  
@@ -72,7 +73,7 @@ A elle seule, la vidéo de décollage N1PLAIN.FLX pèse 1,2 Mo.
 Pour faire fonctionner le jeu, j’utilise [DOSBox](https://www.dosbox.com/).  
 Les instructions sont données dans le [README.MD](https://github.com/arey/black-hell/blob/master/README.MD).
 
-# Univers graphique
+## Univers graphique
 
 Pour créer un jeu, il faut du code, mais également des ressources graphiques.   
 A l’époque, point d’Internet pour trouver une banque d’images prête à l’emploi.  
@@ -86,7 +87,7 @@ L’écran d’options est le seul écran du jeu supportant le SVGA (640x480). P
 
 Chaque partie commence par une animation en image de synthèse montrant le Silicium décoller de sa base. Cette animation est encodée dans le fichier N1PLAIN.FLX.
 
-# Un peu de code
+## Un peu de code
 
 En parcourant les **4 319 lignes** de code source de Black Hell, je suis tombé sur de bons souvenirs. En voici une sélection.
 
@@ -400,7 +401,7 @@ BEGIN
 END;
 ```
 
-# Conclusion
+## Conclusion
 
 Beaucoup de personnes **découvrent la programmation** au travers **le développement de jeux vidéo**. J’en fais partie. Et ce n’est pas sans fierté que j’ai redécouvert mon premier jeu grand public. A noter qu’à l’époque, je le distribuais déjà avec son code source.
 

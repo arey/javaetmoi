@@ -5,6 +5,7 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2015-09-16T05:20:37+00:00"
+toc: true
 thumbnail: wp-content/uploads/2015/09/logo-java-performance.png
 featureImage: wp-content/uploads/2015/09/logo-java-performance.png
 featureImageAlt: "logo-java-performance"

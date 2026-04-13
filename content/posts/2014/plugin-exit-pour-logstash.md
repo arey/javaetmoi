@@ -4,6 +4,7 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2014-11-09T11:15:07+00:00"
+toc: true
 thumbnail: wp-content/uploads/2014/11/logstash.png
 featureImage: wp-content/uploads/2014/11/logstash.png
 featureImageAlt: "logstash"

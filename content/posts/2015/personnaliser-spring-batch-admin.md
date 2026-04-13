@@ -4,6 +4,7 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2015-06-23T19:15:14+00:00"
+toc: true
 thumbnail: wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg
 featureImage: wp-content/uploads/2015/06/spring-batch-admin-screenshot.jpg
 featureImageAlt: "spring-batch-admin-screenshot"

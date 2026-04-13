@@ -7,6 +7,7 @@ author: admin
 categories:
   - conférence
 date: "2025-04-25T06:09:01+00:00"
+toc: true
 thumbnail: logo/logo-java-duke.png
 featureImage: wp-content/uploads/2025/04/word-image-2551-1-edited.jpeg
 footnotes: ""

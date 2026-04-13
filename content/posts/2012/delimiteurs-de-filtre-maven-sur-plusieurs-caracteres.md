@@ -4,6 +4,7 @@ author: admin
 categories:
   - maven
 date: "2012-07-22T16:24:28+00:00"
+toc: true
 guid: http://javaetmoi.com/?p=205
 parent_post_id: null
 post_id: "205"

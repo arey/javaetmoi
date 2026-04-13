@@ -13,6 +13,7 @@ categories:
   - retour-d'expérience
   - spring
 date: "2024-11-11T18:34:24+00:00"
+toc: true
 thumbnail: wp-content/uploads/2024/11/logo%5Flangchain4j.png
 featureImage: wp-content/uploads/2024/11/logo%5Flangchain4j.png
 featureImageAlt: "Logo du framework LangChain4j"

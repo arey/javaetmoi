@@ -48,13 +48,13 @@ Dans ce billet, je vous propose de découvrir Spring Modulith, puis de suivre pa
 
 ![Illustre le découpage en modules de l'application Spring Modulith à l'aide de Spring Modulith](wp-content/uploads/2026/04/illustration-spring-petclinic-modulith-v2.png)
 
-## Architecture modulaire
+### Architecture modulaire
 
 L'architecture en **microservices** a le vent en poupe depuis une quinzaine d’années. Pourtant, force est de constater que nombre d’applications métiers restent des **monolithes**. Ce n'est pas nécessairement une mauvaise chose. Partir systématiquement d’un monolith avant de l’éclater (ou pas) en microservices est une approche préconisée par de nombreux architectes logiciels (cf. article [Monolith First](https://martinfowler.com/bliki/MonolithFirst.html) de Martin Fowler). Un monolithe bien structuré, celui qu'[Oliver Drotbohm](https://github.com/odrotbohm) (le créateur de Spring Modulith) appelle le **modulith** ou que certains qualifient de **modular monolith**, représente souvent le meilleur compromis entre simplicité opérationnelle et maintenabilité au quotidien. Le projet Spring Modulith permet d’outiller cette approche.
 
 Après plusieurs années de gestation, Spring Modulith a été rendu GA en **août 2023**. Relativement jeune, ce projet apporte un cadre structurant aux applications Spring Boot monolithiques en y introduisant la notion de **modules applicatifs**. Vérification de l'architecture au build, documentation générée automatiquement, communication inter-modules par événements, tests d'intégration ciblés… le tout sans nécessairement d’infrastructure externe.
 
-## Les fonctionnalités de Spring Modulith
+### Les fonctionnalités de Spring Modulith
 
 Avant de plonger dans le code, prenons un peu de hauteur. Spring Modulith repose sur un principe simple : **chaque sous-package direct du package de la classe principale Spring Boot**(celle annotée avec **_@SpringBootApplication_**) **constitue un module applicatif**. Par convention, le package racine du module expose l'API publique ; tous les sous-packages sont considérés comme privés.
 
@@ -73,7 +73,7 @@ Avant de plonger dans le code, prenons un peu de hauteur. Spring Modulith repose
 
 La [documentation officielle de Spring Modulith](https:/docs.spring.io/spring-modulith/reference/index.html) est très complète. Je vous encourage à vous y référer. Dans les paragraphes qui suivent, nous allons voir concrètement comment chaque fonctionnalité a été intégrée dans [Spring Petclinic](https://github.com/spring-projects/spring-petclinic), ceci en 11 étapes. Pour rappel, cette application Spring Boot créée en 2003 met en scène une clinique vétérinaire avec ses propriétaires d'animaux, ses vétérinaires et la prise de rendez-vous.
 
-## Étape 1 - Ajouter les dépendances Maven
+### Étape 1 - Ajouter les dépendances Maven
 
 L’application Spring Petclinic supporte les deux principaux systèmes de build du monde Java : Maven et Gradle. Spring Petclinic Modulith également. Dans ce billet, par simplicité, nous nous focaliserons sur le **build** **Maven**.
 
@@ -122,7 +122,7 @@ Et enfin les dépendances minimales :
 
 Deux dépendances suffisent pour démarrer. D’autres dépendances seront ajoutées au fil de l'article.
 
-## Étape 2 - Le test de vérification modulaire
+### Étape 2 - Le test de vérification modulaire
 
 C'est le point d'entrée incontournable de Spring Modulith. En quelques lignes, on écrit un test JUnit qui analyse la structure du code et vérifie que les modules respectent leurs frontières :
 
@@ -160,7 +160,7 @@ org.springframework.modulith.core.Violations: - Cycle detected: Slice owner ->
 
 La version Ultimate d’ **IntelliJ IDEA** est packagée avec le **plugin Spring Modulith**. Le support de Spring Modulith permet à IntelliJ de mettre en évidence les utilisations de beans Spring (ou de toute autre classe) qui enfreignent les règles de Spring Modulith. IntelliJ propose de refactoriser le code afin de le rendre conforme à la structure modulaire. Je vous renvoie à la [documentation de cette fonctionnalité](https://www.jetbrains.com/help/idea/spring-modulith.html#apply-the-spring-modulith-guidelines).
 
-## Étape 3 - Identifier les modules applicatifs
+### Étape 3 - Identifier les modules applicatifs
 
 Spring Modulith détecte automatiquement les modules à partir des **sous-packages directs** du package contenant la classe main `@SpringBootApplication`. Dans Spring Petclinic, la classe `PetClinicApplication` est localisée au niveau du package **_org.springframework.samples.petclinic_**.
 
@@ -181,7 +181,7 @@ Le module `model` mutualisait 3 classes de base JPA `BaseEntity`, `Person`, `Nam
 
 ![ ](wp-content/uploads/2026/03/word-image-2642-2.png " ")
 
-## Étape 4- Séparer l'API publique des détails d'implémentation
+### Étape 4- Séparer l'API publique des détails d'implémentation
 
 Spring Modulith attribue un rôle bien défini à chaque package :
 
@@ -197,7 +197,7 @@ Dans un module applicatif, le développeur est libre d’organiser le code comme
 
 ![ ](wp-content/uploads/2026/03/word-image-2642-3.png " ")
 
-## Étape 5 - Communication par événements entre modules
+### Étape 5 - Communication par événements entre modules
 
 
  La communication par évènements est une fonctionnalité phare de Spring Modulith qu’on peut utiliser en déclarant l’artefact `spring-modulith-events-api` :
@@ -271,7 +271,7 @@ CREATE TABLE IF NOT EXISTS visit_assignments (
 
 Notez ici un point important : la colonne `visit_id` de cette table est une **référence lâche**, intentionnellement sans clé étrangère vers la table `visits` du module `owner`. C'est le miroir en base de données du découplage Java : le module `vet` ne connaît que l'identifiant publié dans l'événement [VisitBooked](https://github.com/spring-petclinic/spring-petclinic-modulith/blob/4.0.0/src/main/java/org/springframework/samples/petclinic/owner/VisitBooked.java), pas l'entité [Visit](https://github.com/spring-petclinic/spring-petclinic-modulith/blob/4.0.0/src/main/java/org/springframework/samples/petclinic/owner/domain/Visit.java) elle-même. Les modules communiquent par identifiants, pas par références d'objets ni par clés étrangères croisées.
 
-## Étape 6 – Déclarer les dépendances autorisées
+### Étape 6 – Déclarer les dépendances autorisées
 
 Cette étape permet de donner un nom au système et de déclarer explicitement les dépendances inter-modules autorisées. Deux annotations entrent ici en jeu : **`@Modulithic`** et `@ApplicationModule`.
 
@@ -303,7 +303,7 @@ package org.springframework.samples.petclinic.system;
 
 Ces garde-fous architecturaux sont ici exploités par le [ModularityTests](https://github.com/spring-petclinic/spring-petclinic-modulith/blob/4.0.0/src/test/java/org/springframework/samples/petclinic/ModularityTests.java). Si un développeur (ou un agent de codage) introduit une dépendance non autorisée, le test échoue immédiatement.
 
-## Étape 7 - L'Event Publication Registry
+### Étape 7 - L'Event Publication Registry
 
 Sans harnais de sécurité, un événement publié mais dont le listener échoue serait perdu à jamais. L'[Event Publication Registry](https://docs.spring.io/spring-modulith/reference/events.html#publication-registry) résout ce problème en persistant chaque événement en base de données **avant** l'exécution du listener.   
  Spring Modulith supporte 4 technologies de persistance : JDBC, JPA, MongoDB et Neo4j.   
@@ -335,7 +335,7 @@ spring.modulith.events.republish-outstanding-events-on-restart=true
 
 Spring Modulith intercepte chaque appel à `publishEvent() ` et insère une ligne dans la table `event_publication ` au sein de la transaction initiale. Si le listener s'exécute avec succès, l'entrée est supprimée (mode **`DELETE`**). Si le listener échoue ou si l'application crashe, l'entrée reste en base et sera rejouée au redémarrage de Petclinic. Cette garantie _at-least-once delivery_ fonctionne sans infrastructure externe : pas besoin de Kafka, de RabbitMQ ni de quelconque broker de messages. Un simple SGBD relationnel suffit.
 
-## Étape 8 - Moments : les événements temporels
+### Étape 8 - Moments : les événements temporels
 
 
  Spring Modulith propose un module **`spring-modulith-moment` s** qui publie automatiquement des événements marquant le passage du temps : **`HourHasPassed`**, **`DayHasPassed`**, **`WeekHasPassed`**, etc. C'est une alternative élégante aux classiques **`@Scheduled `** de Spring.
@@ -352,7 +352,7 @@ void on(DayHasPassed event) {
 
 Notez l'utilisation de l’annotation Spring Framework `@EventListener `(et non `@ApplicationModuleListener`) : l'événement **`DayHasPassed`** est publié par Spring Modulith lui-même en dehors de toute transaction applicative.
 
-## Étape 9 - Tests d'intégration modulaires
+### Étape 9 - Tests d'intégration modulaires
 
 La modularité apportée par Spring Modulith présente un autre avantage : sa capacité à **bootstrapper un seul module** en isolation. L'annotation `@ApplicationModuleTest ` remplace ainsi **`@SpringBootTest`** et ne charge que le contexte application Spring nécessaire au module dans lequel le test se trouve. En théorie, le temps d’exécution du test devrait être amélioré.
 
@@ -430,7 +430,7 @@ class CrashControllerIntegrationTests {
 
 Contrairement à ce dont on pouvait s’attendre, le temps d’exécution a légèrement augmenté, passant en moyenne de 500 à 520 ms. La détection des beans du module explique sans doute cet overhead. A vérifier sur d’autres testes, dans d’autres applications plus conséquentes.
 
-## Étape 10 - Génération de documentation
+### Étape 10 - Génération de documentation
 
 Spring Modulith permet de générer automatiquement de la documentation à partir du modèle de modules. Il suffit d’ajouter l’artefact **`spring-modulith-docs`** dans le `pom.xml` puis d'enrichir notre classe [ModularityTests](https://github.com/spring-petclinic/spring-petclinic-modulith/blob/4.0.0/src/test/java/org/springframework/samples/petclinic/ModularityTests.java) :
 
@@ -462,7 +462,7 @@ L'intérêt de cette living documentation est double : le rendu de l’architect
 
 Cela dit, dans une application d’entreprise, je vous recommande de ne pas regénérer systématiquement la doc à chaque exécution du build Maven, mais à la demande lorsque vous (ou votre agent IA) avez besoin de publier ou consulter la doc.
 
-# Étape 11 - l'endpoint Actuator
+## Étape 11 - l'endpoint Actuator
 
 Cette dernière étape consiste exposer le graphe de modules au runtime. Deux dépendances Maven sont nécessaires :
 
@@ -537,7 +537,7 @@ Un appel GET sur l’URL `http://localhost:8080/actuator/modulith ` renvoie le g
 ```
 
 
-## Conclusion
+### Conclusion
 
 Vous l’aurez vu : **intégrer Spring Modulith** dans **Spring Petclinic** s'est fait **facilement** et de manière très **progressive**. Un projet d’entreprise n’exploitera pas nécessairement toutes les fonctionnalités présentées dans cet article. Seules les étapes 1 à 5 sont obligatoires. Le fait de pouvoir ouvrir certains sous-packages à d’autres modules permet d’intégrer Spring Modulith dans des applications legacy, le temps de refactorer le code. D’expérience **, le plus simple consiste néanmoins à intégrer Spring Modulith dès la mise en œuvre de l’architecture logicielle d’un nouveau monolith modulaire**.
 

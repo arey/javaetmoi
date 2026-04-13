@@ -4,6 +4,7 @@ author: admin
 categories:
   - test
 date: "2013-09-06T16:46:25+00:00"
+toc: true
 thumbnail: wp-content/uploads/2013/09/test-database.jpg
 featureImage: wp-content/uploads/2013/09/test-database.jpg
 featureImageAlt: "test-database"

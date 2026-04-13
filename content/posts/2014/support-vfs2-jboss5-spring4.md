@@ -4,6 +4,7 @@ author: admin
 categories:
   - spring
 date: "2014-04-01T04:50:09+00:00"
+toc: true
 thumbnail: wp-content/uploads/2014/04/logo-spring-framework.png
 featureImage: wp-content/uploads/2014/04/logo-spring-framework.png
 featureImageAlt: "logo-spring-framework"

@@ -4,6 +4,7 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2014-06-28T16:19:58+00:00"
+toc: true
 thumbnail: wp-content/uploads/2014/06/2014-07-jsf2-richfaces4-dans-jboss5-richfaces-logo.png
 featureImage: wp-content/uploads/2014/06/2014-07-jsf2-richfaces4-dans-jboss5-richfaces-logo.png
 featureImageAlt: "JBoss Richfaces Logo"

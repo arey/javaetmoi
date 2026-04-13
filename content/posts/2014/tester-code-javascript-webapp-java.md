@@ -5,6 +5,7 @@ categories:
   - maven
   - test
 date: "2014-03-04T09:27:15+00:00"
+toc: true
 thumbnail: wp-content/uploads/2014/03/tester-code-javascript-webapp-logo.png
 featureImage: wp-content/uploads/2014/03/tester-code-javascript-webapp-logo.png
 featureImageAlt: "tester-code-javascript-webapp-logo"

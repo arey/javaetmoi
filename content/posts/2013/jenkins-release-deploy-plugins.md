@@ -4,6 +4,7 @@ author: admin
 categories:
   - maven
 date: "2013-07-16T16:37:26+00:00"
+toc: true
 thumbnail: wp-content/uploads/2013/07/jenkins-build-history.png
 featureImage: wp-content/uploads/2013/07/jenkins-build-history.png
 featureImageAlt: "jenkins-build-history"

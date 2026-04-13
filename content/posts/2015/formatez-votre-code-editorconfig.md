@@ -4,6 +4,7 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2015-12-04T07:27:57+00:00"
+toc: true
 thumbnail: wp-content/uploads/2015/11/editorconfig-stickers.png
 featureImage: wp-content/uploads/2015/11/editorconfig-stickers.png
 featureImageAlt: "editorconfig-stickers"

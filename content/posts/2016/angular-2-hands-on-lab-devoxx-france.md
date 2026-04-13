@@ -4,6 +4,7 @@ author: admin
 categories:
   - conférence
 date: "2016-04-30T15:04:09+00:00"
+toc: true
 thumbnail: wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg
 featureImage: wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg
 featureImageAlt: "2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016"
@@ -37,7 +38,7 @@ En7 étapes, vous développerez une application de Quizz avec la beta 11 d’Ang
 
 ![2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016](wp-content/uploads/2016/04/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg)
 
-##  Installation du post de dév
+###  Installation du post de dév
 
 Le repository GitHub [**angular2-codelab**](https://github.com/manekinekko/angular2-codelab) met à disposition l’application finale sur le master ainsi que 2 branches par étape (step) :
 
@@ -59,7 +60,7 @@ Le serveur web démarré par _ng_ supporte le live reload : à chaque changement
 
 Bien que [les slides](http://slides.com/wassimchegham/getting-started-with-angular-2#/) montrent à quoi ressemble l’application finale, je vous conseille de faire un checkout du master et de naviguer sur [http://localhost:4200/](http://localhost:4200/). Vous aurez ainsi une idée plus précise de l’objectif à atteindre lors de la partie pratique.
 
-## Un mot sur TypeScript
+### Un mot sur TypeScript
 
 Avant de commencer à jouer avec Angular 2, il est nécessaire de s’arrêter sur un détail d’importance. Bien qu’étant un framework front, le langage first d’Angular 2 n’est pas JavaScript/ECMAScript mais [**TypeScript**](https://www.typescriptlang.org/). Inventé par Microsoft, TypeScript est un sur-ensemble de ES5, ES2015 (ES6), ES2016 (ES7) et ceux à venir. Dans le navigateur ou via un outil de build, TypeScript est transpilé en JavaScript.
 Angular 2 n’impose pas l’utilisation de TypeScript. On peut utiliser ES5, ES6 et même Dart. Mais l’utilisation de TypeScript simplifie l’utilisation d’Angular2. A minima, Wassim conseille d’utiliser ES6. Pour faire tourner du ES6 sur les navigateurs ne le supportant pas, il est nécessaire de passer par un transpileur comme **Babel**.
@@ -69,7 +70,7 @@ Ce lab est codé en TypeScript. Une connaissance minimale de ce dernier ou, à d
 
 Si vous vous posez la question, les fichiers suffixés par **_.d.ts_** et présents dans le workspace du Lab permettent d’utiliser des librairies tierces JavaScript depuis TypeScript (ex : Jasmine et Selenium).
 
-## Les apports d’Angular 2
+### Les apports d’Angular 2
 
 Angular 2 est [présenté comme une plateforme de développement](http://slides.com/wassimchegham/getting-started-with-angular-2#/7/4) (et non un framework). Il couvre bien plus de [fonctionnalités](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/5) qu’Angular 1 (NG1).
 
@@ -142,7 +143,7 @@ import { Ng2CodelabApp } from './app/ng2-codelab';
 A la fin de cette étape, la page d’accueil n’affiche qu’un simple sablier.
 ![lab2-angular2-devoxxfr2016](wp-content/uploads/2016/04/lab2-angular2-devoxxfr2016.png)
 
-## Step 2 – Templates et cycle de vie
+### Step 2 – Templates et cycle de vie
 
 Dans le step 1, les fichiers HTML manipulés ne comportaient aucune syntaxe particulière à Angular. Le step 2 vise à utiliser quelques notations syntaxiques propres à Angular 2 et qui vont sont présentées dans [le slide Template Syntaxe](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/16) et dont voici quelques explications.
 Syntaxe raccourcie d’Angular 2 :
@@ -211,7 +212,7 @@ Le template _theme-card.html_ référence quant à lui les propriétés du compo
 <p>{{ theme.description }}</p>
 ```
 
-## Step 3 – Le routage
+### Step 3 – Le routage
 
 Cette étape a pour objectif de vous faire prendre en main le component **angular2/router**. Bien que s’agissant d’un module externe à Angular 2, il s’agit du module officiel de gestion de la **navigation**.
 Ce qu’il est important de comprendre, c’est que **chaque composant peut être routable**. Dans Angular 2, **les routes se font entre composants et non entre vues**. Bien qu’il existe des règles globales à l’application, chaque composant gère ses propres règles de routage.
@@ -269,7 +270,7 @@ Dans le template _theme-card.html_, la directive **\[routerLink\]** génère le 
 
 Un clic sur le lien déclenche le routage vers le composant QuestionCard. Dans le DOM, la balise _<home>_ est remplacée par _<question-card>._
 
-## Step 4 – Les providers
+### Step 4 – Les providers
 
 Entraperçu dans l’étape 2 lors de l’utilisation du _TechnologiesStore_, le **provider** est le thème central de cette 4ième étape.
 Un provider est chargé de mettre une classe JavaScript à disposition d’un composant. Typiquement, un composant va avoir besoin d’un service qui interagit avec le backend pour récupérer / mettre à jour des données.
@@ -334,7 +335,7 @@ template: `
 }
 ```
 
-## Step 5 – Smart components
+### Step 5 – Smart components
 
 Aucun slide « Break time » ne précède l’étape n°5. Cette dernière ne requière pas de nouvelles notions. Par contre, vous allez mettre en œuvre un autre type de composant : le **« smart » component** **Summary**. Les smarts components n’échangent pas seulement des données avec leur composant parent, mais lisent / écrivent des données via des services.
 Dans cette étape, vous allez accéder au service **QuestionStore** depuis le composant **Summary**. Le QuestionStore sera mis à disposition par un _Provider_ de type _Factory_.
@@ -382,7 +383,7 @@ constructor(questionsStore: QuestionsStore) {
 
 ```
 
-## Step 6 – Les pipes
+### Step 6 – Les pipes
 
 Les filtres d’Angular 1 ont été renommées en **pipes**. Le concept et la syntaxe restent inchangés. Leur fonctionnement s’inspire des pipes Linux. Ils s’utilisent dans les templates pour transformer ou formater une donnée. Un pipe peut accepter des paramètres.
 Angular 2 vient avec un certains nombres de [built-ins pipes](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/37): DatePipe, UpperCase …
@@ -410,7 +411,7 @@ Voici comment ce pipe est utilisé dans le template du composant QuestionCard :
 <span *ngIf="preview" class="answer" >{{ choice | mark }}</span>
 ```
 
-## Step 7 – Les directives
+### Step 7 – Les directives
 
 Cette dernière étape du Lab vous montre comment créer votre propre **Directive**. Le concept de directive structurelle n’a pas changé depuis Angular 1 : une directive permet d’attacher des comportements à des éléments customs du DOM. Un exemple sera bien plus parlant : [MyHighlightDirective](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/41). L’usage de l’interface **Renderer** à la place d’un accès direct au DOM permet de rendre l’application portable (ex : rendu côté serveur).
 
@@ -439,7 +440,7 @@ export class StatusDirective implements AfterViewInit {
 }
 ```
 
-# Conclusion
+## Conclusion
 
 Ce Lab vous aura permis de construire pas à pas une application de quizz tout en découvrant les fonctionnalités phares d’Angular 2.
 

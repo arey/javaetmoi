@@ -4,6 +4,7 @@ author: admin
 categories:
   - conférence
 date: "2015-03-31T16:32:57+00:00"
+toc: true
 thumbnail: wp-content/uploads/2015/03/nosql-matters-logo.png
 featureImage: wp-content/uploads/2015/03/nosql-matters-logo.png
 featureImageAlt: "nosql-matters-logo"

@@ -4,6 +4,7 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2013-11-15T19:35:01+00:00"
+toc: true
 thumbnail: wp-content/uploads/2013/11/logo-musicbrainz.jpg
 featureImage: wp-content/uploads/2013/11/logo-musicbrainz.jpg
 featureImageAlt: "logo-musicbrainz"
@@ -41,7 +42,7 @@ Pour indexer les données depuis une base PostgreSQL, j’ai privilégié **Spri
 
 Cet article a pour objectif de décrire les différentes étapes qui m’ont été nécessaires pour réaliser ma démo et d’expliquer ce que j’ai librement rendu accessible sur [GitHub](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/core/batch/item/EsDocumentWriter.java) et [Internet](http://musicsearch.javaetmoi.com/).
 
-# Vue d’ensemble
+## Vue d’ensemble
 
 Le diagramme suivant présente l’architecture mise en place.
 
@@ -49,7 +50,7 @@ Le diagramme suivant présente l’architecture mise en place.
 
 Un batch d’indexation se connecte via JDBC à la base de données de MusicBrainz et indexe les albums de musique dans Elasticsearch. Une application HTML 5 permet d’interroger l’index Elasticsearch.
 
-# Base de données MusicBrainz
+## Base de données MusicBrainz
 
 A l’instar d’IMDb pour le cinéma, MusicBrainz est une **base de données dédiée à la musique**. Artistes, groupes de musiques, albums, pochettes et chansons issus du monde entier y sont référencés.  Outre la base de données musicale, MusicBrainz propose également une interface graphique permettant d’effectuer des recherches, de consulter les données et de participer à l’enrichissement de la base. [Last.fm](http://blog.last.fm/2011/11/24/the-brainz-are-back-in-town), [The Guardian](http://www.theguardian.com/open-platform/blog/linked-data-open-platform) ou bien encore la [BBC](http://www.bbc.co.uk/music/brainz/) s’interfacent avec MusicBrainz.  
 Parce que la base PostgreSQL du sites MusicBrainz.org n’est pas accessible depuis Internet mais également dans le souci de pouvoir réaliser ma démo déconnecté du réseau, j’ai cherché à pouvoir installer la base de données en locale. MusicBrainz propose 2 solutions :
@@ -69,11 +70,11 @@ Depuis l’hôte, il est à présent possible de se connecter à la base à part
 
 Le batch Java est désormais capable de récupérer les données à indexer.
 
-## Serveur Elasticsearch en local
+### Serveur Elasticsearch en local
 
 Le batch se connecte à un cluster Elasticsearch. L’installation d’un cluster est donc nécessaire, que ce soit sur votre poste de développement ou sur une autre machine. Installer un serveur Elasticsearch est on ne peut plus simple. Quelques lignes de commandes suffisent. Pour davantage d’explications, je vous renvoie à l’article [Premiers pas avec ElasticSearch](http://blog.zenika.com/index.php?post/2012/11/14/Premiers-pas-avec-ElasticSearch-Partie-1) de Tanguy Leroux.  Au vu de la volumétrie des données et de la faible charge, un seul nœud suffit amplement.
 
-# Le batch d’indexation
+## Le batch d’indexation
 
 Le batch n’indexe pas toute la base de données MusicBrainz. Il se cantonne aux **albums de musique** qui sont un sous ensemble des _**release groups**_.  Seuls les albums « principaux » sont indexés. Single, EP, Compilation, Live ou autre Remix ne sont pas indexés.
 
@@ -486,7 +487,7 @@ public class EsDocumentWriter implements ItemWriter<EsDocument> {
 
 En sortie, voici un exemple du document JSON représentant l’album “Achtung Baby” du groupe U2 :
 
-# Mapping Elasticsearch
+## Mapping Elasticsearch
 
 Comme expliqué précédemment, le batch est chargé de créer l’ **index musicalbum**. Outre le nombre de **shards** et de **réplicas**, le fichier **[_es-index-settings.json_](https://github.com/arey/musicbrainz-elasticsearch/blob/master/src/main/resources/com/javaetmoi/elasticsearch/musicbrainz/batch/es-index-settings.json)** déclare les **filtres** et les **analyseurs** utilisés pour indexer puis rechercher des albums.  
 Le filtre **myEdgeNGram** et l’analyseur **myPartialNameAnalyzer** sont par exemple utilisés par l’ **autosuggestion** des résultats de recherche :
@@ -630,11 +631,11 @@ Le fichier **[_es-index-mappings.json_](https://github.com/arey/musicbrainz-elas
 }
 ```
 
-# Tests unitaires
+## Tests unitaires
 
 Avant d’exécuter le batch sur la base de données MusicBrainz, le test unitaire **[_TestMusicAlbumJob_](https://github.com/arey/musicbrainz-elasticsearch/blob/master/src/test/java/com/javaetmoi/elasticsearch/musicbrainz/batch/TestMusicAlbumJob.java)** m’aura permis d’éprouver le code. La structure du schéma de la base MusicBrainz est reproduite dans une base de données en mémoire **[H2](http://www.h2database.com)**. Elle est alimentée avec la **discographie de U2**. Pour se faire, la librairie open source **[DbSetup](http://dbsetup.ninja-squad.com/)** a été mise [une nouvelle fois à contribution](/2013/09/dbsetup-spring-test-vs-dbunit/ "DbSetup, une alternative à DbUnit"). Une instance Elasticsearch embarquée est démarrée par le test. Le batch est exécuté. Le test vérifie simplement que le nombre de documents indexés correspond au nombre d’albums de U2. En complément, l’exécution d’une requête de recherche aurait permis de valider le mapping.
 
-# Exécution du batch
+## Exécution du batch
 
 Comme son nom l’indique, la classe **[_IndexBatchMain_](https://github.com/arey/musicbrainz-elasticsearch/blob/master/src/main/java/com/javaetmoi/elasticsearch/musicbrainz/batch/IndexBatchMain.java)** fournit la méthode _main_ permettant d’exécuter le batch en ligne de commande. Quelques étapes suffisent :
 
@@ -647,14 +648,14 @@ Comme son nom l’indique, la classe **[_IndexBatchMain_](https://github.com/are
 
 Quelques minutes plus tard, quelques **265 169 albums sont indexés**.
 
-# Démo
+## Démo
 
 Pour exploiter l’index nouvellement créé, rien de tel qu’une petite interface en HTML 5. Pour se faire, [Lucian Precup](https://twitter.com/lucianprecup) m’a autorisé à adapter une page qu’il avait mis au point dans le cadre de l’atelier [Construisons un moteur de recherche](http://agenda2013.scrumday.fr/event/149) tenu lors de la Scrum Day 2013. Réalisée en **AngularJS**, jQuery et Boostrap, cette page propose une zone de recherche full-text, offre de l’autosuggestion et affiche le résultat de recherche de manière paginée. Quelques filtres et directives Angular ont été ajoutés pour, par exemple, gérer les appréciations des mélomanes.  La capture d’écran  ci-dessous donne un aperçu du rendu graphique :
 
 [![workshop-demo-screenshot](wp-content/uploads/2013/11/2013-11-search-gui-screenshot.png)](wp-content/uploads/2013/11/2013-11-search-gui-screenshot.png)  
 Déployée sur OVH, l’application Angular est accessible à l’adresse **[http://musicsearch.javaetmoi.com/](http://musicsearch.javaetmoi.com/)**
 
-## Requêtes de recherche
+### Requêtes de recherche
 
 La recherche utilisée pour l’ **autosuggestion** repose sur une **_query\_string_** analysant le nom de l’album, le nom de l’artiste et la date de sortie de l’album. Pour les noms, elle utilise 2 champs : celui pour la recherche exacte (ex: artist.name) et celui pour la recherche de type « commence par » (ex : artist.name.start). La **surbrillance** est activée sur les 3 critères.  
 Le gist  [7436834](https://gist.github.com/arey/7436834) propose la commande curl équivalente :
@@ -818,7 +819,7 @@ Voici un extrait du résultat retourné par Elasticsearch :
 }
 ```
 
-## Dans le Cloud avec OpenShift
+### Dans le Cloud avec OpenShift
 
 A la recherche d’un hébergeur me permettant d’installer mon index en ligne, je suis tombé sur le billet [Searching with ElasticSearch on OpenShift](https://www.openshift.com/blogs/searching-with-elasticsearch-on-openshift) de Marek Jelen, évangéliste **OpenShift**. C’était l’occasion de découvrir l’offre **Cloud de RedHat**, et cela sans sortir ma carte bancaire. En effet, OpenShift offre 3 Gems limitées à 512 Mo de RAM et de 1 Go d’espace disque. Avec un index de 160 Mo, c’était amplement suffisant.  
 [![Elasticsearch et Nginx sur OpenShift](wp-content/uploads/2013/11/2013-11-musicbrainz-openshift.png)](wp-content/uploads/2013/11/2013-11-musicbrainz-openshift.png)
@@ -839,7 +840,7 @@ Pour terminer, OpenShift permet d’associer un **nom de domaine** à une Gem.  
 
 L’application Angular [http://musicsearch.javaetmoi.com/](http://musicsearch.javaetmoi.com/)  fait appel à l’API REST d’Angular exposée sur l’URL http://es.javaetmoi.com/musicalbum/album/\_search
 
-## Conclusion
+### Conclusion
 
 Ce billet nous aura permis d’aborder de bout en bout la **mise en ligne d’une application basée sur Elasticsearch** : de l’indexation des données par batch à [leur consultation dans votre  navigateur](http://musicsearch.javaetmoi.com/).  
 En moins d’une heure, l’index Elasticsearch aura été mis en ligne sur OpenShift, le PaaS / IaaS de Redhat.  La disponibilité d’un cartdrige OpenShift pour Elasticsearch permettrait d’accélérer son déploiement. A noter que mon cluster Elasticsearch n’est formé que d’un seul nœud. Je n’ai pas vérifié s’il était possible d’installer un cluster Elasticsearch sur plusieurs serveurs.

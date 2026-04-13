@@ -4,6 +4,7 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2015-08-27T05:20:24+00:00"
+toc: true
 thumbnail: wp-content/uploads/2015/08/clean_code_72_color.png
 featureImage: wp-content/uploads/2015/08/clean_code_72_color.png
 featureImageAlt: "clean_code_logo"

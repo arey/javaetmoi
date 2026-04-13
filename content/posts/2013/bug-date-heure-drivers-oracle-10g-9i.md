@@ -4,6 +4,7 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2013-01-19T18:14:11+00:00"
+toc: true
 guid: http://javaetmoi.com/?p=564
 parent_post_id: null
 post_id: "564"
@@ -24,11 +25,11 @@ url: /2013/01/bug-date-heure-drivers-oracle-10g-9i/
 ---
 Récemment, je suis tombé sur un **bug** lié à l’utilisation d’une **version de driver** **JDBC pour Oracle** plus récente que la version de la base Oracle attaquée en SQL via JDBC.
 
-# Les symptômes
+## Les symptômes
 
 Dans notre contexte applicatif, la date et l’heure des données lues en base sont utilisées pour détecter des conflits de version, d’une manière similaire au versioning Hibernate. Concrètement, cela nous permet d’éviter qu’une donnée traitée par batch quotidien écrase une donnée plus fraiche provenant d’un système tiers. Ce mécanisme permet notamment d’exécuter un batch sans interruption de service de l’application web associée. Le bug que je vais vous décrire nous a été révélé tardivement. Sous certaines conditions,  nous avons en effet constaté que le batch ne rattrapait jamais des données. C’est **comme si l’heure n’était jamais prise en compte** **dans le code Java**.
 
-# Lecture de la colonne DATE
+## Lecture de la colonne DATE
 
 Dans la base de données Oracle 9i interrogées, date et heure des données sont stockées dans une colonne de type DATE. Aucun doute sur un éventuel problème d’insertion des données, Toad nous confirme que l’heure est bel et bien présente. L’hypothèse d’un problème de lecture de l’heure a été confirmée en debuggant le batch, et plus particulièrement le code Java chargé de parcourir le _ResultSet_ ramenée par une requête SQL. Voici le résultat des différents tests effectués :
 
@@ -41,11 +42,11 @@ res = resultSet.getTimestamp("lastupdate");          // 2013-01-18 19:35:20.0
 
 La norme SQL précise que le type temporel DATE ne contient pas d’informations sur l’heure. La classe `java.sql.Date` nous le rappelle. Le type temporel TIMESTAMP matérialisé par la classe `java.sql.Timestamp` permet quant à lui de stocker date, heure et nanosecondes. En forçant l’appel à la méthode `getTimestanp()`, on obtient le résultat escompté. L’heure stockée en base est bien remontée lors de l’exécution de la requête. Je me serais donc attendu à ce que les meta-données JDBC soit de type TIMESTAMP à la place de DATE et que la méthode getObject() utilisée dans le code applicatif manipule des `java.sql.Timestamp`.
 
-# Le driver JDBC en cause
+## Le driver JDBC en cause
 
 Sur le site d’Oracle, la FAQ « [What is going on with DATE and TIMESTAMP?](http://www.oracle.com/technetwork/database/enterprise-edition/jdbc-faq-090281.html#08_01) »  décrit précisément le problème rencontré et donne plusieurs pistes pour le résoudre. Pour résumer, jusqu’à la version 9.2 d’Oracle, cette dernière ne distinguait pas les types temporels SQL DATE et TIMESTAMP. Le type DATE Oracle combinait à la fois dates et heures. Jusque-là, le driver JDBC Oracle associé le type DATE à un `java.sql.Timestamp`. L’implémentation du type SQL TIMESTAMP est arrivée avec la version 9.2 de la base Oracle. Pour se conformer à la norme SQL, Oracle préconisa de migrer les colonnes de type DATE contenant des heures dans une colonne de type TIMESTAMP. Logiquement, le driver JDBC de la 9.2 associait désormais le type DATE dans un `java.sql.Date` et le type TIMESTAMP dans un `java.sql.Timestamp`. C’était oublier les bases antérieures à la version 9.2 ou celles qui n’avaient pas suivi les préconisations par difficultés techniques ou coûts. Ce changement de comportement du driver a perduré jusqu’à sa version 10.2. Oracle fit marche arrière avec la version 11.1 de son driver JDBC.  Les types SQL DATE furent de nouveau associés à la classe `java.sql.Timestamp`. Notre code applicatif utilisait la version 10.2.0.3 du driver Oracle. La base de données Oracle interrogée est quant à elle une 9.2.0.8.0. Elle pourrait donc théoriquement utiliser le type TIMESTAMP ; mais ce n’est pas le cas.
 
-## Corrections possibles
+### Corrections possibles
 
 Plusieurs solutions permettent de contourner ce problème :
 
@@ -55,11 +56,11 @@ Plusieurs solutions permettent de contourner ce problème :
 1. Utiliser le mode de compatibilité Oracle 8 en passant à true la propriété **_oracle.jdbc.V8Compatible_** de la connexion JDBC. Ne maitrisant pas les effets de bord et ce mode de compatibilité n’étant plus supporté à partir de la version 11 du driver Oracle, cette solution a été écartée.
 1. Utiliser la **version 11 du driver JDBC Oracle** corrigeant le problème. C’est la solution qui a été retenue. Une migration vers Oracle 11 des bases de données de l’entreprise étant prévue à moyen termes, cette solution parait la plus pérenne, d’autant que nos tests n’ont pas décelé d’autres changements induits par cette montée de version de driver.
 
-## Version du driver JDBC
+### Version du driver JDBC
 
 Jusqu’à ce problème, je n’avais jamais prêté attention à la version du driver JDBC pour Oracle utilisée chez mon client. En effet, son choix est aux mains de l’équipe d’exploitation qui assure leur installation et leurs montées de version sur les serveurs d’applications. Le socle applicatif de l’entreprise est naturellement basé sur la même version. Par ailleurs, les driver Oracle sont unifiés. A savoir qu’un driver sait communiquer avec des bases de données de versions inférieures, voir même supérieure : «  [Which JDBC drivers support which versions of Oracle Database?](http://www.oracle.com/technetwork/database/enterprise-edition/jdbc-faq-090281.html#02_02) »
 
-# Conclusion
+## Conclusion
 
 En conclusion, comme je vous l’ai montré, une montée de version de drivers JDBC n’est pas anodine, surtout avec Oracle. Tout comme la montée de version d’un framework, une analyse d’impacts doit être menée à partir des [notes de livraisons](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html "Oracle JDBC Driver Downloads page").
 Par ailleurs, nos tests unitaires sur une base embarquée n’ont pas pu déceler ce problème.  Moralité, même avec un taux de couverture maximum, des tests d’intégration ne sont jamais à exclure.

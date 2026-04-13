@@ -4,6 +4,7 @@ author: admin
 categories:
   - spring
 date: "2016-12-21T16:20:08+00:00"
+toc: true
 guid: http://javaetmoi.com/?p=1657
 parent_post_id: null
 post_id: "1657"
@@ -33,7 +34,7 @@ Avec plus de 2000 forks sur GitHub, la communauté a créé de nombreux forks de
 
 Ce billet a pour objectif de vous présenter cette récente initiative puis de vous présenter les **différents forks** d’ores et déjà disponible dans l’organisation Spring Petclinic. Mais avant cela, remontons le temps.
 
-# Les origines
+## Les origines
 
 D’après une [vieille documentation encore en ligne](http://docs.spring.io/docs/petclinic.html), Spring Petclinic a été initialement développé par Ken Krebs en **2003**. A cette époque, la version 1.0 de Spring Framework n’était pas encore releasée ([il a fallu attendre mars 2004](https://en.wikipedia.org/wiki/Spring_Framework)). La Javadoc @author démontre que le co-fondateur du framework Spring, Juergen Hoeller en personne, a activement contribué à Petclinic.
 Les années passèrent. L’application bénéficia des montées de version du framework Spring.
@@ -46,7 +47,7 @@ A partir de juin 2015, j’ai eu l’honneur de reprendre la coordination techni
 
 Le mois dernier, j’ai passé la main à Dave Syer, qui n’est autre que le papa de Spring Batch, Spring Cloud et de Spring Boot.
 
-# L’application Petclinic de référence
+## L’application Petclinic de référence
 
 Reprenant les rennes, Dave Syer a tout de suite mis sa griffe sur le repo [spring-projects/spring-petclinic](https://github.com/spring-projects/spring-petclinic/) :
 
@@ -59,7 +60,7 @@ Ce dernier **changement d’architecture** est le fait le plus marquant. Quelle 
 
 Maintenue par l’équipe **Pivotal**, cette **version « canonique » de Spring Petclinic** est celle à partir desquels les forks pourront être créés. Notons enfin que c’est la version **Spring Boot** qui est mise en avant. Cela implique qu’une nouvelle application Spring doit donc partir dans la majorité des cas sur du Spring Boot.
 
-# Spring Framework Petclinic
+## Spring Framework Petclinic
 
 L’application [spring-petclinic/spring-framework-petclinic](https://github.com/spring-petclinic/spring-framework-petclinic)  a pour objectif de maintenir une version de Spring Petclinic sans Spring Boot, à l’ancienne, avec de la **configuration Spring**, de bonnes vielles pages **JSP** et une **architecture 3-tiers**.
 
@@ -73,7 +74,7 @@ Comparée à son aînée, cette version présente de nombreux points d’intér�
 
 Le fichier [README.MD](https://github.com/spring-petclinic/spring-framework-petclinic/blob/master/readme.md) donne les points d’entrée vers les fichiers  de configurer et les classes Java les plus intéressantes.
 
-# Spring Petclinic AngularJS
+## Spring Petclinic AngularJS
 
 Le fork [spring-petclinic/spring-petclinic-angular1](https://github.com/spring-petclinic/spring-petclinic-angular1) a été créé à partir de la branche angular de l’application de référence, juste avant que celle-ci ne soit supprimée.
 [Liu Dapeng](https://www.verydapeng.com/), Michael Isvy et moi-même en sont les principaux contributeurs.
@@ -105,7 +106,7 @@ Le module **spring-boot-devtools** a été configuré de manière à ce que :
 
 Cette configuration n’est active que pendant la phase de développement. Elle est localisée dans le fichier [application-dev.properties](https://github.com/spring-petclinic/spring-petclinic-angular1/blob/master/spring-petclinic-server/src/main/resources/application-dev.properties) qui n’est chargé par Spring Boot que lorsque le **profile Spring dev** est actif. Dans votre IDE, ajouter l’option ci-dessous au démarrage de la JVM : -Dspring.profiles.active=dev
 
-# Spring Petclinic ReactJS
+## Spring Petclinic ReactJS
 
 Le projet [spring-petclinic/spring-petclinic-reactjs](https://github.com/spring-petclinic/spring-petclinic-reactjs) est le 2nd portage de l’application Spring Petclinic vers un **front-end full JavaScript** de type **SPA** (Single Page Application), en l’occurrence basé ici sur [ReactJS](https://facebook.github.io/react/) (un framework MVC JavaScript développé par Facebook) et [TypeScript](https://www.typescriptlang.org/) (un sur-ensemble de ES6 développé par Microsoft).
 Ce fork a été développé par [Nils Hartmann](http://nilshartmann.net/), co-auteur d’un [livre en allemand sur React](https://reactbuch.de/) et pro Spring Boot. Nils est parti de la version Spring Boot de Spring Petclinic. Pour designer l’API REST, il a récupéré certaines classes de la version AngularJS.
@@ -124,7 +125,7 @@ Chaque page de l’application web a été décomposée en composants et sous-co
 
 La partie **serveur** se rapproche de celle d’AngularJS. Seule différence majeure : les **données** envoyées par le client sont **validées**. Se référer aux classes [InvalidRequestException](https://github.com/spring-petclinic/spring-petclinic-reactjs/blob/master/src/main/java/org/springframework/samples/petclinic/web/api/InvalidRequestException.java), [ApiExceptionHandler](https://github.com/spring-petclinic/spring-petclinic-reactjs/blob/master/src/main/java/org/springframework/samples/petclinic/web/api/ApiExceptionHandler.java), [ErrorResource](https://github.com/spring-petclinic/spring-petclinic-reactjs/blob/master/src/main/java/org/springframework/samples/petclinic/web/api/ErrorResource.java) et [FieldErrorResource](https://github.com/spring-petclinic/spring-petclinic-reactjs/blob/master/src/main/java/org/springframework/samples/petclinic/web/api/FieldErrorResource.java). Bien conçue, cette couche de validation pourra être reportée sur la version AngularJS (cf. [issue 7](https://github.com/spring-petclinic/spring-petclinic-angular1/issues/7)).
 
-# Spring Petclinic Microservices
+## Spring Petclinic Microservices
 
 Fondée par Maciej Szarliński, la version **microservices** de Spring Petclinic est mon coup de cœur du moment : [spring-petclinic/spring-petclinic-microservices](https://github.com/spring-petclinic/spring-petclinic-microservices). Un grand nombre de modules de la stack **Spring Cloud** y sont mis en œuvre.
 
@@ -141,7 +142,7 @@ Afin de pouvoir suivre les requêtes HTTP entre plusieurs microservices, un méc
 
 Enfin, avec pour objectif de simplifier le démarrage de l’ensemble de ces applications (3 microservices + 4 composants d’infra), un fichier **docker-compose.yml** [sera bientôt mis à disposition](https://github.com/spring-petclinic/spring-petclinic-microservices/pull/28).
 
-# Tableau de synthèse
+## Tableau de synthèse
 
 Le tableau ci-dessous dresse une liste des différentes versions de Spring Petclinic présentant à mes yeux un intérêt majeur :
 **Appellation****Description****[Spring Petclinic](https://github.com/spring-petclinic)**Version de référence de Spring Petclinic.
@@ -150,7 +151,7 @@ Front-end implémenté en JSP.
 3 technologies de persistance : JDBC, JPA et Spring Data JPA.[**Spring Petclinic AngularJS**](https://github.com/spring-petclinic/spring-petclinic-angular1)Front-end Angular 1 embarqué dans un webjar.
 Usage de DevTools.**[Spring Petclinic ReactJS](https://github.com/spring-petclinic/spring-petclinic-reactjs)**Front-end ReactJS délivré par un serveur NodeJS et attaquant l’API REST du back-end implémenté en Spring Boot.[**Spring Petclinic Microservices**](spring-petclinic-microservices)Version distribuée de Spring Petclinic implémentée à l’aide de Spring Cloud : serveur Spring Config, annuaire de services avec Eureka, gestion des logs avec Zipkin et Sleuth, API Gateway avec Zuul, Docker compose …
 
-# Conclusion
+## Conclusion
 
 Dans cet article, j’ai commencé par retracer l’historique de l’application de référence Spring Petclinic qui a fêté son 13ième anniversaire et qui comptabilise plus de 2000 forks. Parmi ces forks, une poignée a intégré la nouvelle **organisation Spring Petclinic**. On y retrouve des versions front-end basées sur AngularJS et ReactJS, une version distribuée avec des micro-services et du Spring Cloud, une version plus legacy n’utilisant pas Spring Boot mais de la configuration XML ou Java (au choix).
 

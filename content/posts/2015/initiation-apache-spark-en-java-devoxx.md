@@ -5,6 +5,7 @@ author: admin
 categories:
   - conférence
 date: "2015-04-14T04:28:48+00:00"
+toc: true
 thumbnail: wp-content/uploads/2015/04/spark-logo.png
 featureImage: wp-content/uploads/2015/04/spark-logo.png
 featureImageAlt: "spark-logo"

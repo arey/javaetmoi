@@ -4,6 +4,7 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2024-08-25T15:54:14+00:00"
+toc: true
 thumbnail: wp-content/uploads/2024/08/Jakarta_ee_logo.png
 featureImage: wp-content/uploads/2024/08/Jakarta_ee_logo.png
 guid: https://javaetmoi.com/?p=2374

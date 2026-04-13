@@ -7,6 +7,7 @@ categories:
   - retour-d'expérience
   - spring
 date: "2025-04-13T16:55:14+00:00"
+toc: true
 thumbnail: wp-content/uploads/2025/04/word-image-2443-1.png
 featureImage: wp-content/uploads/2025/04/word-image-2443-1.png
 footnotes: ""

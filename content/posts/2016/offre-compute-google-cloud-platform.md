@@ -5,6 +5,7 @@ author: admin
 categories:
   - conférence
 date: "2016-07-04T17:09:05+00:00"
+toc: true
 thumbnail: wp-content/uploads/2016/06/Didier-Girard-à-la-formation-Google.jpg
 featureImage: wp-content/uploads/2016/06/Didier-Girard-à-la-formation-Google.jpg
 featureImageAlt: "Didier Girard à la formation Google"

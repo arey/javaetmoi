@@ -5,6 +5,7 @@ author: admin
 categories:
   - test
 date: "2012-05-26T18:51:06+00:00"
+toc: true
 thumbnail: wp-content/uploads/2012/05/jmeter-viewstate-extractor.png
 featureImage: wp-content/uploads/2012/05/jmeter-viewstate-extractor.png
 featureImageAlt: "Extracteur dexpression régulière JMeter"
@@ -38,15 +39,15 @@ J’ai la chance de travailler dans une équipe ou l’outil [Selenium](https://
 
 Cet article a pour objectif de vous présenter la démarche adoptée. Si vous êtes intéressés, vous pourrez librement l’adapter en fonction de votre contexte projet.
 
-# Les outils à disposition
+## Les outils à disposition
 
-## Serveur Proxy HTTP de JMeter
+### Serveur Proxy HTTP de JMeter
 
 Le client lourd JMeter offre la possibilité d' **enregistrer toutes les requêtes HTTP** transitant entre le navigateur et l’application web à tester. Techniquement, il utilise le mécanisme de **proxy HTTP**. Le navigateur est configuré pour utiliser le Serveur Proxy HTTP créé dans le Plan de Travail JMeter. Couplé à un **Contrôleur Enregistreur**, le proxy enregistre les appels avant de les router vers le serveur d’application cible.
 
 Le tutoriel [Proxy step by step](http://jakarta.apache.org/jmeter/usermanual/jmeter_proxy_step_by_step.pdf) \[3\] proposé sur le site de JMeter fournit toutes les étapes nécessaires pour configuration JMeter.
 
-## Du code source
+### Du code source
 
 Le fichier .jmx généré lors de l’enregistrement va devoir être manipulé en Java (bien oui, vous êtes sur le blog d’un développeur java). Premier soulagement : il est au format XML et peut donc être aisément parsé une fois son schéma appréhendé. Mails là où il est intéressant d’avoir opté pour un outil open source, c’est que nous allons pouvoir utiliser son API Java pour manipuler les fichiers .jmx de description de plan de tests. Et pour mieux cerner l’API, l’accès au code source est précieux.
 
@@ -67,11 +68,11 @@ Par transitivité, il est possible de récupérer tous les artefacts nécessaire
 </dependency>
 ```
 
-# Mise en œuvre
+## Mise en œuvre
 
 Afin de pouvoir être rejoué, **un scénario de test Selenium enregistré à l’état brut** par le proxy JMeter **doit être épuré**, **retravaillé** et **variabilisé**. C’est d’ailleurs toute la plus-value apportée par le générateur.
 
-## Template de test
+### Template de test
 
 Une première étape consiste à insérer le contenu du « fichier brut » (c’est-à-dire tous les éléments de tests enregistrés sous le _Contrôleur Enregistreur_) dans ce que j’appellerai un **template de test**.
 Réutilisable, ce template contient toutes les caractéristiques d’un test de stress type.  Voici quelques-unes de ses composantes :
@@ -85,7 +86,7 @@ Réutilisable, ce template contient toutes les caractéristiques d’un test de 
 - Logique du test de stress, par exemple à l’aide d’un _Groupes d’Unités_ configuré pour un test aux limites
 - _Compteur de temps fixe_ pour simuler le « Think Time » des utilisateurs
 
-## Traitement des données brutes
+### Traitement des données brutes
 
 La seconde étape consiste à implémenter les « **processeurs** » chargés de traiter les éléments de tests enregistrés par le proxy JMeter.
 A titre d’exemples, voici les traitements effectués par le générateur mis en œuvre dans le cadre d’une application JSF / RichFaces :
@@ -112,15 +113,15 @@ J’ai la chance de travailler dans une équipe ou l’outil [Selenium](https://
 
 Cet article a pour objectif de vous présenter la démarche adoptée. Si vous êtes intéressés, vous pourrez librement l’adapter en fonction de votre contexte projet.<!--more-->
 
-# Les outils à disposition
+## Les outils à disposition
 
-## Serveur Proxy HTTP de JMeter
+### Serveur Proxy HTTP de JMeter
 
 Le client lourd JMeter offre la possibilité d' **enregistrer toutes les requêtes HTTP** transitant entre le navigateur et l’application web à tester. Techniquement, il utilise le mécanisme de **proxy HTTP**. Le navigateur est configuré pour utiliser le Serveur Proxy HTTP créé dans le Plan de Travail JMeter. Couplé à un **Contrôleur Enregistreur**, le proxy enregistre les appels avant de les router vers le serveur d’application cible.
 
 Le tutoriel [Proxy step by step](http://jakarta.apache.org/jmeter/usermanual/jmeter_proxy_step_by_step.pdf) \[3\] proposé sur le site de JMeter fournit toutes les étapes nécessaires pour configuration JMeter.
 
-## Du code source
+### Du code source
 
 Le fichier .jmx généré lors de l’enregistrement va devoir être manipulé en Java (bien oui, vous êtes sur le blog d’un développeur java). Premier soulagement : il est au format XML et peut donc être aisément parsé une fois son schéma appréhendé. Mails là où il est intéressant d’avoir opté pour un outil open source, c’est que nous allons pouvoir utiliser son API Java pour manipuler les fichiers .jmx de description de plan de tests. Et pour mieux cerner l’API, l’accès au code source est précieux.
 
@@ -141,11 +142,11 @@ Par transitivité, il est possible de récupérer tous les artefacts nécessaire
 </dependency>
 ```
 
-# Mise en œuvre
+## Mise en œuvre
 
 Afin de pouvoir être rejoué, **un scénario de test Selenium enregistré à l’état brut** par le proxy JMeter **doit être épuré**, **retravaillé** et **variabilisé**. C’est d’ailleurs toute la plus-value apportée par le générateur.
 
-## Template de test
+### Template de test
 
 Une première étape consiste à insérer le contenu du « fichier brut » (c’est-à-dire tous les éléments de tests enregistrés sous le _Contrôleur Enregistreur_) dans ce que j’appellerai un **template de test**.
 Réutilisable, ce template contient toutes les caractéristiques d’un test de stress type.  Voici quelques-unes de ses composantes :
@@ -159,7 +160,7 @@ Réutilisable, ce template contient toutes les caractéristiques d’un test de 
 - Logique du test de stress, par exemple à l’aide d’un _Groupes d’Unités_ configuré pour un test aux limites
 - _Compteur de temps fixe_ pour simuler le « Think Time » des utilisateurs
 
-## Traitement des données brutes
+### Traitement des données brutes
 
 La seconde étape consiste à implémenter les « **processeurs** » chargés de traiter les éléments de tests enregistrés par le proxy JMeter.
 A titre d’exemples, voici les traitements effectués par le générateur mis en œuvre dans le cadre d’une application JSF / RichFaces :
@@ -189,11 +190,11 @@ Voici le résultat du générateur vu depuis le client lourd JMeter :
 
 [![Extracteur d'expression régulière JMeter](wp-content/uploads/2012/05/jmeter-viewstate-extractor.png)](wp-content/uploads/2012/05/jmeter-viewstate-extractor.png)
 
-## Génération
+### Génération
 
 Enfin, la troisième et dernière étape consiste à orchestrer la lecture du fichier brut, la fusion dans le template de test et l’exécution des différents processeurs. Rien de sorcier. Les méthodes _loadTree_ et _saveTree_ de la _classe org.apache.jmeter.save.SaveService_ sont là pour nous y aider. Parcourir l’arbre d’éléments de test JMeter et appliquer les traitements se code relativement facilement. Point d’attention : l’ordre d’exécution des traitements peut avoir son importance.
 
-# Conclusion
+## Conclusion
 
 En une petite semaine de développement et de mise au point, vous avez la possibilité de générer des tests JMeter reprenant les scénarios fonctionnels de vos tests Selenium. Vos tests de stress collent ainsi parfaitement aux use cases fonctionnels. En cas d’IHM web riche, les requêtes Ajax (par exemple liées à l’auto-suggestion) sont enregistrées.
 
@@ -219,11 +220,11 @@ Voici le résultat du générateur vu depuis le client lourd JMeter :
 
 [![Extracteur d'expression régulière JMeter](wp-content/uploads/2012/05/jmeter-viewstate-extractor.png)](wp-content/uploads/2012/05/jmeter-viewstate-extractor.png)
 
-## Génération
+### Génération
 
 Enfin, la troisième et dernière étape consiste à orchestrer la lecture du fichier brut, la fusion dans le template de test et l’exécution des différents processeurs. Rien de sorcier. Les méthodes _loadTree_ et _saveTree_ de la _classe org.apache.jmeter.save.SaveService_ sont là pour nous y aider. Parcourir l’arbre d’éléments de test JMeter et appliquer les traitements se code relativement facilement. Point d’attention : l’ordre d’exécution des traitements peut avoir son importance.
 
-# Conclusion
+## Conclusion
 
 En une petite semaine de développement et de mise au point, vous avez la possibilité de générer des tests JMeter reprenant les scénarios fonctionnels de vos tests Selenium. Vos tests de stress collent ainsi parfaitement aux use cases fonctionnels. En cas d’IHM web riche, les requêtes Ajax (par exemple liées à l’auto-suggestion) sont enregistrées.
 

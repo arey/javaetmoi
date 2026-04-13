@@ -4,6 +4,7 @@ author: admin
 categories:
   - test
 date: "2016-03-24T07:36:23+00:00"
+toc: true
 thumbnail: wp-content/uploads/2016/03/artist.png
 featureImage: wp-content/uploads/2016/03/artist.png
 featureImageAlt: "artist"

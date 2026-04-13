@@ -4,6 +4,7 @@ author: admin
 categories:
   - retour-d'expérience
 date: "2013-03-19T19:48:16+00:00"
+toc: true
 thumbnail: wp-content/uploads/2013/03/2013-03-promotion-continue-avec-git-svn.png
 featureImage: wp-content/uploads/2013/03/2013-03-promotion-continue-avec-git-svn.png
 featureImageAlt: "Workflow de promotion en continue du trunk vers la branche"

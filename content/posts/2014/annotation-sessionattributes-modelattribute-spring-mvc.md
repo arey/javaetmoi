@@ -4,6 +4,7 @@ author: admin
 categories:
   - spring
 date: "2014-10-14T04:53:33+00:00"
+toc: true
 thumbnail: wp-content/uploads/2014/05/logo-spring-highres.png
 featureImage: wp-content/uploads/2014/05/logo-spring-highres.png
 featureImageAlt: "logo-spring-highres"

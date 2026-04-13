@@ -4,6 +4,7 @@ author: admin
 categories:
   - maven
 date: "2012-04-12T19:42:24+00:00"
+toc: true
 thumbnail: wp-content/uploads/2012/04/logo_github.png
 featureImage: wp-content/uploads/2012/04/logo_github.png
 featureImageAlt: "logo_github"
@@ -54,7 +55,7 @@ Les réponses apportées par ce billet sont :
 1. **Problème de passphrase SSH spécifique à Windows**
 1. **Configuration maven du repo CloudBees**
 
-# Configuration maven pour GitHub
+## Configuration maven pour GitHub
 
 Pour permettre à maven d’accéder en lecture et en écriture à votre repo GitHub, vous devez tout d’abord configurer comme suit la balise <scm> de votre pom.xml :
 
@@ -95,7 +96,7 @@ Vous devriez obtenir les logs suivants :
 
 1 minute. 2 minutes. Le plugin s’arrête là, comme bloqué. L’occupation CPU est à 0%. Ne cherchez pas, vous êtes sous Windows.
 
-# Problème SSH spécifique à Windows
+## Problème SSH spécifique à Windows
 
 En interne, le plugin scm exécute des lignes de commandes git.
 Sous Windows, la ligne de commande git est exécutée par l’interpréteur de commandes cmd.exe en mode non interactif.
@@ -128,7 +129,7 @@ Hi arey! You've successfully authenticated, but GitHub does not provide shell ac
 
 La création d’un tag par le plugin scm de maven doit désormais aboutir.
 
-# Configuration des repository Cloudbees
+## Configuration des repository Cloudbees
 
 Avant de pouvoir effectuer une release, il est encore nécessaire de configurer les repository maven de votre forge CloudBees. Il s’agit ici de configuration maven relativement ordinaire.
 
@@ -229,7 +230,7 @@ Ca y’est, toute la configuration est en place. A vous de jouer :
 mvn release:prepare release:perform
 ```
 
-# Conclusion
+## Conclusion
 
 Afin d’avoir sous la main un squelette pour un prochain projet, j’ai initié **un projet GitHub regroupant toute la configuration maven nécessaire : [https://github.com/arey/maven-config-github-cloudbees](https://github.com/arey/maven-config-github-cloudbees)** \[9\]. Vous pouvez y télécharger l’intégralité du **pom.xml** et du **settings.xml** décrits dans cet article\]. Ce projet a fait des émules puisque le code a été forké par la [CloudBees-Community](https://github.com/CloudBees-community) \[10\] de Github.
 

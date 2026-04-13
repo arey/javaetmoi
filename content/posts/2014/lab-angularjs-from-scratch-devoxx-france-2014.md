@@ -4,6 +4,7 @@ author: admin
 categories:
   - conférence
 date: "2014-04-19T08:41:24+00:00"
+toc: true
 thumbnail: wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-photo.jpg
 featureImage: wp-content/uploads/2014/04/2014-04-comprendre-AngularJS-en-le-recodant-photo.jpg
 featureImageAlt: "angular-from-scratch-devoxx-france-2014"

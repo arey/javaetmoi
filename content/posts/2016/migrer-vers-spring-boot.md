@@ -4,6 +4,7 @@ author: admin
 categories:
   - spring
 date: "2016-08-29T16:05:29+00:00"
+toc: true
 thumbnail: wp-content/uploads/2016/07/screenshot-petclinic.jpg
 featureImage: wp-content/uploads/2016/07/screenshot-petclinic.jpg
 featureImageAlt: "screenshot-petclinic"
