@@ -12,3 +12,24 @@
   name = "A Propos"
   url = "/about/"
   weight = 3
+
+# Liens réseaux sociaux (icônes dans le header à côté du bouton dark mode)
+[[social]]
+  name = "github"
+  url = "https://github.com/arey"
+  weight = 1
+
+[[social]]
+  name = "twitter"
+  url = "https://twitter.com/rey_antoine"
+  weight = 2
+
+[[social]]
+  name = "linkedin"
+  url = "https://www.linkedin.com/in/antoine-rey-95474b/"
+  weight = 3
+
+[[social]]
+  name = "rss"
+  url = "/feed.xml"
+  weight = 4
