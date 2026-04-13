@@ -44,7 +44,7 @@ Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les vi
 
 Fait marquant, cette édition 2022 n’aura pas fait place à de nouvelles technos hypes. On peut se souvenir de Quarkus en 2019, Kafka en 2016 ou bien encore Angular.JS en 2013. Cette 10ième édition aura été celle de la maturité : **retours d’expérience**, **architecture**, **état de l’art**, **sécurisation du code** et **approfondissement du fonctionnement de la plateforme Java** étaient au rendez-vous.
 
-{{< figure src="wp-content/uploads/2022/04/2022-04-21-10-ans-Devoxx-France.jpg" alt="" caption="" >}}
+![ ](wp-content/uploads/2022/04/2022-04-21-10-ans-Devoxx-France.jpg " ")
 
 Mes notes classées par ordre de préférence :
 

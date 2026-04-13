@@ -34,7 +34,7 @@ L'autre domaine dans lequel Obsidian semble exceller consiste en la possibilité
 Une note de type Map of Content s'assimile à une thématique, un sujet principal, auquel on rattache bidirectionnellement des notes et qui va faire office de table de matières et de tableau de bord. La création de sous-MOCs spécialisés reste possible. On se rapproche du web, des liens hypertextes et du **mind mapping**.  
 Dans ce billet, j'aimerais vous restituer la prestation d'Hoani et vous laisser découvrir son utilisation Obsidian.
 
-{{< figure src="wp-content/uploads/2025/10/DevFest-Nantes-2025-Obsidian.jpg" alt="" caption="" >}}
+![ ](wp-content/uploads/2025/10/DevFest-Nantes-2025-Obsidian.jpg " ")
 
 ## Du papier à Obsidian
 
@@ -176,4 +176,4 @@ Pour ma part, j’ **expérimente Obsidian** depuis seulement **deux semaines**,
 Pour l’instant, l’expérience est très agréable : l’ergonomie est soignée, la prise en main rapide et la rédaction des notes en Markdown particulièrement efficace.  
 Au travail, pour ma prise de notes, je reste néanmoins sur **OneNote**, qui s’intègre parfaitement à l’écosystème Microsoft 365 et tire parti de **Copilot** pour la recherche et la synthèse de contenus.
 
-{{< figure src="wp-content/uploads/2025/10/Obsidian-screenshot-1.0-hero-combo.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2025/10/Obsidian-screenshot-1.0-hero-combo.png " ")

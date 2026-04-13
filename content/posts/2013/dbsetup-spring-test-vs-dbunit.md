@@ -31,7 +31,7 @@ title: DbSetup, une alternative à DbUnit
 url: /2013/09/dbsetup-spring-test-vs-dbunit/
 
 ---
-{{< figure src="wp-content/uploads/2013/09/test-database.jpg" alt="test-database" caption="test-database" >}}
+![test-database](wp-content/uploads/2013/09/test-database.jpg)
 
 Lors du développement de **tests d’intégration**, j’ai récemment eu besoin de charger une base de données à l’aide de jeux de données. Pour écrire mon premier test, j’ai simplement commencé par écrire un fichier SQL. En un appel de méthode (JdbcTestUtils::executeSqlScript) ou une ligne de déclaration XML (<jdbc:script location="" />), Spring m’aidait à charger mes données.  
 Pour tous ceux qui se sont déjà prêtés à l’exercice, maintenir des jeux de données est relativement fastidieux, qui plus en SQL. Cette solution n’était donc pas pérenne.

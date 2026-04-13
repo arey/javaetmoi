@@ -27,7 +27,7 @@ title: Utilisez Hibernate 4.3 sous JBoss 5 avec Spring 4
 url: /2014/04/hibernate4-sous-jboss5-avec-spring4/
 
 ---
-{{< figure src="wp-content/uploads/2014/04/logo-hibernate.png" alt="logo-hibernate" caption="logo-hibernate" >}}
+![logo-hibernate](wp-content/uploads/2014/04/logo-hibernate.png)
 
 Dans mon [précédent billet](/2014/04/support-vfs2-jboss5-spring4/ "Support du VFS 2 de JBoss 5 dans Spring 4"), je vous expliquais comment réintroduire le support de VFS 2 abandonné dans **Spring Framework 4.0**. Et ceci, dans l’optique de pouvoir déployer mon application dans le serveur d’application **JBoss 5.1 EAP**.  
 Outre ce problème survenant lors de la détection de beans Spring dans le classpath, la montée de version de Spring 3.2 à Spring 4 a révélé un autre problème lié au format VFS de JBoss.  Cette fois-ci, c’est le framework **Hibernate 4.3** qui n’arrive pas à détecter les entités JPA du classpath.

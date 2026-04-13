@@ -22,7 +22,7 @@ url: /2021/11/configuration-spring-security-dun-client-de-lapi-rest-salesforce-s
 ---
 ## Contexte
 
-{{< figure src="wp-content/uploads/2021/11/oauth2%5Flogo.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2021/11/oauth2%5Flogo.png " ")
 
 De nos jours, il est courant de devoir **consommer** une **API REST sécurisée** à l’aide du standard **OAuth 2.0** ou de sa surcouche **OpenID Connect** (OIDC).   
 Schématiquement, le consommateur génère un **jeton (token)** opaque ou JWT en appelant un serveur d’autorisation (Authorization server) puis, à chaque appel d’API REST, le transmet en tant que bearer via l’ **en-tête HTTP** **Authorization**. Ce token a souvent une **durée de vie** transmise par le serveur d’autorisation via la propriété **expires\_in**.

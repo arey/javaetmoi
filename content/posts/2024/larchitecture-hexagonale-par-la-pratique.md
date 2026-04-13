@@ -55,7 +55,7 @@ A cet effet, il s’appuiera sur l’API publique [SWAPI](https://swapi.dev/) pe
 
 Julien commence par rappeler les inconvénients d’une **architecture 3-tiers** basée sur le triptyque **Contrôleur -> Service -> Persistance**
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2317-2.jpeg" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2317-2.jpeg " ")
 
 Très utile, cette architecture n-tiers vieillit mal.   
  En théorie, la **logique métier** doit être centralisée dans la couche service. Mais en pratique, on la voit **diluée** partout, jusque dans les procédures stockées …   
@@ -253,4 +253,4 @@ Julien termine sa présentation en introduisant volontairement une régression. 
 
 Architecture finale de l’application Rebels Rescue :
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2317-4.jpeg" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2317-4.jpeg " ")

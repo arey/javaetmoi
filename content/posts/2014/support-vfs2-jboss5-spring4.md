@@ -25,7 +25,7 @@ title: Support du VFS 2 de JBoss 5 dans Spring 4
 url: /2014/04/support-vfs2-jboss5-spring4/
 
 ---
-{{< figure src="wp-content/uploads/2014/04/logo-spring-framework.png" alt="logo-spring-framework" caption="logo-spring-framework" >}}
+![logo-spring-framework](wp-content/uploads/2014/04/logo-spring-framework.png)
 
 Ce billet solutionne un problème rencontré lors de la **montée de version du famework Spring**  de la version 3.2 à la **version** **4.0**. En effet, le déploiement d’une application sous **JBoss 5.1 EAP** échouait dès l’initialisation du contexte Spring. Plus précisément, une exception était levée lorsque Spring scanne le classpath à la recherche de beans Spring annotés par les annotations  @Repository, @Service, @Controller …  
 Comme le montre la pile d’appel complète ci-dessous, l’exception **java.lang.ClassNotFoundException: org.jboss.vfs.VFS** est encapsulée dans l’exception **java.lang.IllegalStateException: Could not detect JBoss VFS infrastructure**

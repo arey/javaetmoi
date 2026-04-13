@@ -116,7 +116,7 @@ scrape_configs:
 
 Les métriques préfixées par _petclinic\__ sont accessibles depuis l’interface web de Prometheus [http://localhost:9091/](http://localhost:9091/) :
 
-{{< figure src="wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-prometheus.png" alt="Prometheus UI" caption="Prometheus UI" >}}
+![Prometheus UI](wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-prometheus.png)
 
 Dans l’exemple ci-dessus, la métrique
 petclinic\_pet\_seconds\_count comptabilise le nombre d’appels différents au contrôleur

@@ -255,7 +255,7 @@ Les Sequential Gatherers ne peuvent pas être appelés en même temps depuis dif
 Ils ne possèdent pas de Combiner. Pour autant, José nous explique que l’API Stream est capable de séquencer les appels vers un **Sequential Gatherer**.
 Cette fonctionnalité est nouvelle et donc à utiliser avec précaution. Tester les perfs.
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2551-3.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2025/04/word-image-2551-3.png " ")
 
 Pour aller plus loin, José nous invite à consulter le repo GitHub [SvenWoltmann/stream-gatherers](https://github.com/SvenWoltmann/stream-gatherers). Le JDK vient avec de nouveaux Gatherers comme `scan()`, `fold()` ou bien encore `mapConcurrent()`.   
 Des librairies tierces comme [gatherers4j](https://github.com/tginsberg/gatherers4j) proposent également leur propres gatherers : `reverse()`, `repeat(n)`, `groupBy(fn)`...

@@ -47,7 +47,7 @@ Blach Hell est un shoot’em up, ou plutôt 2 **shoot’em up** : le mode solo e
 
 Dans la lignée de Xenon 2, la **version solo** vous propose de prendre les commandes d’un avion de chasse nommé « Silicium ». Vous aurez à éliminer des vaisseaux et à éviter des mines avant de pouvoir détruire le Big Boss final. Un travelling vertical fait avancer le terrain en arrière-plan. 5 touches sont nécessaires : les flèches multidirectionnelles pour se déplacer et Ctrl pour tirer.
 
-{{< figure src="wp-content/uploads/2019/02/2019-02-Black-Hell-Screenshot-1-player.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2019/02/2019-02-Black-Hell-Screenshot-1-player.png " ")
 
 {{< youtube U3kRiEbFpLQ >}}&t=2s
 
@@ -55,7 +55,7 @@ Partie en mode solo
 
 Dans le **mode 2 joueurs**, chaque joueur choisit un vaisseau parmi les 3 proposés. Ils rentrent ensuite dans une arène pour un combat à mort. Afin de se déplacer sur tout l’écran et viser leur adversaire, les vaisseaux peuvent tourner à 360 °. Des options à récupérer viennent pimenter les parties : vitesse doublée, soin, invincibilité emporaire, double canon, bombe …
 
-{{< figure src="wp-content/uploads/2019/02/2019-02-Black-Hell-Screenshot-2-players.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2019/02/2019-02-Black-Hell-Screenshot-2-players.png " ")
 
 Pour celles et ceux qui souhaitent voir à quoi ce mode ressemble sans avoir à installer DOSBox ni à dépoussiérer leur vieux 486, j’ai publié une [vidéo d’une partie 2 joueurs sur Youtube](https://www.youtube.com/watch?v=SJDJsffxfbU&t=18s).
 
@@ -82,7 +82,7 @@ La résolution VGA de 320x200 pixels avec 256 couleurs imposait que tous les fon
 
 L’écran d’options est le seul écran du jeu supportant le SVGA (640x480). Pour les personnes n’ayant pas de carte vidéo compatible, une option en ligne de commande (BH.EXE -VGA) permettait de le rétrograder en VGA.
 
-{{< figure src="wp-content/uploads/2019/02/2019-02-Black-Hell-Base-de-départ.gif" alt="" caption="" >}}
+![ ](wp-content/uploads/2019/02/2019-02-Black-Hell-Base-de-départ.gif " ")
 
 Chaque partie commence par une animation en image de synthèse montrant le Silicium décoller de sa base. Cette animation est encodée dans le fichier N1PLAIN.FLX.
 
@@ -411,10 +411,10 @@ Pour conclure ce billet, ma plus grande fierté a été quand mon plus jeune fil
 
 Pour le plaisir, voici quelques souvenirs d’un autre siècle :
 
-{{< figure src="wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-2.gif" alt="" caption="" >}}
+![ ](wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-2.gif " ")
 
-{{< figure src="wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-3.jpeg" alt="" caption="" >}}
+![ ](wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-3.jpeg " ")
 
-{{< figure src="wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-1.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-1.png " ")
 
-{{< figure src="wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-4.jpg" alt="" caption="" >}}
+![ ](wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-4.jpg " ")

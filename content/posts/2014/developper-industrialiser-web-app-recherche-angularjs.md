@@ -60,7 +60,7 @@ Au travers de ce article, je vous présenterai comment :
 
 Le code source de l’application est bien entendu [disponible sur GitHub](https://github.com/arey/angular-musicbrainz) et [testable en ligne](http://angular-musicbrainz.javaetmoi.com/).
 
-{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-screenshot.png" alt="Angular MusicBrainz web app screenshot" caption="Angular MusicBrainz web app screenshot" >}}
+![Angular MusicBrainz web app screenshot](wp-content/uploads/2014/02/angular-musicbrainz-screenshot.png)
 
 ## Démarrer un projet avec Angular Seed
 
@@ -504,7 +504,7 @@ describe('search', function () {
 
 Créé par l’un des développeurs d’Angular, Karma a l’avantage de connaître le fonctionnement interne d’Angular. Cette faculté lui permet de résoudre les problèmes de requêtes Ajax souvent rencontrés dans les tests Selenium. Adieux les tempos ou autre  [_waitForElement_](http://agilesoftwaretesting.com/selenium-wait-for-ajax-the-right-way/).
 
-{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-e2e.png" alt="angular-musicbrainz-e2e" caption="angular-musicbrainz-e2e" >}}
+![angular-musicbrainz-e2e](wp-content/uploads/2014/02/angular-musicbrainz-e2e.png)
 
 Exécution des tests end-to-end dans Chrome :  
 
@@ -530,9 +530,9 @@ return undefined;
 
 Soit directement depuis IntelliJ IDEA après configuration :
 
-{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-jshint.png" alt="angular-musicbrainz-jshint" caption="angular-musicbrainz-jshint" >}}
+![angular-musicbrainz-jshint](wp-content/uploads/2014/02/angular-musicbrainz-jshint.png)
 
-{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-jshint2.png" alt="angular-musicbrainz-jshint2" caption="angular-musicbrainz-jshint2" >}}
+![angular-musicbrainz-jshint2](wp-content/uploads/2014/02/angular-musicbrainz-jshint2.png)
 
 JSHint a toute sa place sur un projet de grande taille sur lesquels de nombreux développeurs travaillent puis se relaieront pour sa maintenance. Sur de plus modestes applications comme angular-musicbainz , il a le mérite de former et de mettre en garde des développeurs JavaScript Junior.
 
@@ -561,7 +561,7 @@ after_success:
 
 On demande à Travis d’installer le client Grunt avant d’exécuter les tests unitaires et de publier la couverture de code. A chaque commit dans le repo GitHub, le build est lancé. La sortie console s’affiche en temps réel :
 
-{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-travis.png" alt="angular-musicbrainz-travis" caption="angular-musicbrainz-travis" >}}
+![angular-musicbrainz-travis](wp-content/uploads/2014/02/angular-musicbrainz-travis.png)
 
 
 En cas d’échec du build, vous pouvez être notifiés par email , IRC, webhook ...
@@ -570,17 +570,17 @@ Outre la génération d’un rapport de couverture de code testé, la commande g
 
 L’ [historique des builds du projet angular-musicbrainz](https://coveralls.io/r/arey/angular-musicbrainz) est accessible en ligne :
 
-{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-coveralls1.png" alt="angular-musicbrainz-coveralls1" caption="angular-musicbrainz-coveralls1" >}}
+![angular-musicbrainz-coveralls1](wp-content/uploads/2014/02/angular-musicbrainz-coveralls1.png)
 
 
 Le [taux de couverture du build n°494581](https://coveralls.io/builds/494581) est également consultable en ligne :
 
-{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-coveralls1.png" alt="angular-musicbrainz-coveralls1" caption="angular-musicbrainz-coveralls1" >}}
+![angular-musicbrainz-coveralls1](wp-content/uploads/2014/02/angular-musicbrainz-coveralls1.png)
 
 
 Autre service en ligne intéressant : pouvoir vérifier rapidement que les dépendances d’une application sont à jour. C’est ce que propose **[David](https://www.david-dm.org/)**. Voici visuellement la synthèse proposée par David pour les [dépendances de dev d’angular-musicbainz](https://david-dm.org/arey/angular-musicbrainz#info=devDependencies) :
 
-{{< figure src="wp-content/uploads/2014/02/angular-musicbrainz-david.png" alt="angular-musicbrainz-david" caption="angular-musicbrainz-david" >}}
+![angular-musicbrainz-david](wp-content/uploads/2014/02/angular-musicbrainz-david.png)
 
 A noter qu’un service similaire pour les dépendances utilisées par Bower serait intéressant.
 

@@ -31,7 +31,7 @@ title: Elastifiez la base MusicBrainz sur OpenShift
 url: /2013/11/musicbrainz-elasticsearch-angularjs-openshift/
 
 ---
-{{< figure src="wp-content/uploads/2013/11/logo-musicbrainz.jpg" alt="logo-musicbrainz" caption="logo-musicbrainz" >}}
+![logo-musicbrainz](wp-content/uploads/2013/11/logo-musicbrainz.jpg)
 
 Pour les besoins d’un workshop sur Elasticsearch, je me suis amusé à **indexer une encyclopédie musicale** et à mettre en ligne une petite **application HTML 5** permettant de réaliser des **recherches**.
 
@@ -45,7 +45,7 @@ Cet article a pour objectif de décrire les différentes étapes qui m’ont ét
 
 Le diagramme suivant présente l’architecture mise en place.
 
-{{< figure src="wp-content/uploads/2013/11/2013-11-musicbrainz-elastique.png" alt="batch-indexation-musicbrainz" caption="batch-indexation-musicbrainz" >}}
+![batch-indexation-musicbrainz](wp-content/uploads/2013/11/2013-11-musicbrainz-elastique.png)
 
 Un batch d’indexation se connecte via JDBC à la base de données de MusicBrainz et indexe les albums de musique dans Elasticsearch. Une application HTML 5 permet d’interroger l’index Elasticsearch.
 
@@ -831,7 +831,7 @@ Afin de résoudre l’exception _BindException\[Address already in use\]_ au dé
 Une fois Elasticsearch démarré, seul le port HTTP est accessible depuis Internet. C’est le port utilisé par l’IHM de recherche. Le port utilisé par le client TCP Elastisearch n’est quant à lui pas accessible. Le Batch d’indexation s’exécutant en local ne peut donc pas alimenter directement le cluster Elasticsearch. Par facilité, je me suis contenté d’uploader par SFTP mon index local (répertoire data\\musicbrainz)  sur le serveur OpenShift.  
 Un redémarrage d’Elasticsearch et l’index est visible via Eshead :
 
-{{< figure src="wp-content/uploads/2013/11/2013-11-musicbrainz-eshead.png" alt="Index musicbrainz vu dans Eshead" caption="Index musicbrainz vu dans Eshead" >}}
+![Index musicbrainz vu dans Eshead](wp-content/uploads/2013/11/2013-11-musicbrainz-eshead.png)
 
 Le [plugin Jetty](https://github.com/sonian/elasticsearch-jetty) pour Elasticsearch et le [cartouche Nginx](http://cartreflect-claytondev.rhcloud.com/reflect?github=gsterjov/openshift-nginx-cart#nginx) pour OpenShift permettent de **sécuriser** l’accès au serveur Elasticsearch, rendant possible la configuration d’un reverse proxy avec authentification basic HTTP.
 

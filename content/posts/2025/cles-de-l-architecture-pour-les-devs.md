@@ -56,7 +56,7 @@ La brique centrale est nommée **Aggregator**.
 
 [Diagramme de contexte C4](https://c4model.com/diagrams/system-context) correspondant :
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2508-3.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2025/04/word-image-2508-3.png " ")
 
 **Première clé** donnée dans ce talk : commencer par **identifier le problème**.   
 Comment l’appliquer : quel est le but ? Ici c’est d’agréger les données reçues.   
@@ -85,7 +85,7 @@ Une **troisième clé** nous est donnée : **penser modulaire** pour adresser le
 Voyons à présent comment implémenter ces 2 sous-domaines.   
 On pourrait partir sur 2 services. Mais dans un premier temps, Eric propose de **commencer par seul service**, **plus simple**, **plus facile à implémenter** et livrer. Par contre, afin de préparer un éventuel futur découplage, on utilise l’approche pragmatique de **modular monolith**. Bel exercice de **frugalité** : une solution distribuée est remplacée par un monolith.
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2508-5.png" alt="Modular monolith" caption="Modular monolith" >}}
+![Modular monolith](wp-content/uploads/2025/04/word-image-2508-5.png)
 
 L’architecture se pense à différents niveaux, à plusieurs.   
 ![Architectural perspectives](wp-content/uploads/2025/04/word-image-2508-6.png)  
@@ -101,13 +101,13 @@ Les différents types d’architectures ont leurs avantages et inconvénients. V
 
 Parmi les contraintes techniques, le vrai **risque** consiste à tenir le **délai de traitement d’agrégation des données** en dessous des 2 minutes. La première étape consiste à lever ce risque. Il faut lever ce risque et commencer les développements.
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2508-7.png" alt="Integration options between modules 1" caption="Integration options between modules 1" >}}
+![Integration options between modules 1](wp-content/uploads/2025/04/word-image-2508-7.png)
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2508-8.png" alt="Integration options between modules 2" caption="Integration options between modules 2" >}}
+![Integration options between modules 2](wp-content/uploads/2025/04/word-image-2508-8.png)
 
 **Réversible**, l’ **architecture n°2 est retenue** avec une approche **hexagonale**. On reste pragmatique : les deux sous-domaines s’appellent dans la même JVM par appel de fonction. Cyrille rappelle que l’architecture hexagonale demande de créer un peu plus de code, mais ce n’est pas les 30 secondes que met la création d’une interface qui va les ralentir. Cela permet de prévoir des options pas chères pour être réversible et changer son architecture en cours de route. Les décisions sont réversibles.
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2508-9.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2025/04/word-image-2508-9.png " ")
 
 Une première version de l’application est déployée en production. Passent 1mn, puis 2, puis 5. On coupe tout. Trop long. Cela ne marche pas. Cyrille invite à célébrer ce constat : **on sait que çà ne marche pas**. Et on l’a découvert très vite.
 
@@ -129,7 +129,7 @@ Réfléchissons à présent sur ce qui pourrait mal se passer avec un **tuyau as
 Le fournisseur de Cloud garantie une partie des problèmes évoqués.   
 Cyrille rappelle la nécessité d’un consumer à être **idempotent** pour gérer les messages en double.
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2508-14.png" alt="Pubsub architecture tradeoffs" caption="Pubsub architecture tradeoffs" >}}
+![Pubsub architecture tradeoffs](wp-content/uploads/2025/04/word-image-2508-14.png)
 
 Avant de faire un choix sur l’implémentation de l’adaptateur et assurer la persistance des données (ex : PostgreSQL vs Redis), **Eric propose de rester en mémoire pour tester rapidement en prod**. Cela **permet** de gagner du temps et **de** **vérifier les hypothèses**.   
 On va livrer en prod un mock. Pas de honte. Vrai essaie sur de vraies machines avec les vraies données. On utilise la prod, le vrai environnement.
@@ -142,7 +142,7 @@ Message de fond : **l’architecture est évolutive**. Il ne faut pas la mettre 
 L’application est composée de 2 systèmes qui doivent se parler. Un contrat JSON est définit entre dispatcher et aggregator. Le contrat est très explicite avec les unités.   
 Cyrille fait remarquer un problème de typo sur un champ : latency **y**\_ms avec 2 lettres y
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2508-16.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2025/04/word-image-2508-16.png " ")
 
 Un renommage serait possible mais il est recommandé de positionner 2 champs pour respecter le contrat.
 
@@ -169,4 +169,4 @@ Alterner raisonnement individuel et raisonnement en équipe :
 - **Rester simple**
 - **Books** : toutes ces attitudes nécessaires à l’Architecture restent inchangées depuis 30 ans : couplage et cohésion, contrats, modularités, API … Cet apprentissage est pérenne et en vaut donc la peine. Les livres recommandés par Cyrille resteront intemporels.
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2508-19.png" alt="3 livres recommandés par Cyrille Martraire" caption="3 livres recommandés par Cyrille Martraire" >}}
+![3 livres recommandés par Cyrille Martraire](wp-content/uploads/2025/04/word-image-2508-19.png)

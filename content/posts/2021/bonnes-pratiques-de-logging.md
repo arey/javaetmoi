@@ -58,8 +58,8 @@ Depuis une dizaine d’années, ont émergés de nombreux systèmes de collecte 
 
 
 {{< gallery cols="1" >}}  
-{{< figure src="wp-content/uploads/2021/01/logo-splunk.jpg" alt="" caption="" >}}  
-{{< figure src="wp-content/uploads/2021/01/logo-elastic.png" alt="" caption="" >}}  
+![ ](wp-content/uploads/2021/01/logo-splunk.jpg " ")  
+![ ](wp-content/uploads/2021/01/logo-elastic.png " ")  
 {{< /gallery >}}  
 
 Les logs générés par les applicatifs sont soit directement envoyés à ces systèmes par le réseau (risque de perte de logs en cas d’indisponilité du SIEM), soit générés temporairement sur le système de fichier puis ingérés via un collecteur préalablement installé sur l’hôte.

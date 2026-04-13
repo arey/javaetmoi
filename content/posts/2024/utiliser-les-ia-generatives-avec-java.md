@@ -98,7 +98,7 @@ Le fonctionnement d’un LLM et de l’IA générative est particulièrement bie
 
 Le site [https://lifearchitect.ai/models/](https://lifearchitect.ai/models/) référence la taille de nombreux LLM :
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2270-2.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2270-2.png " ")
 
 **PaLM 2** a été entrainé sur **340 milliards de paramètres** et, en ce mois d’avril 2024, bat tous les records.  
 Se référer à l’article [Pathways Language Model (PaLM): Scaling to 540 Billion Parameters for Breakthrough Performance](https://research.google/blog/pathways-language-model-palm-scaling-to-540-billion-parameters-for-breakthrough-performance/)
@@ -115,11 +115,11 @@ Cas d’utilisation des LLM en 2024 :
 
 Google propose de nombreuses offres regroupées dans le **portfolio Vertex AI** :
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2270-3.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2270-3.png " ")
 
 La première démo en Java de ce Deep Dive commence par l’utilisation de Vertex AI en ajoutant la dépendance maven **com.google.cloud:google-vertexai**
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2270-4.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2270-4.png " ")
 
 La classe [Demo01\_VertexClientChat](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/main/devoxx-genai-vertexai-client/src/test/java/devoxx/demo/gemini/Demo01_VertexClientChat.java) fait appel à Gemini Pro pour répondre à quelques questions :
 
@@ -168,7 +168,7 @@ Gemini est le modèle d'IA le plus performant de Google Deep Mind. C’est un mo
 Une **version Nano** est en cours d’incorporation dans **Flutter** afin d’utiliser la carte graphique du **téléphone**.  
 Gemini 1.5 accepte en entrée un livre d’un million de mots. On est loin des premiers prompts limités à quelques centaines de mots.
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2270-5.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2270-5.png " ")
 
 3 adresses permettent de tester Gemini :
 
@@ -178,7 +178,7 @@ Gemini 1.5 accepte en entrée un livre d’un million de mots. On est loin des p
 
 Démo possible sur [https://gemini.google.com/app](https://gemini.google.com/app) avec un simple compte Google. Exemple « Quelle est la hauteur de la tour Eiffel ? »
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2270-6.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2270-6.png " ")
 
 ## Gemma
 
@@ -228,7 +228,7 @@ D’autres classes d’abstraction de langchain4j existent : **LanguageModel**, 
 [Langchain4j](https://github.com/langchain4j/langchain4j) est le leader fournissant le modèle théorique. Tous les fournisseurs de LLM implémentent le langage model, créent une Pull Request et la soumettent à la communauté. Particulièrement doués en IA, les chinois contribuent également.  
 Voici les LLM supportés par Lanchain4j :
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2270-7.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2270-7.png " ")
 
 Cédric continue le talk par une démo utilisant _langchain4j-gemini_ avec le modèle **StreamingChatLanguageModel** et l’appel au builder **VertexAiGeminiStreamingChatModel**  
 Se référer au test [\_10\_LanguageModelSayHello](https://github.com/datastaxdevs/conference-2024-devoxx-france/blob/1a165925c1aca64548d0d86a9ca936653d61680d/devoxx-genai-langchain4j-gemini/src/test/java/devoxx/demo/gemini/_1_vertexai/_10_LanguageModelSayHello.java)
@@ -275,14 +275,14 @@ spring.ai.vertex.ai.gemini.chat.options.maxTokens=100
 La seule commande envoyée à un LLM est une ligne de texte, le fameux **prompt**.  
 Quelques bonnes pratiques permettant d’interagir avec le LLM nous sont données :
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2270-8.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2270-8.png " ")
 
 Comme contraintes, il peut être intéressant de demander au LLM de ne pas répondre aux questions dont il ne connait pas la réponse. Cela permet de limiter les hallucinations. Exemple de contexte : _« Si l’on te pose des questions qui sort des objectifs qu’on t’a donné, répond que tu ne sais pas. »_  
 Avec un prompt assez long, on peut souvent contourner les frontières du LLM.
 
 En complément de cette phrase, on envoie au LLM différents paramètres.
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2270-9.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2270-9.png " ")
 
 **Température** comprise entre 0 et 1 : niveau d’expression qu’on donne au LLM  
 0 : plus précis, robotique  
@@ -304,19 +304,19 @@ Des techniques avancées de prompt engineering permettent d’améliorer la réd
 **  
 On envoie au LLM quelques exemples afin qu’ils comprennent mieux ce que l’on souhaite lui demander.
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2270-10.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2270-10.png " ")
 
 **Chain of Thoughts**
 
 Chaine de pensée : donner un raisonnement pour que le LLM trouve le résultat.
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2270-11.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2270-11.png " ")
 
 **CoT + Self consistency  
 **  
 Le LLM utilise plusieurs raisonnements et sélectionne la réponse finale en fonction du plus grand nombre de réponses similaires.
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2270-12.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2270-12.png " ")
 
 ## ReAct
 
@@ -398,7 +398,7 @@ Le Prompt est également transformé en vecteur.
 On recherche des vecteurs qui sont proches les uns des autres. Cela nécessite de calculer une **similarité** entre 2 vecteurs.  
 En maths, il y’a plusieurs possibilités de calculer une distance. Un slide est préférable à un long discours :
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2270-14.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2270-14.png " ")
 
 La plus connue est la **distance euclidienne**. Elle s’appelle **L2** et nécessite beaucoup de calculs.  
 Cédrick nous fait remarquer que la dimension des vecteurs d’une base vectorielle est multiple de 284.  
@@ -406,7 +406,7 @@ Les bases vectorielles utilisent plus couramment la distance nommée « Angular 
 
 Chaque base de données implémente sa propre formule. Le plus important consiste à trouver les vecteurs les plus proches. Le plus simple consiste à travailler sur la sphère unité. Je vous laisse apprécier :
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2270-15.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2270-15.png " ")
 
 Ces calculs amènent beaucoup de zéro après la virgule. En Java, on arrive facilement aux limites de la précision du type double et il est nécessaire d’utiliser des **BigDecimal**.  
 La métrique à utiliser dépend du cas d’utilisation.
@@ -534,7 +534,7 @@ Des préprocesseurs commencent par lire les documents (avec par exemple [Apache 
 Sur OpenAI, on peut mettre entre 256 et 512 tokens par vecteur de dimension 1536.  
 Pour garder le contexte, les segments doivent se superposer.
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2270-16.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2270-16.png " ")
 
 Astuce pour sauvegarder le segment : ajouter un hash dans les métadonnées du document, ce qui évite de le réindexer pour rien.
 

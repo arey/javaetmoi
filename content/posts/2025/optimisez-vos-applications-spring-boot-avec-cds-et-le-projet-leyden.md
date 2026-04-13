@@ -71,7 +71,7 @@ Ces 3 technologies nécessitent un **training run**. Cette « exécution d’ent
 - **Empreinte mémoire** réduite
 - **Warmup** de la JVM plus rapide
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2482-2.png" alt="Training run workflow" caption="Training run workflow" >}}
+![Training run workflow](wp-content/uploads/2025/04/word-image-2482-2.png)
 
 ## 1\. Class Data Sharing (CDS)
 
@@ -86,7 +86,7 @@ La création de l’archive CDS nécessite 2 paramètres de JVM :
 - `-Dspring.context.exit=onRefresh` : démarrage les beans singletons Spring non lazy puis arrête l’application.
 - `-XX:ArchiveClassesAtExit=spring-petclinic.jsa` : création de l’archive CDS lorsque la JVM s’arrête.
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2482-3.png" alt="java -Dspring.context.exit=onRefresh" caption="java -Dspring.context.exit=onRefresh" >}}
+![java -Dspring.context.exit=onRefresh](wp-content/uploads/2025/04/word-image-2482-3.png)
 
 Les **plugins Maven** et **Gradle** de **Spring Boot** permettent de créer un **JAR auto-exécutable**.
 Disposer d’une seul JAR est bien pratique pour le déploiement et le téléchargement d’une application depuis le repository Maven d’entreprise, mais **pas efficiente**
@@ -98,7 +98,7 @@ Son utilisation est illustrée par la commande suivante :
 java -Djarmode=tools -jar spring-petclinic.jar extract
 ```
 
-{{< figure src="wp-content/uploads/2025/04/cds-file-layout.png" alt="CDS file layout" caption="CDS file layout" >}}
+![CDS file layout](wp-content/uploads/2025/04/cds-file-layout.png)
 
 Sébastien fait une démonstration à l’aide de l’application [Spring Petclinic](https://github.com/spring-projects/spring-petclinic).
 
@@ -117,7 +117,7 @@ Le **gain au démarrage** est de **19%.** A noter que l’utilisation de CDS peu
 
 L’étape de démarrage nécessaire à l’enregistrement de l’archive CDS est appelée le **training run**. Cette étape peut être intégrée dans le pipeline CI/CD de build de l’application Spring. Spring utilise une base de données H2 en mémoire. Une application d’entreprise se connectera à un PosgreSQL ou un MongoDB. Le paramétrage Spring diffère en fonction des dépendances externes de l’application. Sébastien nous recommande de consulter le repository [spring-lifecycle-smoke-tests](https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main#training-run-configuration) donnant différents exemples de configuration pour Spring Data, Spring Batch, Spring Coud, Kafka, Spring Security …
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2482-5.png" alt="Training run configuration for your database" caption="Training run configuration for your database" >}}
+![Training run configuration for your database](wp-content/uploads/2025/04/word-image-2482-5.png)
 
 Par exemple, pour éviter qu’une application Spring Data JPA ne fasse appel à la base de données, il est possible de **désactiver la lecture des méta-données par Hibernate**. Ne pouvant plus déterminer automatiquement le dialect, il est alors nécessaire de lui spécifier.
 
@@ -140,7 +140,7 @@ mvn spring-boot:build-image
 gradle bootBuildImlage
 ```
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2482-6.png" alt="CDS support in Buildpacks" caption="CDS support in Buildpacks" >}}
+![CDS support in Buildpacks](wp-content/uploads/2025/04/word-image-2482-6.png)
 
 Le support de CDS est prévu dans Buildpacks via l’activation du **flag** [**BP\_JVM\_CDS\_ENABLED**](https://github.com/paketo-buildpacks/spring-boot). Exemple de configuration Maven :
 
@@ -170,7 +170,7 @@ L’utilisation Spring AOT impose certaines contraintes comme la pré-configurat
 
 Pensée dans le cadre du **projet Leyden**, La [JEP 483 Ahead-of-Time Class Loading & Linking](https://openjdk.org/jeps/483) est disponible dans Java 24 et des améliorations prévues dans les versions suivantes de Java. L’utiliser est un bon investissement.
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2482-7.png" alt="AOT Cache and Spring AOT are different but they combine well" caption="AOT Cache and Spring AOT are different but they combine well" >}}
+![AOT Cache and Spring AOT are different but they combine well](wp-content/uploads/2025/04/word-image-2482-7.png)
 
 La création du cache AOT nécessite 2 étapes :
 
@@ -191,7 +191,7 @@ java -XX:AOTMode=create -XX:AOTConfiguration=spring-petclinic.aotconf -XX:AOTCac
 
 Le **temps de démarrage de Spring Petclinic** **descend à 1,3 secondes** :
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2482-8.png" alt="Spring Petclinic startup time (seconds)" caption="Spring Petclinic startup time (seconds)" >}}
+![Spring Petclinic startup time (seconds)](wp-content/uploads/2025/04/word-image-2482-8.png)
 
 ## 3\. AOT Cache with code compilation and Spring AOT
 
@@ -203,9 +203,9 @@ Sébastien rappelle que ce n’est que le début de l’histoire et que ces temp
 
 Sébastien nous fait une démo live à partir d’une **version du JDK compilée en local avec les dernières fonctionnalités du projet Leyden**. Cette fois-ci, le workflow va être un peu différent : on ne fait pas de stop après le démarrage. On laisse tourner l’application. Sébastien utilise l’outil [**oha**](https://github.com/hatoo/oha) pour chauffer la JVM (faire le warmup). Il mesure des améliorations très significatives alors même que techno en work-in-progress. Jugez par vous-même :
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2482-9.png" alt="Spring Petclinic startup time (secondes)" caption="Spring Petclinic startup time (secondes)" >}}
+![Spring Petclinic startup time (secondes)](wp-content/uploads/2025/04/word-image-2482-9.png)
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2482-10.png" alt="Warmup with and without AOT cache" caption="Warmup with and without AOT cache" >}}
+![Warmup with and without AOT cache](wp-content/uploads/2025/04/word-image-2482-10.png)
 
 - Courbe bleue : JVM classique qui prend son temps pour le warmup
 - Courbe rouge : AOT profiling. Warmup assez rapide.
@@ -215,7 +215,7 @@ Sébastien nous fait une démo live à partir d’une **version du JDK compilée
 
 Le tableau récapitulatif ci-dessous compare 3 technologies d’optimisation d’une application Java :
 
-{{< figure src="wp-content/uploads/2025/04/word-image-2482-11.png" alt="Comparing GraalVM, Project CRaC and AOT cache" caption="Comparing GraalVM, Project CRaC and AOT cache" >}}
+![Comparing GraalVM, Project CRaC and AOT cache](wp-content/uploads/2025/04/word-image-2482-11.png)
 
 1. [**GraalVM**](https://www.graalvm.org/): la version gratuite de GraalVM vient avec le [Garbage Collector serial](https://www.graalvm.org/latest/reference-manual/native-image/optimizations-and-performance/MemoryManagement/) adapté pour les applications ayant une faible empreinte mémoire et une petite taille du de Heap. Le GC G1 n’est disponible que dans la version commerciale Oracle de GraalVM. Avantage : conso mémoire réduite au max. Pas fait pour des applications qu’on déploie / construit plusieurs fois par jour. Dépend de la taille de l’appli : ok pour un microservice mais pas un monolith. Spring fait le travail pour préconfigurer GraalVM. Mais quid des autres librairies qui ne supporte pas GraalVM et pour lesquels les développeurs doivent ajouter des méta-données. Sébastien considère que GraalVM est une niche pour 5 à 10% des applications Spring. Cela dit, des travaux sont en cours pour améliorer le support dans Spring.
 1. **JVM with** [**Project CRaC**](https://docs.azul.com/core/crac/crac-introduction): Sébastien est assez sévère sur cette technologie qui comporte 2 énorme défauts : Linux uniquement mais surtout à cause du cycle de vie nécessitant de restaurer l’application (handles filesystems, sockets réseaux …). Quid du support des autres librairies ? L’API de ces librairies peut bloquer. Plus encore : l’image snapshot de la JVM contient les credentials. Aussi, Sébastien de recommande pas CRaC pour la production. La techno a des limites malgré l’effort de l’équipe Spring.

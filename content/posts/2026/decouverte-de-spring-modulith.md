@@ -46,7 +46,7 @@ Pris au jeu, j’ai progressivement enrichi l’application afin d’illustrer p
 
 Dans ce billet, je vous propose de découvrir Spring Modulith, puis de suivre pas à pas comment l’application démo Spring Petclinic a été enrichie pour tirer parti de ses fonctionnalités.
 
-{{< figure src="wp-content/uploads/2026/04/illustration-spring-petclinic-modulith-v2.png" alt="Illustre le découpage en modules de l'application Spring Modulith à l'aide de Spring Modulith" caption="Illustre le découpage en modules de l'application Spring Modulith à l'aide de Spring Modulith" >}}
+![Illustre le découpage en modules de l'application Spring Modulith à l'aide de Spring Modulith](wp-content/uploads/2026/04/illustration-spring-petclinic-modulith-v2.png)
 
 ## Architecture modulaire
 
@@ -173,13 +173,13 @@ Les modules identifiés étaient à ce stade au nombre de quatre :
 | system | `org.springframework.samples.petclinic.system` |
 | model | `org.springframework.samples.petclinic.model` |
 
-{{< figure src="wp-content/uploads/2026/03/word-image-2642-1.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2026/03/word-image-2642-1.png " ")
 
 Cette modularisation fonctionnelle de l’application Spring Petclinic avait été réalisée en 2016 par Dave Syer dans la PR [#200 Modernize Spring apps structure](https://github.com/spring-projects/spring-petclinic/pull/200). Oliver Drotbohm avait d’ailleurs participé à la conversation.
 
 Le module `model` mutualisait 3 classes de base JPA `BaseEntity`, `Person`, `NamedEntity` partagées entre les modules `owner` et `vet`. Conservé en 2016, 10 ans plus tard à l’heure du Modulith, j’ai préféré reconsidérer ce choix. En effet, en DDD, chaque **Bounded Context** possède intégralement son modèle du domaine métier. Les classes `BaseEntity`, `Person`, `NamedEntity` ne sont pas des concepts métier. Ce sont des raccourcis techniques. Inliner le contenu de ces classes techniques dans `vet` et `owner` rend chaque module prêt pour un éventuel découpage en microservices, sans aucun type partagé. Plutôt que d’être exposé sous forme de module partagé (shared module), le package `model` a été purement et simplement supprimé.
 
-{{< figure src="wp-content/uploads/2026/03/word-image-2642-2.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2026/03/word-image-2642-2.png " ")
 
 ## Étape 4- Séparer l'API publique des détails d'implémentation
 
@@ -195,7 +195,7 @@ Les classes de test suivent la même organisation. Trivial, ce refactoring peut 
 Dans un module applicatif, le développeur est libre d’organiser le code comme il l’entend. Chaque module peut d’ailleurs avoir sa propre organisation : découpage en couches techniques pour l’un, architecture hexagonale pour l’autre.   
  Dans Petclinic, le package `internal` du module `owner` contenait 13 classes à plat. Cela fait beaucoup. On s’éloigne du SRP. J’ai ainsi fait le choix de ventiler ces classes dans 3 packages différents : `ui`, `application` et `domain`.
 
-{{< figure src="wp-content/uploads/2026/03/word-image-2642-3.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2026/03/word-image-2642-3.png " ")
 
 ## Étape 5 - Communication par événements entre modules
 
@@ -211,7 +211,7 @@ Dans un module applicatif, le développeur est libre d’organiser le code comme
 
 Pour illustrer ce mécanisme, j'ai ajouté à Spring Petclinic un nouveau cas d’utilisation métier : lorsqu'un rendez-vous est réservé, le système affecte automatiquement le vétérinaire le moins chargé.
 
-{{< figure src="wp-content/uploads/2026/04/screenshot-spring-petclinic-modulith.png" alt="Screenshot of the Veterinarians menu of the Spring Modulith version of Spring Petclinic" caption="Screenshot of the Veterinarians menu of the Spring Modulith version of Spring Petclinic" >}}
+![Screenshot of the Veterinarians menu of the Spring Modulith version of Spring Petclinic](wp-content/uploads/2026/04/screenshot-spring-petclinic-modulith.png)
 
 Plutôt que d'injecter un bean du module `vet` dans le module `owner`, on remplace l'appel direct d’une méthode par la publication d’un événement applicatif. Lors de la réservation d’un rendez-vous, la classe [VisitScheduler](https://github.com/spring-petclinic/spring-petclinic-modulith/blob/4.0.0/src/main/java/org/springframework/samples/petclinic/owner/application/VisitScheduler.java) utilise la classe `ApplicationEventPublisher` de Spring Framework pour émettre l’évènement [VisitBooked](https://github.com/spring-petclinic/spring-petclinic-modulith/blob/4.0.0/src/main/java/org/springframework/samples/petclinic/owner/VisitBooked.java).
 
@@ -450,7 +450,7 @@ L'appel à `writeDocumentation() ` produit dans le répertoire `target/spring-mo
 
 Exemple de rendu du fichier `module-vet.puml `:
 
-{{< figure src="wp-content/uploads/2026/03/word-image-2642-4.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2026/03/word-image-2642-4.png " ")
 
 
 

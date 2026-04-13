@@ -51,7 +51,7 @@ Pour que les différents systèmes puissent notifier au middle d’indexation qu
 
 Le diagramme ci-dessous démontre l’orchestration du processus d’indexation au fil de l’eau.
 
-{{< figure align="alignnone" width=584 src="wp-content/uploads/2013/02/architecture-middle-indexation.png" alt=" Chaque mise à jour d’une entité métier implique une opération d’indexation atomique." caption=" Chaque mise à jour d’une entité métier implique une opération d’indexation atomique." >}}
+![Chaque mise à jour d’une entité métier implique une opération d’indexation atomique.](wp-content/uploads/2013/02/architecture-middle-indexation.png)
 
 Le processus d’indexation se déroule en 4 étapes :
 
@@ -110,7 +110,7 @@ Cet aspect _DataOperationAnnotationAdvisor_ possède 2 composantes :
 
 Le diagramme ci-dessous illustre la mise en place du greffon _DataOperationInterceptor_ devant le bean _customerService_ :
 
-{{< figure align="alignnone" width=584 src="wp-content/uploads/2013/02/intercepteur-spring-notification.png" alt=" Intercepteur positionné par un post-processeur de beans Spring" caption=" Intercepteur positionné par un post-processeur de beans Spring" >}}
+![Intercepteur positionné par un post-processeur de beans Spring](wp-content/uploads/2013/02/intercepteur-spring-notification.png)
 
 Toutes les modifications d’objet métier identifiées au cours d’une transaction sont ensuite assemblées au sein d’une notification qui est émise via JMS vers le middle d’indexation.
 

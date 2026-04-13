@@ -95,7 +95,7 @@ Après ce long discours, rien de tel qu’un peu d’exercice. Pour les besoins 
 
 Je suis parti d’un cas d’exemple des plus simples : **un batch chargé de lire en base de données des chefs-d’œuvre puis de les afficher sur la console**.
 
-{{< figure src="wp-content/uploads/2012/11/ParallélisationTraitementsBatch%5FMPD.jpg" alt="Modèle physique de données des tables MASTERPIECE, MUSIC\_ALBUM et MOVIE" caption="Modèle physique de données des tables MASTERPIECE, MUSIC\_ALBUM et MOVIE" >}}
+![Modèle physique de données des tables MASTERPIECE, MUSIC\_ALBUM et MOVIE](wp-content/uploads/2012/11/ParallélisationTraitementsBatch%5FMPD.jpg)
 
 En base, il existe 2 types de chefs-d’œuvre : les films et les albums de musique. Comme le montre le diagramme du modèle physique de données ci-contre, chaque type de chef-d'oeuvre dispose de sa propre table : respectivement MOVIE et MUSIC\_ALBUM. Les données communes sont normalisées dans la table MAESTERPIECE.
 

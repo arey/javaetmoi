@@ -70,7 +70,7 @@ Autre bonne pratique : mettre à disposition de la **documentation** pour les no
 
 Créer un **modèle de template pour les Pull Request** (PR) permet de faciliter la création d’une demande de changement et donner du contexte aux reviewers. GitHub et GitLab proposent cette fonctionnalité. Elle permet au développeur de se poser les questions essentielles à la bonne délimitation de sa PR. Dans le template, on peut retrouver les questions des [Five W's](https://fr.wikipedia.org/wiki/QQOQCCP) mais également la référence à la User Story implémentée (ex : lien Jira).  
 
-{{< figure src="wp-content/uploads/2024/05/image.png" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/05/image.png " ")
 
 ##   
 Definition of Done de la PR
@@ -145,7 +145,7 @@ Pauline et Anne-Laure nous invitent à sélectionner un **sous-ensemble** de ces
 Pour standardiser les revues et faciliter la vue des nouveaux arrivants, elles mettent à disposition de leurs équipes un **markdown** avec les libellés et les emojis associés :   
 ![](wp-content/uploads/2024/05/word-image-2356-2.png)
 
-{{< figure src="wp-content/uploads/2024/05/word-image-2356-3.jpeg" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/05/word-image-2356-3.jpeg " ")
 
 Les **commentaires conventionnels de commit** permettent de moins souffrir grâce à :
 

@@ -28,7 +28,7 @@ Format : Tools in action (30 mn)
 
 Lors de cette 12ième édition de Devoxx France, j’ai eu l’agréable surprise de voir 4 anciens collègues animer un talk : [Guillaume Darmont](https://www.devoxx.fr/schedule/talk/?id=20254) sur Java Flight Recorder et Java Mission Control, [Florian Boulay](https://www.devoxx.fr/schedule/speaker-details/?id=38855) sur emacs, [Stéphane Landelle](https://www.devoxx.fr/schedule/speaker-details/?id=44309) sur Netty et [Lucian Precup](https://www.devoxx.fr/schedule/talk/?id=29378) sur Lucene. Avec ce dernier, nous avons mis en œuvre Elasticsearch sur une application métier au cœur du SI d’une grande entreprise. C’était il y’a plus de 10 ans. Expert en moteur de recherche, je me souviens encore Lucian m’expliquer ce qu’est un index inversé.
 
-{{< figure src="wp-content/uploads/2024/04/Lucian%5Fat%5FDevoxxFr2024.jpeg" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/Lucian%5Fat%5FDevoxxFr2024.jpeg " ")
 
 Lucian commence par sonder son public. Fait notable, dans l’assistance, personne n’utilise un moteur de recherche qui ne serait pas basé sur [**Apache Lucene**](https://lucene.apache.org/), technologie à la base de milliers de moteur de recherche et dont Lucian va nous retracer l’histoire.
 
@@ -72,7 +72,7 @@ Lucian prend l’exemple de 3 documents à indexer :
 
 Ces phrases sont tokenisées en termes puis stockées dans un index dit inversés. Cet index ressemble à une Map ayant pour clé les termes et pour valeur l’ensemble des éléments référençant le token.
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2298-3.jpeg" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2298-3.jpeg " ")
 
 
 Des raffinements sont possibles : suppression des majuscules, stemming (gestion du singulier et du pluriel), stopwords (comme les articles) …
@@ -126,7 +126,7 @@ Ces LLM sont programmés pour générer des mots, d’où les hallucinations. Il
 Une solution consiste à générer du texte augmenté par récupération.   
 Le RAG mélange moteur de recherche et LLM.
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2298-10.jpeg" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2298-10.jpeg " ")
 
 
 Avec les User Query, on n’utilise plus du fulltext search.
@@ -135,7 +135,7 @@ Avec les User Query, on n’utilise plus du fulltext search.
 
 Le Hands-On Lab [RAGtime : Discuter avec vos propres données](https://www.devoxx.fr/en/schedule/talk/?id=29366) était consacré au buzzword de 2024.
 
-{{< figure src="wp-content/uploads/2024/04/word-image-2298-11.jpeg" alt="" caption="" >}}
+![ ](wp-content/uploads/2024/04/word-image-2298-11.jpeg " ")
 
 ## Ressources
 
