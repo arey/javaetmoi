@@ -18,6 +18,7 @@ guid: http://javaetmoi.com/?p=1869
 parent_post_id: null
 post_id: "1869"
 post_views_count: "72242"
+featured: true
 summary: |-
   Dans ce billet, j’aimerais vous présenter les différentes briques techniques permettant de mettre en œuvre une [**architecture microservices**](https://martinfowler.com/articles/microservices.html) reposant sur **Spring Boot**, **Spring Cloud**, **Netflix OSS** et **Docker**. Pour m’y aider, je m’appuierai sur l’application démo [**Spring Petclinic Microservices**](https://github.com/spring-petclinic/spring-petclinic-microservices) que je vous avais déjà brièvement présenté [en 2016](http://javaetmoi.com/2016/12/les-forks-de-spring-petclinic/) et que j’ai récemment migrée vers Spring Cloud Finchley et Spring Boot 2.
 

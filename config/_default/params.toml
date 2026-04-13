@@ -15,6 +15,7 @@ comments = true
 logo = "wp-content/uploads/2013/12/banniere_java_et_moi_1260x240.png"
 centerLogo = true
 showShare = true
+pinFeatured = true
 
 # Google Analytics Id
 ga_analytics = "G-SH8Q845WZ2"

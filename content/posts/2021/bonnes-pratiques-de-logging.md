@@ -11,6 +11,7 @@ guid: https://javaetmoi.com/?p=2100
 parent_post_id: null
 post_id: "2100"
 post_views_count: "46560"
+featured: true
 summary: |-
   ![](https://javaetmoi.com/wp-content/uploads/2020/12/lof-file-1.png)
 

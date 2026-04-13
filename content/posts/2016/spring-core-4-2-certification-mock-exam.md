@@ -11,6 +11,7 @@ guid: http://javaetmoi.com/?p=1508
 parent_post_id: null
 post_id: "1508"
 post_views_count: "15971"
+featured: true
 summary: |-
   ![spring-pro-cert](wp-content/uploads/2016/01/spring-pro-cert.jpg)Four years ago, I’ve published a first [mock exam for the Spring Core 3.0 Certification](http://javaetmoi.com/2012/02/core-spring-3-0-certification-mock-exam/). Encouraged by Michael and Alan, I’ve updated this **free** **mock exam** for the [Spring Professional certification based on the Spring Core 4.2 course](http://pivotal.io/academy#certification).
 

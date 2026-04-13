@@ -8,6 +8,7 @@ guid: http://javaetmoi.com/?p=1304
 parent_post_id: null
 post_id: "1304"
 post_views_count: "577640"
+featured: true
 summary: |-
   Pour créer vos IHM web en Java, vous n’avez que l’embarras du choix : Vaadin, JSF, GWT, Spring MVC, Tapestry …
 
