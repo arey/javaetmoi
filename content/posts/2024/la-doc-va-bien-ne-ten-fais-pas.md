@@ -8,21 +8,31 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - conférence
+thumbnail: logo/logo-devoxx-france.png
 featureImage: wp-content/uploads/2024/04/word-image-2335-1.jpeg
 featureImageAlt: word-image-2335-1
 date: "2024-04-26T17:55:09+00:00"
 toc: true
-thumbnail: wp-content/uploads/2024/04/word-image-2335-1.jpeg
 guid: https://javaetmoi.com/?p=2335
 parent_post_id: null
 post_id: "2335"
 post_views_count: "13436"
 summary: |-
-  Conférence : [Devoxx France 2024](https://www.devoxx.fr/)<br>Date : 17 avril 2024<br>Speakers : [Damien Lucas](https://www.linkedin.com/in/damien-lucas/) (OnePoint)<br>Format : Conférence (45 mn)<br>Slides : [https://dlucasd.github.io/la-doc-va-bien-ne-t-en-fais-pas/devoxx/#/](https://dlucasd.github.io/la-doc-va-bien-ne-t-en-fais-pas/devoxx/#/)<br>Vidéo Youtube : [https://www.youtube.com/watch?v=zQ0A75HqFuA](https://www.youtube.com/watch?v=zQ0A75HqFuA)<br>Repo GitHub : [https://github.com/dlucasd/la-doc-va-bien-ne-t-en-fais-pas](https://github.com/dlucasd/la-doc-va-bien-ne-t-en-fais-pas)
+  Conférence : [Devoxx France 2024](https://www.devoxx.fr/)<br>
+  Date : 17 avril 2024<br>Speakers : [Damien Lucas](https://www.linkedin.com/in/damien-lucas/) (OnePoint)<br>
+  Format : Conférence (45 mn)<br>Slides : [https://dlucasd.github.io/la-doc-va-bien-ne-t-en-fais-pas/devoxx/#/](https://dlucasd.github.io/la-doc-va-bien-ne-t-en-fais-pas/devoxx/#/)<br>
+  Vidéo Youtube : [https://www.youtube.com/watch?v=zQ0A75HqFuA](https://www.youtube.com/watch?v=zQ0A75HqFuA)<br>
+  Repo GitHub : [https://github.com/dlucasd/la-doc-va-bien-ne-t-en-fais-pas](https://github.com/dlucasd/la-doc-va-bien-ne-t-en-fais-pas)
 
-  La **documentation**, sujet atemporel. Travaillant sur des projets en TMA, Damien faisait le constat suivant : d’un projet à l’autre, la structure, l’organisation et le niveau d’informations de la documentation diffèrent. De temps à autres, Damien assistait à des réunions visant à restructurer la documentation. Chaque participant a sa vision. Trouver un consensus n’est pas facile. <br>Damien s’est ainsi demandé s’il n’existait pas clé en main un **template de rédaction de la documentation**, si possible **Open Source** et **reconnu** par la communauté des dévs et architectes.
+  La **documentation**, sujet atemporel. Travaillant sur des projets en TMA, Damien faisait le constat suivant : d’un projet à l’autre, la structure, 
+  l’organisation et le niveau d’informations de la documentation diffèrent. De temps à autres, Damien assistait à des réunions visant à restructurer 
+  la documentation. Chaque participant a sa vision. Trouver un consensus n’est pas facile. <br>
+  Damien s’est ainsi demandé s’il n’existait pas clé en main un **template de rédaction de la documentation**, si possible **Open Source** 
+  et **reconnu** par la communauté des dévs et architectes.
 
-  Au cours de ses recherches, il est tombé sur le framework [**arc42**](https://arc42.org/) créé en 2005 par 2 allemands : Gernot Starke et Peter Hruschka. Ce template se focalise sur l’ **architecture des logiciels et des systèmes**. Plusieurs formats sources sont possibles en téléchargement depuis la page [https://arc42.org/download](https://arc42.org/download) : **asciidoc**, **markdown**, latex, Word, Confluence, html, Doxygen, IBM Rhapsody … Voici par exemple le template arc42 pour Word : [arc42-template-FR-withhelp-docx.zip](https://github.com/arc42/arc42-template/raw/master/dist/arc42-template-FR-withhelp-docx.zip)
+  Au cours de ses recherches, il est tombé sur le framework [**arc42**](https://arc42.org/) créé en 2005 par 2 allemands : Gernot Starke et Peter Hruschka.
+  Ce template se focalise sur l’ **architecture des logiciels et des systèmes**. Plusieurs formats sources sont possibles en téléchargement depuis 
+  la page [https://arc42.org/download](https://arc42.org/download) : **asciidoc**, **markdown**, latex, Word, Confluence, html, Doxygen, IBM Rhapsody … Voici par exemple le template arc42 pour Word : [arc42-template-FR-withhelp-docx.zip](https://github.com/arc42/arc42-template/raw/master/dist/arc42-template-FR-withhelp-docx.zip)
 
   Damien a une **préférence pour l’asciidoc** qui permet d’avoir une **approche docs-as-code** : on peut le commiter dans un repository **git** puis générer un document au format souhaité (ex : PDF)
 
@@ -70,7 +80,7 @@ Au cours de ses recherches, il est tombé sur le framework [**arc42**](https://a
 
 Damien a une **préférence pour l’asciidoc** qui permet d’avoir une **approche docs-as-code** : on peut le commiter dans un repository **git** puis générer un document au format souhaité (ex : PDF)
 
-Les templates arc42 au format asciidoc (extension .adoc) sont disponibles sur le repo GitHub [arc42-template](https://github.com/arc42/arc42-template/tree/master/FR/asciidoc): une **dizaine de langues** est supportée dont le **français**.
+Les templates arc42 au format asciidoc (extension .adoc) sont disponibles sur le repo GitHub [arc42-template](https://github.com/arc42/arc42-template/tree/master/FR/asciidoc) : une **dizaine de langues** est supportée dont le **français**.
 
 Ce template nous guide et nous pose les bonnes questions :
 
@@ -81,16 +91,14 @@ Ce template nous guide et nous pose les bonnes questions :
 Arc42 propose de documenter une application en **12 chapitres**. Chaque chapitre est lui-même généralement composé de 3 sous-parties.   
 Dans de ce talk, Damien s’appuie sur un projet fictif pour illustrer chacun des 12 chapitres. Ce projet consiste à développer une application de billetterie pour les JO. Il en profitera pour nous présenter des **outils de génération de diagrammes** (PlantUML et Mermaid), des **outils de modélisation** (C4 et Structurizr) et des **outils de génération de documentation** (avec CLI et donc intégrable à la CI).
 
-![ ](wp-content/uploads/2024/04/word-image-2335-1.jpeg " ")
-
 ## 1\. Introduction et objectifs
 
-Vue haut niveau du projet décrivant les grandes fonctionnalités.   
-Exemple : permet acheter place + télécharger billet   
-Il est recommandé d’ajouter des liens vers la documentation existante.   
+Vue haut niveau du projet décrivant les grandes fonctionnalités.
+Exemple : permet acheter place + télécharger billet
+Il est recommandé d’ajouter des liens vers la documentation existante.
 Exemple : vers les maquettes, les spécifications fonctionnelles
 
-Dans le projet fictif, OpenAPI est utilisé pour documenter les API REST.   
+Dans le projet fictif, OpenAPI est utilisé pour documenter les API REST.
 L’outil [**OpenAPI Generator**](https://openapi-generator.tech/) permet de générer la documentation AsciiDoc. L’équipe aurait pu également faire le choix de générer un site statique.   
 Pour documenter une API, Julien préfère l’outil [**ReDoc**](https://github.com/Redocly/redoc): plus moderne, l’interface est plus pratique. Preuve en est, elle est utilisée nativement dans IntelliJ lors de l’édition d’une spécification OpenAPI.
 
@@ -109,8 +117,11 @@ L’application doit être déployée sur un serveur Tomcat OnPremise
 
 ## 3\. Contexte et périmètre
 
-Le contexte et le périmètre délimitent le système de tous les systèmes connexes voisins. Les interfaces fonctionnelles et techniques avec les partenaires sont décrites dans ce paragraphe. Un **diagramme de contexte** a toute sa place.   
-Traditionnellement, les outils **Visio** ou **draw.io** peuvent être utilisés pour réaliser de tels diagrammes. Vous vous en doutez, Damien recommande de privilégier les diagrammes as code afin de faciliter les revues et préconise [**C4 model**](https://c4model.com/), créé par Simon Brown entre 2006 et 2011 et inspiré de UML.   
+Le contexte et le périmètre délimitent le système de tous les systèmes connexes voisins. Les interfaces fonctionnelles et techniques avec les partenaires sont décrites dans ce paragraphe.
+Un **diagramme de contexte** a toute sa place.
+Traditionnellement, les outils **Visio** ou **draw.io** peuvent être utilisés pour réaliser de tels diagrammes.
+Vous vous en doutez, Damien recommande de privilégier les diagrammes as code afin de faciliter les revues et préconise [**C4 model**](https://c4model.com/),
+créé par Simon Brown entre 2006 et 2011 et inspiré de UML.   
 La modélisation C4 documente l'architecture d'un système logiciel en utilisant plusieurs points de vue et avec 4 niveaux d’abstraction. Nous y reviendrons.
 
 Exemple de diagramme de contexte conçu à l’aide de [C4-PlantUML](https://github.com/plantuml-stdlib/C4-PlantUML) :
@@ -146,7 +157,7 @@ Créé par Simon Brown comme C4, l’outil [**Structurizr**](https://structurizr
 
 ![ ](wp-content/uploads/2024/04/word-image-2335-6.png " ")
 
-Les diagrammes Structurizr sont dynamiques et permettent de zoomer.   
+Les diagrammes Structurizr sont dynamiques et permettent de zoomer.
 Les avantages :
 
 - plus de redondance d’information car, dans l’exemple ci-dessus extrait su site officiel, le _softwareSystem_ est réutilisée
@@ -191,8 +202,8 @@ Exemple : zoom sur la table Track et ses relations au 2ième degré
 ## 9\. Décisions d’architecture
 
 Ce chapitre consigne les décisions d’architectures significatives. On retrouve une certaine similarité avec les [**Architecture Decision Records**](https://github.com/joelparkerhenderson/architecture-decision-record) (ADR).   
-Cela permet de retracer les décisions prises au cours du temps.   
-Exemple : pourquoi avoir utilisé telle base de données NoSQL ?   
+Cela permet de retracer les décisions prises au cours du temps.
+Exemple : pourquoi avoir utilisé telle base de données NoSQL ? 
 Y sont décrits le contexte et le problème constatés, la décision et le statut (proposé, accepté, rejeté, obsolète …).
 
 ## 10\. Critères de qualité
@@ -214,16 +225,16 @@ Exemple de dette technique : absence de tests automatisés pour le processus d�
 
 Tableau listant les **termes techniques et métier** les plus importants.
 
-Dans le cadre du **Domain-Driven Design** (DDD) et de l' **Ubiquitous Language**, un glossaire joue un rôle crucial en centralisant et en formalisant la terminologie propre au domaine métier.   
+Dans le cadre du **Domain-Driven Design** (DDD) et de l' **Ubiquitous Language**, un glossaire joue un rôle crucial en centralisant et en formalisant la terminologie propre au domaine métier.
 Un glossaire permet également de maintenir une **traduction de référence** (ex : anglais <-> français).
 
 Damien cite les **annotations Java** de Cyrille Martraire permettant d’extraire le glossaire et dont je vous avais [déjà parlé en 2016](wp-content/uploads/2016/05/Devoxx_France-2016-Live_documentation.pdf).
 
 ## Bilan de arc42
 
-Sur les 12 chapitres, **le contenu de la moitié peut été généré**.   
-Cette documentation permet de comprendre l’application sans lire la moindre ligne de code.   
-A priori, se lancer dans la documentation peut faire peur, mais Damien insiste qu’en une semaine on peut avoir un squelette de documentation tout à fait satisfait et qu’il sera possible de l’enrichir par incrément.   
+Sur les 12 chapitres, **le contenu de la moitié peut été généré**.
+Cette documentation permet de comprendre l’application sans lire la moindre ligne de code.
+A priori, se lancer dans la documentation peut faire peur, mais Damien insiste qu’en une semaine on peut avoir un squelette de documentation tout à fait satisfait et qu’il sera possible de l’enrichir par incrément.
 Le format asciidoc est très flexible puisqu’il permet de générer un site statique, un PDF et/ou une publication dans Confluence.
 
 ## Documentation utilisateur
@@ -234,7 +245,7 @@ Damien nous recommande le framework **[Diataxis](https://diataxis.fr/)** qui enc
 
 1. **Tutoriel** avec le Hello World
 1. **How to**: listes d’étapes avec but bien précis
-1. **Concepts** : comment fonctionne l’outil
+1. **Concepts** : comment fonctionne l'outil
 1. **Documentation de référence**
 
 ![](wp-content/uploads/2024/04/word-image-2335-10.png)  
