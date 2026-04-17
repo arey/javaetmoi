@@ -20,6 +20,17 @@ pinFeatured = false
 # Google Analytics Id
 ga_analytics = "G-SH8Q845WZ2"
 
+# Giscus comments (https://giscus.app/)
+giscus = true
+giscusRepo = "arey/javaetmoi"
+giscusRepoId = "R_kgDOSAqqoA"
+giscusCategory = "Commentaires"
+giscusCategoryId = "DIC_kwDOSAqqoM4C6w9g"
+giscusMapping = "og:title"
+giscusReactionsEnabled = "1"
+giscusTheme = "catppuccin_latte"
+giscusLang = "fr"
+
 [author]
 name = "Java & Moi"
 photo = "wp-content/uploads/2012/02/JavaOne2000.jpg"
