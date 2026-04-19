@@ -99,8 +99,6 @@ Hugo résout les templates dans cet ordre de priorité : **projet > thème**. To
 | `layouts/partials/sidebar.html` | `themes/.../sidebar.html` | Widgets Devoxx + Blogs Java |
 | `layouts/_default/_markup/render-image.html` | `themes/.../_markup/render-image.html` | Fix nil `Page.File` sur pages virtuelles |
 | `assets/sass/_custom.sass` | `themes/.../sass/_custom.sass` | Styles bannière + nav sticky (pattern officiel Clarity) |
-| `layouts/partials/hooks/body-end.html` | *(hook — n'existe pas dans le thème)* | Injection des commentaires WordPress |
-| `layouts/partials/wp-comments.html` | *(spécifique au projet)* | Rendu commentaires depuis `data/comments.yaml` |
 | `layouts/rss.xml` | `themes/.../rss.xml` | Feed servi en `/feed.xml` (compat. WordPress) |
 | `layouts/shortcodes/` | *(shortcodes custom)* | gallery, catlist, audio, googlemaps, parallaxblur |
 

@@ -56,8 +56,6 @@ Configuration lives in `config/_default/`:
 ### Custom templates
 
 - `layouts/shortcodes/` — custom shortcodes: `gallery`, `catlist`, `audio`, `googlemaps`, `parallaxblur`
-- `layouts/partials/wp-comments.html` — renders threaded comments from `data/comments.yaml`
-- `layouts/partials/hooks/body-end.html` — invokes `wp-comments.html` via Clarity's body-end hook
 - `layouts/partials/sidebar.html` — overrides Clarity sidebar; adds Devoxx France + Blogs Java widgets
 - `layouts/_default/_markup/render-image.html` — overrides Clarity render-image to handle nil `.Page.File` for virtual pages
 - `layouts/rss.xml` — custom RSS template; feed is served at `/feed.xml` (not `/index.xml`)
@@ -70,7 +68,7 @@ Configuration lives in `config/_default/`:
 
 ### Post front matter
 
-Posts preserve WordPress metadata fields (`post_id`, `guid`, `_edit_last`, etc.). **Do not remove them** — `post_id` is used by `wp-comments.html` to match comments from `data/comments.yaml`.
+Posts preserve WordPress metadata fields (`post_id`, `guid`, `_edit_last`, etc.). **Do not remove them** — `post_id` is used by the Giscus `og:title` mapping and may be referenced by other tooling.
 
 Post URLs follow the WordPress pattern and are set explicitly:
 ```yaml
@@ -107,13 +105,13 @@ Shortcode string parameters containing single quotes or newlines break Hugo's pa
 
 ### Comments system
 
-Comments are served from `data/comments.yaml` via `layouts/partials/wp-comments.html`. Access the data via `hugo.Data.comments` (not `.Site.Data.comments` which is deprecated since Hugo 0.156.0).
+Comments are handled by **Giscus** (GitHub Discussions). Configuration lives in `config/_default/params.toml` under the `giscus*` keys. Clarity's built-in Giscus support is used — no custom partial needed.
 
 ### Clarity theme notes
 
 - `mainSections = ["posts"]` and `blogDir = "posts"` are required (Clarity defaults to `"post"`)
 - `usePageBundles = false` — posts are flat `.md` files, not page bundles
-- Clarity's own `layouts/partials/comments.html` (for Disqus/Giscus) is not used — our custom partial is invoked via the `body-end` hook instead
+- Clarity's built-in `layouts/partials/comments.html` handles Giscus rendering using the `giscus*` params
 - Do not add a `content/search.md` or `content/archives.md` — these are PaperMod-specific and have no Clarity equivalent
 
 ## Hugo Theme Override System
@@ -158,7 +156,6 @@ Clarity also supports two **template hooks** — create these files to inject HT
 | `layouts/partials/sidebar.html` | `themes/.../sidebar.html` | Adds Devoxx France + Blogs Java sections |
 | `layouts/_default/_markup/render-image.html` | `themes/.../_markup/render-image.html` | Guards against nil `$.Page.File` on virtual pages |
 | `assets/sass/_custom.sass` | `themes/.../sass/_custom.sass` | Banner width (100vw) + nav sticky positioning |
-| `layouts/partials/hooks/body-end.html` | *(hook, no theme equivalent)* | Invokes `wp-comments.html` |
 
 ### Theme upgrade checklist
 
