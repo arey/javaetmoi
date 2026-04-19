@@ -24,9 +24,9 @@ summary: |-
 
   Les sujets sont variés : le **langage Java** bien évidemment, des **frameworks** comme Spring et RxJS, de l’ **outillage** pour vos test tests et vos builds, de l’ **infrastructure** avec Docker et Kubernetes, de l’ **architecture** avec DDD et OpenAPI, sans oublier des sujets plus connexes tels la place du développeur en entreprise ou bien l’apprentissage du code aux enfants.
 
-  [![](wp-content/uploads/2018/04/IMG_20180420_090935.jpg)](wp-content/uploads/2018/04/IMG_20180420_090935.jpg)
+  [![Photo de la salle de conférence Devoxx France 2018](wp-content/uploads/2018/04/IMG_20180420_090935.jpg)](wp-content/uploads/2018/04/IMG_20180420_090935.jpg)
 
-  ![](wp-content/uploads/2018/04/IMG_20180420_090935.jpg)
+  ![Photo de la salle de conférence Devoxx France 2018](wp-content/uploads/2018/04/IMG_20180420_090935.jpg)
 tags:
   - ddd
   - devoxx
@@ -46,7 +46,7 @@ Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les vi
 
 Les sujets sont variés : le **langage Java** bien évidemment, des **frameworks** comme Spring et RxJS, de l’ **outillage** pour vos test tests et vos builds, de l’ **infrastructure** avec Docker et Kubernetes, de l’ **architecture** avec DDD et OpenAPI, sans oublier des sujets plus connexes tels la place du développeur en entreprise ou bien l’apprentissage du code aux enfants.
 
-[![](wp-content/uploads/2018/04/IMG_20180420_090935.jpg)](wp-content/uploads/2018/04/IMG_20180420_090935.jpg)
+[![Photo de la salle de conférence Devoxx France 2018](wp-content/uploads/2018/04/IMG_20180420_090935.jpg)](wp-content/uploads/2018/04/IMG_20180420_090935.jpg)
 
 1. [Développeur, reprends le digital en main](wp-content/uploads/2018/04/208-04-20-Développeur-reprends-le-digital-en-main.pdf) (Alain Hélaïli)
 1. [Après Java 8, Java 9 et 10](wp-content/uploads/2018/04/208-04-20-Java-9-et-10.pdf) (Jean-Michel Doudoux)

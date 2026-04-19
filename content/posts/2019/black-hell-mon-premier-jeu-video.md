@@ -32,7 +32,7 @@ guid: http://javaetmoi.com/?p=1906
 parent_post_id: null
 post_id: "1906"
 post_views_count: "12735"
-summary: '[![](wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png)](wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png) Pour ce premier article de 2019, je vous propose un **voyage dans le temps**, au contenu plus personnel. J’ai récemment dîné avec mon vieil ami Nicolas Lidzborski qui travaille chez Google aux US et que je n’avais pas revu depuis une dizaine d’années. Comme toute retrouvaille, nous nous sommes remémorés des souvenirs du Lycée, ses profs et son club IF. De sa chambre d’ado, Nicolas a retrouvé une illustration que nous avions réalisé pendant le **[concours Soft la Nuit](ftp://shamash.lpi.ac-poitiers.fr/pub/soft-qui-peut/sqp.txt)** de 1996, un marathon de 24h pendant lequel 20 équipes de 4 jeunes devaient développer un logiciel. Et oui, mon premier **hackaton** commence à dater. Afin de pouvoir se qualifier, nous avions du présenter des projets personnels. Mon [jeu vidéo Black Hell](https://github.com/arey/black-hell) en faisait partie. Par curiosité, et avec un brin de nostalgie, je suis parti à la recherche d’un backup de disquette. J’en ai ressorti code source et binaire. Et surprise : avec l’émulateur [DOSBox](https://www.dosbox.com/), j’ai réussi à le faire tourner, à la fois sous Windows 10 et MacOS.'
+summary: '[![Écran principal du jeu vidéo Black Hell](wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png)](wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png) Pour ce premier article de 2019, je vous propose un **voyage dans le temps**, au contenu plus personnel. J’ai récemment dîné avec mon vieil ami Nicolas Lidzborski qui travaille chez Google aux US et que je n’avais pas revu depuis une dizaine d’années. Comme toute retrouvaille, nous nous sommes remémorés des souvenirs du Lycée, ses profs et son club IF. De sa chambre d’ado, Nicolas a retrouvé une illustration que nous avions réalisé pendant le **[concours Soft la Nuit](ftp://shamash.lpi.ac-poitiers.fr/pub/soft-qui-peut/sqp.txt)** de 1996, un marathon de 24h pendant lequel 20 équipes de 4 jeunes devaient développer un logiciel. Et oui, mon premier **hackaton** commence à dater. Afin de pouvoir se qualifier, nous avions du présenter des projets personnels. Mon [jeu vidéo Black Hell](https://github.com/arey/black-hell) en faisait partie. Par curiosité, et avec un brin de nostalgie, je suis parti à la recherche d’un backup de disquette. J’en ai ressorti code source et binaire. Et surprise : avec l’émulateur [DOSBox](https://www.dosbox.com/), j’ai réussi à le faire tourner, à la fois sous Windows 10 et MacOS.'
 tags:
   - assembleur
   - turbo-pascal
@@ -40,7 +40,7 @@ title: 'Black Hell : mon premier jeu vidéo'
 url: /2019/02/black-hell-mon-premier-jeu-video/
 
 ---
-[![](wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png)](wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png) Pour ce premier article de 2019, je vous propose un **voyage dans le temps**, au contenu plus personnel. J’ai récemment dîné avec mon vieil ami Nicolas Lidzborski qui travaille chez Google aux US et que je n’avais pas revu depuis une dizaine d’années. Comme toute retrouvaille, nous nous sommes remémorés des souvenirs du Lycée, ses profs et son club IF. De sa chambre d’ado, Nicolas a retrouvé une illustration que nous avions réalisé pendant le **[concours Soft la Nuit](ftp://shamash.lpi.ac-poitiers.fr/pub/soft-qui-peut/sqp.txt)** de 1996, un marathon de 24h pendant lequel 20 équipes de 4 jeunes devaient développer un logiciel. Et oui, mon premier **hackaton** commence à dater. Afin de pouvoir se qualifier, nous avions du présenter des projets personnels. Mon [jeu vidéo Black Hell](https://github.com/arey/black-hell) en faisait partie. Par curiosité, et avec un brin de nostalgie, je suis parti à la recherche d’un backup de disquette. J’en ai ressorti code source et binaire. Et surprise : avec l’émulateur [DOSBox](https://www.dosbox.com/), j’ai réussi à le faire tourner, à la fois sous Windows 10 et MacOS.
+[![Écran d'accueil du jeu vidéo Black Hell](wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png)](wp-content/uploads/2019/02/2019-02-Black-Hell-Ecran-accueil.png) Pour ce premier article de 2019, je vous propose un **voyage dans le temps**, au contenu plus personnel. J’ai récemment dîné avec mon vieil ami Nicolas Lidzborski qui travaille chez Google aux US et que je n’avais pas revu depuis une dizaine d’années. Comme toute retrouvaille, nous nous sommes remémorés des souvenirs du Lycée, ses profs et son club IF. De sa chambre d’ado, Nicolas a retrouvé une illustration que nous avions réalisé pendant le **[concours Soft la Nuit](ftp://shamash.lpi.ac-poitiers.fr/pub/soft-qui-peut/sqp.txt)** de 1996, un marathon de 24h pendant lequel 20 équipes de 4 jeunes devaient développer un logiciel. Et oui, mon premier **hackaton** commence à dater. Afin de pouvoir se qualifier, nous avions du présenter des projets personnels. Mon [jeu vidéo Black Hell](https://github.com/arey/black-hell) en faisait partie. Par curiosité, et avec un brin de nostalgie, je suis parti à la recherche d’un backup de disquette. J’en ai ressorti code source et binaire. Et surprise : avec l’émulateur [DOSBox](https://www.dosbox.com/), j’ai réussi à le faire tourner, à la fois sous Windows 10 et MacOS.
 
 ## Présentation du jeu
 
@@ -48,7 +48,7 @@ Blach Hell est un shoot’em up, ou plutôt 2 **shoot’em up** : le mode solo e
 
 Dans la lignée de Xenon 2, la **version solo** vous propose de prendre les commandes d’un avion de chasse nommé « Silicium ». Vous aurez à éliminer des vaisseaux et à éviter des mines avant de pouvoir détruire le Big Boss final. Un travelling vertical fait avancer le terrain en arrière-plan. 5 touches sont nécessaires : les flèches multidirectionnelles pour se déplacer et Ctrl pour tirer.
 
-![ ](wp-content/uploads/2019/02/2019-02-Black-Hell-Screenshot-1-player.png " ")
+![Screenshot du jeu Black Hell en mode solo avec l'avion Silicium](wp-content/uploads/2019/02/2019-02-Black-Hell-Screenshot-1-player.png)
 
 {{< youtube U3kRiEbFpLQ >}}&t=2s
 
@@ -56,7 +56,7 @@ Partie en mode solo
 
 Dans le **mode 2 joueurs**, chaque joueur choisit un vaisseau parmi les 3 proposés. Ils rentrent ensuite dans une arène pour un combat à mort. Afin de se déplacer sur tout l’écran et viser leur adversaire, les vaisseaux peuvent tourner à 360 °. Des options à récupérer viennent pimenter les parties : vitesse doublée, soin, invincibilité emporaire, double canon, bombe …
 
-![ ](wp-content/uploads/2019/02/2019-02-Black-Hell-Screenshot-2-players.png " ")
+![Screenshot du jeu Black Hell en mode 2 joueurs dans l'arène](wp-content/uploads/2019/02/2019-02-Black-Hell-Screenshot-2-players.png)
 
 Pour celles et ceux qui souhaitent voir à quoi ce mode ressemble sans avoir à installer DOSBox ni à dépoussiérer leur vieux 486, j’ai publié une [vidéo d’une partie 2 joueurs sur Youtube](https://www.youtube.com/watch?v=SJDJsffxfbU&t=18s).
 
@@ -83,7 +83,7 @@ La résolution VGA de 320x200 pixels avec 256 couleurs imposait que tous les fon
 
 L’écran d’options est le seul écran du jeu supportant le SVGA (640x480). Pour les personnes n’ayant pas de carte vidéo compatible, une option en ligne de commande (BH.EXE -VGA) permettait de le rétrograder en VGA.
 
-![ ](wp-content/uploads/2019/02/2019-02-Black-Hell-Base-de-départ.gif " ")
+![Animation de la base de départ dans le jeu Black Hell (VGA 320×200 pixels)](wp-content/uploads/2019/02/2019-02-Black-Hell-Base-de-départ.gif)
 
 Chaque partie commence par une animation en image de synthèse montrant le Silicium décoller de sa base. Cette animation est encodée dans le fichier N1PLAIN.FLX.
 
@@ -412,10 +412,10 @@ Pour conclure ce billet, ma plus grande fierté a été quand mon plus jeune fil
 
 Pour le plaisir, voici quelques souvenirs d’un autre siècle :
 
-![ ](wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-2.gif " ")
+![Souvenir de l'équipe Soft La Nuit, créatrice du jeu Black Hell](wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-2.gif)
 
-![ ](wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-3.jpeg " ")
+![Souvenir de l'équipe Soft La Nuit, créatrice du jeu Black Hell](wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-3.jpeg)
 
-![ ](wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-1.png " ")
+![Souvenir de l'équipe Soft La Nuit, créatrice du jeu Black Hell](wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-1.png)
 
-![ ](wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-4.jpg " ")
+![Souvenir de l'équipe Soft La Nuit, créatrice du jeu Black Hell](wp-content/uploads/2019/02/2019-02-Black-Hell-Soft-La-Nuit-4.jpg)

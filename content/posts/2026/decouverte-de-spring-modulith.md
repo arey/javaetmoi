@@ -173,13 +173,13 @@ Les modules identifiés étaient à ce stade au nombre de quatre :
 | system | `org.springframework.samples.petclinic.system` |
 | model | `org.springframework.samples.petclinic.model` |
 
-![ ](wp-content/uploads/2026/03/word-image-2642-1.png " ")
+![Table de correspondance modules Spring Modulith et packages Java dans Spring Petclinic](wp-content/uploads/2026/03/word-image-2642-1.png)
 
 Cette modularisation fonctionnelle de l’application Spring Petclinic avait été réalisée en 2016 par Dave Syer dans la PR [#200 Modernize Spring apps structure](https://github.com/spring-projects/spring-petclinic/pull/200). Oliver Drotbohm avait d’ailleurs participé à la conversation.
 
 Le module `model` mutualisait 3 classes de base JPA `BaseEntity`, `Person`, `NamedEntity` partagées entre les modules `owner` et `vet`. Conservé en 2016, 10 ans plus tard à l’heure du Modulith, j’ai préféré reconsidérer ce choix. En effet, en DDD, chaque **Bounded Context** possède intégralement son modèle du domaine métier. Les classes `BaseEntity`, `Person`, `NamedEntity` ne sont pas des concepts métier. Ce sont des raccourcis techniques. Inliner le contenu de ces classes techniques dans `vet` et `owner` rend chaque module prêt pour un éventuel découpage en microservices, sans aucun type partagé. Plutôt que d’être exposé sous forme de module partagé (shared module), le package `model` a été purement et simplement supprimé.
 
-![ ](wp-content/uploads/2026/03/word-image-2642-2.png " ")
+![Structure du projet Spring Petclinic après suppression du package model partagé](wp-content/uploads/2026/03/word-image-2642-2.png)
 
 ### Étape 4- Séparer l'API publique des détails d'implémentation
 
@@ -195,7 +195,7 @@ Les classes de test suivent la même organisation. Trivial, ce refactoring peut 
 Dans un module applicatif, le développeur est libre d’organiser le code comme il l’entend. Chaque module peut d’ailleurs avoir sa propre organisation : découpage en couches techniques pour l’un, architecture hexagonale pour l’autre.   
  Dans Petclinic, le package `internal` du module `owner` contenait 13 classes à plat. Cela fait beaucoup. On s’éloigne du SRP. J’ai ainsi fait le choix de ventiler ces classes dans 3 packages différents : `ui`, `application` et `domain`.
 
-![ ](wp-content/uploads/2026/03/word-image-2642-3.png " ")
+![Organisation du module owner en packages ui, application et domain](wp-content/uploads/2026/03/word-image-2642-3.png)
 
 ### Étape 5 - Communication par événements entre modules
 
@@ -450,12 +450,12 @@ L'appel à `writeDocumentation() ` produit dans le répertoire `target/spring-mo
 
 Exemple de rendu du fichier `module-vet.puml `:
 
-![ ](wp-content/uploads/2026/03/word-image-2642-4.png " ")
+![Diagramme PlantUML du module vet généré par Spring Modulith](wp-content/uploads/2026/03/word-image-2642-4.png)
 
 
 
 Exemple de rendu du fichier `module-vet.adoc `:   
-![](wp-content/uploads/2026/03/word-image-2642-5.png)
+![Documentation AsciiDoc du module vet générée par Spring Modulith](wp-content/uploads/2026/03/word-image-2642-5.png)
 
 L'intérêt de cette living documentation est double : le rendu de l’architecture du code est rendu sous nos yeux et la documentation reste synchronisée avec le code sans effort supplémentaire.
 

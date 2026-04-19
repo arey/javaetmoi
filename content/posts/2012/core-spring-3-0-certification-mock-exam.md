@@ -57,7 +57,7 @@ Répartition non officielle par thème des 50 questions :
 - Container  (13)
 - Test (5)
 - AOP (10)
-- Data Access (5)![](wp-content/uploads/2012/02/CertitfiedSpring_Professional.png)
+- Data Access (5)![Badge de certification Spring Professional](wp-content/uploads/2012/02/CertitfiedSpring_Professional.png)
 - Transactions (5)
 - Spring MVC (3)
 - Spring Security (3)

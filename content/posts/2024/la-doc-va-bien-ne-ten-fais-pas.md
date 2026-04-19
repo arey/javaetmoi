@@ -102,7 +102,7 @@ Dans le projet fictif, OpenAPI est utilisé pour documenter les API REST.
 L’outil [**OpenAPI Generator**](https://openapi-generator.tech/) permet de générer la documentation AsciiDoc. L’équipe aurait pu également faire le choix de générer un site statique.   
 Pour documenter une API, Julien préfère l’outil [**ReDoc**](https://github.com/Redocly/redoc): plus moderne, l’interface est plus pratique. Preuve en est, elle est utilisée nativement dans IntelliJ lors de l’édition d’une spécification OpenAPI.
 
-![ ](wp-content/uploads/2024/04/word-image-2335-2.png " ")
+![Interface ReDoc pour la documentation d'une API REST OpenAPI dans IntelliJ](wp-content/uploads/2024/04/word-image-2335-2.png)
 
 
 Ces 2 outils exploitent les informations du contrat d’interface. Julien rappelle la nécessité de documenter au maximum le contrat d’interface.   
@@ -126,7 +126,7 @@ La modélisation C4 documente l'architecture d'un système logiciel en utilisant
 
 Exemple de diagramme de contexte conçu à l’aide de [C4-PlantUML](https://github.com/plantuml-stdlib/C4-PlantUML) :
 
-![](wp-content/uploads/2024/04/word-image-2335-3.png)
+![Diagramme de contexte C4 créé avec C4-PlantUML](wp-content/uploads/2024/04/word-image-2335-3.png)
 
 ## 4\. Stratégie de solution
 
@@ -134,7 +134,7 @@ Résumé et explication des décisions fondamentales et des stratégies de solut
 Exemple : un fort trafic sur le site lors de l’ouverture de la billetterie a suscité la mise en œuvre d’une solution de file d’attente à l’achat. On ajoute dans la documentation d’un lien vers l’étude menée.   
 On peut utiliser ici un simple tableau :
 
-![ ](wp-content/uploads/2024/04/word-image-2335-4.png " ")
+![Tableau des décisions architecturales avec liens vers les études associées](wp-content/uploads/2024/04/word-image-2335-4.png)
 
 ## 5\. Vue en boites
 
@@ -145,7 +145,7 @@ Décomposition du système en boîte avec différents niveaux d’abstraction. O
 1. Level 3 : Components
 1. Level 4 : Code (diagramme de classes)
 
-![ ](wp-content/uploads/2024/04/word-image-2335-5.png " ")
+![Niveaux d'abstraction du modèle C4 : Contexte, Conteneurs, Composants, Code](wp-content/uploads/2024/04/word-image-2335-5.png)
 
 Depuis la vue Context, on peut zoomer dans l’une des vues Container, et ainsi de suite.   
 Par expérience, Damien nous explique que le niveau 4 est peu utilisé.
@@ -155,7 +155,7 @@ La problématique n°2 de C4 est provoquée par l’auto-layout des outils lorsq
 
 Créé par Simon Brown comme C4, l’outil [**Structurizr**](https://structurizr.com/) permet de créer des diagrammes clairs et informatifs qui illustrent la structure d'un système logiciel. Il s’appuie sur le domain specific language [Structurizr DSL](https://docs.structurizr.com/dsl) supporté dans VS Code et IntelliJ :
 
-![ ](wp-content/uploads/2024/04/word-image-2335-6.png " ")
+![Diagramme d'architecture logicielle créé avec Structurizr DSL](wp-content/uploads/2024/04/word-image-2335-6.png)
 
 Les diagrammes Structurizr sont dynamiques et permettent de zoomer.
 Les avantages :
@@ -166,7 +166,7 @@ Les avantages :
 
 Pour documenter les applications **Angular**, l’outil [**Compodoc**](https://compodoc.app/) créé par Vincent Ogloblinsky nous est conseillé. Compodoc permet de zoomer sur des modules Angular, de représenter les routes et s’appuie sur la JSDoc.
 
-![ ](wp-content/uploads/2024/04/word-image-2335-7.png " ")
+![Capture d'écran de Compodoc pour la documentation d'une application Angular](wp-content/uploads/2024/04/word-image-2335-7.png)
 
 Pour **React** et **Vue.js**, Damien n’a pas trouvé d’autres outils que **Storybook**.
 
@@ -197,7 +197,7 @@ Une de ses fonctionnalités pratiques est de pouvoir zoomer sur une table en aff
 
 Exemple : zoom sur la table Track et ses relations au 2ième degré
 
-![](wp-content/uploads/2024/04/word-image-2335-9.png)
+![Zoom sur la table Track et ses relations au 2ème degré dans l'outil de documentation de base de données](wp-content/uploads/2024/04/word-image-2335-9.png)
 
 ## 9\. Décisions d’architecture
 
@@ -248,7 +248,7 @@ Damien nous recommande le framework **[Diataxis](https://diataxis.fr/)** qui enc
 1. **Concepts** : comment fonctionne l'outil
 1. **Documentation de référence**
 
-![](wp-content/uploads/2024/04/word-image-2335-10.png)  
+![Schéma des 4 types de documentation : tutoriel, how-to, concepts, référence](wp-content/uploads/2024/04/word-image-2335-10.png)  
 La [documentation de Quarkus](https://quarkus.io/guides/doc-concept) s’appuie désormais sur le concept Diataxis.
 
 ## Conclusion

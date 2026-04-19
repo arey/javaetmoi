@@ -115,7 +115,7 @@ En résumé, vous allez demander à git d’utiliser PuTTY pour communiquer en S
 
 1. Télécharger puis décompresser l’archive **putty.zip** librement téléchargeable depuis le [site de Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) \[5\].
 1. Utiliser **[PuTTYGen.exe](http://marc.terrier.free.fr/docputty/Chapter8.html#pubkey-puttygen)** \[6\] pour **convertir** au format PuTTY (.ppk) **votre clé RSA GitHub** généré avec open SSH.
-1. Exécuter **[pageant.exe](http://marc.terrier.free.fr/docputty/Chapter9.html#pageant)** \[7\], ajouter la clé au format PuTTY and saisir le passphrase [![](wp-content/uploads/2012/04/variables-environnement-git-ssh-plink.png)](wp-content/uploads/2012/04/variables-environnement-git-ssh-plink.png)
+1. Exécuter **[pageant.exe](http://marc.terrier.free.fr/docputty/Chapter9.html#pageant)** \[7\], ajouter la clé au format PuTTY and saisir le passphrase [![Configuration des variables d'environnement Git SSH avec PuTTY et Plink](wp-content/uploads/2012/04/variables-environnement-git-ssh-plink.png)](wp-content/uploads/2012/04/variables-environnement-git-ssh-plink.png)
 1. Déclarer la variable d’environnement **GIT\_SSH** en spécifiant le **chemin vers [plink.exe](http://marc.terrier.free.fr/docputty/Chapter7.html#plink)** \[8\], outil de connexion en ligne de commande utilisé pour automatiser des connexions.
 
 Pour tester la configuration, ouvrir une nouvelle fenêtre de commande et exécuter la commande suivante :
@@ -210,7 +210,7 @@ Lors d’un déploiement distant (ex : mvn deploy), maven doit disposer des para
 </server>
 ```
 
- [![](wp-content/uploads/2012/04/github-webdav-username.png)](wp-content/uploads/2012/04/github-webdav-username.png)
+ [![Configuration du dépôt WebDAV CloudBees avec le nom d'utilisateur pour le déploiement Maven](wp-content/uploads/2012/04/github-webdav-username.png)](wp-content/uploads/2012/04/github-webdav-username.png)
 
 Attention, bien que le mot de passe soit celui que vous utilisez pour vous connecter à vore compte CloudBees, le **username** ne correspond pas à votre adresse email, mais celui spécifié dans la forge CloudBees comme le montre la capture d’écran ci-contre.
 

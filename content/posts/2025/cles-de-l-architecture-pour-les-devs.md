@@ -56,7 +56,7 @@ La brique centrale est nommée **Aggregator**.
 
 [Diagramme de contexte C4](https://c4model.com/diagrams/system-context) correspondant :
 
-![ ](wp-content/uploads/2025/04/word-image-2508-3.png " ")
+![Diagramme de contexte C4 de l'application](wp-content/uploads/2025/04/word-image-2508-3.png)
 
 **Première clé** donnée dans ce talk : commencer par **identifier le problème**.   
 Comment l’appliquer : quel est le but ? Ici c’est d’agréger les données reçues.   
@@ -107,25 +107,25 @@ Parmi les contraintes techniques, le vrai **risque** consiste à tenir le **dél
 
 **Réversible**, l’ **architecture n°2 est retenue** avec une approche **hexagonale**. On reste pragmatique : les deux sous-domaines s’appellent dans la même JVM par appel de fonction. Cyrille rappelle que l’architecture hexagonale demande de créer un peu plus de code, mais ce n’est pas les 30 secondes que met la création d’une interface qui va les ralentir. Cela permet de prévoir des options pas chères pour être réversible et changer son architecture en cours de route. Les décisions sont réversibles.
 
-![ ](wp-content/uploads/2025/04/word-image-2508-9.png " ")
+![Schéma de l'architecture hexagonale retenue pour le projet](wp-content/uploads/2025/04/word-image-2508-9.png)
 
 Une première version de l’application est déployée en production. Passent 1mn, puis 2, puis 5. On coupe tout. Trop long. Cela ne marche pas. Cyrille invite à célébrer ce constat : **on sait que çà ne marche pas**. Et on l’a découvert très vite.
 
 La cause est rapidement identifiée : l’agrégateur du monolith est mono-thread. 3 solutions son envisagées :   
 **1\. Solution 1** : **mono instance** avec du **multi-threading**. Plus de vCPU, worker pools.   
-![](wp-content/uploads/2025/04/word-image-2508-10.png)  
+![Solution 1 : mono instance avec multi-threading pour résoudre le goulot d'étranglement](wp-content/uploads/2025/04/word-image-2508-10.png)  
 **2\. Solution 2** : **multi instance avec du pub-sub**. Rien à faire. On s’appuie sur un service du Cloud Provider. Clé : on reconnait les problèmes difficiles et on les délègue à du middleware en managé.   
-![](wp-content/uploads/2025/04/word-image-2508-11.png)  
+![Solution 2 : multi-instance avec architecture pub-sub](wp-content/uploads/2025/04/word-image-2508-11.png)  
 **3\. Solution 3** : combine multi-thread et multi-instance : trop compliqué et trop chère. Combine tous les inconvénients. A ne pas faire.
 
 Approche choisie : solution 2. L’architecture est l’art du **tradeoff** (du compromis).
 
-![](wp-content/uploads/2025/04/word-image-2508-12.png)
+![Solution 3 (non retenue) : combinaison de multi-thread et multi-instance](wp-content/uploads/2025/04/word-image-2508-12.png)
 
 La solution retenue impose la **fin du modular monolith**. Nécessité de passer en **micro-services** : 2 services, 2 deployments et N services
 
 Réfléchissons à présent sur ce qui pourrait mal se passer avec un **tuyau asynchrone** : messages en double ou triple, manque de ressources, messages perdus …   
-![](wp-content/uploads/2025/04/word-image-2508-13.png)  
+![Schéma de la migration du modular monolith vers l'architecture microservices](wp-content/uploads/2025/04/word-image-2508-13.png)  
 Le fournisseur de Cloud garantie une partie des problèmes évoqués.   
 Cyrille rappelle la nécessité d’un consumer à être **idempotent** pour gérer les messages en double.
 
@@ -134,7 +134,7 @@ Cyrille rappelle la nécessité d’un consumer à être **idempotent** pour gé
 Avant de faire un choix sur l’implémentation de l’adaptateur et assurer la persistance des données (ex : PostgreSQL vs Redis), **Eric propose de rester en mémoire pour tester rapidement en prod**. Cela **permet** de gagner du temps et **de** **vérifier les hypothèses**.   
 On va livrer en prod un mock. Pas de honte. Vrai essaie sur de vraies machines avec les vraies données. On utilise la prod, le vrai environnement.
 
-![](wp-content/uploads/2025/04/word-image-2508-15.png)  
+![Schéma du déploiement d'un mock en production pour validation rapide des hypothèses](wp-content/uploads/2025/04/word-image-2508-15.png)  
 Le calcul dure moins de 2 minutes : l’hypothèse est validée. L’adaptateur peut désormais être implémenté avec Redis.
 
 Message de fond : **l’architecture est évolutive**. Il ne faut pas la mettre en place dès le début. L’architecture est dynamique. Tout bouge.
@@ -142,18 +142,18 @@ Message de fond : **l’architecture est évolutive**. Il ne faut pas la mettre 
 L’application est composée de 2 systèmes qui doivent se parler. Un contrat JSON est définit entre dispatcher et aggregator. Le contrat est très explicite avec les unités.   
 Cyrille fait remarquer un problème de typo sur un champ : latency **y**\_ms avec 2 lettres y
 
-![ ](wp-content/uploads/2025/04/word-image-2508-16.png " ")
+![Contrat JSON entre les services dispatcher et aggregator](wp-content/uploads/2025/04/word-image-2508-16.png)
 
 Un renommage serait possible mais il est recommandé de positionner 2 champs pour respecter le contrat.
 
-![](wp-content/uploads/2025/04/word-image-2508-17.png)  
+![Exemple de contrat JSON avec champ renommé et champ de compatibilité ascendante](wp-content/uploads/2025/04/word-image-2508-17.png)  
 Autre clé : **on ne change pas un contrat**. A partir du moment où il est publié, on doit rester dans la même version majeure pour toujours. Contracts are forever. On ne doit pas casser les clients existants.
 
 Cyrille rappelle les utiles à l’heure de l’IA :   
 \- **Architectural Decision Records** (**ADR)** : template   
 \- **ArchUnit** : try architecture tests
 
-![](wp-content/uploads/2025/04/word-image-2508-18.png)
+![Liste des outils recommandés : ADR et ArchUnit pour les décisions architecturales](wp-content/uploads/2025/04/word-image-2508-18.png)
 
 Autres clés proposées par Cyrille pour avoir des **réunions constructives**.   
 Commencer par **time boxer les réunions**. Utiliser un tableau blanc ou numérique.   

@@ -13,7 +13,7 @@ post_id: "2100"
 post_views_count: "46560"
 featured: true
 summary: |-
-  ![](https://javaetmoi.com/wp-content/uploads/2020/12/lof-file-1.png)
+  ![Icône de fichier de log](https://javaetmoi.com/wp-content/uploads/2020/12/lof-file-1.png)
 
   Publier en 2021 un article sur les logs n’est pas très novateur ; je vous l’accorde. Le **logging** est une pratique vieille comme l’informatique, ou presque. C’est une **pratique universelle** qu’on retrouve **quel que soit le langage de programmation** et quel que soit le type d’application. Pour autant, elle est survolée en fac et en école d’ingénieur. Les dévs apprennent bien souvent à logger sur le tas, en fonction de leurs besoins et de ce qui est déjà mis en place sur leur application. Rares sont également les entreprises mettant à disposition des normes et des bonnes pratiques en termes de traces applicatives.
 
@@ -32,7 +32,7 @@ title: Bonnes pratiques de logging
 url: /2021/01/bonnes-pratiques-de-logging/
 
 ---
-![](wp-content/uploads/2020/12/lof-file-1.png)
+![Icône de fichier de log](wp-content/uploads/2020/12/lof-file-1.png)
 
 Publier en 2021 un article sur les logs n’est pas très novateur ; je vous l’accorde. Le **logging** est une pratique vieille comme l’informatique, ou presque. C’est une **pratique universelle** qu’on retrouve **quel que soit le langage de programmation** et quel que soit le type d’application. Pour autant, elle est survolée en fac et en école d’ingénieur. Les dévs apprennent bien souvent à logger sur le tas, en fonction de leurs besoins et de ce qui est déjà mis en place sur leur application. Rares sont également les entreprises mettant à disposition des normes et des bonnes pratiques en termes de traces applicatives.
 
@@ -60,8 +60,8 @@ Depuis une dizaine d’années, ont émergés de nombreux systèmes de collecte 
 
 
 {{< gallery cols="1" >}}  
-![ ](wp-content/uploads/2021/01/logo-splunk.jpg " ")  
-![ ](wp-content/uploads/2021/01/logo-elastic.png " ")  
+![Logo Splunk](wp-content/uploads/2021/01/logo-splunk.jpg)  
+![Logo Elastic](wp-content/uploads/2021/01/logo-elastic.png)  
 {{< /gallery >}}  
 
 Les logs générés par les applicatifs sont soit directement envoyés à ces systèmes par le réseau (risque de perte de logs en cas d’indisponilité du SIEM), soit générés temporairement sur le système de fichier puis ingérés via un collecteur préalablement installé sur l’hôte.

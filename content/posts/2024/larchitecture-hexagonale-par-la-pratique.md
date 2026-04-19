@@ -44,7 +44,7 @@ Vidéo Youtube : [https://www.youtube.com/watch?v=-dXN8wkN0yk](https://www.youtu
 
 Cette session de live coding se déroule dans l’univers de Starwars et commence par une **citation de Maitre Yoda** :
 
-![](wp-content/uploads/2024/04/word-image-2317-1.png)  
+![Citation de Maître Yoda en introduction du live coding d'architecture hexagonale](wp-content/uploads/2024/04/word-image-2317-1.png)  
 
 En 45mn, Julien doit développer le système **Rebels Rescue** visant à reconstituer des flottes de sauvetage. N’en déplaise à l’Empire, les technos seront Spring Boot et Java 21.
 
@@ -53,7 +53,7 @@ Le code source est disponible dans le repo GitLab de Julien : [hexagonal-archite
 
 Julien commence par rappeler les inconvénients d’une **architecture 3-tiers** basée sur le triptyque **Contrôleur -> Service -> Persistance**
 
-![ ](wp-content/uploads/2024/04/word-image-2317-2.jpeg " ")
+![Schéma illustrant les inconvénients de l'architecture 3-tiers (Contrôleur-Service-Persistance)](wp-content/uploads/2024/04/word-image-2317-2.jpeg)
 
 Très utile, cette architecture n-tiers vieillit mal.   
  En théorie, la **logique métier** doit être centralisée dans la couche service. Mais en pratique, on la voit **diluée** partout, jusque dans les procédures stockées ...
@@ -109,7 +109,7 @@ L’usage d'**ArchUnit** pourrait s’envisager avec, j'imagine, des règles sur
 
 Dans une architecture hexagonale, l’extérieur du Domain est appelé l’**infrastructure.**
 
-![](wp-content/uploads/2024/04/word-image-2317-3.jpeg)
+![Schéma de l'infrastructure dans l'architecture hexagonale](wp-content/uploads/2024/04/word-image-2317-3.jpeg)
 
 Les interfaces d’entrée et de sorties du domaine sont rangées au niveau des frontières nommées **API** et **SPI** :
 \- **Application Programming Interface** Java à ne pas confondre avec API REST.
@@ -268,4 +268,4 @@ Il y'a nécessité de créer une représentation de ce qu’est une ressource RE
 
 Architecture finale de l’application Rebels Rescue :
 
-![ ](wp-content/uploads/2024/04/word-image-2317-4.jpeg " ")
+![Diagramme d'architecture finale de l'application Rebels Rescue en hexagonale](wp-content/uploads/2024/04/word-image-2317-4.jpeg)

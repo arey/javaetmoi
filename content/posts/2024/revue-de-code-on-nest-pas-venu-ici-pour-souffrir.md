@@ -28,7 +28,7 @@ summary: |-
   Elle consiste à examiner le code écrit par un autre développeur afin d'en améliorer la qualité, détecter les bugs et s'assurer du respect des normes de codage.
   Il existe différents types de revue. Au cours de cette présentation, elles se focaliseront sur les revues centrées sur le delta du code écrit pour corriger bug ou implémenter une feature.
 
-  ![](https://javaetmoi.com/wp-content/uploads/2024/05/word-image-2356-1.jpeg)
+  ![Anne-Laure et Pauline présentant les bonnes pratiques de revue de code](https://javaetmoi.com/wp-content/uploads/2024/05/word-image-2356-1.jpeg)
 tags:
   - craft
   - devoxx
@@ -95,7 +95,7 @@ poser les questions essentielles à la bonne délimitation de sa PR. Dans le tem
 des [Five W's](https://fr.wikipedia.org/wiki/QQOQCCP) mais également la référence à la User Story implémentée (ex : lien
 Jira).
 
-![ ](wp-content/uploads/2024/05/image.png " ")
+![Template de Pull Request avec les 5 questions essentielles (Five W's)](wp-content/uploads/2024/05/image.png)
 
 ## Definition of Done de la PR
 
@@ -159,9 +159,9 @@ A titre d’exemple, elles-mêmes utilisent **applause** à la place de **praise
 mais ont introduit 2 autres notations : **todo** et **typo**.
 Pour standardiser les revues et faciliter la vue des nouveaux arrivants, elles mettent à disposition de leurs équipes un
 **markdown** avec les libellés et les emojis associés :   
-![](wp-content/uploads/2024/05/word-image-2356-2.png)
+![Tableau markdown des libellés de revue de code avec emojis (applause, todo, typo)](wp-content/uploads/2024/05/word-image-2356-2.png)
 
-![ ](wp-content/uploads/2024/05/word-image-2356-3.jpeg " ")
+![Exemple de commentaire de revue de code avec notation structurée](wp-content/uploads/2024/05/word-image-2356-3.jpeg)
 
 Les **commentaires conventionnels de commit** permettent de moins souffrir grâce à :
 

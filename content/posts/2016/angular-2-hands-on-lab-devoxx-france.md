@@ -86,7 +86,7 @@ Il s’agit du concept principal d’Angular 2. Un composant Angular 2 combine d
 
 L’application Quizz est constituée des 7 composants suivants :
 
-1. **![](wp-content/uploads/2016/04/lab-docker1.png)Ng2CodelabApp**: une application Angular 2 est elle même un composant. C’est le composant parent de tous les autres composants.
+1. **![Structure du projet angular2-codelab avec ses 7 composants Angular 2 dans l'IDE](wp-content/uploads/2016/04/lab-docker1.png)Ng2CodelabApp**: une application Angular 2 est elle même un composant. C’est le composant parent de tous les autres composants.
 1. **Toolbar**: barre de navigation située en haut de l’écran
 1. **Home**: page d’accueil affichant une liste de thèmes (TypeScript, ECMAScript 6, Angular 2 et React). Le détail de chaque thème est géré par le composant ThemeCard.
 1. **ThemeCard**: affiche le nom du thème, une image, son descriptif et propose un bouton permettant de commencer le quizz associé.

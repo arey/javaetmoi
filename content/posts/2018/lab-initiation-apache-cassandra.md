@@ -24,7 +24,7 @@ summary: |-
 
   Ce billet a pour objectif de permettre aux développeurs n’ayant pas eu la chance de suivre ce Lab de profiter du travail préparatif des 2 speakers (un grand merci à eux) en lui donnant de la visibilité. Vous pourrez ainsi vous former par vous-même à Cassandra. Les explications données dans ce billet complètent les slides mais ne remplacent pas leur lecture.
 
-  [![](wp-content/uploads/2018/04/IMG_20180418_132919.jpg)](wp-content/uploads/2018/04/IMG_20180418_132919.jpg)
+  [![Photo du Lab d'initiation Apache Cassandra à Devoxx France 2018](wp-content/uploads/2018/04/IMG_20180418_132919.jpg)](wp-content/uploads/2018/04/IMG_20180418_132919.jpg)
 
   ![cof](wp-content/uploads/2018/04/IMG_20180418_132919.jpg)
 tags:
@@ -41,7 +41,7 @@ Le Lab était construit autour d’un support de présentation et de 5 exercices
 
 Ce billet a pour objectif de permettre aux développeurs n’ayant pas eu la chance de suivre ce Lab de profiter du travail préparatif des 2 speakers (un grand merci à eux) en lui donnant de la visibilité. Vous pourrez ainsi vous former par vous-même à Cassandra. Les explications données dans ce billet complètent les slides mais ne remplacent pas leur lecture.
 
-[![](wp-content/uploads/2018/04/IMG_20180418_132919.jpg)](wp-content/uploads/2018/04/IMG_20180418_132919.jpg)
+[![Photo du Lab d'initiation Apache Cassandra à Devoxx France 2018](wp-content/uploads/2018/04/IMG_20180418_132919.jpg)](wp-content/uploads/2018/04/IMG_20180418_132919.jpg)
 
 ## Installation de CCM
 

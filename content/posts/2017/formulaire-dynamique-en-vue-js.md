@@ -18,7 +18,7 @@ summary: |-
   La **validation** est **dynamique**: elle se fait au fur et à mesure de la saisie du formulaire.
   Voici un exemple de formulaire :
 
-  [![](wp-content/uploads/2017/05/2017-05-Formulaire-dynamique-en-Vue.js.png)](wp-content/uploads/2017/05/2017-05-Formulaire-dynamique-en-Vue.js.png)
+  [![Exemple de formulaire dynamique avec validation en Vue.js](wp-content/uploads/2017/05/2017-05-Formulaire-dynamique-en-Vue.js.png)](wp-content/uploads/2017/05/2017-05-Formulaire-dynamique-en-Vue.js.png)
 
   ![Formulaire dynamique en Vue.Js](wp-content/uploads/2017/05/2017-05-Formulaire-dynamique-en-Vue.js.png)
 tags:
@@ -34,7 +34,7 @@ Un utilisateur peut sauvegarder son formulaire à l’état de brouillon afin de
 La **validation** est **dynamique**: elle se fait au fur et à mesure de la saisie du formulaire.
 Voici un exemple de formulaire :
 
-[![](wp-content/uploads/2017/05/2017-05-Formulaire-dynamique-en-Vue.js.png)](wp-content/uploads/2017/05/2017-05-Formulaire-dynamique-en-Vue.js.png)
+[![Exemple de formulaire dynamique avec validation en Vue.js](wp-content/uploads/2017/05/2017-05-Formulaire-dynamique-en-Vue.js.png)](wp-content/uploads/2017/05/2017-05-Formulaire-dynamique-en-Vue.js.png)
 
 ## Démo live
 

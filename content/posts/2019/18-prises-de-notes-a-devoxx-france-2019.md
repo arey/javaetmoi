@@ -24,7 +24,7 @@ summary: |-
 
   Lors de cette édition 2019, les 2 frameworks hypes du moment **Quarkus** et **Micronaut** étaient sur le devant de la scène en permettant de développer des applications Java modernes et natives grâce à **GraalVM**. Poussée par l’essor des **microservices**, l’intégration de Java à **Docker** et son orchestrateur **Kubernetes** est de plus en plus poussée. Les indémodables étaient également de la partie : design d’ **API REST**, **montée de version de Java**, **qualimétrie, JavaEE**(oups, pardon, JakartaEE) et **sécurité**.
 
-  [![](https://javaetmoi.com/wp-content/uploads/2019/05/Devoxx-France-2019-1024x554.jpg)](https://javaetmoi.com/wp-content/uploads/2019/05/Devoxx-France-2019.jpg)
+  [![Photo de la conférence Devoxx France 2019](https://javaetmoi.com/wp-content/uploads/2019/05/Devoxx-France-2019-1024x554.jpg)](https://javaetmoi.com/wp-content/uploads/2019/05/Devoxx-France-2019.jpg)
 
   ![Devoxx France 2019](wp-content/uploads/2019/05/Devoxx-France-2019-banner.png)
 tags:
@@ -52,7 +52,7 @@ Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les vi
 
 Lors de cette édition 2019, les 2 frameworks hypes du moment **Quarkus** et **Micronaut** étaient sur le devant de la scène en permettant de développer des applications Java modernes et natives grâce à **GraalVM**. Poussée par l’essor des **microservices**, l’intégration de Java à **Docker** et son orchestrateur **Kubernetes** est de plus en plus poussée. Les indémodables étaient également de la partie : design d’ **API REST**, **montée de version de Java**, **qualimétrie, JavaEE**(oups, pardon, JakartaEE) et **sécurité**.
 
-[![](wp-content/uploads/2019/05/Devoxx-France-2019.jpg)](wp-content/uploads/2019/05/Devoxx-France-2019.jpg)
+[![Photo de la conférence Devoxx France 2019](wp-content/uploads/2019/05/Devoxx-France-2019.jpg)](wp-content/uploads/2019/05/Devoxx-France-2019.jpg)
 
 Mes notes classées par ordre de préférence :
 

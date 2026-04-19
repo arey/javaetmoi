@@ -34,7 +34,7 @@ La gestion de la **nullabilité** en Java a longtemps été source de bugs et de
 Qui n’aura donc jamais ragé contre une `NullPointerException` survenue en production ? En juin 2024, avec l’arrivée de la spécification [**JSpecify**](https://jspecify.dev/), soutenue par des acteurs majeurs comme Google, Microsoft, JetBrains, Oracle, Sonar ou bien encore Broadcom (Spring), l’écosystème Java dispose enfin d’une **bibliothèque unifiée d’annotations de nullité**. Pour bénéficier d’une détection efficace des NullPointerException dès la compilation, il est nécessaire de coupler JSpecify à des outils d’analyse statique comme [**NullAway**](https://github.com/uber/NullAway) (Uber) et [**ErrorProne**](https://errorprone.info/) (Google).   
 Ce court article explique comment mettre en place sur un projet d’entreprise la **configuration Maven** correspondante qui fera casser votre build et votre CI lorsque vous essayerez de passer une variable `null` en paramètre d’une méthode qui ne les accepte pas.
 
-![ ](wp-content/uploads/2025/07/Screenshot-site-JSpecify.png " ")
+![Capture d'écran du site officiel JSpecify](wp-content/uploads/2025/07/Screenshot-site-JSpecify.png)
 
 ### Dépendance Maven JSpecify
 
@@ -51,11 +51,11 @@ Ajoutez simplement la dépendance suivante au niveau de la balise <dependencies>
 
 A ce stade, les IDE comme [IntelliJ supportant JSpecify](https://www.jetbrains.com/idea/whatsnew/#page__content-jspecify-support) seront à même de détecter des erreurs. Exemple extrait de [Sring Petclinic](https://github.com/spring-projects/spring-petclinic) dont les packages Java sont annotés avec `@NullMarked` :
 
-![](wp-content/uploads/2025/07/word-image-2599-1.png)
+![Avertissements de nullabilité JSpecify dans IntelliJ IDEA sur Spring Petclinic](wp-content/uploads/2025/07/word-image-2599-1.png)
 
 Dans le cas où ces warnings n’apparaissent pas dans IntelliJ, vérifier que les **inspections Nullability problems** sont bien activées :
 
-![ ](wp-content/uploads/2025/07/word-image-2599-2.png " ")
+![Activation des inspections Nullability problems dans les paramètres IntelliJ IDEA](wp-content/uploads/2025/07/word-image-2599-2.png)
 
 ### Configuration du Maven Compiler Plugin avec NullAway et ErrorProne
 

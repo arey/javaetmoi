@@ -31,7 +31,7 @@ summary: |-
 
   Pour fonctionner, les différents microservices composant l’application Petclinic reposent sur différentes briques techniques matérialisées sur le diagramme d’architecture ci-dessous :
 
-  [![](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg)](wp-content/uploads/2018/09/Diapositive1.jpg)
+  [![Diagramme d'architecture microservices Spring Petclinic avec Spring Cloud](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg)](wp-content/uploads/2018/09/Diapositive1.jpg)
 
   ![2018-08-24-Architecture-microservices-avec-Spring-Cloud](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg)
 tags:
@@ -56,7 +56,7 @@ Ces microservices sont tous écrits en **Java**. Mais on aurait pu utiliser **Ko
 
 Pour fonctionner, les différents microservices composant l’application Petclinic reposent sur différentes briques techniques matérialisées sur le diagramme d’architecture ci-dessous :
 
-[![](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg)](wp-content/uploads/2018/09/Diapositive1.jpg)
+[![Diagramme d'architecture microservices Spring Petclinic avec Spring Cloud](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg)](wp-content/uploads/2018/09/Diapositive1.jpg)
 
 Remarque : pour simplifier le diagramme, les flèches partant de customers-service et visits-service peuvent être transposées aux « xxx-services » homologues.
 
@@ -308,7 +308,7 @@ o.s.s.p.vets.VetsServiceApplication      : Started VetsServiceApplication in 10.
 com.netflix.discovery.DiscoveryClient    : DiscoveryClient_VETS-SERVICE/vets-service:3e3fe9e1-071c-447f-94ca-2050dee7af2a - registration status: 204
 ```
 
-Le serveur Eureka vient avec une petite interface de supervision accessible en local à l’adresse [http://localhost:8761/](http://localhost:8761/). Le statut des différents microservices et le nombre d’instances y sont visibles : [![](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Eureka.png)](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Eureka.png)
+Le serveur Eureka vient avec une petite interface de supervision accessible en local à l’adresse [http://localhost:8761/](http://localhost:8761/). Le statut des différents microservices et le nombre d’instances y sont visibles : [![Tableau de bord Spring Cloud Eureka avec les microservices enregistrés](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Eureka.png)](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Eureka.png)
 
 A ce stade, nous avons vu comment faire pour enregistrer un microservice auprès de l’annuaire Eureka, mais pas encore comment fait appel à un microservice depuis un autre microservice.
 
@@ -445,15 +445,15 @@ Spring Boot Admin s’appuie sur les différents Actuators proposés par Spring 
 
 Une fois démarré, Spring Boot Admin est accessible sur l’URL [http://localhost:9090/](http://localhost:9090/) :
 
-[![](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Spring-Boot-Admin-1.png)](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Spring-Boot-Admin-1.png)
+[![Interface Spring Boot Admin avec la liste des microservices](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Spring-Boot-Admin-1.png)](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Spring-Boot-Admin-1.png)
 
 En sélectionnant une des 2 instances de customers-service, on accède aux différents outils d’administration, dont par exemple ici le suivi de la consommation de ressources (mémoire, thread, CPU) :
 
-[![](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Spring-Boot-Admin-3.png)](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Spring-Boot-Admin-3.png)
+[![Spring Boot Admin : monitoring mémoire, threads et CPU d'une instance microservice](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Spring-Boot-Admin-3.png)](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Spring-Boot-Admin-3.png)
 
 Spring Boot Admin n’est pas limité à l’affichage d’informations dans de joli graphes. Un administrateur peut aller changer le niveau de log d’un logger Logback. Le changement de niveau est immédiat. Aucun redémarrage n’est nécessaire.
 
-[![](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Spring-Boot-Admin-2.png)](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Spring-Boot-Admin-2.png)
+[![Spring Boot Admin : gestion dynamique des niveaux de log Logback](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Spring-Boot-Admin-2.png)](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Spring-Boot-Admin-2.png)
 
 ## Traces distribuées
 
@@ -461,11 +461,11 @@ Afin de pouvoir tracer et debugger les appels HTTP entre nos microservices, un m
 
 En pratique, le serveur Zipkin se déploie dans une image Docker. Sa personnalisation n’est plus supportée par l’équipe de Dév. Dans Petclinic, par simplicité, son intégration a été réalisée dans le module [spring-petclinic-tracing-server](https://github.com/spring-petclinic/spring-petclinic-microservices/tree/master/spring-petclinic-tracing-server) sous forme d’une application Spring Boot configurée avec l’annotation dépréciée `@EnableZipkinServer`.
 
-L’interface est disponible sur l’URL : [http://localhost:9411/zipkin/](http://localhost:9411/zipkin/) [![](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Zipkin-1.png)](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Zipkin-1.png)
+L’interface est disponible sur l’URL : [http://localhost:9411/zipkin/](http://localhost:9411/zipkin/) [![Interface Zipkin pour la visualisation des traces distribuées entre microservices](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Zipkin-1.png)](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Zipkin-1.png)
 
 Sur une période de temps, Zipkin sait générer un diagramme de dépendances entre microservices :
 
-[![](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Zipkin-2.png)](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Zipkin-2.png)
+[![Diagramme de dépendances entre microservices dans Zipkin](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Zipkin-2.png)](wp-content/uploads/2018/09/2018-08-24-Architecture-microservices-avec-Spring-Cloud-Zipkin-2.png)
 
 ## Containerisation
 

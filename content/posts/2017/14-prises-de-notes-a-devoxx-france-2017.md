@@ -15,7 +15,7 @@ summary: |-
   Si vous n’avez pas le temps de toutes les visionner, si vous souhaitez vous faire un avis avant de les regarder ou si vous souhaitez garder une trace écrite de ce que vous y avez appris, je mets librement à disposition quelques-unes de **mes notes**.
   Il y’en a pour tous les goûts : du Java pur et dur, du framework avec Spring, du front avec Vue.js, des conteneurs avec Docker Swarm mode, des nouvelles approches de développement avec la programmation réactive, des patterns d’architecture avec les microservices, CQRS et l’Event-Sourcing, du legacy tendance avec les logs, et du Big Data avec Elasticsearch.
 
-  [![](wp-content/uploads/2017/04/2017-04-14-prises-de-notes-à-Devoxx-France-2017.jpg)](wp-content/uploads/2017/04/2017-04-14-prises-de-notes-à-Devoxx-France-2017.jpg)
+  [![Couverture de l'article : 14 prises de notes à Devoxx France 2017](wp-content/uploads/2017/04/2017-04-14-prises-de-notes-à-Devoxx-France-2017.jpg)](wp-content/uploads/2017/04/2017-04-14-prises-de-notes-à-Devoxx-France-2017.jpg)
 
   ![14 prises de notes à Devoxx France 2017](wp-content/uploads/2017/04/2017-04-14-prises-de-notes-à-Devoxx-France-2017.jpg)
 tags:
@@ -35,7 +35,7 @@ Les **vidéos des présentations** données lors de l’édition **2017** de la 
 Si vous n’avez pas le temps de toutes les visionner, si vous souhaitez vous faire un avis avant de les regarder ou si vous souhaitez garder une trace écrite de ce que vous y avez appris, je mets librement à disposition quelques-unes de **mes notes**.
 Il y’en a pour tous les goûts : du Java pur et dur, du framework avec Spring, du front avec Vue.js, des conteneurs avec Docker Swarm mode, des nouvelles approches de développement avec la programmation réactive, des patterns d’architecture avec les microservices, CQRS et l’Event-Sourcing, du legacy tendance avec les logs, et du Big Data avec Elasticsearch.
 
-[![](wp-content/uploads/2017/04/2017-04-14-prises-de-notes-à-Devoxx-France-2017.jpg)](wp-content/uploads/2017/04/2017-04-14-prises-de-notes-à-Devoxx-France-2017.jpg)
+[![Couverture de l'article : 14 prises de notes à Devoxx France 2017](wp-content/uploads/2017/04/2017-04-14-prises-de-notes-à-Devoxx-France-2017.jpg)](wp-content/uploads/2017/04/2017-04-14-prises-de-notes-à-Devoxx-France-2017.jpg)
 
 1. [Préparez-vous à la modularité selon Java 9](/2017/04/14-prises-de-notes-a-devoxx-france-2017/devoxx-france-2017-university-preparez-vous-a-la-modularite-selon-java-9/)
 1. [Java 9 modulo les modules](/2017/04/14-prises-de-notes-a-devoxx-france-2017/devoxx-france-2017-conference-java9-modulo-les-modules/)

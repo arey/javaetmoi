@@ -230,7 +230,7 @@ Les développeurs Java peuvent choisir de construire un Gather supportant ou non
 
 Pour supporter le parallélisme, l’API Gatherer adopte le principe suivant : **un objet state par thread**. Cela permet de ne pas utiliser de collections synchronisées dégradant les performances.   
 Dans chaque Stream parallèle, on a donc autant de state que de threads. A la fin de l’opération intermédiaire, il est nécessaire d’utiliser un **Combiner** pour combiner tous les états.   
-![](wp-content/uploads/2025/04/word-image-2551-2.png)
+![Diagramme illustrant le Combiner de l'API Gatherer pour les Streams Java parallèles](wp-content/uploads/2025/04/word-image-2551-2.png)
 
 
 Ce **Combiner** est un **4ième paramètre** à passer à la méthode factory `of()` :
@@ -256,7 +256,7 @@ Les Sequential Gatherers ne peuvent pas être appelés en même temps depuis dif
 Ils ne possèdent pas de Combiner. Pour autant, José nous explique que l’API Stream est capable de séquencer les appels vers un **Sequential Gatherer**.
 Cette fonctionnalité est nouvelle et donc à utiliser avec précaution. Tester les perfs.
 
-![ ](wp-content/uploads/2025/04/word-image-2551-3.png " ")
+![Illustration du Sequential Gatherer dans l'API Java Streams](wp-content/uploads/2025/04/word-image-2551-3.png)
 
 Pour aller plus loin, José nous invite à consulter le repo GitHub [SvenWoltmann/stream-gatherers](https://github.com/SvenWoltmann/stream-gatherers). Le JDK vient avec de nouveaux Gatherers comme `scan()`, `fold()` ou bien encore `mapConcurrent()`.   
 Des librairies tierces comme [gatherers4j](https://github.com/tginsberg/gatherers4j) proposent également leur propres gatherers : `reverse()`, `repeat(n)`, `groupBy(fn)`...
