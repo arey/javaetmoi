@@ -83,7 +83,7 @@ Une fois le pom.xml commité dans GitHub avec le reste du code source, le build 
 
 ## Configuration Jenkins
 
-Depuis la console d’administration de Jenkins, vérifier que le _[Jenkins GIT plugin](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin)_ soit installé puis installer le _[GitHub plugin](https://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin)_.
+Depuis la console d’administration de Jenkins, vérifier que le [`Jenkins GIT plugin`](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin) soit installé puis installer le [`GitHub plugin`](https://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin).
 
 Dans la section _CloudBees DEV@Cloud Authorization_, configurer l’URL du chemin d’accès au repository Github qui sera utilisée par le plugin GitHub:
 
@@ -97,7 +97,7 @@ Afin que Jenkins lance le build lors de la réception d’un hook en provenance 
 [![cloudbees-jenkins-build-trigger](wp-content/uploads/2012/12/cloudbees-jenkins-build-trigger.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-jenkins-build-trigger/)
 
 La version de maven, le chemin vers le pom.xml racine ainsi que le goal à exécuter peuvent être configurés dans la section _Build_ :
-[![cloudbees-jenkins-maven](wp-content/uploads/2012/12/cloudbees-jenkins-maven.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-jenkins-maven/) Lorsqu’aucun goal n’est précisé, Jenkins exécute un _install_.
+[![cloudbees-jenkins-maven](wp-content/uploads/2012/12/cloudbees-jenkins-maven.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-jenkins-maven/) Lorsqu’aucun goal n’est précisé, Jenkins exécute un `install`.
 
 A la fin du build, on indique à Jenkins de déployer les artefacts dans le repository CloudBees des Snapshots :
 [![cloudbees-jenkins-deploy](wp-content/uploads/2012/12/cloudbees-jenkins-deploy.png)](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-jenkins-deploy/)

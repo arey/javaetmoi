@@ -117,7 +117,7 @@ Le code source de javaetmoi-initializr est disponible sur le repository : [arey/
 
 ## Démarrage
 
-Pour développer un initializr, commencez par créer une application Spring Boot à l’aide de [https://start.spring.io/](https://start.spring.io/) tout en ajoutant la dépendance **Spring Web** (ce qui déclarera l’artefact spring-boot-starter-web). Je recommande ensuite de suivre le paragraphe [Creating your own instance](https://docs.spring.io/initializr/docs/current-SNAPSHOT/reference/html/#create-instance) du [manuel de référence de Spring Intializr](https://docs.spring.io/initializr/docs/current-SNAPSHOT/reference/html/). Une fois le Bill of Materials **initializr-bom** ajouté au _<dependencyManagement>_, déclarerez les dépendances suivantes :
+Pour développer un initializr, commencez par créer une application Spring Boot à l’aide de [https://start.spring.io/](https://start.spring.io/) tout en ajoutant la dépendance **Spring Web** (ce qui déclarera l’artefact spring-boot-starter-web). Je recommande ensuite de suivre le paragraphe [Creating your own instance](https://docs.spring.io/initializr/docs/current-SNAPSHOT/reference/html/#create-instance) du [manuel de référence de Spring Intializr](https://docs.spring.io/initializr/docs/current-SNAPSHOT/reference/html/). Une fois le Bill of Materials **initializr-bom** ajouté au `<dependencyManagement>`, déclarerez les dépendances suivantes :
 
 ```xml
 <dependencies>
@@ -137,7 +137,7 @@ Pour développer un initializr, commencez par créer une application Spring Boot
 
 ```
 
-Personnellement, j’ai utilisé la version **0.12.0** du **initializr-bom** datant du 24 janvier 2022 et compatible avec **Spring Boot 2.7** et **Java 17**. Comme conseillé dans la documentation, remplacez le fichier _application.properties_ par un fichier **_application.yaml_** plus enclin à accueillir une structure hiérarchique.
+Personnellement, j’ai utilisé la version **0.12.0** du **initializr-bom** datant du 24 janvier 2022 et compatible avec **Spring Boot 2.7** et **Java 17**. Comme conseillé dans la documentation, remplacez le fichier `application.properties` par un fichier `application.yaml` plus enclin à accueillir une structure hiérarchique.
 
 Il sera ensuite nécessaire de configurer la **propriété initializr** du fichier application.yaml avec :
 
@@ -172,9 +172,9 @@ initializr:
 
 ```
 
-Pour une configuration complète, référez-vous au fichier _[application.yml](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/resources/application.yml)_ du repo git.
+Pour une configuration complète, référez-vous au fichier [`application.yml`](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/resources/application.yml) du repo git.
 
-Dans cet exemple, la version de Spring Boot à utiliser est codée en dur. Il est recommandé d’aller chercher dynamiquement la ou les versions proposées à l’utilisateur en déclarant un bean Spring implémentant l’interface **_[InitializrMetadataUpdateStrategy](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-web/src/main/java/io/spring/initializr/web/support/InitializrMetadataUpdateStrategy.java)_** ou en utilisant la classe **_[SaganInitializrMetadataUpdateStrategy](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-web/src/main/java/io/spring/initializr/web/support/SaganInitializrMetadataUpdateStrategy.java)_** clé en main.  
+Dans cet exemple, la version de Spring Boot à utiliser est codée en dur. Il est recommandé d’aller chercher dynamiquement la ou les versions proposées à l’utilisateur en déclarant un bean Spring implémentant l’interface [`InitializrMetadataUpdateStrategy`](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-web/src/main/java/io/spring/initializr/web/support/InitializrMetadataUpdateStrategy.java) ou en utilisant la classe [`SaganInitializrMetadataUpdateStrategy`](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-web/src/main/java/io/spring/initializr/web/support/SaganInitializrMetadataUpdateStrategy.java) clé en main.  
 Non présent dans l’exemple, en attaquant l’API REST des différents composants de l’Usine de Dév (ex : Nexus, GitLab, ACR), on peut aller chercher la dernière version :
 
 - du POM Parent d’entreprise
@@ -184,7 +184,7 @@ Non présent dans l’exemple, en attaquant l’API REST des différents composa
 
 ## Personnaliser la génération
 
-L’ajout des dépendances **initializr-web** et **initializr-generator-spring** fait que votre initializr reproduit le fonctionnement de Spring Boot initializr et permet de facto de générer une classe main, sa classe de test, un fichier _application.properties_ ….
+L’ajout des dépendances **initializr-web** et **initializr-generator-spring** fait que votre initializr reproduit le fonctionnement de Spring Boot initializr et permet de facto de générer une classe main, sa classe de test, un fichier `application.properties` ….
 
 Pour adapter ce comportement à votre besoin, il est possible de déclarer des beans Spring en les regroupant dans des classes de configuration annotées par **[@ProjectGenerationConfiguration](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator/src/main/java/io/spring/initializr/generator/project/ProjectGenerationConfiguration.java)**  
 Ces classes doivent être enregistrées dans le fichier **[META-INF/spring.factories](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/resources/META-INF/spring.factories)**. Voici un exemple enregistrant 2 classes de configuration : une première transverse et une seconde ne s’activant que lorsque la dépendance OpenAPI a été sélectionnée :
@@ -195,7 +195,7 @@ com.javaetmoi.initializr.generator.common.CommonSpringBootConfiguration,\
 com.javaetmoi.initializr.generator.openapi.OpenAPIConfiguration
 ```
 
-La classe **_[CommonSpringBootConfiguration](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/common/CommonSpringBootConfiguration.java)_** a pour objectif de remplacer le fichier _application.properties_ par un fichier **_application.yml_** plus propice à accueillir la configuration générée par les autres générateurs. On y retrouve 2 beans Spring : un premier chargé de créer le fichier _application.yml_ à partir d’un template et le second chargé de supprimer le fichier _application.properties_ créé par la classe **_[ApplicationPropertiesContributor](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator-spring/src/main/java/io/spring/initializr/generator/spring/configuration/ApplicationPropertiesContributor.java)_** du module _initializr-generator-spring_. Le plus simple aurait été de réussir à désactiver ce dernier.
+La classe [`CommonSpringBootConfiguration`](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/common/CommonSpringBootConfiguration.java) a pour objectif de remplacer le fichier `application.properties` par un fichier `application.yml` plus propice à accueillir la configuration générée par les autres générateurs. On y retrouve 2 beans Spring : un premier chargé de créer le fichier `application.yml` à partir d’un template et le second chargé de supprimer le fichier `application.properties` créé par la classe [`ApplicationPropertiesContributor`](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator-spring/src/main/java/io/spring/initializr/generator/spring/configuration/ApplicationPropertiesContributor.java) du module `initializr-generator-spring`. Le plus simple aurait été de réussir à désactiver ce dernier.
 
 ```java
 @ProjectGenerationConfiguration
@@ -215,7 +215,7 @@ class CommonSpringBootConfiguration {
 
 ```
 
-La classe **_[ApplicationYamlContributor](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/common/ApplicationYamlContributor.java)_** hérite du contributeur _[SingleResourceProjectContributor](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator-spring/src/main/java/io/spring/initializr/generator/spring/code/MainSourceCodeProjectContributor.java)_ facilitant la création d’un inique fichier. A noter la redéfinition de la méthode **_getOrder_** pour que ce bean soit appelé prioritairement, ceci afin que le fichier _application.yml_ existe pour les autres générateurs.
+La classe [`ApplicationYamlContributor`](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/common/ApplicationYamlContributor.java) hérite du contributeur [`SingleResourceProjectContributor`](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator-spring/src/main/java/io/spring/initializr/generator/spring/code/MainSourceCodeProjectContributor.java) facilitant la création d’un inique fichier. A noter la redéfinition de la méthode `getOrder` pour que ce bean soit appelé prioritairement, ceci afin que le fichier `application.yml` existe pour les autres générateurs.
 
 ```java
 class ApplicationYamlContributor extends SingleResourceProjectContributor {
@@ -238,9 +238,9 @@ class ApplicationYamlContributor extends SingleResourceProjectContributor {
 
 ## Dépendance OpenAPI
 
-Intéressons-nous à présent à la mise en place d’une API REST mettant en œuvre le plugin Maven **[openapi-generator-maven-plugin](https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-maven-plugin)**. A partir d’une [spécification OpenAPI](https://github.com/OAI/OpenAPI-Specification) décrite dans un fichier _openapi.yaml_, ce plugin génère l’interface des contrôleurs REST et les classes du modèle représentant les ressources REST. A titre d’exemple, le fichier _openapi.yaml_ généré contient une API Hello World. Une implémentation basique de cette API est également générée.
+Intéressons-nous à présent à la mise en place d’une API REST mettant en œuvre le plugin Maven **[openapi-generator-maven-plugin](https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-maven-plugin)**. A partir d’une [spécification OpenAPI](https://github.com/OAI/OpenAPI-Specification) décrite dans un fichier `openapi.yaml`, ce plugin génère l’interface des contrôleurs REST et les classes du modèle représentant les ressources REST. A titre d’exemple, le fichier `openapi.yaml` généré contient une API Hello World. Une implémentation basique de cette API est également générée.
 
-La classe de configuration **_[OpenAPIConfiguration](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/openapi/OpenAPIConfiguration.java)_** annotée avec _@ProjectGenerationConfiguration_ déclare pas moins de 7 beans. Notez l’usage de l’annotation **_[@ConditionalOnRequestedDependency](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator/src/main/java/io/spring/initializr/generator/condition/ConditionalOnRequestedDependency.java)_** qui permet de n’activer cette classe de configuration Spring que si la dépendance OpenAPI a été sélectionnée. Quatre autres annotations du même genre existent : _[ConditionalOnPackaging](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator/src/main/java/io/spring/initializr/generator/condition/ConditionalOnPackaging.java)_, _[ConditionalOnLanguage](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator/src/main/java/io/spring/initializr/generator/condition/ConditionalOnLanguage.java)_, _[ConditionalOnBuildSystem](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator/src/main/java/io/spring/initializr/generator/condition/ConditionalOnBuildSystem.java)_ et _[ConditionalOnPlatformVersion](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator/src/main/java/io/spring/initializr/generator/condition/ConditionalOnPlatformVersion.java)_.
+La classe de configuration [`OpenAPIConfiguration`](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/openapi/OpenAPIConfiguration.java) annotée avec `@ProjectGenerationConfiguration` déclare pas moins de 7 beans. Notez l’usage de l’annotation [`@ConditionalOnRequestedDependency`](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator/src/main/java/io/spring/initializr/generator/condition/ConditionalOnRequestedDependency.java) qui permet de n’activer cette classe de configuration Spring que si la dépendance OpenAPI a été sélectionnée. Quatre autres annotations du même genre existent : [`ConditionalOnPackaging`](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator/src/main/java/io/spring/initializr/generator/condition/ConditionalOnPackaging.java), [`ConditionalOnLanguage`](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator/src/main/java/io/spring/initializr/generator/condition/ConditionalOnLanguage.java), [`ConditionalOnBuildSystem`](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator/src/main/java/io/spring/initializr/generator/condition/ConditionalOnBuildSystem.java) et [`ConditionalOnPlatformVersion`](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator/src/main/java/io/spring/initializr/generator/condition/ConditionalOnPlatformVersion.java).
 
 ```java
 @ProjectGenerationConfiguration
@@ -286,7 +286,7 @@ class OpenAPIConfiguration {
 
 ```
 
-**1.** Implémentant l’interface _BuildCustomizer_, la classe **_[OpenAPIPluginCustomizer](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/openapi/OpenAPIPluginCustomizer.java)_** est chargée de configurer le plugin Maven _openapi-generator-maven-plugin_ :
+**1.** Implémentant l’interface `BuildCustomizer`, la classe [`OpenAPIPluginCustomizer`](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/openapi/OpenAPIPluginCustomizer.java) est chargée de configurer le plugin Maven `openapi-generator-maven-plugin` :
 
 ```java
 class OpenAPIPluginCustomizer implements BuildCustomizer<MavenBuild> {
@@ -320,7 +320,7 @@ class OpenAPIPluginCustomizer implements BuildCustomizer<MavenBuild> {
 
 ```
 
-A noter l’usage de lambda de type **_Consumer_** dans l’API de Spring Intializr.  
+A noter l’usage de lambda de type `Consumer` dans l’API de Spring Intializr.  
 La configuration Maven générée est la suivante :
 
 ```xml
@@ -352,7 +352,7 @@ La configuration Maven générée est la suivante :
 
 ```
 
-**2\.** La dépendance OpenAPI n’est pas une vraie dépendance au sens Maven. Non seulement elle déclare puis configure le plugin [openapi-generator-maven-plugin](https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-maven-plugin), mais elle déclare également la dépendance Maven pour **[Springdoc](https://springdoc.org/)** (Swagger UI) et le starter **spring-boot-starter-validation** activant la validation des annotations Bean Validation positionnée par le plugin openapi. Pour se faire, la classe **_OpenApiDependenciesCustomizer_** implémente également l’interface _BuildCustomizer_ :
+**2\.** La dépendance OpenAPI n’est pas une vraie dépendance au sens Maven. Non seulement elle déclare puis configure le plugin [openapi-generator-maven-plugin](https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-maven-plugin), mais elle déclare également la dépendance Maven pour **[Springdoc](https://springdoc.org/)** (Swagger UI) et le starter **spring-boot-starter-validation** activant la validation des annotations Bean Validation positionnée par le plugin openapi. Pour se faire, la classe `OpenApiDependenciesCustomizer` implémente également l’interface `BuildCustomizer` :
 
 ```java
 class OpenApiDependenciesCustomizer implements BuildCustomizer<MavenBuild> {
@@ -384,9 +384,9 @@ La configuration Maven générée est ici évidente :
 
 ```
 
-**3\.** Sur le même principe que _ApplicationYamlContributor_, la classe **_[SpecOpenApiContributor](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/openapi/SpecOpenApiContributor.java)_** ajoute le fichier _openapi.yaml_ au projet généré.
+**3\.** Sur le même principe que `ApplicationYamlContributor`, la classe [`SpecOpenApiContributor`](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/openapi/SpecOpenApiContributor.java) ajoute le fichier `openapi.yaml` au projet généré.
 
-**4.** A partir du **template Mustache** _[HelloController.mustache](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/resources/templates/openapi/HelloController.mustache),_ la classe **_[HelloControllerContributor](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/openapi/HelloControllerContributor.java)_** génère un _@RestController_ implémentant l’interface _HelloApi_ généré par le plugin maven.
+**4.** A partir du **template Mustache** [`HelloController.mustache`](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/resources/templates/openapi/HelloController.mustache) la classe [`HelloControllerContributor`](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/openapi/HelloControllerContributor.java) génère un `@RestController` implémentant l’interface `HelloApi` généré par le plugin maven.
 
 Voici le template HelloController.mustache :
 
@@ -411,7 +411,7 @@ public class HelloController implements HelloApi {
 
 ```
 
-**5.** La classe **_[SwaggerControllerContributor](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/openapi/SwaggerControllerContributor.java)_** génère un contrôleur Spring MVC redirigeant l’utilisateur sur l’IHM de Swagger UI lorsqu’il navigue sur [http://localhost:8080](http://localhost:8080)
+**5.** La classe [`SwaggerControllerContributor`](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/openapi/SwaggerControllerContributor.java) génère un contrôleur Spring MVC redirigeant l’utilisateur sur l’IHM de Swagger UI lorsqu’il navigue sur [http://localhost:8080](http://localhost:8080)
 
 ```java
 @Controller
@@ -425,7 +425,7 @@ public class SwaggerController {
 
 ```
 
-**6.** La classe **_[TestOpenApiContributor](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/openapi/TestOpenApiContributor.java)_** ajoute un fichier _hello.http_ facilitant le test de l’API depuis IntelliJ :
+**6.** La classe [`TestOpenApiContributor`](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/openapi/TestOpenApiContributor.java) ajoute un fichier `hello.http` facilitant le test de l’API depuis IntelliJ :
 
 ![Fichier hello.http généré par TestOpenApiContributor pour tester l'API REST depuis IntelliJ](wp-content/uploads/2022/07/image-2.png)
 
@@ -452,9 +452,9 @@ Tester unitairement les différents générateurs de code est facilité par l’
 
 ```
 
-Cet artefact propose un ensemble de classes permettant de générer des projets. Je pense par exemple à la classe _[ProjectGeneratorTester](https://github.com/spring-io/initializr/blob/main/initializr-generator-test/src/main/java/io/spring/initializr/generator/test/project/ProjectGeneratorTester.java)_. Le résultat de la génération est  alors disponible dans la classe _[ProjectStructure](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator-test/src/main/java/io/spring/initializr/generator/test/project/ProjectStructure.java)_ qui permet de récupérer le chemin vers le code généré mais propose également tout un jeu d’assertions AssertJ facilitant les tests sur le pom Maven, l’arborescence des fichiers et le contenu des fichiers/classes générées.
+Cet artefact propose un ensemble de classes permettant de générer des projets. Je pense par exemple à la classe [`ProjectGeneratorTester`](https://github.com/spring-io/initializr/blob/main/initializr-generator-test/src/main/java/io/spring/initializr/generator/test/project/ProjectGeneratorTester.java). Le résultat de la génération est  alors disponible dans la classe [`ProjectStructure`](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator-test/src/main/java/io/spring/initializr/generator/test/project/ProjectStructure.java) qui permet de récupérer le chemin vers le code généré mais propose également tout un jeu d’assertions AssertJ facilitant les tests sur le pom Maven, l’arborescence des fichiers et le contenu des fichiers/classes générées.
 
-Extrait de la classe de teste **_[OpenApiTest](https://github.com/arey/javaetmoi-initializr/blob/main/src/test/java/com/javaetmoi/initializr/generator/openapi/OpenApiTest.java)_**, la méthode suivante vérifie que les dépendances Maven springdoc-openapi-ui et spring-boot-starter-validation ont été ajoutées au pom.xml :
+Extrait de la classe de teste [`OpenApiTest`](https://github.com/arey/javaetmoi-initializr/blob/main/src/test/java/com/javaetmoi/initializr/generator/openapi/OpenApiTest.java), la méthode suivante vérifie que les dépendances Maven springdoc-openapi-ui et spring-boot-starter-validation ont été ajoutées au pom.xml :
 
 ```java
 @Test
@@ -513,7 +513,7 @@ void should_openapi_dependency_generate_HelloController() {
 
 Au travers de ce billet, nous aurons vu comment personnaliser Spring Initializr à partir d’un exemple concret. Si vous êtes familiers à l’écosystème Spring, la prise en main de l’API Java de cet outil devrait se faire relativement rapidement.
 
-Au cours de mes développements, je me suis aperçu certaines limitations de l’API. J’avais par exemple besoin de générer dynamiquement de la configuration Java de Spring Security. L’ajout de l’annotation _@Override_ ou d’un _throws Exception_ n’était pas proposée par la classe _[JavaMethodDeclaration](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator/src/main/java/io/spring/initializr/generator/language/java/JavaMethodDeclaration.java)_ :
+Au cours de mes développements, je me suis aperçu certaines limitations de l’API. J’avais par exemple besoin de générer dynamiquement de la configuration Java de Spring Security. L’ajout de l’annotation `@Override` ou d’un `throws Exception` n’était pas proposée par la classe [`JavaMethodDeclaration`](https://github.com/spring-io/initializr/blob/v0.12.0/initializr-generator/src/main/java/io/spring/initializr/generator/language/java/JavaMethodDeclaration.java) :
 
 ```java
 @Override
@@ -521,7 +521,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 ```
 
-Comme suggéré dans l’ [issue #1043](https://github.com/spring-io/initializr/issues/1043), n’ayant besoin que du support de Java, je me suis tourné vers l’usage de [JavaPoet](https://github.com/square/javapoet) que j’avais déjà utilisé sur le projet [javabean-marshaller](https://github.com/arey/javabean-marshaller). Son intégration dans une implémentation de _ProjectContributor_ n’a pas posé de difficulté, preuve que Spring Initializr est extensible. Pour un support de Kotlin, j’aurais pu utiliser [KotlinPoet](https://github.com/square/kotlinpoet).
+Comme suggéré dans l’ [issue #1043](https://github.com/spring-io/initializr/issues/1043), n’ayant besoin que du support de Java, je me suis tourné vers l’usage de [JavaPoet](https://github.com/square/javapoet) que j’avais déjà utilisé sur le projet [javabean-marshaller](https://github.com/arey/javabean-marshaller). Son intégration dans une implémentation de `ProjectContributor` n’a pas posé de difficulté, preuve que Spring Initializr est extensible. Pour un support de Kotlin, j’aurais pu utiliser [KotlinPoet](https://github.com/square/kotlinpoet).
 
 N’ayant pas regardé en détails ce que proposait JHipster, je ne saurais pas départager les 2 solutions. Mais je  serais curieux de vos retours d’expérience.
 

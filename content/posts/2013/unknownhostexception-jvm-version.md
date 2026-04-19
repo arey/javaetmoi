@@ -22,8 +22,8 @@ Après un précédent billet relatant un bug lié à la version du driver Oracle
 ## **Les symptômes**
 
 Techniquement, l’application testée consomme différents web services SOAP. Le framework Apache CXF est utilisé comme client SOAP. Développée en **Java 6**, l’application est déployée sur un serveur d’application JBoss.
-Lors de l’arrêt de l’application tierce exposant les web services, le client n’arrive plus à s’y connecter. Comme attendu, une _java.net. SocketException_ est levée. Jusque-là, tout est normal.
-Par contre, après plusieurs minutes d’arrêt, le _SocketException_ se transforme en _UnknownHostException_. Et c’est là que commence nos interrogations. En effet, une _UnknownHostException_ est levée en principe lorsque l’adresse IP d’un hôte n’a pas pu être résolue. Or, jusqu’à cette erreur, l’adresse IP avait pu être résolue.
+Lors de l’arrêt de l’application tierce exposant les web services, le client n’arrive plus à s’y connecter. Comme attendu, une `java.net.SocketException` est levée. Jusque-là, tout est normal.
+Par contre, après plusieurs minutes d’arrêt, le `SocketException` se transforme en `UnknownHostException`. Et c’est là que commence nos interrogations. En effet, une `UnknownHostException` est levée en principe lorsque l’adresse IP d’un hôte n’a pas pu être résolue. Or, jusqu’à cette erreur, l’adresse IP avait pu être résolue.
 Voici la pile d’appel observée :
 
 ```java
@@ -46,7 +46,7 @@ at org.apache.cxf.transport.http.HTTPConduit$WrappedOutputStream.onFirstWrite(HT
 ... 34 more
 ```
 
-D'après le code source, l’exception est levée par la classe _PlainSocketImpl_  lors d’un appel natif.
+D'après le code source, l’exception est levée par la classe `PlainSocketImpl`  lors d’un appel natif.
 
 Bien qu’incompris, ce problème aurait pu être acceptable s’il s’était limité à un fonctionnement en mode dégradé. Malheureusement, plusieurs semaines après une mise en production en avance de phase, ce problème est réapparu de manière intempestive et, plus grave encore, sans aucune interruption de service de l’application tierce.
 
@@ -55,7 +55,7 @@ Bien qu’incompris, ce problème aurait pu être acceptable s’il s’était l
 Plusieurs pistes ont alors été envisagées : coupures réseaux, [utilisation d’IP V6](http://www.unitask.com/oracledaily/2012/10/04/missing-ipv6-address-for-local-network-interfaces-causes-service-timeout/), problème d’accès aux DNS, excès de zèle du firewall, problème de cache DNS côté serveur comme côté JVM, bug applicatif …
 D’éventuels problèmes de DNS ou de firewall ont rapidement été écartés par l’ingénierie système.
 
-Ecartant le problème d’un bug applicatif, la mise au point du programme java ci-dessous nous a permis de reproduire systématiquement le _UnknownHostException_. Basique, ce programme lit en boucle la 1ière ligne d’un des WSDL exposés par l’application tierce. Deux minutes à peine après son exécution, des _UnknownHostException_ fleurissaient.
+Ecartant le problème d’un bug applicatif, la mise au point du programme java ci-dessous nous a permis de reproduire systématiquement le `UnknownHostException`. Basique, ce programme lit en boucle la 1ière ligne d’un des WSDL exposés par l’application tierce. Deux minutes à peine après son exécution, des `UnknownHostException` fleurissaient.
 
 ```java
 import java.io.BufferedReader;
@@ -84,7 +84,7 @@ public class TestUrlConnection {
 }
 ```
 
-L’ajout des adresses IP dans le fichier /etc/hosts du serveur Linux fut le premier contournement trouvé.
+L’ajout des adresses IP dans le fichier `/etc/hosts` du serveur Linux fut le premier contournement trouvé.
 
 ## **Solution**
 

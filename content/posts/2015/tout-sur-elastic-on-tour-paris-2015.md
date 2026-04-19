@@ -224,10 +224,10 @@ Entre HDFS et Map / Reduce, l’introduction de la couche [YARN](http://hadoop.a
 
 **ES-Hadoop** est certifié pour fonctionner avec les principales distribution d’Hadoop : Cloudera, Hortonworks, Mapr, Concurrent, Databriks.
 
-Costin continue son talk par un slide présentant un exemple d’intégration de Spark et d’ES avec Scala. Une [initiation à Spark](/2015/04/initiation-apache-spark-en-java-devoxx/) était nécessaire pour le comprendre. Ce que j’en ai retenu est que la classe **_SparkContext_** (package _org.elasticsearch.spark_) d’ES-Spark apporte 2 méthodes :
+Costin continue son talk par un slide présentant un exemple d’intégration de Spark et d’ES avec Scala. Une [initiation à Spark](/2015/04/initiation-apache-spark-en-java-devoxx/) était nécessaire pour le comprendre. Ce que j’en ai retenu est que la classe `SparkContext` (package _org.elasticsearch.spark_) d’ES-Spark apporte 2 méthodes :
 
-1. _esRDD_ pour charger un RDD depuis ES
-1. _saveToEs_ pour écrire un RDD dans ES
+1. `esRDD` pour charger un RDD depuis ES
+1. `saveToEs` pour écrire un RDD dans ES
 
 Le RDD ES supporte Spark SQL. Au runtime, le Spark SQK est converti en Query DSL ES.
 Enfin, aucun setup n’est nécessaire pour faire fonctionner le code donné en exemple (pas de settings particulier d’ES).

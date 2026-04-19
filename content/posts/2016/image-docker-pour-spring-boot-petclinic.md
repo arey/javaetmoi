@@ -77,7 +77,7 @@ Voici un extrait du [pom.xml](https://github.com/spring-projects/spring-petclini
 
 Le plugin est configuré pour utiliser la **version Maven** pour **tagger** l’image Docker.
 
-La balise `useConfigFile` précise au plugin d’aller rechercher les paramètres d’authentification au registre Docker dans le fichier de configuration Docker. Sur mon mac, ce fichier de configuration `config.json` se situe dans le répertoire  ~/.docker :
+La balise `useConfigFile` précise au plugin d’aller rechercher les paramètres d’authentification au registre Docker dans le fichier de configuration Docker. Sur mon mac, ce fichier de configuration `config.json` se situe dans le répertoire `~/.docker` :
 
 ```js
 {
@@ -89,7 +89,7 @@ La balise `useConfigFile` précise au plugin d’aller rechercher les paramètre
 }
 ```
 
-Enfin, La propriété **docker.image.** **prefix** pointe sur mon compte personnel Docker Hub :
+Enfin, La propriété `docker.image.prefix` pointe sur mon compte personnel Docker Hub :
 
 ```xhtml
 <properties>
@@ -101,7 +101,7 @@ Enfin, La propriété **docker.image.** **prefix** pointe sur mon compte personn
 
 Pour des images simples, le plugin **docker-maven-plugin permet de se passer complètement de Dockerfile** : image de base, nom de l’image et point d’entrée sont directement configurés dans le pom.xml. Charge au plugin de générer le Dockerfile.
 
-Pour Petclinic, l’usage d’un Dockerfile été préféré.  Facultatives, quelques directives spécifiques ont été ajoutées. Par ailleurs, l’utilisation d’un Dockerfile présente l’avantage de pouvoir être utilisé en dehors de Maven. La propriété _dockerDirectory_ référence le répertoire contenant le Dockerfile.
+Pour Petclinic, l’usage d’un Dockerfile été préféré.  Facultatives, quelques directives spécifiques ont été ajoutées. Par ailleurs, l’utilisation d’un Dockerfile présente l’avantage de pouvoir être utilisé en dehors de Maven. La propriété `dockerDirectory` référence le répertoire contenant le Dockerfile.
 
 Pour être opérationnelle, l’image Docker de SpringBoot Petclinic nécessite :
 
@@ -124,7 +124,7 @@ RUN sh -c 'touch /petclinic.jar'
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/petclinic.jar"]
 ```
 
-Pointue, l’utilisation du répertoire /tmp, du touch et du urandom sont détaillées dans le [Starting Guide Spring Boot With Docker](https://spring.io/guides/gs/spring-boot-docker/). Je vous laisse vous y référer.
+Pointue, l’utilisation du répertoire `/tmp`, du `touch` et du `urandom` sont détaillées dans le [Starting Guide Spring Boot With Docker](https://spring.io/guides/gs/spring-boot-docker/). Je vous laisse vous y référer.
 
 ## Construire l’image Docker
 
@@ -193,7 +193,7 @@ mvn docker:build
 
 ## Publier l’image Docker
 
-Publier l’image Docker construite avec Maven dans le registre public Docker Hub est enfantin. Après avoir paramétré la propriété _docker.image.prefix_ du pom.xml et le fichier de configuration ~/.docker/config.json , exécuter la ligne de commande Maven suivante :
+Publier l’image Docker construite avec Maven dans le registre public Docker Hub est enfantin. Après avoir paramétré la propriété `docker.image.prefix` du pom.xml et le fichier de configuration ~/.docker/config.json , exécuter la ligne de commande Maven suivante :
 
 ```sh
 mvn docker:build -DpushImageTag
@@ -209,7 +209,7 @@ docker run -e "SPRING_PROFILES_ACTIVE=prod" -p 8080:8080 -t --name springboot-pe
 
 L’application web est alors disponible sur l’URL http://DOCKER\_HOST:8080/
 
-Le profile Spring de prod permet d’activer la mise en cache et le versionning des ressources statiques (cf. [application-prod.properties](https://github.com/spring-petclinic/spring-petclinic-angular1/blob/master/springboot-petclinic-server/src/main/resources/application-prod.properties)).
+Le profile Spring de prod permet d’activer la mise en cache et le versionning des ressources statiques (cf. [`application-prod.properties`](https://github.com/spring-petclinic/spring-petclinic-angular1/blob/master/springboot-petclinic-server/src/main/resources/application-prod.properties)).
 
 Pour arrêter le conteneur, utiliser la commande :
 

@@ -33,7 +33,7 @@ url: /2017/11/build-gradle-dsl-kotlin-webapp-spring-boot/
 ---
 [![Logo Gradle](wp-content/uploads/2017/11/gradle-logo.png)](wp-content/uploads/2017/11/gradle-logo.png) En guise de conclusion de [mon précédent billet](/2017/09/migrez-application-java-spring-boot-vers-kotlin/), je proposais de **migrer le [build Maven](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/c66b152b83be2cdf8c28ca4e3e8869158b47a40b/pom.xml) d** **’une application web Spring Boot 2 en un build Gradle bas** **é sur le langage Kotlin**. C’est désormais chose faite. Mais bien que Gradle **privil** **égie** aujourd’hui l’usage du **DSL** **Kotlin** au détriment de **Groovy**, son [guide d’utilisation](https://docs.gradle.org/4.3.1/userguide/userguide.html) n’a pas encore été actualisé et il est difficile de trouver de la documentation. Il faut passer par le projet GitHub [kotlin-dsl](https://github.com/gradle/kotlin-dsl) pour accéder à quelques tutoriaux et des exemples. Heureusement, GitHub fourmille d’autres d’exemples, notamment du côté des projets soutenus par les contributeurs Pivotal sur Spring Boot.
 
-Sans plus tarder, voici le fichier de conf [build.gradle.kts](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/build.gradle.kts) de la version Kotlin de Spring Petclinic.
+Sans plus tarder, voici le fichier de conf [`build.gradle.kts`](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/build.gradle.kts) de la version Kotlin de Spring Petclinic.
 
 ## Le fichier build.gradle.kts
 
@@ -122,23 +122,23 @@ dependencies {
 
 ## Quelques explications
 
-Le **DSL Kotlin pour Gradle** a facilité la déclaration des plugins en introduisant le [**bloc _plugins {}_**](https://github.com/gradle/kotlin-dsl/blob/master/doc/getting-started/Configuring-Plugins.md). Par exemple, le plugin de compilation du code source Kotlin de l’application est déclaré dans ce bloc.
-Suite à [un bug JUnit 5](https://github.com/junit-team/junit5/issues/768), le plugin **junit-platform-gradle-plugin** a dû rester déclaré dans le bloc _buildscript {}._ Un contournement existe, mais il ne fonctionne pas correctement lorsque les plugins sont tirés de plusieurs repos Maven, ce qui est le cas du plugin **spring-boot-gradle-plugin** en version Milestone 2.0.0.M6 qui n’est pas encore publié dans Maven Central.
+Le **DSL Kotlin pour Gradle** a facilité la déclaration des plugins en introduisant le [bloc `plugins {}`](https://github.com/gradle/kotlin-dsl/blob/master/doc/getting-started/Configuring-Plugins.md). Par exemple, le plugin de compilation du code source Kotlin de l’application est déclaré dans ce bloc.
+Suite à [un bug JUnit 5](https://github.com/junit-team/junit5/issues/768), le plugin `junit-platform-gradle-plugin` a dû rester déclaré dans le bloc `buildscript {}`. Un contournement existe, mais il ne fonctionne pas correctement lorsque les plugins sont tirés de plusieurs repos Maven, ce qui est le cas du plugin `spring-boot-gradle-plugin` en version Milestone 2.0.0.M6 qui n’est pas encore publié dans Maven Central.
 
-Le plugin Spring Boot pour Gradle **org.springframework.boot** joue un triple rôle :
+Le plugin Spring Boot pour Gradle `org.springframework.boot` joue un triple rôle :
 
 1. La **construction** le **uber-JAR exécutable**
-1. L’ **exécution** de la webapp via la ligne de commande _gradle bootRun_
+1. L’ **exécution** de la webapp via la ligne de commande `gradle bootRun`
 1. La **gestion des dépendances**
 
-Attardons-nous un moment sur la gestion des dépendances. Fonctionnant de concert avec le [plugin Dependency Management](https://github.com/spring-gradle-plugins/dependency-management-plugin/) **io.spring.dependency-management**, le plugin Spring Boot permet d’éviter de déclarer la version des dépendances déclarées dans le bloc _dependencies {}_ ; du moins, celles déclarées dans le **BOM Maven spring-boot-starter-parent** qu’il importe.
+Attardons-nous un moment sur la gestion des dépendances. Fonctionnant de concert avec le [plugin Dependency Management](https://github.com/spring-gradle-plugins/dependency-management-plugin/) `io.spring.dependency-management`, le plugin Spring Boot permet d’éviter de déclarer la version des dépendances déclarées dans le bloc `dependencies {}` ; du moins, celles déclarées dans le BOM Maven `spring-boot-starter-parent` qu’il importe.
 
-La centralisation des versions non déclarées dans le BOM passe par l’usage de la **propriété _extra_** déclarée sous forme d’extension Kotlin. Il est toutefois regrettable qu’ _extra_ ne soit pas visible du bloc _plugins {}_.
+La centralisation des versions non déclarées dans le BOM passe par l’usage de la propriété `extra` déclarée sous forme d’extension Kotlin. Il est toutefois regrettable qu’ `extra` ne soit pas visible du bloc `plugins {}`.
 
 ## Conclusion
 
-Par rapport au [pom.xml](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/c66b152b83be2cdf8c28ca4e3e8869158b47a40b/pom.xml) d’origine, le build Gradle n’intègre pas encore la génération du CSS à partir de LESS ([issue #4](https://github.com/spring-petclinic/spring-petclinic-kotlin/issues/4)).
-Novice en Kotlin et en Gradle, toute suggestion d’amélioration du [build.gradle.kts](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/build.gradle.kts) est la bienvenue.
+Par rapport au [`pom.xml`](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/c66b152b83be2cdf8c28ca4e3e8869158b47a40b/pom.xml) d’origine, le build Gradle n’intègre pas encore la génération du CSS à partir de LESS ([issue #4](https://github.com/spring-petclinic/spring-petclinic-kotlin/issues/4)).
+Novice en Kotlin et en Gradle, toute suggestion d’amélioration du [`build.gradle.kts`](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/build.gradle.kts) est la bienvenue.
 J’attends vos pull requests :-)
 
 Références :

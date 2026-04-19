@@ -43,7 +43,7 @@ Relativement court **, ce billet explique pas à pas comment migrer de ehcache-s
 
 ## Erreur rencontrée
 
-L’utilisation de la directive _<ehcache:annotation-driven />_ avec Spring 4.1 fait échouer le chargement du contexte Spring :
+L’utilisation de la directive `<ehcache:annotation-driven />` avec Spring 4.1 fait échouer le chargement du contexte Spring :
 
 ```java
 2014-11-27 20:01:04,948  ERROR org.springframework.web.context.ContextLoader [319] - Context initialization failed org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from class path resource [com/javaetmoi/demo/services/applicationContext-cache.xml]; nested exception is java.lang.IllegalArgumentException: 'beanName' must not be empty
@@ -51,11 +51,11 @@ L’utilisation de la directive _<ehcache:annotation-driven />_ avec Spring 4.1 
 
 ## Migration
 
-Ce paragraphe dresse les étapes à suivre pour de désendetter du projet [_ehcache-spring-annotations_](http://code.google.com/p/ehcache-spring-annotations/) et utiliser le support offert par les versions 3.1 et supérieures du framework Spring.
+Ce paragraphe dresse les étapes à suivre pour de désendetter du projet [`ehcache-spring-annotations`](http://code.google.com/p/ehcache-spring-annotations/) et utiliser le support offert par les versions 3.1 et supérieures du framework Spring.
 
 ### Dépendances
 
-Dans le pom.xml , supprimer la dépendance vers ehcache-spring-annotations :
+Dans le `pom.xml` , supprimer la dépendance vers ehcache-spring-annotations :
 
 ```xhtml
 <dependency>
@@ -65,7 +65,7 @@ Dans le pom.xml , supprimer la dépendance vers ehcache-spring-annotations :
 </dependency>
 ```
 
-Si vous ne l’utilisez pas encore, ajouter la dépendance suivante. Elle contient la fabrique _EhCacheManagerFactoryBean_ que nous utiliserons par la suite.
+Si vous ne l’utilisez pas encore, ajouter la dépendance suivante. Elle contient la fabrique `EhCacheManagerFactoryBean` que nous utiliserons par la suite.
 
 ```xhtml
 <dependency>
@@ -113,10 +113,10 @@ http://www.springframework.org/schema/cache http://www.springframework.org/schem
 
 Source : <ehcache:annotation-driven />Cible : <cache:annotation-driven/>
 
-Si vous utilisez la configuration Java, vous pouvez utiliser à la place l’annotation @EnableCaching.
-Par défaut, _cacheManager_ est le nom du bean gestionnaire de cache associé aux annotations.
+Si vous utilisez la configuration Java, vous pouvez utiliser à la place l’annotation `@EnableCaching`.
+Par défaut, `cacheManager` est le nom du bean gestionnaire de cache associé aux annotations.
 
-1. Ajouter le bean _cacheManager_ référençant la fabrique de gestionnaire de cache :
+1. Ajouter le bean `cacheManager` référençant la fabrique de gestionnaire de cache :
 
 ```xhtml
 <bean id="cacheManager"
@@ -125,7 +125,7 @@ Par défaut, _cacheManager_ est le nom du bean gestionnaire de cache associé au
 </bean>
 ```
 
-La déclaration de fabrique _ehcacheManagerFactory_ ne bouge pas :
+La déclaration de fabrique `ehcacheManagerFactory` ne bouge pas :
 
 ```xhtml
 <bean id="ehcacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
@@ -138,8 +138,8 @@ La déclaration de fabrique _ehcacheManagerFactory_ ne bouge pas :
 
 La dernière étape consiste à refactorer les classes Java utilisant les annotations du projet ehcache-spring-annotations :
 
-1. Modifier le package de l'annotation _@Cacheable_ de _com.googlecode.ehcache.annotations_ pàar _org.springframework.cache.annotation_. L'attribut _cacheName_ de la précédente annotation devient _value_. L’annotation standardisée _javax.cache.annotation.CacheResult_ peut également être employée
-1. Remplacer l'annotation _@com.googlecode.ehcache.annotations.TriggersRemove_ par _@org.springframework.cache.annotation.CacheEvict_. L'attribut _cacheName_ devient _value_. Et l'attribut _removeAll_ devient _allEntries_. L’annotation standardisée _javax.cache.annotation.CacheRemove_ peut également être employée
+1. Modifier le package de l’annotation `@Cacheable` de `com.googlecode.ehcache.annotations` par `org.springframework.cache.annotation`. L’attribut `cacheName` de la précédente annotation devient `value`. L’annotation standardisée `javax.cache.annotation.CacheResult` peut également être employée
+1. Remplacer l’annotation `@com.googlecode.ehcache.annotations.TriggersRemove` par `@org.springframework.cache.annotation.CacheEvict`. L’attribut `cacheName` devient `value`. Et l’attribut `removeAll` devient `allEntries`. L’annotation standardisée `javax.cache.annotation.CacheRemove` peut également être employée
 
 ## Conclusion
 

@@ -49,7 +49,7 @@ Grâce à l’interopérabilité de Kotlin avec Java, j’ai pu faire cohabiter 
 
 Kotlin changent certaines conventions du langage Java :
 
-**1.** Les **classes** et les **méthodes** sont par défaut **finales** et ne peuvent être **héritées / redéfinies** sans l’utilisation du mot clé **_open_** Dans Petclinic, la classe [BaseEntity](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/model/BaseEntity.kt) parente de toutes les entités JPA est déclarée ainsi :
+**1.** Les **classes** et les **méthodes** sont par défaut **finales** et ne peuvent être **héritées / redéfinies** sans l’utilisation du mot clé `open` Dans Petclinic, la classe [BaseEntity](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/model/BaseEntity.kt) parente de toutes les entités JPA est déclarée ainsi :
 
 ```java
 @MappedSuperclass
@@ -57,12 +57,12 @@ open class BaseEntity
 
 ```
 
-L’omission du paramètre _open_ déclenche une erreur de compilation des classes filles : _« This type is final, so it cannot be inherited from »_.
+L’omission du paramètre `open` déclenche une erreur de compilation des classes filles : _« This type is final, so it cannot be inherited from »_.
 
 Ce changement de comportement impacte le fonctionnement de certaines librairies tierces. En effet, lors de l’utilisation d’annotations tels que @Cacheable ou @Configuration, le framework Spring utilise l’héritage pour instrumenter le code. La configuration du [plugin Spring pour le compilateur Kotlin](https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugin) dans le [pom.xml](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/pom.xml) permet de s’affranchir de l’ajout du mot clé open sur les beans Spring de type @Component.
 
 **2.** La **visibilité** des méthodes et des classes est par défaut **publique**
-Appartenant au package _visit_, la classe [Visit](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/visit/Visit.kt) est référencée par la classe [Pet](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/owner/Pet.kt) du package de même niveau _owner_:
+Appartenant au package `visit`, la classe [Visit](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/visit/Visit.kt) est référencée par la classe [Pet](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/owner/Pet.kt) du package de même niveau _owner_:
 
 ```kotlin
 class Visit : BaseEntity()
@@ -189,7 +189,7 @@ if (results.isEmpty()) {
 }
 ```
 
-Pour réduire le nombre de **_return_**, Kotlin permet d’utiliser le [if comme expression et non plus comme instruction](https://kotlinlang.org/docs/reference/control-flow.html). Lorsqu’une branche contient plusieurs instructions, la dernière est assignée au if ; dans l’exemple ci-dessous, c’est le nom de la page :
+Pour réduire le nombre de `return`, Kotlin permet d’utiliser le [if comme expression et non plus comme instruction](https://kotlinlang.org/docs/reference/control-flow.html). Lorsqu’une branche contient plusieurs instructions, la dernière est assignée au if ; dans l’exemple ci-dessous, c’est le nom de la page :
 
 ```kotlin
 return if (results.isEmpty()) {
@@ -206,7 +206,7 @@ return if (results.isEmpty()) {
 
 Autant dire que Kotlin sait faire plaisir à SonarQube en limitant l’usage de l’instruction return.
 
-Une autre façon d’écrire ce code consiste à utiliser l’expression **_when_** qui est une sorte de super _switch_ _case_. Dans la classe [OwnerController](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/owner/OwnerController.kt) Kotlin, les _if_ / _else_ disparaissent au profit de lambdas :
+Une autre façon d’écrire ce code consiste à utiliser l’expression `when` qui est une sorte de super _switch_ _case_. Dans la classe [OwnerController](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/owner/OwnerController.kt) Kotlin, les `if` / `else` disparaissent au profit de lambdas :
 
 ```java
 return when {

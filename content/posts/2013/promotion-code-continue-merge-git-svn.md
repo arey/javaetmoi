@@ -41,16 +41,16 @@ Notre stratégie fut de **merger régulièrement dans cette branche le code issu
 
 Comme c’est encore le cas dans de nombreuses entreprises, SVN est l’unique outil de versioning proposé dans l’usine de développement. La plateforme d’intégration continue s’appuie dessus et, installés sur une infrastructure de production, les repos SVN présentent l’intérêt d’être archivés quotidiennement.
 C’est là que la **[passerelle git-svn](http://git-scm.com/book/fr/Git-et-les-autres-syst%C3%A8mes-Git-et-Subversion)** intervient en mettant à la portée des utilisateurs SVN la **puissance** et la **facilité des merges  apportées par Git**. Git-svn permet en effet de maintenir à jour la branche svn avec le trunk.
-Cette facilité a un prix : une vigilance accrue et une grande **rigueur** lors des **opérations en ligne de commande**. En effet, une erreur d’inattention et vous pouvez vous retrouver à commiter le code de la branche de migration sur le trunk SVN. C’est pourquoi, au cours de la migration, le mode opératoire  présenté ci-dessus a été scrupuleusement suivi.
+Cette facilité a un prix : une vigilance accrue et une grande **rigueur** lors des **opérations en ligne de commande**. En effet, une erreur d’inattention et vous pouvez vous retrouver à commiter le code de la branche de migration sur le `trunk` SVN. C’est pourquoi, au cours de la migration, le mode opératoire  présenté ci-dessus a été scrupuleusement suivi.
 
 ## Mode opératoire
 
-Les instructions suivantes permettent de récupérer dans la branche de migration SVN, les développements commités sur le trunk SVN.
+Les instructions suivantes permettent de récupérer dans la branche de migration SVN, les développements commités sur le `trunk` SVN.
 L’exemple illustrant ces instructions concerne une application Java.  Maven est l’outil de build utilisé pour compiler, exécuter les tests unitaires et vérifier ainsi l’état du merge.
 Les 2 branches Git manipulées sont associées aux branches SVN suivantes :
 
-1. master (git) => trunk (svn)
-1. local-feature-migration (branche locale git)=> feature-migration (branche distance svn)
+1. `master` (git) => `trunk` (svn)
+1. `local-feature-migration` (branche locale git)=> `feature-migration` (branche distance svn)
 
 Depuis la précédente opération de merge, nous partons du principe que des commits ont pu ou non avoir eu lieu dans le trunk.  De la même manière, des modifications ont pu ou non avoir été commitées et poussées dans la branche de migration.
 
@@ -79,7 +79,7 @@ Avec le pont git-svn, les merges ne fonctionnent que dans un sens. Il faut donc 
 git merge --no-ff master
 ```
 
-Remarque : l'option _--no-ff_ (no fast-forward) est très importante : elle force git à créer un commit dit de "merge". Lorsque la branche ou le master n'ont pas bougé, cela évite que la référence HEAD de la branche _local-feature-migration_ soit déplacée pour pointer sur le dernier commit de la branche master. En résumé, cela permet de conserver 2 branches distinctes, comme dans SVN. La conséquence désastreuse de cet oubli est qu'un _svn dcommit_ de la branche _local-feature-migration_ serait pourrait être réalisé sur le _trunk_.
+Remarque : l'option `--no-ff` (no fast-forward) est très importante : elle force git à créer un commit dit de "merge". Lorsque la branche ou le master n'ont pas bougé, cela évite que la référence `HEAD` de la branche `local-feature-migration` soit déplacée pour pointer sur le dernier commit de la branche master. En résumé, cela permet de conserver 2 branches distinctes, comme dans SVN. La conséquence désastreuse de cet oubli est qu'un `svn dcommit` de la branche `local-feature-migration` serait pourrait être réalisé sur le `trunk`.
 
 **4\. Régler les éventuels conflits**
 
@@ -104,7 +104,7 @@ Permet de s’assurer que le code compile et que les tests unitaires passent.
 git svn dcommit
 ```
 
-Sous peine de corrompre votre repo git, attention à ne pas effectuer de _git svn rebase_ entre le _merge_ et le _svn dcommit_.
+Sous peine de corrompre votre repo git, attention à ne pas effectuer de `git svn rebase` entre le `merge` et le `svn dcommit`.
 
 Clonage d’un repo SVN existant, création d’une branche Git et liaison avec une branche SVN distante sont expliqués dans la [documentation de git-svn](http://git-scm.com/book/fr/Git-et-les-autres-syst%C3%A8mes-Git-et-Subversion).
 

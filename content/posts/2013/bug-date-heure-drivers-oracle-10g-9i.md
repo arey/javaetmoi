@@ -31,7 +31,7 @@ Dans notre contexte applicatif, la date et l’heure des données lues en base s
 
 ## Lecture de la colonne DATE
 
-Dans la base de données Oracle 9i interrogées, date et heure des données sont stockées dans une colonne de type DATE. Aucun doute sur un éventuel problème d’insertion des données, Toad nous confirme que l’heure est bel et bien présente. L’hypothèse d’un problème de lecture de l’heure a été confirmée en debuggant le batch, et plus particulièrement le code Java chargé de parcourir le _ResultSet_ ramenée par une requête SQL. Voici le résultat des différents tests effectués :
+Dans la base de données Oracle 9i interrogées, date et heure des données sont stockées dans une colonne de type DATE. Aucun doute sur un éventuel problème d’insertion des données, Toad nous confirme que l’heure est bel et bien présente. L’hypothèse d’un problème de lecture de l’heure a été confirmée en debuggant le batch, et plus particulièrement le code Java chargé de parcourir le `ResultSet` ramenée par une requête SQL. Voici le résultat des différents tests effectués :
 
 ```java
 String type = resultSet.getMetaData().getColumnTypeName(1);  // "DATE"
@@ -40,7 +40,7 @@ res = resultSet.getDate("lastupdate");               // 2013-01-18
 res = resultSet.getTimestamp("lastupdate");          // 2013-01-18 19:35:20.0
 ```
 
-La norme SQL précise que le type temporel DATE ne contient pas d’informations sur l’heure. La classe `java.sql.Date` nous le rappelle. Le type temporel TIMESTAMP matérialisé par la classe `java.sql.Timestamp` permet quant à lui de stocker date, heure et nanosecondes. En forçant l’appel à la méthode `getTimestanp()`, on obtient le résultat escompté. L’heure stockée en base est bien remontée lors de l’exécution de la requête. Je me serais donc attendu à ce que les meta-données JDBC soit de type TIMESTAMP à la place de DATE et que la méthode getObject() utilisée dans le code applicatif manipule des `java.sql.Timestamp`.
+La norme SQL précise que le type temporel DATE ne contient pas d’informations sur l’heure. La classe `java.sql.Date` nous le rappelle. Le type temporel TIMESTAMP matérialisé par la classe `java.sql.Timestamp` permet quant à lui de stocker date, heure et nanosecondes. En forçant l’appel à la méthode `getTimestanp()`, on obtient le résultat escompté. L’heure stockée en base est bien remontée lors de l’exécution de la requête. Je me serais donc attendu à ce que les meta-données JDBC soit de type TIMESTAMP à la place de DATE et que la méthode `getObject()` utilisée dans le code applicatif manipule des `java.sql.Timestamp`.
 
 ## Le driver JDBC en cause
 
@@ -51,9 +51,9 @@ Sur le site d’Oracle, la FAQ « [What is going on with DATE and TIMESTAMP?](ht
 Plusieurs solutions permettent de contourner ce problème :
 
 1. Migrer le schéma pour **utiliser le type TIMESTAMP** à la place d’une DATE. Dans notre contexte, la base ne nous appartenant pas, cette solution ne peut s’appliquer.
-1. Utiliser la méthode **_defineColumnType_** de la classe _OracleStatement_ afin de **redéfinir en _Timestamp_** les colonnes de type DATE. De par la verbosité du code et l’adhérence à la classe _OracleStatement_ du driver Oracle, cette solution fut mise de côté. En outre, nos tests étant basés sur la base de données embarquée H2, cette solution nous imposerait de supporter les 2 bases de données.
-1. **Forcer l’appel à la méthode _getTimestamp_** du _ResultSet_ à la place d’un _getObject_. Sans doute la solution la moins risquée. Les impacts sont identifiés et maitrisés. Côté code, le code générique faisant massivement appel à la méthode _getObject_ devrait être retouché pour tester par le biais des méta-données JDBC si la colonne lue est de type DATE.
-1. Utiliser le mode de compatibilité Oracle 8 en passant à true la propriété **_oracle.jdbc.V8Compatible_** de la connexion JDBC. Ne maitrisant pas les effets de bord et ce mode de compatibilité n’étant plus supporté à partir de la version 11 du driver Oracle, cette solution a été écartée.
+1. Utiliser la méthode `defineColumnType` de la classe `OracleStatement` afin de **redéfinir en `Timestamp`** les colonnes de type DATE. De par la verbosité du code et l’adhérence à la classe `OracleStatement` du driver Oracle, cette solution fut mise de côté. En outre, nos tests étant basés sur la base de données embarquée H2, cette solution nous imposerait de supporter les 2 bases de données.
+1. **Forcer l’appel à la méthode `getTimestamp`** du `ResultSet` à la place d’un _getObject_. Sans doute la solution la moins risquée. Les impacts sont identifiés et maitrisés. Côté code, le code générique faisant massivement appel à la méthode `getObject` devrait être retouché pour tester par le biais des méta-données JDBC si la colonne lue est de type DATE.
+1. Utiliser le mode de compatibilité Oracle 8 en passant à true la propriété `oracle.jdbc.V8Compatible` de la connexion JDBC. Ne maitrisant pas les effets de bord et ce mode de compatibilité n’étant plus supporté à partir de la version 11 du driver Oracle, cette solution a été écartée.
 1. Utiliser la **version 11 du driver JDBC Oracle** corrigeant le problème. C’est la solution qui a été retenue. Une migration vers Oracle 11 des bases de données de l’entreprise étant prévue à moyen termes, cette solution parait la plus pérenne, d’autant que nos tests n’ont pas décelé d’autres changements induits par cette montée de version de driver.
 
 ### Version du driver JDBC

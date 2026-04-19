@@ -51,7 +51,7 @@ Le tutoriel [Proxy step by step](http://jakarta.apache.org/jmeter/usermanual/jme
 
 Le fichier .jmx généré lors de l’enregistrement va devoir être manipulé en Java (bien oui, vous êtes sur le blog d’un développeur java). Premier soulagement : il est au format XML et peut donc être aisément parsé une fois son schéma appréhendé. Mails là où il est intéressant d’avoir opté pour un outil open source, c’est que nous allons pouvoir utiliser son API Java pour manipuler les fichiers .jmx de description de plan de tests. Et pour mieux cerner l’API, l’accès au code source est précieux.
 
-Lors de la mise au point du générateur, les artefacts maven de la version 2.5.1 n’étaient pas disponibles sur le repo central maven, chose révolue depuis la version 2.6.  JMeter est découpé en plusieurs modules. Dans le cadre du générateur, les modules Core, HTTP set Components ont été nécessaires. Sans oublier **jorphan**, dont le package _collections_ offre toutes les API nécessaires pour naviguer dans l’arbre du Plan de Tests.
+Lors de la mise au point du générateur, les artefacts maven de la version 2.5.1 n’étaient pas disponibles sur le repo central maven, chose révolue depuis la version 2.6.  JMeter est découpé en plusieurs modules. Dans le cadre du générateur, les modules Core, HTTP set Components ont été nécessaires. Sans oublier **jorphan**, dont le package `collections` offre toutes les API nécessaires pour naviguer dans l’arbre du Plan de Tests.
 
 Par transitivité, il est possible de récupérer tous les artefacts nécessaires en déclarant les dépendances maven suivantes :
 
@@ -125,7 +125,7 @@ Le tutoriel [Proxy step by step](http://jakarta.apache.org/jmeter/usermanual/jme
 
 Le fichier .jmx généré lors de l’enregistrement va devoir être manipulé en Java (bien oui, vous êtes sur le blog d’un développeur java). Premier soulagement : il est au format XML et peut donc être aisément parsé une fois son schéma appréhendé. Mails là où il est intéressant d’avoir opté pour un outil open source, c’est que nous allons pouvoir utiliser son API Java pour manipuler les fichiers .jmx de description de plan de tests. Et pour mieux cerner l’API, l’accès au code source est précieux.
 
-Lors de la mise au point du générateur, les artefacts maven de la version 2.5.1 n’étaient pas disponibles sur le repo central maven, chose révolue depuis la version 2.6.  JMeter est découpé en plusieurs modules. Dans le cadre du générateur, les modules Core, HTTP set Components ont été nécessaires. Sans oublier **jorphan**, dont le package _collections_ offre toutes les API nécessaires pour naviguer dans l’arbre du Plan de Tests.
+Lors de la mise au point du générateur, les artefacts maven de la version 2.5.1 n’étaient pas disponibles sur le repo central maven, chose révolue depuis la version 2.6.  JMeter est découpé en plusieurs modules. Dans le cadre du générateur, les modules Core, HTTP set Components ont été nécessaires. Sans oublier **jorphan**, dont le package `collections` offre toutes les API nécessaires pour naviguer dans l’arbre du Plan de Tests.
 
 Par transitivité, il est possible de récupérer tous les artefacts nécessaires en déclarant les dépendances maven suivantes :
 

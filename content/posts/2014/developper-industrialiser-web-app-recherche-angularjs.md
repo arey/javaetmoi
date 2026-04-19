@@ -115,7 +115,7 @@ npm install -g grunt-cli
 Le gestionnaire **npm** permet ensuite de télécharger et d’installer les modules NodeJS nécessaires au fonctionnement du script Grunt. Commande à exécuter à la racine du répertoire, au même niveau que le fichier [package.json](https://github.com/arey/angular-musicbrainz/blob/master/package.json "package.json") :  
 npm install
 
-Le sous-répertoire _node\_modules_ est alimenté par les modules déclarés dans le fichier [package.json](https://github.com/arey/angular-musicbrainz/blob/v1.0/package.json).
+Le sous-répertoire `node_modules` est alimenté par les modules déclarés dans le fichier [package.json](https://github.com/arey/angular-musicbrainz/blob/v1.0/package.json).
 
 Angular Seed ne configurant pas Grunt, je me suis inspiré de [différents exemples](http://gruntjs.com/sample-gruntfile) pour mettre au point le [script Gruntfile.js](https://github.com/arey/angular-musicbrainz/blob/v1.0/package.json).
 
@@ -124,7 +124,7 @@ Voici quelques commandes utiles :
 - **grunt test**: lance successivement les tests unitaires et les tests end-to-end
 - **grunt server**: démarre un serveur web, ouvre la page dans l’application et, à l’instar de JRebel, recharge à chaud le code modifié depuis votre IDE.
 - **grunt jshint**: vérifie que la qualité du code de production JavaScript
-- **grunt build**: construit le livrable à installer sur le serveur web. Les fichiers générés sont mis à disposition dans le sous-répertoire _dist_.
+- **grunt build**: construit le livrable à installer sur le serveur web. Les fichiers générés sont mis à disposition dans le sous-répertoire `dist`.
 - **grunt karma:coverage**: génère le taux de couverture des tests unitaires. Au format HTML, le rapport est accessible depuis le sous-répertoire _coverage\\PhantomJS 1.9.2 (Windows 7)\\lcov-report_
 
 Pendant le développement de l’application web, à des fins de débogage, le code JavaScript est non minifié et séparé dans plusieurs fichiers, de même pour les feuilles de style CSS.  
@@ -209,8 +209,8 @@ La configuration des tests unitaires Karma a dû être ajustée en conséquences
 
 ### Contrôleurs
 
-A  chaque vue de l’application, correspond un **contrôleur**. Le fichier [controller.js](https://github.com/arey/angular-musicbrainz/blob/v1.0/app/partials/directives/rating.html) en défini donc deux : _SearchCtrl_ et _InfoCtrl_.  
-Trivial, le contrôleur _InfoCtrl_ met à disposition dans le scope de le **vue _info_** les 2 URLs affichées et formatées  à l’aide de la directive Angular [ngLinky](http://docs.angularjs.org/api/ngSanitize.filter:linky)
+A  chaque vue de l’application, correspond un **contrôleur**. Le fichier [controller.js](https://github.com/arey/angular-musicbrainz/blob/v1.0/app/partials/directives/rating.html) en défini donc deux : `SearchCtrl` et `InfoCtrl`.  
+Trivial, le contrôleur `InfoCtrl` met à disposition dans le scope de le **vue _info_** les 2 URLs affichées et formatées  à l’aide de la directive Angular [ngLinky](http://docs.angularjs.org/api/ngSanitize.filter:linky)
 
 Contrôleur :
 
@@ -224,7 +224,7 @@ Template :
 <li>Online Demo: <span ng-bind-html="demoUrl | linky"/></li>
 ```
 
-Le **contrôleur _SearchCtrl_** embarque toute la logique applicative de l’application. Il offre à la fois des **fonctions** réagissant aux actions utilisateurs et les **données** utilisées par Angular lors du rendu de la **vue _search_**. En voici les principales :
+Le **contrôleur `SearchCtrl`** embarque toute la logique applicative de l’application. Il offre à la fois des **fonctions** réagissant aux actions utilisateurs et les **données** utilisées par Angular lors du rendu de la vue `search`. En voici les principales :
 
 **Propriété****Type****Description****fullTextSearch**fonctionExécute une recherche full text lors du clic sur le bouton « Recherche MusicBrainz».**autocomplete**fonctionExécute une requête d’auto-complétion à chaque frappe de l’utilisateur dans le zone de recherche.**selectPage**FonctionPermet à l’utilisateur de sélectionner une plage de résultats. Exécute une recherche Elasticsearch sur la plage indiquée.**searchResp**DonnéeRésultats Elasticsearch d’une recherche fulltext.**pageSize**DonnéeNombre de résultats à afficher à l’écran.**currentPage**DonnéePlage de résultats actuellement affichée.**pageSizes**DonnéeTailles de plages que l’utilisateur peut choisir.
 
@@ -235,7 +235,7 @@ Par rapport au template angular-seed, la **configuration des routes** a été ex
 ### **Application  
 **
 
-Le 6ième et dernier module Angular correspond  **au module applicatif** **_musicAlbumApp_** déclaré dans le fichier [app.js](https://github.com/arey/angular-musicbrainz/blob/v1.0/app/js/app.js). Outre la déclaration des **modules Angular** nécessaires au fonctionnement de l'application, ce module est chargé de déterminer la langue dans laquelle l'interface doit s'afficher puis charger les données adéquates. Nous y reviendrons dans la suite de cet article.
+Le 6ième et dernier module Angular correspond  **au module applicatif** `musicAlbumApp` déclaré dans le fichier [app.js](https://github.com/arey/angular-musicbrainz/blob/v1.0/app/js/app.js). Outre la déclaration des **modules Angular** nécessaires au fonctionnement de l'application, ce module est chargé de déterminer la langue dans laquelle l'interface doit s'afficher puis charger les données adéquates. Nous y reviendrons dans la suite de cet article.
 
 ## Utilisation d’elasticsearch-js
 
@@ -262,7 +262,7 @@ angular.module('musicAlbumApp.services', ['ngResource'])
 
 J’ai volontairement désactivé la fonctionnalité de **sniffOnStart**. En effet, j’ai configuré le reverse proxy Nginx pour ne laisser passer que les requêtes de _\_search_. Les requêtes HTTP de type HEAD envoyées par le client pour déterminer la disponibilité des différents nœuds du cluster étaient donc rejetées.
 
-L’appel au service de recherche Elasticsearch est également très simple. Dans l’attribut _body_ de la fonction _[search](http://www.elasticsearch.org/guide/en/elasticsearch/client/javascript-api/current/api-reference-1-0.html#api-search-1-0)_ proposée par l’API, est utilisé le formalisme standard de déclaration des requêtes au format JSON. En complément, les attributs _index_ et _type_ permettent respectivement d’indiquer sur quel index Elasticsearch et sur quel type de document lancer la recherche. Voici un exemple d’appel :
+L’appel au service de recherche Elasticsearch est également très simple. Dans l’attribut `body` de la fonction _[search](http://www.elasticsearch.org/guide/en/elasticsearch/client/javascript-api/current/api-reference-1-0.html#api-search-1-0)_ proposée par l’API, est utilisé le formalisme standard de déclaration des requêtes au format JSON. En complément, les attributs `index` et `type` permettent respectivement d’indiquer sur quel index Elasticsearch et sur quel type de document lancer la recherche. Voici un exemple d’appel :
 
 _Extrait méthode fullTextSearch_
 
@@ -325,7 +325,7 @@ _Extrait méthode fullTextSearch_
             },
 ```
 
-La fonction _[search](http://www.elasticsearch.org/guide/en/elasticsearch/client/javascript-api/current/api-reference-1-0.html#api-search-1-0)_ renvoie une promesse de réponse. Pour récupérer la réponse retournée par Elasticsearch, la méthode _then_ peut être utilisée :
+La fonction _[search](http://www.elasticsearch.org/guide/en/elasticsearch/client/javascript-api/current/api-reference-1-0.html#api-search-1-0)_ renvoie une promesse de réponse. Pour récupérer la réponse retournée par Elasticsearch, la méthode `then` peut être utilisée :
 
 ```js
 searchService.fullTextSearch(from, $scope.pageSize.count, text).then(
@@ -432,7 +432,7 @@ Karma exécute les tests puis se met en attente de changements. En effet, tel [i
 
 Autre aspect de Karma : il permet de faire tourner les tests simultanément dans un ou plusieurs navigateurs. Dans le fichier de configuration [karma.conf.js](https://github.com/arey/angular-musicbrainz/blob/v1.0/config/karma.conf.js), **Google Chrome** et le navigateur headless **[PhantomJS](http://phantomjs.org/)** ont été retenus.
 
-Une fois la structuration d’un cas de test prise en main (mots clés _describe_, _beforeEach_ et _it_), l’écriture du code de tests est plus ou moins simple. La difficulté principale vient de la lourdeur de la configuration nécessaire à mettre en place pour bouchonner les adhérences. Voici par exemple comment tester la fonction _fullTextSearch_ du contrôleur _SearchCtrl_ :
+Une fois la structuration d’un cas de test prise en main (mots clés `describe`, `beforeEach` et _it_), l’écriture du code de tests est plus ou moins simple. La difficulté principale vient de la lourdeur de la configuration nécessaire à mettre en place pour bouchonner les adhérences. Voici par exemple comment tester la fonction `fullTextSearch` du contrôleur `SearchCtrl` :
 
 ```javascript
 it('fullTextSearch should put the searchResp variable into the scope', function () {
@@ -462,8 +462,8 @@ it('fullTextSearch should put the searchResp variable into the scope', function 
 
 ```
 
-Le contrôleur _SearchCtrl_  s’appuie sur le service _searchService_ dont la fonction _fullTextSearch_ a dû être bouchonnée. Au final, le développeur écrit plus de code de test que de code testé.  
-Espérons que le duo Karma / Jasmine gagnera en maturité avec le temps. En Java, l’utilisation des annotations [_@Mock_](http://docs.mockito.googlecode.com/hg/latest/org/mockito/Mockito.html#mock_annotation) et [_@InjectInto_](http://www.unitils.org/apidocs/org/unitils/inject/annotation/InjectInto.html) permet en effet de réduire drastiquement ce type code.
+Le contrôleur `SearchCtrl`  s’appuie sur le service `searchService` dont la fonction `fullTextSearch` a dû être bouchonnée. Au final, le développeur écrit plus de code de test que de code testé.  
+Espérons que le duo Karma / Jasmine gagnera en maturité avec le temps. En Java, l’utilisation des annotations [`@Mock`](http://docs.mockito.googlecode.com/hg/latest/org/mockito/Mockito.html#mock_annotation) et [`@InjectInto`](http://www.unitils.org/apidocs/org/unitils/inject/annotation/InjectInto.html) permet en effet de réduire drastiquement ce type code.
 
 Non des moindre, le dernier point à connaître lors de l’écriture des tests concerne les assertions. Venant avec un nombre de [matchers clés en mains](https://github.com/pivotal/jasmine/wiki/Matchers), Jasmine permet d’écrire ses propres matchers.
 
@@ -503,7 +503,7 @@ describe('search', function () {
 });
 ```
 
-Créé par l’un des développeurs d’Angular, Karma a l’avantage de connaître le fonctionnement interne d’Angular. Cette faculté lui permet de résoudre les problèmes de requêtes Ajax souvent rencontrés dans les tests Selenium. Adieux les tempos ou autre  [_waitForElement_](http://agilesoftwaretesting.com/selenium-wait-for-ajax-the-right-way/).
+Créé par l’un des développeurs d’Angular, Karma a l’avantage de connaître le fonctionnement interne d’Angular. Cette faculté lui permet de résoudre les problèmes de requêtes Ajax souvent rencontrés dans les tests Selenium. Adieux les tempos ou autre  [`waitForElement`](http://agilesoftwaretesting.com/selenium-wait-for-ajax-the-right-way/).
 
 ![angular-musicbrainz-e2e](wp-content/uploads/2014/02/angular-musicbrainz-e2e.png)
 
@@ -517,7 +517,7 @@ Fork actif de [jslint](http://www.jslint.com/), **[JSHint](http://www.jshint.com
 - Règles de formatage
 - Bonnes pratiques permettant d’éviter de potentiels bugs
 
-Le fichier de configuration [.jshintrc](https://github.com/arey/angular-musicbrainz/blob/master/.jshintrc) permet d’activer chacune [des dizaines de règles](https://gist.github.com/haschek/2595796) proposées par JSHint. Activée sur notre projet, la règle **_curly_** vérifie par exemple s’il ne manque pas des accolades dans les boucles et les conditions.
+Le fichier de configuration [.jshintrc](https://github.com/arey/angular-musicbrainz/blob/master/.jshintrc) permet d’activer chacune [des dizaines de règles](https://gist.github.com/haschek/2595796) proposées par JSHint. Activée sur notre projet, la règle `curly` vérifie par exemple s’il ne manque pas des accolades dans les boucles et les conditions.
 
 La vérification des fichiers JavaScript peut ensuite se faire, soit en ligne de commande :
 

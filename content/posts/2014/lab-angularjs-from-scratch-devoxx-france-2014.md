@@ -100,15 +100,15 @@ Scope.prototype.$watch = function (watcherFn, listenerFn) {
 }
 ```
 
-La fonction _$watch_ est ajoutée dans le prototype du _Scope_. Toute instance de _Scope_ hérite ainsi de cette fonction. La ligne this.$$watchers.push(watcher);  ne pose aucune difficulté.
+La fonction `$watch` est ajoutée dans le prototype du `Scope`. Toute instance de `Scope` hérite ainsi de cette fonction. La ligne this.$$watchers.push(watcher);  ne pose aucune difficulté.
 
 Un watcher est caractérisé par 3 éléments :
 
-1. une fonction _watcherFn_ indiquant quelle donnée du modèle l’appelant souhaite observer,
-1. une fonction de rappel _listenerFn_ appelée lorsqu’un changement sera détecté
-1. une variable interne _last_ permettant de sauvegarder la précédente valeur du modèle et de réaliser le dirty checking.
+1. une fonction `watcherFn` indiquant quelle donnée du modèle l’appelant souhaite observer,
+1. une fonction de rappel `listenerFn` appelée lorsqu’un changement sera détecté
+1. une variable interne `last` permettant de sauvegarder la précédente valeur du modèle et de réaliser le dirty checking.
 
-Voici un exemple d’appel à la fonction _$watch_ :
+Voici un exemple d’appel à la fonction `$watch` :
 
 ```js
 scope.$watch(function (scope) {
@@ -122,7 +122,7 @@ En pratique, un développeur Angular fait rarement appel explicitement à cette 
 
 ## Etape 3 et 5 : Scope.$digest et digest loop
 
-La **fonction _$digest_** est au cœur d’Angular. Sur le schéma ci-dessus, elle représente la **digest loop**. Comme son nom l’indique, son algorithme principal consiste à boucler sur le tableau de watchers jusqu’à ce que tous les évènements aient été traités. Par évènement, on entend un changement dans le modèle.
+La **fonction `$digest`** est au cœur d’Angular. Sur le schéma ci-dessus, elle représente la **digest loop**. Comme son nom l’indique, son algorithme principal consiste à boucler sur le tableau de watchers jusqu’à ce que tous les évènements aient été traités. Par évènement, on entend un changement dans le modèle.
 Voici un exemple d’implémentation :
 
 ```js
@@ -145,10 +145,10 @@ Scope.prototype.$digest = function () {
 Quelques explications peuvent être nécessaires à la compréhension de ce code :
 
 - L’itération sur le tableau _$$watchers_ est réalisée par la méthode each d’Underscore
-- La méthode _watcherFn_ accepte comme argument le scope à observer. Ici, un _this_ est passé en paramètre. Sans l’utilisation du _bind(this)_, ce serait le _this_ de l’inner fonction qui aurait été  passé à _watcherFn_ et non le scope sur lequel la méthode _$digest_ est appelée. _bind(this)_ est une technique native JavaScript que je ne connaissais pas. Elle permet de forcer le _this_. Une technique plus repandue est l’utilisation d’un _var self=this;_ avant la déclaration de l’inner fonction. Underscore aurait également pu être utilisé pour gérer cette problématique récurrente en JavaScript.
-- Lorsqu’un changement est détecté, la fonction de rappel _listenerFn_ est appelée avec la nouvelle valeur, l’ancienne valeur et le scope.
+- La méthode `watcherFn` accepte comme argument le scope à observer. Ici, un `this` est passé en paramètre. Sans l’utilisation du `bind(this)`, ce serait le `this` de l’inner fonction qui aurait été  passé à `watcherFn` et non le scope sur lequel la méthode `$digest` est appelée. `bind(this)` est une technique native JavaScript que je ne connaissais pas. Elle permet de forcer le `this`. Une technique plus repandue est l’utilisation d’un `var self=this;` avant la déclaration de l’inner fonction. Underscore aurait également pu être utilisé pour gérer cette problématique récurrente en JavaScript.
+- Lorsqu’un changement est détecté, la fonction de rappel `listenerFn` est appelée avec la nouvelle valeur, l’ancienne valeur et le scope.
 
-A chaque fois qu’un _$digest_ est appelé, la fonction _watcherFn_ de tous les watchers est appelée. Cela a un coût. Et c’est pourquoi les auteurs d’Angular encouragent à garder cette fonction la plus légère possible. Appels réseaux et algorithmes complexes y sont à proscrire.
+A chaque fois qu’un `$digest` est appelé, la fonction `watcherFn` de tous les watchers est appelée. Cela a un coût. Et c’est pourquoi les auteurs d’Angular encouragent à garder cette fonction la plus légère possible. Appels réseaux et algorithmes complexes y sont à proscrire.
 
 Lors du Lab, nous avons ajouté 3 améliorations :
 
@@ -158,7 +158,7 @@ Lors du Lab, nous avons ajouté 3 améliorations :
 
 ## Etape 4 : Scope.$apply
 
-La **fonction _$apply_** exécute une expression passée en argument puis lance quoi qu’il arrive un _$digest_ :
+La **fonction _$apply_** exécute une expression passée en argument puis lance quoi qu’il arrive un `$digest` :
 
 ```js
 Scope.prototype.$apply = function (exprFn) {
@@ -215,8 +215,8 @@ var $compile = function(element, scope) {
 
 Deux remarques à propos du code :
 
-1. Contrairement à ce que l’on pouvait s’attendre, tous les attributs de l’élément sur lequel est apposée la directive sont passés en paramètre de la fonction _directiveFn_.
-1. La récursion sur les éléments enfants est lancée avant le parcours des attributs de l’élément. Angular offre le choix avec les propriétés _prelink_ et _postlink_. De manière générale, _postlink_ est à privilégier.
+1. Contrairement à ce que l’on pouvait s’attendre, tous les attributs de l’élément sur lequel est apposée la directive sont passés en paramètre de la fonction `directiveFn`.
+1. La récursion sur les éléments enfants est lancée avant le parcours des attributs de l’élément. Angular offre le choix avec les propriétés `prelink` et `postlink`. De manière générale, `postlink` est à privilégier.
 
 Pour demander à notre framework maison de parcourir l’intégralité du DOM, une unique ligne de code est nécessaire :
 
@@ -240,7 +240,7 @@ $directive('ng-bind', function (scope, element, attributes) {
 });
 ```
 
-Bien que controversée, l’utilisation de la fonction _eval_ simplifie ici le code. Au cours du Lab, Matthieu nous a donné son équivalent fonctionnel. Basé sur les fonctions _split_ et _reduce_, le code devient illisible pour les développeurs ne pratiquant pas ce paradigme.
+Bien que controversée, l’utilisation de la fonction `eval` simplifie ici le code. Au cours du Lab, Matthieu nous a donné son équivalent fonctionnel. Basé sur les fonctions `split` et `reduce`, le code devient illisible pour les développeurs ne pratiquant pas ce paradigme.
 
 ## Etape 11 : ng-model
 
@@ -263,7 +263,7 @@ $directive('ng-model', function(scope, element, attributes) {
 ```
 
 La directive _ng-model_ ajoute un listener d’évènements JavaScript. Lorsque l’évènement _'keyup'_ survient, le modèle est mis à jour à l’intérieur de la fonction _$apply_. Cette dernière déclenche la digest loop qui notifie la balise _ng-bind_. C’est par ce mécanisme que lorsque l’utilisateur saisi du texte dans l’input, le titre _<h1>_ est mis à jour en conséquence.
-La fonction _eval_ est là encore utilisée. Angular n’y fait pas appel car il possède son propre parseur.
+La fonction `eval` est là encore utilisée. Angular n’y fait pas appel car il possède son propre parseur.
 
 ## Hello World
 

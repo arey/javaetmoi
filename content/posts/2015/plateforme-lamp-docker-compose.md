@@ -96,7 +96,7 @@ Voici quelques explications :
 
 ## Dockerfile
 
-Créé dans le **sous-répertoire _site_**, le Dockerfile suivant permet de construire une image personnalisée Docker à partir de l’image officielle **php:5.6-apache**:
+Créé dans le **sous-répertoire `site`**, le Dockerfile suivant permet de construire une image personnalisée Docker à partir de l’image officielle **php:5.6-apache**:
 
 ```yaml
 FROM php:5.6-apache
@@ -128,7 +128,7 @@ brew install boot2docker
 brew install docker
 ```
 
-La commande **boot2docker init** permet de télécharger et d’installer la VM _boot2docker-vm_.
+La commande **boot2docker init** permet de télécharger et d’installer la VM `boot2docker-vm`.
 Et les commandes ci-dessous permettent de démarrer la VM et d’obtenir son adresse IP.
 
 ```sh
@@ -160,7 +160,7 @@ docker run -v /Users/arey/dev/mysite/sql:/sql --link mysite_database_1:mysql -it
 Voici quelques explications :
 
 - Le répertoire _/Users/arey/dev/mysite/sql_ contient le script _sql_
-- _mysite\_database\_1_ correspond au nom de l’image docker attribué par docker-compose
+- `mysite_database_1` correspond au nom de l’image docker attribué par docker-compose
 - L’image [arey/mysql-client](https://registry.hub.docker.com/u/arey/mysql-client/) est publiée sur Docker Hub. Je l’ai créé spécifiquement pour ce type de besoin. Son [code source](https://github.com/arey/mysql-client) est sur GitHub.
 
 ## Conclusion

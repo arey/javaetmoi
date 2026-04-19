@@ -19,9 +19,9 @@ post_views_count: "12565"
 summary: |-
   A l’instar de SLF4J pour les logs, **[Micrometer](https://micrometer.io/)** est la **façade d’export de métriques** utilisée par Spring Boot et ses Actuators. Micrometer supporte une douzaine de systèmes de monitoring : Datalog, Netflix Atlas, New Relic, JMX, CloudWatch, InfluxDB ou bien encore Prometheus.
 
-  Récemment, j’ai poursuivi le travail initié par Kevin Crawley pour intégrer **Prometheus** et **Grafana** dans la version microservices de Spring Petclinic. Proposée par Maciej Szarliński, l’idée consistait à remplacer les compteurs **Micrometer** de typeregistry.counter("create.visit").increment() par l’ [annotation @Timed.](https://micrometer.io/docs/concepts)
+  Récemment, j’ai poursuivi le travail initié par Kevin Crawley pour intégrer **Prometheus** et **Grafana** dans la version microservices de Spring Petclinic. Proposée par Maciej Szarliński, l’idée consistait à remplacer les compteurs **Micrometer** de type`registry.counter("create.visit").increment()` par l’ [annotation @Timed.](https://micrometer.io/docs/concepts)
 
-  J’ai profité de ce changement pour améliorer le packaging **Docker** de Grafana et en simplifier l’accès. Pour accéder au dashboard personnalisé exposant l’évolution du nombre d’animaux et de propriétaires, un _docker-compose up_ suivi d’un clic sur l’ [URL du dashboard](http://localhost:3000/d/69JXeR0iw/spring-petclinic-metrics) sont désormais suffisant.<br>**Ce billet présente les configurations Docker et Grafana mises en oeuvre**.
+  J’ai profité de ce changement pour améliorer le packaging **Docker** de Grafana et en simplifier l’accès. Pour accéder au dashboard personnalisé exposant l’évolution du nombre d’animaux et de propriétaires, un `docker-compose up` suivi d’un clic sur l’ [URL du dashboard](http://localhost:3000/d/69JXeR0iw/spring-petclinic-metrics) sont désormais suffisant.<br>**Ce billet présente les configurations Docker et Grafana mises en oeuvre**.
 
   [![Dashboard Grafana Spring Petclinic Metrics](wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png)](wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png)
 
@@ -37,16 +37,16 @@ url: /2019/03/dashboard-grafana-docker/
 ---
 A l’instar de SLF4J pour les logs, **[Micrometer](https://micrometer.io/)** est la **façade d’export de métriques** utilisée par Spring Boot et ses Actuators. Micrometer supporte une douzaine de systèmes de monitoring : Datalog, Netflix Atlas, New Relic, JMX, CloudWatch, InfluxDB ou bien encore Prometheus.
 
-Récemment, j’ai poursuivi le travail initié par Kevin Crawley pour intégrer **Prometheus** et **Grafana** dans la version microservices de Spring Petclinic. Proposée par Maciej Szarliński, l’idée consistait à remplacer les compteurs **Micrometer** de typeregistry.counter("create.visit").increment() par l’ [annotation @Timed.](https://micrometer.io/docs/concepts)
+Récemment, j’ai poursuivi le travail initié par Kevin Crawley pour intégrer **Prometheus** et **Grafana** dans la version microservices de Spring Petclinic. Proposée par Maciej Szarliński, l’idée consistait à remplacer les compteurs **Micrometer** de type`registry.counter("create.visit").increment()` par l’ [annotation @Timed.](https://micrometer.io/docs/concepts)
 
-J’ai profité de ce changement pour améliorer le packaging **Docker** de Grafana et en simplifier l’accès. Pour accéder au dashboard personnalisé exposant l’évolution du nombre d’animaux et de propriétaires, un _docker-compose up_ suivi d’un clic sur l’ [URL du dashboard](http://localhost:3000/d/69JXeR0iw/spring-petclinic-metrics) sont désormais suffisant.  
+J’ai profité de ce changement pour améliorer le packaging **Docker** de Grafana et en simplifier l’accès. Pour accéder au dashboard personnalisé exposant l’évolution du nombre d’animaux et de propriétaires, un `docker-compose up` suivi d’un clic sur l’ [URL du dashboard](http://localhost:3000/d/69JXeR0iw/spring-petclinic-metrics) sont désormais suffisant.  
 **Ce billet présente les configurations Docker et Grafana mises en oeuvre**.
 
 [![Dashboard Grafana Spring Petclinic Metrics](wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png)](wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-grafana.png)
 
 ## Docker compose
 
-Le [docker-compose.yml](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker-compose.yml) de Spring Petclinic Microservices est relativement simple : il pointe sur 2 Dockerfile Grafana et Promotheus personnalisés.
+Le [`docker-compose.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker-compose.yml) de Spring Petclinic Microservices est relativement simple : il pointe sur 2 Dockerfile Grafana et Promotheus personnalisés.
 
 L’usage de volume Docker n’est pas nécessaire.  
 A noter que le port 9090 de Prometheus est mappé sur le port 9091 car le port 9090 était déjà occupé par Spring Boot Admin.
@@ -71,14 +71,14 @@ prometheus-server:
 
 Prometheus est un outil de supervision chargé de collecter et de stocker les métriques collectées (dans notre étude de cas depuis des actuators Spring Boot). Les métriques sont stockées dans une [base de données de type Time Series](https://prometheus.io/docs/prometheus/latest/storage/). Prometheus propose bien évidemment une [API HTTP](https://prometheus.io/docs/prometheus/latest/querying/api/) pour consulter ces métriques et créer de jolis tableaux de bord dans des outils comme [Grafana](http://www.grafana.org/) ou [WaveFront](https://www.wavefront.com/).
 
-Mise en place par Kevin Crawley, l’image Docker de Prometheus [docker/prometheus/Dockerfile](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile) personnalise [l’image officielle de Prometheus 2.4.2](https://hub.docker.com/r/prom/prometheus) en ajoutant le fichier [prometheus.yml](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/prometheus.yml) dans le répertoire de configuration /etc/prometheus :
+Mise en place par Kevin Crawley, l’image Docker de Prometheus [docker/prometheus/Dockerfile](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile) personnalise [l’image officielle de Prometheus 2.4.2](https://hub.docker.com/r/prom/prometheus) en ajoutant le fichier [`prometheus.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/prometheus.yml) dans le répertoire de configuration /etc/prometheus :
 
 ```dockerfile
 FROM prom/prometheus:v2.4.2
 ADD prometheus.yml /etc/prometheus/
 ```
 
-Le fichier de configuration [prometheus.yml](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/prometheus.yml) précise quels sont les actuators Spring Boot que Prometheus doit interroger périodiquement pour récupérer et historiser les métriques. Chose amusante : Prometheus se monitore lui-même.
+Le fichier de configuration [`prometheus.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/prometheus.yml) précise quels sont les actuators Spring Boot que Prometheus doit interroger périodiquement pour récupérer et historiser les métriques. Chose amusante : Prometheus se monitore lui-même.
 
 ```yaml
 # my global config
@@ -115,7 +115,7 @@ scrape_configs:
   - targets: ['vets-service:8083']
 ```
 
-Les métriques préfixées par _petclinic\__ sont accessibles depuis l’interface web de Prometheus [http://localhost:9091/](http://localhost:9091/) :
+Les métriques préfixées par `petclinic_` sont accessibles depuis l’interface web de Prometheus [http://localhost:9091/](http://localhost:9091/) :
 
 ![Prometheus UI](wp-content/uploads/2019/03/2019-03-Dashboard-Grafana-dockerisé-prometheus.png)
 
@@ -137,7 +137,7 @@ Le [Dockerfile](https://github.com/spring-petclinic/spring-petclinic-microservic
 FROM grafana/grafana:5.2.4
 ADD ./provisioning /etc/grafana/provisioning
 ADD ./grafana.ini /etc/grafana/grafana.ini
-ADD ./dashboards /var/lib/grafana/dashboards
+ADD ./dashboards `/var/lib/grafana/dashboards`
 ```
 
 L’image Grafana est livrée avec un fichier grafana.ini dont toutes les options sont commentées avec les valeurs par défaut. Pour le personnaliser, je me suis référé à la [documentation](http://docs.grafana.org/installation/configuration/) :
@@ -187,7 +187,7 @@ datasources:
   editable: true
 ```
 
-Le fichier de pré-configuration des dashboards [provisioning/dashboards/all.yml](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/dashboards/all.yml) référence le répertoire **/** var **/** lib **/** grafana **/** dashboards dans lequel a été copié le fichier de configuration du dashboard Spring Petclinic Metrics [grafana-petclinic-dashboard.json](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/dashboards/grafana-petclinic-dashboard.json) (cf. Dockerfile) :
+Le fichier de pré-configuration des dashboards [`provisioning/dashboards/all.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/dashboards/all.yml) référence le répertoire **/** var **/** lib **/** grafana **/** dashboards dans lequel a été copié le fichier de configuration du dashboard Spring Petclinic Metrics [`grafana-petclinic-dashboard.json`](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/dashboards/grafana-petclinic-dashboard.json) (cf. Dockerfile) :
 
 ```yaml
 apiVersion: 1
@@ -200,10 +200,10 @@ providers:
   disableDeletion: false
   updateIntervalSeconds: 10
   options:
-    path: /var/lib/grafana/dashboards
+    path: `/var/lib/grafana/dashboards`
 ```
 
-Le fichier de configuration du dashboard _Spring Petclinic Metrics_ [grafana-petclinic-dashboard.json](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/dashboards/grafana-petclinic-dashboard.json) s’appuie à la fois sur les métriques personnalisées préfixées par _petclinic\__ et sur les métriques générées nativement par Spring Boot.
+Le fichier de configuration du dashboard _Spring Petclinic Metrics_ [`grafana-petclinic-dashboard.json`](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/dashboards/grafana-petclinic-dashboard.json) s’appuie à la fois sur les métriques personnalisées préfixées par `petclinic_` et sur les métriques générées nativement par Spring Boot.
 
 Extrait d’utilisation de la métrique **http\_server\_requests\_seconds\_sum** :
 

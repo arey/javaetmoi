@@ -30,7 +30,7 @@ Lorsque vous rendez open-source un projet, même le plus modeste soit-il, quoi d
 
 ## Les limites d’un repository personnel
 
-Il y’a 2 ans, [j’expliquais comment monter sa propre usine de développement Java dans le Cloud à l’aide de GitHub et de Cloudbees](/2012/12/ma-petite-usine-logicielle-github-cloudbees/). Pour Repository Maven, j’utilisais le Webdav mis gracieusement à disposition par Cloudbees. L’inconvénient principal de cet hébergement est que les artefacts publiés sur ce repository ne sont pas nativement accessibles par Maven. Il est en effet nécessaire de configurer la balise _distributionManagement_ du _pom.xml_ nécessitant ces artefacts. En entreprise, lorsque les builds maven passent systématiquement par un proxy maven, cela se complique pour le développeur. Plusieurs choix s’offrent à lui :
+Il y’a 2 ans, [j’expliquais comment monter sa propre usine de développement Java dans le Cloud à l’aide de GitHub et de Cloudbees](/2012/12/ma-petite-usine-logicielle-github-cloudbees/). Pour Repository Maven, j’utilisais le Webdav mis gracieusement à disposition par Cloudbees. L’inconvénient principal de cet hébergement est que les artefacts publiés sur ce repository ne sont pas nativement accessibles par Maven. Il est en effet nécessaire de configurer la balise `distributionManagement` du `pom.xml` nécessitant ces artefacts. En entreprise, lorsque les builds maven passent systématiquement par un proxy maven, cela se complique pour le développeur. Plusieurs choix s’offrent à lui :
 
 1. Référencer le repository Cloudbees dans le proxy maven de son Entreprise
 1. Déployer les artefacts maven dans le repository maven de son Entreprise
@@ -84,7 +84,7 @@ Dans le settings.xml local à l'utilisateur, pense à indiquer le chemin complet
 La dernière étape avant de pouvoir déployer les artefacts de son projet dans Maven Central, consiste à configurer le POM de votre projet (le POM parent pour un projet multi-modules). La page  [Apache Maven du Central Repository](http://central.sonatype.org/pages/apache-maven.html) explique pas à pas quels sont les **plugins maven à configurer** et les **coordonnées du repository à déclarer**.
 Pour exemple, je vous invite à vous référer au [pom.xml du projet spring-batch-toolkit](https://github.com/arey/spring-batch-toolkit/blob/v0.1.x/pom.xml).
 
-Ne pas oublier de déclarer le server _ossrh_ dans _le settings.xml_ local de l'utilisateur.
+Ne pas oublier de déclarer le server `ossrh` dans le `settings.xml` local de l'utilisateur.
 
 ## Publication dans Maven Central
 

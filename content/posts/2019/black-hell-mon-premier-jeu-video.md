@@ -71,7 +71,7 @@ Le jeu pèse 2,7 Mo. Il peut être compressé en une **archive ZIP de moins d’
 A elle seule, la vidéo de décollage N1PLAIN.FLX pèse 1,2 Mo.
 
 Pour faire fonctionner le jeu, j’utilise [DOSBox](https://www.dosbox.com/).  
-Les instructions sont données dans le [README.MD](https://github.com/arey/black-hell/blob/master/README.MD).
+Les instructions sont données dans le [`README.MD`](https://github.com/arey/black-hell/blob/master/README.MD).
 
 ## Univers graphique
 
@@ -79,13 +79,13 @@ Pour créer un jeu, il faut du code, mais également des ressources graphiques.
 A l’époque, point d’Internet pour trouver une banque d’images prête à l’emploi.  
 Les vaisseaux ont été modélisés en 3D avec le logiciel 3D Studio. Les textures et certains sprites ont été dessinés pixels par pixels avec [Deluxe Paint Animation](https://en.wikipedia.org/wiki/Deluxe_Paint_Animation). Les paysages ont quant à eux été créés à l’aide de [VistaPro](https://en.wikipedia.org/wiki/VistaPro).
 
-La résolution VGA de 320x200 pixels avec 256 couleurs imposait que tous les fonds d’écran et sprites partagent la même palette de couleurs. C’est pourquoi, dans les binaires du jeu, les fichiers d’images (.IMA) et de palettes (.PAL et .COD) sont séparés.
+La résolution VGA de 320x200 pixels avec 256 couleurs imposait que tous les fonds d’écran et sprites partagent la même palette de couleurs. C’est pourquoi, dans les binaires du jeu, les fichiers d’images (`.IMA`) et de palettes (`.PAL` et `.COD`) sont séparés.
 
-L’écran d’options est le seul écran du jeu supportant le SVGA (640x480). Pour les personnes n’ayant pas de carte vidéo compatible, une option en ligne de commande (BH.EXE -VGA) permettait de le rétrograder en VGA.
+L’écran d’options est le seul écran du jeu supportant le SVGA (640x480). Pour les personnes n’ayant pas de carte vidéo compatible, une option en ligne de commande (`BH.EXE -VGA`) permettait de le rétrograder en VGA.
 
 ![Animation de la base de départ dans le jeu Black Hell (VGA 320×200 pixels)](wp-content/uploads/2019/02/2019-02-Black-Hell-Base-de-départ.gif)
 
-Chaque partie commence par une animation en image de synthèse montrant le Silicium décoller de sa base. Cette animation est encodée dans le fichier N1PLAIN.FLX.
+Chaque partie commence par une animation en image de synthèse montrant le Silicium décoller de sa base. Cette animation est encodée dans le fichier `N1PLAIN.FLX`.
 
 ## Un peu de code
 
@@ -116,8 +116,8 @@ VAR Player1,Player2 : VirtualPtr;
     Screen  : Virtual ABSOLUTE $A000:0;
 ```
 
-La boucle principale du jeu consiste à gérer les touches, calculer la position des vaisseaux, détecter les collisions, scroller le fond puis afficher le tout à l’écran. L’image affichée à l’écran est calculée dans l’espace mémoire référencé par le pointeur _Spr_.  
-Avant de recopier _Spr_ vers la carte vidéo, on doit attendre que le moniteur ait fini d’afficher l’image précédente, ceci afin d’éviter de désagréables effets d’images coupées.
+La boucle principale du jeu consiste à gérer les touches, calculer la position des vaisseaux, détecter les collisions, scroller le fond puis afficher le tout à l’écran. L’image affichée à l’écran est calculée dans l’espace mémoire référencé par le pointeur `Spr`.  
+Avant de recopier `Spr` vers la carte vidéo, on doit attendre que le moniteur ait fini d’afficher l’image précédente, ceci afin d’éviter de désagréables effets d’images coupées.
 
 Les **écrans CRT** utilisent des canons à électron pour afficher les pixels. Le faisceaux d’électron se déplace de gauche à droite et de haut en bas.  
 Le **signal VBL** indique que le faisceau a atteint le bas de l’écran et qu’il retourne en haut. Le **signal HBL** indique que le faisceau a atteint la fin de la ligne et qu’il revient au début de la ligne suivante.   

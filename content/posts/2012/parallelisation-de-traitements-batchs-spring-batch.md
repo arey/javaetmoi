@@ -81,8 +81,8 @@ Pour optimiser le batch, 2 de ces techniques ont été utilisées.
 
 Le **Remote Chunking of Step** a été écarté d’office. Dans le contexte client, installer un batch en production est déjà forte affaire. Alors en installer plusieurs interconnectés, je n'ose pas me l’imaginer : à étudier en dernier recours.
 
-Le **Multi-threaded Step** est sans doute la technique la plus simple à mettre en œuvre. Seule un peu de configuration est suffisante : l’ajout d’un _taskExecutor_ sur le tasklet à paralléliser. La conséquence majeure est que les items peuvent être traités dans le désordre.  
-Un prérequis à cette technique est que les _ItemReader_ et _ItemWiter_ soient **stateless** ou **thread-safe**. La classe de [**_JdbcCursorItemReader_**](https://github.com/SpringSource/spring-batch/blob/master/spring-batch-infrastructure/src/main/java/org/springframework/batch/item/database/JdbcCursorItemReader.java) de Spring Batch hérite de la classe [**_AbstractItemCountingItemStreamItemReader_**](https://github.com/SpringSource/spring-batch/blob/master/spring-batch-infrastructure/src/main/java/org/springframework/batch/item/support/AbstractItemCountingItemStreamItemReader.java) qui n'est pas thread-safe. L’utilisation d’un [wrapper _synchronized_](http://static.springsource.org/spring-batch/faq.html#threading-reader) aurait pu être envisagée si la classe fille de [**_JdbcCursorItemReader_**](https://github.com/SpringSource/spring-batch/blob/master/spring-batch-infrastructure/src/main/java/org/springframework/batch/item/database/JdbcCursorItemReader.java) développée pour les besoins du batch ne s’appuyait pas elle-même sur un _RowMapper_ avec état reposant sur l’ordre de lecture des éléments.
+Le **Multi-threaded Step** est sans doute la technique la plus simple à mettre en œuvre. Seule un peu de configuration est suffisante : l’ajout d’un `taskExecutor` sur le tasklet à paralléliser. La conséquence majeure est que les items peuvent être traités dans le désordre.  
+Un prérequis à cette technique est que les `ItemReader` et `ItemWiter` soient **stateless** ou **thread-safe**. La classe de [`JdbcCursorItemReader`](https://github.com/SpringSource/spring-batch/blob/master/spring-batch-infrastructure/src/main/java/org/springframework/batch/item/database/JdbcCursorItemReader.java) de Spring Batch hérite de la classe [`AbstractItemCountingItemStreamItemReader`](https://github.com/SpringSource/spring-batch/blob/master/spring-batch-infrastructure/src/main/java/org/springframework/batch/item/support/AbstractItemCountingItemStreamItemReader.java) qui n'est pas thread-safe. L’utilisation d’un [wrapper `synchronized`](http://static.springsource.org/spring-batch/faq.html#threading-reader) aurait pu être envisagée si la classe fille de [`JdbcCursorItemReader`](https://github.com/SpringSource/spring-batch/blob/master/spring-batch-infrastructure/src/main/java/org/springframework/batch/item/database/JdbcCursorItemReader.java) développée pour les besoins du batch ne s’appuyait pas elle-même sur un `RowMapper` avec état reposant sur l’ordre de lecture des éléments.
 
 Les **Parallel Steps** ont été mises en œuvre dès le début du batch pour traiter en parallèle des données de types différents (ex : Musique et Film). De par leurs jointures, les requêtes SQL de chacun différaient. Avant optimisation, **9 steps** étaient déjà **exécutés en parallèle** par ce biais.
 
@@ -92,13 +92,13 @@ Malgré une augmentation du nombre de requêtes exécutées simultanément, la b
 
 ## Exemple de mise en œuvre
 
-Après ce long discours, rien de tel qu’un peu d’exercice. Pour les besoins de ce billet, et afin de capitaliser sur l’expérience acquise sur la configuration Spring Batch, j’ai mis à jour le projet [spring-batch-toolkit](https://github.com/arey/spring-batch-toolkit/) hébergé sur GitHub. Le fichier [blog-parallelisation.zip](https://github.com/arey/spring-batch-toolkit/archive/blog-parallelisation.zip) contient l’ensemble du code source mavenisé.
+Après ce long discours, rien de tel qu’un peu d’exercice. Pour les besoins de ce billet, et afin de capitaliser sur l’expérience acquise sur la configuration Spring Batch, j’ai mis à jour le projet [spring-batch-toolkit](https://github.com/arey/spring-batch-toolkit/) hébergé sur GitHub. Le fichier [`blog-parallelisation.zip`](https://github.com/arey/spring-batch-toolkit/archive/blog-parallelisation.zip) contient l’ensemble du code source mavenisé.
 
 Je suis parti d’un cas d’exemple des plus simples : **un batch chargé de lire en base de données des chefs-d’œuvre puis de les afficher sur la console**.
 
 ![Modèle physique de données des tables MASTERPIECE, MUSIC\_ALBUM et MOVIE](wp-content/uploads/2012/11/ParallélisationTraitementsBatch%5FMPD.jpg)
 
-En base, il existe 2 types de chefs-d’œuvre : les films et les albums de musique. Comme le montre le diagramme du modèle physique de données ci-contre, chaque type de chef-d'oeuvre dispose de sa propre table : respectivement MOVIE et MUSIC\_ALBUM. Les données communes sont normalisées dans la table MAESTERPIECE.
+En base, il existe 2 types de chefs-d’œuvre : les films et les albums de musique. Comme le montre le diagramme du modèle physique de données ci-contre, chaque type de chef-d'oeuvre dispose de sa propre table : respectivement `MOVIE` et `MUSIC_ALBUM`. Les données communes sont normalisées dans la table `MAESTERPIECE`.
 
 En ce qui concerne le design du batch, le **job** peut être **décomposé en 2 steps exécutés en parallèle**, l’un chargé de traiter les albums de musique, l’autre les films. Une fois les 2 steps terminés, un **dernier step** affiche le **nombre total de chefs-d’œuvre traités**.
 
@@ -106,7 +106,7 @@ Avec une volumétrie de film supérieure à celle des albums, **le step des film
 
 Le besoin est simple. Partons d’une démarche TDD et commençons par l’écriture d’un test d’intégration.
 
-Dans un premier temps, attaquons-nous aux **données de test**, sans doute ce qu’il y’a de plus fastidieux. Exécuté au moment de la création de la base de données embarquée, le script SQL [**_TestParallelAndPartitioning.sql_**](https://raw.github.com/arey/spring-batch-toolkit/blog-parallelisation/src/test/resources/com/javaetmoi/core/batch/test/TestParallelAndPartitioning.sql "Script SQL complet") contient les ordres DDL du schéma ci-dessous ainsi que des requêtes INSERT permettant de l’alimenter.
+Dans un premier temps, attaquons-nous aux **données de test**, sans doute ce qu’il y’a de plus fastidieux. Exécuté au moment de la création de la base de données embarquée, le script SQL [`TestParallelAndPartitioning.sql`](https://raw.github.com/arey/spring-batch-toolkit/blog-parallelisation/src/test/resources/com/javaetmoi/core/batch/test/TestParallelAndPartitioning.sql "Script SQL complet") contient les ordres DDL du schéma ci-dessous ainsi que des requêtes INSERT permettant de l’alimenter.
 
 Voici un exemple de données de tests :
 
@@ -119,9 +119,9 @@ Insert <strong>into</strong> MUSIC_ALBUM (ALBUM_ID, MASTERPIECE_ID, BAND) <stron
 ```
 
 Au total, **11 albums** et **8 films** sont référencés.  
-La **classe de tests** [**_TestParallelAndPartitioning_**](https://github.com/arey/spring-batch-toolkit/blob/blog-parallelisation/src/test/java/com/javaetmoi/core/batch/test/TestParallelAndPartitioning.java "Classe de test TestParallelAndPartitioning ") repose sur **Spring Test**, **Spring Batch Test** et **JUnit**.
+La **classe de tests** [`TestParallelAndPartitioning`](https://github.com/arey/spring-batch-toolkit/blob/blog-parallelisation/src/test/java/com/javaetmoi/core/batch/test/TestParallelAndPartitioning.java "Classe de test TestParallelAndPartitioning ") repose sur **Spring Test**, **Spring Batch Test** et **JUnit**.
 
-Comme le montre l’extrait de code suivant, la classe _JobLauncherTestUtils_ issue de **Spring Batch Test** permet d’exécuter notre unique job sans avoir à lui passer de paramètres ainsi que d’attendre la fin de son traitement.
+Comme le montre l'extrait de code suivant, la classe `JobLauncherTestUtils` issue de **Spring Batch Test** permet d'exécuter notre unique job sans avoir à lui passer de paramètres ainsi que d'attendre la fin de son traitement.
 
 ```java
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -162,18 +162,18 @@ public class TestParallelAndPartitioning extends AbstractSpringBatchTest {
 L’exécution du job est suivie d’assertions :
 
 1. Le job s’est terminé avec succès
-1. Le step des films _stepLogMovie_ a traité les 8 films attendus
-1. Le step des albums de musiques _stepLogMusicAlbum_  a traité les 11 films attendus
-1. Et en y regardant de plus près, le step des albums a été décomposé en deux « sous-steps », _stepLogMusicAlbumPartition:partition0_ et _stepLogMusicAlbumPartition:partition1_ qui correspondent, comme leur nom l’indique, à chacune des 2 partitions. Les 11 films ont été séparés en 2 lots de capacités avoisinantes, à savoir de 6 et 5 films. Avec 3 partitions, on aurait pu s’attendre à un découpage de 4-4-3.
+1. Le step des films `stepLogMovie` a traité les 8 films attendus
+1. Le step des albums de musiques `stepLogMusicAlbum`  a traité les 11 films attendus
+1. Et en y regardant de plus près, le step des albums a été décomposé en deux « sous-steps », `stepLogMusicAlbumPartition:partition0` et `stepLogMusicAlbumPartition:partition1` qui correspondent, comme leur nom l'indique, à chacune des 2 partitions. Les 11 films ont été séparés en 2 lots de capacités avoisinantes, à savoir de 6 et 5 films. Avec 3 partitions, on aurait pu s'attendre à un découpage de 4-4-3.
 
 La configuration du batch commence par la déclaration de beans d’infrastructure Spring relativement génériques pour des tests :
 
 - Une base de données en mémoire H2 initialisée avec le schéma des 6 tables de Spring Batch
 - Le gestionnaire de transactions utilisé par Spring Batch pour gérer ses chunk
-- Le _JobRespository_ dans lequel seront persistés l’historique et le contexte d’exécution des batchs
-- Les beans  _SimpleJobLauncher_ et _JobLauncherTestUtils_ permettant d’exécuter le job testé
+- Le `JobRespository` dans lequel seront persistés l'historique et le contexte d'exécution des batchs
+- Les beans  `SimpleJobLauncher` et `JobLauncherTestUtils` permettant d'exécuter le job testé
 
-Ces beans sont déclarés dans le fichier [AbstractSpringBatchTest-context.xml](https://github.com/arey/spring-batch-toolkit/blob/blog-parallelisation/src/test/resources/com/javaetmoi/core/batch/test/AbstractSpringBatchTest-context.xml "Fichier de configuration Spring des beans d'infrastructure du test") :
+Ces beans sont déclarés dans le fichier [`AbstractSpringBatchTest-context.xml`](https://github.com/arey/spring-batch-toolkit/blob/blog-parallelisation/src/test/resources/com/javaetmoi/core/batch/test/AbstractSpringBatchTest-context.xml "Fichier de configuration Spring des beans d'infrastructure du test") :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -211,8 +211,8 @@ Ces beans sont déclarés dans le fichier [AbstractSpringBatchTest-context.xml](
 </beans>
 ```
 
-La majeure partie de la configuration Spring est définie dans le fichier [TestParallelAndPartitioning-context.xml](https://github.com/arey/spring-batch-toolkit/blob/blog-parallelisation/src/test/resources/com/javaetmoi/core/batch/test/TestParallelAndPartitioning-context.xml "Fichier de configuration du contexte application Spring du test TestParallelAndPartitioning ") d’où sont tirés les extraits suivants.  
-En plus du schéma nécessaire par le _JobRepository_ persistant de Spring Batch, les 3 tables de notre exemple sont créées puis alimentées avec notre jeu de données comportant 19 chefs-d’œuvre :
+La majeure partie de la configuration Spring est définie dans le fichier [`TestParallelAndPartitioning-context.xml`](https://github.com/arey/spring-batch-toolkit/blob/blog-parallelisation/src/test/resources/com/javaetmoi/core/batch/test/TestParallelAndPartitioning-context.xml "Fichier de configuration du contexte application Spring du test TestParallelAndPartitioning ") d’où sont tirés les extraits suivants.  
+En plus du schéma nécessaire par le `JobRepository` persistant de Spring Batch, les 3 tables de notre exemple sont créées puis alimentées avec notre jeu de données comportant 19 chefs-d'œuvre :
 
 ```xml
   <!-- Initialize database with 8 movies and 11 music albums -->
@@ -228,8 +228,8 @@ Un **pool de threads** sera utilisé pour paralléliser le job . Ce pool est dim
   <task:executor id="batchTaskExecutor" pool-size="4" />
 ```
 
-Vient ensuite la déclaration du **job** Spring Batch. L’utilisation des balises **_split_** et **_flow_** permet de mettre en œuvre les **Parallel Steps**. Couplée avec l’attribut **_task-executor_**, l’enchainement des Steps référencés par les flows n’est alors plus linéaire.  
-Les 2 flows _flowMovie_ et _flowMusicAlbum_ sont exécutés en parallèle. Une fois ces 2 flows terminés, le step _stepEnd_ terminera le job.
+Vient ensuite la déclaration du **job** Spring Batch. L’utilisation des balises `split` et `flow` permet de mettre en œuvre les **Parallel Steps**. Couplée avec l’attribut `task-executor`, l’enchainement des Steps référencés par les flows n’est alors plus linéaire.  
+Les 2 flows `flowMovie` et `flowMusicAlbum` sont exécutés en parallèle. Une fois ces 2 flows terminés, le step `stepEnd` terminera le job.
 
 ```xml
   <!-- Job combining both parallel steps and an local partitions -->
@@ -248,10 +248,10 @@ Les 2 flows _flowMovie_ et _flowMusicAlbum_ sont exécutés en parallèle. Une f
   </batch:job>
 ```
 
-Composé d’un seul **step** (sans partition), la déclaration du flow **_flowMusicAlbum_** chargée de logger les **films** est la plus simple. De type **chunk**, le step a un reader utilisant un **curseur JDBC** pour itérer sur la liste des films. La classe **_BeanPropertyRowMapper_** permet d’effectuer le mapping entre les colonnes du _ResultSet_ de la requête SQL et le bean java _Movie_ ; il se base sur le nom des colonnes et le nom des propriétés du bean.
+Composé d'un seul **step** (sans partition), la déclaration du flow `flowMusicAlbum` chargée de logger les **films** est la plus simple. De type **chunk**, le step a un reader utilisant un **curseur JDBC** pour itérer sur la liste des films. La classe `BeanPropertyRowMapper` permet d'effectuer le mapping entre les colonnes du `ResultSet` de la requête SQL et le bean java `Movie` ; il se base sur le nom des colonnes et le nom des propriétés du bean.
 
-Le **writer** affiche les propriétés du bean _Movie_ à l’aide de la méthode _ToStringBuilder.reflectionToString()_ d’Apache Commons Lang.  
-L’attribut **_commit-interval_** du chunk est fixé volontairement à 2. Ainsi, le writer est appelé tous les 2 films. Cela permet de voir plus facilement l’enchevêtrement des différents threads.
+Le **writer** affiche les propriétés du bean `Movie` à l'aide de la méthode `ToStringBuilder.reflectionToString()` d'Apache Commons Lang.  
+L'attribut `commit-interval` du chunk est fixé volontairement à 2. Ainsi, le writer est appelé tous les 2 films. Cela permet de voir plus facilement l'enchevêtrement des différents threads.
 
 ```xml
   <!-- The movie flow is composed of a single step that reads all movies then log them -->
@@ -280,7 +280,7 @@ L’attribut **_commit-interval_** du chunk est fixé volontairement à 2. Ainsi
   </batch:flow>
 ```
 
-Le flow chargé de traiter les films est lui aussi composé d’un seul step : **_stepLogMusicAlbum_**. Ce dernier est **partitionné** en 2 (propriété **_grid-size="2"_** du handler). Le même pool de threads est utilisé pour traiter les 2 partitions. Le bean chargé de partitionner les données est référencé : _partitionerMusicAlbum_. Le traitement des « sous-steps » partitionnés est confié au bean _stepLogMusicAlbumPartition_.
+Le flow chargé de traiter les films est lui aussi composé d'un seul step : `stepLogMusicAlbum`. Ce dernier est **partitionné** en 2 (propriété `grid-size="2"` du handler). Le même pool de threads est utilisé pour traiter les 2 partitions. Le bean chargé de partitionner les données est référencé : `partitionerMusicAlbum`. Le traitement des « sous-steps » partitionnés est confié au bean `stepLogMusicAlbumPartition`.
 
 ```xml
   <!-- The music flow is composed of a single step which is partitioned -->
@@ -294,8 +294,8 @@ Le flow chargé de traiter les films est lui aussi composé d’un seul step : *
   </batch:flow>
 ```
 
-Le bean **_partitionerMusicAlbum_** repose sur la classe **_[ColumnRangePartitioner](http://static.springsource.org/spring-batch/apidocs/org/springframework/batch/sample/common/ColumnRangePartitioner.html)_** reprise des [samples Spring Batch](http://static.springsource.org/spring-batch/spring-batch-samples/index.html "Page d'accueil des Samples Spring Batch") La **clé de partition** doit lui être précisé sous forme du **couple nom de table / nom de colonne**.  
-Techniquement, cette classe utilise ces données pour récupérer les **valeurs minimales** et **maximales** de la clé. Pour se faire, 2 requêtes SQL sont exécutées. A partir, du min et du max, connaissant le nombre de partitions à créer (grid-size), elle calcule des **intervalles de données de grandeur équivalente**. Afin que les partitions soient de taille équivalente en termes de données, les valeurs des clés doivent être uniformément distribuées. C’est par exemple le cas avec un identifiant technique généré par une séquence base de données et pour lesquelles aucune donnée n’est supprimée (pas de trou). Les clés **minValue** et **maxValue** de chaque intervalle sont mises à disposition dans le **contexte d'exécution** de chaque « sous-step ».
+Le bean `partitionerMusicAlbum` repose sur la classe [`ColumnRangePartitioner`](http://static.springsource.org/spring-batch/apidocs/org/springframework/batch/sample/common/ColumnRangePartitioner.html) reprise des [samples Spring Batch](http://static.springsource.org/spring-batch/spring-batch-samples/index.html "Page d'accueil des Samples Spring Batch") La **clé de partition** doit lui être précisé sous forme du **couple nom de table / nom de colonne**.  
+Techniquement, cette classe utilise ces données pour récupérer les **valeurs minimales** et **maximales** de la clé. Pour se faire, 2 requêtes SQL sont exécutées. A partir, du min et du max, connaissant le nombre de partitions à créer (grid-size), elle calcule des **intervalles de données de grandeur équivalente**. Afin que les partitions soient de taille équivalente en termes de données, les valeurs des clés doivent être uniformément distribuées. C’est par exemple le cas avec un identifiant technique généré par une séquence base de données et pour lesquelles aucune donnée n’est supprimée (pas de trou). Les clés `minValue` et `maxValue` de chaque intervalle sont mises à disposition dans le **contexte d'exécution** de chaque « sous-step ».
 
 ```java
   <!-- The partitioner finds the minimum and maximum primary keys in the music album table to obtain a count of rows and
@@ -307,7 +307,7 @@ Techniquement, cette classe utilise ces données pour récupérer les **valeurs 
   </bean>
 ```
 
-De la même manière que son cousin _stepLogMovie_, le bean **_stepLogMusicAlbumPartition_** est composé d’un chunk tasklet. Celui-ci référence 2 beans définis dans la suite du fichier de configuration : _readerMusicAlbum_ et _anyObjectWriter_, ce dernier étant déjà utilisé par le bean _stepLogMovie_.
+De la même manière que son cousin `stepLogMovie`, le bean `stepLogMusicAlbumPartition` est composé d'un chunk tasklet. Celui-ci référence 2 beans définis dans la suite du fichier de configuration : `readerMusicAlbum` et `anyObjectWriter`, ce dernier étant déjà utilisé par le bean `stepLogMovie`.
 
 ```xml
   <!-- Read music albums from database then write them into logs -->
@@ -318,11 +318,11 @@ De la même manière que son cousin _stepLogMovie_, le bean **_stepLogMusicAlbum
   </batch:step>
 ```
 
-Par rapport à celui en charge de la lecture des films, le bean **_readerMusicAlbum_** se démarque en 2 points :
+Par rapport à celui en charge de la lecture des films, le bean `readerMusicAlbum` se démarque en 2 points :
 
-1. La requête SQL filtre non seulement les chefs-d’œuvre par leur genre ( _where genre='Music'_), mais également sur une plage d’identifiants ( _and  b.album\_id >= ? and b.album\_id <= ?)_ relatifs à la clé de partitionnement. Cette requête est donc dynamique. Basé sur un _PreparedStatement_ JDBC, elle est exécutée autant de fois qu’il y’a de partitions à traiter.
+1. La requête SQL filtre non seulement les chefs-d'œuvre par leur genre ( `where genre='Music'`), mais également sur une plage d'identifiants ( `and  b.album_id >= ? and b.album_id <= ?`) relatifs à la clé de partitionnement. Cette requête est donc dynamique. Basé sur un `PreparedStatement` JDBC, elle est exécutée autant de fois qu'il y'a de partitions à traiter.
 
-Les 2 **paramètres de la requête** (symbolisés par un ?) sont **évalués dynamiquement** à partir du contexte d’exécution du step. Une Spring Expression Language (SPeL) est utilisée dans la définition du bean anonyme basé sur la classe _ListPreparedStatementSetter_. Ceci est permis grâce à la **portée** du bean reader qui est de type **step** (scope="step").
+Les 2 **paramètres de la requête** (symbolisés par un ?) sont **évalués dynamiquement** à partir du contexte d'exécution du step. Une Spring Expression Language (SPeL) est utilisée dans la définition du bean anonyme basé sur la classe `ListPreparedStatementSetter`. Ceci est permis grâce à la **portée** du bean reader qui est de type **step** (scope="step").
 
 ```xml
   <!-- JdbcCursorItemReader in charge of selecting music albums by id range -->
@@ -354,7 +354,7 @@ Les 2 **paramètres de la requête** (symbolisés par un ?) sont **évalués dyn
   </bean>
 ```
 
-Après épuration des logs et ajout d’un _Thread.sleep(50)_ dans la classe _ConsoleItemWriter_ dans le but, voici le résultat de l’exécution du batch :
+Après épuration des logs et ajout d'un `Thread.sleep(50)` dans la classe `ConsoleItemWriter` dans le but, voici le résultat de l'exécution du batch :
 
 ```diff
 Job: [FlowJob: [name=parallelAndPartitioningJob]] launched with the following parameters: [{timestamp=1354297881856}]

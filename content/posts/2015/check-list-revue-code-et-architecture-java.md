@@ -66,7 +66,7 @@ Le texte et les libellés des pages JSP sont externalisés dans des message bund
 Utiliser des types abstraits ou des interfaces.
 Eviter les appels de méthodes statiques.**Thread-safe**Les ressources partagées entre 2 requêtes HTTP doivent être synchronisées.
 Attention aux beans Spring de portées singleton et prototype avec états.**Gestion des exceptions**Utiliser des exceptions vérifiées pour les erreurs fonctionnelles récupérables.
-Utiliser les exceptions non vérifiées ( _RuntimeException_) pour les erreurs techniques non récupérables.
+Utiliser les exceptions non vérifiées ( `RuntimeException`) pour les erreurs techniques non récupérables.
 Lever des exceptions dès que nécessaire (au plus tôt). Programmation défensive, par assertions.
 Traiter les exceptions au niveau le plus haut. Traiter les exceptions dans les niveaux intermédiaires que si nécessaire.**Frameworks**Utiliser les bibliothèques et frameworks référencés dans le catalogue des normes et standards l’EntrepriseL'ajout de dépendances tierces est soumise à dérogation et se devra d’être justifié.**Singleton**Ne pas utiliser le pattern Singleton.
 Laisser Spring gérer le cycle de vie des objets (beans de portée singleton)**Logs applicatifs**Messages de logs pertinents et contextualisés.
@@ -93,7 +93,7 @@ Un test sans assertion ne vaut (presque) rien.**DAO / Repository**DbUnit (ou DbS
 
 ## Sécurité
 
-**Rubrique**Description**SQL**Utiliser des _PreparedStatement_ avec JDBC.**Logs**Ne pas logger des données sensibles.**Web**Les applications web sont sécurisées avec Spring Security.
+**Rubrique**Description**SQL**Utiliser des `PreparedStatement` avec JDBC.**Logs**Ne pas logger des données sensibles.**Web**Les applications web sont sécurisées avec Spring Security.
 Valider systématiquement les données saisies par l'utilisateur.
 Un utilisateur ne doit pas pouvoir escalader ses propres privilèges en forgeant sa propre requête HTTP.
 

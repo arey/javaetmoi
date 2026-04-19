@@ -33,11 +33,11 @@ url: /2014/04/hibernate4-sous-jboss5-avec-spring4/
 Dans mon [précédent billet](/2014/04/support-vfs2-jboss5-spring4/ "Support du VFS 2 de JBoss 5 dans Spring 4"), je vous expliquais comment réintroduire le support de VFS 2 abandonné dans **Spring Framework 4.0**. Et ceci, dans l’optique de pouvoir déployer mon application dans le serveur d’application **JBoss 5.1 EAP**.  
 Outre ce problème survenant lors de la détection de beans Spring dans le classpath, la montée de version de Spring 3.2 à Spring 4 a révélé un autre problème lié au format VFS de JBoss.  Cette fois-ci, c’est le framework **Hibernate 4.3** qui n’arrive pas à détecter les entités JPA du classpath.
 
-Certifié conforme à Java EE 5, JBoss 5.1 EAP utilise Hibernate 3.3 comme implémentation de JPA 1.  Dans mon cas, Hibernate 4.3 est utilisé en mode standalone et est donc directement embarqué dans les librairies de mon EAR. La configuration **JPA 2.1** est assurée par le support JPA offert par Spring, et plus particulièrement par la classe _[LocalContainerEntityManagerFactoryBean](https://github.com/spring-projects/spring-framework/blob/v4.0.3.RELEASE/spring-orm/src/main/java/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBean.java)_.  
+Certifié conforme à Java EE 5, JBoss 5.1 EAP utilise Hibernate 3.3 comme implémentation de JPA 1.  Dans mon cas, Hibernate 4.3 est utilisé en mode standalone et est donc directement embarqué dans les librairies de mon EAR. La configuration **JPA 2.1** est assurée par le support JPA offert par Spring, et plus particulièrement par la classe [`LocalContainerEntityManagerFactoryBean`](https://github.com/spring-projects/spring-framework/blob/v4.0.3.RELEASE/spring-orm/src/main/java/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBean.java).  
 
 ## Problème rencontré
 
-Au démarrage de l’application, Hibernate s’appuie sur l’interface _[Scanner](https://github.com/hibernate/hibernate-orm/blob/4.3.5.Final/hibernate-entitymanager/src/main/java/org/hibernate/jpa/boot/scan/spi/Scanner.java)_ pour détecter les classes, les packages et les ressources d’une Unité de Persistance JPA. L’implémentation _[StandardScanner](https://github.com/hibernate/hibernate-orm/blob/4.3.5.Final/hibernate-entitymanager/src/main/java/org/hibernate/jpa/boot/scan/internal/StandardScanner.java)_ délègue le parcours du WAR à la classe _[StandardArchiveDescriptorFactory](https://github.com/hibernate/hibernate-orm/blob/4.3.5.Final/hibernate-entitymanager/src/main/java/org/hibernate/jpa/boot/archive/internal/StandardArchiveDescriptorFactory.java)_. Ligne 72 de cette dernière, l’appel à la méthode file.exists() échoue sur le chemin « vfszip:/C:/jboss-eap-5.1/server/default/deploy/myapp-ear-1.0.0-SNAPSHOT.ear/myapp-war-1.0.0-SNAPSHOT.war/WEB-INF/classes/ ». Une _IllegalArgumentException_ est levée :
+Au démarrage de l’application, Hibernate s’appuie sur l’interface [`Scanner`](https://github.com/hibernate/hibernate-orm/blob/4.3.5.Final/hibernate-entitymanager/src/main/java/org/hibernate/jpa/boot/scan/spi/Scanner.java) pour détecter les classes, les packages et les ressources d’une Unité de Persistance JPA. L’implémentation [`StandardScanner`](https://github.com/hibernate/hibernate-orm/blob/4.3.5.Final/hibernate-entitymanager/src/main/java/org/hibernate/jpa/boot/scan/internal/StandardScanner.java) délègue le parcours du WAR à la classe [`StandardArchiveDescriptorFactory`](https://github.com/hibernate/hibernate-orm/blob/4.3.5.Final/hibernate-entitymanager/src/main/java/org/hibernate/jpa/boot/archive/internal/StandardArchiveDescriptorFactory.java). Ligne 72 de cette dernière, l’appel à la méthode `file.exists()` échoue sur le chemin « vfszip:/C:/jboss-eap-5.1/server/default/deploy/myapp-ear-1.0.0-SNAPSHOT.ear/myapp-war-1.0.0-SNAPSHOT.war/WEB-INF/classes/ ». Une `IllegalArgumentException` est levée :
 
 ```java
 21:51:24,472 INFO  [STDOUT] 21:51:24.472 |  INFO |  | Building JPA container EntityManagerFactory for persistence unit 'persistenceUnit'| org.springframework.orm.jpa.LocalContainerEntityManagerFactoryB ean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:332)
@@ -84,8 +84,8 @@ Caused by: java.lang.IllegalArgumentException: File [/C:/jboss-eap-5.1/server/de
 
 ## Solution
 
-Comme précisé en introduction, notre application utilise la fabrique de beans _[LocalContainerEntityManagerFactoryBean](https://github.com/spring-projects/spring-framework/blob/v4.0.3.RELEASE/spring-orm/src/main/java/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBean.java)_ pour créer l’ _[EntityManagerFactory](http://docs.oracle.com/javaee/6/api/javax/persistence/EntityManagerFactory.html)_ de JPA. Lors de la configuration de ce bean, la méthode _setPackagesToScan_ permet d’indiquer à Spring quel package Java il doit scanner au démarrage de l’application pour détecter les entités JPA. Spring utilise alors le même mécanisme d’auto-détection que pour les beans Spring et scanne tous les JAR du classpath.  
-Dans l’exemple ci-desssous, le package _com.javaetmoi.demo.model_ ainsi que tous ses sous-packages sont scannés :
+Comme précisé en introduction, notre application utilise la fabrique de beans [`LocalContainerEntityManagerFactoryBean`](https://github.com/spring-projects/spring-framework/blob/v4.0.3.RELEASE/spring-orm/src/main/java/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBean.java) pour créer l’ [`EntityManagerFactory`](http://docs.oracle.com/javaee/6/api/javax/persistence/EntityManagerFactory.html) de JPA. Lors de la configuration de ce bean, la méthode `setPackagesToScan` permet d’indiquer à Spring quel package Java il doit scanner au démarrage de l’application pour détecter les entités JPA. Spring utilise alors le même mécanisme d’auto-détection que pour les beans Spring et scanne tous les JAR du classpath.  
+Dans l’exemple ci-desssous, le package `com.javaetmoi.demo.model` ainsi que tous ses sous-packages sont scannés :
 
 ```java
 @Bean
@@ -101,18 +101,18 @@ public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
 }
 ```
 
-Le support JPA proposé par Spring fait que le fichier _pesistence.xml_ n’a plus de raison d’être. Et vous l’aurez compris, le scan d’Hibernate ait redondant à celui de Spring. Il peut donc être désactivé.
+Le support JPA proposé par Spring fait que le fichier `pesistence.xml` n’a plus de raison d’être. Et vous l’aurez compris, le scan d’Hibernate ait redondant à celui de Spring. Il peut donc être désactivé.
 
-La classe **[NopScanner](https://gist.github.com/arey/10308277)** disponible sous forme de Gist permet de court-circuiter le scan d’Hibernate :
+La classe **[`NopScanner`](https://gist.github.com/arey/10308277)** disponible sous forme de Gist permet de court-circuiter le scan d’Hibernate :
 
 ```java
 No-operation Hibernate Scanner
 ```
 
-Indiquer à Hibernate d’utiliser la classe [NopScanner](https://gist.github.com/arey/10308277) revient à déclarer la propriété Hibernate suivante :  
-_hibernate.ejb.resource\_scanner=com.javaetmoi.core.persistence.hibernate.NopScanner_
+Indiquer à Hibernate d’utiliser la classe [`NopScanner`](https://gist.github.com/arey/10308277) revient à déclarer la propriété Hibernate suivante :
+`hibernate.ejb.resource_scanner=com.javaetmoi.core.persistence.hibernate.NopScanner`
 
-En utilisant la syntaxe Java, cette propriété peut être ajoutée dans la méthode _additionalProperties()_ utilisée lors de la déclaration du bean _LocalContainerEntityManagerFactoryBean_ dans l’exemple précédent :
+En utilisant la syntaxe Java, cette propriété peut être ajoutée dans la méthode `additionalProperties()` utilisée lors de la déclaration du bean `LocalContainerEntityManagerFactoryBean` dans l’exemple précédent :
 
 ```java
  private Properties additionalProperties() {

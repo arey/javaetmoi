@@ -28,7 +28,7 @@ url: /2016/09/merge-git-et-release-maven/
 ---
 L’utilisation conjointe de **Maven** pour réaliser des release et de **git-flow** peut s’avérer laborieuse.
 En effet, lorsque vous travaillez avec des branches (quel que soit le SCM), une bonne pratique veut que chaque branche possède son propre numéro de version. Afin d’éviter des collisions de nommage, cette pratique devient indispensable lorsque vous utilisez un serveur d’intégration continue pour publier les artefacts construits dans un repo Maven.
-Une fois une branche crée à partir d’une autre, chaque branche vit sa vie. Des releases Maven peuvent être réalisées de part et d’autre. Là où cela devient tendu, c’est lorsque vous devez reporter les commits d’une branche vers une autre. **Des conflits de merge sur le numéro de version Maven apparaissent alors inévitablement**. Lorsque votre application multi-modules comporte 15 pom.xml, c’est 15 conflits qu’il va falloir gérer manuellement. Il est effectivement risqué de conserver aveuglément la version du pom.xml local ou distant, car d’autres changements (et vrais conflits) peuvent se produire dans d’autres sections du pom.xml.
+Une fois une branche crée à partir d’une autre, chaque branche vit sa vie. Des releases Maven peuvent être réalisées de part et d’autre. Là où cela devient tendu, c’est lorsque vous devez reporter les commits d’une branche vers une autre. **Des conflits de merge sur le numéro de version Maven apparaissent alors inévitablement**. Lorsque votre application multi-modules comporte 15 `pom.xml`, c’est 15 conflits qu’il va falloir gérer manuellement. Il est effectivement risqué de conserver aveuglément la version du `pom.xml` local ou distant, car d’autres changements (et vrais conflits) peuvent se produire dans d’autres sections du `pom.xml`.
 
 Comme cas d’études, prenons l’exemple du repo Git helloworld :![merge1](wp-content/uploads/2016/09/merge1.png)
 
@@ -70,8 +70,8 @@ index b43c671,01257f6..0000000
 
 Le conflit doit être résolu manuellement : la version 1.1.0-SNAPSHOT de la branche develop est à conserver.
 
-Une solution permettant d’éviter de résoudre ce genre de conflits consiste à **utiliser un script que va utiliser Git pour merger 2 fichiers pom.xml**. C’est précisément l’objectif du driver de merge [**mergepom.py**](https://github.com/ralfth/pom-merge-driver/blob/master/mergepom.py) écrit en **Python** et que vous pouvez récupérer sur le repo GitHub [**pom-merge-driver**](https://github.com/ralfth/pom-merge-driver).
-L’utilisation de ce script sous **Linux** et **Mac** est décrite dans le [README.md](https://github.com/ralfth/pom-merge-driver/blob/master/README.md).
+Une solution permettant d’éviter de résoudre ce genre de conflits consiste à **utiliser un script que va utiliser Git pour merger 2 fichiers pom.xml**. C’est précisément l’objectif du driver de merge [`mergepom.py`](https://github.com/ralfth/pom-merge-driver/blob/master/mergepom.py) écrit en **Python** et que vous pouvez récupérer sur le repo GitHub [**pom-merge-driver**](https://github.com/ralfth/pom-merge-driver).
+L’utilisation de ce script sous **Linux** et **Mac** est décrite dans le [`README.md`](https://github.com/ralfth/pom-merge-driver/blob/master/README.md).
 Sur **Windows**, il est nécessaire de faire quelques adaptations :
 
 - [Télécharger et installer Python (la version portable est suffisante)](https://www.python.org/downloads/)
@@ -84,15 +84,15 @@ Sur **Windows**, il est nécessaire de faire quelques adaptations :
         driver = '/C/dev/python/python.exe' C:/dev/git/mergepom.py %O %A %B
 ```
 
-Afin de laisser la liberté aux autres développeurs d’utiliser ce script ou non, j’ai ajouté le fichier **attributes** dans le répertoire **.git/info** de mon repo local :
+Afin de laisser la liberté aux autres développeurs d’utiliser ce script ou non, j’ai ajouté le fichier `attributes` dans le répertoire `.git/info` de mon repo local :
 
 ```default
 pom.xml merge=pommerge
 ```
 
-Remarque : alternativement, on peut également ajouter cette  ligne dans le fichier .gitattributes situé dans le répertoire racine du repo Git. Tous les développeurs de l'application en profitent alors.
+Remarque : alternativement, on peut également ajouter cette  ligne dans le fichier `.gitattributes` situé dans le répertoire racine du repo Git. Tous les développeurs de l'application en profitent alors.
 
-On relance la commande de merge. Cette fois-ci, le script détecte un conflit sur le numéro de version du pom.xml et décide de garder celui de la branche courante, à savoir 1.1.0-SNAPHSOT :
+On relance la commande de merge. Cette fois-ci, le script détecte un conflit sur le numéro de version du `pom.xml` et décide de garder celui de la branche courante, à savoir 1.1.0-SNAPHSOT :
 
 ```sh
 git merge release/1.0.x

@@ -43,5 +43,5 @@ Au sommaire du workshop :
    1. et QueryDSL
 1. **Gestion des transactions**
    1.  Support des transactions
-   1. Déclaration avec l'annotation @Transactional
+   1. Déclaration avec l'annotation `@Transactional`
    1. Annotations versus AOP

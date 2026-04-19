@@ -52,7 +52,7 @@ C’est cette 3ième solution que je compte vous présenter.
 
 ## Mise en oeuvre
 
-Pour être tout à fait exact, il ne faudra pas patcher qu’Hibernate Validator. **L’API EL 2.2 et son implémentation** devront également être **patchées**. En effet, afin de faire fonctionner de pair EL 2.1 (pour le conteneur de Servlet) et EL 2.2 (pour Hibernate Validator), le package des classes d’EL 2.2 doit être renommé. A cet effet, le package _javax.el_ pourra par exemple être changé en _com.javaetmoi.fork.javax.el_.
+Pour être tout à fait exact, il ne faudra pas patcher qu’Hibernate Validator. **L’API EL 2.2 et son implémentation** devront également être **patchées**. En effet, afin de faire fonctionner de pair EL 2.1 (pour le conteneur de Servlet) et EL 2.2 (pour Hibernate Validator), le package des classes d’EL 2.2 doit être renommé. A cet effet, le package `javax.el` pourra par exemple être changé en `com.javaetmoi.fork.javax.el`.
 Récupérer le code source de [javax.el 2.2.6](https://svn.java.net/svn/uel~svn/tags/javax.el-2.2.6) et [javaxx.el-api 2.2.6](https://svn.java.net/svn/uel~svn/tags/javax.el-api-2.2.6) depuis le SVN de java.net ne pose guère de difficulté, construire le projet avec Maven non plus.
 Une fois les projets importés dans votre IDE, la fonction de refactoring de ce dernier s’occupera de modifier automatiquement les imports.
 Vous aurez à éditer les pom.xml et à changer le groupId ou l’artefactId afin de pouvoir dépendre des 2 versions d’EL. Builder les projets et déployer les dans votre repos local ou votre repo d’entreprise.

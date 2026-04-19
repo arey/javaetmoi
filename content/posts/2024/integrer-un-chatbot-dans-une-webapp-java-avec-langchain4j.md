@@ -98,7 +98,7 @@ Dans le pom.xml de Spring Petclinic, commençons par déclarer les deux dépenda
 
 Le premier starter **langchain4j-spring-boot-starter** expose la classe d’auto-configuration pour Spring Boot [LangChain4jAutoConfig](https://github.com/langchain4j/langchain4j-spring/blob/3fbf707037689cda90f67dc02ca54983cfd1a5ce/langchain4j-spring-boot-starter/src/main/java/dev/langchain4j/spring/LangChain4jAutoConfig.java) et donne, entre autre, accès à l’annotation [@AiService](https://github.com/langchain4j/langchain4j-spring/blob/3fbf707037689cda90f67dc02ca54983cfd1a5ce/langchain4j-spring-boot-starter/src/main/java/dev/langchain4j/service/spring/AiService.java) que nous utiliserons dans une prochaine étape.
 
-Le second starter **langchain4j-open-ai-spring-boot-starter** permet quant à lui de parser et binder les propriétés spécifiques à OpenAI du fichier de configuration application.properties (ex : _langchain4j.azure-open-ai.chat-model.api-key_). Par transitivité, il tire les artefacts langchain4j-open-ai et dev.ai4j:openai4j. En interne, LangChain4j s’appuie sur le **client Java non officiel** [**openai4j**](https://github.com/ai-for-java/openai4j) permettant de connecter des applications Java à l'API OpenAI.
+Le second starter **langchain4j-open-ai-spring-boot-starter** permet quant à lui de parser et binder les propriétés spécifiques à OpenAI du fichier de configuration application.properties (ex : `langchain4j.azure-open-ai.chat-model.api-key`). Par transitivité, il tire les artefacts langchain4j-open-ai et dev.ai4j:openai4j. En interne, LangChain4j s’appuie sur le **client Java non officiel** [**openai4j**](https://github.com/ai-for-java/openai4j) permettant de connecter des applications Java à l'API OpenAI.
 
 ## Configuration OpenAI
 
@@ -113,9 +113,9 @@ langchain4j.open-ai.chat-model.log-responses=true
 
 Plus compact et moins cher que le **modèle gpt-4o** préconisé pour la démo, le modèle **gpt-4o-mini** peut également être utilisé et sait répondre aux exemples de questions suggérées dans le [readme.md](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/main/readme.md).
 
-Spring Boot détermine les beans à instancier en fonction des propriétés déclarées. A titre d’exemple, la classe [_AutoConfig_](https://github.com/langchain4j/langchain4j-spring/blob/main/langchain4j-open-ai-spring-boot-starter/src/main/java/dev/langchain4j/openai/spring/AutoConfig.java) du starter LangChain4j OpenAI pour Spring Boot, déclare conditionnellement un bean de type [_OpenAiChatModel_](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-open-ai/src/main/java/dev/langchain4j/model/openai/OpenAiChatModel.java) implémentant l’interface agnostique [**_ChatLanguageModel_**](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/model/chat/ChatLanguageModel.java) lorsque la propriété `langchain4j.open-ai.chat-model.api-key` est déclarée.
-Dans la suite de cet article, nous aurons besoin d’un bean de type [_StreamingChatLanguageModel_](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/model/chat/StreamingChatLanguageModel.java) permettant de streamer la réponse du LLM token par token. 
-Sur le même principe, la propriété `langchain4j.open-ai.streaming-chat-model.api-key` déclenchera l’instanciation d’un bean de type [_OpenAiStreamingChatModel_](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-open-ai/src/main/java/dev/langchain4j/model/openai/OpenAiStreamingChatModel.java) implémentant l’interface `StreamingChatLanguageModel`.
+Spring Boot détermine les beans à instancier en fonction des propriétés déclarées. A titre d’exemple, la classe [`AutoConfig`](https://github.com/langchain4j/langchain4j-spring/blob/main/langchain4j-open-ai-spring-boot-starter/src/main/java/dev/langchain4j/openai/spring/AutoConfig.java) du starter LangChain4j OpenAI pour Spring Boot, déclare conditionnellement un bean de type [`OpenAiChatModel`](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-open-ai/src/main/java/dev/langchain4j/model/openai/OpenAiChatModel.java) implémentant l’interface agnostique [`ChatLanguageModel`](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/model/chat/ChatLanguageModel.java) lorsque la propriété `langchain4j.open-ai.chat-model.api-key` est déclarée.
+Dans la suite de cet article, nous aurons besoin d’un bean de type [`StreamingChatLanguageModel`](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/model/chat/StreamingChatLanguageModel.java) permettant de streamer la réponse du LLM token par token. 
+Sur le même principe, la propriété `langchain4j.open-ai.streaming-chat-model.api-key` déclenchera l’instanciation d’un bean de type [`OpenAiStreamingChatModel`](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-open-ai/src/main/java/dev/langchain4j/model/openai/OpenAiStreamingChatModel.java) implémentant l’interface `StreamingChatLanguageModel`.
 
 ## Déclarer un AI Service
 
@@ -226,7 +226,7 @@ Une solution consiste à implémenter l’interface [ChatMemoryStore](https://gi
 
 ## Supporter plusieurs utilisateurs
 
-A ce stade, la même instance de _ChatMemory_ est utilisée pour toutes les invocations du service d'IA. Cette approche a des limites et ne fonctionnera pas avec plusieurs utilisateurs.
+A ce stade, la même instance de `ChatMemory` est utilisée pour toutes les invocations du service d'IA. Cette approche a des limites et ne fonctionnera pas avec plusieurs utilisateurs.
 Chaque utilisateur a besoin de sa propre instance de `ChatMemory` pour maintenir sa conversation individuelle.  
 Une [solution proposée par LangChain4j](https://docs.langchain4j.dev/tutorials/ai-services/#chat-memory) consiste à utiliser un [**ChatMemoryProvider**](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j/src/main/java/dev/langchain4j/memory/chat/ChatMemoryProvider.java) :
 
@@ -903,7 +903,7 @@ public class EmbeddingStoreInit {
 }
 ```
 
-La classe EmbeddingStoreInit fait appel au [_VetRepository_](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java) pour charger tous vétérinaires de la base, les marshalle en un gros [Document](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/data/document/Document.java) JSON puis fait appel à la classe [EmbeddingStoreIngestor](https://docs.langchain4j.dev/tutorials/rag/#embedding-store-ingestor) de LangChain4j.
+La classe EmbeddingStoreInit fait appel au [`VetRepository`](https://github.com/spring-petclinic/spring-petclinic-langchain4j/blob/v3.3.3/src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java) pour charger tous vétérinaires de la base, les marshalle en un gros [Document](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/data/document/Document.java) JSON puis fait appel à la classe [EmbeddingStoreIngestor](https://docs.langchain4j.dev/tutorials/rag/#embedding-store-ingestor) de LangChain4j.
 Cet EmbeddingStoreIngestor est configuré avec le modèle d’embedding, la base vectorielle où les embeddings seront stockés et un [DocumentByLineSplitter](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j/src/main/java/dev/langchain4j/data/document/splitter/DocumentByLineSplitter.java) chargé de découper le volumineux document JSON en [TextSegment](https://github.com/langchain4j/langchain4j/blob/0.35.0/langchain4j-core/src/main/java/dev/langchain4j/data/segment/TextSegment.java)
 censé améliorer la qualité des recherches de similarité et de réduire la taille et le coût d'une invite envoyée au LLM.
 

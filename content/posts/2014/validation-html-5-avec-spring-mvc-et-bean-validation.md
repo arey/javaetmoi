@@ -17,7 +17,7 @@ summary: |-
 
   Cet article explique comment **étendre Spring MVC pour générer le code HTML 5** **des champs de saisie** (input fields) à partir des **annotations Bean Validation** (JSR 330) apposées sur des Entités ou de simples DTO.
 
-  Dans une application web **, valider les écrans de saisie côté client** permet de donner un retour rapide à l’utilisateur. Avant HTML 5, le développeur web était bien démuni pour implémenter ces contrôles de surface sur le Navigateur. Certes, HTML 4 permettait de spécifier la taille max des champs de saisie (balise _maxLength_) et leur caractère obligatoire ou non (balise _required_). Les autres contrôles effectués côté serveur étaient alors bien souvent recodés en JavaScript à l’aide de jQuery, de CSS et de quelques plugins.
+  Dans une application web **, valider les écrans de saisie côté client** permet de donner un retour rapide à l’utilisateur. Avant HTML 5, le développeur web était bien démuni pour implémenter ces contrôles de surface sur le Navigateur. Certes, HTML 4 permettait de spécifier la taille max des champs de saisie (balise `maxLength`) et leur caractère obligatoire ou non (balise `required`). Les autres contrôles effectués côté serveur étaient alors bien souvent recodés en JavaScript à l’aide de jQuery, de CSS et de quelques plugins.
   Aujourd’hui, HTML 5 se démocratise et le code JavaScript de validation devrait bientôt s’alléger drastiquement. En effet, cette spécification permet de standardiser la validation des champs de saisie côté client. Le développeur a désormais la possibilité de spécifier le type de champs (ex : nombre, date, URL …), des valeurs min et max ou bien encore un pattern de validation à l’aide d’une expression régulière.
 
   ![Logo HTML 5](wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-logo.png)
@@ -36,7 +36,7 @@ url: /2014/09/validation-html-5-avec-spring-mvc-et-bean-validation/
 
 Cet article explique comment **étendre Spring MVC pour générer le code HTML 5** **des champs de saisie** (input fields) à partir des **annotations Bean Validation** (JSR 330) apposées sur des Entités ou de simples DTO.
 
-Dans une application web **, valider les écrans de saisie côté client** permet de donner un retour rapide à l’utilisateur. Avant HTML 5, le développeur web était bien démuni pour implémenter ces contrôles de surface sur le Navigateur. Certes, HTML 4 permettait de spécifier la taille max des champs de saisie (balise _maxLength_) et leur caractère obligatoire ou non (balise _required_). Les autres contrôles effectués côté serveur étaient alors bien souvent recodés en JavaScript à l’aide de jQuery, de CSS et de quelques plugins.
+Dans une application web **, valider les écrans de saisie côté client** permet de donner un retour rapide à l’utilisateur. Avant HTML 5, le développeur web était bien démuni pour implémenter ces contrôles de surface sur le Navigateur. Certes, HTML 4 permettait de spécifier la taille max des champs de saisie (balise `maxLength`) et leur caractère obligatoire ou non (balise `required`). Les autres contrôles effectués côté serveur étaient alors bien souvent recodés en JavaScript à l’aide de jQuery, de CSS et de quelques plugins.
 Aujourd’hui, HTML 5 se démocratise et le code JavaScript de validation devrait bientôt s’alléger drastiquement. En effet, cette spécification permet de standardiser la validation des champs de saisie côté client. Le développeur a désormais la possibilité de spécifier le type de champs (ex : nombre, date, URL …), des valeurs min et max ou bien encore un pattern de validation à l’aide d’une expression régulière.
 
 ## Validation HTML 5
@@ -89,7 +89,7 @@ Les icones sont obtenus à l’aide d’un style CSS utilisant les pseudo-classe
 Dans la suite de cet article, **nous verrons comment Spring MVC peut générer ce code HTML 5.**
 
 Attention toutefois, chaque navigateur implémente différemment cette norme.
-Par exemple, sous Google Chrome 36, les champs de type _date_ sont particulièrement aboutis, avec masque de saisie et calendrier ; voir ci-dessous la représentation de la ligne HTML _Birthdate:_ <input type="date" name="birthdate"> . Par contre, ni Internet Explorer 11 ni Firefox 31 ne fournissent un tel confort de saisie.
+Par exemple, sous Google Chrome 36, les champs de type `date` sont particulièrement aboutis, avec masque de saisie et calendrier ; voir ci-dessous la représentation de la ligne HTML _Birthdate:_ <input type="date" name="birthdate"> . Par contre, ni Internet Explorer 11 ni Firefox 31 ne fournissent un tel confort de saisie.
 
 [![Champs de saisie d'une date HTML 5 sous Google Chrome](wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-date-sous-chrome.png)](wp-content/uploads/2014/09/2014-09-input-spring-mvc-en-html5-date-sous-chrome.png)
 
@@ -111,7 +111,7 @@ String address;<jem:input path="address" maxlength="20"/><input id="address" typ
 String email;<jem:input path="email" /><input id="email" type="email" />@URL
 String website;<jem:input path="website" /><input id="website" type="url" />Integer birthYear;<jem:input path="birthYear" /><input id="birthYear" type="number" />Remarques :
 
-- Les attributs font parties de la classe _Customer_. Côté contrôleur web, une instance est ajoutée au modèle Spring MVC de la vue.
+- Les attributs font parties de la classe `Customer`. Côté contrôleur web, une instance est ajoutée au modèle Spring MVC de la vue.
 - Le préfixe <jem: permet de distinguer notre balise personnalisée avec la balise input de Spring MVC (<form:input />)
 - Les tags <jem:input />  sont disposés dans le formulaire <form:form modelAttribute="customer">
 
@@ -119,14 +119,14 @@ Si besoin est, l’attribut maxlength peut être redéfini manuellement via le t
 
 ## Mise en œuvre
 
-L’implémentation du tag [**_Html5InputTag_**](https://github.com/arey/spring-mvc-toolkit/blob/spring-mvc-toolkit-reactor-0.1/spring-mvc-toolkit/src/main/java/com/javaetmoi/core/mvc/tag/Html5InputTag.java) interprétant les contraintes Bean Validation demande un peu moins de 200 lignes de code. Elle spécialise la classe [_org.springframework.web.servlet.tags.form.InputTag_](https://github.com/spring-projects/spring-framework/blob/v4.0.6.RELEASE/spring-webmvc/src/main/java/org/springframework/web/servlet/tags/form/InputTag.java) de Spring MVC.
+L’implémentation du tag [`Html5InputTag`](https://github.com/arey/spring-mvc-toolkit/blob/spring-mvc-toolkit-reactor-0.1/spring-mvc-toolkit/src/main/java/com/javaetmoi/core/mvc/tag/Html5InputTag.java) interprétant les contraintes Bean Validation demande un peu moins de 200 lignes de code. Elle spécialise la classe [`org.springframework.web.servlet.tags.form.InputTag`](https://github.com/spring-projects/spring-framework/blob/v4.0.6.RELEASE/spring-webmvc/src/main/java/org/springframework/web/servlet/tags/form/InputTag.java) de Spring MVC.
 Trois méthodes y sont redéfinies :
 
-1. Avant d’appeler la méthode parent, la méthode **_writeTagContent_** analyse la propriété à binder à la recherche de contraintes matérialisées par des annotations Bean Validation. Le résultat est stocké dans une _Map_ et sera utilisé dans les 2 autres méthodes.
-1. En complément des attributs _type_ et _value_, la méthode **_writeValue_** est chargée d’écrire les attributs _maxLength_, _min_, _max_ et _required_ à partir des contraintes portées par la propriété à binder.
-1. Enfin, la méthode **_getType_** détermine la valeur de l’attribut _type_ en fonction du type de la propriété à binder (ex : Integer) ou des contraintes qu’elle porte.
+1. Avant d’appeler la méthode parent, la méthode `writeTagContent` analyse la propriété à binder à la recherche de contraintes matérialisées par des annotations Bean Validation. Le résultat est stocké dans une `Map` et sera utilisé dans les 2 autres méthodes.
+1. En complément des attributs `type` et _value_, la méthode `writeValue` est chargée d’écrire les attributs `maxLength`, `min`, `max` et `required` à partir des contraintes portées par la propriété à binder.
+1. Enfin, la méthode `getType` détermine la valeur de l’attribut `type` en fonction du type de la propriété à binder (ex : Integer) ou des contraintes qu’elle porte.
 
-Pour davantage de détails, voici le code source complet de la classe [**_Html5InputTag_**](https://github.com/arey/spring-mvc-toolkit/blob/spring-mvc-toolkit-reactor-0.1/spring-mvc-toolkit/src/main/java/com/javaetmoi/core/mvc/tag/Html5InputTag.java):
+Pour davantage de détails, voici le code source complet de la classe [`Html5InputTag`](https://github.com/arey/spring-mvc-toolkit/blob/spring-mvc-toolkit-reactor-0.1/spring-mvc-toolkit/src/main/java/com/javaetmoi/core/mvc/tag/Html5InputTag.java):
 
 ```java
 Extrait de la classe Html5InputTag.java
@@ -136,7 +136,7 @@ Cette classe peut être reprise et adaptée en fonction de vos besoins.
 
 ## Tests unitaires
 
-La classe [**_TestHtml5InputTag_**](https://github.com/arey/spring-mvc-toolkit/blob/spring-mvc-toolkit-reactor-0.1/spring-mvc-toolkit/src/test/java/com/javaetmoi/core/mvc/tag/TestHtml5InputTag.java) teste unitairement chacune des annotations Bean Validation supportés par le tag.
+La classe [`TestHtml5InputTag`](https://github.com/arey/spring-mvc-toolkit/blob/spring-mvc-toolkit-reactor-0.1/spring-mvc-toolkit/src/test/java/com/javaetmoi/core/mvc/tag/TestHtml5InputTag.java) teste unitairement chacune des annotations Bean Validation supportés par le tag.
 A titre d’exemple, voici la méthode testant le HTML généré à partir de l’annotation _@Size_ :
 
 ```java
@@ -168,7 +168,7 @@ Lors d’un mvn clean install , le JAR sera téléchargé depuis [Maven Central]
 ## Démo
 
 Le [projet spring-mvc-toolkit](https://github.com/arey/spring-mvc-toolkit) vient avec une [**application démo**](https://github.com/arey/spring-mvc-toolkit/tree/master/spring-mvc-toolkit-demo) mettant en œuvre les différentes fonctionnalités offertes par le projet
-La [**page htmlvalidation.jsp**](https://github.com/arey/spring-mvc-toolkit/blob/spring-mvc-toolkit-reactor-0.1/spring-mvc-toolkit-demo/src/main/webapp/WEB-INF/pages/htmlvalidation.jsp) montre comment utiliser le tag _Html5InputTag_. Remarquez qu’aucun code JavaScript n’est utilisé. Afin d’uniformiser le comportement sur l’ensemble des navigateurs, 2 styles CSS sont appliqués aux pseudo-classes _:valid_ et _:invalid_ pour afficher des icônes à droite du champ de saisie.
+La [**page htmlvalidation.jsp**](https://github.com/arey/spring-mvc-toolkit/blob/spring-mvc-toolkit-reactor-0.1/spring-mvc-toolkit-demo/src/main/webapp/WEB-INF/pages/htmlvalidation.jsp) montre comment utiliser le tag `Html5InputTag`. Remarquez qu’aucun code JavaScript n’est utilisé. Afin d’uniformiser le comportement sur l’ensemble des navigateurs, 2 styles CSS sont appliqués aux pseudo-classes _:valid_ et _:invalid_ pour afficher des icônes à droite du champ de saisie.
 
 Dans le [pom.xml](https://github.com/arey/spring-mvc-toolkit/blob/spring-mvc-toolkit-reactor-0.1/spring-mvc-toolkit-demo/pom.xml) de cette application web de démo, le plugin Jetty pour maven est préconfiguré.
 
@@ -187,10 +187,10 @@ Voici la démarche à suivre pour tester la page :
 
 Cet article aura montré comment étendre les tags JSP de Spring MVC pour ajouter la validation côté client apportée par HTML 5. L’enrichissement du HTML généré par les tags se base sur les contraintes Bean Validation.
 
-A ce jour, la classe [**_Html5InputTag_**](https://github.com/arey/spring-mvc-toolkit/blob/spring-mvc-toolkit-reactor-0.1/spring-mvc-toolkit/src/main/java/com/javaetmoi/core/mvc/tag/Html5InputTag.java) supporte 4 annotations Bean Validation ( _@Min, @Max_, _@NotNull_ et _@Size_) et 3 annotations spécifiques à Hibernate Validator ( _@Email_, _@NotEmpty_ et _@URL_).
-Le support d’autres annotations pourraient être ajouté. L’annotation _@Pattern_ pourrait par exemple générer l’attribut _pattern_ qui accepte une expression régulière. La difficulté réside dans l’adaptation d’une regex Java en regex JavaScript, [ce qui a été fait dans le sens inverse par l’équipe GWT](https://gwt.googlesource.com/gwt/+/release/2.6/user/src/com/google/gwt/regexp/shared/RegExp.java).
+A ce jour, la classe [`Html5InputTag`](https://github.com/arey/spring-mvc-toolkit/blob/spring-mvc-toolkit-reactor-0.1/spring-mvc-toolkit/src/main/java/com/javaetmoi/core/mvc/tag/Html5InputTag.java) supporte 4 annotations Bean Validation ( _@Min, @Max_, _@NotNull_ et _@Size_) et 3 annotations spécifiques à Hibernate Validator ( _@Email_, _@NotEmpty_ et _@URL_).
+Le support d’autres annotations pourraient être ajouté. L’annotation `@Pattern` pourrait par exemple générer l’attribut `pattern` qui accepte une expression régulière. La difficulté réside dans l’adaptation d’une regex Java en regex JavaScript, [ce qui a été fait dans le sens inverse par l’équipe GWT](https://gwt.googlesource.com/gwt/+/release/2.6/user/src/com/google/gwt/regexp/shared/RegExp.java).
 Le support des groups Bean Validation pourrait également être ajouté.
-Enfin, ce qui a ici été appliqué pour la classe _InputTag_ peut l’être à moindre échelle sur la classe _TextAreaTag_.
+Enfin, ce qui a ici été appliqué pour la classe `InputTag` peut l’être à moindre échelle sur la classe `TextAreaTag`.
 
 Références :
 

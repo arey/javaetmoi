@@ -106,9 +106,9 @@ Premier changement, son namespace référence l’API Servlet 2.5 :
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="richfaces-showcase"  version="2.5">
 ```
 
-La fonctionnalité de requête asynchrone, la balise < async-supported> du filtre _PushFilter_ doit être supprimée.
+La fonctionnalité de requête asynchrone, la balise `<async-supported>` du filtre `PushFilter` doit être supprimée.
 
-JSF étant désormais embarqué dans le répertoire lib du war, l’ajout du _ConfigureListener_ est nécessaire :
+JSF étant désormais embarqué dans le répertoire lib du war, l’ajout du `ConfigureListener` est nécessaire :
 
 ```xhtml
 <listener>
@@ -116,7 +116,7 @@ JSF étant désormais embarqué dans le répertoire lib du war, l’ajout du _Co
 </listener>
 ```
 
-Enfin, CDI n’étant pas géré par le conteneur JEE, la ressource _BeanManager_ doit être supprimée.
+Enfin, CDI n’étant pas géré par le conteneur JEE, la ressource `BeanManager` doit être supprimée.
 
 Une fois déployé dans JBoss, le showcase RichFaces est disponible à cette URL : [http://localhost:8080/richfaces-showcase-tomcat6/](http://localhost:8080/richfaces-showcase-tomcat6/) [![Richfaces Showcase Screenshot](wp-content/uploads/2014/06/2014-07-jsf2-richfaces4-dans-jboss5-screenshot.png)](wp-content/uploads/2014/06/2014-07-jsf2-richfaces4-dans-jboss5-screenshot.png)
 
@@ -177,9 +177,9 @@ Pour faciliter le travail du développeur, JBoss met à disposition un [Guide de
 
 **Migration Richfaces**
 
-1. Retirer le context parameter _org.ajax4jsf.VIEW\_HANDLERS_ nécessite de réimplémenter la classe _ParameterizedFaceletViewHandler_
-1. La classe _org.richfaces.renderkit.html.HtmlRichMessageRenderer_ est renommée en _HtmlMessageRenderer_
-1. [La classe _AjaxContext_ d'A4JSF a disparu](https://community.jboss.org/wiki/ProgrammaticControlOfPartialProcessingInRichFaces4). Nécessiter d’utiliser l'API JSF2  _context.getPartialViewContext().isAjaxRequest()_ pour savoir si la requête http est une requête Ajax. Le code _ajaxContext.getAjaxSingleClientId()_ est migré en _context.getPartialViewContext().getExecuteIds().size() == 1_
+1. Retirer le context parameter _org.ajax4jsf.VIEW\`HANDLERS` nécessite de réimplémenter la classe `ParameterizedFaceletViewHandler`
+1. La classe _org.richfaces.renderkit.html.HtmlRichMessageRenderer_ est renommée en `HtmlMessageRenderer`
+1. [La classe `AjaxContext` d'A4JSF a disparu](https://community.jboss.org/wiki/ProgrammaticControlOfPartialProcessingInRichFaces4). Nécessiter d’utiliser l'API JSF2  `context.getPartialViewContext().isAjaxRequest()` pour savoir si la requête http est une requête Ajax. Le code `ajaxContext.getAjaxSingleClientId()` est migré en `context.getPartialViewContext().getExecuteIds().size() == 1`
 1. [Supprimer la déclaration du filtre _org.ajax4jsf.Filter_ dans le _web.xml_ qui n'est plus nécessaire dans RichFaces 4.](http://stackoverflow.com/questions/8448427/configuring-for-richfaces-java-lang-classnotfoundexception-org-ajax4jsf-filter)
 1. [Classes InternetResourceBuilder et InternetResource non trouvées](http://stackoverflow.com/questions/20218396/richfaces-3-to-4-migration-internetresourcebuilder/) : constante DEFAULT\_EXPIRE redéfinie à 1 jour.
 1. [Les composants <a4jloadScript> et  <a4jloadStyle> ont été supprimés de RichFaces 4](http://stackoverflow.com/questions/8154232/richfaces-4-replacement-for-a4jloadscript). Les tags natifs de JSF 2 doivent être utilisés h:outputStylesheet and h:outputScript
@@ -193,16 +193,16 @@ Pour faciliter le travail du développeur, JBoss met à disposition un [Guide de
 1. Migrer _<rich:modalPanel>_ vers _<rich:_ _popupPanel>_
 1. Tag _<rich:spacer>_ supprimé. Pas d'équivalent. [Création nécessaire d'un custom tag](https://community.jboss.org/wiki/SpacerImplementationForJSF2OrRichFaces4).
 1. Migrer le tag _<rich:simpleTogglePanel>_ en _<rich:collapsiblePanel>_
-1. Tag _<a4j:include>_ remplacé par _<ui:include_ \> \+ paramètre _viewId_ changé en _src_
+1. Tag `<a4j:include>` remplacé par `<ui:include>` \+ paramètre `viewId` changé en `src`
 1. Tag _<aj4:form>_ remplacé par _<h:form>_
 1. Tag _<a4j:support>_ remplacé par _<a4j:ajax>_
 1. Tag _<rich:toolTip>_ remplacé par _<rich:tooltip>_
 1. [Tag <rich:suggestionbox> des snippets à migrer vers l’autocomplete](https://community.jboss.org/message/568610).
 1. Noms d’évènements JavaScript à renommer. Exemple de message d’erreur si oubli : _<a4j:ajax> onclickevent is not supported for the HtmlSelectOneRadio_
     1. HtmlSelectOneRadio : event="onclick" à changer en "select"
-    1. _HtmlSelectOneMenu_ : event="onchange" à changer en "select"
-    1. _HtmlInputText_ : event="onchange" à changer en "change"
-    1. _UICalendar_ : event="onchanged" à changer en "change"
+    1. `HtmlSelectOneMenu` : event="onchange" à changer en "select"
+    1. `HtmlInputText` : event="onchange" à changer en "change"
+    1. `UICalendar` : event="onchanged" à changer en "change"
 
 **Migration Facelets**
 
@@ -231,8 +231,8 @@ Pour faciliter le travail du développeur, JBoss met à disposition un [Guide de
 1. Classe _com.sun.faces.application.ConfigNavigationCase_ de JSF 1 à remplacer :
 
    1. Utilisation de la classe _javax.faces.application.NavigationCase_ introduite dans JSF 2.
-   1. Le constructeur prend 3 nouveaux paramètres : _condition_, _includeViewParams_ et _parameters_
-   1. La méthode _getToViewId_ prend désormais un _FacesContext_ en paramètre => nécessite de faire appel à _FacesContext.getCurrentInstance()_
+   1. Le constructeur prend 3 nouveaux paramètres : `condition`, `includeViewParams` et `parameters`
+   1. La méthode `getToViewId` prend désormais un `FacesContext` en paramètre => nécessite de faire appel à `FacesContext.getCurrentInstance()`
 1. [Remplacer <head> du HTML par <h:head> de JSF 2](http://forum.primefaces.org/viewtopic.php?f=3&t=1721) sous peine d’obtenir l’erreur jSf précisant qu’une ou plusieurs ressources partagent la cible «body», mais qu’aucun composant «body» n’a été défini dans la vue.
 
 ## Conclusion

@@ -68,7 +68,7 @@ Request #125](https://github.com/spring-petclinic/spring-petclinic-microservices
    première étape a consisté à changer de starter : de spring-cloud-starter-netflix-zuul
    vers **spring-cloud-starter-gateway**
 
-- La seconde étape a nécessité de migrer de Spring Web vers **Spring Webflux**. Étape extrêmement simple puisqu’elle consiste à supprimer le starter _spring-boot-starter-web_ du _pom.xml_. La dépendance vers Spring Webflux est tirée transitivement par _spring-cloud-starter-gateway_
+- La seconde étape a nécessité de migrer de Spring Web vers **Spring Webflux**. Étape extrêmement simple puisqu’elle consiste à supprimer le starter `spring-boot-starter-web` du `pom.xml`. La dépendance vers Spring Webflux est tirée transitivement par `spring-cloud-starter-gateway`
 - L’annotation `@EnableZuulProxy` a été **retirée** de la classe principale
 - Suite à la migration vers Spring Webflux, la page d’accueil _/static/index.html_ n’était plus mappée vers /   
  Une solution de contournement a nécessité de déclarer un Router. Se référer à l’ [issue Spring Boot #9785](https://github.com/spring-projects/spring-boot/issues/9785)
@@ -215,7 +215,7 @@ public WebClient.Builder loadBalancedWebClientBuilder() {
 }
 ```
 
-Le _@RestController_ [ApiGatewayController](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java) exposant l’API REST _/owners/{ownerId}_ change de signature : il renvoie désormais un **_Mono_** _<OwnerDetails>_ à la place d’un _OwnerDetails_.
+Le `@RestController` [ApiGatewayController](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java) exposant l’API REST _/owners/{ownerId}_ change de signature : il renvoie désormais un `Mono` _<OwnerDetails>_ à la place d’un _OwnerDetails_.
 
 L’utilisation du _WebClient.Builder_ déclaré plus haut nécessite un peu d’entrainement lorsqu’il s’agit de chaîner les appels distants et d’enrichir une première réponse avec une seconde.  
 Voici un exemple d’appel simplifié :

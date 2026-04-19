@@ -98,14 +98,14 @@ private LoggerContext getLogbackContext() {
 
 ## Usage du ContextAwareBase
 
-La classe `ContextAwareBase` héritée par notre _LogbackListener_ est une classe utilitaire proposée par Logback. Elle implémente l’interface _ContextAware_. Elle apporte 2 fonctionnalités :
+La classe `ContextAwareBase` héritée par notre `LogbackListener` est une classe utilitaire proposée par Logback. Elle implémente l'interface `ContextAware`. Elle apporte 2 fonctionnalités :
 
-- Conserver en mémoire le contexte Logback (accessible via la méthode _getContext_) pour un accès ultérieur plus rapide.
-- Fournir des méthodes de logs internes : _addInfo_, _addWarn_ et _addError_. A priori, cela peut paraître étrange, mais vous allez bientôt connaître la raison.
+- Conserver en mémoire le contexte Logback (accessible via la méthode `getContext`) pour un accès ultérieur plus rapide.
+- Fournir des méthodes de logs internes : `addInfo`, `addWarn` et `addError`. A priori, cela peut paraître étrange, mais vous allez bientôt connaître la raison.
 
 Dans le code du framework Logback comme dans le code applicatif chargé d’initialiser Logback, nous ne pouvons pas encore utiliser le système de logs de SLF4J/Logback pour tracer des erreurs ou tout simplement des informations utiles. A ce stade  SLF4J/Logback n’est en effet pas encore prêt.
 
-Pour pallier à cette problématique, Logback propose un mécanisme de statuts matérialisé par l’interface _ch.qos.logback.core.status.Status_. Les méthodes _addInfo_, _addWarn_ et _addError_ ajoutent un statut dans une liste de statuts interne à Logback et gérée par le [StatusManager](https://github.com/qos-ch/logback/blob/master/logback-core/src/main/java/ch/qos/logback/core/status/StatusManager.java). Nous verrons par la suite comment exploiter ces statuts.
+Pour pallier à cette problématique, Logback propose un mécanisme de statuts matérialisé par l’interface `ch.qos.logback.core.status.Status`. Les méthodes `addInfo`, `addWarn` et `addError` ajoutent un statut dans une liste de statuts interne à Logback et gérée par le [StatusManager](https://github.com/qos-ch/logback/blob/master/logback-core/src/main/java/ch/qos/logback/core/status/StatusManager.java). Nous verrons par la suite comment exploiter ces statuts.
 
 Dans notre Listener, nous pouvons ainsi tracer des informations importantes :
 
@@ -115,9 +115,9 @@ addInfo("Suppression du handler JUL : "+ handler.getClass().getName());
 
 ## Installation du bridge SLF4J
 
-Afin de rediriger les logs de Java Util Logging (JUL) vers Logback, il est nécessaire d’ajouter au classpath le JAR jul-to-slf4j.jar puis d’installer le bridge [**SLF4JBridgeHandler**](https://github.com/qos-ch/slf4j/blob/master/jul-to-slf4j/src/main/java/org/slf4j/bridge/SLF4JBridgeHandler.java). Ce bridge route tous les logs JUL vers l’API SLF4J qui redirige à son tour les logs vers Logback.
+Afin de rediriger les logs de Java Util Logging (JUL) vers Logback, il est nécessaire d’ajouter au classpath le JAR jul-to-slf4j.jar puis d’installer le bridge [`SLF4JBridgeHandler`](https://github.com/qos-ch/slf4j/blob/master/jul-to-slf4j/src/main/java/org/slf4j/bridge/SLF4JBridgeHandler.java). Ce bridge route tous les logs JUL vers l’API SLF4J qui redirige à son tour les logs vers Logback.
 
-Voici un exemple d’installation du SLF4JBridgeHandler. A noter qu’il met en application l’usage des méthodes _addInfo_ et _addError_.
+Voici un exemple d’installation du SLF4JBridgeHandler. A noter qu’il met en application l’usage des méthodes `addInfo` et `addError`.
 
 ```java
 private void configureJdkLoggingBridgeHandler() {
@@ -139,7 +139,7 @@ private void configureJdkLoggingBridgeHandler() {
 }
 ```
 
-Bien plus safe que l’appel à la méthode SLF4JBridgeHandler:: removeHandlersForRootLogger, le code ci-dessus retire le ConsoleHandler mais laisse ceux éventuellement ajoutés par le serveur d’application.
+Bien plus safe que l'appel à la méthode `SLF4JBridgeHandler::removeHandlersForRootLogger`, le code ci-dessus retire le ConsoleHandler mais laisse ceux éventuellement ajoutés par le serveur d'application.
 
 La méthode `isBridgeHandlerAvailable()` teste l’existence du bridge dans le classpath :
 
@@ -151,7 +151,7 @@ private boolean isBridgeHandlerAvailable() {
 
 ## Synchronisation
 
-Lorsque Logback est configuré à partir d’un fichier XML, Logback se prémunit de toute demande de configuration concurrente en utilisant le **verrou LogbackLock** (se référer à la méthode [GenericConfigurator:: doConfigure(List<SaxEvent>)](https://github.com/qos-ch/logback/blob/master/logback-core/src/main/java/ch/qos/logback/core/joran/GenericConfigurator.java)).
+Lorsque Logback est configuré à partir d’un fichier XML, Logback se prémunit de toute demande de configuration concurrente en utilisant le verrou `LogbackLock` (se référer à la méthode [`GenericConfigurator::doConfigure(List<SaxEvent>)`](https://github.com/qos-ch/logback/blob/master/logback-core/src/main/java/ch/qos/logback/core/joran/GenericConfigurator.java)).
 
 Par précaution, toute la configuration du LogbackContext est réalisée dans un **bloc synchronisé** sur ce verrou :
 
@@ -189,7 +189,7 @@ Lorsque le **mode debug** de Logback est activé, **les statuts sont affichés d
 
 En XML, l’activation du mode debug se fait dans au niveau de la balise racine <configuration> : <configuration debug="true">
 
-En Java, on enregistre le listener [**OnConsoleStatusListener**](https://github.com/qos-ch/logback/blob/master/logback-core/src/main/java/ch/qos/logback/core/status/OnConsoleStatusListener.java) auprès du StatusManager du contexte Logback :
+En Java, on enregistre le listener [`OnConsoleStatusListener`](https://github.com/qos-ch/logback/blob/master/logback-core/src/main/java/ch/qos/logback/core/status/OnConsoleStatusListener.java) auprès du StatusManager du contexte Logback :
 
 ```java
 StatusListenerConfigHelper.addOnConsoleListenerInstance(loggerContext, new OnConsoleStatusListener());
@@ -199,7 +199,7 @@ StatusListenerConfigHelper.addOnConsoleListenerInstance(loggerContext, new OnCon
 
 Logback délègue la tâche d’écriture des logs à des composants appelés « **appenders**». Implémentant l’interface [Appender](https://github.com/qos-ch/logback/blob/master/logback-core/src/main/java/ch/qos/logback/core/Appender.java), les appenders permettent d’afficher les logs sur la console, de les archiver dans des fichiers ou bien encore de les stocker en base de données.
 
-La déclaration des appenders communs à tous les loggers non exclusifs passe par la configuration du **logger racine** (le « root logger »). La méthode utilitaire _root_ permet de spécifies son niveau et la liste des appenders :
+La déclaration des appenders communs à tous les loggers non exclusifs passe par la configuration du **logger racine** (le « root logger »). La méthode utilitaire `root` permet de spécifies son niveau et la liste des appenders :
 
 ```java
 private void root(Level level, List<Appender<ILoggingEvent>> rootAppenders) {
@@ -226,12 +226,12 @@ private ConsoleAppender<ILoggingEvent> consoleAppender() {
 Comme son nom l’indique, la classe `PatternLayoutEncoder` permet d’indiquer à Logback le format d’affichage des logs. Voici un exemple de pattern :
 
 ```java
-private static final String CONSOLE_LOG_PATTERN =     "%d{HH:mm:ss.SSS} | %highlight(%-5level) | %cyan(%-50.50logger{49}) | %-200m %C.%M\\(%F:%L\\)%n";
+private static final String CONSOLE_LOG_PATTERN =    "%d{HH:mm:ss.SSS} | %highlight(%-5level) | %cyan(%-50.50logger{49}) | %-200m %C.%M\\(%F:%L\\)%n";
 ```
 
 Notez l’utilisation des [sous-patterns de couleur](https://logback.qos.ch/manual/layouts.html)%highlight et %cyan
 
-L’appel à la méthode _start_ de l’encoder est nécessaire :
+L'appel à la méthode `start` de l'encoder est nécessaire :
 
 ```java
 private void start(LifeCycle lifeCycle) {
@@ -242,7 +242,7 @@ private void start(LifeCycle lifeCycle) {
 }
 ```
 
-De la même manière, il est nécessaire de démarrer l’appender. On passe par l’appel de la méthode _appender_:
+De la même manière, il est nécessaire de démarrer l'appender. On passe par l'appel de la méthode `appender`:
 
 ```java
 private void appender(String name, Appender<?> appender) {
@@ -288,11 +288,11 @@ En complément du pattern d’affichage, la stratégie de journalisation doit ê
 Le pattern utilisé par cet appender diffère légèrement de celui de l’appender console en ajoutant le jour et le nom du thread et en n’utilisant pas les sous-patterns de couleur :
 
 ```java
-private static final String FILE_LOG_PATTERN =     "%d{yyyy/MM/dd HH:mm:ss.SSS} | %-50.50logger{49} | %-200m |  %-5thread |%C.%M\\(%F:%L\\) %n";
+private static final String FILE_LOG_PATTERN =    "%d{yyyy/MM/dd HH:mm:ss.SSS} | %-50.50logger{49} | %-200m |  %-5thread |%C.%M\\(%F:%L\\) %n";
 
 ```
 
-Une fois déclarés les appenders racines, on appelle la méthode _root_ présentée ci-dessus :
+Une fois déclarés les appenders racines, on appelle la méthode `root` présentée ci-dessus :
 
 ```java
 root(Level.INFO, appenders);
@@ -355,7 +355,7 @@ La configuration Logback présentée dans cet article pourrait être complétée
 Au cours de cet article, nous aurons vu comment configurer Logback à travers son API Java. Les classes manipulées sont les mêmes que celles utilisées par la [syntaxe Groovy](https://logback.qos.ch/manual/groovy.html).
 Le **code complet des snippets** est disponible dans ce [Gist](https://gist.github.com/arey/bc09e0d77520dc97f12707c6064c8c4e).
 
-Le choix de privilégier la configuration Java a été fait par l’équipe de **Sp** r **ing Boot**. Je vous recommande d’aller jeter un coup d’œil aux classes [DefaultLogbackConfiguration](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/logback/DefaultLogbackConfiguration.java) et [LogbackConfigurator](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/logback/LogbackConfigurator.java).
+Le choix de privilégier la configuration Java a été fait par l’équipe de **Sp** r **ing Boot**. Je vous recommande d’aller jeter un coup d’œil aux classes [`DefaultLogbackConfiguration`](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/logback/DefaultLogbackConfiguration.java) et [`LogbackConfigurator`](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/logback/LogbackConfigurator.java).
 Etant donné qu’il n’y a plus de fichier XML à parser, le temps de démarrage de l’application est sensiblement amélioré (100 ms d’après la [documentation Logback](https://logback.qos.ch/manual/configuration.html)).
 
 Ressources :

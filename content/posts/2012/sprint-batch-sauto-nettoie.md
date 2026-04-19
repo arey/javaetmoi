@@ -9,7 +9,7 @@ parent_post_id: null
 post_id: "187"
 post_views_count: "10595"
 summary: |-
-  Lorsque vous mettez en œuvre **[Spring Batch](http://static.springsource.org/spring-batch/ "Page d'accueil du projet Spring Batch")** pour réaliser des traitements par lots, vous avez le  choix d’utiliser **une implémentation de _JobRepository_** soit **en mémoire** soit **persistante**. L’avantage de cette dernière est triple :
+  Lorsque vous mettez en œuvre **[Spring Batch](http://static.springsource.org/spring-batch/ "Page d'accueil du projet Spring Batch")** pour réaliser des traitements par lots, vous avez le  choix d’utiliser **une implémentation de `JobRepository`** soit **en mémoire** soit **persistante**. L’avantage de cette dernière est triple :
 
   1. Conserver un **historique des différentes exécutions** de vos instances de jobs.
   2. Pouvoir **suivre en temps réel le déroulement de votre batch** via, par exemple, l’excellent [Spring Batch Admin](http://static.springsource.org/spring-batch-admin/ "Page d'accueil du projet Spring Batch Admin").
@@ -26,7 +26,7 @@ title: Spring Batch s'auto-nettoie
 url: /2012/06/sprint-batch-sauto-nettoie/
 
 ---
-Lorsque vous mettez en œuvre **[Spring Batch](http://static.springsource.org/spring-batch/ "Page d'accueil du projet Spring Batch")** pour réaliser des traitements par lots, vous avez le  choix d’utiliser **une implémentation de _JobRepository_** soit **en mémoire** soit **persistante**. L’avantage de cette dernière est triple :
+Lorsque vous mettez en œuvre **[Spring Batch](http://static.springsource.org/spring-batch/ "Page d'accueil du projet Spring Batch")** pour réaliser des traitements par lots, vous avez le  choix d’utiliser **une implémentation de `JobRepository`** soit **en mémoire** soit **persistante**. L’avantage de cette dernière est triple :
 
 1. Conserver un **historique des différentes exécutions** de vos instances de jobs.
 1. Pouvoir **suivre en temps réel le déroulement de votre batch** via, par exemple, l’excellent [Spring Batch Admin](http://static.springsource.org/spring-batch-admin/ "Page d'accueil du projet Spring Batch Admin").
@@ -134,7 +134,7 @@ public class RemoveSpringBatchHistoryTasklet implements Tasklet, InitializingBea
 }
 ```
 
-Le code source de la classe **[RemoveSpringBatchHistoryTasklet](https://github.com/arey/spring-batch-toolkit/blob/master/src/main/java/com/javaetmoi/core/batch/tasklet/RemoveSpringBatchHistoryTasklet.java)** et sa classe de tests unitaires sont disponibles sur le **projet Github [spring-batch-toolkit](https://github.com/arey/spring-batch-toolkit/)**.
+Le code source de la classe [`RemoveSpringBatchHistoryTasklet`](https://github.com/arey/spring-batch-toolkit/blob/master/src/main/java/com/javaetmoi/core/batch/tasklet/RemoveSpringBatchHistoryTasklet.java) et sa classe de tests unitaires sont disponibles sur le **projet Github [spring-batch-toolkit](https://github.com/arey/spring-batch-toolkit/)**.
 
 Cette tasklet peut être utilisée de 2 manières :
 
@@ -149,5 +149,5 @@ Outre le fait de valider les requêtes SQL et leur ordonnancement, le **test uni
 
 Qui mieux que Spring Batch peut exécuter un traitement de purge pouvant potentiellement manipuler des enregistrements en masse ? Vous connaissez désormais la réponse.
 
-Pour parfaire le code, il aurait été intéressant de déplacer l’exécution des requêtes SQL dans  un DAO héritant de la classe **AbstractJdbcBatchMetadataDao**. Outre un meilleur design, cela aurait permis de faire un appel au DAO de purge ailleurs que dans un batch. Une telle fonctionnalité pourrait très bien avoir sa place dans la console de [Spring Batch Admin](http://static.springsource.org/spring-batch-admin/ "Page d'accueil du projet Spring Batch Admin").
+Pour parfaire le code, il aurait été intéressant de déplacer l’exécution des requêtes SQL dans  un DAO héritant de la classe `AbstractJdbcBatchMetadataDao`. Outre un meilleur design, cela aurait permis de faire un appel au DAO de purge ailleurs que dans un batch. Une telle fonctionnalité pourrait très bien avoir sa place dans la console de [Spring Batch Admin](http://static.springsource.org/spring-batch-admin/ "Page d'accueil du projet Spring Batch Admin").
 

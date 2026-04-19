@@ -89,7 +89,7 @@ Le fait d’utiliser l’un de ces 4 runtimes permet de bénéficier de runtimes
 L’ **historisation des versions** est l’une des fonctionnalités phares de GA : jusqu’à 10 versions d’une même application sont historisées. Toutes les versions sont utilisables via des URL dédiées. GAE offre la possibilité de faire du split trafic. Par exemple, 3% du trafic passent sur une nouvelle version. Cela permet de mesurer le business. Bien entendu, les logs sont splittés par version.
 
 Didier nous sensibilise sur le fait que GAE a une approche très puriste du Cloud. De ce fait, il est interdit d’écrire sur le filesystem. Et il n’existe pas de sessions web. L’utilisation de solution de stockage est nécessaire. Par ailleurs, il est interdit d’installer de librairies tierces sur l’OS.
-Pour pallier à ces limitations, il est possible de passer par des **Flexible Machines**. Elles remplacent les Managed VM et permettent de créer ses propres containers avec un **Dockerfile**. Ainsi, il est possible de faire exécuter une application **Java 8** dans GAE.
+Pour pallier à ces limitations, il est possible de passer par des **Flexible Machines**. Elles remplacent les Managed VM et permettent de créer ses propres containers avec un `Dockerfile`. Ainsi, il est possible de faire exécuter une application **Java 8** dans GAE.
 Cette personnalisation a un coût : le tarif d’une Flexible Machine est celui d’une instance Compute Engine.
 
 ## Google Container Engine

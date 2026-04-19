@@ -45,12 +45,12 @@ Partant de ce constat, je me suis demandé s’il était possible de remédier �
 
 ## JavaBean Marshaller
 
-Disponible en Open Source sur github, le [**projet JavaBean Marshaller**](https://github.com/arey/javabean-marshaller) fournit la classe utilitaire [JavaBeanMarshaller](https://github.com/arey/javabean-marshaller/blob/master/src/main/java/com/javaetmoi/javabean/JavaBeanMarshaller.java). En paramètre de la méthode **_generateJavaCode_**, vous passez l’objet racine de votre grappe d’objets Java. En sortie, **une classe Java permettant de réinstancier votre grappe sera créée.**
+Disponible en Open Source sur github, le [**projet JavaBean Marshaller**](https://github.com/arey/javabean-marshaller) fournit la classe utilitaire [JavaBeanMarshaller](https://github.com/arey/javabean-marshaller/blob/master/src/main/java/com/javaetmoi/javabean/JavaBeanMarshaller.java). En paramètre de la méthode `generateJavaCode`, vous passez l’objet racine de votre grappe d’objets Java. En sortie, **une classe Java permettant de réinstancier votre grappe sera créée.**
 
 Un exemple sera bien plus parlant. Prenons le diagramme de classes ci-dessous.![artist](wp-content/uploads/2016/03/artist.png)
-Non représentés sur ce diagramme, les classes _Album_ et _Artiste_ possèdent des getter / setter et constructeur sans argument.
+Non représentés sur ce diagramme, les classes `Album` et `Artiste` possèdent des getter / setter et constructeur sans argument.
 
-Imaginons l’instance d’une classe _Artist_ référençant un seul et unique _Album_.
+Imaginons l'instance d'une classe `Artist` référençant un seul et unique `Album`.
 Voici le bout de code correspondant et volontairement très compact :
 
 ```java
@@ -69,9 +69,9 @@ Ajoutons la dépendance maven :
 </dependency>
 ```
 
-Appelons ensuite la méthode JavaBeanMarshaller.generateJavaCode(u2);
+Appelons ensuite la méthode `JavaBeanMarshaller.generateJavaCode(u2)`;
 
-Une classe _ArtistFactory_ contenant le code suivant est généré :
+Une classe `ArtistFactory` contenant le code suivant est généré :
 
 ```java
 import com.javaetmoi.javabean.domain.Album;
@@ -114,13 +114,13 @@ Dans sa version 1.0.0, le projet **_JavaBean marshaller_** supporte :
 - Relations unidirectionnelles et bidirectionnelles
 - Graphe cyclique
 - Nombreux types du JDK :
-  - Types primitifs : boolean, short, float …
-  - Types wrappers : Boolean, String, BigDecimal
+  - Types primitifs : `boolean`, `short`, `float` …
+  - Types wrappers : `Boolean`, `String`, `BigDecimal`
   - Enumérations
-  - Date : _util.Date_, _java.sql.Date_, _Calendar_, _XMLGregorianCalendar_
-  - Java 8 Date & Time API : _LocalDate_, _Period_, _Instant_ …
+  - Date : `util.Date`, `java.sql.Date`, `Calendar`, `XMLGregorianCalendar`
+  - Java 8 Date & Time API : `LocalDate`, `Period`, `Instant` …
 - Librairies tierces :
-  - JodaTime : _DateTime_, _Period_, _Instant_ …
+  - JodaTime : `DateTime`, `Period`, `Instant` …
 
 ## Extensible
 
@@ -130,10 +130,10 @@ Ouvert aux extensions, le générateur **_JavaBean marshaller_** permet d’enri
 - Classes de frameworks tiers
 - Classes d’une application métier
 
-Le mécanisme d’extension repose sur l’interface [**CodeGenerator**](https://github.com/arey/javabean-marshaller/blob/master/src/main/java/com/javaetmoi/javabean/generator/CodeGenerator.java). Implémenter cette interface puis enregistrer l’instance auprès du [_JavaBeanMarshaller_](https://github.com/arey/javabean-marshaller/blob/master/src/main/java/com/javaetmoi/javabean/JavaBeanMarshaller.java) suffisent. La classe abstraite [_DefaultCodeGenerator_](https://github.com/arey/javabean-marshaller/blob/master/src/main/java/com/javaetmoi/javabean/generator/DefaultCodeGenerator.java) allège l’implémentation.
+Le mécanisme d'extension repose sur l'interface [`CodeGenerator`](https://github.com/arey/javabean-marshaller/blob/master/src/main/java/com/javaetmoi/javabean/generator/CodeGenerator.java). Implémenter cette interface puis enregistrer l'instance auprès du [`JavaBeanMarshaller`](https://github.com/arey/javabean-marshaller/blob/master/src/main/java/com/javaetmoi/javabean/JavaBeanMarshaller.java) suffisent. La classe abstraite [`DefaultCodeGenerator`](https://github.com/arey/javabean-marshaller/blob/master/src/main/java/com/javaetmoi/javabean/generator/DefaultCodeGenerator.java) allège l'implémentation.
 
-Repartons de l’exemple précédent. Essayons de modifier le code généré. Au lieu de faire appel au constructeur sans argument de la classe [_Album_](https://github.com/arey/javabean-marshaller/blob/master/src/test/java/com/javaetmoi/javabean/domain/Album.java), on souhaite utiliser le constructeur prenant en paramètres ses propriétés.
-Pour cela, on crée une classe [_AlbumGenerator_](https://github.com/arey/javabean-marshaller/blob/master/src/test/java/com/javaetmoi/javabean/generator/AlbumGenerator.java) implémentant la [_DefaultCodeGenerator_](https://github.com/arey/javabean-marshaller/blob/master/src/main/java/com/javaetmoi/javabean/generator/DefaultCodeGenerator.java).
+Repartons de l’exemple précédent. Essayons de modifier le code généré. Au lieu de faire appel au constructeur sans argument de la classe [`Album`](https://github.com/arey/javabean-marshaller/blob/master/src/test/java/com/javaetmoi/javabean/domain/Album.java), on souhaite utiliser le constructeur prenant en paramètres ses propriétés.
+Pour cela, on crée une classe [`AlbumGenerator`](https://github.com/arey/javabean-marshaller/blob/master/src/test/java/com/javaetmoi/javabean/generator/AlbumGenerator.java) implémentant la [`DefaultCodeGenerator`](https://github.com/arey/javabean-marshaller/blob/master/src/main/java/com/javaetmoi/javabean/generator/DefaultCodeGenerator.java).
 
 ```java
 public class AlbumGenerator extends DefaultCodeGenerator<Album> {
@@ -148,10 +148,10 @@ public class AlbumGenerator extends DefaultCodeGenerator<Album> {
 }
 ```
 
-Comme vous pouvez le constater, l’implémentation de la méthode _generateSetter_ demande à manier l’API du générateur. Les tokens $T et $L et la classe _MethodSpec.Builder_ viennent du framework [Javapoet](https://github.com/square/javapoet) sur lequel le générateur s’appuie. Nous en reparlerons dans le chapitre suivant.
+Comme vous pouvez le constater, l’implémentation de la méthode `generateSetter` demande à manier l’API du générateur. Les tokens `$T` et `$L` et la classe `MethodSpec.Builder` viennent du framework [Javapoet](https://github.com/square/javapoet) sur lequel le générateur s’appuie. Nous en reparlerons dans le chapitre suivant.
 Les nombreuses [implémentations existantes](https://github.com/arey/javabean-marshaller/tree/master/src/main/java/com/javaetmoi/javabean/generator) peuvent servir de documentation.
 
-En reprenant la même grappe et en utilisant l’ _AlbumGenerator_,
+En reprenant la même grappe et en utilisant l' `AlbumGenerator`,
 
 ```default
 Artist u2 = new Artist(1, "U2", ArtistType.GROUP);
@@ -161,7 +161,7 @@ JavaBeanMarshaller.register(new AlbumGenerator());
 JavaBeanMarshaller.generateJavaCode(u2);
 ```
 
-La méthode _newArtist_ gagne en concision :
+La méthode `newArtist` gagne en concision :
 
 ```default
 public static Artist newArtist() {
@@ -178,26 +178,26 @@ public static Artist newArtist() {
 
 ## Le fonctionnement
 
-En interne, la classe _JavaBeanMarshaller_ effectue un parcours de graphe. Pour y arriver, elle s’appuie sur la classe _PropertyUtils_ de **Commons BeanUtils**. Les propriétés déjà traitées sont mémorisées dans un _Set_.
+En interne, la classe `JavaBeanMarshaller` effectue un parcours de graphe. Pour y arriver, elle s'appuie sur la classe `PropertyUtils` de **Commons BeanUtils**. Les propriétés déjà traitées sont mémorisées dans un `Set`.
 
 La génération de code Java s’appuie sur la librairie **Javapoet** créée par Square. Bien que le code généré soit simple et aurait pu être fait sans librairie tierce, Javapoet apporte :
 
 1. La gestion de l’import des packages
 1. L’ajout des ; à la fin de chaque instruction
-1. Une syntaxe inspirée de String.format() permettant d’éviter la concaténation de chaînes de caractères (tokens $T, $L et $N)
+Une syntaxe inspirée de `String.format()` permettant d'éviter la concaténation de chaînes de caractères (tokens `$T`, `$L` et `$N`)
 
 Un outil de génération de jeux de données facilitant les tests avait le devoir d’être testé. C’est chose faite. Sa [couverture de test est accessible sur Coveralls.io](https://coveralls.io/github/arey/javabean-marshaller?branch=master).
 
 Les tests unitaires reposent tous sur la même stratégie :
 
 1. Création d’une grappe d’objets
-1. Appel à la méthode _generateJavaCode_ chargée de générer la classe Java
-1. Compilation de la classe (via la méthode _getSystemJavaCompiler_ du JDK)
+1. Appel à la méthode `generateJavaCode` chargée de générer la classe Java
+1. Compilation de la classe (via la méthode `getSystemJavaCompiler` du JDK)
 1. Appel à la méthode statique permettant de recréer la grappe d’objets
-1. Comparaison des 2 grappes d’objets (méthode _assertReflectionEqual_ de Unitils)
+1. Comparaison des 2 grappes d'objets (méthode `assertReflectionEqual` de Unitils)
 
 ## Conclusion
 
 Dans ce billet, vous avez fait la connaissance avec un tout jeune générateur de Dataset Java (sa 1ière release date du 19 mars 2016). Je compte sur vous pour me confirmer (ou non) son utilité. N’hésitez pas non plus à me soumettre les cas que je n’ai pas prévu. Et si vous souhaitez y contribuer, vous êtes les bienvenus.
 
-Une prochaine étape consistera à rendre ce générateur moins intrusif. En effet, une fois le dataset généré, il faut bien penser à retirer du code de prod l’appel au _JavaBeanMarshaller_ ainsi que la dépendance maven. L’utilisation d’un agent et d’une annotation serait une solution. A suivre …
+Une prochaine étape consistera à rendre ce générateur moins intrusif. En effet, une fois le dataset généré, il faut bien penser à retirer du code de prod l’appel au `JavaBeanMarshaller` ainsi que la dépendance maven. L’utilisation d’un agent et d’une annotation serait une solution. A suivre …

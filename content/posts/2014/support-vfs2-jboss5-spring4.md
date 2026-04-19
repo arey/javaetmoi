@@ -77,11 +77,11 @@ Caused by: java.lang.ClassNotFoundException: org.jboss.vfs.VFS from BaseClassLoa
 
 Les versions communautaires JBoss AS 5 et commerciales JBoss 5 EAP s’appuient toutes les deux sur la version 2 du [Virtual File System](http://java.dzone.com/news/jboss-virtual-file-system).  Or, comme l’atteste le [commit de Juergen Hoeller](https://github.com/spring-projects/spring-framework/commit/ca194261a42a0a4f0c8bdc36f447e1029a7d2e3e) dans GitHub, le **support de VFS 2 a été volontairement retiré de Spring 4**.
 
-Comme je m’y attendais, je ne suis pas le seul développeur à  regretter cet abandon. Le [forum de Spring](http://forum.spring.io/forum/spring-projects/container/744173-spring-4-doesn-t-support-vfs2) en donne une idée. Qui plus est, la documentation de Spring n’est pas tout à fait à jour à ce sujet. J’ai soumis la [pull request](https://github.com/spring-projects/spring-framework/pull/502) concernant la JavaDoc de la classe _VfsResource_.
+Comme je m’y attendais, je ne suis pas le seul développeur à  regretter cet abandon. Le [forum de Spring](http://forum.spring.io/forum/spring-projects/container/744173-spring-4-doesn-t-support-vfs2) en donne une idée. Qui plus est, la documentation de Spring n’est pas tout à fait à jour à ce sujet. J’ai soumis la [pull request](https://github.com/spring-projects/spring-framework/pull/502) concernant la JavaDoc de la classe `VfsResource`.
 
 ## Réactivation de VFS2
 
-Rétablir le support de VFS 2 dans Spring 4 n’a pas été très compliqué. J’ai tout simplement dupliqué le code de la classe **[VfsUtils](https://fisheye.springsource.org/browse/~br=3.2.x/spring-framework/spring-core/src/main/java/org/springframework/core/io/VfsUtils.java?hb=true) de Spring 3.2** dans la classe **[Vfs2Utils](https://github.com/arey/spring4-vfs2-support/blob/master/src/main/java/com/javaetmoi/core/spring/vfs/Vfs2Utils.java)**. Il a ensuite été nécessaire d’ [implémenter l’interface _ResourcePatternResolver_](http://docs.spring.io/spring/docs/3.2.8.RELEASE/javadoc-api/org/springframework/core/io/support/ResourcePatternResolver.html) et de câbler cette implémentation dans les classes responsables du chargement du contexte applicatif Spring (qui héritent de la classe _AbstractApplicationContext_).
+Rétablir le support de VFS 2 dans Spring 4 n’a pas été très compliqué. J’ai tout simplement dupliqué le code de la classe **[VfsUtils](https://fisheye.springsource.org/browse/~br=3.2.x/spring-framework/spring-core/src/main/java/org/springframework/core/io/VfsUtils.java?hb=true) de Spring 3.2** dans la classe **[Vfs2Utils](https://github.com/arey/spring4-vfs2-support/blob/master/src/main/java/com/javaetmoi/core/spring/vfs/Vfs2Utils.java)**. Il a ensuite été nécessaire d’ [implémenter l’interface `ResourcePatternResolver`](http://docs.spring.io/spring/docs/3.2.8.RELEASE/javadoc-api/org/springframework/core/io/support/ResourcePatternResolver.html) et de câbler cette implémentation dans les classes responsables du chargement du contexte applicatif Spring (qui héritent de la classe `AbstractApplicationContext`).
 
 Pour celles et ceux que cela intéresserait, j’ai publié ces quelques classes dans le projet **[spring4-vfs2-support](https://github.com/arey/spring4-vfs2-support/)** sous GitHub. Les 2 classes _[JBoss5XmlWebApplicationContext](https://github.com/arey/spring4-vfs2-support/blob/master/src/main/java/com/javaetmoi/core/spring/JBoss5XmlWebApplicationContext.java)_ et _[JBoss5AnnotationConfigWebApplicationContext](https://github.com/arey/spring4-vfs2-support/blob/master/src/main/java/com/javaetmoi/core/spring/JBoss5AnnotationConfigWebApplicationContext.java)_ en sont les points d’entrée.
 
@@ -110,7 +110,7 @@ L’artefact javaetmoi-spring4-vfs2-support est publié sur un repository maven 
 </repository>
 ```
 
-Une fois la configuration Maven terminée, il reste à indiquer à Spring quelle classe il doit utiliser pour charger sa configuration. Exemple de configuration du listener _ContextLoaderListener_ dans le _web.xml_ :
+Une fois la configuration Maven terminée, il reste à indiquer à Spring quelle classe il doit utiliser pour charger sa configuration. Exemple de configuration du listener `ContextLoaderListener` dans le `web.xml` :
 
 ```xhtml
 <context-param>

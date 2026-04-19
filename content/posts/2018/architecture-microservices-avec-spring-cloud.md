@@ -83,12 +83,12 @@ Chacun des 4 microservices métiers **customers**, **vets**, **visits** et **api
 
 Par exemple, le module [spring-petclinic-visits-service](https://github.com/spring-petclinic/spring-petclinic-microservices/tree/v2.0.3/spring-petclinic-visits-service) comporte 4 classes :
 
-1. [VisitsServiceApplication](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/v2.0.3/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java): la classe main du microservice annotée avec l’annotation `@SpringBootApplication` ainsi que l’annotation Spring Cloud _@_ _EnableDiscoveryClient_ dont nous verrons l’intérêt par la suite.
+1. [VisitsServiceApplication](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/v2.0.3/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java): la classe main du microservice annotée avec l’annotation `@SpringBootApplication` ainsi que l’annotation Spring Cloud `@EnableDiscoveryClient` dont nous verrons l’intérêt par la suite.
 1. [Visit](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/v2.0.3/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/model/Visit.java): entité JPA représentant une visite et référençant l’animal par son ID (et non son type Java) dans un soucis de découplage des microservices.
 1. [VisitRepository](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/v2.0.3/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/model/VisitRepository.java): interface Spring Data JPA implémentant le pattern Repository et permettant d’accéder aux visites stockées dans une base relationnelle (HSQLDB ou MySQL).
 1. [VisitResource](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/v2.0.3/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java): contrôleur REST exposant une API pour créer une visite et lister les visites d’un animal. L’usage d’annotations Lombok permet d’alléger le code, mais n’a rien d’obligatoire.
 
-Comme vous le constatez, mise à part l’annotation Spring Cloud _@EnableDiscoveryClient_, le code Java de ce microservice ressemble à une application REST Spring Boot des plus classique.
+Comme vous le constatez, mise à part l’annotation Spring Cloud `@EnableDiscoveryClient`, le code Java de ce microservice ressemble à une application REST Spring Boot des plus classique.
 Une différence significative se trouve au niveau de leur configuration Maven (pom.xml) et de leur configuration applicative (.yml).
 
 ## Intégration de Spring Cloud
@@ -110,7 +110,7 @@ Intégrer ces différentes fonctionnalités Spring Cloud dans une application Sp
 </dependencyManagement>
 ```
 
-Dans tous les différents microservices de Petclinic, on a commencé par ajouter le starter **spring-cloud-starter-config** qui permet d’aller récupérer la configuration applicative auprès du serveur de configuration :
+Dans tous les différents microservices de Petclinic, on a commencé par ajouter le starter `spring-cloud-starter-config` qui permet d’aller récupérer la configuration applicative auprès du serveur de configuration :
 
 ```xhtml
 <dependency>
@@ -121,9 +121,9 @@ Dans tous les différents microservices de Petclinic, on a commencé par ajouter
 
 ## Configuration Spring Cloud
 
-Par convention, la configuration d’une application Spring Boot est centralisée dans le fichier de configuration _application.properties_ (ou _application.yml_). Via le mécanisme de hiérarchie de contextes, une application Spring Cloud initie un contexte de bootstrap qui charge sa configuration depuis le fichier **_bootstrap.yml_**.
+Par convention, la configuration d’une application Spring Boot est centralisée dans le fichier de configuration `application.properties` (ou `application.yml`). Via le mécanisme de hiérarchie de contextes, une application Spring Cloud initie un contexte de bootstrap qui charge sa configuration depuis le fichier `bootstrap.yml`.
 
-Le fichier _bootstrap.yml_ est minimaliste. On y retrouve le nom du microservice et l’URL du serveur de configuration. Exemple issu de vets-service :
+Le fichier `bootstrap.yml` est minimaliste. On y retrouve le nom du microservice et l’URL du serveur de configuration. Exemple issu de vets-service :
 
 ```yaml
 spring:
@@ -134,7 +134,7 @@ spring:
     name: vets-service
 ```
 
-Pendant les développements, l’exécution de vets-service (et des autres microservices) demande à ce qu’un serveur de configuration soit démarré en local sur le port 8888. Au démarrage, le microservice ira récupérer le reste de sa configuration (complétant _application.properties/yml_ et _bootstrap.yml)_ auprès du le serveur de configuration.
+Pendant les développements, l’exécution de vets-service (et des autres microservices) demande à ce qu’un serveur de configuration soit démarré en local sur le port 8888. Au démarrage, le microservice ira récupérer le reste de sa configuration (complétant `application.properties/yml` et `bootstrap.yml`) auprès du le serveur de configuration.
 Veuillez noter ici que l’URL du serveur de configuration doit être connue et ne peut pas être découverte au runtime.
 
 ## Serveur de configuration
@@ -145,7 +145,7 @@ Toute la **configuration applicative** est **versionnée** dans un dépôt Git. 
 Le serveur de config est packagé sous forme d’un JAR Spring Cloud. Pour créer le module [spring-petclinic-config-server](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/), un peu de dév a été nécessaire :
 
 1. Générer une application minimaliste Spring Boot (par exemple via [https://start.spring.io](https://start.spring.io))
-1. Inclure une dépendance vers l’artefact **spring-cloud-config-server**:
+1. Inclure une dépendance vers l’artefact `spring-cloud-config-server`:
 
 ```xhtml
 <dependency>
@@ -231,10 +231,10 @@ vets:
 
 Lors du traitement de la requête, le serveur de configuration fusionne le contenu de 2 fichiers du dépôt Git :
 
-1. [application.yml](https://github.com/spring-petclinic/spring-petclinic-microservices-config/blob/master/application.yml): la configuration transverse à tous les microservices
-1. [vets-service.yml](https://github.com/spring-petclinic/spring-petclinic-microservices-config/blob/master/vets-service.yml): la configuration spécifique à l’application vets-service
+1. [`application.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices-config/blob/master/application.yml): la configuration transverse à tous les microservices
+1. [`vets-service.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices-config/blob/master/vets-service.yml): la configuration spécifique à l’application vets-service
 
-Le serveur prend également en considération le ou les profiles Spring actifs côté appelant (mais pas celui déclaré dans le _application.properties_).
+Le serveur prend également en considération le ou les profiles Spring actifs côté appelant (mais pas celui déclaré dans le `application.properties`).
 
 Les logs de démarrage de vets-service confirment ce comportement :
 
@@ -251,17 +251,17 @@ Le démarrage de vets-service échoue quelques millisecondes plus tard. Sa confi
 Pour communiquer, les microservices doivent savoir se co-localiser. Dans une architecture microservices hébergée dans le Cloud, nous pouvons difficilement anticiper le nombre d’instances d’un même microservice (dépendant de la charge) ni même où elles seront déployées (et donc sur quelle IP et quel port elles seront accessibles). C’est là où le **serveur Eureka** rentre en jeu : il va **mettre en relation les microservices**. Chaque microservice va :
 
 1. **S’enregistrer** au démarrage puis donner périodiquement signe de vie (heartbeat toutes les 30 secondes)
-1. **Récupérer l’adresse de leurs adhérences** à partir d’un identifiant, en l’occurrence le nom de l’application déclaré via la propriété _application.name_ (ex : vets-service) du _boostrap.yml_ (chargé avant le _application.properties_)
+1. **Récupérer l’adresse de leurs adhérences** à partir d’un identifiant, en l’occurrence le nom de l’application déclaré via la propriété `application.name` (ex : vets-service) du `bootstrap.yml` (chargé avant le `application.properties`)
 
 Eureka fait partie des projets OSS de Netflix supportés par Spring Cloud.
 A l’instar de ce qui a été fait pour le serveur de configuration, il est nécessaire de mettre en œuvre un serveur Eureka (module [spring-petclinic-discovery-server](https://github.com/spring-petclinic/spring-petclinic-microservices/tree/master/spring-petclinic-discovery-server)). Cela se fait très simplement :
 
 1. Partir d’une application vierge Spring Boot
-1. Déclarer l’artefact **spring-cloud-starter-netflix-eureka-server**
+1. Déclarer l’artefact `spring-cloud-starter-netflix-eureka-server`
 1. Ajouter l’annotation `@EnableEurekaServer` sur la classe main
-1. Déclarer l’artefact **spring-cloud-starter-config** et configurer l’adresse du serveur de configuration (idem pour tous les microservices)
+1. Déclarer l’artefact `spring-cloud-starter-config` et configurer l’adresse du serveur de configuration (idem pour tous les microservices)
 
-Configurer le serveur Eureka par l’intermédiaire du fichier [discovery-server.xml](https://github.com/spring-petclinic/spring-petclinic-microservices-config/blob/master/discovery-server.yml) (le nom de fichier correspond au nom de l’application _spring.application.name_) :
+Configurer le serveur Eureka par l’intermédiaire du fichier [`discovery-server.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices-config/blob/master/discovery-server.yml) (le nom de fichier correspond au nom de l’application _spring.application.name_) :
 
 ```yaml
 eureka:
@@ -279,12 +279,12 @@ A ce stade, le serveur Eureka peut être démarré.
 
 Chaque microservice doit ensuite intégrer un **client Eureka** chargé de dialoguer avec le serveur Eureka :
 
-1. Commencer par déclarer le starter **spring-cloud-starter-netflix-eureka-client**
+1. Commencer par déclarer le starter `spring-cloud-starter-netflix-eureka-client`
 1. Sur la classe main du microservice, ajouter l’annotation `@EnableDiscoveryClient` entraperçu sur la classe [VisitsServiceApplication](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/v2.0.3/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java).
 
 L’annotation [@EnableDiscoveryClient](https://github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/discovery/EnableDiscoveryClient.java) active l’implémentation Eureka de l’interface Spring Cloud [DiscoveryClient](https://github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/discovery/DiscoveryClient.java) chargée d’enregistrer le microservice et de localiser ses pairs. A noter que Spring Cloud supporte d’autres annuaires de service : [Consul de Hashicorp](https://www.consul.io/) et [Apache Zookeeper](https://zookeeper.apache.org/).
 
-Dans les logs de démarrage du microservice _vets-service_, la phase d’enregistrement Eureka intervient en dernier :
+Dans les logs de démarrage du microservice `vets-service`, la phase d’enregistrement Eureka intervient en dernier :
 
 ```default
 o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
@@ -318,7 +318,7 @@ Dans Petclinic, le microservice front API Gateway centralise les appels aux API 
 
 Par exemple, lorsque l’utilisateur souhaite consulter l’écran de consultation d’un propriétaire, le code JavaScript du navigateur fait appel à l’URL : http://localhost:8080/api/gateway/owners/1
 
-Le contrôleur REST Spring MVC [ApiGatewayController](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/8513779b791de694c54816d29f5c8df9fbf59183/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java) a la responsabilité de traiter cette requête HTTP. Il délègue son traitement au service [CustomersServiceClient](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/8513779b791de694c54816d29f5c8df9fbf59183/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java) qui fait à son tour un appel REST au microservice _customers-service_:
+Le contrôleur REST Spring MVC [ApiGatewayController](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/8513779b791de694c54816d29f5c8df9fbf59183/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java) a la responsabilité de traiter cette requête HTTP. Il délègue son traitement au service [CustomersServiceClient](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/8513779b791de694c54816d29f5c8df9fbf59183/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java) qui fait à son tour un appel REST au microservice `customers-service`:
 
 ```java
 public class CustomersServiceClient {
@@ -332,7 +332,7 @@ public class CustomersServiceClient {
 ```
 
 Le host de l’URL a une particularité : ce n’est ni un nom de domaine, ni un nom de serveur, ni même une adresse IP. Ici, on utilise l’ID du microservice, celui utilisé pour s’enregistrer auprès du serveur Eureka.
-L’autre particularité concerne le nom donné à l’instance du bean implémentant l’interface Spring MVC [RestTemplate](https://github.com/spring-projects/spring-framework/blob/master/spring-web/src/main/java/org/springframework/web/client/RestTemplate.java) : `loadBalanced` _RestTemplate_.
+L’autre particularité concerne le nom donné à l’instance du bean implémentant l’interface Spring MVC [RestTemplate](https://github.com/spring-projects/spring-framework/blob/master/spring-web/src/main/java/org/springframework/web/client/RestTemplate.java) : `loadBalancedRestTemplate`.
 
 Dans la configuration Spring du microservice [ApiGatewayApplication](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/387f824fd9f4ce6e1693b43eec9fc35867fc9f3e/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java), le bean RestTemplate est annoté avec l’annotation Spring Cloud [@LoadBalanced](https://github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/loadbalancer/LoadBalanced.java) :
 
@@ -346,7 +346,7 @@ RestTemplate loadBalancedRestTemplate() {
 
 De manière transparente pour le développeur, l’annotation [@LoadBalanced](https://github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/loadbalancer/LoadBalanced.java) configure le [RestTemplate](https://github.com/spring-projects/spring-framework/blob/master/spring-web/src/main/java/org/springframework/web/client/RestTemplate.java) pour utiliser un répartiteur de charge (load-balancer) côté client. L’implémentation par défaut du [LoadBalancerClient](https://github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/loadbalancer/LoadBalancerClient.java) est [**Netflix Ribbon**](https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-ribbon.html). La classe de configuration [LoadBalancerAutoConfiguration](https://github.com/spring-cloud/spring-cloud-commons/blob/55c7833e4cc80b6eeaaaf4c1c1da8308f9ada27f/spring-cloud-commons/src/main/java/org/springframework/cloud/client/loadbalancer/LoadBalancerAutoConfiguration.java) se charge de positionner l’intercepteur [LoadBalancerInterceptor](https://github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/loadbalancer/LoadBalancerInterceptor.java) sur le [RestTemplate](https://github.com/spring-projects/spring-framework/blob/master/spring-web/src/main/java/org/springframework/web/client/RestTemplate.java).
 
-Cet intercepteur va faire appel au service Eureka pour localiser les différentes instances de _customers-service_ disponibles. Il va ensuite appliquer l’ **algorithme round-robin** pour appeler successivement chaque instance et ainsi répartir la charge. D’autres algorithmes sont bien entendu disponible dans Ribbon (ils implémentent tous l’interface [IRule](https://github.com/Netflix/ribbon/blob/master/ribbon-loadbalancer/src/main/java/com/netflix/loadbalancer/IRule.java)).
+Cet intercepteur va faire appel au service Eureka pour localiser les différentes instances de `customers-service` disponibles. Il va ensuite appliquer l’ **algorithme round-robin** pour appeler successivement chaque instance et ainsi répartir la charge. D’autres algorithmes sont bien entendu disponible dans Ribbon (ils implémentent tous l’interface [IRule](https://github.com/Netflix/ribbon/blob/master/ribbon-loadbalancer/src/main/java/com/netflix/loadbalancer/IRule.java)).
 
 Remarque : par programmation, grâce à l’annotation [@EnableDiscoveryClient](https://github.com/spring-cloud/spring-cloud-commons/blob/master/spring-cloud-commons/src/main/java/org/springframework/cloud/client/discovery/EnableDiscoveryClient.java), il est possible d’interroger le service Eureka pour récupérer manuellement la liste des instances disponibles et d’exploiter le tuple host/port de SeviceInstance :
 
@@ -363,7 +363,7 @@ Le microservice front API Gateway centralise les appels du navigateur. Bien qu�
 
 Pour éviter tout boilerplate code, Spring Cloud Netflix propose d’utiliser le **proxy Zuul**. Activable via l’annotation [**@EnableZuulProxy**](https://github.com/spring-cloud/spring-cloud-netflix/blob/master/spring-cloud-netflix-zuul/src/main/java/org/springframework/cloud/netflix/zuul/EnableZuulProxy.java), Zull va permettre de forwarder les requêtes reçues par l’API Gateway vers les microservices back. Il fait office de **reverse proxy**(comme le ferait un Apache ou un Nginx).
 
-Pour bénéficier de Zuul, il est nécessaire d’ajouter au module spring-petclinic-api-gateway le starter **spring-cloud-starter-netflix-zuul** :
+Pour bénéficier de Zuul, il est nécessaire d’ajouter au module spring-petclinic-api-gateway le starter `spring-cloud-starter-netflix-zuul` :
 
 ```xhtml
 <dependency>
@@ -372,7 +372,7 @@ Pour bénéficier de Zuul, il est nécessaire d’ajouter au module spring-petcl
 </dependency>
 ```
 
-La configuration des routes est fait dans le fichier [api-gateway.yml](https://github.com/spring-petclinic/spring-petclinic-microservices-config/blob/master/api-gateway.yml) dont voici un extrait :
+La configuration des routes est fait dans le fichier [`api-gateway.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices-config/blob/master/api-gateway.yml) dont voici un extrait :
 
 ```yaml
 zuul:
@@ -385,7 +385,7 @@ zuul:
     api-gateway: /gateway/**
 ```
 
-La requête [http://localhost:8080/api/vet/vets](http://localhost:8080/api/vet/vets%20s) est automatiquement routée par Zuul vers [http://vets-service/vets](http://vets-service/vets). En interne, le proxy utilise Eureka pour localiser les instances de _vets-setvice_.
+La requête [http://localhost:8080/api/vet/vets](http://localhost:8080/api/vet/vets%20s) est automatiquement routée par Zuul vers [http://vets-service/vets](http://vets-service/vets). En interne, le proxy utilise Eureka pour localiser les instances de `vets-service`.
 
 ## Console d’administration
 
@@ -441,7 +441,7 @@ Côté client, une dépendance vers Jolokia a été ajoutée dans les pom.xml. J
 </dependency>
 ```
 
-Spring Boot Admin s’appuie sur les différents Actuators proposés par Spring Boot : heapdump, threadump, loggers, scheduledtasks ... Depuis Spring Boot 2, pour des raisons de sécurité, seuls les Actuators health et info sont exposés par défaut. Il est nécessaire d’activer explicitement les autres actuators. Dans le fichier de configuration [application.yml](https://github.com/spring-petclinic/spring-petclinic-microservices-config/blob/master/application.yml), a été ajoutée la ligne suivante : management.endpoints.web.exposure.include: "\*"
+Spring Boot Admin s’appuie sur les différents Actuators proposés par Spring Boot : heapdump, threadump, loggers, scheduledtasks ... Depuis Spring Boot 2, pour des raisons de sécurité, seuls les Actuators health et info sont exposés par défaut. Il est nécessaire d’activer explicitement les autres actuators. Dans le fichier de configuration [`application.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices-config/blob/master/application.yml), a été ajoutée la ligne suivante : management.endpoints.web.exposure.include: "\*"
 
 Une fois démarré, Spring Boot Admin est accessible sur l’URL [http://localhost:9090/](http://localhost:9090/) :
 
@@ -476,7 +476,7 @@ Dans le [POM parent](https://github.com/spring-petclinic/spring-petclinic-micros
 
 Une fois les images construites, on peut toutes les démarrer en une seule commande : docker-compose up
 
-Les images Docker reposent toutes sur le même [Dockerfile](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/Dockerfile) (à noter que l’ENTRYPOINT est redéfini dans le [docker-compose.yml](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker-compose.yml)):
+Les images Docker reposent toutes sur le même [Dockerfile](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/Dockerfile) (à noter que l’ENTRYPOINT est redéfini dans le [`docker-compose.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker-compose.yml)):
 
 ```yaml
 FROM openjdk:8
@@ -492,13 +492,13 @@ EXPOSE ${EXPOSED_PORT}
 ENTRYPOINT ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 ```
 
-Introduits depuis Java 8 update 131, les flags **UnlockExperimentalVMOptions** et **UseCGroupMemoryLimitForHeap** ordonnent à la JVM d’ **utiliser ¼ de la mémoire allouée à l’OS** (si Xmx non spécifié). Ils fonctionnent de pair avec le paramètre **mem\_limit** spécifié dans le [docker-compose.yml](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker-compose.yml) pour chaque image Docker.
+Introduits depuis Java 8 update 131, les flags **UnlockExperimentalVMOptions** et **UseCGroupMemoryLimitForHeap** ordonnent à la JVM d’ **utiliser ¼ de la mémoire allouée à l’OS** (si Xmx non spécifié). Ils fonctionnent de pair avec le paramètre **mem\_limit** spécifié dans le [`docker-compose.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker-compose.yml) pour chaque image Docker.
 
-Une autre spécificité du Dockerfile concerne l’utilisation du script [**wait-for-it.sh**](https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh). En effet, **l’ordre de démarrage des microservices est important** : le serveur de Configuration doit être démarré en premier, suivi de l’annuaire de Services et du serveur Zipkin. Les autres microservices peuvent ensuite être démarrés simultanément. Le script [wait-for-it.sh](https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh) permet de se mettre en attente de la disponibilité d’une application web. Dans le [docker-compose.yml](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker-compose.yml), l’entrypoint du container _discovery-server_ attend que le _config-server_ soit démarré avant de démarrer sa JVM :
+Une autre spécificité du Dockerfile concerne l’utilisation du script [**wait-for-it.sh**](https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh). En effet, **l’ordre de démarrage des microservices est important** : le serveur de Configuration doit être démarré en premier, suivi de l’annuaire de Services et du serveur Zipkin. Les autres microservices peuvent ensuite être démarrés simultanément. Le script [wait-for-it.sh](https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh) permet de se mettre en attente de la disponibilité d’une application web. Dans le [`docker-compose.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker-compose.yml), l’entrypoint du container _discovery-server_ attend que le _config-server_ soit démarré avant de démarrer sa JVM :
 entrypoint: \["./wait-for-it.sh","discovery-server:8761","--timeout=60","--","java", …\]
 
 Les applications Spring Boot démarrent avec le **profile Spring docker**. Dans le fichier de configuration Spring Cloud de chaque microservice, ce profile écrase des valeurs par défaut utilisées pour un déploiement hors container.
-Si l’on prend comme exemple un extrait du fichier de configuration [customers-service.yml](https://github.com/spring-petclinic/spring-petclinic-microservices-config/blob/master/customers-service.yml) :
+Si l’on prend comme exemple un extrait du fichier de configuration [`customers-service.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices-config/blob/master/customers-service.yml) :
 
 ```yaml
 ---
@@ -516,8 +516,8 @@ eureka:
 
 On remarque que :
 
-- Le port HTTP est hard-codé et fixé à 8081. En effet, le Docker Compose ne démarre qu’une seule instance de _customers-service_. Son numéro de port n’a pas besoin d’être alloué dynamiquement par Spring Boot.
-- L’URL du serveur Eureka et du serveur Zipkin référencent les paramètres **container\_name** et **ports** du [docker-compose.yml](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker-compose.yml).
+- Le port HTTP est hard-codé et fixé à 8081. En effet, le Docker Compose ne démarre qu’une seule instance de `customers-service`. Son numéro de port n’a pas besoin d’être alloué dynamiquement par Spring Boot.
+- L’URL du serveur Eureka et du serveur Zipkin référencent les paramètres **container\_name** et **ports** du [`docker-compose.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker-compose.yml).
 
 ## Conclusion
 

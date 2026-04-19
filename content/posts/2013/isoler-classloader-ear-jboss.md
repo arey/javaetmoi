@@ -34,11 +34,11 @@ Pour rappel, WAS 6.1 implémente J2EE 1.4 et s’exécute donc sur Java 5. Quant
 
 Pour illustration, prenons une application s’appuyant sur Hibernate 3.6 pour sa couche de persistance et JAXB 2.2 pour le marshalling lors d’appel de web services.  Ces 2 librairies sont embarquées dans le répertoire lib de son EAR et ne posent pas de problèmes particuliers à WAS 6.1.
 Par contre, sur JBoss 5.1 EAP, c’est un tout autre problème. En effet,  son  implémentation JPA repose sur la version 3.3 d'Hibernate. Qui plus est, JAXB 2.1 a été intégrée dans Java 6.
-Si vous tentez de déployer une telle application sur un JBoss installé avec la configuration par défaut, il y’a de fortes chances que vous tombiez sur l’une ou l’autre des exceptions suivantes : _ClassCastException_, _NoSuchMethodException, IllegalAccessErrors_, _VerifyError._
+Si vous tentez de déployer une telle application sur un JBoss installé avec la configuration par défaut, il y’a de fortes chances que vous tombiez sur l’une ou l’autre des exceptions suivantes : `ClassCastException`, `NoSuchMethodException`, `IllegalAccessErrors`, `VerifyError`.
 A ce que j’ai compris en parcourant la documentation mais également déduis de mes tests, différents mécanismes permettent d’expliquer ces comportements :
 
-1. Par défaut, lors du chargement d’une classe, le classloader de l’EAR va commencer par demander à son classloader parent (en l’occurrence celui de JBoss) de trouver la classe. Ainsi, c’est par exemple la classe Session d’Hibernate 3.3 qui sera chargée et non celle de la version 3.6 comme attendu. Il s’agit du comportement standard d’un classloader. Et c’est ce qu’on appelle communément le « j2se classloading compliance ». Sous WAS, cette stratégie de chargement peut être changée en paramétrant le classloader en PARENT\_LAST.
-1. Les classes chargées par d’autres applications déployées sur la même instance de JBoss peuvent être partagées par votre application. Par exemple, la console d’admin JBoss admin-console.war embarque sa propre version de Richfaces et de Seam et peut, malgré elle, vous en faire bénéficier.
+1. Par défaut, lors du chargement d’une classe, le classloader de l’EAR va commencer par demander à son classloader parent (en l’occurrence celui de JBoss) de trouver la classe. Ainsi, c’est par exemple la classe Session d’Hibernate 3.3 qui sera chargée et non celle de la version 3.6 comme attendu. Il s’agit du comportement standard d’un classloader. Et c’est ce qu’on appelle communément le « j2se classloading compliance ». Sous WAS, cette stratégie de chargement peut être changée en paramétrant le classloader en `PARENT_LAST`.
+1. Les classes chargées par d’autres applications déployées sur la même instance de JBoss peuvent être partagées par votre application. Par exemple, la console d’admin JBoss ```admin-console.war``` embarque sa propre version de Richfaces et de Seam et peut, malgré elle, vous en faire bénéficier.
 
 ## _Solutions étudiées_
 
@@ -57,7 +57,7 @@ Configuration embarquée dans l’EAR.
 ![@Copyright JBoss - Classe chargée en priorité depuis l'EAR:right](wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png)
 
 Pour mettre en œuvre la solution n°3 concernant à « scoper » l’application, il est nécessaire de configurer le chargement des classes de JBoss . Une description détaillée de son fonctionnement est disponible sur la page [JBossClassLoadingUseCases](https://community.jboss.org/wiki/JBossClassLoadingUseCases) du wiki de JBoss.
-Dans notre cas, La configuration des classes loaders nécessaire est **deployment scoped** et **Java2ParentDelegation** **désactivé**. Cette configuration est représentée par la figure ci-contre.
+Dans notre cas, La configuration des classes loaders nécessaire est **deployment scoped** et `Java2ParentDelegation` **désactivé**. Cette configuration est représentée par la figure ci-contre.
 
 Cette configuration présente les 2 avantages suivants :
 
@@ -70,11 +70,11 @@ Pour rappel, WAS 6.1 implémente J2EE 1.4 et s’exécute donc sur Java 5. Quant
 
 Pour illustration, prenons une application s’appuyant sur Hibernate 3.6 pour sa couche de persistance et JAXB 2.2 pour le marshalling lors d’appel de web services.  Ces 2 librairies sont embarquées dans le répertoire lib de son EAR et ne posent pas de problèmes particuliers à WAS 6.1.
 Par contre, sur JBoss 5.1 EAP, c’est un tout autre problème. En effet,  son  implémentation JPA repose sur la version 3.3 d'Hibernate. Qui plus est, JAXB 2.1 a été intégrée dans Java 6.
-Si vous tentez de déployer une telle application sur un JBoss installé avec la configuration par défaut, il y’a de fortes chances que vous tombiez sur l’une ou l’autre des exceptions suivantes : _ClassCastException_, _NoSuchMethodException, IllegalAccessErrors_, _VerifyError._
+Si vous tentez de déployer une telle application sur un JBoss installé avec la configuration par défaut, il y’a de fortes chances que vous tombiez sur l’une ou l’autre des exceptions suivantes : `ClassCastException`, `NoSuchMethodException`, `IllegalAccessErrors`, `VerifyError`.
 A ce que j’ai compris en parcourant la documentation mais également déduis de mes tests, différents mécanismes permettent d’expliquer ces comportements :
 
-1. Par défaut, lors du chargement d’une classe, le classloader de l’EAR va commencer par demander à son classloader parent (en l’occurrence celui de JBoss) de trouver la classe. Ainsi, c’est par exemple la classe Session d’Hibernate 3.3 qui sera chargée et non celle de la version 3.6 comme attendu. Il s’agit du comportement standard d’un classloader. Et c’est ce qu’on appelle communément le « j2se classloading compliance ». Sous WAS, cette stratégie de chargement peut être changée en paramétrant le classloader en PARENT\_LAST.
-1. Les classes chargées par d’autres applications déployées sur la même instance de JBoss peuvent être partagées par votre application. Par exemple, la console d’admin JBoss admin-console.war embarque sa propre version de Richfaces et de Seam et peut, malgré elle, vous en faire bénéficier.
+1. Par défaut, lors du chargement d’une classe, le classloader de l’EAR va commencer par demander à son classloader parent (en l’occurrence celui de JBoss) de trouver la classe. Ainsi, c’est par exemple la classe Session d’Hibernate 3.3 qui sera chargée et non celle de la version 3.6 comme attendu. Il s’agit du comportement standard d’un classloader. Et c’est ce qu’on appelle communément le « j2se classloading compliance ». Sous WAS, cette stratégie de chargement peut être changée en paramétrant le classloader en `PARENT_LAST`.
+1. Les classes chargées par d’autres applications déployées sur la même instance de JBoss peuvent être partagées par votre application. Par exemple, la console d’admin JBoss ```admin-console.war``` embarque sa propre version de Richfaces et de Seam et peut, malgré elle, vous en faire bénéficier.
 
 ## _Solutions étudiées_
 
@@ -93,7 +93,7 @@ Configuration embarquée dans l’EAR.
 ![@Copyright JBoss - Classe chargée en priorité depuis l'EAR:right](wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png)
 
 Pour mettre en œuvre la solution n°3 concernant à « scoper » l’application, il est nécessaire de configurer le chargement des classes de JBoss . Une description détaillée de son fonctionnement est disponible sur la page [JBossClassLoadingUseCases](https://community.jboss.org/wiki/JBossClassLoadingUseCases) du wiki de JBoss.
-Dans notre cas, La configuration des classes loaders nécessaire est **deployment scoped** et **Java2ParentDelegation** **désactivé**. Cette configuration est représentée par la figure ci-contre.
+Dans notre cas, La configuration des classes loaders nécessaire est **deployment scoped** et `Java2ParentDelegation` **désactivé**. Cette configuration est représentée par la figure ci-contre.
 
 Cette configuration présente les 2 avantages suivants :
 
@@ -105,7 +105,7 @@ La configuration du fichier `jboss-app.xml` à déposer dans le répertoire META
 
 ## Configuration maven
 
-Le plugin **maven-ear-plugin** permet de générer ce fichier jboss-app.xml :
+Le plugin `maven-ear-plugin` permet de générer ce fichier `jboss-app.xml` :
 \[gist id="4451788"\]
 
 ## Conclusion
@@ -123,17 +123,17 @@ Références :
 
 ## Configuration maven
 
-Le plugin **maven-ear-plugin** permet de générer ce fichier jboss-app.xml :
+Le plugin `maven-ear-plugin` permet de générer ce fichier `jboss-app.xml` :
 Lors de la **migration** d’une application d’un **serveur d’application** vers un autre, il est fréquent d’être confronté à des problématiques de **conflits de librairies**. C’est par exemple le cas lorsqu’une application initialement déployée sur un Websphere Application Server 6.1  doit migrer sur **JBoss 5.1 EAP** (version commerciale de JBoss AS).
 Pour rappel, WAS 6.1 implémente J2EE 1.4 et s’exécute donc sur Java 5. Quant à JBoss 5.1 EAP, il implémente la norme Java EE 5, embarque donc de nombreuses implémentations des standards tels que JPA 1, JSF 1.2 et JAX-WS 1, et tourne sur Java 6.<!--more-->
 
 Pour illustration, prenons une application s’appuyant sur Hibernate 3.6 pour sa couche de persistance et JAXB 2.2 pour le marshalling lors d’appel de web services.  Ces 2 librairies sont embarquées dans le répertoire lib de son EAR et ne posent pas de problèmes particuliers à WAS 6.1.
 Par contre, sur JBoss 5.1 EAP, c’est un tout autre problème. En effet,  son  implémentation JPA repose sur la version 3.3 d'Hibernate. Qui plus est, JAXB 2.1 a été intégrée dans Java 6.
-Si vous tentez de déployer une telle application sur un JBoss installé avec la configuration par défaut, il y’a de fortes chances que vous tombiez sur l’une ou l’autre des exceptions suivantes : _ClassCastException_, _NoSuchMethodException, IllegalAccessErrors_, _VerifyError._
+Si vous tentez de déployer une telle application sur un JBoss installé avec la configuration par défaut, il y’a de fortes chances que vous tombiez sur l’une ou l’autre des exceptions suivantes : `ClassCastException`, `NoSuchMethodException`, `IllegalAccessErrors`, `VerifyError`.
 A ce que j’ai compris en parcourant la documentation mais également déduis de mes tests, différents mécanismes permettent d’expliquer ces comportements :
 
-1. Par défaut, lors du chargement d’une classe, le classloader de l’EAR va commencer par demander à son classloader parent (en l’occurrence celui de JBoss) de trouver la classe. Ainsi, c’est par exemple la classe Session d’Hibernate 3.3 qui sera chargée et non celle de la version 3.6 comme attendu. Il s’agit du comportement standard d’un classloader. Et c’est ce qu’on appelle communément le « j2se classloading compliance ». Sous WAS, cette stratégie de chargement peut être changée en paramétrant le classloader en PARENT\_LAST.
-1. Les classes chargées par d’autres applications déployées sur la même instance de JBoss peuvent être partagées par votre application. Par exemple, la console d’admin JBoss admin-console.war embarque sa propre version de Richfaces et de Seam et peut, malgré elle, vous en faire bénéficier.
+1. Par défaut, lors du chargement d’une classe, le classloader de l’EAR va commencer par demander à son classloader parent (en l’occurrence celui de JBoss) de trouver la classe. Ainsi, c’est par exemple la classe Session d’Hibernate 3.3 qui sera chargée et non celle de la version 3.6 comme attendu. Il s’agit du comportement standard d’un classloader. Et c’est ce qu’on appelle communément le « j2se classloading compliance ». Sous WAS, cette stratégie de chargement peut être changée en paramétrant le classloader en `PARENT_LAST`.
+1. Les classes chargées par d’autres applications déployées sur la même instance de JBoss peuvent être partagées par votre application. Par exemple, la console d’admin JBoss ```admin-console.war``` embarque sa propre version de Richfaces et de Seam et peut, malgré elle, vous en faire bénéficier.
 
 ## _Solutions étudiées_
 
@@ -152,7 +152,7 @@ Configuration embarquée dans l’EAR.
 ![@Copyright JBoss - Classe chargée en priorité depuis l'EAR:right](wp-content/uploads/2013/01/JBoss-ClassLoading-Scoped-Java2ParentDelegationOff-300x202.png)
 
 Pour mettre en œuvre la solution n°3 concernant à « scoper » l’application, il est nécessaire de configurer le chargement des classes de JBoss . Une description détaillée de son fonctionnement est disponible sur la page [JBossClassLoadingUseCases](https://community.jboss.org/wiki/JBossClassLoadingUseCases) du wiki de JBoss.
-Dans notre cas, La configuration des classes loaders nécessaire est **deployment scoped** et **Java2ParentDelegation** **désactivé**. Cette configuration est représentée par la figure ci-contre.
+Dans notre cas, La configuration des classes loaders nécessaire est **deployment scoped** et `Java2ParentDelegation` **désactivé**. Cette configuration est représentée par la figure ci-contre.
 
 Cette configuration présente les 2 avantages suivants :
 
@@ -164,7 +164,7 @@ La configuration du fichier `jboss-app.xml` à déposer dans le répertoire META
 
 ## Configuration maven
 
-Le plugin **maven-ear-plugin** permet de générer ce fichier jboss-app.xml :
+Le plugin `maven-ear-plugin` permet de générer ce fichier `jboss-app.xml` :
 \[gist id="4451788"\]
 
 ## Conclusion

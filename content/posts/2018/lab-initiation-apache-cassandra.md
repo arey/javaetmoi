@@ -109,15 +109,15 @@ Comment requêter une table ?
 Les requêtes sont conditionnées par les colonnes définissant la clé primaire.
 Par exemple, avec la PRIMARY KEY (id\_flux, id\_etape, start\_time), il est possible de réaliser une requête dont la clause WHERE porte sur
 
-- _id\_flux_
-- _id\_flux_ et _id\_etape_
-- _id\_flux_, _id\_etape_ et _start\_time_
+- `id_flux`
+- `id_flux` et `id_etape`
+- `id_flux`, `id_etape` et `start_time`
 
 L’ordre des colonnes est très important.
 Il est en effet interdit de requêter Cassandra sur :
 
 - id\_etape
-- id\_flux et start\_time, car il manquerait la clause sur _id\_etape_ qui est avant _start\_time_ dans la clé primaire
+- id\_flux et start\_time, car il manquerait la clause sur `id_etape` qui est avant `start_time` dans la clé primaire
 
 Cette limitation est très restrictive. Il est en effet nécessaire de maintenir autant de tables qu’il y’aura de requêtes. La modélisation des tables dépend donc directement de leur usage en lecture.
 
@@ -160,17 +160,17 @@ Un nœud est identifié par son **Host ID** (et non son IP). On peut donc change
 Un Rack peut être assimilé à une zone de disponibilité AWS ou bien encore à un rack électrique. Cassandra place une réplique par rack. Il est recommandé d’avoir 3 racks au minimum.
 
 La suite du Lab requière l’utilisation d’un [Cassandra Dataset Manager](https://github.com/rustyrazorblade/cdm/) (CDM). Cet outil va être utilisé pour importer des données de films dans votre cluster Cassandra.
-Le Keyspace _movielens_ est composé de 5 tables.
-La table principale _movies_ utilise la colonne ID de type UUID comme clé primaire et donc clé de répartition. Il y’a donc un 1 enregistrement (1 film) par partition.
-Les 2 tables _ratings\_by\_user_ et _ratings\_by\_movie_ permettent de répondre à des requêtes différentes : par utilisateur ou par film.
+Le Keyspace `movielens` est composé de 5 tables.
+La table principale `movies` utilise la colonne ID de type UUID comme clé primaire et donc clé de répartition. Il y’a donc un 1 enregistrement (1 film) par partition.
+Les 2 tables `ratings_by_user` et `ratings_by_movie` permettent de répondre à des requêtes différentes : par utilisateur ou par film.
 A noter qu’une base Cassandra n’est pas sécurisée de base. Il sera nécessaire d’activer l’authentification.
-Le Lab met en exergue qu’il est impossible de rechercher en l’état un film par titre partiel ou par sa première lettre. Vous allez être amenés à créer la table movies\_by\_first\_letter qui permet une recherche par 1ière lettre ou 1er mot. Pour se faire, la 1ière lettre et le 1er mot du titre d’un film doivent avoir leur propre colonne.
+Le Lab met en exergue qu’il est impossible de rechercher en l’état un film par titre partiel ou par sa première lettre. Vous allez être amenés à créer la table `movies_by_first_letter` qui permet une recherche par 1ière lettre ou 1er mot. Pour se faire, la 1ière lettre et le 1er mot du titre d’un film doivent avoir leur propre colonne.
 Cette table ne permet pas de faire une recherche de type like et encore moins une recherche approximative.
 **Cassandra n’est pas fait pour de la recherche**. Il est préférable de privilégier un moteur de recherche type Elasticsearch.
 Alexander précise qu’il existe une distribution commerciale alignant le sharding d’Elasticsearch avec celui de Cassandra.
 Pour combler ce vide en termes de recherche, Apple a contribué à l’amélioration de l’Index Secondaire avec [SASSI](https://docs.datastax.com/en/dse/5.1/cql/cql/cql_using/useSASIIndex.html). Cette fonctionnalité est à utiliser avec précaution.
 
-Lors du Lab, la commande _ccm node2 nodetool decommission_ permet de streamer les données sur les autres nœuds avant la décommision du nœud 2.
+Lors du Lab, la commande `ccm node2 nodetool decommission` permet de streamer les données sur les autres nœuds avant la décommision du nœud 2.
 
 Cassandra tolère la perte de données en fonction du **niveau de cohérence**(Consistency Level) configuré :
 
@@ -193,11 +193,11 @@ Lors de la création d’une connexion, peuvent être spécifiées plusieurs str
 
 Les slides 84 à 99 expliquent comment coder un client Cassandra en Java :
 
-1. Ajout de la dépendance Maven **cassandra-driver-core**
-1. Création et configuration de l’objet **Cluster**
-1. Création de l’objet **Session**: une fois l’objet Cluster créé, il faut créer un objet Session qui va permettre d’exécuter des requêtes CQL.
+1. Ajout de la dépendance Maven `cassandra-driver-core`
+1. Création et configuration de l’objet `Cluster`
+1. Création de l’objet `Session`: une fois l’objet Cluster créé, il faut créer un objet Session qui va permettre d’exécuter des requêtes CQL.
 1. Exécution d’une requête CQL puis récupération des données renvoyées
-1. Utilisation d’un **PreparedStatement**(recommandée)
+1. Utilisation d’un `PreparedStatement`(recommandée)
 1. Exécution de requêtes **asynchrones**: le `executeAsync()` renvoie la main après avoir d’envoyer des écritures dans le cluster. On boucle ensuite sur la liste de Futures pour attendre la fin de l’écriture. Guava permet de simplifier l’écriture : `Futures.successfulAsList(futures)`
 
 ## Lab – Part 2
@@ -206,8 +206,8 @@ Slides : 100 à 140
 
 Dans cette seconde partie, vous allez coder en Java 2 classes main :
 
-1. Une classe **Writer** chargée d’écrire des messages dans la table _messages_
-1. Une classe **Reader** chargée de lire les messages de la table _messages_, de les recopier dans une seconde table _devoxx.messages\_ack_ puis de les supprimer dans la 1ière table.
+1. Une classe **Writer** chargée d’écrire des messages dans la table `messages`
+1. Une classe **Reader** chargée de lire les messages de la table `messages`, de les recopier dans une seconde table `devoxx.messages_ack` puis de les supprimer dans la 1ière table.
 
 Pour vous y aider, vous pourrez vous référer aux exemples de code des slides précédents.
 La branche [part2-first-design-squelette](https://github.com/thelastpickle/devoxxfr2018/tree/part2-first-design-squelette) met à votre disposition un projet Maven ainsi que des squelettes de classes qui sont à compléter.
@@ -222,7 +222,7 @@ En l’état, cette implémentation pose 2 problèmes :
 La suite du Lab consiste à coder une deuxième implémentation corrigeant ces 2 problèmes.
 Partez du squelette proposé dans la branche [part2-second-design-squelette](https://github.com/thelastpickle/devoxxfr2018/tree/part2-second-design-squelette).
 Pour corriger le problème de performance, une solution consiste à designer la base autour des Tombstones.  On est contraint de supprimer les enregistrements, mais on limite la durée de vie des partitions en utilisant un bucketing temporel (à la minute). Du coup, on aura moins de tombstone par partition/lecture.
-Pour résoudre le problème de concurrence de traitement, un système de verrou est mis en œuvre via l’introduction d’une colonne _processed\_by_. Ce sont les LightWeights Transactions effectuées sur le champ _processed\_by_ qui vont nous permettre de verrouiller les enregistrements.
+Pour résoudre le problème de concurrence de traitement, un système de verrou est mis en œuvre via l’introduction d’une colonne `processed_by`. Ce sont les LightWeights Transactions effectuées sur le champ `processed_by` qui vont nous permettre de verrouiller les enregistrements.
 
 La solution est disponible sur la branche [part2-second-design](https://github.com/thelastpickle/devoxxfr2018/tree/part2-second-design/).
 

@@ -50,7 +50,7 @@ Ce Lab est développé en ECMAScript 6 (alias JavaScript 2015). L’utilisation 
 
 ## Pré-requis
 
-Les **instructions** des différents exercices du Lab sont données dans le fichier [**index.md**](https://github.com/Gillespie59/devoxx-vuejs/blob/master/docs/index.md). Chaque exercice est reconnaissable au pattern PW _<Numéro>_ (pour Project Work ?).
+Les **instructions** des différents exercices du Lab sont données dans le fichier [`index.md`](https://github.com/Gillespie59/devoxx-vuejs/blob/master/docs/index.md). Chaque exercice est reconnaissable au pattern PW _<Numéro>_ (pour Project Work ?).
 
 Avant de commencer à implémenter un exercice, vous devrez tout d’abord vous référer à la partie théorique [**des slides**](http://slides.com/emmanueldemey-1/deck-13).
 Avant d’aller plus loin, les pré-requis suivants sont nécessaires :
@@ -68,11 +68,11 @@ Cette étape se résume à cloner le repo [https://github.com/Gillespie59/devoxx
 
 Voici les fichiers / répertoires qui vous intéresseront :
 
-- **docs/index.md**: instructions permettant de réaliser le Lab
-- **server/**: serveur Express / Node.JS utilisé à partir de l’exercice 4 pour exposer la liste de bières sous forme d’API REST. A noter que le fichier server/beers.json sera utilisé dès l’étape 2 pour hard-codé sous forme d’objet JavaScript le tableau de bières à afficher.
-- **static/**: ressources statiques (CSS, fonts et images)
-- **html**: template statique HTML de la page d’accueil utilisé dès l’étape 2.
-- html : non utilisé lors du lab par faute de temps, ce template permet d’initier la page affichant le panier utilisateur (PW7)
+- `docs/index.md`: instructions permettant de réaliser le Lab
+- `server/`: serveur Express / Node.JS utilisé à partir de l’exercice 4 pour exposer la liste de bières sous forme d’API REST. A noter que le fichier `server/beers.json` sera utilisé dès l’étape 2 pour hard-codé sous forme d’objet JavaScript le tableau de bières à afficher.
+- `static/`: ressources statiques (CSS, fonts et images)
+- `html`: template statique HTML de la page d’accueil utilisé dès l’étape 2.
+- `html` : non utilisé lors du lab par faute de temps, ce template permet d’initier la page affichant le panier utilisateur (PW7)
 
 ## PW1 – Application blanche Vue.JS
 
@@ -84,13 +84,13 @@ Avant de créer votre première application, un peu de théorie est nécessaire 
 
 Lors de la conception du binding de Vue.js, son concepteur n’a pas souhaité utiliser le **préfixe data**\- afin d’être conforme au W3C. Son point de vue est que le code généré par Vue.js est lui conforme W3C.
 
-Pour créer une application Vue.JS, à l’instar de ember-cli et angular-cli, on peut utiliser l’interface en ligne de commande (command-line interface) **vue-cli**. L’utilitaire vue-cli propose **différents types de squelette** : du plus basique à celui basé sur webpack. Dans le Lab, nous utiliserons le **squelette webpack**.
+Pour créer une application Vue.JS, à l’instar de ember-cli et angular-cli, on peut utiliser l’interface en ligne de commande (command-line interface) `vue-cli`. L’utilitaire `vue-cli` propose **différents types de squelette** : du plus basique à celui basé sur webpack. Dans le Lab, nous utiliserons le **squelette webpack**.
 
 A la fin du PW1, la d’accueil du template Vue.js doit s’ouvrir dans votre navigateur :
 ![Page d'accueil du squelette webpack Vue.js](wp-content/uploads/2017/04/screenshot-template-vue.png)
 
-Le **code source** de l’application que vous allez compléter au cours du Lab se trouve dans le répertoire **src/**.
-Le fichier **main.js** est le point d’entrée de l’application. On y retrouve la déclaration de la **vue racine** de l’application :
+Le **code source** de l’application que vous allez compléter au cours du Lab se trouve dans le répertoire `src/`.
+Le fichier `main.js` est le point d’entrée de l’application. On y retrouve la déclaration de la **vue racine** de l’application :
 
 ```js
 new Vue({
@@ -102,11 +102,11 @@ new Vue({
 
 L’objet **Vue** est l’ **objet principal** de la librairie **.** Son constructeur prend en paramètre un objet JS dont les propriétés sont normalisées. Ici, notre vue racine en définie 3 :
 
-- **el**: associe la vue avec un élément du DOM ayant l’identifiant app
-- **template**: l’élément du DOM sera remplacé par le code HTML du template, ici une balise personnalisée <App/>
-- **components**: composants Vue.js nécessaires au rendu de la vue. Ici, le composant App est référencé. C’est lui qui va être chargé d’interpréter la balise <App/>
+- `el`: associe la vue avec un élément du DOM ayant l’identifiant app
+- `template`: l’élément du DOM sera remplacé par le code HTML du template, ici une balise personnalisée <App/>
+- `components`: composants Vue.js nécessaires au rendu de la vue. Ici, le composant App est référencé. C’est lui qui va être chargé d’interpréter la balise <App/>
 
-Dans le fichier **index.html**, nous retrouvons le <div> portant l’identifiant "app" et qui sera donc associé à la vue racine :
+Dans le fichier `index.html`, nous retrouvons le <div> portant l’identifiant "app" et qui sera donc associé à la vue racine :
 
 ```xhtml
 <body>
@@ -116,15 +116,15 @@ Dans le fichier **index.html**, nous retrouvons le <div> portant l’identifiant
 
 Particulièrement simple, cette vue racine ne comporte ni données ni gestionnaire d’évènements.
 
-Le code source du composant App est localisé dans le fichier src/App.vue. **L’approche composant de Vue.js s’inspire très fortement du standard Web Components** dont Polymer est une implémentation. L’objectif d’un composant est d’ **encapsuler du code**(HTML + JS + CSS) afin de pouvoir le **réutiliser**. Un composant est associé à une balise HMTL. Ici, à la balise <App/>. Vous l’aurez remarqué, c’est le nom du fichier .vue qui détermine le nom de la balise HTML associée.
-Un composant peut être déclaré par programmation via la méthode Vue.component() ou bien décrit dans un fichier dédié portant l’ **extension .vue**. Le fichier App.vue est scindé en 3 parties :
+Le code source du composant App est localisé dans le fichier `src/App.vue`. **L’approche composant de Vue.js s’inspire très fortement du standard Web Components** dont Polymer est une implémentation. L’objectif d’un composant est d’ **encapsuler du code**(HTML + JS + CSS) afin de pouvoir le **réutiliser**. Un composant est associé à une balise HMTL. Ici, à la balise <App/>. Vous l’aurez remarqué, c’est le nom du fichier .vue qui détermine le nom de la balise HTML associée.
+Un composant peut être déclaré par programmation via la méthode `Vue.component()` ou bien décrit dans un fichier dédié portant l’ extension `.vue`. Le fichier `App.vue` est scindé en 3 parties :
 
-1. **<template>**: code HTML templatisé à l’aide de la syntaxe Mustache.
-1. **<scripts>**: code JavaScript du composant : nom, données, comportement, méthode callback appelée lors des différentes étapes du cycle de vie du composant …
-1. **<style>**: style CSS global ou spécifique au composant. Pour un style spécifique, il faut ajouter l’attribut **scoped**. Le navigateur utilise alors le Shadow DOM.
+1. `<template>`: code HTML templatisé à l’aide de la syntaxe Mustache.
+1. `<scripts>`: code JavaScript du composant : nom, données, comportement, méthode callback appelée lors des différentes étapes du cycle de vie du composant …
+1. `<style>`: style CSS global ou spécifique au composant. Pour un style spécifique, il faut ajouter l’attribut `scoped`. Le navigateur utilise alors le Shadow DOM.
 
 Des **loaders Webpack** sont chargés de transformer le contenu des fichiers .vue en JavaScript.
-Dans la suite du Lab, vous aurez à personnaliser le fichier App.vue.
+Dans la suite du Lab, vous aurez à personnaliser le fichier `App.vue`.
 
 ## PW2 – Dynamiser la page à l’aide d’un composant
 
@@ -187,7 +187,7 @@ export default {
 </style>
 ```
 
-Pour afficher dynamiquement le nombre de bières ajoutées au panier, on déclare une propriété _bieres_. Un tableau de bières peut ensuite être passé en paramètre d’entrée du tag <v-menu>  dans le fichier App.vue :
+Pour afficher dynamiquement le nombre de bières ajoutées au panier, on déclare une propriété `bieres`. Un tableau de bières peut ensuite être passé en paramètre d’entrée du tag <v-menu>  dans le fichier App.vue :
 
 ```xhtml
 <template>
@@ -211,7 +211,7 @@ export default {
 
 Le composant Beer est responsable d’afficher le détail d’un article/item (dans notre cas une bière) et permet à l’utilisateur de l’ajouter à son panier. Sa déclaration se rapproche de celle du composant Menu.
 Son template est créé à partir du div « thumbnail » récupéré du fichier home.html.
-Le composant Beer accepte la propriété _item_ (qui n’est autre que la bière à afficher). Un item possède 5 propriétés : label, price, image, description et note. Ces propriétés sont affichés dans le template par la syntaxe {{item. _<propriété>_}}
+Le composant Beer accepte la propriété `item` (qui n’est autre que la bière à afficher). Un item possède 5 propriétés : label, price, image, description et note. Ces propriétés sont affichés dans le template par la syntaxe {{item. _<propriété>_}}
 
 ```xhtml
 <template lang="html">
@@ -275,10 +275,10 @@ ajouter () {
 }
 ```
 
- _‘ajout’_ correspond au nom de l’événement et _this.item_ à la donnée associée à l’événement, ici la bière à ajouter au panier. Dans le composant parent App, il est désormais possible de s’abonner à l’événement ‘ajout’. Nous y reviendrons.
-A noter que le mot clé _this_ correspondant à l’instance de la Vue.
+ _‘ajout’_ correspond au nom de l’événement et `this.item` à la donnée associée à l’événement, ici la bière à ajouter au panier. Dans le composant parent App, il est désormais possible de s’abonner à l’événement ‘ajout’. Nous y reviendrons.
+A noter que le mot clé `this` correspondant à l’instance de la Vue.
 
-Dans le composant App, le tag <v-beer>  peut désormais être utilisé pour afficher chacune des bières. Dans un 1er temps, le tableau de bières est hard-codé sous forme d’un tableau d’objets JavaScript déclaré en tant que propriété _produits_ du composant App :
+Dans le composant App, le tag <v-beer>  peut désormais être utilisé pour afficher chacune des bières. Dans un 1er temps, le tableau de bières est hard-codé sous forme d’un tableau d’objets JavaScript déclaré en tant que propriété `produits` du composant App :
 
 ```js
 data () {
@@ -297,10 +297,9 @@ data () {
   }
 ```
 
-Le tableau de _produits_ est construit par copier/coller du fichier beers.json.
+Le tableau de `produits` est construit par copier/coller du fichier beers.json.
 
-Dans le template du composant App, n’ayant pas encore appris comment itérer sur un tableau, le tag <v-beer>  est répété 4 fois :
-<div class="col-sm-4 col-lg-4 col-md-4">
+Dans le template du composant `App`, n’ayant pas encore appris comment itérer sur un tableau, le tag <v-beer>  est répété 4 fois :
 
 ```xhtml
 <div class="col-sm-4 col-lg-4 col-md-4">
@@ -312,10 +311,10 @@ Dans le template du composant App, n’ayant pas encore appris comment itérer s
 …
 ```
 
-Chaque bière est référencée par son index dans le tableau _produits_. Elles sont passées en paramètres du composant Beer par la propriété _item_.
+Chaque bière est référencée par son index dans le tableau `produits`. Elles sont passées en paramètres du composant Beer par la propriété `item`.
 
-La directive _v-on_ positionne le handler _ajoutPanier_ sur l’écoute de l’événement _ajout_ émis par le composant Beer.
-L’implémentation de la méthode _ajouterPanier_ ne pose aucune difficulté :
+La directive `v-on` positionne le handler `ajoutPanier` sur l’écoute de l’événement _ajout_ émis par le composant Beer.
+L’implémentation de la méthode `ajouterPanier` ne pose aucune difficulté :
 
 ```js
 methods: {
@@ -325,7 +324,7 @@ methods: {
 },
 ```
 
-Lorsqu’une bière est ajoutée au panier, le modèle _panier_ de la vue est modifié. A l’écran, le nombre d’articles du panier est automatiquement rafraichi.
+Lorsqu’une bière est ajoutée au panier, le modèle `panier` de la vue est modifié. A l’écran, le nombre d’articles du panier est automatiquement rafraichi.
 
 Bravo, vous venez de terminer l’étape PW2.
 
@@ -350,7 +349,7 @@ Contrairement à Angular 2, Vue.js offre la possibilité d’utiliser directemen
 <v-beer v-for="beer in produits" v-on:ajout="ajoutPanier" :item="beer>
 ```
 
-Dans le tableau de Beer, l’ajout d’une propriété _stock_ initialisée à 5 pour tous les éléments se fait sans difficulté :
+Dans le tableau de Beer, l’ajout d’une propriété `stock` initialisée à 5 pour tous les éléments se fait sans difficulté :
 
 ```js
 {
@@ -378,7 +377,7 @@ En utilisant la **directive v-if**, nous pouvons désormais n’afficher à l’
 <v-beer v-for="beer in produits" v-if="beer.stock > 0" v-on:ajout="ajoutPanier" v-bind:item="beer"></v-beer>
 ```
 
-Pour changer la couleur de fond d'un produit lorsque son stock atteint 1, on commence par déclarer la classe CSS _last_ dans la section <style> de App.vue :
+Pour changer la couleur de fond d'un produit lorsque son stock atteint 1, on commence par déclarer la classe CSS `last` dans la section <style> de App.vue :
 
 ```css
 <style lang="css">
@@ -435,7 +434,7 @@ export default {
 </script>
 ```
 
-La computed value _total_ est ensuite utilisée dans le template comme s’il s’agissait d’une propriété :
+La computed value `total` est ensuite utilisée dans le template comme s’il s’agissait d’une propriété :
 
 ```xhtml
 <a href="#/basket.html">Accéder à votre panier ({{bieres.length}} articles - {{total}} €)</a>

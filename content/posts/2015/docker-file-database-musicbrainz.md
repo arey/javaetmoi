@@ -65,7 +65,7 @@ Pour tester l’installation de la base, exécuter la requête SQL suivante comp
 docker run -it --link musicbrainz-database:postgresql --rm arey/musicbrainz-database sh -c 'exec psql -h postgresql -d musicbrainz -U musicbrainz -a -c "SELECT COUNT(*) FROM artist"'
 ```
 
-Lorsque le client _psql_ demande de saisir un mot de passe, sairi ‘musicbrainz’. Vous obtiendrez la sortie suivante :
+Lorsque le client `psql` demande de saisir un mot de passe, sairi ‘musicbrainz’. Vous obtiendrez la sortie suivante :
 
 ```default
 Password for user musicbrainz:
@@ -78,7 +78,7 @@ SELECT COUNT(*) FROM artist
 
 Depuis une application Java, la chaine de connexion JDBC à utiliser est la suivante : jdbc:postgresql://localhost:5432/musicbrainz
 Login et mot de passe sont identiques : musicbrainz / musicbrainz
-Pour les utilisateurs Windows ou MacOSX utilisant boot2docker, il est nécessaire de remplacer _localhost_ par l’IP donnée par la commande _boot2docker ip_.
+Pour les utilisateurs Windows ou MacOSX utilisant boot2docker, il est nécessaire de remplacer `localhost` par l’IP donnée par la commande `boot2docker ip`.
 
 ## Sous le capot
 

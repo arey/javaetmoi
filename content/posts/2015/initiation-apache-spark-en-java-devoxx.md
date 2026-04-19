@@ -18,7 +18,7 @@ summary: |-
 
   En cette édition 2015 de Devoxx France, [**Apache Spark**](https://spark.apache.org/) est l’une des technologies qui se démarque, comme le furent Docker et Java 8 en 2014 ou AngularJS en 2013. Connu pour être le digne successeur d’Hadoop, le framework Spark fait partie des [outils Big-Data que j’ai découvert lors de la conférence NoSQL Matters 2015](http://javaetmoi.com/2015/03/nosql-matters-paris-2015/).
 
-  Présenté par Hayssam Saleh et Olivier Girardot, [le Hands-on-Lab « Initiation à Spark avec Java 8 et Scala »](http://cfp.devoxx.fr/2015/talk/YGL-3979/_Initiation_a_Spark_avec_Java_8_et_Scala) était donc l’occasion idéale pour m’initier en pratique aux fonctionnalités proposées par Spark et découvrir l’univers du **Machine Learning**.
+  Présenté par Hayssam Saleh et Olivier Girardot, [le Hands-on-Lab « Initiation à Spark avec Java 8 et Scala »](http://cfp.devoxx.fr/2015/talk/YGL-3979/`Initiation`a`Spark`avec`Java`8_et_Scala) était donc l’occasion idéale pour m’initier en pratique aux fonctionnalités proposées par Spark et découvrir l’univers du **Machine Learning**.
 
   Si vous n’avez pas eu la chance de pouvoir assister à ce Lab, toutes les ressources utilisées lors du Lab ont été mises en lignes pour le suivre en offline (ou le terminer à la maison).
 
@@ -42,7 +42,7 @@ url: /2015/04/initiation-apache-spark-en-java-devoxx/
 
 En cette édition 2015 de Devoxx France, [**Apache Spark**](https://spark.apache.org/) est l’une des technologies qui se démarque, comme le furent Docker et Java 8 en 2014 ou AngularJS en 2013. Connu pour être le digne successeur d’Hadoop, le framework Spark fait partie des [outils Big-Data que j’ai découvert lors de la conférence NoSQL Matters 2015](/2015/03/nosql-matters-paris-2015/).
 
-Présenté par Hayssam Saleh et Olivier Girardot, [le Hands-on-Lab « Initiation à Spark avec Java 8 et Scala »](http://cfp.devoxx.fr/2015/talk/YGL-3979/_Initiation_a_Spark_avec_Java_8_et_Scala) était donc l’occasion idéale pour m’initier en pratique aux fonctionnalités proposées par Spark et découvrir l’univers du **Machine Learning**.
+Présenté par Hayssam Saleh et Olivier Girardot, [le Hands-on-Lab « Initiation à Spark avec Java 8 et Scala »](http://cfp.devoxx.fr/2015/talk/YGL-3979/`Initiation`a`Spark`avec`Java`8_et_Scala) était donc l’occasion idéale pour m’initier en pratique aux fonctionnalités proposées par Spark et découvrir l’univers du **Machine Learning**.
 
 Si vous n’avez pas eu la chance de pouvoir assister à ce Lab, toutes les ressources utilisées lors du Lab ont été mises en lignes pour le suivre en offline (ou le terminer à la maison).
 
@@ -56,10 +56,10 @@ Dans ce billet, je compte vous restituer ce que j’ai appris au cours de ces 3h
 ## Hello World avec Spark
 
 Le pré-requis à l’utilisation de Spark est de disposer d’un [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-La distribution [Apache Spark 1.3](http://www.apache.org/dyn/closer.cgi/spark/spark-1.3.0/spark-1.3.0-bin-hadoop2.4.tgz) est multi-OS. Une fois l’archive dézippée, on peut vérifier son fonctionnement en utilisant son shell en ligne de commande _bin/spark-shell.sh_ puis en exécutant une première commande Scala :
+La distribution [Apache Spark 1.3](http://www.apache.org/dyn/closer.cgi/spark/spark-1.3.0/spark-1.3.0-bin-hadoop2.4.tgz) est multi-OS. Une fois l’archive dézippée, on peut vérifier son fonctionnement en utilisant son shell en ligne de commande `bin/spark-shell.sh` puis en exécutant une première commande Scala :
 sc.parallelize(1 to 1000).foreach(println)
 
-Cette commande affiche 1000 nombres de manière non ordonnée. La fonction _parallelize_ construit une **collection distribuée**. La liste peut être répartie sur plusieurs machines et/ou plusieurs cœurs. Ici, elle est répartie sur un **cluster local**. Sur un Macbook disposant de 8 cœurs, 8 partitions sont créées. Chaque nombre est affiché sur la console. L’ordre d’affichage n’est pas prédictif.
+Cette commande affiche 1000 nombres de manière non ordonnée. La fonction `parallelize` construit une **collection distribuée**. La liste peut être répartie sur plusieurs machines et/ou plusieurs cœurs. Ici, elle est répartie sur un **cluster local**. Sur un Macbook disposant de 8 cœurs, 8 partitions sont créées. Chaque nombre est affiché sur la console. L’ordre d’affichage n’est pas prédictif.
 
 ## Spark, mais pourquoi faire ?
 
@@ -92,7 +92,7 @@ Dans l’API Spark, le nom des méthodes ne permettent pas de déterminer si l�
 
 ### Le Spark Context
 
-Le SparkContext est la couche d’abstraction permettant à Spark de savoir où il va exécuter les traitements. Dans le code, il est générallement matérialisé par la variable _sc_.
+Le SparkContext est la couche d’abstraction permettant à Spark de savoir où il va exécuter les traitements. Dans le code, il est générallement matérialisé par la variable `sc`.
 Une fois les développements terminés, le SparkContext est redéfini lors du déploiement du binaire sur un cluster de 50 machines.
 En Java, on privilégie l’utilisation du JavaSparkContext : il retourne des JavaRDD et sait manipuler les collections Java.
 
@@ -114,7 +114,7 @@ A noter que lors du Lab, la version 1.3.1 de Spark n’était qu’en Release Ca
 Un _mvn dependency:tree_  permet de lister toutes les librairies sur lesquelles se base Spark : Hadoop, Jackson, Metrics et bien entendu Scala.
 Le suffixe 2.11 de l’artefact spark-core correspond à la version de Scala utilisée. Ainsi, pour Scala 2.10, il existe l’artefact spark-core\_2.10.
 
-Le scope maven par défaut _compile_ est utilisé ici afin de pouvoir exécuter le code Spark depuis un IDE. Afin de pouvoir déployer le code sur un cluster Spark, il sera nécessaire de le positionner à _provided_ et de construire un unique JAR à l’aide du plugin maven assembly.
+Le scope maven par défaut `compile` est utilisé ici afin de pouvoir exécuter le code Spark depuis un IDE. Afin de pouvoir déployer le code sur un cluster Spark, il sera nécessaire de le positionner à `provided` et de construire un unique JAR à l’aide du plugin maven assembly.
 
 Voici le code source de la classe [FirstRDD](https://github.com/arey/initiation-spark-java/blob/master/src/main/java/org/devoxx/spark/lab/devoxx2015/FirstRDD.java) affichant le nombre de lignes contenues dans le fichier [rating.txt](https://github.com/arey/initiation-spark-java/blob/master/src/main/resources/ratings.txt).
 
@@ -132,16 +132,16 @@ public class FirstRDD {
 }
 ```
 
-Le paramètre _"local\[\*\]"_ précise à Spark d’exécuter les traitements sur un cluster local et en profitant de tous les cœurs disponibles.
+Le paramètre `"local[*]"` précise à Spark d’exécuter les traitements sur un cluster local et en profitant de tous les cœurs disponibles.
 
 La lecture du fichier texte à la mode Java 7 renvoie un RDD de String.
 L’appel à la méthode `count()` déclenche une action. 100 000 lignes comptabilisées.
 
 Les fichiers de type CSV sont particulièrement bien adaptés à Spark : chaque ligne correspond à un élément. Néanmoins, Sparl offre la possibilité de charger du JSON à l’aide du parseur Jackson. On utilise alors un RDD de tuple RDD\[(String, String)\] : le path est la clé, la valeur est le contenu entier du fichier JSON.
 
-Sparl permet également de charger le RDD à partir d’une source de données JDBC. 3 éléments sont nécessaires : une connexion JDBC, la requête JDBC et ses paramètres et une classe chargée de lire une ligne du _ResultSet_.
+Sparl permet également de charger le RDD à partir d’une source de données JDBC. 3 éléments sont nécessaires : une connexion JDBC, la requête JDBC et ses paramètres et une classe chargée de lire une ligne du `ResultSet`.
 
-A des fins de test, comme nous l’avons fait dans l’exemple du Hello World, on peut utiliser une collection via la fonction _parallelize_.
+A des fins de test, comme nous l’avons fait dans l’exemple du Hello World, on peut utiliser une collection via la fonction `parallelize`.
 Exemple en Scala :
 val rdd1 : RDD\[1\] = sc.parallelize(1 until 100000)
 
@@ -157,11 +157,11 @@ Plusieurs transformations sont disponibles sur un RDD. En voici un extrait :
 
 Pour rappel, Spark ne réalise aucun traitement tant qu’on n’exécute pas l’action terminale. Il reste sur le **driver**. Spark construit en mémoire une structure de données reliant les transformations les unes et aux autres. Il prépare le **graphe acyclique dirigé**.
 
-Les actions s’exécutent de manière distribuée sur des **workers**. Certaines actions ne produisent aucun résultat (ex : _println_), d’autres renvoient un objet ou une collection.
+Les actions s’exécutent de manière distribuée sur des **workers**. Certaines actions ne produisent aucun résultat (ex : `println`), d’autres renvoient un objet ou une collection.
 Les données issues du calcul sont retournées au drivers.
 Par exemple, lors d’une action de réduction (qui consiste à réduire une liste, par exemple en sommant ses éléments), un objet Java ou Scala est retourné sur le driver.
 
-Les speakers mettent en garde l’auditoire sur le fait que, lorsque l’action renvoie trop de données Java, un _OutOfMemoryException_ a des chances d’être levé par la JVM. Attention donc aux volumes de données importants.
+Les speakers mettent en garde l’auditoire sur le fait que, lorsque l’action renvoie trop de données Java, un `OutOfMemoryException` a des chances d’être levé par la JVM. Attention donc aux volumes de données importants.
 
 En fonction des opérations de transformation appliquées au RDD, Spark va optimiser les traitements. Le réseau est l’ennemi du distribué car très lent.  Spark limite le **shuffling** et privilégie la **colocalisation**.
 
@@ -177,7 +177,7 @@ Pour source de données, nous repartons du fichier ratings.txt dont voici les 3 
 22 377    1  878887116
 ```
 
-L’initiation du _JavaSparkContext_ et la récupération du chemin vers le fichier ratings.txt s’effectuent de la même manière que dans la classe _FirstRDD_.
+L’initiation du `JavaSparkContext` et la récupération du chemin vers le fichier ratings.txt s’effectuent de la même manière que dans la classe `FirstRDD`.
 3 transformations sont ensuite enchaînées :
 
 ```java
@@ -198,7 +198,7 @@ La 3ième transformation permet de mapper les 4 tokens dans le POJO Rating.
 Le résultat de ses transformations est l’obtention d’un RDD de Rating.
 A noter que Spark ne permet malheureusement pas d’utiliser les Streams de Java 8 et que les méthodes map font ici parties de l’API Spark.
 
-Le calcul de la moyenne des votes repart du RDD _ratings_ et lui applique 2 transformations et une action :
+Le calcul de la moyenne des votes repart du RDD `ratings` et lui applique 2 transformations et une action :
 
 ```java
 double mean = ratings
@@ -220,7 +220,7 @@ double max = ratings
         .max(Comparator.<Double>naturalOrder());
 ```
 
-L’implémentation en Scala de ces quelques lignes aurait gagnée en concision. En effet, Scala aurait réussi à déterminer le comparateur par défaut des POJO et l’utilisation du _Comparator.<Double>naturalOrder()_ aurait été superflue. Qui plus est, il aurait été inutile d’appeler la transformation _mapToDouble_. Son appel aurait été explicite.
+L’implémentation en Scala de ces quelques lignes aurait gagnée en concision. En effet, Scala aurait réussi à déterminer le comparateur par défaut des POJO et l’utilisation du `Comparator.<Double>naturalOrder()` aurait été superflue. Qui plus est, il aurait été inutile d’appeler la transformation `mapToDouble`. Son appel aurait été explicite.
 
 Je ne rentrais pas ici dans le détail du calcul du min et du count. Le code source complet de la [classe Workshop1 est disponible sur GitHub](https://github.com/arey/initiation-spark-java/blob/master/src/main/java/org/devoxx/spark/lab/devoxx2015/Workshop1.java).
 
@@ -260,7 +260,7 @@ Lors de l’appel à l’action _max_, les logs montent que les 2 partitions rdd
 15/04/12 14:03:44 INFO BlockManagerMaster: Updated info of block rdd_4_0
 ```
 
-L’appel à _unpersist_ libère la mémoire :
+L’appel à `unpersist` libère la mémoire :
 
 ```sh
 15/04/12 14:03:44 INFO MapPartitionsRDD: Removing RDD 4 from persistence list
@@ -281,7 +281,7 @@ Le 3ième et dernier Workshop réalisé au cours de ce Lab consiste à charger u
 
 La méthode `sql()` est une simple transformation que l'on peut chainer avec tout autre transformation, et en particulier d’autres requêtes SQL.
 
-Avant de pouvoir d’utiliser le SQL il faut ajouter dans le _pom.xml_ la dépendance vers le **module spark-sql**:
+Avant de pouvoir d’utiliser le SQL il faut ajouter dans le `pom.xml` la dépendance vers le **module spark-sql**:
 
 ```xhtml
 <dependency>
@@ -291,7 +291,7 @@ Avant de pouvoir d’utiliser le SQL il faut ajouter dans le _pom.xml_ la dépen
 </dependency>
 ```
 
-La classe [Workshop3](https://github.com/arey/initiation-spark-java/blob/master/src/main/java/org/devoxx/spark/lab/devoxx2015/Workshop3.java) commence par créer un **_SQLContext_** à partir du _SparkContext_. Une liste de produits est ensuite chargée sous forme de _DataFrame_ depuis un fichier JSON. Le premier produit de la liste est affiché :
+La classe [Workshop3](https://github.com/arey/initiation-spark-java/blob/master/src/main/java/org/devoxx/spark/lab/devoxx2015/Workshop3.java) commence par créer un `SQLContext` à partir du `SparkContext`. Une liste de produits est ensuite chargée sous forme de `DataFrame` depuis un fichier JSON. Le premier produit de la liste est affiché :
 
 ```java
 SQLContext sqlContext = new SQLContext(sc);
@@ -300,7 +300,7 @@ DataFrame products = sqlContext.load(path, "json");
 System.out.println(products.first());
 ```
 
-Le _DataFrame_ est enregistré en tant que table temporaire portant le nom de _products_. Une requête SQL peut ensuite être exécutée sur cette table :
+Le `DataFrame` est enregistré en tant que table temporaire portant le nom de `products`. Une requête SQL peut ensuite être exécutée sur cette table :
 
 ```java
 sqlContext.registerDataFrameAsTable(products, "products");

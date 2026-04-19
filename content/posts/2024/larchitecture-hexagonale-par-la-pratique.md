@@ -58,7 +58,7 @@ Julien commence par rappeler les inconvénients d’une **architecture 3-tiers**
 Très utile, cette architecture n-tiers vieillit mal.   
  En théorie, la **logique métier** doit être centralisée dans la couche service. Mais en pratique, on la voit **diluée** partout, jusque dans les procédures stockées ...
 Autre problème de taille : **les responsabilités techniques leaks** de tous les côtés.
-Julien prend un exemple de code GitHub avec une classe _Exercice_ mélangeant annotations JPA (ex: `@Column`) liée à la persistance de données et
+Julien prend un exemple de code GitHub avec une classe `Exercice` mélangeant annotations JPA (ex: `@Column`) liée à la persistance de données et
 des annotations Jackson (ex : `@JsonProperty`) liées à la couche de présentation. Le couplage est évident.
 Le code métier casse si on migre d’une base relationnelle à MongoDB ou bien d’une API REST à GraphQL.
 Un upgrade de la version de Spring Boot ne devrait pas casser le code fonctionnel. C’est trop malheureusement le cas avec ce type d’architecture.
@@ -264,7 +264,7 @@ Pour simuler de vraies réponses de SWAPI dans les TU, la classe de test [Starwa
 
 Julien termine sa présentation en introduisant volontairement une régression. Suite à l’ajout du champ `cargoCapacity`, on renomme `capacity` en `passengersCapacity`.
 On casse les consommateurs de notre API REST. A ce stade de la démo, le contrôleur REST est couplé avec le domaine métier. Les ressources REST sont les objets du domaine.
-Il y'a nécessité de créer une représentation de ce qu’est une ressource REST. Julien introduit le record [FleetResource](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/infrastructure/src/main/java/rebelsrescue/controllers/FleetResource.java) et ajoute un champ _deprecation_ permettant de prévenir les consommateurs du renommage.
+Il y'a nécessité de créer une représentation de ce qu’est une ressource REST. Julien introduit le record [FleetResource](https://gitlab.com/beyondxscratch/hexagonal-architecture-java-springboot/-/blob/main/infrastructure/src/main/java/rebelsrescue/controllers/FleetResource.java) et ajoute un champ `deprecation` permettant de prévenir les consommateurs du renommage.
 
 Architecture finale de l’application Rebels Rescue :
 

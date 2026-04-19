@@ -67,7 +67,7 @@ Sur une application Spring MVC (non réactive) qui utilise WebClient avec des ap
 </dependency>
 ```
 
-Remarque : le token Salesforce étant opaque, nul besoin d’ajouter la dépendance _spring-security-oauth2-jose_.
+Remarque : le token Salesforce étant opaque, nul besoin d’ajouter la dépendance `spring-security-oauth2-jose`.
 
 ## Configuration Spring Boot
 
@@ -103,16 +103,16 @@ spring:
 
 Les variables en majuscule peuvent être changées / hardcodées à votre guise ou bien passées sous forme de variables d’environnements. Elles dépendent pour la plupart de l’environnement dans lequel l’application est déployée.
 
-La classe [OAuth2ClientProperties](https://github.com/spring-projects/spring-boot/blob/v2.5.6/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/OAuth2ClientProperties.java) charge tous les clients définis dans le fichier application.yml ou application.properties. Les clients doivent être préfixés par le préfixe : **_spring.security.oauth2.client_**.
+La classe [OAuth2ClientProperties](https://github.com/spring-projects/spring-boot/blob/v2.5.6/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/OAuth2ClientProperties.java) charge tous les clients définis dans le fichier application.yml ou application.properties. Les clients doivent être préfixés par le préfixe : `spring.security.oauth2.client`.
 
-La cinématique [Resource Owner Password](https://www.oreilly.com/library/view/getting-started-with/9781449317843/ch04.html) n’est pas (encore ?) pleinement supporté par Spring Boot 2.5 dans la mesure où les propriétés **_username_** et **_password_** ne sont pas directement mappées dans la classe [OAuth2ClientProperties](https://github.com/spring-projects/spring-boot/blob/v2.5.6/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/OAuth2ClientProperties.java) de Spring Boot. Dans notre exemple, on réutilise le préfixe _spring.security.oauth2.client_ pour les déclarer au même niveau que le _client-id_ et le _client-secret_.
+La cinématique [Resource Owner Password](https://www.oreilly.com/library/view/getting-started-with/9781449317843/ch04.html) n’est pas (encore ?) pleinement supporté par Spring Boot 2.5 dans la mesure où les propriétés `username` et `password` ne sont pas directement mappées dans la classe [OAuth2ClientProperties](https://github.com/spring-projects/spring-boot/blob/v2.5.6/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/OAuth2ClientProperties.java) de Spring Boot. Dans notre exemple, on réutilise le préfixe `spring.security.oauth2.client` pour les déclarer au même niveau que le `client-id` et le `client-secret`.
 
 ## Déclaration du bean salesforceWebClient
 
 La classe de configuration Spring **[OAuth2ClientConfig](https://github.com/arey/spring-security-oauth2-salesforce-sample/blob/main/src/main/java/com/javametmoi/sample/salesforce/OAuth2ClientConfig.java)** déclare le bean **salesforceWebClient** de type WebClient. Si besoin, d’autres clients pourraient y être ajoutés.   
 Le filtre [ServletOAuth2AuthorizedClientExchangeFilterFunction](https://github.com/spring-projects/spring-security/blob/5.5.3/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/web/reactive/function/client/ServletOAuth2AuthorizedClientExchangeFilterFunction.java) est utilisé lors de la construction de WebClient via le WebClient.Builder.
 
-Le bean **authorizedClientManager** construit un [OAuth2AuthorizedClientProvider](https://github.com/spring-projects/spring-security/blob/5.5.3/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/OAuth2AuthorizedClientProvider.java) supportant le **grant\_type=password**. Une spécificité consiste à tester le nom du client (ici _salesforce_) pour ajouter dynamiquement _username_ et password au contexte d’autorisation [OAuth2AuthorizationContext](https://github.com/spring-projects/spring-security/blob/5.5.3/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/OAuth2AuthorizationContext.java).
+Le bean **authorizedClientManager** construit un [OAuth2AuthorizedClientProvider](https://github.com/spring-projects/spring-security/blob/5.5.3/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/OAuth2AuthorizedClientProvider.java) supportant le **grant\_type=password**. Une spécificité consiste à tester le nom du client (ici `salesforce`) pour ajouter dynamiquement `username` et password au contexte d’autorisation [OAuth2AuthorizationContext](https://github.com/spring-projects/spring-security/blob/5.5.3/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/OAuth2AuthorizationContext.java).
 
 ```java
 @Configuration
@@ -218,7 +218,7 @@ public class SalesforceClient {
 }
 ```
 
-Lors de l’appel à _response.block()_, la méthode _ServletOAuth2AuthorizedClientExchangeFilterFunction::filter_ est appelée. Lors du premier appel, elle délègue l’authentification OAuth 2.0 à la classe [DefaultPasswordTokenResponseClient](https://github.com/spring-projects/spring-security/blob/5.5.3/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/endpoint/DefaultPasswordTokenResponseClient.java). En coulisse, un _RestTemplate_ est utilisé pour réaliser l’appel POST HTTP et récupérer l’access token :
+Lors de l’appel à `response.block()`, la méthode `ServletOAuth2AuthorizedClientExchangeFilterFunction::filter` est appelée. Lors du premier appel, elle délègue l’authentification OAuth 2.0 à la classe [DefaultPasswordTokenResponseClient](https://github.com/spring-projects/spring-security/blob/5.5.3/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/endpoint/DefaultPasswordTokenResponseClient.java). En coulisse, un `RestTemplate` est utilisé pour réaliser l’appel POST HTTP et récupérer l’access token :
 
 ```http
 POST https://<your_subdomain>.salesforce.com/services/oauth2/token?
@@ -246,6 +246,6 @@ Cette implémentation n’est pas parfaite dans le sens où Salesforce ne renvoi
 - [Spring Security OAuth 5.2 Migration Sample](https://github.com/jgrandja/spring-security-oauth-5-2-migrate) (GitHub)
 - [Spring Security 5 Replacement for OAuth2RestTemplate](https://stackoverflow.com/questions/58982286/spring-security-5-replacement-for-oauth2resttemplate) (StackOverflow)
 - [Spring Security OAuth 2.0 client configuration for Salesforce](https://github.com/arey/spring-security-oauth2-salesforce-sample) (GitHub)
-- [OAuth 2.0 Username-Password Flow for Special Scenarios](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oauth_username_password_flow.htm&type=5)(Salesforce documentation)
+- [OAuth 2.0 Username-Password Flow for Special Scenarios](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oauth`username`password_flow.htm&type=5)(Salesforce documentation)
 - [REST API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_rest.htm) (Salesforce documentation)
 - [When do Salesforce access tokens expire?](https://xkit.co/post/when-do-salesforce-access-tokens-expire) (Xkit)

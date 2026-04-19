@@ -78,9 +78,9 @@ Techniquement, il s’appuie sur différents modules du Framework Spring :
 
 - **AOP**: interception et interprétation des annotations
 - **SpEL**: expressions acceptées par les annotations
-- **Task**: parallélisation des phases de construction et de publication avec @Async
+- **Task**: parallélisation des phases de construction et de publication avec `@Async`
 - **OXM** : marshalling XML des notifications
-- **JMS**: publication de la notification vers l’EAI par le biais du JmsTemplate
+- **JMS**: publication de la notification vers l’EAI par le biais du `JmsTemplate`
 
 Le niveau d’interception est généralement positionné sur les services métiers transactionnels de mise à jour unitaire ou massive des objets métiers. Une donnée n’est ainsi indexée que lorsque ses modifications sont effectives dans l’application source. En cas de crash, toute perte de notification est rattrapée par le batch de nuit ; l’utilisation d’un commit à 2 phases ou d’un mécanisme de rejeu ne sont donc pas nécessaires.
 
@@ -100,22 +100,22 @@ L’annotation _@DataRef_ permet de spécifier le type d’objet métier et offr
 
 ## Technique d’interception
 
-A lui seul, le mécanisme d’interception pourrait faire office d’un second billet. Succinctement, il s’appuie sur un **post-processeur de beans Spring** qui analyse chaque bean Spring créé par le conteneur léger. Son implémentation s’inspire de celle des post-processeurs du Framework Spring tels _AsyncAnnotationBeanPostProcessor_ et _TransactionProxyFactoryBean_, tous deux responsables de respectivement traiter les annotations @Async et @Transactional.
+A lui seul, le mécanisme d’interception pourrait faire office d’un second billet. Succinctement, il s’appuie sur un **post-processeur de beans Spring** qui analyse chaque bean Spring créé par le conteneur léger. Son implémentation s’inspire de celle des post-processeurs du Framework Spring tels `AsyncAnnotationBeanPostProcessor` et `TransactionProxyFactoryBean`, tous deux responsables de respectivement traiter les annotations `@Async` et `@Transactional`.
 
-Une fois le bean Spring initialisé, le post-processeur de bean intercale un **proxy AOP** héritant de la classe _AdvisedSupport_. Cette étape est facultative si un proxy a déjà été placé par un précédent post-processeur. Un aspect héritant de la classe _AbstractPointcutAdvisor_ est ensuite inséré en début de la chaîne d’aspects du proxy.
+Une fois le bean Spring initialisé, le post-processeur de bean intercale un **proxy AOP** héritant de la classe `AdvisedSupport`. Cette étape est facultative si un proxy a déjà été placé par un précédent post-processeur. Un aspect héritant de la classe `AbstractPointcutAdvisor` est ensuite inséré en début de la chaîne d’aspects du proxy.
 
-Cet aspect _DataOperationAnnotationAdvisor_ possède 2 composantes :
+Cet aspect `DataOperationAnnotationAdvisor` possède 2 composantes :
 
-1. Un **point de coupe** ciblant les méthodes annotées avec _@DataOperation_
-1. Un **greffon** implémentant l’interface _MethodInterceptor_ et en charge de parcourir la signature des méthodes à la recherche des éventuelles annotations _@DataId_ et _@DataRef_, de gérer les appels réentrants et les imbrications, de se synchroniser si besoin est avec le gestionnaire des transactions et, bien entendu, de tracker tout changement opéré sur les objets métiers.
+1. Un **point de coupe** ciblant les méthodes annotées avec `@DataOperation`
+1. Un **greffon** implémentant l’interface `MethodInterceptor` et en charge de parcourir la signature des méthodes à la recherche des éventuelles annotations `@DataId` et `@DataRef`, de gérer les appels réentrants et les imbrications, de se synchroniser si besoin est avec le gestionnaire des transactions et, bien entendu, de tracker tout changement opéré sur les objets métiers.
 
-Le diagramme ci-dessous illustre la mise en place du greffon _DataOperationInterceptor_ devant le bean _customerService_ :
+Le diagramme ci-dessous illustre la mise en place du greffon `DataOperationInterceptor` devant le bean `customerService` :
 
 ![Intercepteur positionné par un post-processeur de beans Spring](wp-content/uploads/2013/02/intercepteur-spring-notification.png)
 
 Toutes les modifications d’objet métier identifiées au cours d’une transaction sont ensuite assemblées au sein d’une notification qui est émise via JMS vers le middle d’indexation.
 
-Bien qu’introduisant une adhérence supplémentaire, l’utilisation du support AspectJ de Spring aurait probablement proposée une implémentation plus légère. Attention toutefois à bien conserver l’ordre des intercepteurs : le _DataOperationInterceptor_ doit être placé avant le _TransactionalInterceptor_.
+Bien qu’introduisant une adhérence supplémentaire, l’utilisation du support AspectJ de Spring aurait probablement proposée une implémentation plus légère. Attention toutefois à bien conserver l’ordre des intercepteurs : le `DataOperationInterceptor` doit être placé avant le `TransactionalInterceptor`.
 
 ## Middle d’indexation
 
@@ -153,7 +153,7 @@ L’indexation du document Lucene se fait à l’aide de l’API Java ElasticSea
 Afin de pas perdre de notifications en cas d’erreurs volatiles, l’écriture est réalisée en synchrone.
 Le versionning ElasticSarch permet de faire cohabiter simultanément batch quotidien et indexation fil de l’eau.
 
-Côté code, le client ElasticSearch _[org.elasticsearch.client.Client](https://github.com/elasticsearch/elasticsearch/blob/master/src/main/java/org/elasticsearch/client/Client.java)_ est injecté dans le service chargé d’indexer les documents à l’aide d’une fabrique de beans Spring créée pour l’occasion ou de celle mise à disposition par [Dadoonet](https://github.com/dadoonet) dans le [projet spring-elasticsearch](https://github.com/dadoonet/spring-elasticsearch) hébergé sur Github.
+Côté code, le client ElasticSearch [`org.elasticsearch.client.Client`](https://github.com/elasticsearch/elasticsearch/blob/master/src/main/java/org/elasticsearch/client/Client.java) est injecté dans le service chargé d’indexer les documents à l’aide d’une fabrique de beans Spring créée pour l’occasion ou de celle mise à disposition par [Dadoonet](https://github.com/dadoonet) dans le [projet spring-elasticsearch](https://github.com/dadoonet/spring-elasticsearch) hébergé sur Github.
 Une extension Spring Integration pour ElasticSearch pourrait également avoir son intérêt.
 
 ## Conclusion

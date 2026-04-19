@@ -35,9 +35,9 @@ Extensible via un mécanisme de plugins, LogStash sait gérer plusieurs types de
 
 ## Solution possible
 
-A l’instar de la commande _tail_, LogStash est conçu pour attendre la suite d’un fichier. **Il n’a pas connaissance de la fin de fichier**. Une première étape consiste donc à informer LogStash que la dernière ligne du fichier a été atteinte et qu’il peut s’arrêter.
+A l’instar de la commande `tail`, LogStash est conçu pour attendre la suite d’un fichier. **Il n’a pas connaissance de la fin de fichier**. Une première étape consiste donc à informer LogStash que la dernière ligne du fichier a été atteinte et qu’il peut s’arrêter.
 Une solution possible est donnée comme réponse à la [la question « How to automatically kill a logstash agent when tests are done » posée sur Stackoverfow](http://stackoverflow.com/questions/18299337/how-to-automatically-kill-a-logstash-agent-when-tests-are-done).
-Elle consiste **à ajouter un tag _endfile_** lorsqu’un pattern est détecté dans le message (la ligne) qui vient d’être lue, ici la chaîne _END FILE_ :
+Elle consiste **à ajouter un tag `endfile`** lorsqu'un pattern est détecté dans le message (la ligne) qui vient d'être lue, ici la chaîne `END FILE` :
 
 ```js
 filter {
@@ -49,10 +49,10 @@ filter {
 }
 ```
 
-L’ajout du tag est réalisé dans la section _filter_.
+L’ajout du tag est réalisé dans la section `filter`.
 Cette solution nécessite d’avoir la main sur le fichier : soit en le générant, soit en ayant la possibilité de lui concaténer une ligne END FILE.
 
-Dans la section _output_, avant d’écrire le message, on vérifie si le tag _endfile_ existe. Si c’est le cas, on quitte l’agent LogStash en faisant appel au plugin exit :
+Dans la section `output`, avant d’écrire le message, on vérifie si le tag `endfile` existe. Si c’est le cas, on quitte l’agent LogStash en faisant appel au plugin exit :
 
 ```js
 output {
@@ -71,12 +71,12 @@ Les commandes suivantes permettent de le récupérer et de le tester :
 
 1. git clone git://github.com/arey/logstash-exit-plugin.git
 1. cd logstash-exit-plugin
-1. set LOGSTASH\_HOME=<your logstash installation directory>
-1. %LOGSTASH\_HOME%\\bin\\logstash agent --pluginpath .\\plugins -f exit-example.conf
+1. set `LOGSTASH_HOME`=<your logstash installation directory>
+1. `%LOGSTASH_HOME%\bin\logstash agent --pluginpath .\plugins -f exit-example.conf`
 
-Un effet de bord lié à l'implémentation de ce plugin est que la JVM s’arrête brutalement. Et ceci, alors que les plugins chargés d’écrire les messages ont peut-être encore des données à flusher. Le plugin permet de contourner ce problème en prévoyant une pause avant l’arrêt subite de la JVM (paramètre _pause\_second_). Sans le garantir à 100%, une pause de 10 secondes devrait donner suffisamment de temps aux writers pour terminer leur job.
+Un effet de bord lié à l'implémentation de ce plugin est que la JVM s’arrête brutalement. Et ceci, alors que les plugins chargés d’écrire les messages ont peut-être encore des données à flusher. Le plugin permet de contourner ce problème en prévoyant une pause avant l’arrêt subite de la JVM (paramètre `pause_second`). Sans le garantir à 100%, une pause de 10 secondes devrait donner suffisamment de temps aux writers pour terminer leur job.
 
-Un autre usage de ce plugin consiste à sortir de LogStash dès qu’une erreur est rencontrée. Le paramètre _exit\_code_ permet de spécifier le code d’erreur retournée par la JVM à l’appelant.
+Un autre usage de ce plugin consiste à sortir de LogStash dès qu’une erreur est rencontrée. Le paramètre `exit_code` permet de spécifier le code d’erreur retournée par la JVM à l’appelant.
 
 Pour les plus curieux, le code du plugin est des plus trivial :
 
@@ -86,6 +86,6 @@ Extrait de la classe ruby Exit
 
 ## Conclusion
 
-Par faute d’avoir trouvé mieux, le plugin exit sort brutalement de la JVM (équivalent à un _System.exit()_). Une solution plus élégante serait de demander à LogStash de s’arrêter et de pouvoir propager l’évènement _LogStash::ShutdownSignal_. Je fais appel à la communauté LogStash pour m’indiquer comment procéder.
+Par faute d’avoir trouvé mieux, le plugin exit sort brutalement de la JVM (équivalent à un `System.exit()`). Une solution plus élégante serait de demander à LogStash de s’arrêter et de pouvoir propager l’évènement `LogStash::ShutdownSignal`. Je fais appel à la communauté LogStash pour m’indiquer comment procéder.
 
-Enfin, rattaché à la section _output_, un plugin similaire pourrait également être codé au niveau de la section _filter_. A vous de jouer !
+Enfin, rattaché à la section `output`, un plugin similaire pourrait également être codé au niveau de la section `filter`. A vous de jouer !

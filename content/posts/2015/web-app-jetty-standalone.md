@@ -111,11 +111,11 @@ Avant de pouvoir utiliser l’API de Jetty pour démarrer / arrêter un serveur,
 </dependency>
 ```
 
-Comme vous pouvez le constater, Jetty est particulièrement modulaire. Si vous utilisez JSP comme technologie de rendu, il faudra ajouter l’artefact _jetty-jsp_ sous peine du message d’erreur _« JSP support not configured »._
+Comme vous pouvez le constater, Jetty est particulièrement modulaire. Si vous utilisez JSP comme technologie de rendu, il faudra ajouter l’artefact `jetty-jsp` sous peine du message d’erreur _« JSP support not configured »._
 
 ## Démarrer un Jetty
 
-Manipuler l’API Jetty pour démarrer un conteneur de servlet depuis une classe _Main_ ne présente pas de difficulté :
+Manipuler l’API Jetty pour démarrer un conteneur de servlet depuis une classe `Main` ne présente pas de difficulté :
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -137,12 +137,12 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
- [![2015-05 - WAR-less Java web application with Jetty](wp-content/uploads/2015/04/2015-05-WAR-less-Java-web-application-with-Jetty.png)](wp-content/uploads/2015/04/2015-05-WAR-less-Java-web-application-with-Jetty.png) Une 1ière subtilité réside dans l’utilisation du _ClassLoader_ du thread courant. Sans quoi, en dehors d’un IDE, le répertoire webapp ne sera pas trouvé.
+ [![2015-05 - WAR-less Java web application with Jetty](wp-content/uploads/2015/04/2015-05-WAR-less-Java-web-application-with-Jetty.png)](wp-content/uploads/2015/04/2015-05-WAR-less-Java-web-application-with-Jetty.png) Une 1ière subtilité réside dans l’utilisation du `ClassLoader` du thread courant. Sans quoi, en dehors d’un IDE, le répertoire webapp ne sera pas trouvé.
 
 La 2nde subtilité vient du fait que l’artefact construit est de type JAR et non un WAR. Bien qu’elle y ressemble, l’arborescence du projet n’est donc pas celle d’un WAR.
 Le répertoire webapp ne se trouve pas dans le répertoire src/main/webapp mais dans src/main/resources/webapp. Ainsi, lors de la construction du JAR, le répertoire webapp sera copié à la racine du JAR sans configuration maven particulière.
 
-Dans notre exemple, la web app utilise un descripteur de déploiement web.xml. Optionnel depuis Servlet 3.0, l’appel à la méthode _setDescriptor_ est facultatif.
+Dans notre exemple, la web app utilise un descripteur de déploiement web.xml. Optionnel depuis Servlet 3.0, l’appel à la méthode `setDescriptor` est facultatif.
 
 Enfin, le port HTTP utilisé dans notre exemple est le 8080. Ce dernier aurait pu être passé en paramètre du `main()` ou bien chargé depuis un fichier de configuration.
 
@@ -150,8 +150,8 @@ Lors de l’appel à la méthode `start()`, le conteneur Jetty démarre. L’app
 
 ## Arrêter proprement Jetty
 
-Pour arrêter le serveur, une solution peu recommandée est d’utiliser un _kill -9_ sur le PID du process Java. Les traitements en cours s’arrêtent brutalement et les ressources ne sont pas correctement libérées.
-Une solution plus élégante est de demander au serveur Jetty de s’arrêter proprement. Le contexte de servlets est alors fermé par Jetty. Les listeners JEE implémentant l’interface _ServletContextListener_ en sont notifiés.
+Pour arrêter le serveur, une solution peu recommandée est d’utiliser un `kill -9` sur le PID du process Java. Les traitements en cours s’arrêtent brutalement et les ressources ne sont pas correctement libérées.
+Une solution plus élégante est de demander au serveur Jetty de s’arrêter proprement. Le contexte de servlets est alors fermé par Jetty. Les listeners JEE implémentant l’interface `ServletContextListener` en sont notifiés.
 
 Pour communiquer avec Jetty, une solution possible est d’utiliser un socket TCP. Je me suis grandement inspiré du code Java utilisé par le [plugin Jetty pour maven](https://github.com/eclipse/jetty.project).
 
@@ -165,8 +165,8 @@ monitor.start();
 server.join();
 ```
 
-Ce thread démarre un _SocketServer_ écoutant sur le port 8090. Il attend que l’instruction _stop_ lui soit envoyée.
-Pour davantage de détails, vous pouvez vous reportez à la méthode statique _stop_ de la classe [JettyServer](https://github.com/arey/embedded-jetty-webapp/blob/master/src/main/java/com/javaetmoi/jetty/JettyServer.java) ainsi qu’à la classe [Monitor](https://github.com/arey/embedded-jetty-webapp/blob/master/src/main/java/com/javaetmoi/jetty/Monitor.java).
+Ce thread démarre un `SocketServer` écoutant sur le port 8090. Il attend que l’instruction `stop` lui soit envoyée.
+Pour davantage de détails, vous pouvez vous reportez à la méthode statique `stop` de la classe [JettyServer](https://github.com/arey/embedded-jetty-webapp/blob/master/src/main/java/com/javaetmoi/jetty/JettyServer.java) ainsi qu’à la classe [Monitor](https://github.com/arey/embedded-jetty-webapp/blob/master/src/main/java/com/javaetmoi/jetty/Monitor.java).
 
 Une autre technique serait d’utiliser JMX pour communiquer avec Jetty. L’ajout du [module jetty-jmx](http://mvnrepository.com/artifact/org.eclipse.jetty/jetty-jmx) est alors nécessaire.
 
@@ -176,13 +176,13 @@ Comme je vous l’indiquais en introduction, je vous propose de packager votre a
 
 **1\. Appassembler**
 
-Le [plugin Appassembler pour maven](http://mojo.codehaus.org/appassembler/appassembler-maven-plugin/) permet de créer un répertoire _target/appass_ _embler_ qu’il suffit de copier/coller pour installer l’application. Ce dernier contient 3 sous-répertoires :
+Le [plugin Appassembler pour maven](http://mojo.codehaus.org/appassembler/appassembler-maven-plugin/) permet de créer un répertoire `target/appassembler` qu’il suffit de copier/coller pour installer l’application. Ce dernier contient 3 sous-répertoires :
 
 1. **bin**: scripts start.sh, start.bat, stop.sh et stop.bat permettant de démarrer / arrêter la webapp. Ces scripts se chargent de trouver le JRE, sont compatibles avec cygwin et positionnent le classpath.
 1. **conf**: facultatif, ce répertoire contient la configuration de l’application (fichiers properties ou YAML, logback.xml …)
 1. **lib**: tous les JARs nécessaires au fonctionnement de l’application
 
-Activé par défaut, le profile maven _appassembler_ regroupe la configuration nécessaire :
+Activé par défaut, le profile maven `appassembler` regroupe la configuration nécessaire :
 
 ```xhtml
 <profile>
@@ -253,9 +253,9 @@ target/appassembler/bin/stop.sh
 
 1. **Assembly**
 
-L’une des fonctionnalités offertes par le [plugin Assembly pour Maven](http://maven.apache.org/plugins/maven-assembly-plugin/) est de rassembler tous les JAR d’une application en un seul gros JAR couramment suffixé par _jar-with-dependencies_ (exemple : jetty-webapp-1.0.0-SNAPSHOT-jar-with-dependencies.jar). Afin de rendre ce JAR auto-exécutable, sa class main doit être spécifier dans son manifeste.
+L’une des fonctionnalités offertes par le [plugin Assembly pour Maven](http://maven.apache.org/plugins/maven-assembly-plugin/) est de rassembler tous les JAR d’une application en un seul gros JAR couramment suffixé par `jar-with-dependencies` (exemple : jetty-webapp-1.0.0-SNAPSHOT-jar-with-dependencies.jar). Afin de rendre ce JAR auto-exécutable, sa class main doit être spécifier dans son manifeste.
 
-Voici la configuration du profile maven _flatjar_:
+Voici la configuration du profile maven `flatjar`:
 
 ```xhtml
 <profile>
@@ -306,7 +306,7 @@ java -cp target/jetty-webapp-1.0.0-SNAPSHOT-jar-with-dependencies.jar com.javaet
 Par cet article, j’espère vous avoir convaincu de la facilité d’embarquer Jetty dans n'importe quelle web app. [Tomcat s’intègre d’une manière similaire](https://devcenter.heroku.com/articles/create-a-java-web-application-using-embedded-tomcat).
 Avec cette approche, la mise à jour de Jetty ne nécessite qu’une simple montée de version de Jetty dans le pom.xml
 
-Autre atout : l’exécution d’un Jetty au démarrage de son application est profitable lors du développement. En effet, il n’est plus nécessaire d’installer et/ou d’utiliser le moindre plugin dans son IDE. L’application web est démarrée par un simple _Run_ ou _Debug_ sur la classe _main_.
+Autre atout : l’exécution d’un Jetty au démarrage de son application est profitable lors du développement. En effet, il n’est plus nécessaire d’installer et/ou d’utiliser le moindre plugin dans son IDE. L’application web est démarrée par un simple `Run` ou `Debug` sur la classe `main`.
 
 Références :
 

@@ -39,21 +39,21 @@ Les symptômes ont été observés dans les conditions suivantes. Un tir de char
 ## Origine du problème
 
 Un Heap Dump de la JVM a permis de déterminer le type d’objets résidents en mémoire et également de quelles classes ces objets ont été alloués. Dans mon cas, près de 300 Mo de tableaux de bytes occupaient la Heap. La plupart de ces tableaux occupaient 5 Mo.
-La pile d’appel ci-dessous montre que ces tableaux sont créés par le client CXF, et plus précisément par la classe [_AttachmentSerializer_](http://cxf.apache.org/javadoc/latest/org/apache/cxf/attachment/AttachmentSerializer.html) chargée de sérialiser en XML le [_SoapMessage_](https://cxf.apache.org/javadoc/latest/org/apache/cxf/binding/soap/SoapMessage.html) émis par le client CXF.
+La pile d’appel ci-dessous montre que ces tableaux sont créés par le client CXF, et plus précisément par la classe [`AttachmentSerializer`](http://cxf.apache.org/javadoc/latest/org/apache/cxf/attachment/AttachmentSerializer.html) chargée de sérialiser en XML le [`SoapMessage`](https://cxf.apache.org/javadoc/latest/org/apache/cxf/binding/soap/SoapMessage.html) émis par le client CXF.
 
 [![2014-02-cxf-attachments-memory-leak-5](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-5.jpg)](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-5.jpg) Reproductible sur un poste de développement, le debugger d’Eclipse permet de diagnostique que les 5 Mo de tableau de bytes correspondent au message SOAP et sa pièce-jointe encodée en base 64 :
 
-[![2014-02-cxf-attachments-memory-leak-7](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-7.jpg)](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-7.jpg) En interne, la classe [_ClientImpl_](http://grepcode.com/file/repo1.maven.org/maven2/org.apache.cxf/cxf-rt-core/2.4.0/org/apache/cxf/endpoint/ClientImpl.java) de CXF maintient une _Map_ _requestcontext_  associant un thread à un message SOAP.  Les derniers messages émis par le client CXF sont stockés dans cette _Map_. Au final, **plus le nombre de threads faisant appel au client CXF est élevé, plus CXF demandera de mémoire**.
+[![2014-02-cxf-attachments-memory-leak-7](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-7.jpg)](wp-content/uploads/2014/02/2014-02-cxf-attachments-memory-leak-7.jpg) En interne, la classe [`ClientImpl`](http://grepcode.com/file/repo1.maven.org/maven2/org.apache.cxf/cxf-rt-core/2.4.0/org/apache/cxf/endpoint/ClientImpl.java) de CXF maintient une `Map` `requestcontext` associant un thread à un message SOAP.  Les derniers messages émis par le client CXF sont stockés dans cette `Map`. Au final, **plus le nombre de threads faisant appel au client CXF est élevé, plus CXF demandera de mémoire**.
 
 ## Correction
 
-La correction mise en œuvre a été d’implémenter un **intercepteur CXF** chargé de déréférencer l’instance de [_AttachmentSerializer_](http://cxf.apache.org/javadoc/latest/org/apache/cxf/attachment/AttachmentSerializer.html) une fois le message SOAP envoyé. Le Garbage Collector peut alors libérer la mémoire. L’intercepteur est positionné sur la toute dernière [phase CXF](https://cxf.apache.org/docs/interceptors.html) : SETUP\_ENDING.
+La correction mise en œuvre a été d’implémenter un **intercepteur CXF** chargé de déréférencer l’instance de [`AttachmentSerializer`](http://cxf.apache.org/javadoc/latest/org/apache/cxf/attachment/AttachmentSerializer.html) une fois le message SOAP envoyé. Le Garbage Collector peut alors libérer la mémoire. L’intercepteur est positionné sur la toute dernière [phase CXF](https://cxf.apache.org/docs/interceptors.html) : `SETUP_ENDING`.
 
 ```java
 Extrait de la classe ClearAttachmentsOutInterceptor.java
 ```
 
-Lors de la déclaration Spring d’un client CXF, l’intercepteur _[ClearAttachmentsOutInterceptor](https://gist.github.com/arey/9119018)_ doit être positionné dans la balise <jaxws:outInterceptors>  :
+Lors de la déclaration Spring d’un client CXF, l’intercepteur [`ClearAttachmentsOutInterceptor`](https://gist.github.com/arey/9119018) doit être positionné dans la balise `<jaxws:outInterceptors>`  :
 
 ```xhtml
 <jaxws:client id="myWebServiceClient" serviceClass="MyWebService"

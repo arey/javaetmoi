@@ -160,7 +160,7 @@ Créé par Simon Brown comme C4, l’outil [**Structurizr**](https://structurizr
 Les diagrammes Structurizr sont dynamiques et permettent de zoomer.
 Les avantages :
 
-- plus de redondance d’information car, dans l’exemple ci-dessus extrait su site officiel, le _softwareSystem_ est réutilisée
+- plus de redondance d’information car, dans l’exemple ci-dessus extrait su site officiel, le `softwareSystem` est réutilisée
 - permet de générer tous les flux entrants sur la base de données
 - export vers de nombres formats comme plantuml, marmaid et c4
 

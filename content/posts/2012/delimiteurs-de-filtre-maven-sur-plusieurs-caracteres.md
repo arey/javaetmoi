@@ -30,7 +30,7 @@ Comme vous pouvez vous en douter, l’outil de déploiement n’est pas utilisé
 
 ## Le maven resources plugin en action
 
-Nativement, maven est capable de filtrer des ressources. La **balise _<resources>_** spécifiée dans la XSD 4.0.0 de maven permet de déclarer une liste de répertoire contenant les ressources (dont les fichiers de configuration font parties). La **balise <filters>** permet quant à elle de lister les fichiers filtres qui seront utilisés pendant la phase _process-resources_ de maven, cette dernière étant chargée de copier et filtrer les fichiers de ressources vers le répertoire cible.
+Nativement, maven est capable de filtrer des ressources. La balise `<resources>` spécifiée dans la XSD 4.0.0 de maven permet de déclarer une liste de répertoire contenant les ressources (dont les fichiers de configuration font parties). La balise `<filters>` permet quant à elle de lister les fichiers filtres qui seront utilisés pendant la phase `process-resources` de maven, cette dernière étant chargée de copier et filtrer les fichiers de ressources vers le répertoire cible.
 
 En interne, ce mécanisme repose sur le plugin [maven-resources-plugin](http://maven.apache.org/plugins/maven-resources-plugin/). Deux délimiteurs sont positionnés par défaut :
 
@@ -41,11 +41,11 @@ En interne, ce mécanisme repose sur le plugin [maven-resources-plugin](http://m
 </delimiters>
 ```
 
-Depuis la version 2.4 du plugin, il est possible de redéfinir les délimiteurs. La syntaxe à utiliser est la suivante : **_'beginToken\*endToken'_**. Lorsque les tokens de début et de fin sont identiques, la syntaxe est simplifiée : _'token'_.
+Depuis la version 2.4 du plugin, il est possible de redéfinir les délimiteurs. La syntaxe à utiliser est la suivante : `'beginToken*endToken'`. Lorsque les tokens de début et de fin sont identiques, la syntaxe est simplifiée : `'token'`.
 
 Certain d’être sur la bonne piste, j’ai tenté de redéfinir le délimiteur pour coller à mon besoin. Hélas, la déclaration d’un délimiteur @@\*@@ ne fonctionne pas. Le plugin semble limité à la définition d’un seul caractère pour le token de fin.
 
-Qu’à cela ne tienne, un svn checkout [http://svn.apache.org/viewvc/maven/shared/tags/maven-filtering-1.0](http://svn.apache.org/viewvc/maven/shared/tags/maven-filtering-1.0) et me voilà rapidement entrainé dans les méandres de la classe _org.apache.maven.shared.filtering.MultiDelimiterInterpolatorFilterReaderLineEnding_
+Qu’à cela ne tienne, un svn checkout [http://svn.apache.org/viewvc/maven/shared/tags/maven-filtering-1.0](http://svn.apache.org/viewvc/maven/shared/tags/maven-filtering-1.0) et me voilà rapidement entrainé dans les méandres de la classe `org.apache.maven.shared.filtering.MultiDelimiterInterpolatorFilterReaderLineEnding`
 
 Si j’avais eu plus de temps devant moi, j’aurais pu tenter d’améliorer son fonctionnement, voire proposer un patch à la communauté. Seulement, il m’aurait été difficile de déployer une version de maven patchée sur l’ensemble des postes de développement et encore moins sur la plateforme d’intégration continue. Il me fallait une solution plus facile à mettre en œuvre et bien plus rapide à déployer.
 
@@ -54,7 +54,7 @@ Si j’avais eu plus de temps devant moi, j’aurais pu tenter d’améliorer so
 Changeons de stratégie : au lieu de demander au [maven-resources-plugin](http://maven.apache.org/plugins/maven-resources-plugin/) d’accepter le délimiteur @@, autant lui fournir directement un fichier qu’il saura nativement consommer avec un simple @ pour délimiteur.
 C’est dans ces moments que l’on est heureux d’utiliser un outil ayant un écosystème aussi riche. L’opération recherchée est précisément la fonction du [maven-replacer-plugin](http://code.google.com/p/maven-replacer-plugin/) hébergé sur Google Code.
 
-Afin d’être exécuté avant l’opération de filtrage, le goal replace du [maven-replacer-plugin](http://code.google.com/p/maven-replacer-plugin/) est associé à la phase _generate-resources_ de maven. Le plugin est configuré pour substituer les caractères @@ en @. Les fichiers sont générés dans le répertoire target/generated-resources. Ce dernier sera utilisé en entrée du [maven-resources-plugin](http://maven.apache.org/plugins/maven-resources-plugin/)  pour filtrer et copier les ressources dans le répertoire target/classes lors de la phase _process-resources_.
+Afin d’être exécuté avant l’opération de filtrage, le goal replace du [maven-replacer-plugin](http://code.google.com/p/maven-replacer-plugin/) est associé à la phase `generate-resources` de maven. Le plugin est configuré pour substituer les caractères @@ en @. Les fichiers sont générés dans le répertoire target/generated-resources. Ce dernier sera utilisé en entrée du [maven-resources-plugin](http://maven.apache.org/plugins/maven-resources-plugin/)  pour filtrer et copier les ressources dans le répertoire target/classes lors de la phase `process-resources`.
 
 Voici un exemple concret de configuration maven :
 
@@ -69,7 +69,7 @@ Comme vous pouvez vous en douter, l’outil de déploiement n’est pas utilisé
 
 ## Le maven resources plugin en action
 
-Nativement, maven est capable de filtrer des ressources. La **balise _<resources>_** spécifiée dans la XSD 4.0.0 de maven permet de déclarer une liste de répertoire contenant les ressources (dont les fichiers de configuration font parties). La **balise <filters>** permet quant à elle de lister les fichiers filtres qui seront utilisés pendant la phase _process-resources_ de maven, cette dernière étant chargée de copier et filtrer les fichiers de ressources vers le répertoire cible.
+Nativement, maven est capable de filtrer des ressources. La balise `<resources>` spécifiée dans la XSD 4.0.0 de maven permet de déclarer une liste de répertoire contenant les ressources (dont les fichiers de configuration font parties). La balise `<filters>` permet quant à elle de lister les fichiers filtres qui seront utilisés pendant la phase `process-resources` de maven, cette dernière étant chargée de copier et filtrer les fichiers de ressources vers le répertoire cible.
 
 En interne, ce mécanisme repose sur le plugin [maven-resources-plugin](http://maven.apache.org/plugins/maven-resources-plugin/). Deux délimiteurs sont positionnés par défaut :
 
@@ -80,11 +80,11 @@ En interne, ce mécanisme repose sur le plugin [maven-resources-plugin](http://m
 </delimiters>
 ```
 
-Depuis la version 2.4 du plugin, il est possible de redéfinir les délimiteurs. La syntaxe à utiliser est la suivante : **_'beginToken\*endToken'_**. Lorsque les tokens de début et de fin sont identiques, la syntaxe est simplifiée : _'token'_.
+Depuis la version 2.4 du plugin, il est possible de redéfinir les délimiteurs. La syntaxe à utiliser est la suivante : `'beginToken*endToken'`. Lorsque les tokens de début et de fin sont identiques, la syntaxe est simplifiée : `'token'`.
 
 Certain d’être sur la bonne piste, j’ai tenté de redéfinir le délimiteur pour coller à mon besoin. Hélas, la déclaration d’un délimiteur @@\*@@ ne fonctionne pas. Le plugin semble limité à la définition d’un seul caractère pour le token de fin.
 
-Qu’à cela ne tienne, un svn checkout [http://svn.apache.org/viewvc/maven/shared/tags/maven-filtering-1.0](http://svn.apache.org/viewvc/maven/shared/tags/maven-filtering-1.0) et me voilà rapidement entrainé dans les méandres de la classe _org.apache.maven.shared.filtering.MultiDelimiterInterpolatorFilterReaderLineEnding_
+Qu’à cela ne tienne, un svn checkout [http://svn.apache.org/viewvc/maven/shared/tags/maven-filtering-1.0](http://svn.apache.org/viewvc/maven/shared/tags/maven-filtering-1.0) et me voilà rapidement entrainé dans les méandres de la classe `org.apache.maven.shared.filtering.MultiDelimiterInterpolatorFilterReaderLineEnding`
 
 Si j’avais eu plus de temps devant moi, j’aurais pu tenter d’améliorer son fonctionnement, voire proposer un patch à la communauté. Seulement, il m’aurait été difficile de déployer une version de maven patchée sur l’ensemble des postes de développement et encore moins sur la plateforme d’intégration continue. Il me fallait une solution plus facile à mettre en œuvre et bien plus rapide à déployer.
 
@@ -93,7 +93,7 @@ Si j’avais eu plus de temps devant moi, j’aurais pu tenter d’améliorer so
 Changeons de stratégie : au lieu de demander au [maven-resources-plugin](http://maven.apache.org/plugins/maven-resources-plugin/) d’accepter le délimiteur @@, autant lui fournir directement un fichier qu’il saura nativement consommer avec un simple @ pour délimiteur.
 C’est dans ces moments que l’on est heureux d’utiliser un outil ayant un écosystème aussi riche. L’opération recherchée est précisément la fonction du [maven-replacer-plugin](http://code.google.com/p/maven-replacer-plugin/) hébergé sur Google Code.
 
-Afin d’être exécuté avant l’opération de filtrage, le goal replace du [maven-replacer-plugin](http://code.google.com/p/maven-replacer-plugin/) est associé à la phase _generate-resources_ de maven. Le plugin est configuré pour substituer les caractères @@ en @. Les fichiers sont générés dans le répertoire target/generated-resources. Ce dernier sera utilisé en entrée du [maven-resources-plugin](http://maven.apache.org/plugins/maven-resources-plugin/)  pour filtrer et copier les ressources dans le répertoire target/classes lors de la phase _process-resources_.
+Afin d’être exécuté avant l’opération de filtrage, le goal replace du [maven-replacer-plugin](http://code.google.com/p/maven-replacer-plugin/) est associé à la phase `generate-resources` de maven. Le plugin est configuré pour substituer les caractères @@ en @. Les fichiers sont générés dans le répertoire target/generated-resources. Ce dernier sera utilisé en entrée du [maven-resources-plugin](http://maven.apache.org/plugins/maven-resources-plugin/)  pour filtrer et copier les ressources dans le répertoire target/classes lors de la phase `process-resources`.
 
 Voici un exemple concret de configuration maven :
 \[gist id=3124220\]
@@ -123,7 +123,7 @@ Sans prétention, cet article permet de se confronter à la fois à la rigidité
 - **Rigidité** dans le sens où lorsqu’un plugin ne sait pas faire ce qu’on essaie de lui demander,  maven n’offre pas de points d’extension (ex : par scripting, plugins de plugins).
 - **Souplesse** par la possibilité de faire fonctionner de pair plusieurs plugins : la sortie de l’un est l’entrée de l’autre, retrouvant ainsi une certaine similarité avec les pipes sous linux.
 
-Seul regret : le temps passer à rédiger ce billet aurait peut-être dû être employé à debugger la classe _MultiDelimiterInterpolatorFilterReaderLineEnding_.
+Seul regret : le temps passer à rédiger ce billet aurait peut-être dû être employé à debugger la classe `MultiDelimiterInterpolatorFilterReaderLineEnding`.
 
 Dans le répertoire src/main/resources/configuration, on peut retrouver par exemple un fichier application.properties ressemblant à :
 
@@ -150,4 +150,4 @@ Sans prétention, cet article permet de se confronter à la fois à la rigidité
 - **Rigidité** dans le sens où lorsqu’un plugin ne sait pas faire ce qu’on essaie de lui demander,  maven n’offre pas de points d’extension (ex : par scripting, plugins de plugins).
 - **Souplesse** par la possibilité de faire fonctionner de pair plusieurs plugins : la sortie de l’un est l’entrée de l’autre, retrouvant ainsi une certaine similarité avec les pipes sous linux.
 
-Seul regret : le temps passer à rédiger ce billet aurait peut-être dû être employé à debugger la classe _MultiDelimiterInterpolatorFilterReaderLineEnding_.
+Seul regret : le temps passer à rédiger ce billet aurait peut-être dû être employé à debugger la classe `MultiDelimiterInterpolatorFilterReaderLineEnding`.

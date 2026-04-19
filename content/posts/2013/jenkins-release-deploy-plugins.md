@@ -48,7 +48,7 @@ Dans notre exemple, la MOE a la main mise sur l’environnement d’intégration
 Au quotidien, les développeurs Java utilisent [Jenkins](http://jenkins-ci.org/) comme plateforme d’intégration continue. Ils l’utilisent pour récupérer le code depuis SVN, le compiler, exécuter les tests unitaires, lancer l’analyse qualimétrique ou bien encore dérouler les tests fonctionnels. Est configuré un job Jenkins de build par branche de l’application.
 
 Les livraisons en intégration sont réalisées manuellement par commandes SFTP et SSH. Les binaires sont récupérés du repository maven d’Entreprise [Nexus](http://www.sonatype.org/nexus/). Au préalable, le [plugin release pour maven](http://maven.apache.org/maven-release/maven-release-plugin/) leur aura permis de construire les livrables et de le publier dans Nexus via la commande suivante :
-_mvn perform:prepare perform:release_
+`mvn perform:prepare perform:release`
 
 Voyons à présent comment Jenkins va permettre d’améliorer ce process et de fluidifier les livraisons.
 
@@ -56,7 +56,7 @@ Voyons à présent comment Jenkins va permettre d’améliorer ce process et de 
 
 Afin de garantir le périmètre d’une **version d’un livrable** et la répétabilité de sa construction, le **processus de release** est encouragé dès lors qu’un livrable est susceptible de pouvoir être déployé jusqu’en production. Ce processus vérifie entre autre que l’application ne dépend que d’artefacts immuables, dont la version est figée. Simple mais fastidieuse, gourmande en ressources matérielles, cette action peut être facilitée par le [plugin M2 Release](https://wiki.jenkins-ci.org/display/JENKINS/M2+Release+Plugin) de Jenkins.
 
-Son installation ne pose aucune difficulté. Un compte générique permettant d’accéder au SCM  de l’entreprise peut y être configuré afin que tous les projets puissent par la suite en bénéficier. Le plugin maven release utilise ce compte pour récupérer le code source, commiter des changements de version dans les pom.xml et créer un tag.
+Son installation ne pose aucune difficulté. Un compte générique permettant d’accéder au SCM  de l’entreprise peut y être configuré afin que tous les projets puissent par la suite en bénéficier. Le plugin maven release utilise ce compte pour récupérer le code source, commiter des changements de version dans les `pom.xml` et créer un tag.
 
 Pour qu’un plan de build puisse être releasé depuis Jenkins, la case **Maven release build** doit être cochée :
 ![jenkins-maven-release-build-config](wp-content/uploads/2013/07/jenkins-maven-release-build-config.png)
@@ -67,7 +67,7 @@ A la suite d’un build, Jenkins offre la possibilité d’ **archiver les artef
 
 ![jenkins-archiver-artefacts](wp-content/uploads/2013/07/jenkins-archiver-artefacts.png)
 
-Le pattern de sélection des fichiers à archiver est basé sur la **syntaxe ant** (ex : \*\*/\*.ear pour archiver tous les fichiers EAR du workspace). Dans l’exemple précédent, l’EAR de l’application web, l’archive zip contenant les binaires du batch de l’application ainsi que tous les fichiers de configuration (.xml, .properties …) sont archivés à chaque fin de build.
+Le pattern de sélection des fichiers à archiver est basé sur la **syntaxe ant** (ex : `**/*.ear` pour archiver tous les fichiers EAR du workspace). Dans l’exemple précédent, l’EAR de l’application web, l’archive zip contenant les binaires du batch de l’application ainsi que tous les fichiers de configuration (.xml, .properties …) sont archivés à chaque fin de build.
 
 Une fois configuré, le processus de release se fait à la demande sur **simple clic**. Cette action peut être réalisée par le chef de projet ou le responsable de l’intégration, une fois que ce dernier a vérifié que toutes les fiches Jira de la version à releaser sont clôturées et que le code est commité dans SVN.
 
@@ -117,7 +117,7 @@ La figure suivante illustre la configuration de la recopie d’un EAR dans un r�
 ![jenkins-promotion-integration-action](wp-content/uploads/2013/07/jenkins-promotion-integration-action.png)
 
 En amont de cette action, le transfert de la configuration peut être configuré de la même manière.
-Dans la configuration proposée, l’EAR et les fichiers de configuration sont récupérés depuis l’archive des artefacts du build promu. Une alternative consisterait à récupérer le numéro de version de la release puis à utiliser l’ [API REST du serveur Nexus](https://repository.sonatype.org/nexus-core-documentation-plugin/core/docs/index.html) et la commande _wget_ pour récupérer le livrable dont les _groupId_, _artefactId_ et _packaging_ sont connus. Cette configuration pourrait s’appuyer sur le plugin [Jenkins Remote SSH](https://wiki.jenkins-ci.org/display/JENKINS/SSH+plugin).
+Dans la configuration proposée, l’EAR et les fichiers de configuration sont récupérés depuis l’archive des artefacts du build promu. Une alternative consisterait à récupérer le numéro de version de la release puis à utiliser l’ [API REST du serveur Nexus](https://repository.sonatype.org/nexus-core-documentation-plugin/core/docs/index.html) et la commande `wget` pour récupérer le livrable dont les `groupId`, `artefactId` et `packaging` sont connus. Cette configuration pourrait s’appuyer sur le plugin [Jenkins Remote SSH](https://wiki.jenkins-ci.org/display/JENKINS/SSH+plugin).
 
 Une fois configuré, il est possible de **promouvoir un build** et de **déployer l’application sur l’environnement de son choix**, qu’il s’agisse du build d’une version SNAPSHOT ou d’une RELEASE. D’après l’historique des builds ci-dessous, le build #2451 correspond à une  version releasée de l’application qui a été déployée en intégration. Le build #2455 correspond à une version releasée qui a été déployée en intégration et en recette.
 

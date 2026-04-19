@@ -66,7 +66,7 @@ Hybernate Hydrate à la rescousse**
 
 La solution que je vais vous présenter peut être utilisée conjointement avec la solution du pré-chargement sur mesure.
 
-La méthode statique _deepHydrate_ de la classe _LazyLoadingUtil_ permet de charger dans sa globalité la grappe d’objets qui lui est passée en paramètre. Seule contrainte, cette méthode doit être appelée avant que la session Hibernate et la transaction associée ne soient clôturées.
+La méthode statique `deepHydrate` de la classe `LazyLoadingUtil` permet de charger dans sa globalité la grappe d’objets qui lui est passée en paramètre. Seule contrainte, cette méthode doit être appelée avant que la session Hibernate et la transaction associée ne soient clôturées.
 
 Voici un exemple d’utilisation :
 
@@ -79,9 +79,9 @@ Techniquement, la méthode `deepHydrate()` utilise le méta-modèle Hibernate (i
 
 Dans le cas d’un **graphe cyclique**, un mécanisme de garde permet d’éviter toute boucle infinie.
 
-La classe _TestLazyLoadingUtil_ propose des exemples d’utilisation.
+La classe `TestLazyLoadingUtil` propose des exemples d’utilisation.
 
-Une variante est disponible pour les applications utilisant JPA avec Hibernate pour provider : _JpaLazyLoadingUtil_.
+Une variante est disponible pour les applications utilisant JPA avec Hibernate pour provider : `JpaLazyLoadingUtil`.
 
 Pour l’essayer, vous avez le choix entre un copier / coller, un git clone ou bien l’ajout d’une dépendance maven et du repo qui va avec :
 

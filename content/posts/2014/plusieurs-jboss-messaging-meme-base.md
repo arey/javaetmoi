@@ -47,7 +47,7 @@ JBoss Messaging supportant le **multi-tenancy**, cet article explique comment me
 
 Le [manuel d’administration de JBoss Messaging](https://access.redhat.com/site/documentation/en-US/JBoss_Enterprise_Application_Platform_Common_Criteria_Certification/5/html/JBoss_Messaging_User_Guide/) explique clairement comment configurer JBoss Messaging en cluster ; les files JMS sont alors partagées pour tous les serveurs JBoss du même cluster. Par contre, elle reste évasive sur l’utilisation d’une même base de données pour plusieurs serveurs qui ne seraient pas en cluster.
 
-[![2014-04-jboss-messaging-meme-schema-tables-jbm](wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema-tables-jbm.jpg)](wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema-tables-jbm.jpg) Techniquement, les files JMS et leurs messages sont sauvegardées dans un ensemble de 11 tables, préfixées par le trigramme JBM\_.
+[![2014-04-jboss-messaging-meme-schema-tables-jbm](wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema-tables-jbm.jpg)](wp-content/uploads/2014/03/2014-04-jboss-messaging-meme-schema-tables-jbm.jpg) Techniquement, les files JMS et leurs messages sont sauvegardées dans un ensemble de 11 tables, préfixées par le trigramme `JBM_`.
 Notre objectif est que la source de données dédiée à JBoss Messaging soit la même pour tous les serveurs. Ces tables sont ainsi partagées par l’ensemble des serveurs JBoss.
 
 Sans paramétrage particulier, l’émission simultanée de plusieurs messages JMS à partir de serveurs différents génère les warnings suivants :
@@ -60,9 +60,9 @@ at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:439)
 at org.jboss.messaging.core.impl.JDBCPersistenceManager.cacheID(JDBCPersistenceManager.java:1967)
 ```
 
-La contrainte d’unicité concerne la table JBM\_ID\_CACHE : les serveurs réservent le même identifiant de message. Pour résoudre ce problème, **chaque serveur doit posséder son propre identifiant [ServerPeerID](https://access.redhat.com/site/documentation/en-US/JBoss_Enterprise_Application_Platform_Common_Criteria_Certification/5/html/JBoss_Messaging_User_Guide/c_configuration.html#sect-Unique_Server_Peer_ID)**.  Cet identifiant est utilisé dans la colonne NODE\_ID des différentes tables de JBoss Messaging.
+La contrainte d'unicité concerne la table `JBM_ID_CACHE` : les serveurs réservent le même identifiant de message. Pour résoudre ce problème, **chaque serveur doit posséder son propre identifiant [`ServerPeerID`](https://access.redhat.com/site/documentation/en-US/JBoss_Enterprise_Application_Platform_Common_Criteria_Certification/5/html/JBoss_Messaging_User_Guide/c_configuration.html#sect-Unique_Server_Peer_ID)**.  Cet identifiant est utilisé dans la colonne `NODE_ID` des différentes tables de JBoss Messaging.
 
-Ainsi, la table _JBM\_POSTOFFICE_ sera alimentée avec autant de files du même nom qu’il y’a de ServerPeerID (ici 2):
+Ainsi, la table `JBM_POSTOFFICE` sera alimentée avec autant de files du même nom qu'il y'a de ServerPeerID (ici 2):
 **POSTOFFICE\_NAME****NODE\_ID****QUEUE\_NAME****COND****SELECTOR****CHANNEL\_ID****CLUSTERED****ALL\_NODES****JMS post office**
 
 1
@@ -91,11 +91,11 @@ N
 
 Au démarrage du JBoss, nous passons en paramètre l’identifiant du serveur (seul un nombre entier est accepté) :
 
--Djboss.messaging.ServerPeerID=<identifiant du serveur >
+`-Djboss.messaging.ServerPeerID=<identifiant du serveur>`
 
 Sous peine de retomber sur l’exception mentionnée ci-dessus, chaque serveur doit avoir un numéro distinct.
 
-Une solution alternative à l’utilisation de la propriété système jboss.messaging.ServerPeerID est de paramétrer le fichier _messaging-service.xml_ de chaque nœud avec le numéro de nœud adéquat.
+Une solution alternative à l'utilisation de la propriété système `jboss.messaging.ServerPeerID` est de paramétrer le fichier `messaging-service.xml` de chaque nœud avec le numéro de nœud adéquat.
 
 ## Conclusion
 

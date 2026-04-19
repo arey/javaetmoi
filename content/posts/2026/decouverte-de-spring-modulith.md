@@ -56,7 +56,7 @@ Après plusieurs années de gestation, Spring Modulith a été rendu GA en **ao�
 
 ### Les fonctionnalités de Spring Modulith
 
-Avant de plonger dans le code, prenons un peu de hauteur. Spring Modulith repose sur un principe simple : **chaque sous-package direct du package de la classe principale Spring Boot**(celle annotée avec **_@SpringBootApplication_**) **constitue un module applicatif**. Par convention, le package racine du module expose l'API publique ; tous les sous-packages sont considérés comme privés.
+Avant de plonger dans le code, prenons un peu de hauteur. Spring Modulith repose sur un principe simple : **chaque sous-package direct du package de la classe principale Spring Boot**(celle annotée avec `@SpringBootApplication`) **constitue un module applicatif**. Par convention, le package racine du module expose l'API publique ; tous les sous-packages sont considérés comme privés.
 
 À partir de cette convention d’organisation, Spring Modulith propose un ensemble de fonctionnalités complémentaires :
 
@@ -162,7 +162,7 @@ La version Ultimate d’ **IntelliJ IDEA** est packagée avec le **plugin Spring
 
 ### Étape 3 - Identifier les modules applicatifs
 
-Spring Modulith détecte automatiquement les modules à partir des **sous-packages directs** du package contenant la classe main `@SpringBootApplication`. Dans Spring Petclinic, la classe `PetClinicApplication` est localisée au niveau du package **_org.springframework.samples.petclinic_**.
+Spring Modulith détecte automatiquement les modules à partir des **sous-packages directs** du package contenant la classe main `@SpringBootApplication`. Dans Spring Petclinic, la classe `PetClinicApplication` est localisée au niveau du package `org.springframework.samples.petclinic`.
 
 Les modules identifiés étaient à ce stade au nombre de quatre :
 
@@ -258,7 +258,7 @@ class VetEventListener {
 
 L'annotation `@ApplicationModuleListener` (source: `spring-modulith-events-api`) est un sucre syntaxique combinant trois annotations en une : `@Async` (source: `spring-context`), **`@Transactional `**(source: `spring-tx`) et **`@TransactionalEventListener `**(source: `spring-tx`). Ce listener s'exécute après le commit de la transaction émettrice, dans une nouvelle transaction, de façon asynchrone. Le module `owner` ne connaît pas le module `vet`. Le découplage est garanti par la structure des packages.
 
-La mise à jour du tableau de garde des vétérinaires est assurée par le service [VetRoster](https://github.com/spring-petclinic/spring-petclinic-modulith/blob/4.0.0/src/main/java/org/springframework/samples/petclinic/vet/internal/VetRoster.java). L'affectation est persistée dans une nouvelle table `visit_assignments` qui appartient conceptuellement au module **_vet_**.
+La mise à jour du tableau de garde des vétérinaires est assurée par le service [VetRoster](https://github.com/spring-petclinic/spring-petclinic-modulith/blob/4.0.0/src/main/java/org/springframework/samples/petclinic/vet/internal/VetRoster.java). L'affectation est persistée dans une nouvelle table `visit_assignments` qui appartient conceptuellement au module `vet`.
 
 
 ```sql

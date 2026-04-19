@@ -26,9 +26,9 @@ url: /2013/08/ecraser-une-branche-par-une-autre-avec-git/
 L’ **historique de commits** ci-dessous illustre les explications qui suivront :
 [![Historique des commits réalisés avec Git](wp-content/uploads/2013/07/2013-08-ecraser-branche-avec-git-svn-1.png)](wp-content/uploads/2013/07/2013-08-ecraser-branche-avec-git-svn-1.png)
 
-Cet historique des commits commence par la branche _master_ sur laquelle les fonctionnalités A et B ont été commitées. La branche _maBranche_ est alors créée à partir du commit de la fonctionnalité B. Un premier merge no fast-forward est créé pour récupérer la fonctionnalité E de _master_ dans _maBranche_ : le commit de merge « _Merge branch ‘master’ into maBranche_ » est créé.
+Cet historique des commits commence par la branche `master` sur laquelle les fonctionnalités A et B ont été commitées. La branche `maBranche` est alors créée à partir du commit de la fonctionnalité B. Un premier merge no fast-forward est créé pour récupérer la fonctionnalité E de `master` dans `maBranche` : le commit de merge « _Merge branch ‘master’ into maBranche_ » est créé.
 
-A partir de là, les nouvelles fonctionnalités F, G et H sont développées sur _maBranche_. Ne pouvant attendre la fin des développements de la fonctionnalité G qui résoudrait proprement le problème rencontré par les utilisateurs, est créé sur le _master_ un contournement permettant d’y palier temporairement. Ce _Hotfix_ est déployé en production. N’ayant aucun intérêt dans les prochaines versions de l’application, **ce _Hotfix_ ne doit être en aucun cas mergé sur _maBranche_**. Une fois les développements de la fonctionnalité H terminés et déployés en production, l’équipe décide de faire revenir sur le _master_ les développements de _maBranche_.
+A partir de là, les nouvelles fonctionnalités F, G et H sont développées sur `maBranche`. Ne pouvant attendre la fin des développements de la fonctionnalité G qui résoudrait proprement le problème rencontré par les utilisateurs, est créé sur le `master` un contournement permettant d’y palier temporairement. Ce `Hotfix` est déployé en production. N’ayant aucun intérêt dans les prochaines versions de l’application, **ce `Hotfix` ne doit être en aucun cas mergé sur `maBranche`**. Une fois les développements de la fonctionnalité H terminés et déployés en production, l’équipe décide de faire revenir sur le `master` les développements de `maBranche`.
 Les **2 derniers commits** de l’historique mettent en œuvre cette opération.
 
 ## Commandes
@@ -36,18 +36,18 @@ Les **2 derniers commits** de l’historique mettent en œuvre cette opération.
 Voici les 4 lignes de commandes à exécuter pour réaliser cet écrasement de branche :
 
 1. Se placer sur la branche à conserver
-   **git checkout maBranche**
-1. Demander une fusion avec la **stratégie** **_ours_** (attention, ceci est différent d'un merge avec stratégie _recursive_ et l’ _option ours_) qui va uniquement conserver le contenu de la branche actuelle. En effet, l'option **_-s ours_** indique à Git de fusionner la branche source dans la branche cible mais sans aucunement modifier la branche cible. Cette stratégie est habituellement utilisée pour ne pas reporter un commit d’une branche de maintenance sur le master.
-   **git merge -s ours master -m "Merge avec stratégie ours"**
+   `git checkout maBranche`
+1. Demander une fusion avec la **stratégie** `ours` (attention, ceci est différent d'un merge avec stratégie `recursive` et l’ _option ours_) qui va uniquement conserver le contenu de la branche actuelle. En effet, l'option `-s ours` indique à Git de fusionner la branche source dans la branche cible mais sans aucunement modifier la branche cible. Cette stratégie est habituellement utilisée pour ne pas reporter un commit d’une branche de maintenance sur le master.
+   `git merge -s ours master -m "Merge avec stratégie ours"`
 1. Repasser sur la branche master
-   **git checkout master**
-1. Demander une fusion de la branche _maBranche_ vers le _master_ tout en conservant 2 branches distinctes (un _fast-forward_ aurait été réalisé puisque que le dernier commit n’est autre que notre fusion de la commande n°2).
-   **git merge --no-ff maBranche**
+   `git checkout master`
+1. Demander une fusion de la branche `maBranche` vers le `master` tout en conservant 2 branches distinctes (un `fast-forward` aurait été réalisé puisque que le dernier commit n’est autre que notre fusion de la commande n°2).
+   `git merge --no-ff maBranche`
 
 Sortie console sur notre exemple de la commande Git n°4 :
 [![Log du git merge --no-ff maBranche](wp-content/uploads/2013/07/2013-08-ecraser-branche-avec-git-svn-2.png)](wp-content/uploads/2013/07/2013-08-ecraser-branche-avec-git-svn-2.png)
 
-Comme attendu, le fichier _Hotfix.txt_ ayant été ajouté lors du commit _Hotfix_ est supprimé du _master_. Si, dans un autre exemple, le commit _Hotfix_ avait modifié une ligne du fichier _FeatureE.txt_, un _revert_ de cette modification aurait alors été effectué.
+Comme attendu, le fichier `Hotfix.txt` ayant été ajouté lors du commit `Hotfix` est supprimé du `master`. Si, dans un autre exemple, le commit `Hotfix` avait modifié une ligne du fichier `FeatureE.txt`, un `revert` de cette modification aurait alors été effectué.
 
 ## Conclusion
 

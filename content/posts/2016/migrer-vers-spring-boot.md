@@ -44,55 +44,55 @@ Le but de la migration est de conserver l’application iso-fonctionnelle et de 
 
 Afin de coller davantage à l’esprit Spring Boot, nous sommes revenus aux webjars et avons délaissé l’usage de Bower. Ce billet n’abordera pas ce changement.
 
-Non pris en compte par Spring Data JPA, l’aspect [_CallMonitoringAspect_](https://github.com/spring-projects/spring-petclinic/blob/482eeb1c217789b5d772f5c15c3ab7aa89caf279/src/main/java/org/springframework/samples/petclinic/util/CallMonitoringAspect.java) n’a pas été conservé.
+Non pris en compte par Spring Data JPA, l’aspect [`CallMonitoringAspect`](https://github.com/spring-projects/spring-petclinic/blob/482eeb1c217789b5d772f5c15c3ab7aa89caf279/src/main/java/org/springframework/samples/petclinic/util/CallMonitoringAspect.java) n’a pas été conservé.
 
 ## Configuration Maven
 
-La migration vers Spring Boot a simplifié le [**pom.xml**](https://github.com/spring-projects/spring-petclinic/blob/springboot/pom.xml) qui est passé de 461 à 357 lignes XML.
+La migration vers Spring Boot a simplifié le [`pom.xml`](https://github.com/spring-projects/spring-petclinic/blob/springboot/pom.xml) qui est passé de 461 à 357 lignes XML.
 Voici les changements apportés :
 
-1. Ajout d’un POM Parent : org.springframework.boot:spring-boot-starter-parent
-1. Suppression du Bill Of Materials io.spring.platform:platform-bom
-1. Remplacement des dépendances de frameworks par les « Spring Boot Starter » équivalents : spring-boot-starter-actuator, spring-boot-starter-cache, spring-boot-starter-data-jpa, spring-boot-starter-test et spring-boot-starter-web
-1. Déclaration du plugin Maven spring-boot-maven-plugin
-1. Suppression de la déclaration des plugins maven-war-plugin, maven-assembly-plugin et tomcat7-maven-plugin
+1. Ajout d’un POM Parent : `org.springframework.boot:spring-boot-starter-parent`
+1. Suppression du Bill Of Materials `io.spring.platform:platform-bom`
+1. Remplacement des dépendances de frameworks par les « Spring Boot Starter » équivalents : `spring-boot-starter-actuator`, `spring-boot-starter-cache`, `spring-boot-starter-data-jpa`, `spring-boot-starter-test` et `spring-boot-starter-web`
+1. Déclaration du plugin Maven `spring-boot-maven-plugin`
+1. Suppression de la déclaration des plugins `maven-war-plugin`, `maven-assembly-plugin` et `tomcat7-maven-plugin`
 
 ## Configuration Spring
 
 L’automatisation de la configuration Spring est mise en avant par les concepteurs de Spring Boot. Nous nous attendions donc à obtenir une configuration la plus minimaliste possible.
-Le passage à Spring Boot nous a contraint à délaisser le web.xml au profit de l’interface _ServletContainerInitializer_ introduite par l’API Servlet 3.0.
+Le passage à Spring Boot nous a contraint à délaisser le `web.xml` au profit de l’interface `ServletContainerInitializer` introduite par l’API Servlet 3.0.
 
 La configuration Spring Boot est écrite en Java : 76 lignes de code Java sont venues remplacer 248 lignes de configuration Spring XML et 99 lignes du web.xml.
 
 Voici le détail des changements :
 
-1. Création d’une classe principale [**_PetClinicApplication_**](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java) implémentant la classe abstraite _SpringBootServletInitializer_ et annotée avec l’annotation @SpringBootApplication
-1. Centralisation de la configuration de la servlet et des filtres Dandelion dans la classe de configuration [_DandelionConfig_](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/main/java/org/springframework/samples/petclinic/config/DandelionConfig.java)
-1. Introduction de la classe de configuration [_CacheConfig_](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/main/java/org/springframework/samples/petclinic/config/CacheConfig.java) permettant de n’activer ehcache qu’en production
-1. Suppression du web.xml
+1. Création d’une classe principale [`PetClinicApplication`](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java) implémentant la classe abstraite `SpringBootServletInitializer` et annotée avec l’annotation `@SpringBootApplication`
+1. Centralisation de la configuration de la servlet et des filtres Dandelion dans la classe de configuration [`DandelionConfig`](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/main/java/org/springframework/samples/petclinic/config/DandelionConfig.java)
+1. Introduction de la classe de configuration [`CacheConfig`](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/main/java/org/springframework/samples/petclinic/config/CacheConfig.java) permettant de n’activer ehcache qu’en production
+1. Suppression du `web.xml`
 1. Suppression de 5 fichiers de configuration Spring
 
 ## Paramétrage
 
-Initialement répartie dans différents fichiers, le paramétrage applicatif a été centralisé dans le fichier [**application.properties**](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/main/resources/application.properties).
-Les fichiers data-access.properties et logback.xml ont été supprimés.
-Par convention, le fichier de configuration ehcache.xml a été déplacé à la racine du classpath.
+Initialement répartie dans différents fichiers, le paramétrage applicatif a été centralisé dans le fichier [`application.properties`](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/main/resources/application.properties).
+Les fichiers `data-access.properties` et `logback.xml` ont été supprimés.
+Par convention, le fichier de configuration `ehcache.xml` a été déplacé à la racine du classpath.
 
 ## Simplification des tests
 
-Au niveau des dépendances, le starter **spring-boot-starter-test** tire tous les frameworks de tests utilisés par Petclinic :  **JUnit**, **Spring Test**, **AssertJ**, **Mockito**, Json Path et Hamcrest.
+Au niveau des dépendances, le starter `spring-boot-starter-test` tire tous les frameworks de tests utilisés par Petclinic :  **JUnit**, **Spring Test**, **AssertJ**, **Mockito**, Json Path et Hamcrest.
 Un peu comme Unitils en son temps, Spring Boot facilite l’utilisation conjointe de ces différents frameworks. Et la version 1.4.0 de Spring Boot améliore encore leur intégration.
 
-Ainsi, l’annotation `@MockBean` permet de créer un mock avec Mockito, de l’enregistrer au sein du contexte applicatif Spring et de l’injecter dans votre classe de tests unitaires. Nul besoin désormais de faire appel explicitement à la méthode _Mockito::mock()._
+Ainsi, l’annotation `@MockBean` permet de créer un mock avec Mockito, de l’enregistrer au sein du contexte applicatif Spring et de l’injecter dans votre classe de tests unitaires. Nul besoin désormais de faire appel explicitement à la méthode `Mockito::mock()`.
 
-En fonction de la couche applicative à laquelle la classe testée appartient, la configuration Spring du test associé peut être auto-détectée. Ainsi, pour la couche web Spring MVC, l’annotation `@WebMvcTest` détecte tous les beans annotés avec @Controller, @ControllerAdvice et @JsonComponent puis configure l’instance de MockMvc. La classe de test _[OwnerControllerTests](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/test/java/org/springframework/samples/petclinic/web/OwnerControllerTests.java)_ la montre en action.
+En fonction de la couche applicative à laquelle la classe testée appartient, la configuration Spring du test associé peut être auto-détectée. Ainsi, pour la couche web Spring MVC, l’annotation `@WebMvcTest` détecte tous les beans annotés avec `@Controller`, `@ControllerAdvice` et `@JsonComponent` puis configure l’instance de `MockMvc`. La classe de test [`OwnerControllerTests`](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/test/java/org/springframework/samples/petclinic/web/OwnerControllerTests.java) la montre en action.
 
 ## Autres changements
 
 D’autres changements mineurs ont été nécessaires :
 
-- Le contrôleur Spring MVC [_WelcomeController_](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/main/java/org/springframework/samples/petclinic/web/WelcomeController.java) a été ajouté. Il a pour rôle d’afficher la page d’accueil de l’application.
-- Le [_PetTypeFormatter_](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/main/java/org/springframework/samples/petclinic/web/PetTypeFormatter.java) s’est vu transformé en bean Spring (ajout de l’annotation @Component).
+- Le contrôleur Spring MVC [`WelcomeController`](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/main/java/org/springframework/samples/petclinic/web/WelcomeController.java) a été ajouté. Il a pour rôle d’afficher la page d’accueil de l’application.
+- Le [`PetTypeFormatter`](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/main/java/org/springframework/samples/petclinic/web/PetTypeFormatter.java) s’est vu transformé en bean Spring (ajout de l’annotation `@Component`).
 - Le fichier [**txt**](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/main/resources/banner.txt) a été ajouté afin de personnaliser le logo Ascii-art affiché lors du démarrage de l’application
 - Suite à un problème avec Dandelion, les inclusions de JSP ont été remplacées par des tags JSP.
 

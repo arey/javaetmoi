@@ -34,7 +34,7 @@ url: /2013/09/dbsetup-spring-test-vs-dbunit/
 ---
 ![test-database](wp-content/uploads/2013/09/test-database.jpg)
 
-Lors du développement de **tests d’intégration**, j’ai récemment eu besoin de charger une base de données à l’aide de jeux de données. Pour écrire mon premier test, j’ai simplement commencé par écrire un fichier SQL. En un appel de méthode (JdbcTestUtils::executeSqlScript) ou une ligne de déclaration XML (<jdbc:script location="" />), Spring m’aidait à charger mes données.  
+Lors du développement de **tests d’intégration**, j’ai récemment eu besoin de charger une base de données à l’aide de jeux de données. Pour écrire mon premier test, j’ai simplement commencé par écrire un fichier SQL. En un appel de méthode (`JdbcTestUtils::executeSqlScript`) ou une ligne de déclaration XML (`<jdbc:script location="" />`), Spring m’aidait à charger mes données.  
 Pour tous ceux qui se sont déjà prêtés à l’exercice, maintenir des jeux de données est relativement fastidieux, qui plus en SQL. Cette solution n’était donc pas pérenne.
 
 Depuis une dizaine d’années, j’utilise régulièrement [DbUnit](http://www.dbunit.org/) pour tester la couche de persistance des applications Java sur lesquelles j’interviens, qu’elle soit développée avec JDBC, Hibernate ou bien encore JPA. Cette librairie open source est également très appréciable pour tester unitairement des procédures stockées manipulant des données par lot. Pour mon besoin, j’aurais donc pu naturellement me tourner vers cet outil qui a fait ses preuves et dont je suis familier.
@@ -58,7 +58,7 @@ Db Setup
 
 - Insertion des données de test dans les tables de la base de données
 
-Remarque : _dans mon contexte projet, chaque méthode de test a besoin de **son propre jeu de données**. Les données insérées ou modifiées par la précédente méthode testée doivent donc être purgées. Par choix, ce ménage n’est pas assuré par la classe [DbSetupTracker](http://dbsetup.ninja-squad.com/apidoc/1.0/com/ninja_squad/dbsetup/DbSetupTracker.html) proposée par DbSetup, mais par le support transactionnel offert par [Spring Test](http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/testing.html). Une transaction base de données est ouverte par Spring avant l’appel de la méthode de test puis est annulée une fois la fin de la méthode atteinte. Par contre, les données sont insérées par DbSetup au début de la méthode de test. Parce qu’il est parfois utile de pouvoir consulter l’état de la base après un test en échec, l’annotation [@Rollback(false)](http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/testing.html#integration-testing-annotations) peut être apposée temporairement sur la méthode incriminée afin que Spring valide la transaction._  
+Remarque : _dans mon contexte projet, chaque méthode de test a besoin de **son propre jeu de données**. Les données insérées ou modifiées par la précédente méthode testée doivent donc être purgées. Par choix, ce ménage n’est pas assuré par la classe [DbSetupTracker](http://dbsetup.ninja-squad.com/apidoc/1.0/com/ninja_squad/dbsetup/DbSetupTracker.html) proposée par DbSetup, mais par le support transactionnel offert par [Spring Test](http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/testing.html). Une transaction base de données est ouverte par Spring avant l’appel de la méthode de test puis est annulée une fois la fin de la méthode atteinte. Par contre, les données sont insérées par DbSetup au début de la méthode de test. Parce qu’il est parfois utile de pouvoir consulter l’état de la base après un test en échec, l’annotation [`@Rollback(false)`](http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/testing.html#integration-testing-annotations) peut être apposée temporairement sur la méthode incriminée afin que Spring valide la transaction._  
 Pour que Spring Test puisse charger le contexte applicatif et initier le contexte transactionnel, les 3 annotations suivantes décorent la classe de test :
 
 ```xhtml
@@ -68,9 +68,9 @@ Pour que Spring Test puisse charger le contexte applicatif et initier le context
 public class TestSpringDbSetup { … }
 ```
 
-Le code source complet de la classe [TestSpringDbSetup.java](https://gist.github.com/arey/6460147) peut être consulté sur GitHub .
+Le code source complet de la classe [`TestSpringDbSetup.java`](https://gist.github.com/arey/6460147) peut être consulté sur GitHub .
 
-La configuration du contexte Spring est déclarée en java, dans une nested class du test. A noter que cette classe de configuration pourrait être externalisée afin d’être utilisée par toutes les classes de tests unitaires. Y sont déclarés : une source de données, un gestionnaire de transaction, une instance de _JdbcTemplate_ pouvant être utilisées par les assertions et une _Destination_ DbSetup.
+La configuration du contexte Spring est déclarée en java, dans une nested class du test. A noter que cette classe de configuration pourrait être externalisée afin d’être utilisée par toutes les classes de tests unitaires. Y sont déclarés : une source de données, un gestionnaire de transaction, une instance de `JdbcTemplate` pouvant être utilisées par les assertions et une `Destination` DbSetup.
 
 ```xhtml
 @Configuration
@@ -100,9 +100,9 @@ static class Config {
 }
 ```
 
-L’interface _Destination_ fournie par DbSetup permet à ce dernier d’accéder à une connexion JDBC. De base, DbSetup vient avec 2 implémentations : l’une pour récupérer une connexion depuis une _DataSource_ et une autre pour la récupérer directement depuis le _DriverManager_.  
-Notre exemple utilise l’implémentation spécifique **_[TransactionAwareDestination](https://gist.github.com/arey/6453086)_** dont le code source est disponible sous forme de Gist. Basé sur le proxy _[TransactionAwareDataSourceProxy](http://static.springsource.org/spring/docs/3.2.4.RELEASE/javadoc-api/org/springframework/jdbc/datasource/TransactionAwareDataSourceProxy.html)_  proposé par Spring, cette destination permet à DbSetup d’utiliser le contexte transactionnel géré par Sring pour récupérer et clôturer une connexion, commiter ou bien rollbacker. La classe _[TransactionAwareDestination](https://gist.github.com/arey/6453086)_ apporte une amélioration reportée dans la Jira [SPR-6441](https://jira.springsource.org/browse/SPR-6441).  
-Afin de pouvoir être utilisés dans les méthodes de test, les beans _JdbcTemplate_ et _Destination_ sont injectés en tant que propriétés de la classe _TestSpringDbSetup_ :
+L’interface _Destination_ fournie par DbSetup permet à ce dernier d’accéder à une connexion JDBC. De base, DbSetup vient avec 2 implémentations : l’une pour récupérer une connexion depuis une `DataSource` et une autre pour la récupérer directement depuis le `DriverManager`.  
+Notre exemple utilise l’implémentation spécifique [`TransactionAwareDestination`](https://gist.github.com/arey/6453086) dont le code source est disponible sous forme de Gist. Basé sur le proxy [`TransactionAwareDataSourceProxy`](http://static.springsource.org/spring/docs/3.2.4.RELEASE/javadoc-api/org/springframework/jdbc/datasource/TransactionAwareDataSourceProxy.html)  proposé par Spring, cette destination permet à DbSetup d’utiliser le contexte transactionnel géré par Sring pour récupérer et clôturer une connexion, commiter ou bien rollbacker. La classe [`TransactionAwareDestination`](https://gist.github.com/arey/6453086) apporte une amélioration reportée dans la Jira [SPR-6441](https://jira.springsource.org/browse/SPR-6441).  
+Afin de pouvoir être utilisés dans les méthodes de test, les beans `JdbcTemplate` et `Destination` sont injectés en tant que propriétés de la classe `TestSpringDbSetup` :
 
 ```xhtml
 @Autowired
@@ -112,7 +112,7 @@ private JdbcTemplate jdbcTemplate;
 private Destination destination;
 ```
 
-Du plus simple effet, le script schema.sql contient la création d’une table :
+Du plus simple effet, le script `schema.sql` contient la création d’une table :
 
 ```sql
 create table customer(id number primary key, name varchar not null);
@@ -152,7 +152,7 @@ public void indexCustomerWithSimilarName() throws SQLException {
 
 Sans même connaitre l'API de DbSetup, la premier constat est que **le code est lisible** et reste donc maintenable par tout développeur Java.
 
-L’identifiant de chaque client n’ayant pas d’importance dans notre scénario de test, un **générateur de valeurs séquentielles** est utilisé à l’aide de la classe utilitaire [_ValueGenerators_](http://dbsetup.ninja-squad.com/apidoc/1.0/com/ninja_squad/dbsetup/generator/ValueGenerators.html). Cette possibilité offerte par DbSetup est fort appréciable dans le cas où des colonnes non _null_ doivent être valorisées alors que leurs valeurs n’ont pas d’impact sur le test.
+L’identifiant de chaque client n’ayant pas d’importance dans notre scénario de test, un **générateur de valeurs séquentielles** est utilisé à l’aide de la classe utilitaire [`ValueGenerators`](http://dbsetup.ninja-squad.com/apidoc/1.0/com/ninja_squad/dbsetup/generator/ValueGenerators.html). Cette possibilité offerte par DbSetup est fort appréciable dans le cas où des colonnes non `null` doivent être valorisées alors que leurs valeurs n’ont pas d’impact sur le test.
 
 Si elle avait été plus longue, la liste de noms à insérer aurait pu être construite à partir d’une **boucle** parcourant une liste de valeurs. Merci Java.
 
@@ -176,9 +176,9 @@ public void indexSingleCustomer() {
 }
 ```
 
-En effet, là où les fichiers XML de DbUnit sont limités à de simples chaînes de caractères, DbSetup permet d’ **utiliser des valeurs typées** pour écrire des jeux de données. Dans l’exemple précédent, un _int_ est utilisé pour renseigner la valeur de la colonne "ID". DbSetup supporte nativement de nombreux types Java. Le framework de test se charge de binder les types Java en type SQL (java.sql.Types). Il laisse néanmoins la possibilité d’étendre cette liste en implémentant l’interface _[BinderConfiguration](http://dbsetup.ninja-squad.com/apidoc/1.0/com/ninja_squad/dbsetup/bind/BinderConfiguration.html)_ et/ou en créant ses propres _[Binder](http://dbsetup.ninja-squad.com/apidoc/1.0/com/ninja_squad/dbsetup/bind/Binder.html)_.
+En effet, là où les fichiers XML de DbUnit sont limités à de simples chaînes de caractères, DbSetup permet d’ **utiliser des valeurs typées** pour écrire des jeux de données. Dans l’exemple précédent, un `int` est utilisé pour renseigner la valeur de la colonne "ID". DbSetup supporte nativement de nombreux types Java. Le framework de test se charge de binder les types Java en type SQL (`java.sql.Types`). Il laisse néanmoins la possibilité d’étendre cette liste en implémentant l’interface [`BinderConfiguration`](http://dbsetup.ninja-squad.com/apidoc/1.0/com/ninja_squad/dbsetup/bind/BinderConfiguration.html) et/ou en créant ses propres [`Binder`](http://dbsetup.ninja-squad.com/apidoc/1.0/com/ninja_squad/dbsetup/bind/Binder.html).
 
-Déclarer ses jeux de données en Java permet d’ **utiliser des constantes**, ici CUSTOMER\_1. La même constante peut être réutilisée pour plusieurs jeux de données, utilisée lors des assertions ou lors de l’exécution du test. Le code en devient plus lisible. Les constantes sont particulièrement intéressantes avec les clés étrangères.  
+Déclarer ses jeux de données en Java permet d’ **utiliser des constantes**, ici `CUSTOMER_1`. La même constante peut être réutilisée pour plusieurs jeux de données, utilisée lors des assertions ou lors de l’exécution du test. Le code en devient plus lisible. Les constantes sont particulièrement intéressantes avec les clés étrangères.  
 Ces 2 exemples ne mettent en pratique qu’une partie des fonctionnalités de DbSetup. Valeurs par défaut, exécution de requêtes SQL, chainage d’opération en sont d’autres.
 
 ## Avantages et inconvénients

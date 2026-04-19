@@ -44,8 +44,8 @@ La solution à ce problème est illustrée sur le schéma  suivant :
 
 Voici quelques précisions concernant chacune de ces 3 étapes :
 
-1. Au lieu d’interroger un index directement à partir de son nom physique (ici _produits1_), l’application cliente d’Elasticsearch (ex : HTML ou Java) utilise un nom logique ( _produits_) matérialisé dans Elasticsearch par un **alias**.
-1. Le batch commence par déterminer quel est le nom de l’index qu’il doit construire. Il regarde à quel index est lié l’alias _produits_. Dans l’exemple ci-dessus, il s’agit de _produits1_. Le batch en déduit qu’il doit construire un nouvel index _produits2_.
+1. Au lieu d’interroger un index directement à partir de son nom physique (ici `produits1`), l’application cliente d’Elasticsearch (ex : HTML ou Java) utilise un nom logique (`produits`) matérialisé dans Elasticsearch par un **alias**.
+1. Le batch commence par déterminer quel est le nom de l’index qu’il doit construire. Il regarde à quel index est lié l’alias _produits_. Dans l’exemple ci-dessus, il s’agit de `produits1`. Le batch en déduit qu’il doit construire un nouvel index `produits2`.
 1. A la fin de l’indexation, le batch utilise l’API d’Elasticsearch pour faire pointer l’alias clients vers le nouvel index _clients2_. L’index _clients1_ est supprimé. Ce changement est transparent pour l’application cliente.
 
 Voici le code Java permettant de changer l’alias en une seule requête Elasticsearch :
@@ -119,7 +119,7 @@ Réponse :
 
 ### LUCENE ET LES JVM 32 BITS
 
-Au cours de la migration du middle de recherche de la version 0.19.2 d’Elasticsearch à une version 0.90.x, nous sommes tombés de manière inopinée sur un _OutOfMemoryError_ remonté par l’API Java Elasticserarch de recherche. Comme le montre la pile d’appel ci-dessous, le message d’erreur référence le **bug Lucene** [LUCENE-1566  Large Lucene index can hit false OOM due to Sun JRE issue](https://issues.apache.org/jira/browse/LUCENE-1566) :
+Au cours de la migration du middle de recherche de la version 0.19.2 d’Elasticsearch à une version 0.90.x, nous sommes tombés de manière inopinée sur un `OutOfMemoryError` remonté par l’API Java Elasticserarch de recherche. Comme le montre la pile d’appel ci-dessous, le message d’erreur référence le **bug Lucene** [LUCENE-1566  Large Lucene index can hit false OOM due to Sun JRE issue](https://issues.apache.org/jira/browse/LUCENE-1566) :
 
 ```java
 [2013-11-25 21:26:14,080][DEBUG][action.search.type] [elasticSeachNode] [client12][0], node[mflXc6jJS9CaJiYaCrKe2g], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1ea6e24]java.lang.OutOfMemoryError: OutOfMemoryError likely caused by the Sun VM Bug described in https://issues.apache.org/jira/browse/LUCENE-1566; try calling FSDirectory.setReadChunkSize with a value smaller than the current chunk size (104857600)
@@ -130,7 +130,7 @@ at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:127)
 ...
 ```
 
-Le ticket Lucene référence à son tour un **bug de la JVM Hotspot** : [JDK-6478546 : FileInputStream.read() throws OutOfMemoryError when there is plenty available](http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6478546). Sur des JVM 32 bits, la lecture de fichiers de plusieurs centaines de mega-octets provoque à tort des _OutOfMemoryError_ sur les JVM ayant une heap conséquence.  
+Le ticket Lucene référence à son tour un **bug de la JVM Hotspot** : [JDK-6478546 : FileInputStream.read() throws OutOfMemoryError when there is plenty available](http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6478546). Sur des JVM 32 bits, la lecture de fichiers de plusieurs centaines de mega-octets provoque à tort des `OutOfMemoryError` sur les JVM ayant une heap conséquence.  
 Bien que ce bug soit marqué comme corrigé depuis la version 2.9 de Lucene, tous les critères de ce bug étaient réunis :
 
 1. JVM 32 bits Java 6
@@ -141,12 +141,12 @@ Pour résoudre ce problème, nous sommes simplement passés à une **JVM Java 7 
 
 Batch d’indexation en erreur
 
-Lors de la montée de version d’Elasticsearch de la **version 0.90.2 à 0.90.3**, le batch d’indexation est tombé en _OutOfMemoryError_. Configuré avec  512 mo de Xmx, le batch n’avait jusque-là jamais posé de problème particulier.  
+Lors de la montée de version d’Elasticsearch de la **version 0.90.2 à 0.90.3**, le batch d’indexation est tombé en `OutOfMemoryError`. Configuré avec  512 mo de Xmx, le batch n’avait jusque-là jamais posé de problème particulier.  
 Multi-threadé, le batch a été paramétré pour traiter simultanément 5000 documents par thread. L’empreinte mémoire des documents indexés est relativement petite, de l’ordre de 1 ou 2 ko.
 
 ![2013-12-problematiques-elastisearch-dynatrace2](wp-content/uploads/2013/12/2013-12-problematiques-elastisearch-dynatrace2.jpg)
 
-Entre les 2 versions, notre profiler Java nous a montré qu’à volumétrie égale (25 000 requêtes), l’empreinte mémoire des instances de la classe **_IndexRequest_** était passée de **29 Mo à 823 Mo**:  
+Entre les 2 versions, notre profiler Java nous a montré qu’à volumétrie égale (25 000 requêtes), l’empreinte mémoire des instances de la classe `IndexRequest` était passée de **29 Mo à 823 Mo**:  
 
 Ayant identifié le problème, j’ai remonté le [bug 3624](https://github.com/elasticsearch/elasticsearch/issues/3624) dans le GitHub d’Elasticsearch. Dans l’heure qui a suivi, Shay Banon, le créateur d’Elasticsearch en personne, a pris en main le sujet. Il a identifié que la **taille minimale du buffer** des requêtes était passé de **1 Ko à 32 Ko entre les 2 versions**. Le lendemain, il publiait [un patch](https://github.com/elasticsearch/elasticsearch/issues/3638) faisant repasser le buffer à 2 Ko. Dix jours plus tard, le patch était disponible dans la version 0.90.4 d’Elasticsearch.  Entre temps, nous avons utilisé un contournement indiqué par Shay permettant de fixer manuellement la taille du buffer.
 
@@ -159,14 +159,14 @@ Techniquement, notre cluster Elasticsearch comporte 2 nœuds. Chaque nœud est r
 Le Split Brain Elasticsearh est survenue après une coupure réseau d’1 mn 30. Le schéma suivant montre l’état du cluster avant, pendant et après la coupure :  
 
 1. Pour fonctionner, un cluster Elasticsearch nécessite d’avoir un **nœud maître**. Le _nœud 1_ joue ce rôle. Il héberge la partition primaire (shard 0). Le _nœud 2_ est esclave et contient le réplica de la partition du _nœud 1_. Le réplica est une copie de la partition primaire et peut faire office de backup en cas de défaillance du _nœud 1_.
-1. Une coupure réseau intervient entre les 2 nœuds.  Lorsqu’il essaie de communiquer avec son maître, le _nœud 2_ se prend une _ConnectTransportException_. A 3 reprises, toutes les 30 secondes, le _nœud 2_ essaie de se reconnecter au cluster.  En vain. Possédant un réplica complet de l’index, sans nœud voisin, **le _nœud 2_ va alors s’autoproclamer maître**. Deux « sous-clusters » existent sur le réseau, chacun étant capable de répondre à des requêtes de recherche et d’indexation.
+1. Une coupure réseau intervient entre les 2 nœuds.  Lorsqu’il essaie de communiquer avec son maître, le _nœud 2_ se prend une `ConnectTransportException`. A 3 reprises, toutes les 30 secondes, le _nœud 2_ essaie de se reconnecter au cluster.  En vain. Possédant un réplica complet de l’index, sans nœud voisin, **le _nœud 2_ va alors s’autoproclamer maître**. Deux « sous-clusters » existent sur le réseau, chacun étant capable de répondre à des requêtes de recherche et d’indexation.
 1. Une fois le réseau rétabli, les _2 nœuds_ ne se réunissent pas en un seul et unique cluster comme on pourrait s’y attendre. Deux clusters indépendants coexistent. C’est ce que l’on appelle le Split Brain. Cette situation entraîne une **divergence progressive des données indexées sur chacun des 2 sous-clusters**, tantôt les requêtes d’indexation arrivant sur le _nœud 1_, tant sur le _nœud 2_.
 
 Ce problème est difficile à mettre en évidence car toutes les requêtes de recherche comme d’indexation répondent. Nous nous en sommes aperçus par hasard à quelques jours d’une nouvelle mise en production du middle de recherche, en vérifiant les logs Elasticsearch. Après redémarrage d’un des nœuds, une réindexation totale des données a été réalisée.  En attendant de trouver une solution plus pérenne, le dossier de supervision a été complété afin de nous alerter en cas de récidive.
 
-La solution à ce problème est connue et documentée : passer le cluster à 3 nœuds et fixer le paramètre **discovery.zen.minimum\_master\_node** à N/2 + 1, soit 2 dans notre cas.  
+La solution à ce problème est connue et documentée : passer le cluster à 3 nœuds et fixer le paramètre `discovery.zen.minimum_master_node` à N/2 + 1, soit 2 dans notre cas.  
 Ce paramètre permet de spécifier que l’élection d’un nouveau maître nécessite la majorité absolue. Scindé en deux, un cluster de 2 nœuds n’aurait pas pu élire de maître.  Jusque-là maître, le Nœud 1 se serait mis en attente de la reconnexion réseau. Le cluster aurait perdu sa haute-disponibilité : aucun des nœuds n’aurait pu desservir les requêtes de recherche.  
-Avec 3 nœuds, l’isolement d’un nœud vis-à-vis de ses 2 compères aurait permis de conserver un cluster actif. A noter que le 3ième nœud peut être configuré pour ne pas héberger de données  (paramètre **node.data** à false). Il joue alors uniquement le rôle d’ **arbitre**.
+Avec 3 nœuds, l’isolement d’un nœud vis-à-vis de ses 2 compères aurait permis de conserver un cluster actif. A noter que le 3ième nœud peut être configuré pour ne pas héberger de données  (paramètre `node.data` à `false`). Il joue alors uniquement le rôle d’ **arbitre**.
 
 ## IDF
 
@@ -176,7 +176,7 @@ Prenons le cas d’une recherche par nom et prénom. Plus rares, les personnes a
 
 L’IDF peut également poser des problèmes de précision lorsqu’un **index est partitionné en plusieurs shard** s. Techniquement, un shard correspond à un index physique Lucene. Chaque shard dispose donc de sa propre répartition des fréquences des termes.  
 En fonction des autres documents indexés dans le même shard, le même document peut donc avoir un score différent.  
-Pour pallier à ce problème, Elasticsearch permet de réaliser des recherches  de type **DFS Query Then Fetch**. Est ajoutée une phase initiale consistant à demander à chaque shard la fréquence des termes et documents à rechercher. Une fréquence globale à tout l’index peut alors être calculée.  
+Pour pallier à ce problème, Elasticsearch permet de réaliser des recherches  de type `DFS Query Then Fetch`. Est ajoutée une phase initiale consistant à demander à chaque shard la fréquence des termes et documents à rechercher. Une fréquence globale à tout l’index peut alors être calculée.  
 Bien entendu, ce calcul n’est pas neutre en termes de performance.
 
 ## PARTITIONNEMENT

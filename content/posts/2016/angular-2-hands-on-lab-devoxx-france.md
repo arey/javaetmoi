@@ -51,12 +51,12 @@ Le fichier [README.md](https://github.com/manekinekko/angular2-codelab/blob/mast
 
 1. Forker puis récupérer le repo
 1. Construire l’application (modules JavaScript téléchargés via npm)
-1. Démarrer l’application via la commande _ng serve_
+1. Démarrer l’application via la commande `ng serve`
 
-La commande **_ng_** fait appel au client en ligne de commande fournit par Angular 2. Ce dernier remplace des outils de build comme gulp et permet également de générer les composants. A termes, il est prévu qu’il soit capable de packager l’application et de la déployer sur le serveur.
+La commande `ng` fait appel au client en ligne de commande fournit par Angular 2. Ce dernier remplace des outils de build comme gulp et permet également de générer les composants. A termes, il est prévu qu’il soit capable de packager l’application et de la déployer sur le serveur.
 
 Pour IDE, un simple éditeur de texte peut suffire. Proposant complétion et compilation, l’utilisation de Visual Studio, Atom ou d’IntelliJ IDEA est toutefois préférable.
-Le serveur web démarré par _ng_ supporte le live reload : à chaque changement de code, la page est rafraichie.
+Le serveur web démarré par `ng` supporte le live reload : à chaque changement de code, la page est rafraichie.
 
 Bien que [les slides](http://slides.com/wassimchegham/getting-started-with-angular-2#/) montrent à quoi ressemble l’application finale, je vous conseille de faire un checkout du master et de naviguer sur [http://localhost:4200/](http://localhost:4200/). Vous aurez ainsi une idée plus précise de l’objectif à atteindre lors de la partie pratique.
 
@@ -68,7 +68,7 @@ Utiliser TypeScript pour vos développements Angular 2 n’impose pas de rester 
 
 Ce lab est codé en TypeScript. Une connaissance minimale de ce dernier ou, à défaut, d’ES6 est recommandé. J’ai toutefois pu m’en sortir sans : baladez-vous dans le code source du step1 pour apprendre la syntaxe des imports, la définition d’une classe, l’usage des annotations …
 
-Si vous vous posez la question, les fichiers suffixés par **_.d.ts_** et présents dans le workspace du Lab permettent d’utiliser des librairies tierces JavaScript depuis TypeScript (ex : Jasmine et Selenium).
+Si vous vous posez la question, les fichiers suffixés par `.d.ts` et présents dans le workspace du Lab permettent d’utiliser des librairies tierces JavaScript depuis TypeScript (ex : Jasmine et Selenium).
 
 ### Les apports d’Angular 2
 
@@ -94,19 +94,19 @@ L’application Quizz est constituée des 7 composants suivants :
 1. **QuestionCard**: affiche la question et reçoit les réponses de l’utilisateur
 1. **Summary**: page listant les résultats des questions d’un quizz
 
-Ces composants sont tous localisés dans le répertoire _src/app/components_ de votre projet. Chaque composant dispose d’un répertoire dédié.
+Ces composants sont tous localisés dans le répertoire `src/app/components` de votre projet. Chaque composant dispose d’un répertoire dédié.
 Techniquement, un composant est une classe JavaScript décorée avec l’annotation `@Component` et explicitement exportée (mot clé **export** d’ES6).
 
-Un composant peut disposer d’une **vue**. Cette dernière est déclarée en tant que propriété **_template_** ou **_templateUrl_** du @Component. L’attribut **_templateUrl_** référence un template HTML externe (comme sous Angular 1) et **_template_** permet d’utiliser les backquotes TS pour déclarer un template inline.
+Un composant peut disposer d’une **vue**. Cette dernière est déclarée en tant que propriété `template` ou `templateUrl` du @Component. L’attribut `templateUrl` référence un template HTML externe (comme sous Angular 1) et `template` permet d’utiliser les backquotes TS pour déclarer un template inline.
 
-Au travers de la propriété **_selector_** de @Component, un composant peut également être associé à une balise HTML, et même plus largement à un **selector CSS 3**.
+Au travers de la propriété `selector` de @Component, un composant peut également être associé à une balise HTML, et même plus largement à un **selector CSS 3**.
 
-Pour démarrer une application Bootstrap, il faut appeler la fonction **_bootstrap_** en lui passant la classe du composant parent, en l’occurrence _Ng2CodelabApp_.
+Pour démarrer une application Bootstrap, il faut appeler la fonction `bootstrap` en lui passant la classe du composant parent, en l’occurrence `Ng2CodelabApp`.
 
 Les informations précédentes devraient vous aider à **implémenter le step-1** en suivant les instructions données dans le fichier [STEPS.md](https://github.com/manekinekko/angular2-codelab/blob/master/STEPS.md). A vous de jouer.
 Avant de commencer le step-2, voici quelques explications sur la solution.
 
-Dans le fichier _ng2-codelab.js_, la déclaration du **selector**: **'app'**, permet à Angular 2 de reconnaître la balise < **_app>_** que vous avez ajoutée dans le fichier [index.html](https://github.com/manekinekko/angular2-codelab/blob/master/src/index.html):
+Dans le fichier `ng2-codelab.js`, la déclaration du `selector`: `'app'`, permet à Angular 2 de reconnaître la balise `<app>` que vous avez ajoutée dans le fichier [index.html](https://github.com/manekinekko/angular2-codelab/blob/master/src/index.html):
 
 ```xhtml
 <app>
@@ -118,7 +118,7 @@ Dans le fichier _ng2-codelab.js_, la déclaration du **selector**: **'app'**, pe
 </app>
 ```
 
-Toujours dans le _index.html_, on indique à Angular 2 quel fichier JS utiliser pour bootstraper l’application via l’appel à _System.import("app.js")._ Le fichier app.js est la version transpilée de app.ts.
+Toujours dans le `index.html`, on indique à Angular 2 quel fichier JS utiliser pour bootstraper l’application via l’appel à `System.import("app.js")`. Le fichier app.js est la version transpilée de app.ts.
 
 ```js
 <script>
@@ -135,10 +135,10 @@ System.import('app.js').then(null, console.error.bind(console));
 </script>
 ```
 
-Dans le jargon d’Angular 2, le composant Ng2CodelabApp initié dans cette étape s’appelle un **« dumb » component**.
+Dans le jargon d’Angular 2, le composant `Ng2CodelabApp` initié dans cette étape s’appelle un **« dumb » component**.
 
-Enfin, dans [app.js](https://github.com/manekinekko/angular2-codelab/blob/step-1-solution/src/app.ts), la classe _Ng2CodelabApp_ exportée précédemment est importée :
-import { Ng2CodelabApp } from './app/ng2-codelab';
+Enfin, dans [`app.js`](https://github.com/manekinekko/angular2-codelab/blob/step-1-solution/src/app.ts), la classe `Ng2CodelabApp` exportée précédemment est importée :
+`import { Ng2CodelabApp } from './app/ng2-codelab';`
 
 A la fin de cette étape, la page d’accueil n’affiche qu’un simple sablier.
 ![lab2-angular2-devoxxfr2016](wp-content/uploads/2016/04/lab2-angular2-devoxxfr2016.png)
@@ -158,15 +158,15 @@ Au premier abord, cette nouvelle syntaxe peut dérouter. Les speakers ne s’en 
 
 **Les composants ont un cycle de vie**. Angular 2 permet aux développeurs d’interagir à l’aide de fonction callback : _[ngOnInit, ngDoCheck, ngOnChanges …](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/18)_  Ces fonctions sont à déclarer dans les composants. Angular 2 les appellera au moment approprié. Détail de 3 fonctions sur les 8 disponibles :
 
-- **ngOnInit**: déclenchée lorsque la directive a été compilée, que les meta-données sont chargées et que la directive démarre
-- **ngOnChanges(records)**: écoute les changements d’état réalisés par un composant parent
-- **ngAfterViewInit**: appelée lorsque la vue a été chargée
+- `ngOnInit`: déclenchée lorsque la directive a été compilée, que les meta-données sont chargées et que la directive démarre
+- `ngOnChanges(records)`: écoute les changements d’état réalisés par un composant parent
+- `ngAfterViewInit`: appelée lorsque la vue a été chargée
 
 **Chaque composant gère son état**. C’est l’une des raisons qui fait qu’Angular 2 est plus performant que son prédécesseur.
 
-En pratique, le **Parent** passe une information à son **Enfant** (propriété **_@Input_**). C’est l’Enfant qui met à jour son état. L’Enfant peut communiquer avec son Parent via l’event binding (propriété **_@Output_**). [Le slide State Managment](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/21) schématise ce comportement. Des ressemblances existent avec l’ [architecture Flux](https://facebook.github.io/react/blog/2014/05/06/flux.html).
+En pratique, le **Parent** passe une information à son **Enfant** (propriété `@Input`). C’est l’Enfant qui met à jour son état. L’Enfant peut communiquer avec son Parent via l’event binding (propriété `@Output`). [Le slide State Managment](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/21) schématise ce comportement. Des ressemblances existent avec l’ [architecture Flux](https://facebook.github.io/react/blog/2014/05/06/flux.html).
 
-Dans le [slide d’exemple](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/22), le composant _ThemeCard_ implémente l’interface `AfterViewInit`. Facultative, l’utilisation de cette interface TypeScript permet à l’IDE de mettre en garde le développeur si il omet d’implémenter la fonction `ngAfterViewInit()`.
+Dans le [slide d’exemple](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/22), le composant `ThemeCard` implémente l’interface `AfterViewInit`. Facultative, l’utilisation de cette interface TypeScript permet à l’IDE de mettre en garde le développeur si il omet d’implémenter la fonction `ngAfterViewInit()`.
 
 La convention de nommage suivante est à respecter pour le double data-binding :
 
@@ -176,8 +176,8 @@ La convention de nommage suivante est à respecter pour le double data-binding :
 ```
 
 La partie théorie s’arrête ici. En pratique, le step 2 vous demande de créer le nouveau composant **ThemeCard** puis de l’utiliser dans le composant Home.
-En entrée, ThemeCard acceptera un paramètre de type **_ITechnology_**. Le template de ThemeCard affichera le _titre_, la _description_ et le _logo_ de cette technologie.
-Le composant Home sera responsable de charger la liste des technologies à afficher. Elle s’appuiera sur le **_TechnologiesStore_** mis à votre disposition. Les notions de module et d’injection de dépendances seront abordés par la suite. Pour le moment, contentez vous d’ajouter la propriété _themeCards_ et le constructeur suivant à la classe Home :
+En entrée, ThemeCard acceptera un paramètre de type `ITechnology`. Le template de ThemeCard affichera le `titre`, la `description` et le `logo` de cette technologie.
+Le composant Home sera responsable de charger la liste des technologies à afficher. Elle s’appuiera sur le `TechnologiesStore` mis à votre disposition. Les notions de module et d’injection de dépendances seront abordés par la suite. Pour le moment, contentez vous d’ajouter la propriété `themeCards` et le constructeur suivant à la classe Home :
 
 ```js
 private themeCards: any[];
@@ -187,7 +187,7 @@ constructor(technologiesStore: TechnologiesStore){
 }
 ```
 
-Remarque : pour utiliser le _TechnologiesStore_, il faut le déclarer en tant que **_providers_** au niveau de l’annotation _@Component_.
+Remarque : pour utiliser le `TechnologiesStore`, il faut le déclarer en tant que `providers` au niveau de l’annotation `@Component`.
 Munis de ces informations, **vous pouvez commencer le [step 2](https://github.com/manekinekko/angular2-codelab/blob/master/STEPS.md#step-2-home-and-theme-card-components)**.
 Avant de passer au step 3, arrêtons-nous un moment sur la solution.
 
@@ -201,9 +201,9 @@ Le template de Home est intéressant :
 ></theme-card>
 ```
 
-Il boucle sur la collection de _themeCards_ chargée par le constructeur du composant Home. La syntaxe dièse **_#card_** permet de référencer le _this_ du composant.
+Il boucle sur la collection de `themeCards` chargée par le constructeur du composant Home. La syntaxe dièse `#card` permet de référencer le `this` du composant.
 
-Le template _theme-card.html_ référence quant à lui les propriétés du composant :
+Le template `theme-card.html` référence quant à lui les propriétés du composant :
 
 ```xhtml
 <h2 class="mdl-card__title-text">{{ theme.title }}</h2>
@@ -218,25 +218,25 @@ Cette étape a pour objectif de vous faire prendre en main le component **angula
 Ce qu’il est important de comprendre, c’est que **chaque composant peut être routable**. Dans Angular 2, **les routes se font entre composants et non entre vues**. Bien qu’il existe des règles globales à l’application, chaque composant gère ses propres règles de routage.
 
 Le [slide Component Router](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/25) illustre la configuration des routes et leur utilisation dans un template inline.
-Utilisé dans le template, l’attribut **\[routerLink\]** crée un lien hypertexte vers un autre composant.
-L’élément **<router-outlet>** équivaut au ng-view d’Angular 1.
+Utilisé dans le template, l'attribut `[routerLink]` crée un lien hypertexte vers un autre composant.
+L'élément `<router-outlet>` équivaut au `ng-view` d'Angular 1.
 L’annotation `@RouteConfig` permet de déclarer les routes. La syntaxe des points de suspensions du path (ex : '/details/ **…'**) permet de déléguer le routage à un autre composant.
-Dans le constructeur d’un composant, il est possible de récupérer le paramètre d’URL via la classe **RouteParams**.
+Dans le constructeur d’un composant, il est possible de récupérer le paramètre d’URL via la classe `RouteParams`.
 
 Le [slide Bootstraping the Router](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/26) illustre l’initialisation du routeur qui a lieu dans le fichier principal (app.ts).
 3 composants sont à importer :
 
-1. **ROUTER\_PROVIDERS**: permet de récupérer les services du routeur
-1. **PathLocationStragegy** ou **HashLocationStrategie**: type de navigation, par hash ou URL
-1. **LocationStrategy**: permet de spécifier la stratégie de navigation à utiliser dans l’application
+1. `ROUTER_PROVIDERS`: permet de récupérer les services du routeur
+1. `PathLocationStragegy` ou `HashLocationStrategie`: type de navigation, par hash ou URL
+1. `LocationStrategy`: permet de spécifier la stratégie de navigation à utiliser dans l’application
 
 D’après les speakers, l’ambition de ce module router est d’arriver au même niveau que [UI Router](https://github.com/angular-ui/ui-router) avec des routes imbriquées (routes abstraites). Il est d'ailleurs dors et déjà [utilisable dans Angular 1](https://docs.angularjs.org/guide/component-router).
 L’objectif du [**step3**](https://github.com/manekinekko/angular2-codelab/blob/master/STEPS.md#step-3-setting-up-the-router-and-question-component) est d’initier le composant QuestionCard puis de mettre en place la navigation entre le Home, ThemeCard et QuestionCard. A vous de jouer.
 
-Dans la solution, 2 routes sont déclarées au niveau du composant parent Ng2CodelabApp :
+Dans la solution, 2 routes sont déclarées au niveau du composant parent `Ng2CodelabApp` :
 
-1. une route principale **_/_** gérée par le composant Home et configurée pour être la route par défaut,
-1. et une route **_/question_** gérée par le composant QuestionCard.
+1. une route principale `/` gérée par le composant `Home` et configurée pour être la route par défaut,
+1. et une route `/question` gérée par le composant `QuestionCard`.
 
 ```js
 @Component({
@@ -260,7 +260,7 @@ Dans la solution, 2 routes sont déclarées au niveau du composant parent Ng2Cod
 export class Ng2CodelabApp {
 ```
 
-Dans le template _theme-card.html_, la directive **\[routerLink\]** génère le lien hypertexte _/question_.
+Dans le template `theme-card.html`, la directive `[routerLink]` génère le lien hypertexte `/question`.
 
 ```xhtml
 <a [routerLink]="[ '/QuestionCard' ]" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
@@ -268,23 +268,23 @@ Dans le template _theme-card.html_, la directive **\[routerLink\]** génère le 
 </a>
 ```
 
-Un clic sur le lien déclenche le routage vers le composant QuestionCard. Dans le DOM, la balise _<home>_ est remplacée par _<question-card>._
+Un clic sur le lien déclenche le routage vers le composant QuestionCard. Dans le DOM, la balise `<home>` est remplacée par `<question-card>`.
 
 ### Step 4 – Les providers
 
-Entraperçu dans l’étape 2 lors de l’utilisation du _TechnologiesStore_, le **provider** est le thème central de cette 4ième étape.
+Entraperçu dans l’étape 2 lors de l’utilisation du `TechnologiesStore`, le **provider** est le thème central de cette 4ième étape.
 Un provider est chargé de mettre une classe JavaScript à disposition d’un composant. Typiquement, un composant va avoir besoin d’un service qui interagit avec le backend pour récupérer / mettre à jour des données.
 La mise en relation est basée sur l’ **injection de dépendance**(IoC). Pour rappel, Angular 1 est le premier framework front à avoir utilisé l’IoC. Son implémentation était assez rudimentaire. Angular 2 améliore ce premier coup d’essai en donnant davantage la main aux développeurs. Ainsi, un composant enfant pourra, par exemple, redéfinir les providers de son parent.
 
 Angular 2 propose 2 types de providers :
 
-1. [**Local**](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/29) : permet d’utiliser un provider dans un composant. En ES6, il est nécessaire d’utiliser l’annotation @Inject
+1. [**Local**](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/29) : permet d’utiliser un provider dans un composant. En ES6, il est nécessaire d’utiliser l’annotation `@Inject`
 1. [**Global**](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/30): injection à la racine de l’application. Mises-en garde : comme en Angular 1, tout provider est un singleton.
 
 La fonction `provide()` d’angular-core permet de configurer les providers. [Le slide Providers Configuration](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/32)  montre 3 syntaxes différentes.
 
 Le [**step-4**](https://github.com/manekinekko/angular2-codelab/blob/master/STEPS.md#step-4-technology-component) consiste à afficher les questions d’une technologie, à maintenir les choix de l’utilisateur et à naviguer entre les questions.
-Pour vous y aider, le service **QuestionStore** est mis à votre disposition :
+Pour vous y aider, le service `QuestionStore` est mis à votre disposition :
 
 ```js
 @Injectable()
@@ -298,7 +298,7 @@ export class QuestionsStore {
 }
 ```
 
-Ce service est injecté dans le composant **Technology** qui vous ait également fournit.
+Ce service est injecté dans le composant `Technology` qui vous ait également fournit.
 
 Une fois le step-4 réalisé, le composant QuestionCard est relativement concis :
 
@@ -324,8 +324,8 @@ export class QuestionCard implements AfterViewInit {
 }
 ```
 
-La question à afficher lui est passée en paramètre @Input.
-Et à chaque fois que l’utilisateur sélectionne / désélectionne une réponse, l’événement **_checked_** est envoyé au composant parent, à savoir Technology.
+La question à afficher lui est passée en paramètre `@Input`.
+Et à chaque fois que l’utilisateur sélectionne / désélectionne une réponse, l'événement `checked` est envoyé au composant parent, à savoir `Technology`.
 Le template de ce dernier binde l’événement sur la fonction toggle :
 
 ```js
@@ -337,12 +337,12 @@ template: `
 
 ### Step 5 – Smart components
 
-Aucun slide « Break time » ne précède l’étape n°5. Cette dernière ne requière pas de nouvelles notions. Par contre, vous allez mettre en œuvre un autre type de composant : le **« smart » component** **Summary**. Les smarts components n’échangent pas seulement des données avec leur composant parent, mais lisent / écrivent des données via des services.
-Dans cette étape, vous allez accéder au service **QuestionStore** depuis le composant **Summary**. Le QuestionStore sera mis à disposition par un _Provider_ de type _Factory_.
+Aucun slide « Break time » ne précède l’étape n°5. Cette dernière ne requière pas de nouvelles notions. Par contre, vous allez mettre en œuvre un autre type de composant : le **« smart » component** `Summary`. Les smarts components n’échangent pas seulement des données avec leur composant parent, mais lisent / écrivent des données via des services.
+Dans cette étape, vous allez accéder au service `QuestionStore` depuis le composant `Summary`. Le `QuestionStore` sera mis à disposition par un `Provider` de type `Factory`.
 
 A vous d’implémenter le [**step-5**](https://github.com/manekinekko/angular2-codelab/blob/master/STEPS.md#step-5-summary-component).
 
-La solution ne comporte pas de difficultés particulières. Le QuestionStore est injecté par constructeur. Et les questions sont récupérées en asynchrone via une promesse.
+La solution ne comporte pas de difficultés particulières. Le `QuestionStore` est injecté par constructeur. Et les questions sont récupérées en asynchrone via une promesse.
 
 ```js
 @Component({
@@ -386,7 +386,7 @@ constructor(questionsStore: QuestionsStore) {
 ### Step 6 – Les pipes
 
 Les filtres d’Angular 1 ont été renommées en **pipes**. Le concept et la syntaxe restent inchangés. Leur fonctionnement s’inspire des pipes Linux. Ils s’utilisent dans les templates pour transformer ou formater une donnée. Un pipe peut accepter des paramètres.
-Angular 2 vient avec un certains nombres de [built-ins pipes](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/37): DatePipe, UpperCase …
+Angular 2 vient avec un certains nombres de [built-ins pipes](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/37): `DatePipe`, `UpperCase` …
 L’étape 6 consiste à créer son propre Pipe. Le slide [Custom Pipes](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/36) montre comment utiliser l’annotation `@Pipe` pour déclarer un Pipe. Appuyez-vous sur cette exemple pour implémenter le [**step-6**](https://github.com/manekinekko/angular2-codelab/blob/master/STEPS.md#step-6-add-a-pipe).
 
 Comme vous pouvez le constater, l’implémentation du **MarkPipe** est concise :
@@ -413,7 +413,7 @@ Voici comment ce pipe est utilisé dans le template du composant QuestionCard :
 
 ### Step 7 – Les directives
 
-Cette dernière étape du Lab vous montre comment créer votre propre **Directive**. Le concept de directive structurelle n’a pas changé depuis Angular 1 : une directive permet d’attacher des comportements à des éléments customs du DOM. Un exemple sera bien plus parlant : [MyHighlightDirective](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/41). L’usage de l’interface **Renderer** à la place d’un accès direct au DOM permet de rendre l’application portable (ex : rendu côté serveur).
+Cette dernière étape du Lab vous montre comment créer votre propre **Directive**. Le concept de directive structurelle n’a pas changé depuis Angular 1 : une directive permet d’attacher des comportements à des éléments customs du DOM. Un exemple sera bien plus parlant : [MyHighlightDirective](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/41). L'usage de l'interface `Renderer` à la place d'un accès direct au DOM permet de rendre l’application portable (ex : rendu côté serveur).
 
 Je vous laisse implémenter le [**step-7**](https://github.com/manekinekko/angular2-codelab/blob/master/STEPS.md#step-7-add-a-directive).
 Et voici un extrait de la solution :

@@ -15,7 +15,7 @@ post_views_count: "14394"
 summary: |-
   [![logo_github](wp-content/uploads/2012/04/logo_github.png)](wp-content/uploads/2012/04/logo_github.png) Habitué aux releases maven avec SVN, j’ai rencontré quelques difficultés pour effectuer la première release du projet [Hibernate Hydrate](https://github.com/arey/hibernate-hydrate) \[1\] hébergé sur GitHub et présenté dans un [précédent billet](http://javaetmoi.com/2012/03/hibernate-dites-adieu-aux-lazy-initialization-exception/).
 
-  Pour rappel, lors d’une release, le plugin maven accède au gestionnaire de code source pour commiter les modifications effectuées sur les pom.xml et créer un tag. Il déploie ensuite les artefacts sur le repo maven distant.
+  Pour rappel, lors d’une release, le plugin maven accède au gestionnaire de code source pour commiter les modifications effectuées sur les `pom.xml` et créer un tag. Il déploie ensuite les artefacts sur le repo maven distant.
 
   Mes contraintess techniques étaient les suivantes :
 
@@ -41,7 +41,7 @@ url: /2012/04/release-maven-windows-github-deploy-cloudbees/
 ---
 [![logo_github](wp-content/uploads/2012/04/logo_github.png)](wp-content/uploads/2012/04/logo_github.png) Habitué aux releases maven avec SVN, j’ai rencontré quelques difficultés pour effectuer la première release du projet [Hibernate Hydrate](https://github.com/arey/hibernate-hydrate) \[1\] hébergé sur GitHub et présenté dans un [précédent billet](/2012/03/hibernate-dites-adieu-aux-lazy-initialization-exception/).
 
-Pour rappel, lors d’une release, le plugin maven accède au gestionnaire de code source pour commiter les modifications effectuées sur les pom.xml et créer un tag. Il déploie ensuite les artefacts sur le repo maven distant.
+Pour rappel, lors d’une release, le plugin maven accède au gestionnaire de code source pour commiter les modifications effectuées sur les `pom.xml` et créer un tag. Il déploie ensuite les artefacts sur le repo maven distant.
 
 Mes contraintess techniques étaient les suivantes :
 
@@ -57,7 +57,7 @@ Les réponses apportées par ce billet sont :
 
 ## Configuration maven pour GitHub
 
-Pour permettre à maven d’accéder en lecture et en écriture à votre repo GitHub, vous devez tout d’abord configurer comme suit la balise <scm> de votre pom.xml :
+Pour permettre à maven d’accéder en lecture et en écriture à votre repo GitHub, vous devez tout d’abord configurer comme suit la balise `<scm>` de votre `pom.xml` :
 
 ```xml
 <scm>
@@ -114,8 +114,8 @@ L’une des solutions permettant de résoudre ce problème est de répondre à l
 En résumé, vous allez demander à git d’utiliser PuTTY pour communiquer en SSH avec GitHub. L’agent d’authentification SSH Pageant sera utilisé pour conserver votre clés privée Github en mémoire pour que vous puissiez vous authentifier sans avoir besoin de retaper votre phrase de passe à chaque fois. Voici le mode opératoire :
 
 1. Télécharger puis décompresser l’archive **putty.zip** librement téléchargeable depuis le [site de Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) \[5\].
-1. Utiliser **[PuTTYGen.exe](http://marc.terrier.free.fr/docputty/Chapter8.html#pubkey-puttygen)** \[6\] pour **convertir** au format PuTTY (.ppk) **votre clé RSA GitHub** généré avec open SSH.
-1. Exécuter **[pageant.exe](http://marc.terrier.free.fr/docputty/Chapter9.html#pageant)** \[7\], ajouter la clé au format PuTTY and saisir le passphrase [![Configuration des variables d'environnement Git SSH avec PuTTY et Plink](wp-content/uploads/2012/04/variables-environnement-git-ssh-plink.png)](wp-content/uploads/2012/04/variables-environnement-git-ssh-plink.png)
+1. Utiliser [`PuTTYGen.exe`](http://marc.terrier.free.fr/docputty/Chapter8.html#pubkey-puttygen) \[6\] pour **convertir** au format PuTTY (.ppk) **votre clé RSA GitHub** généré avec open SSH.
+1. Exécuter [`pageant.exe`](http://marc.terrier.free.fr/docputty/Chapter9.html#pageant) \[7\], ajouter la clé au format PuTTY and saisir le passphrase [![Configuration des variables d'environnement Git SSH avec PuTTY et Plink](wp-content/uploads/2012/04/variables-environnement-git-ssh-plink.png)](wp-content/uploads/2012/04/variables-environnement-git-ssh-plink.png)
 1. Déclarer la variable d’environnement **GIT\_SSH** en spécifiant le **chemin vers [plink.exe](http://marc.terrier.free.fr/docputty/Chapter7.html#plink)** \[8\], outil de connexion en ligne de commande utilisé pour automatiser des connexions.
 
 Pour tester la configuration, ouvrir une nouvelle fenêtre de commande et exécuter la commande suivante :
@@ -153,7 +153,7 @@ Lors de la phase de déploiement d’un artefact, 2 repositories sont nécessair
 
 Point d’attention : les repositories CloudBees ne sont accessibles en écriture que par le protocole WebDAV. Les URL des repository doivent donc être préfixées par un **dav:**
 
-L’extension maven wagon-webdav est requis pour que maven puisse interpréter le dav:.  A ajouter dans la balise <build> de votre configuration :
+L’extension maven wagon-webdav est requis pour que maven puisse interpréter le dav:.  A ajouter dans la balise `<build>` de votre configuration :
 
 ```xml
 <extensions>
@@ -165,7 +165,7 @@ L’extension maven wagon-webdav est requis pour que maven puisse interpréter l
 </extensions>
 ```
 
-Afin que maven puisse accéder à ces repository pour télécharger les snapshots et les releases, il est nécessaire de les déclarer, soit dans le pom.xml de votre projet, soit dans le fichier setting.xml global ou local à l’utilisateur (ce qui est une bien meilleure pratique) :
+Afin que maven puisse accéder à ces repository pour télécharger les snapshots et les releases, il est nécessaire de les déclarer, soit dans le `pom.xml` de votre projet, soit dans le fichier `settings.xml` global ou local à l’utilisateur (ce qui est une bien meilleure pratique) :
 
 ```xml
 <repositories>

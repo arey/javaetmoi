@@ -82,11 +82,11 @@ Le tableau de questions (notre modèle) est stocké dans l’objet data de l’i
 ## Arbre de composants
 
 Orienté composants, **Vue.js permet de structurer la génération du formulaire à l’aide de plusieurs composants**.
-Le composant générique _<form-question>_ est responsable d’afficher le libellé de la question puis de sélectionner le sous-composant approprié pour la zone de saisie. Exemple : un _<form-radio>_ lorsque la question est de type radio. Il gère également l’affichage du caractère wildcard \* lorsque la question est obligatoire.
+Le composant générique `<form-question>` est responsable d’afficher le libellé de la question puis de sélectionner le sous-composant approprié pour la zone de saisie. Exemple : un `<form-radio>` lorsque la question est de type radio. Il gère également l’affichage du caractère wildcard \* lorsque la question est obligatoire.
 
 ## La page HTML
 
-La majorité du code HTML est localisé dans les templates Vue.js des sous-composants. Le code HTML de la page du formulaire est réduit à un simple _<form>_ générant autant de balises _<form-question>_ que de questions paramétrées dans le modèle du formulaire :
+La majorité du code HTML est localisé dans les templates Vue.js des sous-composants. Le code HTML de la page du formulaire est réduit à un simple `<form>` générant autant de balises `<form-question>` que de questions paramétrées dans le modèle du formulaire :
 
 ```xhtml
 <form id="dynform" class="panel-body form-horizontal" v-on:submit.prevent="displayForm">
@@ -100,12 +100,12 @@ La majorité du code HTML est localisé dans les templates Vue.js des sous-compo
 </form>
 ```
 
-La soumission du formulaire déclenche la fonction _displayForm_ dont nous verrons l’implémentation par la suite.
+La soumission du formulaire déclenche la fonction `displayForm` dont nous verrons l’implémentation par la suite.
 
 ## Le composant <form-question>
 
-Le **composant _<form-question>_** accepte en paramètre l’une des questions de notre formulaire.
-Conditionnel, **son template est généré dynamiquement en JavaScript** par concaténation de String. Ne pouvant utiliser la propriété _template_, il est initialisé dans la **fonction _created_** au travers de la propriété **_this.$options.template_**.
+Le **composant `<form-question>`** accepte en paramètre l’une des questions de notre formulaire.
+Conditionnel, **son template est généré dynamiquement en JavaScript** par concaténation de String. Ne pouvant utiliser la propriété `template`, il est initialisé dans la **fonction `created`** au travers de la propriété **`this.$options.template`**.
 
 ```js
 Vue.component('form-question', {
@@ -135,11 +135,11 @@ Vue.component('form-question', {
 });
 ```
 
-Le switch case permet de sélectionner le sous-composant Vue à afficher : _<form-input>_, _<form-select>_, _<form-radio>_ et _<form-textarea>_. Chacun d’eux accepte un seul paramètre : la question courante à afficher.
+Le switch case permet de sélectionner le sous-composant Vue à afficher : `<form-input>`, `<form-select>`, `<form-radio>` et `<form-textarea>`. Chacun d’eux accepte un seul paramètre : la question courante à afficher.
 
 ## Form Input
 
-Au travers du _<form-input>_, regardons de plus près à quoi ressemble un **sous-composant**. Voici une version dénudée de validation :
+Au travers du `<form-input>`, regardons de plus près à quoi ressemble un **sous-composant**. Voici une version dénudée de validation :
 
 ```js
 Vue.component('form-input', {
@@ -151,7 +151,7 @@ Vue.component('form-input', {
 });
 ```
 
-Les attributs _id_, _name_ et _placeholder_ sont attribués par **binding** en utilisant la syntaxe raccourcie de _v-bind:name="question.label"_.
+Les attributs `id`, `name` et `placeholder` sont attribués par **binding** en utilisant la syntaxe raccourcie de `v-bind:name="question.label"`.
 La valeur du champs de saisie référence le modèle question.answer.
 
 Les autres sous-composants sont conçus sur le même modèle.
@@ -159,15 +159,15 @@ Les autres sous-composants sont conçus sur le même modèle.
 ## Validation du formulaire
 
 La validation du formulaire est implémentée à l’aide de la librairie [VeeValidate](http://vee-validate.logaretm.com/).
-Chaque question du modèle se voit ajouter un **attribut _validate_** spécifiant les **contraintes de validation** à l’aide de la syntaxe VeeValidate.
+Chaque question du modèle se voit ajouter un **attribut `validate`** spécifiant les **contraintes de validation** à l’aide de la syntaxe VeeValidate.
 Exemple sur le nom de famille qui est requis, ne doit comporter que des caractères alphabétiques et au minimum 2 caractères :
 
 ```js
 {id: 2, label: 'Last Name', type: 'input', validate: "required|alpha|min:2"}
 ```
 
-Le template de chaque sous-composant est agrémenté avec un **attribut _v-validate_** bindé sur le modèle _validate_. En cas d’erreur de validation, le message d’erreur est affiché dans un _<span>_ et la classe CSS _has-error_ de Bootstrap et ajouté au _<div>_ englobant de type _form-group_.
-Complétons ainsi notre exemple du sous-composant _<form-input>_:
+Le template de chaque sous-composant est agrémenté avec un **attribut _v-validate_** bindé sur le modèle `validate`. En cas d’erreur de validation, le message d’erreur est affiché dans un `<span>` et la classe CSS `has-error` de Bootstrap et ajouté au `<div>` englobant de type `form-group`.
+Complétons ainsi notre exemple du sous-composant `<form-input>`:
 
 ```js
 Vue.component('form-input', {
@@ -183,10 +183,10 @@ Vue.component('form-input', {
 ## Factorisation du template de gestion des erreurs
 
 La gestion des **erreurs de validation** est identique sur chaque sous-composant.
-Le _<div class="form-group">_ se voit ajouter la classe CSS Boostrap **_has-error_** lorsque VeeValidate détecte une ou plusieurs erreurs.
-Le **_<span>_** affiche le 1er **message d’erreur** détecté.
-Ayant toutes 2 besoins d’accéder à la propriété _errors_ locale au sous-composant, ces balises HTML ne peuvent être remontées dans le composant _<form-question>_.
-Pour éviter la duplication de code HTML dans les template, il est néanmoins possible de factoriser le code dans une fonction _questionTemplate_ :
+Le `<div class="form-group">` se voit ajouter la classe CSS Boostrap **_has-error_** lorsque VeeValidate détecte une ou plusieurs erreurs.
+Le **`<span>`** affiche le 1er **message d’erreur** détecté.
+Ayant toutes 2 besoins d’accéder à la propriété `errors` locale au sous-composant, ces balises HTML ne peuvent être remontées dans le composant `<form-question>`.
+Pour éviter la duplication de code HTML dans les template, il est néanmoins possible de factoriser le code dans une fonction `questionTemplate` :
 
 ```js
 function questionTemplate(customField) {
@@ -210,10 +210,10 @@ Avant de soumettre au serveur le formulaire, une validation globale est réalis�
 En cas de succès, le snippet affiche au format JSON les données à transmettre. En cas d’erreur, il affiche leur nombre et les messages d’erreur à côté de chaque champ en erreur.
 
 La validation d’un formulaire composé de plusieurs sous-composants n’est pas native avec VeeValidate, preuve en est l’issue [Can't validate form with multiple child components](https://github.com/logaretm/vee-validate/issues/56). Plutôt que de passer par un composant faisant office de bus de messages, j’ai choisi d’utiliser l’ [API de validation](http://vee-validate.logaretm.com/api.html).
-L’instance _$validator_ de l’application Vue est recyclée. Les contraintes de validation de chaque champ lui sont rattachées (méthode _attach_). L’objet _data_ référence les données du formulaire à valider. Cet objet est passé à la méthode de validation _validateAll_ qui accepte 2 fonctions de callback :
+L’instance `$validator` de l’application Vue est recyclée. Les contraintes de validation de chaque champ lui sont rattachées (méthode `attach`). L’objet _data_ référence les données du formulaire à valider. Cet objet est passé à la méthode de validation `validateAll` qui accepte 2 fonctions de callback :
 
-1. En cas de succès (méthode _then_), un tableau contenant les données à soumettre au serveur est construit puis, dans le cadre de la démo, affiché simplement dans une popup.
-1. Lorsqu’un ou plusieurs champs sont invalides (méthode _catch_), un artifice consistant à itérer sur l’ensemble des sous-composants et à déclencher leur validation individuelle permet d’afficher le message d’erreur local et d’activer le style CSS approprié. Le nombre de champs invalide est affiché dans une popup.
+1. En cas de succès (méthode `then`), un tableau contenant les données à soumettre au serveur est construit puis, dans le cadre de la démo, affiché simplement dans une popup.
+1. Lorsqu’un ou plusieurs champs sont invalides (méthode `catch`), un artifice consistant à itérer sur l’ensemble des sous-composants et à déclencher leur validation individuelle permet d’afficher le message d’erreur local et d’activer le style CSS approprié. Le nombre de champs invalide est affiché dans une popup.
 
 ```js
 methods: {
