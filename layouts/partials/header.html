@@ -3,9 +3,13 @@
 
 {{/* Full-width site banner above the navigation bar */}}
 {{- with $logo }}
+{{- $logoWebP := replaceRE `\.(png|jpg|jpeg)$` ".webp" . }}
 <div class="site_banner_wrap">
   <a href='{{ absLangURL "" }}' title="{{ site.Title }}">
-    <img src="{{ absURL . }}" alt="{{ site.Title }}" class="site_banner_img">
+    <picture>
+      <source srcset="{{ absURL $logoWebP }}" type="image/webp">
+      <img src="{{ absURL . }}" alt="{{ site.Title }}" class="site_banner_img" fetchpriority="high">
+    </picture>
   </a>
 </div>
 {{- end }}
