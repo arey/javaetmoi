@@ -4,7 +4,7 @@ author: admin
 categories:
   - conférence
 date: "2023-04-16T17:44:34+00:00"
-thumbnail: Devoxx-France-2023.jpg
+thumbnail: logo-devoxx-france-2023.jpg
 featureImage: Devoxx-France-2023.jpg
 usePageBundles: true
 guid: https://javaetmoi.com/?p=2236
@@ -36,13 +36,14 @@ title: 16 prises de notes à Devoxx France 2023
 url: /2023/04/16-prises-de-notes-a-devoxx-france-2023/
 
 ---
-En attendant de pouvoir tester les 2 étages du Palais des Congrès du 17 au 19 avril 2024, je consigne dans ce billet **16 notes** prises au cours de ces 3 jours toujours aussi riches.
+En attendant de pouvoir tester les 2 étages du Palais des Congrès du 17 au 19 avril 2024, je consigne dans ce billet **16 notes** prises au cours de ces trois jours toujours aussi riches.
 
-D'ici quelques jours / semaines, après un repos bien mérité des organisateurs, **l’intégralité des vidéos des keynotes, conférences et universités présentées lors de Devoxx France** **2023** seront disponibles sur Youtube sur la [**chaîne Devoxx FR**](https://www.youtube.com/channel/UCsVPQfo5RZErDL41LoWvk0A/videos). Mes notes pourrons vous aider à vous faire rapidement un aperçu de leur contenu avant de les visionner.
+D'ici quelques jours / semaines, après un repos bien mérité des organisateurs, **l’intégralité des vidéos des keynotes, conférences et universités présentées
+lors de Devoxx France** **2023** seront disponibles sur Youtube sur la [**chaîne Devoxx FR**](https://www.youtube.com/channel/UCsVPQfo5RZErDL41LoWvk0A/videos). Mes notes pourront vous aider à vous faire rapidement 
+un aperçu de leur contenu avant de les visionner.
 
-Tout comme l'édition précédente, je n'y aurais pas été découvrir les dernières technos hypes de 2023. Paradoxalement, il m'a semblé y avoir plus de conférences sur le SQL que le NoSQL. Kubernetes, les applications natives, le Craft et Docker auront été au rendez-vous de cette 11ième édition.
-
-![Photo de la conférence Devoxx France 2023](Devoxx-France-2023.jpg)
+Tout comme lors de l’édition précédente, je n’y suis pas allé pour découvrir les dernières technologies hype en 2023.
+Paradoxalement, il m'a semblé y avoir plus de conférences sur le SQL que le NoSQL. Kubernetes, les applications natives, le Craft et Docker auront été au rendez-vous de cette 11ᵉ édition.
 
 Mes notes classées par ordre de préférence :
 
