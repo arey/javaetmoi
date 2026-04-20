@@ -3,7 +3,7 @@ _edit_last: "1"
 _wp_page_template: default
 _xmlsf_image_attached:
   caption: ""
-  loc: https://javaetmoi.com/wp-content/uploads/2012/02/JavaOne2000.jpg
+  loc: https://javaetmoi.com/images/JavaOne2000.jpg
   title: JavaOne 2000
 author: admin
 date: "2012-02-04T20:52:50+00:00"
@@ -19,7 +19,7 @@ url: /about/
 
 Ma passion pour la programmation a commencé par le logo (enseigné en CE2 sur des MO5 !!), le turbo pascal (en 3ième),  l'assembleur x86 (en 2nde) puis le C++ (en terminale). La création de jeux vidéos était mon hobby avec [ZeGame](http://zegame.free.fr/ "Nains ZeGame") ou [Les Fourmis](https://www.jeuxvideo.com/jeux/pc/00003159-les-fourmis.htm "Test du jeu vidéo Les Fourmis sur jeuxvideo.com").
 
-[![JavaOne 2000](/wp-content/uploads/2012/02/JavaOne2000.jpg)](/wp-content/uploads/2012/02/JavaOne2000.jpg) J'ai découvert Java en 1999 au cours de mes études à l'INSA de Lyon. En 2000, lors d'un stage en Californie chez IBM au [Silicon Valley Lab](http://en.wikipedia.org/wiki/IBM_Almaden_Research_Center "IBM Silicon Valley Lab") , j'ai développé ma première application Java avec Swing : le [Migration TookKit](http://www.audentia-gestion.fr/IBM/PDF/oraclemigtk.pdf "IBM Migration Toolkit"). J'ai eu l’opportunité de travailler avec des pontes de DB2, du XML et de SWT, mais également de participer à la [Java One](https://fr.wikipedia.org/wiki/JavaOne) au Moscone Center.
+[![JavaOne 2000](/images/JavaOne2000.jpg)](/images/JavaOne2000.jpg) J'ai découvert Java en 1999 au cours de mes études à l'INSA de Lyon. En 2000, lors d'un stage en Californie chez IBM au [Silicon Valley Lab](http://en.wikipedia.org/wiki/IBM_Almaden_Research_Center "IBM Silicon Valley Lab") , j'ai développé ma première application Java avec Swing : le [Migration TookKit](http://www.audentia-gestion.fr/IBM/PDF/oraclemigtk.pdf "IBM Migration Toolkit"). J'ai eu l’opportunité de travailler avec des pontes de DB2, du XML et de SWT, mais également de participer à la [Java One](https://fr.wikipedia.org/wiki/JavaOne) au Moscone Center.
 Depuis, mis à part 3 années passées sur les technologies .NET, je n'ai plus quitté l'écosystème du monde Java / Java EE.
 
 # Domaines de compétence
