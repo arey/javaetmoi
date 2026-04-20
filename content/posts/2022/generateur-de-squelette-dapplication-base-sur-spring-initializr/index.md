@@ -7,7 +7,6 @@ categories:
 date: "2022-07-03T12:25:17+00:00"
 toc: true
 thumbnail: logo-spring-boot.png
-featureImage: logo-spring-boot.png
 usePageBundles: true
 guid: https://javaetmoi.com/?p=2217
 parent_post_id: null
@@ -42,9 +41,9 @@ url: /2022/07/generateur-de-squelette-dapplication-base-sur-spring-initializr/
 ---
 Dans une **grande entreprise**, le **développement d’applications métiers** doit respecter les **règles** en vigueur : normes de développement, normes de sécurité, barrière qualité, socle technique borné, intégration à l’usine de dév …  
 Le **démarrage d’une nouvelle application Java** peut être accélérée de bien des manières : usage d’outils Low Code comme [Palmyra](https://www.vermeg.com/fr/produit-palmyra/), générateur de squelettes d’application comme [JHipster](https://www.jhipster.tech/), utilisation d’applications blanches déclinées par catégorie d’appli (ex : batch, web), copier/coller/élagage d’une application de référence, guide de démarrage sous forme wiki … Chaque technique présente ses avantages et ses inconvénients. Mais certaines ne couvrent pas toutes les règles évoquées précédemment.  
-Afin d’ **accélérer le développement** d’une nouvelle application, mon objectif était de générer un **squelette d’application minimaliste** dont le code généré est parfaitement maitrisé et avec des **dépendances choisies à la carte** par le tech lead. Libre à lui ensuite de retravailler le code généré pour mettre en place l’architecture cible de l’application, en choisissant par exemple de partir sur une architecture hexagonale.
+Afin d’**accélérer le développement** d’une nouvelle application, mon objectif était de générer un **squelette d’application minimaliste** dont le code généré est parfaitement maitrisé et avec des **dépendances choisies à la carte** par le tech lead. Libre à lui ensuite de retravailler le code généré pour mettre en place l’architecture cible de l’application, en choisissant par exemple de partir sur une architecture hexagonale.
 
-![Logo Spring Boot](logo-spring-boot.png)
+![Logo Spring Boot:left](logo-spring-boot.png)
 
 Bien connu des développeurs Spring Boot, je me suis appuyé sur le code backend faisant tourner le site [https://start.spring.io/](https://start.spring.io/), à savoir le projet **[Spring Initializr](https://github.com/spring-io/initializr)** conçu et maintenu majoritairement par Stéphane Nicoll. Léger, codé en Java, reposant sur Spring Boot et documenté, ce projet a été conçu pour être personnalisé et extensible. Cela en a fait un excellent candidat.  
 La première mouture de ce générateur développé en quelques jours m’aura permis de générer :
@@ -407,7 +406,7 @@ La configuration Maven générée est ici évidente :
 
 **4.** A partir du **template Mustache** [`HelloController.mustache`](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/resources/templates/openapi/HelloController.mustache) la classe [`HelloControllerContributor`](https://github.com/arey/javaetmoi-initializr/blob/main/src/main/java/com/javaetmoi/initializr/generator/openapi/HelloControllerContributor.java) génère un `@RestController` implémentant l’interface `HelloApi` généré par le plugin maven.
 
-Voici le template HelloController.mustache :
+Voici le template `HelloController.mustache :
 
 ```java
 package {{package}}.controller;

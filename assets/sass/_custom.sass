@@ -27,6 +27,19 @@
   a:not(.button)
     color: $theme
 
+// Re-enable bullets/numbers in markdown lists rendered inside post excerpts
+.excerpt .pale
+  ul
+    list-style-type: disc
+  ol
+    list-style-type: decimal
+  ul, ol
+    list-style-position: outside
+    padding-inline-start: 1.25rem
+    margin: 0.75rem 0
+  li
+    margin: 0.2rem 0
+
 // TOC at top of sidebar (non-sticky)
 .sidebar_toc
   padding: 1rem 1rem 1.5rem
