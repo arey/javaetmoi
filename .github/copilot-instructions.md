@@ -39,11 +39,12 @@ This is a **Hugo static blog** (`javaetmoi.com`) migrated from WordPress using w
 
 ### Content layout
 
-- `content/posts/{year}/` — blog articles, one flat `.md` file per post (~114 posts), organized by year (2012–2026)
+- `content/posts/{year}/{slug}/index.md` — blog articles as **page bundles** (~114 posts), organized by year (2012–2026). Posts that reference images have their images co-located in the same directory as page resources.
+- `content/posts/{year}/{slug}.md` — a few posts without images remain as flat `.md` files (21 posts with no `featureImage` or `wp-content` references)
 - `content/pages/{slug}/index.md` — static pages as leaf bundles (about, spring)
 - `data/comments.yaml` — WordPress comments exported from the old site
 - `data/library.yaml` — book/resource library data
-- `static/wp-content/` — all post images (kept at their original WordPress paths)
+- `static/wp-content/` — legacy WordPress uploads directory (images referenced by page bundle posts have been copied into bundles; this directory is kept for backward compatibility but most images are now in page bundles)
 
 ### Configuration
 
@@ -57,6 +58,7 @@ Configuration lives in `config/_default/`:
 
 - `layouts/shortcodes/` — custom shortcodes: `gallery`, `catlist`, `audio`, `googlemaps`, `parallaxblur`
 - `layouts/partials/sidebar.html` — overrides Clarity sidebar; adds Devoxx France + Blogs Java widgets
+- `layouts/partials/image.html` — overrides Clarity image partial; uses `.Page.Resources.GetMatch` (fixes dict context from `excerpt.html`), handles SVGs, and falls back to non-bundle mode when resource not found (e.g., `logo/` thumbnails from `static/`)
 - `layouts/_default/_markup/render-image.html` — overrides Clarity render-image to handle nil `.Page.File` for virtual pages
 - `layouts/rss.xml` — custom RSS template; feed is served at `/feed.xml` (not `/index.xml`)
 
@@ -75,13 +77,13 @@ Post URLs follow the WordPress pattern and are set explicitly:
 url: /YYYY/MM/slug/
 ```
 
-Cover/feature images use Clarity's flat front matter fields:
+Cover/feature images use Clarity's flat front matter fields with just the filename (resolved as page bundle resources):
 ```yaml
-featureImage: /wp-content/uploads/YYYY/MM/filename.jpg
+featureImage: filename.jpg
 featureImageAlt: "Description"
 ```
 
-**Note:** PaperMod's nested `cover.image`/`cover.alt` format is no longer used.
+For posts using page bundles, images referenced in `summary:` must use absolute paths (e.g., `![alt](/YYYY/MM/slug/filename.jpg)`) because summaries are rendered on the homepage where relative paths resolve to `/`.
 
 ### Taxonomies
 
@@ -110,7 +112,7 @@ Comments are handled by **Giscus** (GitHub Discussions). Configuration lives in 
 ### Clarity theme notes
 
 - `mainSections = ["posts"]` and `blogDir = "posts"` are required (Clarity defaults to `"post"`)
-- `usePageBundles = false` — posts are flat `.md` files, not page bundles
+- `usePageBundles = false` globally in `params.toml` — migrated posts opt in individually with `usePageBundles: true` in their front matter
 - Clarity's built-in `layouts/partials/comments.html` handles Giscus rendering using the `giscus*` params
 - Do not add a `content/search.md` or `content/archives.md` — these are PaperMod-specific and have no Clarity equivalent
 
@@ -154,6 +156,7 @@ Clarity also supports two **template hooks** — create these files to inject HT
 |---|---|---|
 | `layouts/partials/header.html` | `themes/.../header.html` | Adds full-width banner above nav; nav changed to sticky |
 | `layouts/partials/sidebar.html` | `themes/.../sidebar.html` | Adds Devoxx France + Blogs Java sections |
+| `layouts/partials/image.html` | `themes/.../image.html` | Uses `.Page.Resources.GetMatch` for dict context; SVG handling; fallback to non-bundle for static/ resources |
 | `layouts/_default/_markup/render-image.html` | `themes/.../_markup/render-image.html` | Guards against nil `$.Page.File` on virtual pages |
 | `assets/sass/_custom.sass` | `themes/.../sass/_custom.sass` | Banner width (100vw) + nav sticky positioning |
 
@@ -165,6 +168,7 @@ Before running `git submodule update --remote themes/hugo-clarity`, diff the fil
 git -C themes/hugo-clarity diff HEAD origin/main -- \
   layouts/partials/header.html \
   layouts/partials/sidebar.html \
+  layouts/partials/image.html \
   layouts/_default/_markup/render-image.html
 ```
 
