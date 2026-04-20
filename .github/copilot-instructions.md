@@ -44,7 +44,8 @@ This is a **Hugo static blog** (`javaetmoi.com`) migrated from WordPress using w
 - `content/pages/{slug}/index.md` — static pages as leaf bundles (about, spring)
 - `data/comments.yaml` — WordPress comments exported from the old site
 - `data/library.yaml` — book/resource library data
-- `static/wp-content/` — legacy WordPress uploads directory (images referenced by page bundle posts have been copied into bundles; this directory is kept for backward compatibility but most images are now in page bundles)
+- `static/images/` — site-level static assets: logo, author photo, sidebar banners
+- `static/wp-content/uploads/` — **only 2 files remain**: `2012/02/spring-certification-3-mock-exam-antoine.pdf` and `2016/01/spring-certification-4_2-mock-exam-antoine.pdf`. These are kept for backward compatibility with Google-indexed URLs (GitHub Pages serves them directly at the old `/wp-content/…` path). Do not add new files here.
 
 ### Configuration
 
@@ -62,9 +63,9 @@ Configuration lives in `config/_default/`:
 - `layouts/_default/_markup/render-image.html` — overrides Clarity render-image to handle nil `.Page.File` for virtual pages
 - `layouts/rss.xml` — custom RSS template; feed is served at `/feed.xml` (not `/index.xml`)
 
-### Redirects
+### Deployment
 
-`nginx.conf` handles WordPress legacy URL redirects (`?p=<post_id>` → new slug). This file is used in the production container, not by Hugo itself.
+The site is deployed via **GitHub Pages** (not Docker/nginx). `nginx.conf` is kept as documentation of legacy WordPress URL mappings (`?p=<post_id>` → new slug) but has **no effect in production**. GitHub Pages serves files from the `public/` output directory directly; it does not support server-side redirects.
 
 ## Key Conventions
 
@@ -82,6 +83,8 @@ Cover/feature images use Clarity's flat front matter fields with just the filena
 featureImage: filename.jpg
 featureImageAlt: "Description"
 ```
+
+Site-level images (logo, author photo, sidebar banners) are stored in `static/images/` and referenced in `params.toml` as `images/filename.ext` (no leading slash — Hugo's `absURL` prepends the base URL).
 
 For posts using page bundles, images referenced in `summary:` must use absolute paths (e.g., `![alt](/YYYY/MM/slug/filename.jpg)`) because summaries are rendered on the homepage where relative paths resolve to `/`.
 
@@ -112,7 +115,7 @@ Comments are handled by **Giscus** (GitHub Discussions). Configuration lives in 
 ### Clarity theme notes
 
 - `mainSections = ["posts"]` and `blogDir = "posts"` are required (Clarity defaults to `"post"`)
-- `usePageBundles = false` globally in `params.toml` — migrated posts opt in individually with `usePageBundles: true` in their front matter
+- `usePageBundles = false` globally in `params.toml` — 93 migrated posts opt in individually with `usePageBundles: true` in their front matter; 21 posts with no images remain as flat `.md` files
 - Clarity's built-in `layouts/partials/comments.html` handles Giscus rendering using the `giscus*` params
 - Do not add a `content/search.md` or `content/archives.md` — these are PaperMod-specific and have no Clarity equivalent
 
