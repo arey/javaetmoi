@@ -12,7 +12,13 @@ guid: http://javaetmoi.com/?p=604
 parent_post_id: null
 post_id: "604"
 post_views_count: "9417"
-summary: Dans [un précédent billet](http://javaetmoi.com/2012/12/parallelisation-de-traitements-batchs-spring-batch/ "Parallélisation de traitements batchs"), je vous ai présenté les solutions mises en œuvre sur un projet pour paralléliser un batch d’indexation alimentant un moteur de recherche d’entreprise. Utilisée pour initialiser l’index de recherche puis le resynchroniser quotidiennement, la technique d’intégration par batch ne permet cependant pas d’indexer les données au fil de l’eau. Ce billet aborde précisément cet aspect. En effet, le fil de l’eau ou le quasi temps réel  fut dès le départ une exigence forte du métier. Recherches instantanées et auto-complétion révolutionnent le traditionnel formulaire de recherche mettant plusieurs secondes à renvoyer les résultats. Mais au prix de faire des recherches sur des données pouvant dater de J-1 ? Ce n’était pas acceptable ! Un middle d’indexation fut la réponse apportée.
+summary: |-
+  Dans [un précédent billet](http://javaetmoi.com/2012/12/parallelisation-de-traitements-batchs-spring-batch/ "Parallélisation de traitements batchs"),
+  je vous ai présenté les solutions mises en œuvre sur un projet pour paralléliser un batch d'indexation alimentant un moteur de recherche d'entreprise.
+  Utilisée pour initialiser l'index de recherche puis le resynchroniser quotidiennement, la technique d'intégration par batch ne permet cependant pas d'indexer les données au fil de l'eau.
+  Ce billet aborde précisément cet aspect. En effet, le fil de l'eau ou le quasi temps réel fut dès le départ une exigence forte du métier.
+  Recherches instantanées et auto-complétion révolutionnent le traditionnel formulaire de recherche mettant plusieurs secondes à renvoyer les résultats.
+  Mais au prix de faire des recherches sur des données pouvant dater de J-1 ? Ce n'était pas acceptable ! Un middle d'indexation fut la réponse apportée.
 tags:
   - architecture
   - elasticsearch

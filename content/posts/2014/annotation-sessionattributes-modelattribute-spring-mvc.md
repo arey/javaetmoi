@@ -12,7 +12,14 @@ guid: http://javaetmoi.com/?p=1216
 parent_post_id: null
 post_id: "1216"
 post_views_count: "17022"
-summary: '[![logo-spring-highres](wp-content/uploads/2014/05/logo-spring-highres.png)](wp-content/uploads/2014/05/logo-spring-highres.png) Le développement d’applications web requière une vigilance toute particulière quant à l’utilisation de la **session web**. Spring MVC offre les mécanismes permettant aux développeurs de ne plus manipuler directement l’objet `HttpSession` mis à disposition par le conteneur web. Les 2 annotations `@Scope("session")` et `@SessionAttributes` en font parties. Dans ce billet, je vous expliquerai **le fonctionnement de l’annotation `@SessionAttributes`** qu’il est essentiel de maitriser avant d’utiliser. Nous verrons qu’elle fonctionne de pair avec l’annotation `@ModelAttribute` et qu’elle permet de simuler une **portée conversation**. Nous commencerons cet article par rappeler ce qu’est **un modèle** et nous le terminerons en **testant** **unitairement** du code qui utilise `@SessionAttributes`.'
+summary: |-
+  [![logo-spring-highres](wp-content/uploads/2014/05/logo-spring-highres.png)](wp-content/uploads/2014/05/logo-spring-highres.png)
+  Le développement d'applications web requière une vigilance toute particulière quant à l'utilisation de la **session web**.
+  Spring MVC offre les mécanismes permettant aux développeurs de ne plus manipuler directement l'objet `HttpSession` mis à disposition par le conteneur web.
+  Les 2 annotations `@Scope("session")` et `@SessionAttributes` en font parties.
+  Dans ce billet, je vous expliquerai **le fonctionnement de l'annotation `@SessionAttributes`** qu'il est essentiel de maitriser avant d'utiliser.
+  Nous verrons qu'elle fonctionne de pair avec l'annotation `@ModelAttribute` et qu'elle permet de simuler une **portée conversation**.
+  Nous commencerons cet article par rappeler ce qu'est **un modèle** et nous le terminerons en **testant unitairement** du code qui utilise `@SessionAttributes`.
 tags:
   - mvc
   - spring-mvc

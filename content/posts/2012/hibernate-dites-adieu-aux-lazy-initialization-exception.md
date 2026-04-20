@@ -11,7 +11,11 @@ guid: http://javaetmoi.com/?p=54
 parent_post_id: null
 post_id: "54"
 post_views_count: "23643"
-summary: 'Dans ce deuxième ticket, j’aimerais vous parler du projet [**Hibernate Hydrate**](https://github.com/arey/hibernate-hydrate) \[1\] que j’ai récemment publié sur GitHub. Au cœur de ce projet : une seule classe Java proposant **une unique fonctionnalité**. En quelques années, c’est la seconde fois que j’ai eu besoin de coder ce genre de fonctionnalité. Aussi, je me suis dit qu’il serait pratique de l’avoir sous le coude pour une prochaine fois et, au passage, vous en faire profiter.'
+summary: |-
+  Dans ce deuxième ticket, j'aimerais vous parler du projet [**Hibernate Hydrate**](https://github.com/arey/hibernate-hydrate) \[1\] que j'ai récemment publié sur GitHub.
+  Au cœur de ce projet : une seule classe Java proposant **une unique fonctionnalité**.
+  En quelques années, c'est la seconde fois que j'ai eu besoin de coder ce genre de fonctionnalité.
+  Aussi, je me suis dit qu'il serait pratique de l'avoir sous le coude pour une prochaine fois et, au passage, vous en faire profiter.
 tags:
   - cloudbees
   - github

@@ -9,7 +9,13 @@ guid: http://javaetmoi.com/?p=587
 parent_post_id: null
 post_id: "587"
 post_views_count: "13872"
-summary: Après un précédent billet relatant un bug lié à la version du driver Oracle utilisé, voici un nouveau  billet portant sur **bug** lié, cette fois ci, à la **version de la JVM utilisée**. Ce bug nous a été révélé très tardivement dans le cycle de développement de l’application Java incriminée. En effet, PV de recette en poche, les tests de charge menés avec JMeter sur l’environnement de pré-production ne nous avaient rien révélé. Seuls les tests de robustesse nous ont  alertés d’une mystérieuse **_java.net.UnknownHostException_** survenant 4 à 5 minutes après l’arrêt volontaire d’une application tierce.
+summary: |-
+  Après un précédent billet relatant un bug lié à la version du driver Oracle utilisé,
+  voici un nouveau billet portant sur **bug** lié, cette fois ci, à la **version de la JVM utilisée**.
+  Ce bug nous a été révélé très tardivement dans le cycle de développement de l'application Java incriminée.
+  En effet, PV de recette en poche, les tests de charge menés avec JMeter sur l'environnement de pré-production ne nous avaient rien révélé.
+  Seuls les tests de robustesse nous ont alertés d'une mystérieuse **_java.net.UnknownHostException_**
+  survenant 4 à 5 minutes après l'arrêt volontaire d'une application tierce.
 tags:
   - bug
   - jvm
