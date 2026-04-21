@@ -7,7 +7,6 @@ categories:
 date: "2021-11-06T16:53:05+00:00"
 toc: true
 thumbnail: oauth2_logo.png
-featureImage: oauth2_logo.png
 usePageBundles: true
 guid: https://javaetmoi.com/?p=2138
 parent_post_id: null
@@ -40,13 +39,14 @@ url: /2021/11/configuration-spring-security-dun-client-de-lapi-rest-salesforce-s
 ---
 ## Contexte
 
-![Logo OAuth 2.0](oauth2_logo.png)
+![Logo OAuth 2.0:left](oauth2_logo.png)
 
 De nos jours, il est courant de devoir **consommer** une **API REST sécurisée** à l’aide du standard **OAuth 2.0** ou de sa surcouche **OpenID Connect** (OIDC).   
 Schématiquement, le consommateur génère un **jeton (token)** opaque ou JWT en appelant un serveur d’autorisation (Authorization server) puis, à chaque appel d’API REST, le transmet en tant que bearer via l’ **en-tête HTTP** **Authorization**. Ce token a souvent une **durée de vie** transmise par le serveur d’autorisation via la propriété **expires\_in**.
 
 OAuth 2.0 propose quatre cinématiques (flows), la plus commune étant l’Authorization Code Flow. Lorsque l’API REST est appelée depuis une application web, il est courant de voir utiliser le Client Credentials Flow ou le **[Resource](https://www.oreilly.com/library/view/getting-started-with/9781449317843/ch04.html)** **[Owner Password Credentials Flow](https://www.oreilly.com/library/view/getting-started-with/9781449317843/ch04.html)**.
 
+![Logo Salesforce:right](logo-salesforce.png)
 Récemment, j’ai été amené à **consommer l’API REST du** **CRM Salesforce** **depuis une application Spring Boot**. Cette API était sécurisée avec le Resource Owner password Credentials Flow. Salesforce joue à la fois le rôle de l’Authorization Server et du Resource Owner. Le client (l’application Spring Boot) transmet ses **credentials** (login et mot de passe) à l’Authorization Server pour obtenir un **Access Token**.   
 Cet article a pour objectif de vous présenter la **configuration Spring Security** mise en œuvre pour appeler cette API. Les extraits de code proviennent du repository GitHub [**arey/spring-security-oauth2-salesforce-sample**](https://github.com/arey/spring-security-oauth2-salesforce-sample).
 
