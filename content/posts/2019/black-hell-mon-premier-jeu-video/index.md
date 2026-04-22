@@ -23,8 +23,6 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - retour-d'expérience
-featureImage: 2019-02-Black-Hell-Ecran-accueil.png
-featureImageAlt: 2019-02 - Black Hell - Ecran accueil
 usePageBundles: true
 date: "2019-02-11T16:27:37+00:00"
 toc: true
@@ -34,7 +32,6 @@ parent_post_id: null
 post_id: "1906"
 post_views_count: "12735"
 summary: |-
-  [![Écran principal du jeu vidéo Black Hell](/2019/02/black-hell-mon-premier-jeu-video/2019-02-Black-Hell-Ecran-accueil.png)](2019-02-Black-Hell-Ecran-accueil.png)
   Pour ce premier article de 2019, je vous propose un **voyage dans le temps**, au contenu plus personnel.
   J'ai récemment dîné avec mon vieil ami Nicolas Lidzborski qui travaille chez Google aux US et que je n'avais pas revu depuis une dizaine d'années.
   Comme toute retrouvaille, nous nous sommes remémorés des souvenirs du Lycée, ses profs et son club IF.
@@ -47,6 +44,8 @@ summary: |-
   Par curiosité, et avec un brin de nostalgie, je suis parti à la recherche d'un backup de disquette.
   J'en ai ressorti code source et binaire. Et surprise : avec l'émulateur [DOSBox](https://www.dosbox.com/),
   j'ai réussi à le faire tourner, à la fois sous Windows 10 et MacOS.
+  
+  ![Screenshot du jeu Black Hell en mode solo avec l'avion Silicium](/2019/02/black-hell-mon-premier-jeu-video/2019-02-Black-Hell-Screenshot-1-player.png)
 tags:
   - assembleur
   - turbo-pascal
@@ -54,7 +53,14 @@ title: 'Black Hell : mon premier jeu vidéo'
 url: /2019/02/black-hell-mon-premier-jeu-video/
 
 ---
-[![Écran d'accueil du jeu vidéo Black Hell](2019-02-Black-Hell-Ecran-accueil.png)](2019-02-Black-Hell-Ecran-accueil.png) Pour ce premier article de 2019, je vous propose un **voyage dans le temps**, au contenu plus personnel. J’ai récemment dîné avec mon vieil ami Nicolas Lidzborski qui travaille chez Google aux US et que je n’avais pas revu depuis une dizaine d’années. Comme toute retrouvaille, nous nous sommes remémorés des souvenirs du Lycée, ses profs et son club IF. De sa chambre d’ado, Nicolas a retrouvé une illustration que nous avions réalisé pendant le **[concours Soft la Nuit](ftp://shamash.lpi.ac-poitiers.fr/pub/soft-qui-peut/sqp.txt)** de 1996, un marathon de 24h pendant lequel 20 équipes de 4 jeunes devaient développer un logiciel. Et oui, mon premier **hackaton** commence à dater. Afin de pouvoir se qualifier, nous avions du présenter des projets personnels. Mon [jeu vidéo Black Hell](https://github.com/arey/black-hell) en faisait partie. Par curiosité, et avec un brin de nostalgie, je suis parti à la recherche d’un backup de disquette. J’en ai ressorti code source et binaire. Et surprise : avec l’émulateur [DOSBox](https://www.dosbox.com/), j’ai réussi à le faire tourner, à la fois sous Windows 10 et MacOS.
+![Écran d'accueil du jeu vidéo Black Hell:left](2019-02-Black-Hell-Ecran-accueil.png)
+Pour ce premier article de 2019, je vous propose un **voyage dans le temps**, au contenu plus personnel.
+
+J’ai récemment dîné avec mon vieil ami Nicolas Lidzborski qui travaille chez Google aux US et que je n’avais pas revu depuis une dizaine d’années.
+Comme toute retrouvaille, nous nous sommes remémorés des souvenirs du Lycée, ses profs et son club IF. De sa chambre d’ado, Nicolas a retrouvé une illustration que nous avions réalisée pendant le [concours Soft la Nuit](ftp://shamash.lpi.ac-poitiers.fr/pub/soft-qui-peut/sqp.txt) de 1996, un marathon de 24h pendant lequel 20 équipes de 4 jeunes devaient développer un logiciel.
+Et oui, mon premier hackathon commence à dater. Afin de pouvoir se qualifier, nous avions du présenter des projets personnels. Mon [jeu vidéo Black Hell](https://github.com/arey/black-hell) en faisait partie.
+Par curiosité, et avec un brin de nostalgie, je suis parti à la recherche d’un backup de disquette. J’en ai ressorti code source et binaire.
+Et surprise : avec l’émulateur [DOSBox](https://www.dosbox.com/), j’ai réussi à le faire tourner, à la fois sous Windows 10 et MacOS.
 
 ## Présentation du jeu
 
@@ -64,7 +70,7 @@ Dans la lignée de Xenon 2, la **version solo** vous propose de prendre les comm
 
 ![Screenshot du jeu Black Hell en mode solo avec l'avion Silicium](2019-02-Black-Hell-Screenshot-1-player.png)
 
-{{< youtube U3kRiEbFpLQ >}}&t=2s
+{{< youtube U3kRiEbFpLQ >}}
 
 Partie en mode solo
 
@@ -74,7 +80,7 @@ Dans le **mode 2 joueurs**, chaque joueur choisit un vaisseau parmi les 3 propos
 
 Pour celles et ceux qui souhaitent voir à quoi ce mode ressemble sans avoir à installer DOSBox ni à dépoussiérer leur vieux 486, j’ai publié une [vidéo d’une partie 2 joueurs sur Youtube](https://www.youtube.com/watch?v=SJDJsffxfbU&t=18s).
 
-{{< youtube SJDJsffxfbU >}}&t=18s
+{{< youtube SJDJsffxfbU >}}
 
 Partie en mode 2 joueurs
 
