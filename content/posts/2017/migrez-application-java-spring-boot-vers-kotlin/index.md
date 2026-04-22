@@ -9,24 +9,23 @@ author: Antoine Rey
 categories:
   - retour-d'expérience
   - spring
-featureImage: Kotlin_logo.png
-featureImageAlt: Logo Kotlin
+thumbnail: Kotlin_logo.png
 usePageBundles: true
 date: "2017-09-25T16:50:26+00:00"
 toc: true
-thumbnail: Kotlin_logo.png
 guid: http://javaetmoi.com/?p=1753
 parent_post_id: null
 post_id: "1753"
 post_views_count: "7609"
 summary: |-
-  ![Logo Kotlin](/2017/09/migrez-application-java-spring-boot-vers-kotlin/Kotlin_logo.png)
+  Lors la dernière conférence Google I/O qui s’est tenue en mai 2017, Google a officialisé le **support de Kotlin sur Android**.
+  Google n’est pas le seul acteur de l’IT à miser sur ce nouveau langage créé par JetBrains (l’éditeur de l’IDE IntelliJ) et s’exécutant sur la JVM (mais pas que).
+  En effet, dès février 2016, [Pivotal proposait de développer des applications **Spring Boot** avec Kotlin](https://spring.io/blog/2016/02/15/developing-spring-boot-applications-with-kotlin).
+  En janvier 2017, ils annonçaient que [la version 5 du **framework Spring** proposerait des **fonctionnalités exclusives à Kotlin**](https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0).
+  Chez Gradle, le langage Kotlin est désormais privilégié au détriment de Groovy.
 
-  Lors la dernière conférence Google I/O qui s’est tenue en mai 2017, Google a officialisé le **support de Kotlin sur Android**. Google n’est pas le seul acteur de l’IT à miser sur ce nouveau langage créé par JetBrains (l’éditeur de l’IDE IntelliJ) et s’exécutant sur la JVM (mais pas que). En effet, dès février 2016, [Pivotal proposait de développer des applications **Spring Boot** avec Kotlin](https://spring.io/blog/2016/02/15/developing-spring-boot-applications-with-kotlin). En janvier 2017, ils annonçaient que [la version 5 du **framework Spring** proposerait des **fonctionnalités exclusives à Kotlin**](https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0). Chez Gradle, le langage Kotlin est désormais privilégié au détriment de Groovy.
-
-  Pour découvrir ce nouveau venu dans la galaxie des langages de programmation, je me suis intéressé à migrer vers Kotlin l’application démo Spring Petclinic développée en Java et Spring Boot. Je souhaitais ici partager son code source : [**spring-petclinic-kotlin**](https://github.com/spring-petclinic/spring-petclinic-kotlin) et énumérer les différences notables avec sa version Java.
-
-  ![Logo Kotlin](/2017/09/migrez-application-java-spring-boot-vers-kotlin/Kotlin_logo.png)
+  Pour découvrir ce nouveau venu dans la galaxie des langages de programmation, je me suis intéressé à migrer vers Kotlin l’application démo Spring Petclinic développée en Java et Spring Boot.
+  Je souhaitais ici partager son code source : [**spring-petclinic-kotlin**](https://github.com/spring-petclinic/spring-petclinic-kotlin) et énumérer les différences notables avec sa version Java.
 tags:
   - kotlin
   - spring-boot
@@ -34,7 +33,7 @@ title: Découvrir Kotlin en migrant une webapp Spring Boot
 url: /2017/09/migrez-application-java-spring-boot-vers-kotlin/
 
 ---
-![Logo Kotlin](Kotlin_logo.png)
+![Logo Kotlin:right](Kotlin_logo.png)
 
 Lors la dernière conférence Google I/O qui s’est tenue en mai 2017, Google a officialisé le **support de Kotlin sur Android**. Google n’est pas le seul acteur de l’IT à miser sur ce nouveau langage créé par JetBrains (l’éditeur de l’IDE IntelliJ) et s’exécutant sur la JVM (mais pas que). En effet, dès février 2016, [Pivotal proposait de développer des applications **Spring Boot** avec Kotlin](https://spring.io/blog/2016/02/15/developing-spring-boot-applications-with-kotlin). En janvier 2017, ils annonçaient que [la version 5 du **framework Spring** proposerait des **fonctionnalités exclusives à Kotlin**](https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0). Chez Gradle, le langage Kotlin est désormais privilégié au détriment de Groovy.
 
@@ -42,7 +41,7 @@ Pour découvrir ce nouveau venu dans la galaxie des langages de programmation, j
 
 ## Une migration en souplesse
 
-En m’appuyant sur le [manuel de référence de Kotlin](https://kotlinlang.org/docs/reference/), j’ai pu migrer l’application sans trop de difficulté et en quelques heures. IntelliJ m’a grandement facilité la tâche puisqu’un copier/coller d’une classe Java dans un fichier Kotlin (extension .kt) lançait le plugin de conversion automatique. Quelques adaptations manuelles restaient néanmoins nécessaires.
+En m’appuyant sur le [manuel de référence de Kotlin](https://kotlinlang.org/docs/reference/), j’ai pu migrer l’application sans trop de difficulté et en quelques heures. IntelliJ m’a grandement facilité la tâche puisqu’un copier/coller d’une classe Java dans un fichier Kotlin (extension `.kt`) lançait le plugin de conversion automatique. Quelques adaptations manuelles restaient néanmoins nécessaires.
 
 Grâce à l’interopérabilité de Kotlin avec Java, j’ai pu faire cohabiter classes Kotlin et classes Java dans le même projet IntelliJ. Au cours de la migration, cela m’a permis de vérifier régulièrement le bon fonctionnement l’application.
 
@@ -60,22 +59,24 @@ open class BaseEntity
 
 L’omission du paramètre `open` déclenche une erreur de compilation des classes filles : _« This type is final, so it cannot be inherited from »_.
 
-Ce changement de comportement impacte le fonctionnement de certaines librairies tierces. En effet, lors de l’utilisation d’annotations tels que @Cacheable ou @Configuration, le framework Spring utilise l’héritage pour instrumenter le code. La configuration du [plugin Spring pour le compilateur Kotlin](https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugin) dans le [pom.xml](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/pom.xml) permet de s’affranchir de l’ajout du mot clé open sur les beans Spring de type @Component.
+Ce changement de comportement impacte le fonctionnement de certaines librairies tierces.
+En effet, lors de l’utilisation d’annotations telles que `@Cacheable` ou `@Configuration`, le framework Spring utilise l’héritage pour instrumenter le code.
+La configuration du [plugin Spring pour le compilateur Kotlin](https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugin) dans le [pom.xml](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/pom.xml) permet de s’affranchir de l’ajout du mot clé open sur les beans Spring de type `@Component.
 
 **2.** La **visibilité** des méthodes et des classes est par défaut **publique**
-Appartenant au package `visit`, la classe [Visit](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/visit/Visit.kt) est référencée par la classe [Pet](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/owner/Pet.kt) du package de même niveau _owner_:
+Appartenant au package `visit`, la classe [Visit](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/visit/Visit.kt) est référencée par la classe [Pet](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/owner/Pet.kt) du package de même niveau `owner`:
 
 ```kotlin
 class Visit : BaseEntity()
 ```
 
- **3.** Les **types primitifs** de Java disparaissent. Plus besoin de choisir entre un int et un Integer : vous utiliserez un Int.
+ **3.** Les **types primitifs** de Java disparaissent. Plus besoin de choisir entre un int et un Integer : vous utiliserez un `Int`.
 
 **4.** Le **type des variables** et de **retour de méthode** n’est plus **déclaré** à gauche mais **à droite**.
-Extrait de l’interface OwnerRepository :
-
+Extrait de l’interface` OwnerRepository` :
+```kotlin
 fun findById(@Param("id") id: Int): Owner
-
+```
 Il faut s’y faire et retrouver ses habitudes du bon vieux Turbo Pascal.
 
 **5.** Par défaut, aucune variable ne peut être **null**. Le compilateur vous rappellera à l’ordre. Lorsqu’une variable peut prendre la valeur null, il est nécessaire de le préciser explicitement en faisant suivre son type par le caractère **?**
@@ -85,7 +86,7 @@ var name: String? = null
 ```
 
  **6.** Les **getter/setter** (mutateurs) des propriétés d’une classe sont générés automatiquement par Kotlin. Dans le code, on accède directement à une propriété sans passer par les mutateurs. Kotlin ajoute automatiquement l’appel au mutateur correspondant.
-Là ou en Java on passait par un setter :
+Là où en Java, on passait par un setter :
 
 ```java
 james.setLastName("Carter");
@@ -108,7 +109,8 @@ val isNew: Boolean
 
 Par rapport à Java, Kotlin se veut apporter de la **concision** sans perdre en lisibilité, et ceci par le biais de léger changements syntaxiques.
 
-**1.** Le signe **point-virgule ;** en fin d’instruction devient facultatif. Et lorsqu’une méthode ne comporte qu’une seule instruction, l’utilisation d’ **accolades** et du mot clé **return** ne sont plus nécessaires.
+**1.** Le signe **point-virgule `;`** en fin d’instruction devient facultatif. Et lorsqu’une méthode ne comporte qu’une seule instruction, 
+l’utilisation d’ **accolades** et du mot clé **`return`** ne sont plus nécessaires.
 Extrait du PetController Java :
 
 ```java
@@ -166,7 +168,8 @@ for (pet in pets) {
 
 La plus-value de Kotlin par rapport à Java dépasse les conventions et les changements syntaxiques évoqués dans les 2 paragraphes précédents.
 
-**1.** Kotlin propose de **créer automatiquement** des **POJO** avec getters, setters, méthodes equals(), hashCode(), toString() et copy() (cette dernière étant propre à Kotlin) via un mécanisme appelé [**data class**](https://kotlinlang.org/docs/reference/data-classes.html).
+**1.** Kotlin propose de **créer automatiquement** des **POJO** avec getters, setters, méthodes `equals()`, `hashCode()`, `toString()` et `copy()`
+(cette dernière étant propre à Kotlin) via un mécanisme appelé [**data class**](https://kotlinlang.org/docs/reference/data-classes.html).
 La classe [Vets](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/vet/Vets.kt) profite de cette simplification :
 
 ```java
@@ -175,7 +178,7 @@ data class Vets(var vetList: Collection<Vet>? = null)
 ```
 
  **2.** Dans les contrôleurs Spring MVC écrits en Java, il est courant d’avoir une **suite de conditions _if else_** dont chaque bloc renvoie sur une page différente.
-Extrait de la méthode processFindForm de la classe Java OwnerController:
+Extrait de la méthode `processFindForm de la classe Java `OwnerController`:
 
 ```java
 if (results.isEmpty()) {
@@ -190,7 +193,8 @@ if (results.isEmpty()) {
 }
 ```
 
-Pour réduire le nombre de `return`, Kotlin permet d’utiliser le [if comme expression et non plus comme instruction](https://kotlinlang.org/docs/reference/control-flow.html). Lorsqu’une branche contient plusieurs instructions, la dernière est assignée au if ; dans l’exemple ci-dessous, c’est le nom de la page :
+Pour réduire le nombre de `return`, Kotlin permet d’utiliser le [if comme expression et non plus comme instruction](https://kotlinlang.org/docs/reference/control-flow.html).
+Lorsqu’une branche contient plusieurs instructions, la dernière est assignée au `if` ; dans l’exemple ci-dessous, c’est le nom de la page :
 
 ```kotlin
 return if (results.isEmpty()) {
@@ -205,9 +209,10 @@ return if (results.isEmpty()) {
 }
 ```
 
-Autant dire que Kotlin sait faire plaisir à SonarQube en limitant l’usage de l’instruction return.
+Autant dire que Kotlin sait faire plaisir à SonarQube en limitant l’usage de l’instruction `return`.
 
-Une autre façon d’écrire ce code consiste à utiliser l’expression `when` qui est une sorte de super _switch_ _case_. Dans la classe [OwnerController](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/owner/OwnerController.kt) Kotlin, les `if` / `else` disparaissent au profit de lambdas :
+Une autre façon d’écrire ce code consiste à utiliser l’expression `when` qui est une sorte de super _switch_ _case_.
+Dans la classe [OwnerController](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/owner/OwnerController.kt) Kotlin, les `if` / `else` disparaissent au profit de lambdas :
 
 ```java
 return when {
@@ -261,7 +266,8 @@ Kotlin proposent d’autres fonctionnalités fortes intéressantes que je n’ai
 
 ## Des changements plus discutables
 
- **1.** La déclaration de **constantes** ne passe plus par l’usage des mots clés **static final** devant la propriété d’une classe. A la place, Kotlin propose de passer par des constantes de portée globale ou par des objets **companion**.
+ **1.** La déclaration de **constantes** ne passe plus par l’usage des mots clés **`static final`** devant la propriété d’une classe.
+ A la place, Kotlin propose de passer par des constantes de portée globale ou par des objets **companion**.
 
 Constantes globales (extrait de [PetControllerTest.kt](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/test/kotlin/org/springframework/samples/petclinic/owner/PetControllerTest.kt)) :
 
@@ -279,7 +285,7 @@ companion object {
 ```
 
  **2.** Un développeur Spring et JPA utilise massivement les **annotations**. Or, lorsque la propriété est multi-valuée (tableau), Kotlin requière l’utilisation du mot clé **arrayOf**
-Exemple d’un mapping @OneToMany JPA extrait de [Owner.kt](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/owner/Owner.kt) :
+Exemple d’un mapping `@OneToMany` JPA extrait de [Owner.kt](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/src/main/kotlin/org/springframework/samples/petclinic/owner/Owner.kt) :
 
 ```kotlin
 @OneToMany(cascade = arrayOf(CascadeType.ALL), mappedBy = "owner")
