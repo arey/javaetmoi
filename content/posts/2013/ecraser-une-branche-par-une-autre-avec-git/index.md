@@ -31,7 +31,7 @@ url: /2013/08/ecraser-une-branche-par-une-autre-avec-git/
 
 ## Mise en scène
 
-L’ **historique de commits** ci-dessous illustre les explications qui suivront :
+L'**historique de commits** ci-dessous illustre les explications qui suivront :
 [![Historique des commits réalisés avec Git](2013-08-ecraser-branche-avec-git-svn-1.png)](2013-08-ecraser-branche-avec-git-svn-1.png)
 
 Cet historique des commits commence par la branche `master` sur laquelle les fonctionnalités A et B ont été commitées. La branche `maBranche` est alors créée à partir du commit de la fonctionnalité B. Un premier merge no fast-forward est créé pour récupérer la fonctionnalité E de `master` dans `maBranche` : le commit de merge « _Merge branch ‘master’ into maBranche_ » est créé.

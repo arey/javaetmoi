@@ -159,7 +159,7 @@ org.springframework.modulith.core.Violations: - Cycle detected: Slice owner ->
                 Slice owner
 ```
 
-La version Ultimate d’ **IntelliJ IDEA** est packagée avec le **plugin Spring Modulith**. Le support de Spring Modulith permet à IntelliJ de mettre en évidence les utilisations de beans Spring (ou de toute autre classe) qui enfreignent les règles de Spring Modulith. IntelliJ propose de refactoriser le code afin de le rendre conforme à la structure modulaire. Je vous renvoie à la [documentation de cette fonctionnalité](https://www.jetbrains.com/help/idea/spring-modulith.html#apply-the-spring-modulith-guidelines).
+La version Ultimate d'**IntelliJ IDEA** est packagée avec le **plugin Spring Modulith**. Le support de Spring Modulith permet à IntelliJ de mettre en évidence les utilisations de beans Spring (ou de toute autre classe) qui enfreignent les règles de Spring Modulith. IntelliJ propose de refactoriser le code afin de le rendre conforme à la structure modulaire. Je vous renvoie à la [documentation de cette fonctionnalité](https://www.jetbrains.com/help/idea/spring-modulith.html#apply-the-spring-modulith-guidelines).
 
 ### Étape 3 - Identifier les modules applicatifs
 
@@ -227,7 +227,7 @@ public void bookVisit(Owner owner, Integer petId, Visit visit) {
 }
 ```
 
-Le record [VisitBook](https://github.com/spring-petclinic/spring-petclinic-modulith/blob/4.0.0/src/main/java/org/springframework/samples/petclinic/owner/VisitBooked.java) fait partie de l’ **interface publique** du module `owner`. On le déclare donc au niveau du package racine du module `owner` :
+Le record [VisitBook](https://github.com/spring-petclinic/spring-petclinic-modulith/blob/4.0.0/src/main/java/org/springframework/samples/petclinic/owner/VisitBooked.java) fait partie de l'**interface publique** du module `owner`. On le déclare donc au niveau du package racine du module `owner` :
 
 
 ```java
@@ -542,7 +542,7 @@ Un appel GET sur l’URL `http://localhost:8080/actuator/modulith ` renvoie le g
 
 Vous l’aurez vu : **intégrer Spring Modulith** dans **Spring Petclinic** s'est fait **facilement** et de manière très **progressive**. Un projet d’entreprise n’exploitera pas nécessairement toutes les fonctionnalités présentées dans cet article. Seules les étapes 1 à 5 sont obligatoires. Le fait de pouvoir ouvrir certains sous-packages à d’autres modules permet d’intégrer Spring Modulith dans des applications legacy, le temps de refactorer le code. D’expérience **, le plus simple consiste néanmoins à intégrer Spring Modulith dès la mise en œuvre de l’architecture logicielle d’un nouveau monolith modulaire**.
 
-Les 3 modules initiaux de Spring Petclinic étant isolés et indépendants, l’interface publique exposée par chaque module au travers son package racine ne présentait que peu d’intérêt. L’ajout de la fonctionnalité d’affectation automatique d’un vétérinaire à un futur rendez-vous aura permis de montrer comment faire communiquer 2 modules à l’aide d ' **évènements** puis de montrer comment utiliser l’ **Event Publication Registry**. La base de données existante aura été réutilisée, facilitant son adoption (nul besoin d’infrastructure externe).
+Les 3 modules initiaux de Spring Petclinic étant isolés et indépendants, l’interface publique exposée par chaque module au travers son package racine ne présentait que peu d’intérêt. L’ajout de la fonctionnalité d’affectation automatique d’un vétérinaire à un futur rendez-vous aura permis de montrer comment faire communiquer 2 modules à l’aide d ' **évènements** puis de montrer comment utiliser l'**Event Publication Registry**. La base de données existante aura été réutilisée, facilitant son adoption (nul besoin d’infrastructure externe).
 
 Ayant encore peu d’expérience avec Spring Modulith, je suis ouvert à toute proposition d’amélioration. Le code source du fork Spring Petclinic Modulith est disponible sur repo GitHub : [spring-petclinic-modulith](https://github.com/spring-petclinic/spring-petclinic-modulith). Tous les changements apportés sont visibles à travers [**cet unique commit**](https://github.com/spring-petclinic/spring-petclinic-modulith/commit/512e6b5b41857f85dfa30f77f84a48e81dd1338f). N'hésitez pas à l’étudier, à expérimenter et à soumettre vos contributions à travers des issues et de Pull Requests.
 

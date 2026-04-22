@@ -20,7 +20,7 @@ summary: |-
   - Service métier : mise en cache du résultat d’un service métier ou d’un appel de web service
   - Présentation : cache de pages ou de fragments de page HTML
 
-  Habitués à gérer la sécurité et les transactions de manière déclarative à l’aide d’annotations, le projet open source [ehcache-spring-annotations](https://code.google.com/p/ehcache-spring-annotations/) a fait le bonheur des développeurs Spring en 2010 en introduisant l’ **annotation @Cacheable**
+  Habitués à gérer la sécurité et les transactions de manière déclarative à l’aide d’annotations, le projet open source [ehcache-spring-annotations](https://code.google.com/p/ehcache-spring-annotations/) a fait le bonheur des développeurs Spring en 2010 en introduisant l'**annotation @Cacheable**
   Hébergé sur Google Code, ce projet n’est aujourd’hui plus maintenu. Il ne supporte pas Spring 4.x. Rattrapant son retard, la version 3.1 du framework Spring a été enrichi de sa propre annotation @Cacheable. Comme à son habitude, Spring permet de s’abstraire de la solution de cache sous-jacente (ex : ConcurrentMap, EhCache, Guava …) en proposant une API générique. Les débuts de cette API ont été difficiles (cf. SPR-10237 à laquelle j’ai participé). Aujourd’hui mature, implémentant la JSR-107 JCache, il n’y a aucune raison pour ne pas migrer dessus.
   Relativement court **, ce billet explique pas à pas comment migrer de ehcache-spring-annotations vers le support de cache du framework Spring**.
 
@@ -38,7 +38,7 @@ EhCache est sans nul doute le framework open source de gestion de cache applicat
 - Service métier : mise en cache du résultat d’un service métier ou d’un appel de web service
 - Présentation : cache de pages ou de fragments de page HTML
 
-Habitués à gérer la sécurité et les transactions de manière déclarative à l’aide d’annotations, le projet open source [ehcache-spring-annotations](https://code.google.com/p/ehcache-spring-annotations/) a fait le bonheur des développeurs Spring en 2010 en introduisant l’ **annotation @Cacheable**
+Habitués à gérer la sécurité et les transactions de manière déclarative à l’aide d’annotations, le projet open source [ehcache-spring-annotations](https://code.google.com/p/ehcache-spring-annotations/) a fait le bonheur des développeurs Spring en 2010 en introduisant l'**annotation @Cacheable**
 Hébergé sur Google Code, ce projet n’est aujourd’hui plus maintenu. Il ne supporte pas Spring 4.x. Rattrapant son retard, la version 3.1 du framework Spring a été enrichi de sa propre annotation @Cacheable. Comme à son habitude, Spring permet de s’abstraire de la solution de cache sous-jacente (ex : ConcurrentMap, EhCache, Guava …) en proposant une API générique. Les débuts de cette API ont été difficiles (cf. SPR-10237 à laquelle j’ai participé). Aujourd’hui mature, implémentant la JSR-107 JCache, il n’y a aucune raison pour ne pas migrer dessus.
 Relativement court **, ce billet explique pas à pas comment migrer de ehcache-spring-annotations vers le support de cache du framework Spring**.
 

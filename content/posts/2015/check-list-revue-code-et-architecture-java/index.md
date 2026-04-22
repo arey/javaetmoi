@@ -17,7 +17,7 @@ summary: |-
   [![clean_code_logo](/2015/08/check-list-revue-code-et-architecture-java/clean_code_72_color.png)](clean_code_72_color.png) Réaliser des **revues de code e** st une activité que je pratique régulièrement sur les projets que j’encadre techniquement. De manière général, elles **se déroulent sur le poste du développeur**. Ce dernier me présente ses derniers changements, justifie ses choix et m’explique ses difficultés. En fonction de son expérience sur le projet, la périodicité des revues varie d’1 fois par jour à 2 fois par mois.
   Les améliorations à apporter sont réalisées en séance en pair programming ou bien consignées directement dans le code à l’aide d’un TODO. Je profite de ces moments privilégiés pour expliquer et/ou échanger autour des règles de coding et d’architecture logicielle.
 
-  Dans le cadre de l’ **externalisation du développement** d’une application, les revues de code se pratiquent différemment. En effet, la livraison du code intervient souvent après un long effet tunnel. Dès le début des développements, les développeurs doivent connaître mes attentes. Ce billet a pour objectif de les formaliser de manière synthétique.
+  Dans le cadre de l'**externalisation du développement** d’une application, les revues de code se pratiquent différemment. En effet, la livraison du code intervient souvent après un long effet tunnel. Dès le début des développements, les développeurs doivent connaître mes attentes. Ce billet a pour objectif de les formaliser de manière synthétique.
 
   ![clean_code_logo](/2015/08/check-list-revue-code-et-architecture-java/clean_code_72_color.png)
 title: Check-list revue de code Java
@@ -27,7 +27,7 @@ url: /2015/08/check-list-revue-code-et-architecture-java/
 [![clean_code_logo](clean_code_72_color.png)](clean_code_72_color.png) Réaliser des **revues de code e** st une activité que je pratique régulièrement sur les projets que j’encadre techniquement. De manière général, elles **se déroulent sur le poste du développeur**. Ce dernier me présente ses derniers changements, justifie ses choix et m’explique ses difficultés. En fonction de son expérience sur le projet, la périodicité des revues varie d’1 fois par jour à 2 fois par mois.
 Les améliorations à apporter sont réalisées en séance en pair programming ou bien consignées directement dans le code à l’aide d’un TODO. Je profite de ces moments privilégiés pour expliquer et/ou échanger autour des règles de coding et d’architecture logicielle.
 
-Dans le cadre de l’ **externalisation du développement** d’une application, les revues de code se pratiquent différemment. En effet, la livraison du code intervient souvent après un long effet tunnel. Dès le début des développements, les développeurs doivent connaître mes attentes. Ce billet a pour objectif de les formaliser de manière synthétique.
+Dans le cadre de l'**externalisation du développement** d’une application, les revues de code se pratiquent différemment. En effet, la livraison du code intervient souvent après un long effet tunnel. Dès le début des développements, les développeurs doivent connaître mes attentes. Ce billet a pour objectif de les formaliser de manière synthétique.
 
 ## Sonar, bien mais pas suffisant
 

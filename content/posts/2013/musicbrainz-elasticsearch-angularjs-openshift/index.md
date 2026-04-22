@@ -88,7 +88,7 @@ Le batch d’indexation est composé d’un seul job Spring Batch. La configurat
 Déclaré dans le fichier [`applicationContext-job.xml`](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/resources/com/javaetmoi/elasticsearch/musicbrainz/batch/applicationContext-job.xml), le job `musicAlbumJob` est décomposé en 4 étapes successives :
 
 1. Suppression d’un éventuel précédent index
-1. Création de l’ **index musicalbum**
+1. Création de l'**index musicalbum**
 1. Définition du **type de document album**
 1. Indexation dans Elasticsearch
 
@@ -490,8 +490,8 @@ En sortie, voici un exemple du document JSON représentant l’album “Achtung 
 
 ## Mapping Elasticsearch
 
-Comme expliqué précédemment, le batch est chargé de créer l’ **index musicalbum**. Outre le nombre de **shards** et de **réplicas**, le fichier [`es-index-settings.json`](https://github.com/arey/musicbrainz-elasticsearch/blob/master/src/main/resources/com/javaetmoi/elasticsearch/musicbrainz/batch/es-index-settings.json) déclare les **filtres** et les **analyseurs** utilisés pour indexer puis rechercher des albums.  
-Le filtre **myEdgeNGram** et l’analyseur **myPartialNameAnalyzer** sont par exemple utilisés par l’ **autosuggestion** des résultats de recherche :
+Comme expliqué précédemment, le batch est chargé de créer l'**index musicalbum**. Outre le nombre de **shards** et de **réplicas**, le fichier [`es-index-settings.json`](https://github.com/arey/musicbrainz-elasticsearch/blob/master/src/main/resources/com/javaetmoi/elasticsearch/musicbrainz/batch/es-index-settings.json) déclare les **filtres** et les **analyseurs** utilisés pour indexer puis rechercher des albums.  
+Le filtre **myEdgeNGram** et l’analyseur **myPartialNameAnalyzer** sont par exemple utilisés par l'**autosuggestion** des résultats de recherche :
 
 ```json
  "analysis": {
@@ -658,7 +658,7 @@ Déployée sur OVH, l’application Angular est accessible à l’adresse **[htt
 
 ### Requêtes de recherche
 
-La recherche utilisée pour l’ **autosuggestion** repose sur une `query_string` analysant le nom de l’album, le nom de l’artiste et la date de sortie de l’album. Pour les noms, elle utilise 2 champs : celui pour la recherche exacte (ex: artist.name) et celui pour la recherche de type « commence par » (ex : artist.name.start). La **surbrillance** est activée sur les 3 critères.  
+La recherche utilisée pour l'**autosuggestion** repose sur une `query_string` analysant le nom de l’album, le nom de l’artiste et la date de sortie de l’album. Pour les noms, elle utilise 2 champs : celui pour la recherche exacte (ex: artist.name) et celui pour la recherche de type « commence par » (ex : artist.name.start). La **surbrillance** est activée sur les 3 critères.  
 Le gist  [7436834](https://gist.github.com/arey/7436834) propose la commande curl équivalente :
 
 ```sh

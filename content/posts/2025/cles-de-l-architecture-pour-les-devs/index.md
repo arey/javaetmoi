@@ -20,7 +20,7 @@ summary: |-
   Speakers : [Cyrille Martraire](https://www.linkedin.com/in/martraire/?originalSubdomain=fr) (Arolla), [Eric Le Merdy](https://www.linkedin.com/in/eric-le-merdy-bb60704/?originalSubdomain=fr) (QuickSign) remplaçant de [Christian Sperandio](https://www.linkedin.com/in/christian-sperandio-25182a12) (Arolla)<br>
   Format : Conférence (45mn) / [Replay Youtube](https://www.youtube.com/watch?v=ZoYDxF_7LoI&t=528s)
 
-  Cette conférence a pour **objectif** d’ **ouvrir les portes** en nous donnant les **clés de l’architecture**. Pour seconder Cyrille, Eric a du remplacer Christian au pied levé. <br>
+  Cette conférence a pour **objectif** d'**ouvrir les portes** en nous donnant les **clés de l’architecture**. Pour seconder Cyrille, Eric a du remplacer Christian au pied levé. <br>
   Un constat est posé. Sur les **dix dernières années**, les **systèmes** ont changé : ils sont devenus **modulaires**, de plus en plus **distribués**. La modularité permise par le Cloud permet de répartir la charge. Il y’a **de** **plus en plus d’interconnexions entre briques applicatives**. <br>
   **L’architecture bouge tout le temps**, évolue constamment. <br>
   ![Cyrille Martraire et Eric Le Merdy sur la scène de Devoxx France 2025](/2025/04/cles-de-l-architecture-pour-les-devs/word-image-2508-1.jpeg)
@@ -41,7 +41,7 @@ Date : 17 avril 2025
 Speakers : [Cyrille Martraire](https://www.linkedin.com/in/martraire/?originalSubdomain=fr) (Arolla), [Eric Le Merdy](https://www.linkedin.com/in/eric-le-merdy-bb60704/?originalSubdomain=fr) (QuickSign) remplaçant de [Christian Sperandio](https://www.linkedin.com/in/christian-sperandio-25182a12) (Arolla)  
 Format : Conférence (45mn) / [Replay Youtube](https://www.youtube.com/watch?v=ZoYDxF_7LoI&t=528s)
 
-Cette conférence a pour **objectif** d’ **ouvrir les portes** en nous donnant les **clés de l’architecture**. Pour seconder Cyrille, Eric a du remplacer Christian au pied levé.   
+Cette conférence a pour **objectif** d'**ouvrir les portes** en nous donnant les **clés de l’architecture**. Pour seconder Cyrille, Eric a du remplacer Christian au pied levé.   
 Un constat est posé. Sur les **dix dernières années**, les **systèmes** ont changé : ils sont devenus **modulaires**, de plus en plus **distribués**. La modularité permise par le Cloud permet de répartir la charge. Il y’a **de** **plus en plus d’interconnexions entre briques applicatives**.   
 **L’architecture bouge tout le temps**, évolue constamment.   
 
@@ -106,7 +106,7 @@ Parmi les contraintes techniques, le vrai **risque** consiste à tenir le **dél
 
 ![Integration options between modules 2](word-image-2508-8.png)
 
-**Réversible**, l’ **architecture n°2 est retenue** avec une approche **hexagonale**. On reste pragmatique : les deux sous-domaines s’appellent dans la même JVM par appel de fonction. Cyrille rappelle que l’architecture hexagonale demande de créer un peu plus de code, mais ce n’est pas les 30 secondes que met la création d’une interface qui va les ralentir. Cela permet de prévoir des options pas chères pour être réversible et changer son architecture en cours de route. Les décisions sont réversibles.
+**Réversible**, l'**architecture n°2 est retenue** avec une approche **hexagonale**. On reste pragmatique : les deux sous-domaines s’appellent dans la même JVM par appel de fonction. Cyrille rappelle que l’architecture hexagonale demande de créer un peu plus de code, mais ce n’est pas les 30 secondes que met la création d’une interface qui va les ralentir. Cela permet de prévoir des options pas chères pour être réversible et changer son architecture en cours de route. Les décisions sont réversibles.
 
 ![Schéma de l'architecture hexagonale retenue pour le projet](word-image-2508-9.png)
 

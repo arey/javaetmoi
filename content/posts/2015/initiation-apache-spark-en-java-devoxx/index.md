@@ -79,7 +79,7 @@ D’après l’expérience d’Hayssam Saleh, la taille des programmes Spark tou
 
 Le concept fondamental de Spark est le **RDD**, pour **Resilient Distributed Dataset.** Il s’agit d’une **structure de données**, **immuable**, **itérable** et complètement **lazy**.
 
-Cette structure représente un **graphe acyclique ordonnée** (de la même manière que les commits Git) des différentes **opérations à appliquer aux données** chargées par Spark. Il s’agit en quelque sorte d’ **un plan d’exécution**.
+Cette structure représente un **graphe acyclique ordonnée** (de la même manière que les commits Git) des différentes **opérations à appliquer aux données** chargées par Spark. Il s’agit en quelque sorte d'**un plan d’exécution**.
 
 **Tout traitement Spark commence par le chargement d’un RDD**. Spark permet de charger les données depuis plusieurs sources : HDFS, un fichier texte, une structure en mémoire, des données sérialisées, des données ou des SequenceFile Hadoop …
 Transformations et actions

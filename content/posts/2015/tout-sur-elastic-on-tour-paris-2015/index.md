@@ -44,7 +44,7 @@ Invité par la société [Adelean](http://adelean.com/), j’ai pu y participé.
 Créateur du moteur de recherche Elasticsearch, Shay Banon a tout naturellement ouvert cette journée. Ce fut pour lui l’occasion de retracer la genèse de son bébé.
 L’histoire d’Elasticsearch a commencé il y’a 15 ans par une **application de cuisine** baptisée iCook et que Shay avait développé pour sa femme. Basée sur Spring, Hibernate et Eclipse RCP, la fonctionnalité centrale était la barre de recherche positionnée sur la page d’accueil. Shay a très vite compris que le SQL n’était pas adapté à la recherche full text. Il a donc adapté l’architecture pour utiliser Apache Lucene. Voyant que son API de haut niveau pouvait adresser d’autres cas d’utilisation que la cuisine, il l’a open sourcé sous le nom de **Compass**.
 Pour un utilisateur, Shay rappelle que le search doit être rapide. C’est d’ailleurs la fierté de Google qui affiche le temps d’exécution de ses requêtes.
-Le temps a passé. Il y’a 5 ou 6 ans, le volume de données à indexer a considérablement augmenté. Shay a été confronté à de nouvelles problématiques pour distribuer les données et gérer les pannes. Il a alors initié un nouveau projet. Après 5 mois de développement, Shay l’a open-sourcé sous le nom d’ **Elasticsearch** (ES).
+Le temps a passé. Il y’a 5 ou 6 ans, le volume de données à indexer a considérablement augmenté. Shay a été confronté à de nouvelles problématiques pour distribuer les données et gérer les pannes. Il a alors initié un nouveau projet. Après 5 mois de développement, Shay l’a open-sourcé sous le nom d'**Elasticsearch** (ES).
 Très vite, l’adoption d’ES a dépassé ses espérances. Sa popularité a explosé. Un éco-système s’est construit autour. Accompagné de Steven Schuurman et Simon Willnauer, Shay décide alors de monter la société Elasticsearch qui a récemment été rebaptisé en **Elastic**.
 
 S’ensuit alors quelques chiffres :
@@ -88,7 +88,7 @@ Climton enchaine sur les nouveautés apportées par **Elasticsearch 2.0** sorti 
 1. Utilisation du **Java Security Manager** pour empêcher un hacker d’exploiter des failles de sécurité.
 1. Afin de diminuer le trafic réseau sur de gros clusters, les états des shards sont envoyés sous forme de **deltas**.
 1. Meilleure **compression des index** par utilisation des nouveautés apportées par Lucene 5.0.
-1. Réduction de l’ **usage de la Heap** au profit de l’accès direct à la mémoire (off-Heap). Introduction des **doc-values**. Leur mise en cache est géré par le cache du filesytem (bien mieux que ne peut le faire la JVM). Gains en performance pour une Heap réduite.
+1. Réduction de l'**usage de la Heap** au profit de l’accès direct à la mémoire (off-Heap). Introduction des **doc-values**. Leur mise en cache est géré par le cache du filesytem (bien mieux que ne peut le faire la JVM). Gains en performance pour une Heap réduite.
 1. La mise en **cache** automatique et le **merge des segments** sont plus intelligents.
 1. Simplification du **Query DSL** en supprimant les filter au profit des query.
 

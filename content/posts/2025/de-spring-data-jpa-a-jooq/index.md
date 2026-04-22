@@ -18,7 +18,7 @@ parent_post_id: null
 post_id: "2580"
 post_views_count: "1518"
 summary: |-
-  Lors de la conférence Devoxx France 2025, j’ai participé à un hands-on lab de 2h intitulé [Sortir des ORMs avec jOOQ](https://www.devoxx.fr/agenda-2025/talk/sortir-des-orms-avec-jooq/). Acronyme de « **Java Object Oriented Querying** », **jOOQ** se présente comme une **alternative à JPA** permettant d’ **écrire des requêtes SQL** en Java via une **fluent API**. Animé par Sylvain Decout et Samuel Lefebvre, cet atelier visait à migrer une application Spring Boot / JPA vers jOOQ à l’aide du **starter Spring Boot** pour jOOQ. Pour les curieux, le repo de l’atelier est disponible sur Github : [jooq-handson](https://github.com/sylvaindecout/jooq-handson).
+  Lors de la conférence Devoxx France 2025, j’ai participé à un hands-on lab de 2h intitulé [Sortir des ORMs avec jOOQ](https://www.devoxx.fr/agenda-2025/talk/sortir-des-orms-avec-jooq/). Acronyme de « **Java Object Oriented Querying** », **jOOQ** se présente comme une **alternative à JPA** permettant d'**écrire des requêtes SQL** en Java via une **fluent API**. Animé par Sylvain Decout et Samuel Lefebvre, cet atelier visait à migrer une application Spring Boot / JPA vers jOOQ à l’aide du **starter Spring Boot** pour jOOQ. Pour les curieux, le repo de l’atelier est disponible sur Github : [jooq-handson](https://github.com/sylvaindecout/jooq-handson).
 
   Fort de cette découverte, je me suis à mon tour prêté à l’exercice de migrer vers jOOQ la couche de persistance Spring Data JPA de l’application démo Spring Petclinic. Un nouveau fork est né : [**spring-petclinic-jooq**](https://github.com/spring-petclinic/spring-petclinic-jooq). Bienvenue à ce dernier dans la communauté Spring Petclinic.
 
@@ -37,7 +37,7 @@ url: /2025/06/de-spring-data-jpa-a-jooq/
 ---
 ![:left](logo-jooq.png)
 
-Lors de la conférence Devoxx France 2025, j’ai participé à un hands-on lab de 2h intitulé [Sortir des ORMs avec jOOQ](https://www.devoxx.fr/agenda-2025/talk/sortir-des-orms-avec-jooq/). Acronyme de « **Java Object Oriented Querying** », **jOOQ** se présente comme une **alternative à JPA** permettant d’ **écrire des requêtes SQL** en Java via une **fluent API**. Animé par Sylvain Decout et Samuel Lefebvre, cet atelier visait à migrer une application Spring Boot / JPA vers jOOQ à l’aide du **starter Spring Boot** pour jOOQ. Pour les curieux, le repo de l’atelier est disponible sur Github : [jooq-handson](https://github.com/sylvaindecout/jooq-handson).
+Lors de la conférence Devoxx France 2025, j’ai participé à un hands-on lab de 2h intitulé [Sortir des ORMs avec jOOQ](https://www.devoxx.fr/agenda-2025/talk/sortir-des-orms-avec-jooq/). Acronyme de « **Java Object Oriented Querying** », **jOOQ** se présente comme une **alternative à JPA** permettant d'**écrire des requêtes SQL** en Java via une **fluent API**. Animé par Sylvain Decout et Samuel Lefebvre, cet atelier visait à migrer une application Spring Boot / JPA vers jOOQ à l’aide du **starter Spring Boot** pour jOOQ. Pour les curieux, le repo de l’atelier est disponible sur Github : [jooq-handson](https://github.com/sylvaindecout/jooq-handson).
 
 Fort de cette découverte, je me suis à mon tour prêté à l’exercice de migrer vers jOOQ la couche de persistance Spring Data JPA de l’application démo Spring Petclinic. Un nouveau fork est né : [**spring-petclinic-jooq**](https://github.com/spring-petclinic/spring-petclinic-jooq). Bienvenue à ce dernier dans la communauté Spring Petclinic.
 

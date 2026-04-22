@@ -42,7 +42,7 @@ url: /2021/11/configuration-spring-security-dun-client-de-lapi-rest-salesforce-s
 ![Logo OAuth 2.0:left](oauth2_logo.png)
 
 De nos jours, il est courant de devoir **consommer** une **API REST sécurisée** à l’aide du standard **OAuth 2.0** ou de sa surcouche **OpenID Connect** (OIDC).   
-Schématiquement, le consommateur génère un **jeton (token)** opaque ou JWT en appelant un serveur d’autorisation (Authorization server) puis, à chaque appel d’API REST, le transmet en tant que bearer via l’ **en-tête HTTP** **Authorization**. Ce token a souvent une **durée de vie** transmise par le serveur d’autorisation via la propriété **expires\_in**.
+Schématiquement, le consommateur génère un **jeton (token)** opaque ou JWT en appelant un serveur d’autorisation (Authorization server) puis, à chaque appel d’API REST, le transmet en tant que bearer via l'**en-tête HTTP** **Authorization**. Ce token a souvent une **durée de vie** transmise par le serveur d’autorisation via la propriété **expires\_in**.
 
 OAuth 2.0 propose quatre cinématiques (flows), la plus commune étant l’Authorization Code Flow. Lorsque l’API REST est appelée depuis une application web, il est courant de voir utiliser le Client Credentials Flow ou le **[Resource](https://www.oreilly.com/library/view/getting-started-with/9781449317843/ch04.html)** **[Owner Password Credentials Flow](https://www.oreilly.com/library/view/getting-started-with/9781449317843/ch04.html)**.
 
@@ -88,7 +88,7 @@ Remarque : le token Salesforce étant opaque, nul besoin d’ajouter la dépenda
 
 ## Configuration Spring Boot
 
-Dans le fichier de configuration Spring Boot **[application.yml](https://github.com/arey/spring-security-oauth2-salesforce-sample/blob/main/src/main/resources/application.yml)**, on déclare un client nommé salesforce et un provider du même nom (rappelez-vous, Salesforce joue le rôle d’Authorization Server et du Resource Owner). L’ **authorization-grant-type** est de type **password** (se référer à la classe [AuthorizationGrantType](https://github.com/spring-projects/spring-security/blob/5.5.3/oauth2/oauth2-core/src/main/java/org/springframework/security/oauth2/core/AuthorizationGrantType.java) pour une liste exhaustive des constantes) et le **client-authentification-method** est valorisé avec **client\_secret\_post** (se référer à la classe [ClientAuthenticationMethod](https://github.com/spring-projects/spring-security/blob/5.5.3/oauth2/oauth2-core/src/main/java/org/springframework/security/oauth2/core/ClientAuthenticationMethod.java)).
+Dans le fichier de configuration Spring Boot **[application.yml](https://github.com/arey/spring-security-oauth2-salesforce-sample/blob/main/src/main/resources/application.yml)**, on déclare un client nommé salesforce et un provider du même nom (rappelez-vous, Salesforce joue le rôle d’Authorization Server et du Resource Owner). L'**authorization-grant-type** est de type **password** (se référer à la classe [AuthorizationGrantType](https://github.com/spring-projects/spring-security/blob/5.5.3/oauth2/oauth2-core/src/main/java/org/springframework/security/oauth2/core/AuthorizationGrantType.java) pour une liste exhaustive des constantes) et le **client-authentification-method** est valorisé avec **client\_secret\_post** (se référer à la classe [ClientAuthenticationMethod](https://github.com/spring-projects/spring-security/blob/5.5.3/oauth2/oauth2-core/src/main/java/org/springframework/security/oauth2/core/ClientAuthenticationMethod.java)).
 
 ```yaml
 # Configuration of the Salesforce CRM

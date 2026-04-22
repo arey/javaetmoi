@@ -166,7 +166,7 @@ Pour un effort mesuré, le **temps de démarrage de Spring Petclinic** est **ré
 
 ## 2\. AOT Cache
 
-Successeur de CDS, **AOT Cache** (Ahead-Of-Time Cache) est une fonctionnalité de la JVM intégrée à **Java 24** qui permet d’ **améliorer l’efficience de nos applications Java**. Permettant de diminuer les temps de démarrage, [**Spring AOT**](https://docs.spring.io/spring-framework/reference/core/aot.html) est une fonctionnalité Spring obligatoire pour les images natives mais optionnelle sur la JVM. Sébastien perçoit une synergie entre AOT Cache et Spring AOT.
+Successeur de CDS, **AOT Cache** (Ahead-Of-Time Cache) est une fonctionnalité de la JVM intégrée à **Java 24** qui permet d'**améliorer l’efficience de nos applications Java**. Permettant de diminuer les temps de démarrage, [**Spring AOT**](https://docs.spring.io/spring-framework/reference/core/aot.html) est une fonctionnalité Spring obligatoire pour les images natives mais optionnelle sur la JVM. Sébastien perçoit une synergie entre AOT Cache et Spring AOT.
 
 L’utilisation Spring AOT impose certaines contraintes comme la pré-configuration des **profiles Spring**. Le repo Github [sdeuleuze/demo-profile-aot](https://github.com/sdeleuze/demo-profile-aot) montre comment activer les profils Spring dans un build Maven et Gradle.
 

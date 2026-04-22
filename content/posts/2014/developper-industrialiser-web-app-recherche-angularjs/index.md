@@ -14,16 +14,16 @@ parent_post_id: null
 post_id: "898"
 post_views_count: "18884"
 summary: |-
-  Au travers du billet [Elastifiez la base MusicBrainz sur OpenShift](https://github.com/angular/angular-seed/blob/master/README.md), je vous ai expliqué comment indexer dans **Elasticsearch** et avec **Spring Batch** l’encyclopédie musicale **MusicBrainz.** L’index avait ensuite été déployé sur le Cloud **OpenShift** de RedHat.<br>Une application HTML 5 était mise à disposition pour consulter les albums de musique ainsi indexés. Pour m’y aider, [Lucian Precup](https://twitter.com/lucianprecup) m’avait autorisé à adapter l’application qu’il avait mise au point pour l’atelier [Construisons un moteur de recherche](http://agenda2013.scrumday.fr/event/149)  de la conférence Scrum Day 2013.<br>Afin d’approfondir mes connaissances de l’ **écosystème JavaScript,** je me suis amusé à recoder cette **application front-end** en partant de zéro. Ce fut l’occasion d’adopter les meilleures pratiques en vigueur : framework JavaScript MV\*, outils de builds, tests,  qualité du code, packaging …<br>Au travers de ce article, je vous présenterai comment :
+  Au travers du billet [Elastifiez la base MusicBrainz sur OpenShift](https://github.com/angular/angular-seed/blob/master/README.md), je vous ai expliqué comment indexer dans **Elasticsearch** et avec **Spring Batch** l’encyclopédie musicale **MusicBrainz.** L’index avait ensuite été déployé sur le Cloud **OpenShift** de RedHat.<br>Une application HTML 5 était mise à disposition pour consulter les albums de musique ainsi indexés. Pour m’y aider, [Lucian Precup](https://twitter.com/lucianprecup) m’avait autorisé à adapter l’application qu’il avait mise au point pour l’atelier [Construisons un moteur de recherche](http://agenda2013.scrumday.fr/event/149)  de la conférence Scrum Day 2013.<br>Afin d’approfondir mes connaissances de l'**écosystème JavaScript,** je me suis amusé à recoder cette **application front-end** en partant de zéro. Ce fut l’occasion d’adopter les meilleures pratiques en vigueur : framework JavaScript MV\*, outils de builds, tests,  qualité du code, packaging …<br>Au travers de ce article, je vous présenterai comment :
 
-  1. Mettre en place un projet Anguler à l’aise d’ **Angular Seed**, **Node.js** et **Bower**
+  1. Mettre en place un projet Anguler à l’aise d'**Angular Seed**, **Node.js** et **Bower**
   2. Développer en full **AngularJS** et **Angular UI Bootstrap**
   3. Utiliser le framework **elasticsearch-js**
   4. **Internationaliser** une application Angular
   5. Tester unitairement et fonctionnellement une application JS avec **Jasmine** et **Karma**
   6. Analyser du code source JavaScript avec **jshint**
   7. Packager avec **Grunt** le livrable à déployer
-  8. Utiliser l’ **usine de développement** JavaScript disponible sur le Cloud : Travis CI, Coversall.io et David
+  8. Utiliser l'**usine de développement** JavaScript disponible sur le Cloud : Travis CI, Coversall.io et David
 
   Le code source de l’application est bien entendu [disponible sur GitHub](https://github.com/arey/angular-musicbrainz) et [testable en ligne](http://angular-musicbrainz.javaetmoi.com/).
 
@@ -48,17 +48,17 @@ url: /2014/02/developper-industrialiser-web-app-recherche-angularjs/
 ---
 Au travers du billet [Elastifiez la base MusicBrainz sur OpenShift](https://github.com/angular/angular-seed/blob/master/README.md), je vous ai expliqué comment indexer dans **Elasticsearch** et avec **Spring Batch** l’encyclopédie musicale **MusicBrainz.** L’index avait ensuite été déployé sur le Cloud **OpenShift** de RedHat.  
 Une application HTML 5 était mise à disposition pour consulter les albums de musique ainsi indexés. Pour m’y aider, [Lucian Precup](https://twitter.com/lucianprecup) m’avait autorisé à adapter l’application qu’il avait mise au point pour l’atelier [Construisons un moteur de recherche](http://agenda2013.scrumday.fr/event/149)  de la conférence Scrum Day 2013.  
-Afin d’approfondir mes connaissances de l’ **écosystème JavaScript,** je me suis amusé à recoder cette **application front-end** en partant de zéro. Ce fut l’occasion d’adopter les meilleures pratiques en vigueur : framework JavaScript MV\*, outils de builds, tests,  qualité du code, packaging …  
+Afin d’approfondir mes connaissances de l'**écosystème JavaScript,** je me suis amusé à recoder cette **application front-end** en partant de zéro. Ce fut l’occasion d’adopter les meilleures pratiques en vigueur : framework JavaScript MV\*, outils de builds, tests,  qualité du code, packaging …  
 Au travers de ce article, je vous présenterai comment :
 
-1. Mettre en place un projet Anguler à l’aise d’ **Angular Seed**, **Node.js** et **Bower**
+1. Mettre en place un projet Anguler à l’aise d'**Angular Seed**, **Node.js** et **Bower**
 1. Développer en full **AngularJS** et **Angular UI Bootstrap**
 1. Utiliser le framework **elasticsearch-js**
 1. **Internationaliser** une application Angular
 1. Tester unitairement et fonctionnellement une application JS avec **Jasmine** et **Karma**
 1. Analyser du code source JavaScript avec **jshint**
 1. Packager avec **Grunt** le livrable à déployer
-1. Utiliser l’ **usine de développement** JavaScript disponible sur le Cloud : Travis CI, Coversall.io et David
+1. Utiliser l'**usine de développement** JavaScript disponible sur le Cloud : Travis CI, Coversall.io et David
 
 Le code source de l’application est bien entendu [disponible sur GitHub](https://github.com/arey/angular-musicbrainz) et [testable en ligne](http://angular-musicbrainz.javaetmoi.com/).
 
@@ -69,7 +69,7 @@ Le code source de l’application est bien entendu [disponible sur GitHub](https
 Hébergé sur GitHub et maintenu par les auteurs d’Angular, le projet [**angular-seed**](https://github.com/angular/angular-seed) permet de démarrer  rapidement une application Angular. Outre le **squelette applicatif**, ce projet propose :
 
 - des **exemples de tests** unitaires et de tests dits end-to-end,
-- des **scripts** .sh ou .bat permettant d’ **exécuter** ces différents types de **tests**
+- des **scripts** .sh ou .bat permettant d'**exécuter** ces différents types de **tests**
 - un **script** JS permettant de **démarrer un serveur web** sous NodeJS
 
 Le [README.MD](https://github.com/angular/angular-seed/blob/master/README.md) explique de manière approfondie l’organisation du projet et la nature de chaque fichier.  

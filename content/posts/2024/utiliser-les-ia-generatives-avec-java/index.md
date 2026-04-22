@@ -87,7 +87,7 @@ Abdel poursuit sa présentation par un rappel des termes utilisés dans l’IA.
 
 L’IA englobe les différentes techniques permettant de reproduire le raisonnement humain.
 
-Le **Machine Learning** (ML) inclue le **Deep Learning** qui inclue à son tour l’ **IA Générative**.  
+Le **Machine Learning** (ML) inclue le **Deep Learning** qui inclue à son tour l'**IA Générative**.  
 Le ML nécessite des données d’entrainement et fait appel à la Data Science.  
 Le GenAI inclue **Image Gen** et **LLM**.
 
@@ -413,7 +413,7 @@ La métrique à utiliser dépend du cas d’utilisation.
 
 Le **k-Nearest Neighbors** (kNN) est une technique fondamentale dans le domaine du **Vector Search**. Elle permet de trouver les k vecteurs les plus proches d'un vecteur requête (query vector) dans un espace vectoriel. Les présentateurs nous invitent à lire l’article [K Nearest Neighbor Classification – Animated Explanation for Beginners](https://machinelearningknowledge.ai/k-nearest-neighbor-classification-simple-explanation-beginners/)
 
-Les **calculs de similarité** permettant de trouver quels sont les vecteurs les plus proches sont longs, d’où la nécessité d’approximer. L’ **Approximate Nearest Neighbors**(ANN) est un ensemble de techniques qui cherchent à identifier les k voisins les plus proches d'un vecteur requête (query vector) dans un espace vectoriel de haute dimension, mais en introduisant une **approximation** pour gagner en efficacité.
+Les **calculs de similarité** permettant de trouver quels sont les vecteurs les plus proches sont longs, d’où la nécessité d’approximer. L'**Approximate Nearest Neighbors**(ANN) est un ensemble de techniques qui cherchent à identifier les k voisins les plus proches d'un vecteur requête (query vector) dans un espace vectoriel de haute dimension, mais en introduisant une **approximation** pour gagner en efficacité.
 
 Le partitionnement des datasets se fait dans un graphe de proximité.  
 Chaque point du graphe est un vecteur. Le edge est la distance (calculée lorsqu’on sauve le vecteur).

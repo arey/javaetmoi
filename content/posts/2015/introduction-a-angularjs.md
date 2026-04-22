@@ -17,7 +17,7 @@ title: Introduction à Angular JS
 url: /2015/05/introduction-a-angularjs/
 
 ---
-Si vous pensez encore que le **data-binding**, l’ **inversion de dépendances**, le **pattern MVC** ou bien encore la gestion de la **navigation** sont réservés au code Java des applications web modernes, courrez visionner cette présentation.
+Si vous pensez encore que le **data-binding**, l'**inversion de dépendances**, le **pattern MVC** ou bien encore la gestion de la **navigation** sont réservés au code Java des applications web modernes, courrez visionner cette présentation.
 **AngularJS**, le dernier framework JavaScript de chez Google, devrait vous surprendre.
 
 **Basée sur l’université  AngularJS, ou le futur du développement Web présentée lors de Devoxx France 2013**, cette présentation a pour objectif de vous initier à AngularJS.

@@ -59,7 +59,7 @@ Le fichier [PasswordSpec.js](https://github.com/arey/jasmine-test-webapp/blob/bi
 
 ## Intégration de Jasmine à maven
 
-Le plugin pour maven **[jasmine-maven-plugin](http://searls.github.com/jasmine-maven-plugin/)** permet d’ **exécuter vos tests Jasmine**(aussi appelés **specs**) lors de la **phase de test** de votre **build maven**.
+Le plugin pour maven **[jasmine-maven-plugin](http://searls.github.com/jasmine-maven-plugin/)** permet d'**exécuter vos tests Jasmine**(aussi appelés **specs**) lors de la **phase de test** de votre **build maven**.
 
 [![tester-code-javascript-webapp-arbo](tester-code-javascript-webapp-arbo.png)](tester-code-javascript-webapp-arbo.png) Le **[pom.xml](https://github.com/arey/jasmine-test-webapp/blob/billet/pom.xml)** du projet **[jasmine-test-webapp](https://github.com/arey/jasmine-test-webapp)** donne un exemple de configuration du plugin. Pour mieux comprendre sa configuration, vous présenter l’organisation du projet est nécessaire.
 

@@ -167,11 +167,11 @@ Ce problème est difficile à mettre en évidence car toutes les requêtes de re
 
 La solution à ce problème est connue et documentée : passer le cluster à 3 nœuds et fixer le paramètre `discovery.zen.minimum_master_node` à N/2 + 1, soit 2 dans notre cas.  
 Ce paramètre permet de spécifier que l’élection d’un nouveau maître nécessite la majorité absolue. Scindé en deux, un cluster de 2 nœuds n’aurait pas pu élire de maître.  Jusque-là maître, le Nœud 1 se serait mis en attente de la reconnexion réseau. Le cluster aurait perdu sa haute-disponibilité : aucun des nœuds n’aurait pu desservir les requêtes de recherche.  
-Avec 3 nœuds, l’isolement d’un nœud vis-à-vis de ses 2 compères aurait permis de conserver un cluster actif. A noter que le 3ième nœud peut être configuré pour ne pas héberger de données  (paramètre `node.data` à `false`). Il joue alors uniquement le rôle d’ **arbitre**.
+Avec 3 nœuds, l’isolement d’un nœud vis-à-vis de ses 2 compères aurait permis de conserver un cluster actif. A noter que le 3ième nœud peut être configuré pour ne pas héberger de données  (paramètre `node.data` à `false`). Il joue alors uniquement le rôle d'**arbitre**.
 
 ## IDF
 
-Pour calculer le score d’un document, Elasticsearch se base notamment sur l’ **Inverse Document Frequency** (IDF).  La [formule statistique](http://nlp.stanford.edu/IR-book/html/htmledition/inverse-document-frequency-1.html) sous-jacente à l’IDF peut se traduire en une phrase **: la fréquence d’un terme influe sur son score**. Et plus précisément : plus le terme est rare dans les documents indexés, plus il est pertinent et son score est élevé. En soit, ce critère parait être du bon sens. Mais dans des applications de gestion nécessitant une précision accrue, cela n’est pas toujours le résultat souhaité.
+Pour calculer le score d’un document, Elasticsearch se base notamment sur l'**Inverse Document Frequency** (IDF).  La [formule statistique](http://nlp.stanford.edu/IR-book/html/htmledition/inverse-document-frequency-1.html) sous-jacente à l’IDF peut se traduire en une phrase **: la fréquence d’un terme influe sur son score**. Et plus précisément : plus le terme est rare dans les documents indexés, plus il est pertinent et son score est élevé. En soit, ce critère parait être du bon sens. Mais dans des applications de gestion nécessitant une précision accrue, cela n’est pas toujours le résultat souhaité.
 
 Prenons le cas d’une recherche par nom et prénom. Plus rares, les personnes avec le nom Antoine sortent avant ceux qui ont le prénom Antoine. A l’inverse, les personnes ayant le prénom Martin sortent avant ceux qui ont le nom Martin. Or, fonctionnellement, il nous a été demandé de privilégier le nom de famille. **Le besoin métier nécessite donc d’augmenter le poids du nom par rapport au prénom**.  C’est précisément ce que permettent les [boosts](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-boost-field.html). Le plus difficile est de trouver le bon ratio. Pour se faire, des données et une volumétrie de production sont indispensables. Le boost à donner à chaque champ va être déterminé de manière empirique par exécution successive de requêtes de recherche.
 
@@ -183,7 +183,7 @@ Bien entendu, ce calcul n’est pas neutre en termes de performance.
 ## PARTITIONNEMENT
 
 Le partitionnement (ou **sharding**) est une fonctionnalité phare d’Elasticsearch. C’est ce qui permet à un cluster d’être tolérant aux pannes et de devenir hautement scalable.  
-Pour autant, utiliser le partitionnement apporte un certain nombre d’ **inconvénients spécifiques aux systèmes distribués**. En plus d’éventuelles pertes de performance ou de dégradations de l’occupation mémoire, une requête de recherche distribuée sur plusieurs shards peut souffrir des symptômes suivants :
+Pour autant, utiliser le partitionnement apporte un certain nombre d'**inconvénients spécifiques aux systèmes distribués**. En plus d’éventuelles pertes de performance ou de dégradations de l’occupation mémoire, une requête de recherche distribuée sur plusieurs shards peut souffrir des symptômes suivants :
 
 - [Nombre d’éléments des facettes inexacts](https://github.com/elasticsearch/elasticsearch/issues/1305) (bien que [la précision peut être améliorée](https://github.com/elasticsearch/elasticsearch/issues/3821) à partir de la version 0.90.6)
 - Ordre incorrect des éléments d’une facette

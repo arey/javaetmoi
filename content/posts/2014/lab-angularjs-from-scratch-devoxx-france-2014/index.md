@@ -178,7 +178,7 @@ L’étape 5 ayant été traitée en même temps que l’étape 3 et les étapes
 
 ## Etape 8 : place aux directives
 
-Dans le fragment HTML présenté au début du billet, 2 directives viennent enrichir le HTML sous forme d’attributs : _ng-model_ et _ng-bind_. Dans Angular, une directive n’est rien d’autre qu’une fonction ou un objet ayant des propriétés bien définies. Pour les besoins du Lab, nous resterons sur le cas simple : la fonction. L’ **objet $$directives** doit permettre d’enregistrer les fonctions associées à ces directives. Pour rappel, un objet JavaScript peut être utilisé de la même manière qu’un tableau associatif (une Map en Java) : à partir de la clé (chaine _‘ng-bind’_) on récupère la valeur (fonction _ng-bind_).
+Dans le fragment HTML présenté au début du billet, 2 directives viennent enrichir le HTML sous forme d’attributs : _ng-model_ et _ng-bind_. Dans Angular, une directive n’est rien d’autre qu’une fonction ou un objet ayant des propriétés bien définies. Pour les besoins du Lab, nous resterons sur le cas simple : la fonction. L'**objet $$directives** doit permettre d’enregistrer les fonctions associées à ces directives. Pour rappel, un objet JavaScript peut être utilisé de la même manière qu’un tableau associatif (une Map en Java) : à partir de la clé (chaine _‘ng-bind’_) on récupère la valeur (fonction _ng-bind_).
 La fonction **$directive** permet quant à elle d’ajouter une directive et de lire une directive depuis l’objet _$$directives_.
 
 ```js

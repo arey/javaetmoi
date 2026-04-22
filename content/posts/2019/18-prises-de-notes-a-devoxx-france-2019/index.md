@@ -23,7 +23,7 @@ summary: |-
 
   Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les visionner ou si vous souhaitez garder une trace écrite de ce que vous y avez appris, je mets librement à disposition l’ensemble de **mes 18 notes** prises au cours de ces 3 jours riches en contenus et en découvertes.
 
-  Lors de cette édition 2019, les 2 frameworks hypes du moment **Quarkus** et **Micronaut** étaient sur le devant de la scène en permettant de développer des applications Java modernes et natives grâce à **GraalVM**. Poussée par l’essor des **microservices**, l’intégration de Java à **Docker** et son orchestrateur **Kubernetes** est de plus en plus poussée. Les indémodables étaient également de la partie : design d’ **API REST**, **montée de version de Java**, **qualimétrie, JavaEE** (oups, pardon, JakartaEE) et **sécurité**.
+  Lors de cette édition 2019, les 2 frameworks hypes du moment **Quarkus** et **Micronaut** étaient sur le devant de la scène en permettant de développer des applications Java modernes et natives grâce à **GraalVM**. Poussée par l’essor des **microservices**, l’intégration de Java à **Docker** et son orchestrateur **Kubernetes** est de plus en plus poussée. Les indémodables étaient également de la partie : design d'**API REST**, **montée de version de Java**, **qualimétrie, JavaEE** (oups, pardon, JakartaEE) et **sécurité**.
 
   ![Devoxx France 2019](/2019/05/18-prises-de-notes-a-devoxx-france-2019/Devoxx-France-2019-banner.png)
 tags:
@@ -50,7 +50,7 @@ D'ici quelques jours, **l’intégralité des vidéos des conférences et univer
 
 Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les visionner ou si vous souhaitez garder une trace écrite de ce que vous y avez appris, je mets librement à disposition l’ensemble de **mes 18 notes** prises au cours de ces 3 jours riches en contenus et en découvertes.
 
-Lors de cette édition 2019, les 2 frameworks hypes du moment **Quarkus** et **Micronaut** étaient sur le devant de la scène en permettant de développer des applications Java modernes et natives grâce à **GraalVM**. Poussée par l’essor des **microservices**, l’intégration de Java à **Docker** et son orchestrateur **Kubernetes** est de plus en plus poussée. Les indémodables étaient également de la partie : design d’ **API REST**, **montée de version de Java**, **qualimétrie, JavaEE** (oups, pardon, JakartaEE) et **sécurité**.
+Lors de cette édition 2019, les 2 frameworks hypes du moment **Quarkus** et **Micronaut** étaient sur le devant de la scène en permettant de développer des applications Java modernes et natives grâce à **GraalVM**. Poussée par l’essor des **microservices**, l’intégration de Java à **Docker** et son orchestrateur **Kubernetes** est de plus en plus poussée. Les indémodables étaient également de la partie : design d'**API REST**, **montée de version de Java**, **qualimétrie, JavaEE** (oups, pardon, JakartaEE) et **sécurité**.
 
 Mes notes classées par ordre de préférence :
 

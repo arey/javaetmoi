@@ -179,7 +179,7 @@ Successfully built 3b9b33ffb62b
 [INFO] Tagging arey/springboot-petclinic with latest
 ```
 
-L’ **image Docker arey/springboot-petclinic** est construite et est disponible localement.
+L'**image Docker arey/springboot-petclinic** est construite et est disponible localement.
 
 Pour tester par vous-même la création de l’image Docker de Spring Boot Petclinic, exécuter les commandes suivantes :
 

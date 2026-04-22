@@ -23,7 +23,7 @@ url: /2012/07/delimiteurs-de-filtre-maven-sur-plusieurs-caracteres/
 
 Chez mon client, les **fichiers de configuration** sont **variabilisés** (ex : fichiers de configuration logback, hosts des différents référentiels et back office, paramétrage applicatif, configuration ehcache …). Cette technique permet d’avoir le **même gabarit quel que soit l’environnement** sur lequel est déployée l’application (ex : intégration, recette, production). Charge à l’outil de déploiement de générer le fichier de configuration final à partir du gabarit et du fichier de variables spécifiques à l’environnement cible sur lequel le déploiement s’effectue.
 
-Peu souple, l’ **outil de déploiement délimite** les variables du gabarit par un **double caractère @** qu’il n’est pas possible de redéfinir. Exemple : @@PROJECT\_LOG\_DIRECTORY@@
+Peu souple, l'**outil de déploiement délimite** les variables du gabarit par un **double caractère @** qu’il n’est pas possible de redéfinir. Exemple : @@PROJECT\_LOG\_DIRECTORY@@
 En développement, sur un environnement Windows, la variable PROJECT\_LOG\_DIRECTORY  peut prendre par exemple la valeur c:\\temp\\log\\myapp alors qu’en production, sur un serveur Linux, elle aura la valeur /app/log/myapp
 
 Comme vous pouvez vous en douter, l’outil de déploiement n’est pas utilisé en développement pour déployer son application depuis Eclipse. Cependant, les gabarits des fichiers de configuration sont réutilisés (et donc testés). Utilisé pour les tâches de build, c’est tout naturellement **maven** qui a la responsabilité de substituer les variables par leurs valeurs. Le répertoire contenant les fichiers de configuration générés est ajouté au classpath de l’application.
@@ -62,7 +62,7 @@ Voici un exemple concret de configuration maven :
 
 Chez mon client, les **fichiers de configuration** sont **variabilisés** (ex : fichiers de configuration logback, hosts des différents référentiels et back office, paramétrage applicatif, configuration ehcache …). Cette technique permet d’avoir le **même gabarit quel que soit l’environnement** sur lequel est déployée l’application (ex : intégration, recette, production). Charge à l’outil de déploiement de générer le fichier de configuration final à partir du gabarit et du fichier de variables spécifiques à l’environnement cible sur lequel le déploiement s’effectue.
 <!--more-->
-Peu souple, l’ **outil de déploiement délimite** les variables du gabarit par un **double caractère @** qu’il n’est pas possible de redéfinir. Exemple : @@PROJECT\_LOG\_DIRECTORY@@
+Peu souple, l'**outil de déploiement délimite** les variables du gabarit par un **double caractère @** qu’il n’est pas possible de redéfinir. Exemple : @@PROJECT\_LOG\_DIRECTORY@@
 En développement, sur un environnement Windows, la variable PROJECT\_LOG\_DIRECTORY  peut prendre par exemple la valeur c:\\temp\\log\\myapp alors qu’en production, sur un serveur Linux, elle aura la valeur /app/log/myapp
 
 Comme vous pouvez vous en douter, l’outil de déploiement n’est pas utilisé en développement pour déployer son application depuis Eclipse. Cependant, les gabarits des fichiers de configuration sont réutilisés (et donc testés). Utilisé pour les tâches de build, c’est tout naturellement **maven** qui a la responsabilité de substituer les variables par leurs valeurs. Le répertoire contenant les fichiers de configuration générés est ajouté au classpath de l’application.

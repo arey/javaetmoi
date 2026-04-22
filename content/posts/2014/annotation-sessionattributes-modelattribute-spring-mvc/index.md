@@ -112,7 +112,7 @@ Pour persister les données du modèle en session, Spring MVC utilise l’abstra
 
 Cette ouverture sera peut-être prochainement exploitée par le [**nouveau projet spring-session**](https://github.com/spring-projects/spring-session).
 
-Une autre facilité apportée par l’annotation `@SessionAttributes` est d’ **éviter au développeur de tester si un objet existe déjà en session avant de l’instancier/ou de le récupérer puis de l’ajouter à la session**.
+Une autre facilité apportée par l’annotation `@SessionAttributes` est d'**éviter au développeur de tester si un objet existe déjà en session avant de l’instancier/ou de le récupérer puis de l’ajouter à la session**.
 En effet, avant d’invoquer la méthode `@RequestMapping` cible, Spring MVC commence par initialiser le modèle du contrôleur (méthode _RequestMappingHandlerAdapter#invokeHandleMethod_). Dans un premier temps, il **restaure les attributs du modèle qui sont en session**(méthode _ModelFactory# initModel_). Dans un second temps, il itère sur les méthodes annotées par `@ModelAttributes`(méthode _ModelFactory#invokeModelAttributeMethods_). **Avant d’appeler chaque méthode `@ModelAttributes`, il vérifie si l’attribut retourné n’existe pas déjà dans le modèle** (et donc préalablement en session).
 
 Le diagramme d’activités ci-dessous illustre le mécanisme complet :
@@ -121,7 +121,7 @@ Le diagramme d’activités ci-dessous illustre le mécanisme complet :
 
 ## Libérer la mémoire
 
-A présent que nous avons vu comment ajouter des données en session, apprenons à les retirer, et ceci toujours sans manipuler l’interface `HttpSession`. Pour se faire, Spring MVC met à disposition [l’ **interface `SessionStatus`**](https://github.com/spring-projects/spring-framework/blob/v4.1.1.RELEASE/spring-web/src/main/java/org/springframework/web/bind/support/SessionStatus.java).
+A présent que nous avons vu comment ajouter des données en session, apprenons à les retirer, et ceci toujours sans manipuler l’interface `HttpSession`. Pour se faire, Spring MVC met à disposition [l'**interface `SessionStatus`**](https://github.com/spring-projects/spring-framework/blob/v4.1.1.RELEASE/spring-web/src/main/java/org/springframework/web/bind/support/SessionStatus.java).
 **La méthode _setComplete()_ permet de supprimer de la session tous les attributs référencés par l’annotation `@ModelAttributes` du contrôleur où elle est appelée.**
 
 Comme le montre l’exemple de code tiré du [projet spring-mvc-toolkit](https://github.com/arey/spring-mvc-toolkit), Spring MVC sait passer au handler une instance de `SessionStatus` :
@@ -273,7 +273,7 @@ Extrait de la classe SessionAttributesTest.java
 
 ## Conclusion
 
-Introduite depuis Spring 2.5, l’ **annotation `@SessionAttributes`** n’a pas d’équivalent dans d’autres frameworks MVC. Je pense par exemple à Struts. Son utilisation demande de comprendre son fonctionnement et la « magie » qu’on peut lui prêter. J’espère que cet article vous aura permis de démystifier ces mécanismes. La prochaine fois que vous l’utiliserez, je vous invite à vous référer au diagramme présenté au milieu de ce billet. N’hésitez pas non plus à cloner le projet [spring-mvc-toolkit](https://github.com/arey/spring-mvc-toolkit) et à jouer avec la branche `SessionAttributes`.
+Introduite depuis Spring 2.5, l'**annotation `@SessionAttributes`** n’a pas d’équivalent dans d’autres frameworks MVC. Je pense par exemple à Struts. Son utilisation demande de comprendre son fonctionnement et la « magie » qu’on peut lui prêter. J’espère que cet article vous aura permis de démystifier ces mécanismes. La prochaine fois que vous l’utiliserez, je vous invite à vous référer au diagramme présenté au milieu de ce billet. N’hésitez pas non plus à cloner le projet [spring-mvc-toolkit](https://github.com/arey/spring-mvc-toolkit) et à jouer avec la branche `SessionAttributes`.
 
 Références :
 

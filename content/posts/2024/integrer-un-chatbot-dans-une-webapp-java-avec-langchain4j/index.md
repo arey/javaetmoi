@@ -24,7 +24,7 @@ parent_post_id: null
 post_id: "2391"
 post_views_count: "8220"
 summary: |-
-  Cet article explique comment intégrer un **chatbot** utilisant l’ **IA générative** dans une **application de gestion** codée en **Java**.
+  Cet article explique comment intégrer un **chatbot** utilisant l'**IA générative** dans une **application de gestion** codée en **Java**.
 
   Nous nous appuierons sur le framework Open Source [**LangChain4j**](https://docs.langchain4j.dev/), une adaptation Java de la célèbre librairie python LangChain,
   visant à simplifier l'intégration de grands modèles de langage ( **LLM**). LangChain4j permet de créer des **agents conversationnels**, des **assistants virtuels** (comme notre chatbot), 
@@ -47,7 +47,7 @@ url: /2024/11/integrer-un-chatbot-dans-une-webapp-java-avec-langchain4j/
 ---
 ![Logo du framework LangChain4j:left](logo_langchain4j.png)
 
-Cet article explique comment intégrer un **chatbot** utilisant l’ **IA générative** dans une **application de gestion** codée en **Java**.
+Cet article explique comment intégrer un **chatbot** utilisant l'**IA générative** dans une **application de gestion** codée en **Java**.
 
 Nous nous appuierons sur le framework Open Source [**LangChain4j**](https://docs.langchain4j.dev/), une adaptation Java de la célèbre librairie python LangChain, visant à simplifier l'intégration de grands modèles de langage ( **LLM**). LangChain4j permet de créer des **agents conversationnels**, des **assistants virtuels** (comme notre chatbot), ou des applications capables d'effectuer des **analyses de texte** et de répondre en fonction de données contextuelles, le tout sans devoir écrire de code complexe et avec un **haut niveau d’abstraction**. Elle facilite notamment l'utilisation des API des Large Langage Model comme [OpenAI](https://docs.langchain4j.dev/integrations/language-models/open-ai) et [Hugging Face](https://docs.langchain4j.dev/integrations/language-models/hugging-face), et propose différents connecteurs pour des bases de données vectorielles, incluant [Elasticsearch](https://docs.langchain4j.dev/integrations/embedding-stores/elasticsearch) et [Qdrant](https://docs.langchain4j.dev/integrations/embedding-stores/qdrant). Pour accélérer son intégration, LangChain4j propose des extensions pour **Quarkus** et des starters pour **Spring Boot**.
 
@@ -801,7 +801,7 @@ A l’aide du RAG, l’application Petclinic retrouve 2 vétérinaires ayant la 
 
 ![Chatbot LangChain4j répondant à une question vétérinaire dans Spring Petclinic](langchain4j-question-llm.png)
 
-Pour intégrer le RAG à Petclinic, nous devons procéder en 2 étapes : la phase d’ **ingestion (indexation)** des vétérinaires et la phase de **requêtage** (retrieval en anglais). La [documentation de LangChain4j sur le support des RAG](https://docs.langchain4j.dev/tutorials/rag) propose deux diagrammes illustrant les étapes d’ [indexation](https://docs.langchain4j.dev/tutorials/rag#indexing) et de [retrieval](https://docs.langchain4j.dev/tutorials/rag#retrieval).
+Pour intégrer le RAG à Petclinic, nous devons procéder en 2 étapes : la phase d'**ingestion (indexation)** des vétérinaires et la phase de **requêtage** (retrieval en anglais). La [documentation de LangChain4j sur le support des RAG](https://docs.langchain4j.dev/tutorials/rag) propose deux diagrammes illustrant les étapes d’ [indexation](https://docs.langchain4j.dev/tutorials/rag#indexing) et de [retrieval](https://docs.langchain4j.dev/tutorials/rag#retrieval).
 
 ## Ingestion d’embeddings
 

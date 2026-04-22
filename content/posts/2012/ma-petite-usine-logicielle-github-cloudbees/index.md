@@ -70,7 +70,7 @@ Afin de pouvoir intégrer un projet mavenisé dans l’usine de développement, 
 
 - Le **gestionnaire de code source** pour que maven ait accès en lecture / écriture au repository git distant (hébergé ici sur GitHub), ce qui est par exemple nécessaire pour tagger et faire des releases maven.
 - Les **repository maven** des **releases** et des **snapshots**, ce qui est utile à Jenkins ou au plugin release de maven pour déployer un artefact, et par maven pour télécharger des artefacts.
-- La configuration de l’ **extension maven wagon-webdav**, utile lors du déploiement d’un artefact sur le repo maven CloudBees utilisant le protocole webdav.
+- La configuration de l'**extension maven wagon-webdav**, utile lors du déploiement d’un artefact sur le repo maven CloudBees utilisant le protocole webdav.
 - Les **credentials** d’accès en écriture au **webdav**, là encore utile pendant la phase de déploiement d’un artefact.
 
 Toute cette configuration est détaillée dans un précédent billet intitulé [Release Maven sous Windows d’un projet GitHub déployé sur CloudBees](/2012/04/release-maven-windows-github-deploy-cloudbees/). Vous y trouverez notamment comment configurer les différentes balises maven au travers 2 fichiers :

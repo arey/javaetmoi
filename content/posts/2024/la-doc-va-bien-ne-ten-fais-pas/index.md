@@ -32,7 +32,7 @@ summary: |-
   et **reconnu** par la communauté des dévs et architectes.
 
   Au cours de ses recherches, il est tombé sur le framework [**arc42**](https://arc42.org/) créé en 2005 par 2 allemands : Gernot Starke et Peter Hruschka.
-  Ce template se focalise sur l’ **architecture des logiciels et des systèmes**. Plusieurs formats sources sont possibles en téléchargement depuis 
+  Ce template se focalise sur l'**architecture des logiciels et des systèmes**. Plusieurs formats sources sont possibles en téléchargement depuis 
   la page [https://arc42.org/download](https://arc42.org/download) : **asciidoc**, **markdown**, latex, Word, Confluence, html, Doxygen, IBM Rhapsody … Voici par exemple le template arc42 pour Word : [arc42-template-FR-withhelp-docx.zip](https://github.com/arc42/arc42-template/raw/master/dist/arc42-template-FR-withhelp-docx.zip)
 
   Damien a une **préférence pour l’asciidoc** qui permet d’avoir une **approche docs-as-code** : on peut le commiter dans un repository **git** puis générer un document au format souhaité (ex : PDF)
@@ -77,7 +77,7 @@ Repo GitHub : [https://github.com/dlucasd/la-doc-va-bien-ne-t-en-fais-pas](https
 La **documentation**, sujet atemporel. Travaillant sur des projets en TMA, Damien faisait le constat suivant : d’un projet à l’autre, la structure, l’organisation et le niveau d’informations de la documentation diffèrent. De temps à autres, Damien assistait à des réunions visant à restructurer la documentation. Chaque participant a sa vision. Trouver un consensus n’est pas facile.   
 Damien s’est ainsi demandé s’il n’existait pas clé en main un **template de rédaction de la documentation**, si possible **Open Source** et **reconnu** par la communauté des dévs et architectes.
 
-Au cours de ses recherches, il est tombé sur le framework [**arc42**](https://arc42.org/) créé en 2005 par 2 allemands : Gernot Starke et Peter Hruschka. Ce template se focalise sur l’ **architecture des logiciels et des systèmes**. Plusieurs formats sources sont possibles en téléchargement depuis la page [https://arc42.org/download](https://arc42.org/download) : **asciidoc**, **markdown**, latex, Word, Confluence, html, Doxygen, IBM Rhapsody … Voici par exemple le template arc42 pour Word : [arc42-template-FR-withhelp-docx.zip](https://github.com/arc42/arc42-template/raw/master/dist/arc42-template-FR-withhelp-docx.zip)
+Au cours de ses recherches, il est tombé sur le framework [**arc42**](https://arc42.org/) créé en 2005 par 2 allemands : Gernot Starke et Peter Hruschka. Ce template se focalise sur l'**architecture des logiciels et des systèmes**. Plusieurs formats sources sont possibles en téléchargement depuis la page [https://arc42.org/download](https://arc42.org/download) : **asciidoc**, **markdown**, latex, Word, Confluence, html, Doxygen, IBM Rhapsody … Voici par exemple le template arc42 pour Word : [arc42-template-FR-withhelp-docx.zip](https://github.com/arc42/arc42-template/raw/master/dist/arc42-template-FR-withhelp-docx.zip)
 
 Damien a une **préférence pour l’asciidoc** qui permet d’avoir une **approche docs-as-code** : on peut le commiter dans un repository **git** puis générer un document au format souhaité (ex : PDF)
 

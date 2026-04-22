@@ -10,7 +10,7 @@ parent_post_id: null
 post_id: "692"
 post_views_count: "8454"
 summary: |-
-  Au cours de la migration d’une cinquantaine d’applications web de Websphere vers **JBoss 5.1 EAP**, nous avons été confrontés à un problème de sécurité mis en évidence par l’infrastructure de pré-production : le firewall bloquait systématiquement toute requête comportant un **jsessionid** dans l’ **URL**.
+  Au cours de la migration d’une cinquantaine d’applications web de Websphere vers **JBoss 5.1 EAP**, nous avons été confrontés à un problème de sécurité mis en évidence par l’infrastructure de pré-production : le firewall bloquait systématiquement toute requête comportant un **jsessionid** dans l'**URL**.
   Modifier les règles du firewall pour laisser passer ce type de requêtes aurait introduit une faille de sécurité exploitable par appropriation de session web. Cette faille nous a d’ailleurs été révélée en parallèle par l’outil d’audit de sécurité [IBM AppScan](http://www-03.ibm.com/software/products/us/en/appscan/).
   Ce billet rappelle l’origine du problème et précise quelle solution a été employée pour le résoudre le plus rapidement possible.
 tags:
@@ -55,7 +55,7 @@ Content-Type: text/plain
 
 ## Les origines
 
-L’ajout du ```;jsessionid=xxx``` est pris à l’initiative du conteneur web lors de l’appel à la méthode `HttpServletResponse::encodeRedirectURL`. Bien que pouvant s’apparenter à un bug, ce comportement fait partie intégrante de l’ **API Servlet**. En effet, lorsqu’une nouvelle session est créée, le serveur ne sait pas si le client supporte les cookies et les a activé. Il génère alors un cookie `JSESSIONID` spécifiant le `jsessionid` et réécrit ce `jsessionid` dans l’URL. Lorsque le client émet une seconde requête, le serveur vérifie la présence du cookie. Deux scénarios sont alors possibles :
+L’ajout du ```;jsessionid=xxx``` est pris à l’initiative du conteneur web lors de l’appel à la méthode `HttpServletResponse::encodeRedirectURL`. Bien que pouvant s’apparenter à un bug, ce comportement fait partie intégrante de l'**API Servlet**. En effet, lorsqu’une nouvelle session est créée, le serveur ne sait pas si le client supporte les cookies et les a activé. Il génère alors un cookie `JSESSIONID` spécifiant le `jsessionid` et réécrit ce `jsessionid` dans l’URL. Lorsque le client émet une seconde requête, le serveur vérifie la présence du cookie. Deux scénarios sont alors possibles :
 
 1. Lorsque le serveur détecte le cookie JSESSIONID dans la requête, il désactive la réécriture d’URL avec les `jsessionid`.
 1. Lorsque le cookie `JSESSIONID` n’est pas transmis mais que l’URL de la requête comporte un `jsessionid`, le serveur continue à réécrire toute URL en concaténant le `jsessionid`. Ce comportement s’applique tout au long de la navigation.

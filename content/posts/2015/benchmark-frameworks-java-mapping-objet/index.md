@@ -85,8 +85,8 @@ Le diagramme ci-dessous présente résultats obtenus avec la configuration suiva
 [![Graphique de performance : comparaison des frameworks de mapping Java (Manuel, Selma, MapStruct, Orika, ModelMapper, Dozer)](2015-09-mapping-objet-objet2.png)](2015-09-mapping-objet-objet2.png)
 
 Comme on pouvait s’y attendre, les performances du code écrit à la main sont les meilleures.
-Selma et MapStruct se rapprochent le plus des performances d’un code écrit manuellement. Ce résultat s’explique par le fait qu’ils génèrent le code source à l’aide de l’ **Annotation Processor** introduit par Java 6 (JSR-269).
-Basés sur l’ **introspection** de code, Dozer et ModelMapper sont peu performants.
+Selma et MapStruct se rapprochent le plus des performances d’un code écrit manuellement. Ce résultat s’explique par le fait qu’ils génèrent le code source à l’aide de l'**Annotation Processor** introduit par Java 6 (JSR-269).
+Basés sur l'**introspection** de code, Dozer et ModelMapper sont peu performants.
 Entre ces 2 catégories, on retrouve Orika qui utilise au runtime l’API **Java Compiler** pour générer le code du mapping.
 
 Pour exécuter vous même le benchmark, Maven, un JDK et 3 lignes de commandes suffisent :

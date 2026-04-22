@@ -123,7 +123,7 @@ En résumé, **l’usage dans Cassandra est** **1 table par requête**. Cela aug
 Les données sont compressées dans Cassandra. La version 3.0 a grandement amélioré l’occupation de l’espace disque.
 Cassandra assure-t-elle la cohérence entre les 2 tables ? Oui, si tout se passe bien.
 
-Les slides 25 et 26 abordent le caractère d’ **idempotence** de Cassandra.
+Les slides 25 et 26 abordent le caractère d'**idempotence** de Cassandra.
 Deux même `INSERT` (avec la même clé primaire) vont s’exécuter sans erreur. La dernière écriture prévaut sur la 1ière. La 1ière ligne est donc écrasée. Il n’existe pas de contraintes d’intégrité comme en SQL.
 Un `INSERT` et équivalent à un `UPDATE`. Avant d’insérer une ligne, il n’est plus besoin de savoir si l’enregistrement existe ou non.
 A noter qu’on travaille plus souvent avec des Sets que des Lists car les Sets garantissent l’idempotence. Différenciation syntaxique : utilisation des {} au lieu des \[\]

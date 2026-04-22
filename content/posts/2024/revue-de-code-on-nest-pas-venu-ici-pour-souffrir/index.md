@@ -74,7 +74,7 @@ ou même pas de revue de code. A chaque équipe de choisir.
 ## Pas de raison apparente de souffrir ?
 
 Contrastant avec tous les bénéfices évoqués, les revues peuvent néanmoins faire souffrir auteurs et relecteurs à cause
-d’ **incompréhensions** et de **maladresses**. Dans certaines situations, les commentaires et les retours s’accumulent,
+d'**incompréhensions** et de **maladresses**. Dans certaines situations, les commentaires et les retours s’accumulent,
 on se retrouve submerger et on n’arrive pas à les prendre en compte.
 
 ## Bonnes pratiques plus efficaces
@@ -126,7 +126,7 @@ billet [Check-list revue de code Java](/2015/08/check-list-revue-code-et-archite
 
 **Certains commentaires sont sujets à interprétation** : « Ce n’est pas clair », « Pourquoi tu as fait çà comme
 çà ? », « Oh my Gosh », « Poubelle », « Je n’aurais pas fait çà comme çà » …   
-L’utilisation d’ **emoji** n’aide pas toujours à en faciliter l’interprétation. Par exemple, d’une génération à l’autre,
+L’utilisation d'**emoji** n’aide pas toujours à en faciliter l’interprétation. Par exemple, d’une génération à l’autre,
 certaines emojis n’ont pas le même sens.
 
 Les **commentaires interrogatifs** sont multi-interprétables. Dans l’exemple « Pourquoi tu as fait çà comme çà ? », on

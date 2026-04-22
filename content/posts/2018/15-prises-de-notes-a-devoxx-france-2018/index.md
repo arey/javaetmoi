@@ -23,7 +23,7 @@ summary: |-
 
   Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les visionner ou si vous souhaitez garder une trace écrite de ce que vous y avez appris, je mets librement à disposition **mes notes** prises au cours de ces 3 jours.
 
-  Les sujets sont variés : le **langage Java** bien évidemment, des **frameworks** comme Spring et RxJS, de l’ **outillage** pour vos test tests et vos builds, de l’ **infrastructure** avec Docker et Kubernetes, de l’ **architecture** avec DDD et OpenAPI, sans oublier des sujets plus connexes tels la place du développeur en entreprise ou bien l’apprentissage du code aux enfants.
+  Les sujets sont variés : le **langage Java** bien évidemment, des **frameworks** comme Spring et RxJS, de l'**outillage** pour vos test tests et vos builds, de l'**infrastructure** avec Docker et Kubernetes, de l'**architecture** avec DDD et OpenAPI, sans oublier des sujets plus connexes tels la place du développeur en entreprise ou bien l’apprentissage du code aux enfants.
 
   [![Photo de la salle de conférence Devoxx France 2018](/2018/04/15-prises-de-notes-a-devoxx-france-2018/IMG_20180420_090935.jpg)](IMG_20180420_090935.jpg)
 tags:
@@ -43,7 +43,7 @@ L’intégralité des **vidéos** des **conférences** et **universités** prés
 
 Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les visionner ou si vous souhaitez garder une trace écrite de ce que vous y avez appris, je mets librement à disposition **mes notes** prises au cours de ces 3 jours.
 
-Les sujets sont variés : le **langage Java** bien évidemment, des **frameworks** comme Spring et RxJS, de l’ **outillage** pour vos test tests et vos builds, de l’ **infrastructure** avec Docker et Kubernetes, de l’ **architecture** avec DDD et OpenAPI, sans oublier des sujets plus connexes tels la place du développeur en entreprise ou bien l’apprentissage du code aux enfants.
+Les sujets sont variés : le **langage Java** bien évidemment, des **frameworks** comme Spring et RxJS, de l'**outillage** pour vos test tests et vos builds, de l'**infrastructure** avec Docker et Kubernetes, de l'**architecture** avec DDD et OpenAPI, sans oublier des sujets plus connexes tels la place du développeur en entreprise ou bien l’apprentissage du code aux enfants.
 
 1. [Développeur, reprends le digital en main](208-04-20-Développeur-reprends-le-digital-en-main.pdf) (Alain Hélaïli)
 1. [Après Java 8, Java 9 et 10](208-04-20-Java-9-et-10.pdf) (Jean-Michel Doudoux)

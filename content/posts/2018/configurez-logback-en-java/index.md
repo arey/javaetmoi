@@ -21,7 +21,7 @@ summary: |-
   Moins courant que le traditionnel **`logback.xml`**, cette possibilité de configurer Logback par le code offre davantage de possibilités, ne serait-ce que par son caractère dynamique.
 
   Par le passé, j’avais déjà eu l’occasion de manipuler l’API Logback dans des tests unitaires afin de changer dynamiquement le niveau de log des loggers.
-  Cette fois-ci, je l’ai utilisé pour déclarer les différents appenders et configurer toute l’ **infrastructure applicative de logs**:
+  Cette fois-ci, je l’ai utilisé pour déclarer les différents appenders et configurer toute l'**infrastructure applicative de logs**:
 
   - Activer l’appender Console uniquement sur le poste de dév (afin qu’en prod, les logs ne se retrouvent pas en double dans le fichier server.log de JBoss)
   - Factoriser la stratégie de journalisation des différents appenders fichiers (troubleshooting, overview, soap …)

@@ -110,7 +110,7 @@ val isNew: Boolean
 Par rapport à Java, Kotlin se veut apporter de la **concision** sans perdre en lisibilité, et ceci par le biais de léger changements syntaxiques.
 
 **1.** Le signe **point-virgule `;`** en fin d’instruction devient facultatif. Et lorsqu’une méthode ne comporte qu’une seule instruction, 
-l’utilisation d’ **accolades** et du mot clé **`return`** ne sont plus nécessaires.
+l’utilisation d'**accolades** et du mot clé **`return`** ne sont plus nécessaires.
 Extrait du PetController Java :
 
 ```java
@@ -256,7 +256,7 @@ findPetTypes.find { it.name == text } ?:
             throw ParseException("type not found: " + text, 0)
 ```
 
- **4.** Bien que par défaut les variables ne puissent être null, nous avons vu qu’il était possible de les rendre nullable. L’ **opérateur elvis ?.** permet d’accéder à des propriétés sans craindre des NullPointerException :
+ **4.** Bien que par défaut les variables ne puissent être null, nous avons vu qu’il était possible de les rendre nullable. L'**opérateur elvis ?.** permet d’accéder à des propriétés sans craindre des NullPointerException :
 
 ```kotlin
 val compName = pet.name?.toLowerCase()

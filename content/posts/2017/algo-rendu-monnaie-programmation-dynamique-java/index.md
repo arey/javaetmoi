@@ -37,7 +37,7 @@ Par exemple, dans le système monétaire de l’Euro, la manière la plus optima
 
 Dans le cas d’un système monétaire non canonique, utiliser un [algorithme glouton](https://fr.wikipedia.org/wiki/Algorithme_glouton) ne donnera pas nécessairement un résultat optimal. Il est nécessaire de passer par la méthode algorithmique dite de [programmation dynamique](https://fr.wikipedia.org/wiki/Programmation_dynamique).
 
-Voici l’ **implémentation Java récursive** par **programmation dynamique** de **rendu de monnaie**:
+Voici l'**implémentation Java récursive** par **programmation dynamique** de **rendu de monnaie**:
 
 ```java
 package com.javaetmoi.algo;

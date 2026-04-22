@@ -41,7 +41,7 @@ Nom de mon blog oblige, j'utiliserai des exemples venant du monde Java. Mais vou
 
 ## Objectifs des logs
 
-Les **logs** permettent d’ **historiser les évènements normaux et anormaux** survenus au cours du fonctionnement de logiciels, d’équipements réseaux ou bien encore d’applications. Dans la suite de cet article, je me focaliserai sur les **logs applicatifs** qui sont les logs produits par les **applications métiers** que vous développez.
+Les **logs** permettent d'**historiser les évènements normaux et anormaux** survenus au cours du fonctionnement de logiciels, d’équipements réseaux ou bien encore d’applications. Dans la suite de cet article, je me focaliserai sur les **logs applicatifs** qui sont les logs produits par les **applications métiers** que vous développez.
 
 Les logs applicatifs sont utiles à divers moments du cycle de vie d'une application :
 
@@ -66,7 +66,7 @@ La collecte des logs n’est pas l’apanage des applications back. Une **applic
 A l’échelle d’une entreprise, l’utilisation d’un SIEM est recommandée. La collecte des logs applicatifs dans un SIEM est facilitée par la **normalisation** des **données** de logs et de leur **format**.
 
 Parmi les **données courantes**, on retrouve couramment la **date et l’heure** de l’évènement, le **niveau** de log, le **message** de log, le **nom** du logger et la **stacktrace** en cas d’erreur.  
-D’autres données peuvent enrichir ses logs et faciliter les recherches ultérieures : **login** de l’utilisateur authentifié, nom de l’ **application**, nom du **serveur**, **identifiant de corrélation**, nom du **thread** …
+D’autres données peuvent enrichir ses logs et faciliter les recherches ultérieures : **login** de l’utilisateur authentifié, nom de l'**application**, nom du **serveur**, **identifiant de corrélation**, nom du **thread** …
 
 D’une application à une autre, il est intéressant d’utiliser le **même pattern de log** afin de simplifier l’ingestion des lignes de logs par un collecteur Splunk ou un Logstash.
 

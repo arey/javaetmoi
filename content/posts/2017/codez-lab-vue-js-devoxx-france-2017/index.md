@@ -101,7 +101,7 @@ new Vue({
  })
 ```
 
-L’objet **Vue** est l’ **objet principal** de la librairie **.** Son constructeur prend en paramètre un objet JS dont les propriétés sont normalisées. Ici, notre vue racine en définie 3 :
+L’objet **Vue** est l'**objet principal** de la librairie **.** Son constructeur prend en paramètre un objet JS dont les propriétés sont normalisées. Ici, notre vue racine en définie 3 :
 
 - `el`: associe la vue avec un élément du DOM ayant l’identifiant app
 - `template`: l’élément du DOM sera remplacé par le code HTML du template, ici une balise personnalisée <App/>
@@ -117,7 +117,7 @@ Dans le fichier `index.html`, nous retrouvons le <div> portant l’identifiant "
 
 Particulièrement simple, cette vue racine ne comporte ni données ni gestionnaire d’évènements.
 
-Le code source du composant App est localisé dans le fichier `src/App.vue`. **L’approche composant de Vue.js s’inspire très fortement du standard Web Components** dont Polymer est une implémentation. L’objectif d’un composant est d’ **encapsuler du code**(HTML + JS + CSS) afin de pouvoir le **réutiliser**. Un composant est associé à une balise HMTL. Ici, à la balise <App/>. Vous l’aurez remarqué, c’est le nom du fichier .vue qui détermine le nom de la balise HTML associée.
+Le code source du composant App est localisé dans le fichier `src/App.vue`. **L’approche composant de Vue.js s’inspire très fortement du standard Web Components** dont Polymer est une implémentation. L’objectif d’un composant est d'**encapsuler du code**(HTML + JS + CSS) afin de pouvoir le **réutiliser**. Un composant est associé à une balise HMTL. Ici, à la balise <App/>. Vous l’aurez remarqué, c’est le nom du fichier .vue qui détermine le nom de la balise HTML associée.
 Un composant peut être déclaré par programmation via la méthode `Vue.component()` ou bien décrit dans un fichier dédié portant l’ extension `.vue`. Le fichier `App.vue` est scindé en 3 parties :
 
 1. `<template>`: code HTML templatisé à l’aide de la syntaxe Mustache.
@@ -479,7 +479,7 @@ Puis, avec la même syntaxe qu’Angular, utilisez le filtre dans Beer.vue :
 
 ## PW5 – Les Ressources
 
- [Cet exercice](https://github.com/Gillespie59/devoxx-vuejs/blob/master/docs/index.md#pw5---les-ressources) propose d’ **utiliser une API REST** pour récupérer la liste des bières à afficher. Le **module vue-resource** présenté dans les slides [6-1](http://slides.com/emmanueldemey-1/deck-13#/6/1) à [6-9](http://slides.com/emmanueldemey-1/deck-13#/6/9) va vous y aider.
+ [Cet exercice](https://github.com/Gillespie59/devoxx-vuejs/blob/master/docs/index.md#pw5---les-ressources) propose d'**utiliser une API REST** pour récupérer la liste des bières à afficher. Le **module vue-resource** présenté dans les slides [6-1](http://slides.com/emmanueldemey-1/deck-13#/6/1) à [6-9](http://slides.com/emmanueldemey-1/deck-13#/6/9) va vous y aider.
 Comme vous le verrai, l’API de **$http** ressemble beaucoup à celle de AngularJS. Les méthodes get, head, delete, post retournent une promesse. Elles acceptent 2 callback : l’une en cas de succès et l’autre en cas d’erreur.
 
 Les intercepteurs permettent de transformer une requête http, par exemple pour ajouter des headers HTTP.

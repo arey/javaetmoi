@@ -64,7 +64,7 @@ Pour qu’un plan de build puisse être releasé depuis Jenkins, la case **Maven
 
 Au besoin, les commandes maven peuvent être complétées avec un goal ou un **profil maven** particulier, pour par exemple publier les **sources** et la **javadoc** dans le repo maven d’entreprise ou bien encore exécuter des **tests d’intégration** en complément des tests unitaires.
 
-A la suite d’un build, Jenkins offre la possibilité d’ **archiver les artefacts construits** et qui se trouvent encore dans son espace de travail. Cette fonctionnalité est particulièrement utile lors d’une release. Les **livrables** peuvent ainsi être **archivés** et rattachés au build pour un usage ultérieur :
+A la suite d’un build, Jenkins offre la possibilité d'**archiver les artefacts construits** et qui se trouvent encore dans son espace de travail. Cette fonctionnalité est particulièrement utile lors d’une release. Les **livrables** peuvent ainsi être **archivés** et rattachés au build pour un usage ultérieur :
 
 ![jenkins-archiver-artefacts](jenkins-archiver-artefacts.png)
 
@@ -92,7 +92,7 @@ Voici la **procédure** à suivre pour **déclencher manuellement la release** :
 
 ## DÉPLOIEMENT DES BUILDS PAR PROMOTION
 
-Ainsi, la version de l’application web releasée précédemment est désormais prête à être **déployée** sur l’ **environnement d’intégration** pour des tests plus poussés côté MOE. Une fois le procès-verbal (PV) d’intégration validé, cette version pourra être ensuite déployée sur l’environnement de **recette** afin que la MOA lance sa campagne de tests d’acceptation. Le PV de recette signé, cette même version sera prête à être **livrée en production**. Ce workflow décrit le scénario le plus optimiste dans lequel la première version de l’application ne contient aucune anomalie. En pratique, plusieurs allers retours avec l’équipe de développement auront très certainement lieu, ce qui entraînera plusieurs cycles de release et de re-livraison de l’application.
+Ainsi, la version de l’application web releasée précédemment est désormais prête à être **déployée** sur l'**environnement d’intégration** pour des tests plus poussés côté MOE. Une fois le procès-verbal (PV) d’intégration validé, cette version pourra être ensuite déployée sur l’environnement de **recette** afin que la MOA lance sa campagne de tests d’acceptation. Le PV de recette signé, cette même version sera prête à être **livrée en production**. Ce workflow décrit le scénario le plus optimiste dans lequel la première version de l’application ne contient aucune anomalie. En pratique, plusieurs allers retours avec l’équipe de développement auront très certainement lieu, ce qui entraînera plusieurs cycles de release et de re-livraison de l’application.
 Voici un scénario déjà plus réaliste :
 
 1. _Fin des développements de la V2 de l’application_ _à_ _release version 2.0.0_ _à_ _déploiement en intégration_ _à_ _bugs remontés par la MOE_

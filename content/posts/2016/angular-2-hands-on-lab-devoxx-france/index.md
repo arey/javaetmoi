@@ -275,7 +275,7 @@ Un clic sur le lien déclenche le routage vers le composant QuestionCard. Dans l
 
 Entraperçu dans l’étape 2 lors de l’utilisation du `TechnologiesStore`, le **provider** est le thème central de cette 4ième étape.
 Un provider est chargé de mettre une classe JavaScript à disposition d’un composant. Typiquement, un composant va avoir besoin d’un service qui interagit avec le backend pour récupérer / mettre à jour des données.
-La mise en relation est basée sur l’ **injection de dépendance**(IoC). Pour rappel, Angular 1 est le premier framework front à avoir utilisé l’IoC. Son implémentation était assez rudimentaire. Angular 2 améliore ce premier coup d’essai en donnant davantage la main aux développeurs. Ainsi, un composant enfant pourra, par exemple, redéfinir les providers de son parent.
+La mise en relation est basée sur l'**injection de dépendance**(IoC). Pour rappel, Angular 1 est le premier framework front à avoir utilisé l’IoC. Son implémentation était assez rudimentaire. Angular 2 améliore ce premier coup d’essai en donnant davantage la main aux développeurs. Ainsi, un composant enfant pourra, par exemple, redéfinir les providers de son parent.
 
 Angular 2 propose 2 types de providers :
 

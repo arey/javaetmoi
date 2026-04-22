@@ -170,7 +170,7 @@ Les logs de démarrage du serveur JBoss et de l’application montrent clairemen
 
 Migrer une application développée en Richfaces 3 vers du Richfaces 4 est loin d’être indolore. Outre la montée de version de JSF, c’est le passage à Richfaces 4 qui demande le plus d’efforts. En effet, cette version majeure n’est pas rétro-compatible avec la précédente. De nombreux changements ont été apportés :
 
-- Réduction du code d’ **Ajax4Jsf** au profit du support Ajax introduit dans JSF 2
+- Réduction du code d'**Ajax4Jsf** au profit du support Ajax introduit dans JSF 2
 - **Renommage** de classes, packages, tags et paramètres
 - **Suppression de tags Richfaces**
 

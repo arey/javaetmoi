@@ -123,7 +123,7 @@ END;
 
 A noter au passage l’interopérabilité très simple du Pascal avec l’Assembleur à l’aide du bloc de code ASM.
 
-Le mode VGA est relativement simple à programmer : on accède directement à la mémoire de la carte vidéo par un pointeur localisé à l’ **adresse $A000:0000h**(segment:offset avec segment\*16 + offset = adresse physique). Un pixel est représenté par un seul octet (256 couleurs). La taille mémoire est de 320 x 200 x 1 = **64 000 octets**.
+Le mode VGA est relativement simple à programmer : on accède directement à la mémoire de la carte vidéo par un pointeur localisé à l'**adresse $A000:0000h**(segment:offset avec segment\*16 + offset = adresse physique). Un pixel est représenté par un seul octet (256 couleurs). La taille mémoire est de 320 x 200 x 1 = **64 000 octets**.
 
 Dans le code Pascal, on retrouve ce tableau de bytes (type Virtual) ainsi qu’un pointeur vers l’adresse de la mémoire vidéo (variable Screen) :
 
@@ -342,7 +342,7 @@ BEGIN
 end;
 ```
 
-A l’époque, pas de Direct3D ni d’OpenGL. La génération de l’ **ombre portée** sous les vaisseaux est réalisée à la main par la routine suivante :
+A l’époque, pas de Direct3D ni d’OpenGL. La génération de l'**ombre portée** sous les vaisseaux est réalisée à la main par la routine suivante :
 
 ```pascal
 PROCEDURE Shadow;

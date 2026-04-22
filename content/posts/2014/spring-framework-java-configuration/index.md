@@ -71,7 +71,7 @@ public class MainConfig {
 
 ```
 
-L’ **annotation [`@Configuration`](https://github.com/spring-projects/spring-framework/blob/f29d6eb5f68bb3acc4100172e5d6bc8b985fd9fa/spring-context/src/main/java/org/springframework/context/annotation/Configuration.java) joue un rôle central**. Les classes où elle est apposée se substituent en effet aux traditionnels fichiers de configuration XML. Nous y retrouvons la **déclaration de beans Spring**, l’ **import** de fichiers ou de classes de configuration, la **détection automatique de beans** annotés par analyse de classpath ou bien encore l’ **activation de fonctionnalités** avancées et des annotations associées ( `@Transactional`, `@Cacheable`, `@Scheduled`, `@Async` …)
+L'**annotation [`@Configuration`](https://github.com/spring-projects/spring-framework/blob/f29d6eb5f68bb3acc4100172e5d6bc8b985fd9fa/spring-context/src/main/java/org/springframework/context/annotation/Configuration.java) joue un rôle central**. Les classes où elle est apposée se substituent en effet aux traditionnels fichiers de configuration XML. Nous y retrouvons la **déclaration de beans Spring**, l'**import** de fichiers ou de classes de configuration, la **détection automatique de beans** annotés par analyse de classpath ou bien encore l'**activation de fonctionnalités** avancées et des annotations associées ( `@Transactional`, `@Cacheable`, `@Scheduled`, `@Async` …)
 
 Remarque : la déclaration de beans Spring peut se faire en dehors d’une classe de `@Configuration`. C’est ce qu’on appelle le **mode** **lite Beans**. Non recommandé, le manuel de référence de Spring explique quels en sont les limitations et les dangers.
 
@@ -84,7 +84,7 @@ Pour Spring, les **classes annotées avec `@Configuration`** sont des **beans Sp
 08:02:13.246 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'mainConfig'
 ```
 
-Cette spécificité infère aux beans de configuration la possibilité d’utiliser l’ **injection de dépendance** via les annotations `@Autowired` et `@Inject`. Leur cycle de vie permet également d’utiliser les annotations `@PostConstruct` et `@PreDestroy`.  
+Cette spécificité infère aux beans de configuration la possibilité d’utiliser l'**injection de dépendance** via les annotations `@Autowired` et `@Inject`. Leur cycle de vie permet également d’utiliser les annotations `@PostConstruct` et `@PreDestroy`.  
 La classe **_[MainConfig](https://github.com/arey/spring-javaconfig-sample/blob/master/src/main/java/com/javaetmoi/sample/config/MainConfig.java)_** exploite cette possibilité pour injecter l’ [`Environment`](https://github.com/spring-projects/spring-framework/blob/1204d2aef4afdefb4ba73c86565aab3f5b2a6931/spring-core/src/main/java/org/springframework/core/env/Environment.java) modélisant l’environnement d’exécution de l’application. Cette interface permet notamment d’accéder aux **profils Spring activés**. Lors de l’initialisation de la configuration spécifiée par **_[MainConfig](https://github.com/arey/spring-javaconfig-sample/blob/master/src/main/java/com/javaetmoi/sample/config/MainConfig.java)_**, la méthode `initApp()` annotée avec `@PostConstruct` génère une trace listant les profils actifs.
 
 ```java
@@ -246,7 +246,7 @@ Viennent ensuite la déclaration des beans `transactionManager` et `transactionT
 
 ```
 
-Mettons de côté la méthode `entityManagerFactory()` sur laquelle nous reviendrons plus loin. Cette configuration montre **comment mettre en relations 2 beans Spring** : le bean `transactionTemplate` utilise en effet le bean `transactionManager`. En XML, cette mise en relation est habituellement réalisée à l’aide de la balise `ref` et de l’identifiant du bean. En Java, l’ **injection d’un bean dans un autre** se fait en utilisant la méthode de déclaration du bean à injecter, en l’occurrence ici `transactionManager()`. **Ce qui ressemble à un appel de méthode est trompeur**. **En effet, Spring interprète ce type d’appel afin de gérer le cycle de vie des Beans**. Par exemple, lorsqu’un bean est de portée singleton, la méthode de création du bean n’est invoquée qu’une seule et unique fois même si le bean est injecté dans plusieurs beans. Techniquement, Spring instrumente les classes annotées avec `@Configuration` au démarrage du contexte applicatif.
+Mettons de côté la méthode `entityManagerFactory()` sur laquelle nous reviendrons plus loin. Cette configuration montre **comment mettre en relations 2 beans Spring** : le bean `transactionTemplate` utilise en effet le bean `transactionManager`. En XML, cette mise en relation est habituellement réalisée à l’aide de la balise `ref` et de l’identifiant du bean. En Java, l'**injection d’un bean dans un autre** se fait en utilisant la méthode de déclaration du bean à injecter, en l’occurrence ici `transactionManager()`. **Ce qui ressemble à un appel de méthode est trompeur**. **En effet, Spring interprète ce type d’appel afin de gérer le cycle de vie des Beans**. Par exemple, lorsqu’un bean est de portée singleton, la méthode de création du bean n’est invoquée qu’une seule et unique fois même si le bean est injecté dans plusieurs beans. Techniquement, Spring instrumente les classes annotées avec `@Configuration` au démarrage du contexte applicatif.
 
 Le bean `entityManagerFactory` est déclaré de la façon suivante :
 
