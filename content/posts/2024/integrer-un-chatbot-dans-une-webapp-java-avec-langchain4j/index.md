@@ -8,7 +8,7 @@ _oembed_d802e5e5901e439d1d3993d47a58cff7: <iframe title="Démo du chatbot de Spr
 _oembed_time_8a22730ebdfb4f2fdf2f13beda5835c9: "1731350760"
 _oembed_time_3978532bf227102e3b98953369e19191: "1755437453"
 _oembed_time_d802e5e5901e439d1d3993d47a58cff7: "1756755939"
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
   - spring

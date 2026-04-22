@@ -1,7 +1,7 @@
 ---
 _edit_last: "1"
 _wp_old_slug: generer-tests-jmeter-a-partir-selenium
-author: admin
+author: Antoine Rey
 categories:
   - test
 date: "2012-05-26T18:51:06+00:00"

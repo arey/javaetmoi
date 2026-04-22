@@ -5,7 +5,7 @@ _xmlsf_image_featured:
   caption: ""
   loc: 300px-Minimum_spanning_tree.svg_.png
   title: 300px-Minimum_spanning_tree.svg
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
 featureImage: 300px-Minimum_spanning_tree.svg_.png

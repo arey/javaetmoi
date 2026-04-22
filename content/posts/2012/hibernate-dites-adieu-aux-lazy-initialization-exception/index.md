@@ -1,6 +1,6 @@
 ---
 _edit_last: "1"
-author: admin
+author: Antoine Rey
 categories:
   - orm
 date: "2012-03-30T20:39:43+00:00"

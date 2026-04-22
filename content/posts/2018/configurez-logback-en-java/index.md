@@ -5,7 +5,7 @@ _xmlsf_image_featured:
   caption: ""
   loc: logback-logo.jpg
   title: logback-logo
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
 thumbnail: logback-logo-v2.png

@@ -1,7 +1,7 @@
 ---
 _edit_last: "1"
 _encloseme: "1"
-author: admin
+author: Antoine Rey
 categories:
   - conférence
 date: "2025-10-30T16:45:25+00:00"

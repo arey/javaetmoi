@@ -1,7 +1,7 @@
 ---
 _edit_last: "1"
 _wp_old_slug: embarquer-jetty-dans-une-web-app
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
 date: "2015-06-03T05:19:45+00:00"

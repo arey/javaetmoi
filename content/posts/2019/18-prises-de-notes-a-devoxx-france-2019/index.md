@@ -4,7 +4,7 @@ _xmlsf_image_featured:
   caption: ""
   loc: Devoxx-France-2019-banner.png
   title: Devoxx France 2019
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
 thumbnail: banniere-devoxx-france-2019.png

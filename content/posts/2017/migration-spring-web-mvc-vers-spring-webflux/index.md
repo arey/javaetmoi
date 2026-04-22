@@ -6,7 +6,7 @@ _xmlsf_image_featured:
   caption: ""
   loc: spring-webflux.png
   title: spring-webflux
-author: admin
+author: Antoine Rey
 categories:
   - spring
 thumbnail: spring-webflux.png

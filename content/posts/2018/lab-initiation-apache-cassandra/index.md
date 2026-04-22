@@ -5,7 +5,7 @@ _xmlsf_image_featured:
   caption: cof
   loc: photo-lab-apache-cassandra-devoxx-france-2018.jpg
   title: cof
-author: admin
+author: Antoine Rey
 categories:
   - conférence
 thumbnail: logo-apache-cassandra.png

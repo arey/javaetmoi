@@ -1,6 +1,6 @@
 ---
 _edit_last: "1"
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
 date: "2015-12-04T07:27:57+00:00"

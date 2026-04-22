@@ -6,7 +6,7 @@ _xmlsf_image_featured:
   caption: ""
   loc: 300px-Rendu_monnaie.svg_.png
   title: 300px-Rendu_monnaie.svg
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
 featureImage: 300px-Rendu_monnaie.svg_.png

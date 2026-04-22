@@ -4,7 +4,7 @@ _xmlsf_image_featured:
   caption: ""
   loc: 2019-03-Dashboard-Grafana-dockerisé-grafana.png
   title: 2019-03 - Dashboard Grafana dockerisé - grafana
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
 thumbnail: logo-grafana.svg

@@ -1,6 +1,6 @@
 ---
 _edit_last: "1"
-author: admin
+author: Antoine Rey
 categories:
   - spring
 date: "2014-12-17T17:09:13+00:00"

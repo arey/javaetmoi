@@ -1,7 +1,7 @@
 ---
 _edit_last: "1"
 _wp_old_slug: benchmark-framework-javas-mapping-objet
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
 date: "2015-09-16T05:20:37+00:00"

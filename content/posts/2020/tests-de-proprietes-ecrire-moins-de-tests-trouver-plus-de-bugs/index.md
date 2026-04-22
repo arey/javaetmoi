@@ -1,6 +1,6 @@
 ---
 _edit_last: "1"
-author: admin
+author: Antoine Rey
 categories:
   - conférence
 date: "2020-02-17T16:58:30+00:00"

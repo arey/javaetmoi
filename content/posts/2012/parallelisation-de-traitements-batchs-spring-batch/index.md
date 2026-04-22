@@ -1,7 +1,7 @@
 ---
 _edit_last: "1"
 _wp_old_slug: parallelisation-de-traitements-batchs
-author: admin
+author: Antoine Rey
 categories:
   - spring
   - test

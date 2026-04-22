@@ -1,7 +1,7 @@
 ---
 _edit_last: "1"
 _wp_old_slug: initiation-spark-en-java-devoxx
-author: admin
+author: Antoine Rey
 categories:
   - conférence
 date: "2015-04-14T04:28:48+00:00"

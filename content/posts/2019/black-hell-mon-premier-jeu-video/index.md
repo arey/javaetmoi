@@ -20,7 +20,7 @@ _xmlsf_image_featured:
   caption: ""
   loc: 2019-02-Black-Hell-Ecran-accueil.png
   title: 2019-02 - Black Hell - Ecran accueil
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
 usePageBundles: true

@@ -6,7 +6,7 @@ _xmlsf_image_featured:
   caption: ""
   loc: 2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg
   title: 2018-08-24-Architecture-microservices-avec-Spring-Cloud
-author: admin
+author: Antoine Rey
 categories:
   - spring
 thumbnail: logo-spring-cloud.svg

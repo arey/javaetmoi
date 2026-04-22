@@ -5,7 +5,7 @@ _xmlsf_image_featured:
   caption: ""
   loc: word-image-2335-1.jpeg
   title: word-image-2335-1
-author: admin
+author: Antoine Rey
 categories:
   - conférence
 thumbnail: logo/logo-devoxx-france.png

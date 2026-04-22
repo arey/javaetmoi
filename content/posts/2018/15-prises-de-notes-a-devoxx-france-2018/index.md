@@ -6,7 +6,7 @@ _xmlsf_image_featured:
   caption: ""
   loc: IMG_20180420_090935.jpg
   title: ""
-author: admin
+author: Antoine Rey
 categories:
   - conférence
 thumbnail: logo/logo-devoxx-france.png

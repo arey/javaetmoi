@@ -1,7 +1,7 @@
 ---
 _edit_last: "1"
 _wp_old_slug: loffre-compute-de-google-cloud-platform
-author: admin
+author: Antoine Rey
 categories:
   - conférence
 date: "2016-07-04T17:09:05+00:00"

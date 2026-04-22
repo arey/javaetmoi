@@ -3,7 +3,7 @@ _edit_last: "1"
 _monsterinsights_sitenote_active: ""
 _monsterinsights_skip_tracking: ""
 _wp_old_slug: lapi-gatherers-loutil-qui-manquait-a-vos-streams
-author: admin
+author: Antoine Rey
 categories:
   - conférence
 date: "2025-04-25T06:09:01+00:00"

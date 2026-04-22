@@ -5,7 +5,7 @@ _xmlsf_image_featured:
   caption: ""
   loc: gradle-logo.png
   title: gradle-logo
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
 featureImage: gradle-logo.png

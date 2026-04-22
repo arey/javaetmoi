@@ -1,7 +1,7 @@
 ---
 _edit_last: "1"
 _wp_old_slug: ma-petite-usine-logicielle-github-cloudbee
-author: admin
+author: Antoine Rey
 categories:
   - maven
 date: "2012-12-15T09:08:10+00:00"

@@ -1,7 +1,7 @@
 ---
 _edit_last: "1"
 _wp_old_slug: apache-lucene-de-lindexation-textuelle-a-lia
-author: admin
+author: Antoine Rey
 categories:
   - conférence
 date: "2024-04-21T15:26:06+00:00"

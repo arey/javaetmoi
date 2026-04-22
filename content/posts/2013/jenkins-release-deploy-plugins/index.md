@@ -1,6 +1,6 @@
 ---
 _edit_last: "1"
-author: admin
+author: Antoine Rey
 categories:
   - maven
 date: "2013-07-16T16:37:26+00:00"

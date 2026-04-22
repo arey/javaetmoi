@@ -6,7 +6,7 @@ _xmlsf_image_featured:
   caption: ""
   loc: https://javaetmoi.com/wp-content/uploads/2026/04/Sans-titre.png
   title: Bannière Spring PetClinic Modulith
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
   - spring

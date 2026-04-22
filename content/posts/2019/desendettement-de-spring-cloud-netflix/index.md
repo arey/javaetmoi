@@ -1,5 +1,5 @@
 ---
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
   - spring

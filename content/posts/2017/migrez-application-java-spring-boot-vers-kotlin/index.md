@@ -5,7 +5,7 @@ _xmlsf_image_featured:
   caption: ""
   loc: Kotlin_logo.png
   title: Logo Kotlin
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
   - spring

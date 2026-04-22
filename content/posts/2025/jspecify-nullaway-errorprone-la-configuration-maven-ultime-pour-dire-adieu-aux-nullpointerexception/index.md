@@ -1,7 +1,7 @@
 ---
 _edit_last: "1"
 _encloseme: "1"
-author: admin
+author: Antoine Rey
 categories:
   - maven
   - retour-d'expérience

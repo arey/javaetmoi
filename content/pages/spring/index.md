@@ -4,7 +4,7 @@ _mobile_page_template: Modèle par défaut
 _monsterinsights_sitenote_active: ""
 _monsterinsights_skip_tracking: ""
 _wp_page_template: default
-author: admin
+author: Antoine Rey
 date: "2012-12-27T15:37:09+00:00"
 footnotes: ""
 guid: http://javaetmoi.com/?page_id=500

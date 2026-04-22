@@ -1,7 +1,7 @@
 ---
 _edit_last: "1"
 _wp_old_slug: memoy-leak-client-cxf-attachment
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
 date: "2014-02-22T09:28:31+00:00"

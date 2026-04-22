@@ -5,7 +5,7 @@ _xmlsf_image_featured:
   caption: ""
   loc: azure-fundamentals-600x600-1.png
   title: azure-fundamentals-600x600
-author: admin
+author: Antoine Rey
 categories:
   - retour-d'expérience
 thumbnail: azure-fundamentals-600x600-1.png

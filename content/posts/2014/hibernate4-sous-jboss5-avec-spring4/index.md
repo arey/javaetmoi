@@ -1,7 +1,7 @@
 ---
 _edit_last: "1"
 _wp_old_slug: utilisez-hibernate-4-3-sous-jboss-5-avec-spring-4
-author: admin
+author: Antoine Rey
 categories:
   - orm
 date: "2014-04-10T18:50:07+00:00"

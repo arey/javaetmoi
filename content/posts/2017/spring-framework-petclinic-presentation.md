@@ -1,7 +1,7 @@
 ---
 _edit_last: "1"
 _wp_old_slug: up-to-date-spring-framework-petclinic-presentation
-author: admin
+author: Antoine Rey
 categories:
   - spring
 date: "2017-02-10T07:40:20+00:00"

@@ -5,7 +5,7 @@ _xmlsf_image_attached:
   caption: ""
   loc: https://javaetmoi.com/images/JavaOne2000.jpg
   title: JavaOne 2000
-author: admin
+author: Antoine Rey
 date: "2012-02-04T20:52:50+00:00"
 guid: http://javaetmoi.com//?page_id=2
 parent_post_id: null

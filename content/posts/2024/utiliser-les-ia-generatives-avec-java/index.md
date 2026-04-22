@@ -5,7 +5,7 @@ _xmlsf_image_featured:
   caption: ""
   loc: devoxx-france-2024-banniere-generative-ai-avec-java.png
   title: devoxx-france-2024-banniere-generative-ai-avec-java
-author: admin
+author: Antoine Rey
 categories:
   - conférence
 thumbnail: logo/logo-devoxx-france.png

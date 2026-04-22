@@ -1,6 +1,6 @@
 ---
 _edit_last: "1"
-author: admin
+author: Antoine Rey
 categories:
   - test
 date: "2016-02-12T07:06:01+00:00"

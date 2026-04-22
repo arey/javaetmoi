@@ -3,7 +3,7 @@ _edit_last: "1"
 _monsterinsights_sitenote_active: ""
 _monsterinsights_skip_tracking: ""
 _wp_old_slug: optimiez-vos-applications-spring-boot-avec-cds-et-le-projet-leyden
-author: admin
+author: Antoine Rey
 categories:
   - conférence
   - spring
