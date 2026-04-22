@@ -6,26 +6,26 @@ categories:
 date: "2019-11-28T08:37:31+00:00"
 toc: true
 thumbnail: spring-cloud-netflix.png
-featureImage: spring-cloud-netflix.png
 usePageBundles: true
 guid: https://javaetmoi.com/?p=2045
 parent_post_id: null
 post_id: "2045"
 post_views_count: "22746"
 summary: |-
-  [![Logo Spring Cloud Netflix](/2019/11/desendettement-de-spring-cloud-netflix/spring-cloud-netflix.png)](spring-cloud-netflix.png)Le projet  [Spring Cloud Netflix](https://spring.io/projects/spring-cloud-netflix) facilite l’intégration de différents projets de la suite [Netflix OSS](https://netflix.github.io/) dans des applications Spring Boot / Spring Cloud : Eureka, Zuul 1, Ribbon, Hystrix, Archaius, Feign. Jusqu’en 2018, le projet [Spring Petclinic Microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) dont j’assure la maintenance utilisait ces 4 premiers projets.
+  Le projet  [Spring Cloud Netflix](https://spring.io/projects/spring-cloud-netflix) facilite l’intégration de différents projets de la suite [Netflix OSS](https://netflix.github.io/) dans des applications Spring Boot / Spring Cloud : Eureka, Zuul 1, Ribbon, Hystrix, Archaius, Feign. Jusqu’en 2018, le projet [Spring Petclinic Microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) dont j’assure la maintenance utilisait ces 4 premiers projets.
 
   Or, certains des projets historiques de Netflix OSS ne sont plus activement développés. Ils sont rentrés en mode maintenance. C’est notamment le cas d’ [Hystrix](https://github.com/Netflix/Hystrix#hystrix-status), de Zuul 1 et de Ribbon. En décembre 2018, lors de l’annonce de la [sortie de Spring Cloud Greenwich RC1](https://spring.io/blog/2018/12/12/spring-cloud-greenwich-rc1-available-now), Pivotal recommande de migrer vers des projets tiers et de nouveaux modules Spring Cloud :
 
-  **Anciennement****Solutions cibles** Hystrix [Resilience4j](https://github.com/resilience4j/resilience4j)Hystrix Dashboard / Turbine [Micrometer](https://micrometer.io/) \+ Monitoring System  Ribbon [Spring Cloud Loadbalancer](https://cloud.spring.io/spring-cloud-static/spring-cloud-commons/2.2.0.RC2/reference/html/#spring-cloud-loadbalancer) Zuul 1 [Spring Cloud Gateway](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.0.RC2/reference/html/) Archaius 1 Spring Boot external config + Spring Cloud Config
+  | Composant actuel                  | Remplaçant                                      |
+  |-----------------------------------|-------------------------------------------------|
+  | Hystrix                           | Resilience4j                                    |
+  | Hystrix Dashboard / Turbine       | Micrometer + Monitoring System                  |
+  | Ribbon                            | Spring Cloud Loadbalancer                       |
+  | Zuul 1                            | Spring Cloud Gateway                            |
+  | Archaius 1                        | Spring Boot external config + Spring Cloud Config|
 
-  Dans le cadre de Spring Petclinic Microservices, seul Eureka est épargné et continue de jouer son rôle d’annuaire de service. Un désendettement vers **Resilience4j**, **Micrometer**, **Spring Cloud Loadbalancer** et **Spring Cloud Gateway** s’est naturellement imposé (issue [#117](https://github.com/spring-petclinic/spring-petclinic-microservices/issues/117)).
-
-  Cet article retrace les différentes étapes de
-  migration. J’espère qu’il vous sera utile si vous avez le même chemin à
-  parcourir.
-
-  ![Désendettement de Spring Cloud Netflix](/2019/11/desendettement-de-spring-cloud-netflix/spring-cloud-netflix.png)
+  Cet article retrace les différentes étapes de migration.
+  J’espère qu’il vous sera utile si vous avez le même chemin à parcourir.
 tags:
   - hystrix
   - resilience4j
@@ -36,29 +36,30 @@ title: Désendettement de Spring Cloud Netflix
 url: /2019/11/desendettement-de-spring-cloud-netflix/
 
 ---
-[![Logo Spring Cloud Netflix](spring-cloud-netflix.png)](spring-cloud-netflix.png)Le projet  [Spring Cloud Netflix](https://spring.io/projects/spring-cloud-netflix) facilite l’intégration de différents projets de la suite [Netflix OSS](https://netflix.github.io/) dans des applications Spring Boot / Spring Cloud : Eureka, Zuul 1, Ribbon, Hystrix, Archaius, Feign. Jusqu’en 2018, le projet [Spring Petclinic Microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) dont j’assure la maintenance utilisait ces 4 premiers projets.
+[![Logo Spring Cloud Netflix:left](spring-cloud-netflix.png)](spring-cloud-netflix.png)Le projet  [Spring Cloud Netflix](https://spring.io/projects/spring-cloud-netflix) facilite l’intégration de différents projets de la suite [Netflix OSS](https://netflix.github.io/) dans des applications Spring Boot / Spring Cloud : Eureka, Zuul 1, Ribbon, Hystrix, Archaius, Feign. Jusqu’en 2018, le projet [Spring Petclinic Microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) dont j’assure la maintenance utilisait ces 4 premiers projets.
 
 Or, certains des projets historiques de Netflix OSS ne sont plus activement développés. Ils sont rentrés en mode maintenance. C’est notamment le cas d’ [Hystrix](https://github.com/Netflix/Hystrix#hystrix-status), de Zuul 1 et de Ribbon. En décembre 2018, lors de l’annonce de la [sortie de Spring Cloud Greenwich RC1](https://spring.io/blog/2018/12/12/spring-cloud-greenwich-rc1-available-now), Pivotal recommande de migrer vers des projets tiers et de nouveaux modules Spring Cloud :
 
-**Anciennement****Solutions cibles** Hystrix [Resilience4j](https://github.com/resilience4j/resilience4j)Hystrix Dashboard / Turbine [Micrometer](https://micrometer.io/) \+ Monitoring System  Ribbon [Spring Cloud Loadbalancer](https://cloud.spring.io/spring-cloud-static/spring-cloud-commons/2.2.0.RC2/reference/html/#spring-cloud-loadbalancer) Zuul 1 [Spring Cloud Gateway](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.0.RC2/reference/html/) Archaius 1 Spring Boot external config + Spring Cloud Config
+| Composant actuel                  | Remplaçant                                      |
+|-----------------------------------|-------------------------------------------------|
+| Hystrix                           | Resilience4j                                    |
+| Hystrix Dashboard / Turbine       | Micrometer + Monitoring System                  |
+| Ribbon                            | Spring Cloud Loadbalancer                       |
+| Zuul 1                            | Spring Cloud Gateway                            |
+| Archaius 1                        | Spring Boot external config + Spring Cloud Config|
 
 Dans le cadre de Spring Petclinic Microservices, seul Eureka est épargné et continue de jouer son rôle d’annuaire de service. Un désendettement vers **Resilience4j**, **Micrometer**, **Spring Cloud Loadbalancer** et **Spring Cloud Gateway** s’est naturellement imposé (issue [#117](https://github.com/spring-petclinic/spring-petclinic-microservices/issues/117)).
 
-Cet article retrace les différentes étapes de
-migration. J’espère qu’il vous sera utile si vous avez le même chemin à
-parcourir.
+Cet article retrace les différentes étapes de migration.
+J’espère qu’il vous sera utile si vous avez le même chemin à parcourir.
 
 ## Zuul 1 vers Spring Cloud Gateway
 
-Comme le souligne l’article [Rate\
-Limiting In Spring Cloud Gateway With Redis](https://piotrminkowski.wordpress.com/2019/11/15/rate-limiting-in-spring-cloud-gateway-with-redis/), avec
-2028 étoiles (au 22/11/2019), **Spring**
-**Cloud Gateway** est le 2ième projet le plus populaire de la galaxy [Spring Cloud](https://github.com/spring-cloud) derrière
+Comme le souligne l’article [Rate Limiting In Spring Cloud Gateway With Redis](https://piotrminkowski.wordpress.com/2019/11/15/rate-limiting-in-spring-cloud-gateway-with-redis/), avec
+2028 étoiles (au 22/11/2019), **Spring Cloud Gateway** est le 2ième projet le plus populaire de la galaxie [Spring Cloud](https://github.com/spring-cloud) derrière
 Spring Cloud Netflix. Il a été conçu pour succéder au proxy Zuul et fait office
 d’API Gateway pour les architectures microservices. Bâti autour d’une
-architecture réactive, [Spring\
-Cloud Gateway requière l’utilisation de Spring WebFlux, de Netty et du projet\
-Reactor](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.0.RC2/reference/html/).
+architecture réactive, [Spring Cloud Gateway requière l’utilisation de Spring WebFlux, de Netty et du projet Reactor](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.0.RC2/reference/html/).
 
 La migration de Spring Petclinic Microservices
 de Zuul 1 vers [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway) s’est
@@ -115,10 +116,10 @@ spring:
             - StripPrefix=2
 ```
 
-Le filtre **SripPrefix** accepte pour paramètre le nombre de parties du chemin à retirer de la requête HTTP avant d’être redirigée vers le microservice cible.  
-Exemple : lorsqu’une requête arrive sur la gateway avec l’URL [http://localhost::8080/api/customer/owners](http://localhost::8080/api/customer/owners), la requête _/owners_ est transmise au microservice _customers-service_ (sans le /api/customer).
+Le filtre **`SripPrefix`** accepte pour paramètre le nombre de parties du chemin à retirer de la requête HTTP avant d’être redirigée vers le microservice cible.  
+Exemple : lorsqu’une requête arrive sur la gateway avec l’URL [http://localhost::8080/api/customer/owners](http://localhost::8080/api/customer/owners), la requête `/owners` est transmise au microservice _customers-service_ (sans le `/api/customer`).
 
-A noter que la route _/api/gateway_ servie par le contrôleur Rest [ApiGatewayController](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java) n’a plus besoin d’être déclarée.
+A noter que la route `/api/gateway` servie par le contrôleur Rest [ApiGatewayController](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java) n’a plus besoin d’être déclarée.
 
 ## Ribbon vers Spring Cloud Reactive LoadBalancer
 
@@ -131,12 +132,12 @@ des appels, car Spring Cloud Ribbon est désormais en mode maintenance :
 ``2019-11-13 18:32:41.670  WARN [api-gateway,,,] 79015 --- [  restartedMain] BockingLoadBalancerClientRibbonWarnLogger : You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.``
 
 L’utilisation du répartiteur de charge natif à Spring
-Cloud LoadBalancer a demandé l’ **exclusion** de plusieurs **dépendances**
+Cloud LoadBalancer a demandé l'**exclusion** de plusieurs **dépendances**
 liées à **Ribbon** :
 
-- spring-cloud-starter-netflix-ribbon
-- spring-cloud-netflix-ribbon
-- ribbon-eureka
+- `spring-cloud-starter-netflix-ribbon`
+- `spring-cloud-netflix-ribbon`
+- `ribbon-eureka`
 
 ```xml
 <dependency>
@@ -174,10 +175,8 @@ liées à **Ribbon** :
 
 L’ajout du starter **spring-cloud-starter-loadbalancer** n’a pas été nécessaire car ce dernier est tiré transitivement par le starter spring-cloud-starter-netflix-eureka-client.
 
-Dans mon cas, l’utilisation du BlockingLoadBalancerClient n’était
-pas possible car Spring Cloud Gateway nécessite d’utiliser
-des APIs non bloquantes. Preuve
-en stacktrace :
+Dans mon cas, l’utilisation du `BlockingLoadBalancerClient` n’était pas possible car Spring Cloud Gateway nécessite d’utiliser  des APIs non bloquantes.
+Preuve en stacktrace :
 
 ```text
 java.lang.IllegalStateException: block()/blockFirst()/blockLast() are blocking, which is not supported in thread reactor-http-nio-2
@@ -201,7 +200,8 @@ Stack trace:
 		at org.springframework.samples.petclinic.api.application.CustomersServiceClient.getOwner(CustomersServiceClient.java:33)
 ```
 
-L’utilisation du RestTemplate pour appeler puis agréger le résultat de 2 microservices n’était plus possible (à noter que le client Zipkin l’utilise encore, mais en asynchrone dans un thread différent de ceux gérés par Reactor). J’ai donc été contraint de migrer vers la version **réactive** de **WebClient**.
+L’utilisation du `RestTemplate` pour appeler puis agréger le résultat de 2 microservices n’était plus possible (à noter que le client Zipkin l’utilise encore, mais en asynchrone dans un thread différent de ceux gérés par Reactor).
+J’ai donc été contraint de migrer vers la version **réactive** de **`WebClient`**.
 
 ## Du Spring RestTemplate au Spring WebFlux WebClient
 
@@ -218,7 +218,7 @@ public WebClient.Builder loadBalancedWebClientBuilder() {
 
 Le `@RestController` [ApiGatewayController](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java) exposant l’API REST _/owners/{ownerId}_ change de signature : il renvoie désormais un `Mono` _<OwnerDetails>_ à la place d’un _OwnerDetails_.
 
-L’utilisation du _WebClient.Builder_ déclaré plus haut nécessite un peu d’entrainement lorsqu’il s’agit de chaîner les appels distants et d’enrichir une première réponse avec une seconde.  
+L’utilisation du `WebClient.Builder` déclaré plus haut nécessite un peu d’entrainement lorsqu’il s’agit de chaîner les appels distants et d’enrichir une première réponse avec une seconde.  
 Voici un exemple d’appel simplifié :
 
 ```java
@@ -258,7 +258,10 @@ private Function<Visits, OwnerDetails> addVisitsToOwner(OwnerDetails owner) {
 }
 ```
 
-Migrer de RestTemplate à WebClient, c’est bien. Mais mettre à jour les tests unitaires, c'est mieux. La classe [MockRestServiceServer](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/web/client/MockRestServiceServer.html) utilisée jusque-là n’a pas d’équivalent pour WebClient. [La documentation du framework Spring invite à utiliser OkHttp MockWebServer](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-client-testing). Si cela vous intéresse, vous pouvez regarder sa mise en œuvre dans la classe de test [VisitsServiceClientIntegrationTest](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/test/java/org/springframework/samples/petclinic/api/application/VisitsServiceClientIntegrationTest.java).
+Migrer de `RestTemplate` à `WebClient`, c’est bien. Mais mettre à jour les tests unitaires, c'est mieux.
+La classe [MockRestServiceServer](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/web/client/MockRestServiceServer.html) utilisée jusque-là n’a pas d’équivalent pour WebClient.
+[La documentation du framework Spring invite à utiliser OkHttp MockWebServer](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-client-testing).
+Si cela vous intéresse, vous pouvez regarder sa mise en œuvre dans la classe de test [VisitsServiceClientIntegrationTest](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/test/java/org/springframework/samples/petclinic/api/application/VisitsServiceClientIntegrationTest.java).
 
 ## De Netflix Hystrix à Spring Cloud Circuit Breaker et Resilience 4J
 
@@ -274,17 +277,14 @@ La migration vers Spring Cloud Circuit Breaker commence par
 de la configuration Maven :
 
 1. Ajouter 2 dépendances Maven :
+   1. `org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j`
+   1. `io.github.resilience4j:resilience4j-micrometer` (cette dépendance permet de remonter des métriques dans Prometheus)
+1. Exclure spring-cloud-netflix-hystrix de l’artefact `spring-cloud-starter-netflix-eureka-client`
+1. Suppression de la dépendance `org.springframework.cloud:spring-cloud-starter-netflix-hystrix`
 
-   1. org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j
+L’annotation `EnableCircuitBreaker` n’est pas nécessaire pour  Resilience4j. Elle a été supprimée de la classe principale.
 
-   1. io.github.resilience4j:resilience4j-micrometer (cette dépendance permet de remonter des métriques dans Prometheus)
-1. Exclure spring-cloud-netflix-hystrix de l’artefact spring-cloud-starter-netflix-eureka-client
-1. Suppression de la dépedance org.springframework.cloud:spring-cloud-starter-netflix-hystrix
-
-L’annotation EnableCircuitBreaker n’est pas nécessaire pour
-Resilience4j. Elle a été supprimée de la classe principale.
-
-La déclaration du **bean** **defaultCustomizer** permet de spécifier la configuration par défaut de l’ensemble des circuit breaker Resilience4j utilisés dans l’application :
+La déclaration du **bean** `defaultCustomizer` permet de spécifier la configuration par défaut de l’ensemble des circuit breaker Resilience4j utilisés dans l’application :
 
 ```java
 /**
@@ -300,9 +300,12 @@ La déclaration du **bean** **defaultCustomizer** permet de spécifier la config
 ```
 
 En déclarant d’autres beans Spring, il est possible de configurer
-spécifiquement certains circuit breaker par leur ID.
+spécifiquement certains circuits breaker par leur ID.
 
-L’utilisation d’un circuit breaker passe par l’utilisation de la fabrique **ReactiveCircuitBreakerFactory** créée par Spring Boot. La classe [ApiGatewayController](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java) a été adaptée : le _Mono<Visits>_ renvoyé par le service _getVisitsForPets_ subit une opération de transformation. C’est le **ReactiveCircuitBreaker** _getOwnerDetails_ qui est maintenant chargé d’exécuter la suite du flux et de gérer les exceptions applicatives ou le timeout, et de router alors sur une méthode de contournement ( **fallback method**). Dans notre cas, lorsque le service des visites est inaccessible ou trop lent, on considère que l’animal de compagnie n’a pas eu de visite.
+L’utilisation d’un circuit breaker passe par l’utilisation de la fabrique **`ReactiveCircuitBreakerFactory`** créée par Spring Boot.
+La classe [ApiGatewayController](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java) a été adaptée : le `Mono<Visits>` renvoyé par le service `getVisitsForPets` subit une opération de transformation.
+C’est le **`ReactiveCircuitBreaker`** `getOwnerDetails` qui est maintenant chargé d’exécuter la suite du flux et de gérer les exceptions applicatives ou le timeout, et de router alors sur une méthode de contournement (**fallback method**).
+Dans notre cas, lorsque le service des visites est inaccessible ou trop lent, on considère que l’animal de compagnie n’a pas eu de visite.
 
 ```java
 private final ReactiveCircuitBreakerFactory cbFactory;@GetMapping(value = "owners/{ownerId}")
@@ -377,17 +380,13 @@ Suite à cette migration, le microservice exposant le Dashboard Hystrix a tout b
 
 ## Conclusion
 
-Commencée sous Greenwich, le désendettement de Zuul, Ribbon et Hystrix a été achevé dans [Spring Petclinic Microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) un an plus tard suite à la sortie de Spring Cloud Hoxton RC2. Fonctionnellement, rien n’a changé pour l’utilisateur. Mais techniquement, nous nous appuyons désormais sur une stack à jour et, je l’espère, promis à un bel avenir. Le code source de l’application est disponible pour tous les développeurs désirant s’inspirer d’une **mise en œuvre concrète de Spring Cloud Gateway, Spring Cloud Loadbalancer et Spring Cloud Circuit Breaker**.
+Commencé sous Greenwich, le désendettement de Zuul, Ribbon et Hystrix a été achevé dans [Spring Petclinic Microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) un an plus tard suite à la sortie de Spring Cloud Hoxton RC2.
+Fonctionnellement, rien n’a changé pour l’utilisateur. Mais techniquement, nous nous appuyons désormais sur une stack à jour et, je l’espère, promis à un bel avenir. Le code source de l’application est disponible pour tous les développeurs désirant s’inspirer d’une **mise en œuvre concrète de Spring Cloud Gateway, Spring Cloud Loadbalancer et Spring Cloud Circuit Breaker**.
 
 Références :
 
-- [Spring\
-  Cloud Gateway - Reference manual](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.0.RC2/reference/html/) (Pivotal)
-- [Spring\
-  Cloud Gateway – Configuring a simple route](https://dzone.com/articles/spring-cloud-gateway-configuring-a-simple-route) (DZone)
-- [Spring\
-  Cloud LoadBalancer – Reference manual](https://cloud.spring.io/spring-cloud-static/spring-cloud-commons/2.2.0.RC2/reference/html/#spring-cloud-loadbalancer) (Pivotal)
-- [Spring\
-  Cloud Circuit Breaker – Reference manual](https://cloud.spring.io/spring-cloud-static/spring-cloud-commons/2.2.0.RC2/reference/html/#spring-cloud-circuit-breaker) (Pivotal)
-- [Introducing\
-  Spring Cloud Circuit Breaker](https://spring.io/blog/2019/04/16/introducing-spring-cloud-circuit-breaker) (Pivotal)
+- [Spring Cloud Gateway - Reference manual](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.0.RC2/reference/html/) (Pivotal)
+- [Spring Cloud Gateway – Configuring a simple route](https://dzone.com/articles/spring-cloud-gateway-configuring-a-simple-route) (DZone)
+- [Spring Cloud LoadBalancer – Reference manual](https://cloud.spring.io/spring-cloud-static/spring-cloud-commons/2.2.0.RC2/reference/html/#spring-cloud-loadbalancer) (Pivotal)
+- [Spring Cloud Circuit Breaker – Reference manual](https://cloud.spring.io/spring-cloud-static/spring-cloud-commons/2.2.0.RC2/reference/html/#spring-cloud-circuit-breaker) (Pivotal)
+- [Introducing Spring Cloud Circuit Breaker](https://spring.io/blog/2019/04/16/introducing-spring-cloud-circuit-breaker) (Pivotal)
