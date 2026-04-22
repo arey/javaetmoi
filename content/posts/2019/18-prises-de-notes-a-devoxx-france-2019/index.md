@@ -7,11 +7,11 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - retour-d'expérience
+thumbnail: banniere-devoxx-france-2019.png
 featureImage: Devoxx-France-2019-banner.png
 featureImageAlt: Devoxx France 2019
 usePageBundles: true
 date: "2019-05-03T17:28:03+00:00"
-thumbnail: Devoxx-France-2019-banner.png
 guid: https://javaetmoi.com/?p=1987
 parent_post_id: null
 post_id: "1987"
@@ -23,9 +23,7 @@ summary: |-
 
   Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les visionner ou si vous souhaitez garder une trace écrite de ce que vous y avez appris, je mets librement à disposition l’ensemble de **mes 18 notes** prises au cours de ces 3 jours riches en contenus et en découvertes.
 
-  Lors de cette édition 2019, les 2 frameworks hypes du moment **Quarkus** et **Micronaut** étaient sur le devant de la scène en permettant de développer des applications Java modernes et natives grâce à **GraalVM**. Poussée par l’essor des **microservices**, l’intégration de Java à **Docker** et son orchestrateur **Kubernetes** est de plus en plus poussée. Les indémodables étaient également de la partie : design d’ **API REST**, **montée de version de Java**, **qualimétrie, JavaEE**(oups, pardon, JakartaEE) et **sécurité**.
-
-  [![Photo de la conférence Devoxx France 2019](/2019/05/18-prises-de-notes-a-devoxx-france-2019/Devoxx-France-2019-1024x554.jpg)](Devoxx-France-2019.jpg)
+  Lors de cette édition 2019, les 2 frameworks hypes du moment **Quarkus** et **Micronaut** étaient sur le devant de la scène en permettant de développer des applications Java modernes et natives grâce à **GraalVM**. Poussée par l’essor des **microservices**, l’intégration de Java à **Docker** et son orchestrateur **Kubernetes** est de plus en plus poussée. Les indémodables étaient également de la partie : design d’ **API REST**, **montée de version de Java**, **qualimétrie, JavaEE** (oups, pardon, JakartaEE) et **sécurité**.
 
   ![Devoxx France 2019](/2019/05/18-prises-de-notes-a-devoxx-france-2019/Devoxx-France-2019-banner.png)
 tags:
@@ -47,13 +45,12 @@ url: /2019/05/18-prises-de-notes-a-devoxx-france-2019/
 ---
 Ce fut ma 8ième participation à Devoxx France. Les années passent et je suis toujours aussi friand de cette bulle d’oxygène dans mon quotidien encore bien trop souvent parsemé de Struts, JSF et MagicDraw. Un grand bravo aux organisateurs, bénévoles et aux speakers.
 
+![Bannière conférence Devoxx France 2019:left](banniere-devoxx-france-2019.png)
 D'ici quelques jours, **l’intégralité des vidéos des conférences et universités présentées lors de Devoxx France** **2019** sont disponibles sur la [chaîne Devoxx FR de Youtube](https://www.youtube.com/channel/UCsVPQfo5RZErDL41LoWvk0A/videos).
 
 Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les visionner ou si vous souhaitez garder une trace écrite de ce que vous y avez appris, je mets librement à disposition l’ensemble de **mes 18 notes** prises au cours de ces 3 jours riches en contenus et en découvertes.
 
-Lors de cette édition 2019, les 2 frameworks hypes du moment **Quarkus** et **Micronaut** étaient sur le devant de la scène en permettant de développer des applications Java modernes et natives grâce à **GraalVM**. Poussée par l’essor des **microservices**, l’intégration de Java à **Docker** et son orchestrateur **Kubernetes** est de plus en plus poussée. Les indémodables étaient également de la partie : design d’ **API REST**, **montée de version de Java**, **qualimétrie, JavaEE**(oups, pardon, JakartaEE) et **sécurité**.
-
-[![Photo de la conférence Devoxx France 2019](Devoxx-France-2019.jpg)](Devoxx-France-2019.jpg)
+Lors de cette édition 2019, les 2 frameworks hypes du moment **Quarkus** et **Micronaut** étaient sur le devant de la scène en permettant de développer des applications Java modernes et natives grâce à **GraalVM**. Poussée par l’essor des **microservices**, l’intégration de Java à **Docker** et son orchestrateur **Kubernetes** est de plus en plus poussée. Les indémodables étaient également de la partie : design d’ **API REST**, **montée de version de Java**, **qualimétrie, JavaEE** (oups, pardon, JakartaEE) et **sécurité**.
 
 Mes notes classées par ordre de préférence :
 
@@ -75,3 +72,6 @@ Mes notes classées par ordre de préférence :
 1. [SpringBoot avec Kotlin, Kofu et les Coroutines](2019-04-19-SpringBoot-avec-Kotlin-Kofu-et-les-Coroutines.pdf) (Sébastien Deleuze)
 1. [50 points de contrôle d'une API REST](2019-04-19-50-points-de-contrôle-dune-API-REST.pdf) (François-Guillaume Ribreau)
 1. [Dev environments: use the nix, Luke!](2019-04-18-Use-the-nix.pdf) (Clément Delafargue et Hussein Ait-Lahcen)
+
+
+[![Photo de la conférence Devoxx France 2019](Devoxx-France-2019.jpg)](Devoxx-France-2019.jpg)
