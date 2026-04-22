@@ -9,24 +9,20 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - spring
-featureImage: spring-webflux.png
-featureImageAlt: spring-webflux
+thumbnail: spring-webflux.png
 usePageBundles: true
 date: "2017-12-07T17:26:12+00:00"
 toc: true
-thumbnail: spring-webflux.png
 guid: http://javaetmoi.com/?p=1794
 parent_post_id: null
 post_id: "1794"
 post_views_count: "11049"
 summary: |-
-  [![Logo Spring WebFlux](/2017/12/migration-spring-web-mvc-vers-spring-webflux/spring-webflux.png)](spring-webflux.png)[**Spring WebFlux**](https://docs.spring.io/spring-framework/docs/5.0.1.RELEASE/spring-framework-reference/web-reactive.html#spring-webflux) est une **fonctionnalit** **é majeure** de **Spring Framework 5**. Disposant de son propre module Maven (spring-weblux), ce **nouveau framework web** se positionne comme une **alternative** **à Spring Web MVC.** Ce dernier a été conçu par-dessus l’API Servlet. Spring WebFlux l’a été pour les **applications r** **éactives**, avec I/O non bloquantes, asynchrones, **à faible latence**, basées sur des serveurs comme Netty, Undertow ou compatibles Servlets 3.1 et +.
+  [**Spring WebFlux**](https://docs.spring.io/spring-framework/docs/5.0.1.RELEASE/spring-framework-reference/web-reactive.html#spring-webflux) est une **fonctionnalit** **é majeure** de **Spring Framework 5**. Disposant de son propre module Maven (spring-weblux), ce **nouveau framework web** se positionne comme une **alternative** **à Spring Web MVC.** Ce dernier a été conçu par-dessus l’API Servlet. Spring WebFlux l’a été pour les **applications r** **éactives**, avec I/O non bloquantes, asynchrones, **à faible latence**, basées sur des serveurs comme Netty, Undertow ou compatibles Servlets 3.1 et +.
   Spring WebFlux s’éloigne du modèle d’un thread par requête HTTP et se base désormais sur le projet [**Reactor**](https://projectreactor.io/) pour orchestrer le traitement des requêtes.
   Conçu avant tout pour exposer des **API REST** attaquant des bases NoSQL non bloquantes dans des architecture micro-services, Spring WebFlux peut être utilisé sur des applications web dont les **IHM** sont rendues côté serveur (ex : avec Thymeleaf ou Freemarker).
 
   J’ai récemment migré vers Spring WebFlux la [version Kotlin et Spring Boot de l’application démo Spring Petclinic](http://github.com/spring-petclinic/spring-petclinic-kotlin). Dans ce court billet, je voulais vous lister les adaptations mises en œuvre dans le [commit 279b2e7](https://github.com/spring-petclinic/spring-petclinic-kotlin/commit/279b2e7c58906d9a765e7229043c7d563f016b1c).
-
-  ![spring-webflux](/2017/12/migration-spring-web-mvc-vers-spring-webflux/spring-webflux.png)
 tags:
   - spring-mvc
   - spring-webflux
@@ -34,7 +30,7 @@ title: Migration Spring MVC vers Spring WebFlux
 url: /2017/12/migration-spring-web-mvc-vers-spring-webflux/
 
 ---
-[![Logo Spring WebFlux](spring-webflux.png)](spring-webflux.png)[**Spring WebFlux**](https://docs.spring.io/spring-framework/docs/5.0.1.RELEASE/spring-framework-reference/web-reactive.html#spring-webflux) est une **fonctionnalit** **é majeure** de **Spring Framework 5**. Disposant de son propre module Maven (spring-weblux), ce **nouveau framework web** se positionne comme une **alternative** **à Spring Web MVC.** Ce dernier a été conçu par-dessus l’API Servlet. Spring WebFlux l’a été pour les **applications r** **éactives**, avec I/O non bloquantes, asynchrones, **à faible latence**, basées sur des serveurs comme Netty, Undertow ou compatibles Servlets 3.1 et +.
+[![Logo Spring WebFlux:left](spring-webflux.png)](spring-webflux.png)[**Spring WebFlux**](https://docs.spring.io/spring-framework/docs/5.0.1.RELEASE/spring-framework-reference/web-reactive.html#spring-webflux) est une **fonctionnalit** **é majeure** de **Spring Framework 5**. Disposant de son propre module Maven (spring-weblux), ce **nouveau framework web** se positionne comme une **alternative** **à Spring Web MVC.** Ce dernier a été conçu par-dessus l’API Servlet. Spring WebFlux l’a été pour les **applications r** **éactives**, avec I/O non bloquantes, asynchrones, **à faible latence**, basées sur des serveurs comme Netty, Undertow ou compatibles Servlets 3.1 et +.
 Spring WebFlux s’éloigne du modèle d’un thread par requête HTTP et se base désormais sur le projet [**Reactor**](https://projectreactor.io/) pour orchestrer le traitement des requêtes.
 Conçu avant tout pour exposer des **API REST** attaquant des bases NoSQL non bloquantes dans des architecture micro-services, Spring WebFlux peut être utilisé sur des applications web dont les **IHM** sont rendues côté serveur (ex : avec Thymeleaf ou Freemarker).
 
@@ -48,17 +44,19 @@ Le **build Gradle** a été modifié en 2 points :
 1. La dépendance vers **Expression Language** (org.glassfish:javax.el) a été ajoutée pour les **tests** qui requièrent le support Bean Validation offert par Spring (classe LocalValidatorFactoryBean).
 
 Après résolution des dépendances, le changement le plus notable est que le JAR **spring-webmvc a été remplacé par spring-weblux**.
-Spring Web MVC s’appuie sur l’API Servlet. Pour preuve, toutes les classes de ce module appartiennent au package _org.springframework.web.servlet_. On y retrouvait par exemples les classes **DispatcherServlet** et ModelAndView. Spring WebFlux ne les utilise plus.
+Spring Web MVC s’appuie sur l’API Servlet. Pour preuve, toutes les classes de ce module appartiennent au package `org.springframework.web.servlet`.
+On y retrouvait par exemples les classes **`DispatcherServlet`** et `ModelAndView`. Spring WebFlux ne les utilise plus.
 
 ## Une migration quasi-transparente
 
-Spring WebFlux réutilisent les classes et annotations bien connues des développeurs Spring MVC : `@Controller`, `@RequestMapping`, @ModelAttribute, Model ou bien encore @InitBinder.
+Spring WebFlux réutilisent les classes et annotations bien connues des développeurs Spring MVC : `@Controller`, `@RequestMapping`, `@ModelAttribute`, `Model` ou bien encore `@InitBinder`.
 La migration vers Spring WebFlux du code de production est donc relativement simple.
 
-Les contrôleurs doivent être ajustés afin de ne plus utiliser les classes du module spring-webmvc. Ces changements sont identifiés dès la phase de compilation.
+Les contrôleurs doivent être ajustés afin de ne plus utiliser les classes du module `spring-webmvc`.
+Ces changements sont identifiés dès la phase de compilation.
 Dans l’exemple ci-dessous, la classe `ModelAndView` a été remplacée par la classe `Model`:
 
-Utilisation de ModelAndView avec Spring Web MVC :
+Utilisation de `ModelAndView avec Spring Web MVC :
 
 ```java
 @GetMapping("/owners/{ownerId}")
@@ -70,7 +68,7 @@ Utilisation de ModelAndView avec Spring Web MVC :
 
 ```
 
-Code migré vers Spring WebFlux en utilisant la classe Model :
+Code migré vers Spring WebFlux en utilisant la classe `Model` :
 
 ```java
 @GetMapping("/owners/{ownerId}")
@@ -87,7 +85,7 @@ _java.lang.IllegalStateException: Failed to invoke handler method with resolved 
 
 Pour corriger ce problème, la classe `ModelMap` a été remplacée par `Model` dans les handlers de requêtes.
 
-Utilisation de ModelMap avec Spring Web MVC :
+Utilisation de `ModelMap` avec Spring Web MVC :
 
 ```java
 @GetMapping(value = "/pets/{petId}/edit")
@@ -114,13 +112,15 @@ fun initUpdateForm(@PathVariable petId: Int, model: Model): String {
 
 La migration a demandé davantage d’effort pour les tests unitaires de la couche web. Il a en effet été nécessaire de complètement les refactorer.
 
-Spring WebFlux ne permet plus de tester en boîte blanche les contrôleurs. **La classe MockMvc n’existe plus**. Et il est désormais impossible de vérifier l’état du model ou le nom de la vue rendue par le contrôleur.
+Spring WebFlux ne permet plus de tester en boîte blanche les contrôleurs. **La classe MockMvc n’existe plus**.
+Et il est désormais impossible de vérifier l’état du model ou le nom de la vue rendue par le contrôleur.
 
-Pour tester les contrôleurs, Spring WebFlux propose d’utiliser la classe `WebTestClient`, le pendant de la classe [WebClient](http://www.baeldung.com/spring-5-webclient) pour les tests. WebTestClient a été pensé avant tout pour tester les retours au format JSON. Tester du HTML est moins simple. Il est nécessaire d’évaluer les templates Thymeleaf, ce qui présente néanmoins l’avantage de les tester. Lorsque l’on souhaite effectuer des assertions XPath, il est nécessaire de normaliser le HTML au format XHTML (fermer les balises).
+Pour tester les contrôleurs, Spring WebFlux propose d’utiliser la classe `WebTestClient`, le pendant de la classe [WebClient](http://www.baeldung.com/spring-5-webclient) pour les tests.
+`WebTestClient` a été pensé avant tout pour tester les retours au format JSON. Tester du HTML est moins simple. Il est nécessaire d’évaluer les templates Thymeleaf, ce qui présente néanmoins l’avantage de les tester. Lorsque l’on souhaite effectuer des assertions XPath, il est nécessaire de normaliser le HTML au format XHTML (fermer les balises).
 
 Si l’on prend exemple sur la classe de test [OwnerControllerTest](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/d52b733dc1eabded1677622879a380b6a7b2ab3d/src/test/kotlin/org/springframework/samples/petclinic/owner/OwnerControllerTest.kt), son en-tête a dû être modifiée en 3 points :
 
-1. L’annotation @WebMvcTest est remplacée par `@WebFluxTest`
+1. L’annotation `@WebMvcTest` est remplacée par `@WebFluxTest`
 1. La classe de configuration `ThymeleafAutoConfiguration` a été ajoutée
 1. Injecté, le bean `WebTestClient` remplace MockMvc
 
@@ -150,7 +150,7 @@ class OwnerControllerTest {
 ```
 
 Attardons-nous à présent sur l’une des méthodes de test. Par exemple, celle qui teste la soumission d’un formulaire invalide.
-Avec Spring Web MVC, les assertions s’appuient sur les méthodes `attributeHasErrors` et `attributeHasFieldErrors` de l’objet renvoyait par la méthode model() :
+Avec Spring Web MVC, les assertions s’appuient sur les méthodes `attributeHasErrors` et `attributeHasFieldErrors` de l’objet renvoyait par la méthode `model()` :
 
 ```java
 @Test
@@ -217,7 +217,7 @@ Une migration complète vers WebFlux passerait donc par une migration vers une b
  Références :
 
 - [Spring WebFlux](https://docs.spring.io/spring-framework/docs/5.0.1.RELEASE/spring-framework-reference/web-reactive.html#spring-webflux) (manuel de référence de Spring Framework)
-- [Projet Reactor](https://projectreactor.io/) (site web oficiel)
+- [Projet Reactor](https://projectreactor.io/) (site web officiel)
 - [Commit GitHub](https://github.com/spring-petclinic/spring-petclinic-kotlin/commit/dc1eabded1677622879a380b6a7b2ab3d) montrant les différences entre l’utilisation de Spring MVC et Spring WebFlux
 - [Spring 5 WebClient](http://www.baeldung.com/spring-5-webclient) (Baeldung blog)
 - [WebFlux Fonctionnal DSL](https://docs.spring.io/spring-framework/docs/5.0.0.RELEASE/spring-framework-reference/kotlin.html#webflux-functional-dsl) (manuel de référence de Spring Framework)
