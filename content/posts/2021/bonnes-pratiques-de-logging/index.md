@@ -5,8 +5,7 @@ categories:
   - retour-d'expérience
 date: "2021-01-03T11:44:26+00:00"
 toc: true
-thumbnail: logo-splunk.jpg
-featureImage: logo-splunk.jpg
+thumbnail: logo-log-file.png
 usePageBundles: true
 guid: https://javaetmoi.com/?p=2100
 parent_post_id: null
@@ -14,8 +13,6 @@ post_id: "2100"
 post_views_count: "46560"
 featured: true
 summary: |-
-  ![Icône de fichier de log](/2021/01/bonnes-pratiques-de-logging/lof-file-1.png)
-
   Publier en 2021 un article sur les logs n’est pas très novateur ; je vous l’accorde. Le **logging** est une pratique vieille comme l’informatique, ou presque. C’est une **pratique universelle** qu’on retrouve **quel que soit le langage de programmation** et quel que soit le type d’application. Pour autant, elle est survolée en fac et en école d’ingénieur. Les dévs apprennent bien souvent à logger sur le tas, en fonction de leurs besoins et de ce qui est déjà mis en place sur leur application. Rares sont également les entreprises mettant à disposition des normes et des bonnes pratiques en termes de traces applicatives.
 
   Dans cet article, je ne vous expliquerai pas comment utiliser [SLF4J](http://www.slf4j.org/), [Logback](http://logback.qos.ch/), [Log4j 2](https://logging.apache.org/log4j/2.x/) ou la controversée [API de Logging](https://docs.oracle.com/javase/8/docs/technotes/guides/logging/index.html) du langage Java. C’est un prérequis que bon nombre d’entre vous connaissent déjà. Beaucoup de ressources existent à ce sujet, en commençant par leurs documentations officielles.
@@ -33,7 +30,7 @@ title: Bonnes pratiques de logging
 url: /2021/01/bonnes-pratiques-de-logging/
 
 ---
-![Icône de fichier de log](lof-file-1.png)
+![Icône de fichier de log:left](logo-log-file.png)
 
 Publier en 2021 un article sur les logs n’est pas très novateur ; je vous l’accorde. Le **logging** est une pratique vieille comme l’informatique, ou presque. C’est une **pratique universelle** qu’on retrouve **quel que soit le langage de programmation** et quel que soit le type d’application. Pour autant, elle est survolée en fac et en école d’ingénieur. Les dévs apprennent bien souvent à logger sur le tas, en fonction de leurs besoins et de ce qui est déjà mis en place sur leur application. Rares sont également les entreprises mettant à disposition des normes et des bonnes pratiques en termes de traces applicatives.
 
@@ -49,7 +46,7 @@ Les **logs** permettent d’ **historiser les évènements normaux et anormaux**
 Les logs applicatifs sont utiles à divers moments du cycle de vie d'une application :
 
 1. En phase de **développement**, les logs sont complémentaires au **debugger** et permettent **de comprendre le fonctionnement d’une application** en suivant pas à pas le fil d'exécution de différentes fonctions critiques.
-1. En phase d' **intégration** et de **recette**, ils permettent de **faciliter l'analyse des anomalies remontées par la QA.**
+1. En phase d'**intégration** et de **recette**, ils permettent de **faciliter l'analyse des anomalies remontées par la QA.**
 1. Enfin, en phase d' **exploitation**, les logs peuvent permettre de **diagnostiquer des problèmes de prod** remontés par le service utilisateur ou l’équipe MCO. De manière proactive, il est également possible de configurer des alertes sur des patterns d’erreur détectés dans les logs.
 
 ## Centraliser les logs
@@ -57,16 +54,11 @@ Les logs applicatifs sont utiles à divers moments du cycle de vie d'une applica
 Sur le poste de dév, logger dans la console ou dans un fichier est courant. En un coup d’œil, le développeur peut s’y référer.  
 Sur les autres environnements, il est recommandé d’utiliser un système centralisé de collecte de logs, chargé de les indexer et proposant une IHM et une API REST de recherche. En cas d’incident, cela évite de se connecter en SSH sur les 15 nœuds de votre cluster pour trouver le fichier qui vous intéresse.
 
+![Logo Splunk:left](logo-splunk.jpg)  
 Depuis une dizaine d’années, ont émergés de nombreux systèmes de collecte appelés **SIEM** (Security Information and Event Management). **Splunk** est un système propriétaire. La stack Elasticsearch / Logstash - Beats / Kibana ( **ELK**) est Open Source.
 
-
-{{< gallery cols="1" >}}  
-![Logo Splunk](logo-splunk.jpg)  
-![Logo Elastic](logo-elastic.png)  
-{{< /gallery >}}  
-
 Les logs générés par les applicatifs sont soit directement envoyés à ces systèmes par le réseau (risque de perte de logs en cas d’indisponilité du SIEM), soit générés temporairement sur le système de fichier puis ingérés via un collecteur préalablement installé sur l’hôte.
-
+![Logo Elastic:right](logo-elastic.png)  
 La collecte des logs n’est pas l’apanage des applications back. Une **application front** basée sur Angular peut par exemple envoyer ses logs au SIEM ou à son Backend for Frontend via un framework comme [NGX Logger](https://www.npmjs.com/package/ngx-logger).
 
 ## Normaliser les données de logs
@@ -133,22 +125,13 @@ Sur le poste de dév, vous pouvez alterner entre INFO, DEBUG ou TRACE en fonctio
 
 Le tableau ci-dessous précise le niveau de gravité à utiliser en fonction de la nature de l’évènement que l'on souhaite tracer :
 
-**Niveau****Usage****Exemples****TRACE**Utilisé pour le débogage fin en mode verbeux de l'application.  
-Par expérience, ce niveau est très peu utilisé par les développeurs, mais pourrait l’être davantage.\- Nouvelle valeur d'une variable  
-\- Résultat d'une évaluation conditionnelle  
-\- Trace d'exécution d'une boucle   
-\- Entrée / sortie d'une méthode**DEBUG**Utilisé pour le débogage courant de l'application. Les informations loguées avec ce niveau intéressent plus particulièrement le développeur.\- Flux entrées / sorties (ex: requêtes SQL / requêtes HTTP)  
-\- Données saisies invalides**INFO**Traces fournissant des informations contextualisées sur le fonctionnement général de l'application et son utilisation.  
-Ces traces à destination du métier et de la MCO.  
-Les logs d'audit sont également logués avec le niveau INFO.\- Opérations en écriture qui ont un sens fonctionnel (ex: validation d’une commande, émission de contrat, génération de courrier)  
-\- Opération en lecture au cas par cas  
-\- Début et fin des grandes étapes d'un batch ou d'un traitement long  
-\- Sauvegarde et fermeture de fichiers  
-\- Connexion / déconnexion d'un utilisateur**WARN**Trace d'anomalies ne déstabilisant pas l'application et ne demandant pas une intervention immédiate (erreur d'ordre fonctionnel par exemple).  
-Problème non bloquant ne faisant pas échouer la transaction métier. Permet de ne pas spammer les logs avec des logs de niveau ERROR.\- Un paramétrage applicatif est manquant mais ce cas est prévu par le système (une valeur par défaut est appliquée, par exemple) et son fonctionnement n'est pas remis en cause  
-\- Erreur de login**ERROR**Trace d'anomalie signalant une erreur importante mais ne remettant pas en cause le fonctionnement général de l’application. Ce niveau de log signifie un arrêt de la requête/service en cours et fait généralement suite à une exception de type RuntimeException remontant au plus haut de la pile d’appel. Le niveau FATAL n'existant pas dans SLF4J, les erreurs critiques empêchant tout fonctionnement ultérieur de l'application sont également tracées avec le niveau ERROR.\- Adhérence momentanément indisponible (ex: erreur 503 remontée lors de l’appel une API REST)  
-\- Erreur JDBC liée à une contrainte d'intégrité  
-\- Arrêt inattendu d'un batch (ex : filesystem saturé)
+| **Niveau** | **Usage** | **Exemples** |
+|---|---|---|
+| **TRACE** | Utilisé pour le débogage fin en mode verbeux de l'application. Par expérience, ce niveau est très peu utilisé par les développeurs, mais pourrait l'être davantage. | - Nouvelle valeur d'une variable<br>- Résultat d'une évaluation conditionnelle<br>- Trace d'exécution d'une boucle<br>- Entrée / sortie d'une méthode |
+| **DEBUG** | Utilisé pour le débogage courant de l'application. Les informations loguées avec ce niveau intéressent plus particulièrement le développeur. | - Flux entrées / sorties (ex: requêtes SQL / requêtes HTTP)<br>- Données saisies invalides |
+| **INFO** | Traces fournissant des informations contextualisées sur le fonctionnement général de l'application et son utilisation. Ces traces à destination du métier et de la MCO. Les logs d'audit sont également logués avec le niveau INFO. | - Opérations en écriture qui ont un sens fonctionnel (ex: validation d'une commande, émission de contrat, génération de courrier)<br>- Opération en lecture au cas par cas<br>- Début et fin des grandes étapes d'un batch ou d'un traitement long<br>- Sauvegarde et fermeture de fichiers<br>- Connexion / déconnexion d'un utilisateur |
+| **WARN** | Trace d'anomalies ne déstabilisant pas l'application et ne demandant pas une intervention immédiate (erreur d'ordre fonctionnel par exemple). Problème non bloquant ne faisant pas échouer la transaction métier. Permet de ne pas spammer les logs avec des logs de niveau ERROR. | - Un paramétrage applicatif est manquant mais ce cas est prévu par le système (une valeur par défaut est appliquée, par exemple) et son fonctionnement n'est pas remis en cause<br>- Erreur de login |
+| **ERROR** | Trace d'anomalie signalant une erreur importante mais ne remettant pas en cause le fonctionnement général de l'application. Ce niveau de log signifie un arrêt de la requête/service en cours et fait généralement suite à une exception de type RuntimeException remontant au plus haut de la pile d'appel. Le niveau FATAL n'existant pas dans SLF4J, les erreurs critiques empêchant tout fonctionnement ultérieur de l'application sont également tracées avec le niveau ERROR. | - Adhérence momentanément indisponible (ex: erreur 503 remontée lors de l'appel une API REST)<br>- Erreur JDBC liée à une contrainte d'intégrité<br>- Arrêt inattendu d'un batch (ex : filesystem saturé) |
 
 ## Contenu des messages des logs
 
@@ -170,7 +153,7 @@ Lorsque vous ne pouvez pas structurer vos logs (en utilisant du JSON), il est in
 
 ### Données à ne pas logger
 
-En accord avec la RGPD et la CNIL, les données sensibles listées dans la catégorie [A3:2017 Sensitive Data Exposure](https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure) de l’OWAP ne doivent pas apparaître dans les logs.
+En accord avec la RGPD et la CNIL, les données sensibles listées dans la catégorie [A3:2017 Sensitive Data Exposure](https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure) de l’OWASP ne doivent pas apparaître dans les logs.
 
 - Les mots de passe
 - Informations nominatives : nom, prénom, nom de naissance, numéro de sécurité sociale
@@ -178,7 +161,7 @@ En accord avec la RGPD et la CNIL, les données sensibles listées dans la caté
 - Informations de localisation : adresse postale, adresse IP, e-mail
 - Données de santé, génétiques et biométriques
 
-Vous avez le choix entre ne pas les concaténer aux messages de logs ou bien de les masquer avec, par exemple, des wildcards \*\*\*\*. Cette seconde option a un cout sur les performances car elles utilisent souvent des regex.  
+Vous avez le choix entre ne pas les concaténer aux messages de logs ou bien de les masquer avec, par exemple, des wildcards `****`. Cette seconde option a un cout sur les performances car elles utilisent souvent des regex.  
 Le projet Logstash Logback Encoder propose un mécanisme basé sur le décorateur [MaskingJsonGeneratorDecorator](https://github.com/logstash/logstash-logback-encoder#masking). Avec Logback, vous trouverez facilement différents exemples comme [celui proposé par Dhaval Kolapkar](https://medium.com/@kolapkar.dhaval/mask-sensitive-data-in-logs-7e06496e56c1).
 
 L’enregistrement systématique des flux REST et SOAP en production pose problème car il faut identifier les flux pouvant véhiculer certaines de ces informations et les masquer.
@@ -187,13 +170,13 @@ L’enregistrement systématique des flux REST et SOAP en production pose probl�
 
 Afin d'en simplifier la recherche et de leur donner un sens fonctionnel, il est possible d’étiqueter les messages de log à l'aide de **hashtags** comme sur Twitter.
 
-Par exemple, les **pistes d’audit** demandées par les PO dans vos User Story peuvent être étiquetées avec le hashtag **#audit** :
+Par exemple, les **pistes d’audit** demandées par les PO dans vos User Story peuvent être étiquetées avec le hashtag `#audit` :
 
 ```java
 LOG.info("Envoi de la commande numero=" + order.getNumber() + " #audit");
 ```
 
-Un autre exemple consiste à tagger les logs remontant des problèmes de performance (appels ou requêts longues) avec le hashtag **#perf**.
+Un autre exemple consiste à tagger les logs remontant des problèmes de performance (appels ou requêts longues) avec le hashtag `#perf`.
 
 ## Autres bonnes pratiques
 
