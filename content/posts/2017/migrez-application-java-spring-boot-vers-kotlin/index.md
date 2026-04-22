@@ -262,7 +262,7 @@ findPetTypes.find { it.name == text } ?:
 val compName = pet.name?.toLowerCase()
 ```
 
-Kotlin proposent d’autres fonctionnalités fortes intéressantes que je n’ai pas eu l’occasion de mettre en œuvre dans Spring Petclinic. Je pense notamment aux [**extension function** **s**](https://kotlinlang.org/docs/reference/extensions.html) qui permettent d’ajouter dynamiquement des méthodes à une classe.
+Kotlin proposent d’autres fonctionnalités fortes intéressantes que je n’ai pas eu l’occasion de mettre en œuvre dans Spring Petclinic. Je pense notamment aux [**extension functions**](https://kotlinlang.org/docs/reference/extensions.html) qui permettent d’ajouter dynamiquement des méthodes à une classe.
 
 ## Des changements plus discutables
 
