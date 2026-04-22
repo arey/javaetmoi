@@ -8,23 +8,20 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - retour-d'expérience
-featureImage: azure-fundamentals-600x600-1.png
-featureImageAlt: azure-fundamentals-600x600
+thumbnail: azure-fundamentals-600x600-1.png
 usePageBundles: true
 date: "2020-02-08T18:35:40+00:00"
 toc: true
-thumbnail: azure-fundamentals-600x600-1.png
 guid: https://javaetmoi.com/?p=2080
 parent_post_id: null
 post_id: "2080"
 post_views_count: "9658"
 summary: |-
-  [![Badge de certification Microsoft Azure Fundamentals](/2020/02/certification-microsoft-azure-fondamentals/azure-fundamentals-600x600-1-150x150.png)](https://www.youracclaim.com/earner/earned/badge/e18659c6-5f65-4efa-becd-c4293079ea4b) Assurée par un formateur Microsoft, la formation «  Microsoft Azure Fondamentals » se déroule sur une journée et permet de se préparer à la **[certification AZ-900 « Microsoft Azure Fondamentals »](https://docs.microsoft.com/fr-fr/learn/certifications/exams/az-900)**. A l’issue de la formation, un voucher est donné à chaque participant. Ces derniers sont invités à passer leur certification dans la foulée.
+  Assurée par un formateur Microsoft, la formation «  Microsoft Azure Fondamentals » se déroule sur une journée et permet de se préparer à la **[certification AZ-900 « Microsoft Azure Fondamentals »](https://docs.microsoft.com/fr-fr/learn/certifications/exams/az-900)**. A l’issue de la formation, un voucher est donné à chaque participant. Ces derniers sont invités à passer leur certification dans la foulée.
 
   La formation est découpée en 4 modules.
   Les notes ci-dessous m’auront permis d’obtenir [ma certification](https://www.youracclaim.com/earner/earned/badge/e18659c6-5f65-4efa-becd-c4293079ea4b) du premier coup. J’espère qu’elles vous aideront à vous préparer. En rouge, sont notés les mots clés, concepts et noms de produits à retenir par cœur.
 
-  ![azure-fundamentals-600x600](/2020/02/certification-microsoft-azure-fondamentals/azure-fundamentals-600x600-1.png)
 tags:
   - azure
   - cloud
@@ -32,7 +29,7 @@ title: Certification Microsoft Azure Fondamentals
 url: /2020/02/certification-microsoft-azure-fondamentals/
 
 ---
-[![Badge de certification Microsoft Azure Fundamentals](azure-fundamentals-600x600-1.png)](https://www.youracclaim.com/earner/earned/badge/e18659c6-5f65-4efa-becd-c4293079ea4b) Assurée par un formateur Microsoft, la formation «  Microsoft Azure Fondamentals » se déroule sur une journée et permet de se préparer à la **[certification AZ-900 « Microsoft Azure Fondamentals »](https://docs.microsoft.com/fr-fr/learn/certifications/exams/az-900)**. A l’issue de la formation, un voucher est donné à chaque participant. Ces derniers sont invités à passer leur certification dans la foulée.
+[![Badge de certification Microsoft Azure Fundamentals:left](azure-fundamentals-600x600-1.png)](https://www.youracclaim.com/earner/earned/badge/e18659c6-5f65-4efa-becd-c4293079ea4b) Assurée par un formateur Microsoft, la formation «  Microsoft Azure Fondamentals » se déroule sur une journée et permet de se préparer à la **[certification AZ-900 « Microsoft Azure Fondamentals »](https://docs.microsoft.com/fr-fr/learn/certifications/exams/az-900)**. A l’issue de la formation, un voucher est donné à chaque participant. Ces derniers sont invités à passer leur certification dans la foulée.
 
 La formation est découpée en 4 modules.
 Les notes ci-dessous m’auront permis d’obtenir [ma certification](https://www.youracclaim.com/earner/earned/badge/e18659c6-5f65-4efa-becd-c4293079ea4b) du premier coup. J’espère qu’elles vous aideront à vous préparer. En rouge, sont notés les mots clés, concepts et noms de produits à retenir par cœur.
