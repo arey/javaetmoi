@@ -8,22 +8,20 @@ _xmlsf_image_featured:
 author: Antoine Rey
 categories:
   - retour-d'expérience
-featureImage: gradle-logo.png
-featureImageAlt: gradle-logo
+thumbnail: gradle-logo.png
 usePageBundles: true
 date: "2017-11-22T07:40:41+00:00"
 toc: true
-thumbnail: gradle-logo.png
 guid: http://javaetmoi.com/?p=1786
 parent_post_id: null
 post_id: "1786"
 post_views_count: "5751"
 summary: |-
-  [![Logo Gradle](/2017/11/build-gradle-dsl-kotlin-webapp-spring-boot/gradle-logo.png)](gradle-logo.png) En guise de conclusion de [mon précédent billet](http://javaetmoi.com/2017/09/migrez-application-java-spring-boot-vers-kotlin/), je proposais de **migrer le [build Maven](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/c66b152b83be2cdf8c28ca4e3e8869158b47a40b/pom.xml) d** **’une application web Spring Boot 2 en un build Gradle bas** **é sur le langage Kotlin**. C’est désormais chose faite. Mais bien que Gradle **privil** **égie** aujourd’hui l’usage du **DSL** **Kotlin** au détriment de **Groovy**, son [guide d’utilisation](https://docs.gradle.org/4.3.1/userguide/userguide.html) n’a pas encore été actualisé et il est difficile de trouver de la documentation. Il faut passer par le projet GitHub [kotlin-dsl](https://github.com/gradle/kotlin-dsl) pour accéder à quelques tutoriaux et des exemples. Heureusement, GitHub fourmille d’autres d’exemples, notamment du côté des projets soutenus par les contributeurs Pivotal sur Spring Boot.
+  En guise de conclusion de [mon précédent billet](http://javaetmoi.com/2017/09/migrez-application-java-spring-boot-vers-kotlin/), je proposais de **migrer le [build Maven](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/c66b152b83be2cdf8c28ca4e3e8869158b47a40b/pom.xml) d'une application web Spring Boot 2 en un build Gradle basé sur le langage Kotlin**.
+  C’est désormais chose faite. Mais bien que Gradle **privilégie** aujourd’hui l’usage du **DSL** **Kotlin** au détriment de **Groovy**, son [guide d’utilisation](https://docs.gradle.org/4.3.1/userguide/userguide.html) n’a pas encore été actualisé et il est difficile de trouver de la documentation.
+  Il faut passer par le projet GitHub [kotlin-dsl](https://github.com/gradle/kotlin-dsl) pour accéder à quelques tutoriaux et des exemples. Heureusement, GitHub fourmille d’autres d’exemples, notamment du côté des projets soutenus par les contributeurs Pivotal sur Spring Boot.
 
   Sans plus tarder, voici le fichier de conf [build.gradle.kts](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/build.gradle.kts) de la version Kotlin de Spring Petclinic.
-
-  ![gradle-logo](/2017/11/build-gradle-dsl-kotlin-webapp-spring-boot/gradle-logo.png)
 tags:
   - gradle
   - kotlin
@@ -32,7 +30,10 @@ title: Build Gradle en Kotlin d’une webapp Spring Boot
 url: /2017/11/build-gradle-dsl-kotlin-webapp-spring-boot/
 
 ---
-[![Logo Gradle](gradle-logo.png)](gradle-logo.png) En guise de conclusion de [mon précédent billet](/2017/09/migrez-application-java-spring-boot-vers-kotlin/), je proposais de **migrer le [build Maven](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/c66b152b83be2cdf8c28ca4e3e8869158b47a40b/pom.xml) d** **’une application web Spring Boot 2 en un build Gradle bas** **é sur le langage Kotlin**. C’est désormais chose faite. Mais bien que Gradle **privil** **égie** aujourd’hui l’usage du **DSL** **Kotlin** au détriment de **Groovy**, son [guide d’utilisation](https://docs.gradle.org/4.3.1/userguide/userguide.html) n’a pas encore été actualisé et il est difficile de trouver de la documentation. Il faut passer par le projet GitHub [kotlin-dsl](https://github.com/gradle/kotlin-dsl) pour accéder à quelques tutoriaux et des exemples. Heureusement, GitHub fourmille d’autres d’exemples, notamment du côté des projets soutenus par les contributeurs Pivotal sur Spring Boot.
+[![Logo Gradle:right](gradle-logo.png)](gradle-logo.png) En guise de conclusion de [mon précédent billet](/2017/09/migrez-application-java-spring-boot-vers-kotlin/), je proposais de **migrer le [build Maven](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/c66b152b83be2cdf8c28ca4e3e8869158b47a40b/pom.xml) d'une application web Spring Boot 2 en un build Gradle basé sur le langage Kotlin**.
+C’est désormais chose faite. Mais bien que Gradle **privilégie** aujourd’hui l’usage du **DSL** **Kotlin** au détriment de **Groovy**, son [guide d’utilisation](https://docs.gradle.org/4.3.1/userguide/userguide.html) n’a pas encore été actualisé et il est difficile de trouver de la documentation.
+Il faut passer par le projet GitHub [kotlin-dsl](https://github.com/gradle/kotlin-dsl) pour accéder à quelques tutoriaux et des exemples.
+Heureusement, GitHub fourmille d’autres d’exemples, notamment du côté des projets soutenus par les contributeurs Pivotal sur Spring Boot.
 
 Sans plus tarder, voici le fichier de conf [`build.gradle.kts`](https://github.com/spring-petclinic/spring-petclinic-kotlin/blob/master/build.gradle.kts) de la version Kotlin de Spring Petclinic.
 
@@ -129,7 +130,7 @@ Suite à [un bug JUnit 5](https://github.com/junit-team/junit5/issues/768), le p
 Le plugin Spring Boot pour Gradle `org.springframework.boot` joue un triple rôle :
 
 1. La **construction** le **uber-JAR exécutable**
-1. L’ **exécution** de la webapp via la ligne de commande `gradle bootRun`
+1. L'**exécution** de la webapp via la ligne de commande `gradle bootRun`
 1. La **gestion des dépendances**
 
 Attardons-nous un moment sur la gestion des dépendances. Fonctionnant de concert avec le [plugin Dependency Management](https://github.com/spring-gradle-plugins/dependency-management-plugin/) `io.spring.dependency-management`, le plugin Spring Boot permet d’éviter de déclarer la version des dépendances déclarées dans le bloc `dependencies {}` ; du moins, celles déclarées dans le BOM Maven `spring-boot-starter-parent` qu’il importe.
