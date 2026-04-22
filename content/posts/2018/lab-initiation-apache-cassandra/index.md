@@ -3,17 +3,17 @@ _edit_last: "1"
 _thumbnail_id: "1821"
 _xmlsf_image_featured:
   caption: cof
-  loc: IMG_20180418_132919.jpg
+  loc: photo-lab-apache-cassandra-devoxx-france-2018.jpg
   title: cof
 author: admin
 categories:
   - conférence
-featureImage: IMG_20180418_132919.jpg
+thumbnail: logo-apache-cassandra.png
+featureImage: photo-lab-apache-cassandra-devoxx-france-2018.jpg
 featureImageAlt: cof
 usePageBundles: true
 date: "2018-04-22T15:08:55+00:00"
 toc: true
-thumbnail: IMG_20180418_132919.jpg
 guid: http://javaetmoi.com/?p=1820
 parent_post_id: null
 post_id: "1820"
@@ -26,8 +26,6 @@ summary: |-
   Ce billet a pour objectif de permettre aux développeurs n’ayant pas eu la chance de suivre ce Lab de profiter du travail préparatif des 2 speakers (un grand merci à eux) en lui donnant de la visibilité. Vous pourrez ainsi vous former par vous-même à Cassandra. Les explications données dans ce billet complètent les slides mais ne remplacent pas leur lecture.
 
   [![Photo du Lab d'initiation Apache Cassandra à Devoxx France 2018](/2018/04/lab-initiation-apache-cassandra/IMG_20180418_132919.jpg)](IMG_20180418_132919.jpg)
-
-  ![cof](/2018/04/lab-initiation-apache-cassandra/IMG_20180418_132919.jpg)
 tags:
   - cassandra
   - devoxx
@@ -38,11 +36,10 @@ url: /2018/04/lab-initiation-apache-cassandra/
 ---
 Lors de **Devoxx France 2018**, j’ai participé au **[Hands-on Lab d’initiation à Apache Cassandra](https://cfp.devoxx.fr/2018/talk/GVY-2134/Initiation_a_Apache_Cassandra)**. Animé par Alexander Dejanovski (The LastPickle) et Maxence Lecointe (Ippon), ce Lab m’aura enfin permis de découvrir cette **base de donnée NoSQL**, d’appréhender ses concepts fondamentaux, de jouer avec un cluster en local et d’écrire quelques requêtes CQL par le biais de son client Java.
 
+![logo-apache-cassandra.png:right](logo-apache-cassandra.png)
 Le Lab était construit autour d’un support de présentation et de 5 exercices pratiques. Les **slides** [Devoxx France – Initiation àApache Cassandra - Avril 2018.pdf](https://github.com/thelastpickle/devoxxfr2018/raw/master/Devoxx%20France-%20Initiation%20%C3%A0%20Apache%20Cassandra%20-%20Avril%202018.pdf) et les **exercices** sont disponibles sur le dépôt GitHub [thelastpickle/devoxxfr2018](https://github.com/thelastpickle/devoxxfr2018/).
 
 Ce billet a pour objectif de permettre aux développeurs n’ayant pas eu la chance de suivre ce Lab de profiter du travail préparatif des 2 speakers (un grand merci à eux) en lui donnant de la visibilité. Vous pourrez ainsi vous former par vous-même à Cassandra. Les explications données dans ce billet complètent les slides mais ne remplacent pas leur lecture.
-
-[![Photo du Lab d'initiation Apache Cassandra à Devoxx France 2018](IMG_20180418_132919.jpg)](IMG_20180418_132919.jpg)
 
 ## Installation de CCM
 
@@ -127,12 +124,12 @@ Les données sont compressées dans Cassandra. La version 3.0 a grandement amél
 Cassandra assure-t-elle la cohérence entre les 2 tables ? Oui, si tout se passe bien.
 
 Les slides 25 et 26 abordent le caractère d’ **idempotence** de Cassandra.
-Deux même INSERT (avec la même clé primaire) vont s’exécuter sans erreur. La dernière écriture prévaut sur la 1ière. La 1ière ligne est donc écrasée. Il n’existe pas de contraintes d’intégrité comme en SQL.
-Un INSERT et équivalent à un UPDATE. Avant d’insérer une ligne, il n’est plus besoin de savoir si l’enregistrement existe ou non.
+Deux même `INSERT` (avec la même clé primaire) vont s’exécuter sans erreur. La dernière écriture prévaut sur la 1ière. La 1ière ligne est donc écrasée. Il n’existe pas de contraintes d’intégrité comme en SQL.
+Un `INSERT` et équivalent à un `UPDATE`. Avant d’insérer une ligne, il n’est plus besoin de savoir si l’enregistrement existe ou non.
 A noter qu’on travaille plus souvent avec des Sets que des Lists car les Sets garantissent l’idempotence. Différenciation syntaxique : utilisation des {} au lieu des \[\]
 
 La notion de **Tombstone** est très importante, car à l’origine de nombreux problèmes de performance.
-Un DELETE place une donnée spéciale appelée TOMBSTONE. Il s’agit d’un **marqueur logique de suppression**.
+Un `DELETE` place une donnée spéciale appelée TOMBSTONE. Il s’agit d’un **marqueur logique de suppression**.
 Cassandra est codée en Java. Lire en mémoire des TOMBSTONE génère non seulement beaucoup d’I/O pour rien, mais exerce également beaucoup de pression sur le GC.
 Les enregistrements peuvent avoir une durée de vie (un TTL). Une fois la durée de vie passée, ils passent en TOMBSTONE. Pour garder un historique de 3 mois, fixer le TTL à ~7776000.
 Les conditions de purge des Tombstones sont complexes. La durée de vie minimale d’un Tombstone est de 10 jours. A partir de 100 000 Tombstones, Cassandra va killer la requête, se protégeant ainsi envers le GC.
