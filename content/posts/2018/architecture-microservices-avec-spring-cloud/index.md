@@ -9,12 +9,12 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - spring
-featureImage: 2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg
-featureImageAlt: 2018-08-24-Architecture-microservices-avec-Spring-Cloud
+thumbnail: logo-spring-cloud.svg
+# featureImage: 2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg
+featureImageAlt: Architecture microservices avec Spring Cloud
 usePageBundles: true
 date: "2018-10-04T05:58:31+00:00"
 toc: true
-thumbnail: 2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg
 guid: http://javaetmoi.com/?p=1869
 parent_post_id: null
 post_id: "1869"
@@ -34,7 +34,6 @@ summary: |-
 
   [![Diagramme d'architecture microservices Spring Petclinic avec Spring Cloud](/2018/10/architecture-microservices-avec-spring-cloud/2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg)](Diapositive1.jpg)
 
-  ![2018-08-24-Architecture-microservices-avec-Spring-Cloud](/2018/10/architecture-microservices-avec-spring-cloud/2018-08-24-Architecture-microservices-avec-Spring-Cloud.jpg)
 tags:
   - eureka
   - netflix-oss
@@ -46,6 +45,8 @@ title: Architecture Microservices avec Spring Cloud
 url: /2018/10/architecture-microservices-avec-spring-cloud/
 
 ---
+![Logo Spring Cloud:right](logo-spring-cloud.png)
+
 Dans ce billet, j’aimerais vous présenter les différentes briques techniques permettant de mettre en œuvre une [**architecture microservices**](https://martinfowler.com/articles/microservices.html) reposant sur **Spring Boot**, **Spring Cloud**, **Netflix OSS** et **Docker**. Pour m’y aider, je m’appuierai sur l’application démo [**Spring Petclinic Microservices**](https://github.com/spring-petclinic/spring-petclinic-microservices) que je vous avais déjà brièvement présenté [en 2016](/2016/12/les-forks-de-spring-petclinic/) et que j’ai récemment migrée vers Spring Cloud Finchley et Spring Boot 2.
 
 Ce fork a été construit à partir de l’application monolithique [spring-petclinic-angularjs](https://github.com/spring-petclinic/spring-petclinic-angularjs). Cette dernière a été découpée en plusieurs services, chacun responsable d’un domaine métier de la clinique vétérinaire : les animaux et leurs propriétaires, leurs visites à la clinique et les vétérinaires.
@@ -146,7 +147,7 @@ Toute la **configuration applicative** est **versionnée** dans un dépôt Git. 
 Le serveur de config est packagé sous forme d’un JAR Spring Cloud. Pour créer le module [spring-petclinic-config-server](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/), un peu de dév a été nécessaire :
 
 1. Générer une application minimaliste Spring Boot (par exemple via [https://start.spring.io](https://start.spring.io))
-1. Inclure une dépendance vers l’artefact `spring-cloud-config-server`:
+1. Inclure une dépendance vers l’artefact `spring-cloud-config-server` :
 
 ```xhtml
 <dependency>
@@ -179,7 +180,7 @@ spring:
 
 Pendant la phase de développement, pour tester ses changements de configuration, il n’est pas nécessaire de les pousser sur le dépôt Git distant. Le profile Spring « local » permet d’aller chercher les fichiers dans un dépôt Git local au poste de dév en passant ces 2 paramètres à la JVM :
 
--Dspring.profiles.active=local -DGIT\_REPO=/projects/spring-petclinic-microservices-config
+`-Dspring.profiles.active=local -DGIT\_REPO=/projects/spring-petclinic-microservices-config
 
 Par simplicité, ni l’accès au dépôt, ni l’accès au serveur de configuration n’ont été sécurisés. C’est bien entendu nécessaire en entreprise. Le contenu des fichiers de configuration (comme les mots de passe) peut également être chiffré. Je vous renvoie à la [documentation](https://cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html) pour consulter toutes les options possibles.
 
@@ -317,7 +318,7 @@ A ce stade, nous avons vu comment faire pour enregistrer un microservice auprès
 
 Dans Petclinic, le microservice front API Gateway centralise les appels aux API REST des 3 microservices back. On peut l’assimiler à un [Backend for Frontend](https://samnewman.io/patterns/architectural/bff/). Il permet de gérer les problématiques de CORS tout en assurant l’équilibrage de charge.
 
-Par exemple, lorsque l’utilisateur souhaite consulter l’écran de consultation d’un propriétaire, le code JavaScript du navigateur fait appel à l’URL : http://localhost:8080/api/gateway/owners/1
+Par exemple, lorsque l’utilisateur souhaite consulter l’écran de consultation d’un propriétaire, le code JavaScript du navigateur fait appel à l’URL : `http://localhost:8080/api/gateway/owners/1`
 
 Le contrôleur REST Spring MVC [ApiGatewayController](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/8513779b791de694c54816d29f5c8df9fbf59183/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java) a la responsabilité de traiter cette requête HTTP. Il délègue son traitement au service [CustomersServiceClient](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/8513779b791de694c54816d29f5c8df9fbf59183/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java) qui fait à son tour un appel REST au microservice `customers-service`:
 
@@ -496,7 +497,7 @@ ENTRYPOINT ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLim
 Introduits depuis Java 8 update 131, les flags **UnlockExperimentalVMOptions** et **UseCGroupMemoryLimitForHeap** ordonnent à la JVM d’ **utiliser ¼ de la mémoire allouée à l’OS** (si Xmx non spécifié). Ils fonctionnent de pair avec le paramètre **mem\_limit** spécifié dans le [`docker-compose.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker-compose.yml) pour chaque image Docker.
 
 Une autre spécificité du Dockerfile concerne l’utilisation du script [**wait-for-it.sh**](https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh). En effet, **l’ordre de démarrage des microservices est important** : le serveur de Configuration doit être démarré en premier, suivi de l’annuaire de Services et du serveur Zipkin. Les autres microservices peuvent ensuite être démarrés simultanément. Le script [wait-for-it.sh](https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh) permet de se mettre en attente de la disponibilité d’une application web. Dans le [`docker-compose.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker-compose.yml), l’entrypoint du container _discovery-server_ attend que le _config-server_ soit démarré avant de démarrer sa JVM :
-entrypoint: \["./wait-for-it.sh","discovery-server:8761","--timeout=60","--","java", …\]
+entrypoint: `\["./wait-for-it.sh","discovery-server:8761","--timeout=60","--","java", …\]
 
 Les applications Spring Boot démarrent avec le **profile Spring docker**. Dans le fichier de configuration Spring Cloud de chaque microservice, ce profile écrase des valeurs par défaut utilisées pour un déploiement hors container.
 Si l’on prend comme exemple un extrait du fichier de configuration [`customers-service.yml`](https://github.com/spring-petclinic/spring-petclinic-microservices-config/blob/master/customers-service.yml) :
