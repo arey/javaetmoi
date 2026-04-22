@@ -7,12 +7,12 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - retour-d'expérience
+thumbnail: logo-grafana.svg
 featureImage: 2019-03-Dashboard-Grafana-dockerisé-grafana.png
 featureImageAlt: 2019-03 - Dashboard Grafana dockerisé - grafana
 usePageBundles: true
 date: "2019-03-28T17:27:32+00:00"
 toc: true
-thumbnail: 2019-03-Dashboard-Grafana-dockerisé-grafana.png
 guid: http://javaetmoi.com/?p=1959
 parent_post_id: null
 post_id: "1959"
@@ -20,13 +20,10 @@ post_views_count: "12565"
 summary: |-
   A l’instar de SLF4J pour les logs, **[Micrometer](https://micrometer.io/)** est la **façade d’export de métriques** utilisée par Spring Boot et ses Actuators. Micrometer supporte une douzaine de systèmes de monitoring : Datalog, Netflix Atlas, New Relic, JMX, CloudWatch, InfluxDB ou bien encore Prometheus.
 
-  Récemment, j’ai poursuivi le travail initié par Kevin Crawley pour intégrer **Prometheus** et **Grafana** dans la version microservices de Spring Petclinic. Proposée par Maciej Szarliński, l’idée consistait à remplacer les compteurs **Micrometer** de type`registry.counter("create.visit").increment()` par l’ [annotation @Timed.](https://micrometer.io/docs/concepts)
+  Récemment, j’ai poursuivi le travail initié par Kevin Crawley pour intégrer **Prometheus** et **Grafana** dans la version microservices de Spring Petclinic. Proposée par Maciej Szarliński, l’idée consistait à remplacer les compteurs **Micrometer** de type `registry.counter("create.visit").increment()` par l’ [annotation @Timed.](https://micrometer.io/docs/concepts)
 
   J’ai profité de ce changement pour améliorer le packaging **Docker** de Grafana et en simplifier l’accès. Pour accéder au dashboard personnalisé exposant l’évolution du nombre d’animaux et de propriétaires, un `docker-compose up` suivi d’un clic sur l’ [URL du dashboard](http://localhost:3000/d/69JXeR0iw/spring-petclinic-metrics) sont désormais suffisant.<br>**Ce billet présente les configurations Docker et Grafana mises en oeuvre**.
-
   [![Dashboard Grafana Spring Petclinic Metrics](/2019/03/dashboard-grafana-docker/2019-03-Dashboard-Grafana-dockerisé-grafana.png)](2019-03-Dashboard-Grafana-dockerisé-grafana.png)
-
-  ![2019-03 - Dashboard Grafana dockerisé - grafana](/2019/03/dashboard-grafana-docker/2019-03-Dashboard-Grafana-dockerisé-grafana.png)
 tags:
   - docker
   - grafana
@@ -42,8 +39,6 @@ Récemment, j’ai poursuivi le travail initié par Kevin Crawley pour intégrer
 
 J’ai profité de ce changement pour améliorer le packaging **Docker** de Grafana et en simplifier l’accès. Pour accéder au dashboard personnalisé exposant l’évolution du nombre d’animaux et de propriétaires, un `docker-compose up` suivi d’un clic sur l’ [URL du dashboard](http://localhost:3000/d/69JXeR0iw/spring-petclinic-metrics) sont désormais suffisant.  
 **Ce billet présente les configurations Docker et Grafana mises en oeuvre**.
-
-[![Dashboard Grafana Spring Petclinic Metrics](2019-03-Dashboard-Grafana-dockerisé-grafana.png)](2019-03-Dashboard-Grafana-dockerisé-grafana.png)
 
 ## Docker compose
 
