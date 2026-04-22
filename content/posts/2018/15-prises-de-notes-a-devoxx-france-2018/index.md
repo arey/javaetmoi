@@ -9,11 +9,11 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - conférence
-featureImage: IMG_20180420_090935.jpg
-featureImageAlt: ""
+thumbnail: logo/logo-devoxx-france.png
+featureImage: photo-devoxx-france-2018.jpg
+featureImageAlt: "Photo prise lors de la conférence Devoxx France 2018"
 usePageBundles: true
 date: "2018-04-27T16:23:25+00:00"
-thumbnail: IMG_20180420_090935.jpg
 guid: http://javaetmoi.com/?p=1826
 parent_post_id: null
 post_id: "1826"
@@ -26,8 +26,6 @@ summary: |-
   Les sujets sont variés : le **langage Java** bien évidemment, des **frameworks** comme Spring et RxJS, de l’ **outillage** pour vos test tests et vos builds, de l’ **infrastructure** avec Docker et Kubernetes, de l’ **architecture** avec DDD et OpenAPI, sans oublier des sujets plus connexes tels la place du développeur en entreprise ou bien l’apprentissage du code aux enfants.
 
   [![Photo de la salle de conférence Devoxx France 2018](/2018/04/15-prises-de-notes-a-devoxx-france-2018/IMG_20180420_090935.jpg)](IMG_20180420_090935.jpg)
-
-  ![Photo de la salle de conférence Devoxx France 2018](/2018/04/15-prises-de-notes-a-devoxx-france-2018/IMG_20180420_090935.jpg)
 tags:
   - ddd
   - devoxx
@@ -46,8 +44,6 @@ L’intégralité des **vidéos** des **conférences** et **universités** prés
 Si vous souhaitez rapidement vous faire un avis sur leur contenu avant de les visionner ou si vous souhaitez garder une trace écrite de ce que vous y avez appris, je mets librement à disposition **mes notes** prises au cours de ces 3 jours.
 
 Les sujets sont variés : le **langage Java** bien évidemment, des **frameworks** comme Spring et RxJS, de l’ **outillage** pour vos test tests et vos builds, de l’ **infrastructure** avec Docker et Kubernetes, de l’ **architecture** avec DDD et OpenAPI, sans oublier des sujets plus connexes tels la place du développeur en entreprise ou bien l’apprentissage du code aux enfants.
-
-[![Photo de la salle de conférence Devoxx France 2018](IMG_20180420_090935.jpg)](IMG_20180420_090935.jpg)
 
 1. [Développeur, reprends le digital en main](208-04-20-Développeur-reprends-le-digital-en-main.pdf) (Alain Hélaïli)
 1. [Après Java 8, Java 9 et 10](208-04-20-Java-9-et-10.pdf) (Jean-Michel Doudoux)
