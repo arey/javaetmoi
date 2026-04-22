@@ -8,21 +8,17 @@ _xmlsf_image_featured:
 author: admin
 categories:
   - retour-d'expérience
-featureImage: logback-logo.jpg
-featureImageAlt: logback-logo
+thumbnail: logback-logo-v2.png
 usePageBundles: true
 date: "2018-03-30T17:01:59+00:00"
 toc: true
-thumbnail: logback-logo.jpg
 guid: http://javaetmoi.com/?p=1811
 parent_post_id: null
 post_id: "1811"
 post_views_count: "18410"
 summary: |-
-  [![Logo Logback](/2018/03/configurez-logback-en-java/logback-logo.jpg)](logback-logo.jpg)
-
   Afin de **normaliser** la **configuration Logback** des applications web sur lesquelles j’interviens, j’ai récemment eu besoin de programmer Logback via son **API en Java** et non en utilisant la syntaxe XML Joran.
-  Moins courant que le traditionnel **logback.xml**, cette possibilité de configurer Logback par le code offre davantage de possibilités, ne serait-ce que par son caractère dynamique.
+  Moins courant que le traditionnel **`logback.xml`**, cette possibilité de configurer Logback par le code offre davantage de possibilités, ne serait-ce que par son caractère dynamique.
 
   Par le passé, j’avais déjà eu l’occasion de manipuler l’API Logback dans des tests unitaires afin de changer dynamiquement le niveau de log des loggers.
   Cette fois-ci, je l’ai utilisé pour déclarer les différents appenders et configurer toute l’ **infrastructure applicative de logs**:
@@ -43,15 +39,15 @@ title: Configurez Logback en Java
 url: /2018/03/configurez-logback-en-java/
 
 ---
-[![Logo Logback](logback-logo.jpg)](logback-logo.jpg)
+[![Logo Logback:left](logback-logo.jpg)](logback-logo.jpg)
 
 Afin de **normaliser** la **configuration Logback** des applications web sur lesquelles j’interviens, j’ai récemment eu besoin de programmer Logback via son **API en Java** et non en utilisant la syntaxe XML Joran.
 Moins courant que le traditionnel `logback.xml`, cette possibilité de configurer Logback par le code offre davantage de possibilités, ne serait-ce que par son caractère dynamique.
 
 Par le passé, j’avais déjà eu l’occasion de manipuler l’API Logback dans des tests unitaires afin de changer dynamiquement le niveau de log des loggers.
-Cette fois-ci, je l’ai utilisé pour déclarer les différents appenders et configurer toute l’ **infrastructure applicative de logs**:
+Cette fois-ci, je l’ai utilisé pour déclarer les différents appenders et configurer toute l'**infrastructure applicative de logs**:
 
-- Activer l’appender Console uniquement sur le poste de dév (afin qu’en prod, les logs ne se retrouvent pas en double dans le fichier server.log de JBoss)
+- Activer l’appender Console uniquement sur le poste de dév (afin qu’en prod, les logs ne se retrouvent pas en double dans le fichier `server.log` de JBoss)
 - Factoriser la stratégie de journalisation des différents appenders fichiers (troubleshooting, overview, soap …)
 - Récupérer différentes informations applicatives (ex : nom de la JVM, application, nom de l’environnement, login de l’utilisateur authentifié) à destination du collecteur de logs (Logstash ou Splunk)
 - Exposer l’accès aux loggers au travers d’une API REST
@@ -67,7 +63,7 @@ Pour logger, les développeurs utilisent l’API SLF4J. Logback a été retenue 
 
 Pour brancher la configuration Java, le moyen le plus courant est d’utiliser un `ServletContextListener` dédié. Afin d’être démarré en premier, ce listener est déclaré tout en haut du web.xml, en tête des autres listeners (avant le listener Spring).
 
-Outre la configuration Logback, on retrouve également dans ce listener la configuration SLF4J. Par exemple, pour initialiser le **bridge JUL SLF4JBridgeHandler**.
+Outre la configuration Logback, on retrouve également dans ce listener la configuration SLF4J. Par exemple, pour initialiser le **bridge JUL `SLF4JBridgeHandler`**.
 
 Exemple de Listener :
 
@@ -116,7 +112,7 @@ addInfo("Suppression du handler JUL : "+ handler.getClass().getName());
 
 ## Installation du bridge SLF4J
 
-Afin de rediriger les logs de Java Util Logging (JUL) vers Logback, il est nécessaire d’ajouter au classpath le JAR jul-to-slf4j.jar puis d’installer le bridge [`SLF4JBridgeHandler`](https://github.com/qos-ch/slf4j/blob/master/jul-to-slf4j/src/main/java/org/slf4j/bridge/SLF4JBridgeHandler.java). Ce bridge route tous les logs JUL vers l’API SLF4J qui redirige à son tour les logs vers Logback.
+Afin de rediriger les logs de Java Util Logging (JUL) vers Logback, il est nécessaire d’ajouter au classpath le JAR `jul-to-slf4j.jar puis d’installer le bridge [`SLF4JBridgeHandler`](https://github.com/qos-ch/slf4j/blob/master/jul-to-slf4j/src/main/java/org/slf4j/bridge/SLF4JBridgeHandler.java). Ce bridge route tous les logs JUL vers l’API SLF4J qui redirige à son tour les logs vers Logback.
 
 Voici un exemple d’installation du SLF4JBridgeHandler. A noter qu’il met en application l’usage des méthodes `addInfo` et `addError`.
 
@@ -166,9 +162,12 @@ synchronized (getLogbackContext().getConfigurationLock()) {
 
 ## Réinitialisation du contexte
 
-Avant de pouvoir configurer par programmation les appenders et le niveau des loggers, il est nécessaire de **réinitialiser Logback**. En apparence, cela ne semble pas nécessaire puisque l’application vient tout juste de démarrer. C’est oublier qu’avant d’arriver dans le code du listener, la JVM aura déjà instancié de nombreuses classes. Or, **la toute 1ière instanciation d’un logger déclenche automatiquement l’initialisation de SLF4J** (méthode LoggerFactory::performInitialization) qui appelle à son tour l’initialisation de Logback (instanciation du LoggerContext par la classe StaticLoggerBinder). Logback recherche alors sa configuration dans le classpath en testant la présence des fichiers logback-test.xml, logback.groovy et logback.xml.
+Avant de pouvoir configurer par programmation les appenders et le niveau des loggers, il est nécessaire de **réinitialiser Logback**. En apparence, cela ne semble pas nécessaire puisque l’application vient tout juste de démarrer. C’est oublier qu’avant d’arriver dans le code du listener, la JVM aura déjà instancié de nombreuses classes.
+Or, **la toute 1ière instanciation d’un logger déclenche automatiquement l’initialisation de SLF4J** (méthode `LoggerFactory::performInitialization`) qui appelle à son tour l’initialisation de Logback (instanciation du `LoggerContext` par la classe `StaticLoggerBinder`).
+Logback recherche alors sa configuration dans le classpath en testant la présence des fichiers `logback-test.xml`, `logback.groovy` et `logback.xml`.
 
-Vous avez compris : lorsqu’on arrive dans le listener, Logback s’est déjà initialisé. Il est donc préférable de faire le ménage en réinitialisant sa configuration par défaut.  Pour se faire, on appelle successivement les méthodes stop() et reset() du LoggerContext. Et si le SLF4JBridgeHandler est installé, on propage à JUL les réinitialisations des niveaux des loggers :
+Vous avez compris : lorsqu’on arrive dans le listener, Logback s’est déjà initialisé. Il est donc préférable de faire le ménage en réinitialisant sa configuration par défaut.
+Pour ce faire, on appelle successivement les méthodes `stop()` et `reset()` du `LoggerContext`. Et si le `SLF4JBridgeHandler` est installé, on propage à JUL les réinitialisations des niveaux des loggers :
 
 ```java
 private void stopAndReset(LoggerContext loggerContext) {
@@ -210,7 +209,7 @@ private void root(Level level, List<Appender<ILoggingEvent>> rootAppenders) {
 }
 ```
 
-La déclaration de l’ **appender Console** permettant d’afficher les logs dans la sortie console est relativement simple :
+La déclaration de l’**appender Console** permettant d’afficher les logs dans la sortie console est relativement simple :
 
 ```java
 private ConsoleAppender<ILoggingEvent> consoleAppender() {
@@ -338,9 +337,9 @@ private void enableJMX(ServletContext servletContext) {
 }
 ```
 
-Lorsque plusieurs WAR sont déploés dans une JVM, il est préférable de nommer le LoggerContext de chaque web app à partir du nom déclaré dans le web.xml.
+Lorsque plusieurs WAR sont déploés dans une JVM, il est préférable de nommer le `LoggerContext` de chaque web app à partir du nom déclaré dans le web.xml.
 
-L’exposition des MBean sur HTTP est possible à l’aide de librairies tierces tels [Jolokia](https://jolokia.org/).
+L’exposition des MBean sur HTTP est possible à l’aide de librairies tierces tel [Jolokia](https://jolokia.org/).
 
 ## Pour aller plus loin
 
@@ -356,8 +355,8 @@ La configuration Logback présentée dans cet article pourrait être complétée
 Au cours de cet article, nous aurons vu comment configurer Logback à travers son API Java. Les classes manipulées sont les mêmes que celles utilisées par la [syntaxe Groovy](https://logback.qos.ch/manual/groovy.html).
 Le **code complet des snippets** est disponible dans ce [Gist](https://gist.github.com/arey/bc09e0d77520dc97f12707c6064c8c4e).
 
-Le choix de privilégier la configuration Java a été fait par l’équipe de **Sp** r **ing Boot**. Je vous recommande d’aller jeter un coup d’œil aux classes [`DefaultLogbackConfiguration`](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/logback/DefaultLogbackConfiguration.java) et [`LogbackConfigurator`](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/logback/LogbackConfigurator.java).
-Etant donné qu’il n’y a plus de fichier XML à parser, le temps de démarrage de l’application est sensiblement amélioré (100 ms d’après la [documentation Logback](https://logback.qos.ch/manual/configuration.html)).
+Le choix de privilégier la configuration Java a été fait par l’équipe de **Spring Boot**. Je vous recommande d’aller jeter un coup d’œil aux classes [`DefaultLogbackConfiguration`](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/logback/DefaultLogbackConfiguration.java) et [`LogbackConfigurator`](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/logback/LogbackConfigurator.java).
+Étant donné qu’il n’y a plus de fichier XML à parser, le temps de démarrage de l’application est sensiblement amélioré (100 ms d’après la [documentation Logback](https://logback.qos.ch/manual/configuration.html)).
 
 Ressources :
 
