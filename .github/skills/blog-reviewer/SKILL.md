@@ -251,6 +251,9 @@ Dans le **mode revue technique**, signaler :
 - Si le champ `summary:` est défini dans le frontmatter, il prime sur
   `<!--more-->` — ne pas ajouter le marqueur dans ce cas,
   et le retirer s'il est déjà présent
+- Lors du reformatage des lignes longues dans le `summary:` YAML, préserver
+  le bloc `|-` et l'indentation de 2 espaces — ne pas convertir en chaîne
+  ordinaire
 - Les images référencées dans `summary:` doivent utiliser des **chemins
   absolus** (ex. `/2026/04/slug/image.jpg`), car le rendu se fait depuis
   la homepage à la racine du site
@@ -265,6 +268,39 @@ Dans le **mode revue technique**, signaler :
   fichier seul
 - Les images co-localisées dans le page bundle ne nécessitent pas de chemin
   (juste le nom de fichier)
+
+### Convention de nommage des images (page bundle)
+
+Nommer les images en **kebab-case sans accents** :
+- `speakers.jpeg` pour la photo des intervenants
+- `hierarchie-caches-cpu.jpeg` pour une diapositive d'architecture CPU
+- `happens-before.jpeg` pour une diapositive sur le JMM
+- `demo-vote-pizza.png` pour un screenshot d'application démo
+- `systemes-distribues.jpeg` pour une diapositive sur les systèmes distribués
+
+Règles :
+- Pas de majuscules, pas d'espaces, pas d'accents, pas de caractères spéciaux
+- Noms courts et descriptifs du **contenu** (pas du nom Obsidian ou WordPress)
+- Utiliser `-` comme séparateur de mots
+- Conserver l'extension d'origine (`.jpeg`, `.png`, etc.)
+
+### Import depuis Obsidian
+
+Les notes Obsidian utilisent la syntaxe wikilink pour les images :
+`![[Nom du fichier.jpeg]]`. Hugo ne comprend pas cette syntaxe.
+
+**Workflow de migration Obsidian → Hugo :**
+
+1. **Convertir** chaque `![[Nom fichier.ext]]` en Markdown standard :
+   `![alt text descriptif](nom-kebab-case.ext)`
+2. **Renommer** les fichiers images en kebab-case sans accents (voir convention
+   ci-dessus) — les noms Obsidian contiennent souvent des espaces et des
+   accents (ex. `JCStress - Mémoire partagée.jpeg` → `memoire-partagee.jpeg`)
+3. **Ajouter un alt text** descriptif basé sur le contenu de l'image et le
+   contexte de l'article (visionner l'image si nécessaire)
+4. Vérifier que tous les fichiers images sont bien présents dans le répertoire
+   du page bundle (un fichier manquant provoque une image cassée sans erreur
+   de build Hugo)
 
 ### Structure des titres
 
@@ -299,6 +335,7 @@ Format : conférence (45 min)
 
 **Articles techniques** : commencer par l'énoncé du problème avant la
 solution. Conclure avec une section de synthèse ou les points clés.
+
 
 ## Sortie attendue
 
