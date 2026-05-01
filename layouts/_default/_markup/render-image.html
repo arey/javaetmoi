@@ -37,7 +37,10 @@
   {{ $file = (path.Clean $file) }}
   {{- if eq $bundle true -}}
     {{ $image = .Page.Resources.GetMatch $file }}
-    {{- if and (not $image) .Page.File -}}
+    {{- if and $image (eq $image.MediaType.SubType "svg") -}}
+      {{- $image = "" -}}
+      {{- $scratch.Add "classes" " image_svg" -}}
+    {{- else if and (not $image) .Page.File -}}
       {{ $file = path.Join .Page.RelPermalink $file }}
       {{ $image = resources.Get $file }}
     {{- end -}}

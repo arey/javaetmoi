@@ -98,9 +98,55 @@ Le blog est rédigé en **français**. Appliquer les règles suivantes :
 
 **Ponctuation française**
 
-- Espace insécable avant `?`, `!`, `:`, `;` et après `«` et avant `»`
 - Virgule d'apposition sans espace avant
-- Tiret cadratin `—` pour les incises, pas le tiret court `-`
+
+**Caractères typographiques LLM (sanitisation)**
+
+Les LLM génèrent fréquemment des caractères Unicode typographiques qui passent
+inaperçus visuellement mais cassent des parsers et des comparaisons de chaînes.
+Remplacer **systématiquement** chaque occurrence (hors blocs de code et URLs) :
+
+| Caractère   | Unicode          | Nom                                   | Remplacement ASCII |
+|-------------|------------------|---------------------------------------|--------------------|
+| `…`         | U+2026           | Points de suspension                  | `...`              |
+| `–`         | U+2013           | Tiret demi-cadratin (en dash)         | `-`                |
+| `—`         | U+2014           | Tiret cadratin (em dash)              | `--` ou `-`        |
+| `‒`         | U+2012           | Tiret figuratif                       | `-`                |
+| `'`         | U+2018           | Guillemet simple ouvrant              | `'`                |
+| `'`         | U+2019           | Guillemet simple fermant / apostrophe | `'`                |
+| `"`         | U+201C           | Guillemet double ouvrant              | `"`                |
+| `"`         | U+201D           | Guillemet double fermant              | `"`                |
+| `„`         | U+201E           | Guillemet double bas                  | `"`                |
+| `«`         | U+00AB           | Guillemet français ouvrant            | `<<`               |
+| `»`         | U+00BB           | Guillemet français fermant            | `>>`               |
+| ` ` (NBSP)  | U+00A0           | Espace insécable                      | espace normal      |
+| ` ` (thin)  | U+2009           | Espace fine                           | espace normal      |
+| ` ` (NNBS)  | U+202F           | Espace fine insécable                 | espace normal      |
+| `×`         | U+00D7           | Signe multiplication                  | `x`                |
+| `✓` / `✗`  | U+2713 / U+2717  | Coche / Croix                         | `ok` / `x`         |
+| `•`         | U+2022           | Puce (bullet)                         | `-` ou `*`         |
+| `′`         | U+2032           | Prime (minutes/pieds)                 | `'`                |
+| `″`         | U+2033           | Double prime (secondes/pouces)        | `"`                |
+
+Les plus fréquents en pratique : `…`, `–`, `—`, `'`, `"` et `"`.
+
+**Ne pas remplacer** dans les blocs de code (` ``` `), le code inline, ni dans les URLs.
+
+**Script de sanitisation automatique**
+
+Plutôt que de laisser le LLM effectuer ces substitutions manuellement,
+utiliser le script Python fourni dans ce skill :
+
+```bash
+# Aperçu sans modifier le fichier
+python .github/skills/blog-reviewer/sanitize_unicode.py --dry-run content/posts/2026/mon-article/index.md
+
+# Correction en place
+python .github/skills/blog-reviewer/sanitize_unicode.py content/posts/2026/mon-article/index.md
+```
+
+Le script préserve automatiquement les blocs de code fencés, le code inline
+et les URLs. Lancer ce script **avant** toute relecture manuelle.
 
 **Termes techniques**
 
