@@ -412,6 +412,17 @@ En guise de conclusion, ils nous laissent réfléchir à cette citation de Kent 
 
 > Make it work, make it right, make it fast (in that order!)
 
+La méthodologie de développement proposée par Kent Beck se décompose en 3 étapes ordonnées que l'on retrouve dans le TDD :
+1. **Make it work** : d'abord, faire fonctionner le code, faire passez les tests et  couvrir le cas nominal. Pas de perfection à ce stade. 
+   L'implémentation du compteur de votes avec `HashMap` est fonctionnelle, passe les TU, mais buggée.
+2. **Make it right** : ensuite on refactore le code pour améliorer la lisibilité et le design.
+   **C'est ici qu'on règle les bugs de race conditions détectées par JCStress**.
+   On corrige l'implémentation avec le mot clé `synchronized` puis la méthode `ConcurrentHashMap.merge()`.
+3. **Make it fast** : seulement après, on optimise les performances. Inutile d'optimiser du code incorrect ou illisible.
+
+Cet ordre est primordial : on n'optimise jamais en premier, et on ne "fait propre" qu'une fois que ça tourne.
+**JCStress** s'inscrit dans la phase **"make it right"**.
+
 ## Références
 
 ### JCStress
