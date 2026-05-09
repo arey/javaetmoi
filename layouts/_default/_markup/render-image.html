@@ -36,7 +36,14 @@
   {{- $scratch.Add "classes" " image_internal" -}}
   {{ $file = (path.Clean $file) }}
   {{- if eq $bundle true -}}
-    {{ $image = .Page.Resources.GetMatch $file }}
+    {{/* If the file path starts with the page's RelPermalink (absolute path in a page bundle),
+         strip the prefix to get the relative resource name for GetMatch. Otherwise GetMatch fails
+         and the fallback path.Join doubles/triples the path segment in the generated URL. */}}
+    {{- $relFile := $file -}}
+    {{- if strings.HasPrefix $file .Page.RelPermalink -}}
+      {{- $relFile = strings.TrimPrefix .Page.RelPermalink $file -}}
+    {{- end -}}
+    {{ $image = .Page.Resources.GetMatch $relFile }}
     {{- if and $image (eq $image.MediaType.SubType "svg") -}}
       {{- $image = "" -}}
       {{- $scratch.Add "classes" " image_svg" -}}
