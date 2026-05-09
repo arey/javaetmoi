@@ -8,25 +8,21 @@ _xmlsf_image_featured:
 author: Antoine Rey
 categories:
   - retour-d'expérience
-featureImage: 300px-Minimum_spanning_tree.svg_.png
-featureImageAlt: 300px-Minimum_spanning_tree.svg
+thumbnail: logo/logo-java-duke.png
 usePageBundles: true
 date: "2017-09-16T10:28:59+00:00"
-thumbnail: 300px-Minimum_spanning_tree.svg_.png
 guid: http://javaetmoi.com/?p=1759
 parent_post_id: null
 post_id: "1759"
 post_views_count: "12755"
 summary: |-
-  [![Arbre couvrant de poids minimum](/2017/09/algo-java-kruskal-recherche-arbre-couvrant-poids-minium/300px-Minimum_spanning_tree.svg_.png)](300px-Minimum_spanning_tree.svg_.png)
-
   Faisant partie des [algorithmes de la théorie des graphes](https://fr.wikipedia.org/wiki/Cat%C3%A9gorie:Algorithme_de_la_th%C3%A9orie_des_graphes "Catégorie:Algorithme de la théorie des graphes"), l' [algorithme de Kruskal](https://fr.wikipedia.org/wiki/Algorithme_de_Kruskal) permet de rechercher un arbre recouvrant de poids minimum.
 
   Une application pratique de l'algorithme de Kruskal consiste à relier tous les ordinateurs d'un même réseau local avec une longueur optimale de fibre optique.
 
-  Dans ce billet, vous trouverez une implémentation Java de cet algorithme. Il m'aura permis de résoudre le [problème Fibre Optique donné en finale du concours du Meilleur Dev de France 2017](https://www.isograd.com/FR/solutionconcours.php).
+  Dans ce billet, vous trouverez une implémentation Java de cet algorithme. Il m'aura permis de résoudre le [problème Fibre Optique donné en finale du concours du Meilleur Dev de France 2017](https://www.masterdevfrance.com/).
 
-  ![300px-Minimum_spanning_tree.svg](/2017/09/algo-java-kruskal-recherche-arbre-couvrant-poids-minium/300px-Minimum_spanning_tree.svg_.png)
+  [![Arbre couvrant de poids minimum](/2017/09/algo-java-kruskal-recherche-arbre-couvrant-poids-minium/300px-Minimum_spanning_tree.svg_.png)](300px-Minimum_spanning_tree.svg_.png)
 tags:
   - algorithme
   - java
@@ -34,7 +30,7 @@ title: Implémentation Java de l'algorithme de Kruskal
 url: /2017/09/algo-java-kruskal-recherche-arbre-couvrant-poids-minium/
 
 ---
-[![Arbre couvrant de poids minimum](300px-Minimum_spanning_tree.svg_.png)](300px-Minimum_spanning_tree.svg_.png)
+[![Arbre couvrant de poids minimum:left](300px-Minimum_spanning_tree.svg_.png)](300px-Minimum_spanning_tree.svg_.png)
 
 Faisant partie des [algorithmes de la théorie des graphes](https://fr.wikipedia.org/wiki/Cat%C3%A9gorie:Algorithme_de_la_th%C3%A9orie_des_graphes "Catégorie:Algorithme de la théorie des graphes"), l'[algorithme de Kruskal](https://fr.wikipedia.org/wiki/Algorithme_de_Kruskal) permet de rechercher un arbre recouvrant de poids minimum.
 
