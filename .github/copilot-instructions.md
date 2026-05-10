@@ -112,6 +112,14 @@ Shortcode string parameters containing single quotes or newlines break Hugo's pa
 
 Comments are handled by **Giscus** (GitHub Discussions). Configuration lives in `config/_default/params.toml` under the `giscus*` keys. Clarity's built-in Giscus support is used — no custom partial needed.
 
+### French writing conventions
+
+When correcting French text:
+- **Preserve ligatures**: Keep `œ` and `æ` (e.g., "mis en œuvre", not "mis en oeuvre")
+- **Preserve Unicode characters**: Keep `…` (U+2026 horizontal ellipsis), not `...` (three dots)
+- **Add space before French punctuation**: `:`, `!`, `?`, `»` (e.g., `dynamique :`, not `dynamique:`)
+- **Correct grammar**: Agreement, gender, number (e.g., "champ de saisie" fem., not "champ de saisi")
+
 ### Clarity theme notes
 
 - `mainSections = ["posts"]` and `blogDir = "posts"` are required (Clarity defaults to `"post"`)
