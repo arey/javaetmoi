@@ -21,7 +21,7 @@ summary: |-
   Date : 24 avril 2026<br>
   Speakers : Riad Maouchi (Société Générale CIB) et Christopher Etancelin (Société Générale)<br>
   Format : Tools in action (30 min)<br>
-  Repo GitHub : https://github.com/christopher-etancelin/jcstress-devoxx-demo
+  Supports : [repo GitHub jcstress-devoxx-demo](https://github.com/christopher-etancelin/jcstress-devoxx-demo) / [replay Youtube](https://www.youtube.com/watch?v=JzWex1hBZdE)
 
   Au cours de ce Tools in action, Riad et Christopher nous font découvrir un outil bien pratique
   à utiliser sur notre code multi-threads.
@@ -41,7 +41,7 @@ Conférence : [Devoxx France 2026](https://www.devoxx.fr/)<br>
 Date : 24 avril 2026<br>
 Speakers : Riad Maouchi (Société Générale CIB) et Christopher Etancelin (Société Générale)<br>
 Format : Tools in action (30 min)<br>
-Repo GitHub : https://github.com/christopher-etancelin/jcstress-devoxx-demo
+Supports : [repo GitHub jcstress-devoxx-demo](https://github.com/christopher-etancelin/jcstress-devoxx-demo) / [replay Youtube](https://www.youtube.com/watch?v=JzWex1hBZdE)
 
 Au cours de ce Tools in action, Riad et Christopher nous font découvrir un outil bien pratique
 à utiliser sur notre code multi-threads.

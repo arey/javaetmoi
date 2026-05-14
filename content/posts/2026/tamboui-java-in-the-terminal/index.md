@@ -39,7 +39,7 @@ Date : 22 avril 2026<br>
 Speakers : Cédric Champeau (Oracle) et Max Rydahl Andersen (IBM / Red Hat)<br>
 Format : Conférence (45mn)<br>
 Site : [tamboui.dev](https://tamboui.dev/)<br>
-Slides : https://tamboui.github.io/devoxx-france-2026/
+Supports : [slides](https://tamboui.github.io/devoxx-france-2026/) / [replay Youtube](https://www.youtube.com/watch?v=lVwpiSVBFZw)
 
 Lors de la conférence **Devoxx France 2026**, j'ai assisté à un talk venu tout droit d'une comète :
 la présentation de **[TamboUI](https://tamboui.dev/)** (prononcer "**tambouille**", façon française),

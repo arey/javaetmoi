@@ -19,7 +19,7 @@ summary: |-
     Date : 24 avril 2026<br>
     Speakers : Clément de Tastes (SCIAM) et Rémi Forax (Université Gustave Eiffel)<br>
     Format : conférence (45 min)<br>
-    Repository GitHub : [mandelbrot-valhalla](https://github.com/CodeSimcoe/mandelbrot-valhalla/tree/devoxxfr)
+    Supports : [repository GitHub mandelbrot-valhalla](https://github.com/CodeSimcoe/mandelbrot-valhalla/tree/devoxxfr) / [replay Youtube](https://www.youtube.com/watch?v=4xGexqdLb3Q)
 
     Ce talk sur le **futur de Java** commence par nous plonger dans l'univers des **fractales**.
   
@@ -41,7 +41,7 @@ Conférence : [Devoxx France 2026](https://www.devoxx.fr/)<br>
 Date : 24 avril 2026<br>
 Speakers : Clément de Tastes (SCIAM) et Rémi Forax (Université Gustave Eiffel)<br>
 Format : conférence (45 min)<br>
-Repository GitHub : [mandelbrot-valhalla](https://github.com/CodeSimcoe/mandelbrot-valhalla/tree/devoxxfr)
+Support : repository GitHub [mandelbrot-valhalla](https://github.com/CodeSimcoe/mandelbrot-valhalla/tree/devoxxfr) / [replay Youtube](https://www.youtube.com/watch?v=4xGexqdLb3Q)
 
 Ce talk sur le **futur de Java** commence par nous plonger dans l'univers des **fractales**.
 
