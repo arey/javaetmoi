@@ -9,6 +9,7 @@ guid: http://javaetmoi.com/?p=1672
 parent_post_id: null
 post_id: "1672"
 post_views_count: "5788"
+thumbnail: logo/logo-spring-framework.svg
 tags:
   - aop
   - bootstrap
@@ -32,4 +33,4 @@ Those 3 last years, the community has commited a lot of improvements: Bootstrap 
 
 The **slides** Michael Isvy shared 4 years ago have just been updated with all those new features. You may have a look. It covers a lot of interesting topics: software architecture, domain model presentation, data access, Spring profiles, caching, transaction management, exception handling, AOP, exception handler, validation, webjars, Java configuration, unit testing and so on.
 
-\[slideshare id=71978076&doc=2017-01-springframeworkpetclinic-170209204315\]
+{{< slideshare src="https://www.slideshare.net/slideshow/embed_code/key/gtjlzyEjjZGbbV" >}}
