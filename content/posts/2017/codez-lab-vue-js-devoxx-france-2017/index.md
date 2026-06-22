@@ -5,7 +5,7 @@ categories:
   - conférence
 date: "2017-04-09T18:16:16+00:00"
 toc: true
-thumbnail: vuejs-emmanuel.png
+thumbnail: logo/logo_vuejs.svg
 featureImage: vuejs-emmanuel.png
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1677
@@ -15,11 +15,11 @@ post_views_count: "6444"
 summary: |-
   Au cours des précédentes éditions de Devoxx France, je me suis familiarisé avec les frameworks JavaScript du moment : [AngularJS](http://javaetmoi.com/2013/04/angularjs-devoxx-france-2013/) en 2013 puis [Angular 2](http://javaetmoi.com/2016/04/angular-2-hands-on-lab-devoxx-france/) et [ReactJS](Devoxx_France-2016-Let_s_React.pdf) en 2016. Cette année, ce fut au tour d’un nouveau venu, à savoir **Vue.js**. Je l’ai testé au travers du [Hands-on Lab](http://cfp.devoxx.fr/2017/talk/USM-5688/Apres_Angular_et_React,_voici_..._VueJS) animé par Emmanuel Demey et Aurélien Loyer. Si vous n’avez pas eu la chance d’y participer, cet article a pour humble **objectif de vous aider à réaliser ce Lab par vous-même**, tel un **tutoriel**. Il complète le code disponible sur le [dépôt GitHub du Lab](https://github.com/Gillespie59/devoxx-vuejs/) ainsi que [les slides consultables en ligne](http://slides.com/emmanueldemey-1/deck-13). Vous pouvez également l’utiliser pour étudier à quoi ressemble une application Vue.js et découvrir ses principaux concepts.
 
-  ![Vue.js présenté par Emmanuel Demey au Hands-on Lab Devoxx France 2017](/2017/04/codez-lab-vue-js-devoxx-france-2017/vuejs-emmanuel.png)Emmanuel et Aurélien sont consultants web chez Zenika Lille. Familiarisés avec Angular, ils ont découvert VueJS au travers d’un projet personnel.
-  VueJS nous est présenté comme une librairie (et non un framework) dédiée à la création d’interfaces web HTML. Il se veut **simple** et efficace, idéal pour créer rapidement une application web. Ses concepts principaux sont les **Vues**(il ne s’appelle pas Vue.js pour rien), les **Directives**, les **Composants** et le **Binding**. Tels les Web Components, Vue.js utilise le **Shadow DOM** pour scoper le style CSS des composants.
+  ![Vue.js présenté par Emmanuel Demey au Hands-on Lab Devoxx France 2017](/2017/04/codez-lab-vue-js-devoxx-france-2017/vuejs-emmanuel.png)
+  
+  Emmanuel et Aurélien sont consultants web chez Zenika Lille. Familiarisés avec Angular, ils ont découvert VueJS au travers d’un projet personnel.
+  VueJS nous est présenté comme une librairie (et non un framework) dédiée à la création d’interfaces web HTML. Il se veut **simple** et efficace, idéal pour créer rapidement une application web. Ses concepts principaux sont les **Vues** (il ne s’appelle pas Vue.js pour rien), les **Directives**, les **Composants** et le **Binding**. Tels les Web Components, Vue.js utilise le **Shadow DOM** pour scoper le style CSS des composants.
   Après cette courte introduction, place au CodeLab.
-
-  ![Codez le lab Vue.js de Devoxx France 2017](/2017/04/codez-lab-vue-js-devoxx-france-2017/vuejs-emmanuel.png)
 tags:
   - devoxx
   - javascript
@@ -30,8 +30,8 @@ url: /2017/04/codez-lab-vue-js-devoxx-france-2017/
 ---
 Au cours des précédentes éditions de Devoxx France, je me suis familiarisé avec les frameworks JavaScript du moment : [AngularJS](/2013/04/angularjs-devoxx-france-2013/) en 2013 puis [Angular 2](/2016/04/angular-2-hands-on-lab-devoxx-france/) et [ReactJS](Devoxx_France-2016-Let_s_React.pdf) en 2016. Cette année, ce fut au tour d’un nouveau venu, à savoir **Vue.js**. Je l’ai testé au travers du [Hands-on Lab](http://cfp.devoxx.fr/2017/talk/USM-5688/Apres_Angular_et_React,_voici_..._VueJS) animé par Emmanuel Demey et Aurélien Loyer. Si vous n’avez pas eu la chance d’y participer, cet article a pour humble **objectif de vous aider à réaliser ce Lab par vous-même**, tel un **tutoriel**. Il complète le code disponible sur le [dépôt GitHub du Lab](https://github.com/Gillespie59/devoxx-vuejs/) ainsi que [les slides consultables en ligne](http://slides.com/emmanueldemey-1/deck-13). Vous pouvez également l’utiliser pour étudier à quoi ressemble une application Vue.js et découvrir ses principaux concepts.
 
-![Vue.js présenté par Emmanuel Demey au Hands-on Lab Devoxx France 2017](vuejs-emmanuel.png)Emmanuel et Aurélien sont consultants web chez Zenika Lille. Familiarisés avec Angular, ils ont découvert VueJS au travers d’un projet personnel.
-VueJS nous est présenté comme une librairie (et non un framework) dédiée à la création d’interfaces web HTML. Il se veut **simple** et efficace, idéal pour créer rapidement une application web. Ses concepts principaux sont les **Vues**(il ne s’appelle pas Vue.js pour rien), les **Directives**, les **Composants** et le **Binding**. Tels les Web Components, Vue.js utilise le **Shadow DOM** pour scoper le style CSS des composants.
+Emmanuel et Aurélien sont consultants web chez Zenika Lille. Familiarisés avec Angular, ils ont découvert VueJS au travers d’un projet personnel.
+VueJS nous est présenté comme une librairie (et non un framework) dédiée à la création d’interfaces web HTML. Il se veut **simple** et efficace, idéal pour créer rapidement une application web. Ses concepts principaux sont les **Vues** (il ne s’appelle pas Vue.js pour rien), les **Directives**, les **Composants** et le **Binding**. Tels les Web Components, Vue.js utilise le **Shadow DOM** pour scoper le style CSS des composants.
 Après cette courte introduction, place au CodeLab.
 
 ## L’application Zenika Ecommerce
@@ -51,7 +51,8 @@ Ce Lab est développé en ECMAScript 6 (alias JavaScript 2015). L’utilisation 
 
 ## Pré-requis
 
-Les **instructions** des différents exercices du Lab sont données dans le fichier [`index.md`](https://github.com/Gillespie59/devoxx-vuejs/blob/master/docs/index.md). Chaque exercice est reconnaissable au pattern PW _<Numéro>_ (pour Project Work ?).
+Les **instructions** des différents exercices du Lab sont données dans le fichier [index.md](https://github.com/Gillespie59/devoxx-vuejs/blob/master/docs/index.md).
+Chaque exercice est reconnaissable au pattern PW _`<Numéro>_ (pour Project Work ?).
 
 Avant de commencer à implémenter un exercice, vous devrez tout d’abord vous référer à la partie théorique [**des slides**](http://slides.com/emmanueldemey-1/deck-13).
 Avant d’aller plus loin, les pré-requis suivants sont nécessaires :
@@ -85,7 +86,8 @@ Avant de créer votre première application, un peu de théorie est nécessaire 
 
 Lors de la conception du binding de Vue.js, son concepteur n’a pas souhaité utiliser le **préfixe data**\- afin d’être conforme au W3C. Son point de vue est que le code généré par Vue.js est lui conforme W3C.
 
-Pour créer une application Vue.JS, à l’instar de ember-cli et angular-cli, on peut utiliser l’interface en ligne de commande (command-line interface) `vue-cli`. L’utilitaire `vue-cli` propose **différents types de squelette** : du plus basique à celui basé sur webpack. Dans le Lab, nous utiliserons le **squelette webpack**.
+Pour créer une application Vue.JS, à l’instar de ember-cli et angular-cli, on peut utiliser l’interface en ligne de commande (command-line interface) `vue-cli`.
+L’utilitaire `vue-cli` propose **différents types de squelette** : du plus basique à celui basé sur webpack. Dans le Lab, nous utiliserons le **squelette webpack**.
 
 A la fin du PW1, la d’accueil du template Vue.js doit s’ouvrir dans votre navigateur :
 ![Page d'accueil du squelette webpack Vue.js](screenshot-template-vue.png)
@@ -104,10 +106,10 @@ new Vue({
 L’objet **Vue** est l'**objet principal** de la librairie **.** Son constructeur prend en paramètre un objet JS dont les propriétés sont normalisées. Ici, notre vue racine en définie 3 :
 
 - `el`: associe la vue avec un élément du DOM ayant l’identifiant app
-- `template`: l’élément du DOM sera remplacé par le code HTML du template, ici une balise personnalisée <App/>
-- `components`: composants Vue.js nécessaires au rendu de la vue. Ici, le composant App est référencé. C’est lui qui va être chargé d’interpréter la balise <App/>
+- `template`: l’élément du DOM sera remplacé par le code HTML du template, ici une balise personnalisée `<App/>`
+- `components`: composants Vue.js nécessaires au rendu de la vue. Ici, le composant App est référencé. C’est lui qui va être chargé d’interpréter la balise `<App/>`
 
-Dans le fichier `index.html`, nous retrouvons le <div> portant l’identifiant "app" et qui sera donc associé à la vue racine :
+Dans le fichier `index.html`, nous retrouvons le `<div>` portant l’identifiant "app" et qui sera donc associé à la vue racine :
 
 ```xhtml
 <body>
@@ -117,7 +119,8 @@ Dans le fichier `index.html`, nous retrouvons le <div> portant l’identifiant "
 
 Particulièrement simple, cette vue racine ne comporte ni données ni gestionnaire d’évènements.
 
-Le code source du composant App est localisé dans le fichier `src/App.vue`. **L’approche composant de Vue.js s’inspire très fortement du standard Web Components** dont Polymer est une implémentation. L’objectif d’un composant est d'**encapsuler du code**(HTML + JS + CSS) afin de pouvoir le **réutiliser**. Un composant est associé à une balise HMTL. Ici, à la balise <App/>. Vous l’aurez remarqué, c’est le nom du fichier .vue qui détermine le nom de la balise HTML associée.
+Le code source du composant App est localisé dans le fichier `src/App.vue`. **L’approche composant de Vue.js s’inspire très fortement du standard Web Components** dont Polymer est une implémentation. L’objectif d’un composant est d'**encapsuler du code**(HTML + JS + CSS) afin de pouvoir le **réutiliser**. Un composant est associé à une balise HMTL. Ici, à la balise `<App/>`.
+Vous l’aurez remarqué, c’est le nom du fichier .vue qui détermine le nom de la balise HTML associée.
 Un composant peut être déclaré par programmation via la méthode `Vue.component()` ou bien décrit dans un fichier dédié portant l’ extension `.vue`. Le fichier `App.vue` est scindé en 3 parties :
 
 1. `<template>`: code HTML templatisé à l’aide de la syntaxe Mustache.
@@ -155,9 +158,9 @@ export default {
   },
 ```
 
-La balise <menu> étant déjà réservée par HTML 5, nous suffixons les balises avec v-. Ainsi, la balise HTML associée au composant Menu est <v-menu>.
+La balise `<menu>` étant déjà réservée par HTML 5, nous suffixons les balises avec v-. Ainsi, la balise HTML associée au composant Menu est `<v-menu>`.
 
-Le composant Menu encapsule le tag <nav> du fichier home.html récupéré lors du PW0 :
+Le composant Menu encapsule le tag `<nav>` du fichier `home.html récupéré lors du PW0 :
 
 ```xhtml
 <template>
@@ -188,7 +191,7 @@ export default {
 </style>
 ```
 
-Pour afficher dynamiquement le nombre de bières ajoutées au panier, on déclare une propriété `bieres`. Un tableau de bières peut ensuite être passé en paramètre d’entrée du tag <v-menu>  dans le fichier App.vue :
+Pour afficher dynamiquement le nombre de bières ajoutées au panier, on déclare une propriété `bieres`. Un tableau de bières peut ensuite être passé en paramètre d’entrée du tag `<v-menu>` dans le fichier `App.vue` :
 
 ```xhtml
 <template>
@@ -196,7 +199,7 @@ Pour afficher dynamiquement le nombre de bières ajoutées au panier, on déclar
     <v-menu :bieres="panier"></v-menu>
 ```
 
-Ici on utilise la syntaxe raccourcie :bieres équivalente à v-bind:bieres. Le _panier_ passé en paramètre référence l’attribut panier du modèle (attribut data) du composant App. Au démarrage de l’application, le panier du client est vide :
+Ici on utilise la syntaxe raccourcie `:bieres` équivalente à `v-bind:bieres`. Le _panier_ passé en paramètre référence l’attribut panier du modèle (attribut data) du composant App. Au démarrage de l’application, le panier du client est vide :
 
 ```js
 export default {
@@ -211,8 +214,8 @@ export default {
 ```
 
 Le composant Beer est responsable d’afficher le détail d’un article/item (dans notre cas une bière) et permet à l’utilisateur de l’ajouter à son panier. Sa déclaration se rapproche de celle du composant Menu.
-Son template est créé à partir du div « thumbnail » récupéré du fichier home.html.
-Le composant Beer accepte la propriété `item` (qui n’est autre que la bière à afficher). Un item possède 5 propriétés : label, price, image, description et note. Ces propriétés sont affichés dans le template par la syntaxe {{item. _<propriété>_}}
+Son template est créé à partir du div « thumbnail » récupéré du fichier `home.html`.
+Le composant Beer accepte la propriété `item` (qui n’est autre que la bière à afficher). Un item possède 5 propriétés : label, price, image, description et note. Ces propriétés sont affichés dans le template par la syntaxe `{{item. _<propriété>_}}`
 
 ```xhtml
 <template lang="html">
@@ -253,7 +256,7 @@ export default {
 </style>
 ```
 
-La balise <img>  référence l’URL de l’image représentant la bière passée en item :
+La balise `<img>` référence l’URL de l’image représentant la bière passée en item :
 
 ```xhtml
 <img :src="item.image" alt="">
@@ -261,14 +264,14 @@ La balise <img>  référence l’URL de l’image représentant la bière passé
 
 La propriété HTML _src_ n’est pas directement utilisée. Vue.JS l’interdit. La **syntaxe :src** permet de ne valoriser l’attribut HTML _src_ que lorsque la donnée sera disponible. En effet, la donnée peut provenir d’une API REST et pendant quelques ms ou secondes la donnée peut être undefined. On retrouve la même problématique en Angular.
 
-Outre l’affichage dynamique des propriété d’un item, le composant Beer permet d’ajouter la bière au panier. Lorsque l’utilisateur clique sur le bouton « Ajouter », on fait appel à la méthode ajouter() du composant :
+Outre l’affichage dynamique des propriété d’un item, le composant Beer permet d’ajouter la bière au panier. Lorsque l’utilisateur clique sur le bouton « Ajouter », on fait appel à la méthode `ajouter()` du composant :
 
 ```xhtml
 <button @click="ajouter" type="button" >Ajouter</button>
 ```
 
-Est utilisé ici une syntaxe raccourcie de v-on:click="ajouter" .
-La méthode ajouter émet un événement au composant parent App :
+Est utilisé ici une syntaxe raccourcie de `v-on:click="ajouter"`.
+La méthode ajouter émet un événement au composant parent `App` :
 
 ```js
 ajouter () {
@@ -276,10 +279,10 @@ ajouter () {
 }
 ```
 
- _‘ajout’_ correspond au nom de l’événement et `this.item` à la donnée associée à l’événement, ici la bière à ajouter au panier. Dans le composant parent App, il est désormais possible de s’abonner à l’événement ‘ajout’. Nous y reviendrons.
+`ajout` correspond au nom de l’événement et `this.item` à la donnée associée à l’événement, ici la bière à ajouter au panier. Dans le composant parent `App`, il est désormais possible de s’abonner à l’événement `ajout`. Nous y reviendrons.
 A noter que le mot clé `this` correspondant à l’instance de la Vue.
 
-Dans le composant App, le tag <v-beer>  peut désormais être utilisé pour afficher chacune des bières. Dans un 1er temps, le tableau de bières est hard-codé sous forme d’un tableau d’objets JavaScript déclaré en tant que propriété `produits` du composant App :
+Dans le composant App, le tag `<v-beer>` peut désormais être utilisé pour afficher chacune des bières. Dans un 1er temps, le tableau de bières est hard-codé sous forme d’un tableau d’objets JavaScript déclaré en tant que propriété `produits` du composant `App` :
 
 ```js
 data () {
@@ -298,9 +301,9 @@ data () {
   }
 ```
 
-Le tableau de `produits` est construit par copier/coller du fichier beers.json.
+Le tableau de `produits` est construit par copier/coller du fichier `beers.json`.
 
-Dans le template du composant `App`, n’ayant pas encore appris comment itérer sur un tableau, le tag <v-beer>  est répété 4 fois :
+Dans le template du composant `App`, n’ayant pas encore appris comment itérer sur un tableau, le tag `<v-beer>` est répété 4 fois :
 
 ```xhtml
 <div class="col-sm-4 col-lg-4 col-md-4">
@@ -344,7 +347,7 @@ La **directive v-for** permet d’itérer sur la liste des bières afin d'affich
 </div>
 ```
 
-Contrairement à Angular 2, Vue.js offre la possibilité d’utiliser directement les directives sur le tag <v-beer>  (et non pas seulement sur le <div> englobant) :
+Contrairement à Angular 2, Vue.js offre la possibilité d’utiliser directement les directives sur le tag `<v-beer>` (et non pas seulement sur le `<div>` englobant) :
 
 ```xhtml
 <v-beer v-for="beer in produits" v-on:ajout="ajoutPanier" :item="beer>
@@ -378,7 +381,7 @@ En utilisant la **directive v-if**, nous pouvons désormais n’afficher à l’
 <v-beer v-for="beer in produits" v-if="beer.stock > 0" v-on:ajout="ajoutPanier" v-bind:item="beer"></v-beer>
 ```
 
-Pour changer la couleur de fond d'un produit lorsque son stock atteint 1, on commence par déclarer la classe CSS `last` dans la section <style> de App.vue :
+Pour changer la couleur de fond d'un produit lorsque son stock atteint 1, on commence par déclarer la classe CSS `last` dans la section `<style>` de `App.vue` :
 
 ```css
 <style lang="css">
@@ -388,13 +391,13 @@ Pour changer la couleur de fond d'un produit lorsque son stock atteint 1, on com
 </style>
 ```
 
-Sur le div possédant la classe thumbnail, en utilisant la directive v-bind:class , nous pouvons ensuite ajouter la classe _last_ lorsque le stock de bière est de 1 :
+Sur le div possédant la classe thumbnail, en utilisant la directive `v-bind:class`, nous pouvons ensuite ajouter la classe _last_ lorsque le stock de bière est de 1 :
 
 ```xhtml
 <div class="thumbnail" :class="{ last: item.stock == 1 }">
 ```
 
-Une seconde solution consiste à utiliser les **computed values**. Une computed value s’utilise comme une propriété mais se définit comme une méthode. Son résultat est mis en cache par Vue.js. Nous déclarons la computed value _thumbnailClass_ dans App.vue :
+Une seconde solution consiste à utiliser les **computed values**. Une computed value s’utilise comme une propriété mais se définit comme une méthode. Son résultat est mis en cache par Vue.js. Nous déclarons la computed value `thumbnailClass` dans `App.vue` :
 
 ```js
 export default {
@@ -465,13 +468,13 @@ Vue.filter('uppercase', function (value) {
 })
 ```
 
-Importez ce fichier dans main.js :
+Importez ce fichier dans `main.js` :
 
 ```js
 import './filters/uppercase'
 ```
 
-Puis, avec la même syntaxe qu’Angular, utilisez le filtre dans Beer.vue :
+Puis, avec la même syntaxe qu’Angular, utilisez le filtre dans `Beer.vue` :
 
 ```xhtml
 <h4><a href="#">{{ item.label | uppercase }}</a>
@@ -503,13 +506,13 @@ Extrait de la réponse observée lors d’un GET sur [http://localhost:1337/api/
 …
 ```
 
-Installez le module vue-resource via la commande npm :
+Installez le module `vue-resource` via la commande `npm` :
 
 ```sh
 npm install vue-resource --save
 ```
 
-Dans le fichier main.js, importez le module vue-resource :
+Dans le fichier `main.js`, importez le module `vue-resource` :
 
 ```js
 import VueResource from 'vue-resource';

@@ -5,7 +5,7 @@ categories:
   - retour-d'expérience
 date: "2017-05-18T16:15:36+00:00"
 toc: true
-thumbnail: logo_vuejs.svg
+thumbnail: logo/logo_vuejs.svg
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1726
 parent_post_id: null
