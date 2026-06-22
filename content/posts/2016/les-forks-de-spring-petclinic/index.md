@@ -7,14 +7,19 @@ date: "2016-12-21T16:20:08+00:00"
 toc: true
 guid: http://javaetmoi.com/?p=1657
 parent_post_id: null
+usePageBundles: true
 post_id: "1657"
 post_views_count: "12651"
+thumbnail: logo/logo-spring-petclinic.png
+featureImage: spring-petclinic-screenshot.png
 summary: |-
-  L’ [**application démo Spring Petclinic**](https://github.com/spring-projects/spring-petclinic) a été conçue pour montrer comment le framework Spring peut être utilisé pour développer une **application web** secondée par une base de données relationnelle. En somme, rien de révolutionnaire. Mais c’est ce qui fait tout son intérêt : présenter une **architecture logicielle** respectant **l’état de l’art** d’une application conçue avec **Spring**.
+  L’[**application démo Spring Petclinic**](https://github.com/spring-projects/spring-petclinic) a été conçue pour montrer comment le framework Spring peut être utilisé pour développer une **application web** secondée par une base de données relationnelle. En somme, rien de révolutionnaire. Mais c’est ce qui fait tout son intérêt : présenter une **architecture logicielle** respectant **l’état de l’art** d’une application conçue avec **Spring**.
 
   Avec plus de 2000 forks sur GitHub, la communauté a créé de nombreux forks de Spring Petclinic : **Angular**, **React**, **REST**, **Spring Cloud** … Afin de fédérer cet engouement, l’ [**organisation GitHub Spring Petclinic**](https://github.com/spring-petclinic) a été créé sur GitHub en novembre 2016. La version de référence de Spring Petclinic reste sur [https://github.com/spring-projects/spring-petclinic](https://github.com/spring-projects/spring-petclinic). Les branches et les forks ont basculé sur [https://github.com/spring-petclinic](https://github.com/spring-petclinic).
 
   Ce billet a pour objectif de vous présenter cette récente initiative puis de vous présenter les **différents forks** d’ores et déjà disponible dans l’organisation Spring Petclinic. Mais avant cela, remontons le temps.
+  
+  ![Screenshot de l'application Spring Petclinic](/2016/12/les-forks-de-spring-petclinic/spring-petclinic-screenshot.png)
 tags:
   - angularjs
   - devtools
