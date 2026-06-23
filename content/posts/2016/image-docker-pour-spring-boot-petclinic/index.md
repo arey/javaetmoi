@@ -6,7 +6,6 @@ categories:
 date: "2016-11-08T16:22:45+00:00"
 toc: true
 thumbnail: docker-logo.png
-featureImage: docker-logo.png
 featureImageAlt: "docker-logo"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1651
@@ -14,14 +13,13 @@ parent_post_id: null
 post_id: "1651"
 post_views_count: "6731"
 summary: |-
-  ![docker-logo](/2016/11/image-docker-pour-spring-boot-petclinic/docker-logo.png)Par le passé, j’ai publié 2 images Docker sur le registre **Docker Hub**, l’équivalent du Maven Central Repository pour Docker : un [client MySQL](https://hub.docker.com/r/arey/mysql-client/) et [une base PostgreSQL MusicBrainz](https://hub.docker.com/r/arey/musicbrainz-database/). Ces images étaient construites puis publiées automatiquement à partir d’un dépôt GitHub contenant un Dockerfile et, éventuellement, un script Shell.
+  Par le passé, j’ai publié 2 images Docker sur le registre **Docker Hub**, l’équivalent du Maven Central Repository pour Docker : un [client MySQL](https://hub.docker.com/r/arey/mysql-client/) et [une base PostgreSQL MusicBrainz](https://hub.docker.com/r/arey/musicbrainz-database/). Ces images étaient construites puis publiées automatiquement à partir d’un dépôt GitHub contenant un Dockerfile et, éventuellement, un script Shell.
 
   Plus récemment, j’ai souhaité mettre à disposition une **image Docker de l’** [**application Spring Petclinic basée sur Angular 1 et Spring Boot.**](https://github.com/spring-petclinic/spring-petclinic-angular1) Ce billet explique :
 
   1. Comment l’image Docker a été construire
   2. Et comment l’utiliser pour tester Petclinic
 
-  ![docker-logo](/2016/11/image-docker-pour-spring-boot-petclinic/docker-logo.png)
 tags:
   - docker
   - maven
@@ -30,12 +28,12 @@ title: Image Docker pour Spring Boot Petclinic
 url: /2016/11/image-docker-pour-spring-boot-petclinic/
 
 ---
-![docker-logo](docker-logo.png)Par le passé, j’ai publié 2 images Docker sur le registre **Docker Hub**, l’équivalent du Maven Central Repository pour Docker : un [client MySQL](https://hub.docker.com/r/arey/mysql-client/) et [une base PostgreSQL MusicBrainz](https://hub.docker.com/r/arey/musicbrainz-database/). Ces images étaient construites puis publiées automatiquement à partir d’un dépôt GitHub contenant un Dockerfile et, éventuellement, un script Shell.
+![docker-logo:right](docker-logo.png)Par le passé, j’ai publié 2 images Docker sur le registre **Docker Hub**, l’équivalent du Maven Central Repository pour Docker : un [client MySQL](https://hub.docker.com/r/arey/mysql-client/) et [une base PostgreSQL MusicBrainz](https://hub.docker.com/r/arey/musicbrainz-database/). Ces images étaient construites puis publiées automatiquement à partir d’un dépôt GitHub contenant un Dockerfile et, éventuellement, un script Shell.
 
 Plus récemment, j’ai souhaité mettre à disposition une **image Docker de l’** [**application Spring Petclinic basée sur Angular 1 et Spring Boot.**](https://github.com/spring-petclinic/spring-petclinic-angular1) Ce billet explique :
 
-1. Comment l’image Docker a été construire
-1. Et comment l’utiliser pour tester Petclinic
+1. Comment l’image Docker a été construite
+2. Et comment l’utiliser pour tester Petclinic
 
 ## Automatisation de la construction
 
@@ -44,12 +42,14 @@ Une 2nde solution aurait été de faire construire le JAR par Docker. L’image 
 
 La solution que j’ai finalement retenue n’est pas basée sur le mécanisme proposé par Docker Hub mais sur l’utilisation du **plugin pour Maven** [**docker-maven-plugin**](https://github.com/spotify/docker-maven-plugin) développé par l’équipe de **Spotify**.
 
+![Screenshot de l'application Spring Petclinic AngularJS.png](screenshot-spring-petclinic-angularjs.png)
+
 ## Configuration du docker-maven-plugin
 
-Disponible sur la plateforme spring.io, le guide [Starting Guide Spring Boot With Docker](https://spring.io/guides/gs/spring-boot-docker/) explique pas à pas comment créer une image Docker d’une application Spring Boot.
+Disponible sur la plateforme `spring.io`, le guide [Starting Guide Spring Boot With Docker](https://spring.io/guides/gs/spring-boot-docker/) explique pas à pas comment créer une image Docker d’une application Spring Boot.
 
-Sur Petclinic, la configuration du docker-maven-plugin a été adaptée afin de faciliter la publication de l’image sur Docker Hub.
-Voici un extrait du [pom.xml](https://github.com/spring-projects/spring-petclinic/blob/angularjs/pom.xml) du module springboot-petclinic-server :
+Sur Petclinic, la configuration du `docker-maven-plugin` a été adaptée afin de faciliter la publication de l’image sur Docker Hub.
+Voici un extrait du [pom.xml](https://github.com/spring-projects/spring-petclinic/blob/angularjs/pom.xml) du module `springboot-petclinic-server` :
 
 ```xhtml
 <plugin>
@@ -100,9 +100,12 @@ Enfin, La propriété `docker.image.prefix` pointe sur mon compte personnel Dock
 
 ## Dockerfile
 
-Pour des images simples, le plugin **docker-maven-plugin permet de se passer complètement de Dockerfile** : image de base, nom de l’image et point d’entrée sont directement configurés dans le pom.xml. Charge au plugin de générer le Dockerfile.
+Pour des images simples, le plugin **docker-maven-plugin permet de se passer complètement de Dockerfile** : image de base, nom de l’image et point d’entrée sont directement configurés dans le `pom.xml`.
+Charge au plugin de générer le Dockerfile.
 
-Pour Petclinic, l’usage d’un Dockerfile été préféré.  Facultatives, quelques directives spécifiques ont été ajoutées. Par ailleurs, l’utilisation d’un Dockerfile présente l’avantage de pouvoir être utilisé en dehors de Maven. La propriété `dockerDirectory` référence le répertoire contenant le Dockerfile.
+Pour Petclinic, l’usage d’un Dockerfile été préféré. Facultatives, quelques directives spécifiques ont été ajoutées.
+Par ailleurs, l’utilisation d’un `Dockerfile` présente l’avantage de pouvoir être utilisé en dehors de Maven.
+La propriété `dockerDirectory` référence le répertoire contenant le `Dockerfile`.
 
 Pour être opérationnelle, l’image Docker de SpringBoot Petclinic nécessite :
 
@@ -112,7 +115,7 @@ Pour être opérationnelle, l’image Docker de SpringBoot Petclinic nécessite 
 
 L’ [image Docker basée sur OpenJDK](https://hub.docker.com/_/openjdk/) couvre les 2 premiers besoins. La version basée sur le projet [Alpine Linux](https://alpinelinux.org/) permet d’utiliser une image de base très réduite (environ 5 Mo).
 
-Au final, voici le [Dockerfile](https://github.com/spring-petclinic/spring-petclinic-angular1/blob/master/springboot-petclinic-server/src/main/docker/Dockerfile) de SpringBoot Petclinic :
+Au final, voici le [Dockerfile](https://github.com/spring-petclinic/spring-petclinic-angularjs/blob/master/springboot-petclinic-server/src/main/docker/Dockerfile) de SpringBoot Petclinic :
 
 ```sh
 FROM openjdk:alpine
@@ -147,7 +150,7 @@ ERROR] Failed to execute goal com.spotify:docker-maven-plugin:0.4.13:build (defa
 
 Techniquement, le plugin maven dialogue avec Docker par l’intermédiaire d’un [client Java Docker](https://github.com/spotify/docker-client) également développé par Spotify. Les échanges se font en REST / JSON.
 
-Une fois la commande mvn docker:build  exécutée, les étapes de construction de l’image apparaissent dans les logs Maven :
+Une fois la commande `mvn docker:build` exécutée, les étapes de construction de l’image apparaissent dans les logs Maven :
 
 ```sh
 [INFO] --- docker-maven-plugin:0.4.13:build (default-cli) @ springboot-petclinic-server ---
@@ -194,7 +197,8 @@ mvn docker:build
 
 ## Publier l’image Docker
 
-Publier l’image Docker construite avec Maven dans le registre public Docker Hub est enfantin. Après avoir paramétré la propriété `docker.image.prefix` du pom.xml et le fichier de configuration ~/.docker/config.json , exécuter la ligne de commande Maven suivante :
+Publier l’image Docker construite avec Maven dans le registre public Docker Hub est enfantin.
+Après avoir paramétré la propriété `docker.image.prefix` du `pom.xml` et le fichier de configuration `~/.docker/config.json`, exécuter la ligne de commande Maven suivante :
 
 ```sh
 mvn docker:build -DpushImageTag
@@ -210,7 +214,7 @@ docker run -e "SPRING_PROFILES_ACTIVE=prod" -p 8080:8080 -t --name springboot-pe
 
 L’application web est alors disponible sur l’URL http://DOCKER\_HOST:8080/
 
-Le profile Spring de prod permet d’activer la mise en cache et le versionning des ressources statiques (cf. [`application-prod.properties`](https://github.com/spring-petclinic/spring-petclinic-angular1/blob/master/springboot-petclinic-server/src/main/resources/application-prod.properties)).
+Le profile Spring de prod permet d’activer la mise en cache et le versionning des ressources statiques (cf. [`application-prod.properties`](https://github.com/spring-petclinic/spring-petclinic-angularjs/blob/master/springboot-petclinic-server/src/main/resources/application-prod.properties)).
 
 Pour arrêter le conteneur, utiliser la commande :
 
@@ -220,9 +224,10 @@ docker stop springboot-petclinic
 
 ## Conclusion
 
-Le packaging d’une application Spring Boot sous forme d’image Docker peut entièrement être automatisé avec Maven (mais également avec Gradle). Publier ensuite cette image sur Docker Hub et tout Internaute pourra tester votre application sans avoir à installer le moindre outil (mis à part Docker).
+Le packaging d’une application Spring Boot sous forme d’image Docker peut entièrement être automatisé avec Maven (mais également avec Gradle).
+Publier ensuite cette image sur Docker Hub et tout Internaute pourra tester votre application sans avoir à installer le moindre outil (mis à part Docker).
 
-Concernant Petclinic, la prochaine étape pourrait consister à déployer cette image sur un Cloud public. A suivre ...
+Concernant Petclinic, la prochaine étape pourrait consister à déployer cette image sur un Cloud public. À suivre ...
 
 Ressources :
 
@@ -230,5 +235,5 @@ Ressources :
 1. [Starting Guide Spring Boot With Docker](https://spring.io/guides/gs/spring-boot-docker/)
 1. [Image Docker officielle pour Java basée sur OpenJDK](https://hub.docker.com/_/openjdk/)
 1. [Documentation du plugin docker-maven-plugin](https://github.com/spotify/docker-maven-plugin)
-1. [Version Angular JS](https://github.com/spring-petclinic/spring-petclinic-angular1) [de l’application SpringBoot Petclinic](https://github.com/spring-petclinic/spring-petclinic-angular1)
+1. [Version Angular JS](https://github.com/spring-petclinic/spring-petclinic-angularjs) [de l’application SpringBoot Petclinic](https://github.com/spring-petclinic/spring-petclinic-angular1)
 1. [Client Java pour Docker](https://github.com/spotify/docker-client)
