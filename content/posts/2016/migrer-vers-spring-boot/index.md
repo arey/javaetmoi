@@ -5,9 +5,9 @@ categories:
   - spring
 date: "2016-08-29T16:05:29+00:00"
 toc: true
-thumbnail: screenshot-petclinic.jpg
+thumbnail: logo/logo-spring-boot.webp
 featureImage: screenshot-petclinic.jpg
-featureImageAlt: "screenshot-petclinic"
+featureImageAlt: "Screenshot Spring Petclinic"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1623
 parent_post_id: null
@@ -24,24 +24,27 @@ title: Migrer vers Spring Boot
 url: /2016/08/migrer-vers-spring-boot/
 
 ---
-Cela fait un an que je contribue activement à la maintenance de l’application **Spring Petclinic**. Développée initialement par les créateurs du framework Spring, Juergen Hoeller et Rob Harrop, cette application démo a évolué au fur et à mesure des montées de version du framework.  Elle est passée d’une approche full XML, à une approche mixte annotations + XML. Une branche est également disponible pour la configuration Java.
+Cela fait un an que je contribue activement à la maintenance de l’application **Spring Petclinic**.
+Développée initialement par les créateurs du framework Spring, Juergen Hoeller et Rob Harrop, cette application démo a évolué au fur et à mesure des montées de version du framework.
+Elle est passée d’une approche full XML, à une approche mixte annotations + XML. Une branche est également disponible pour la configuration Java.
 Récemment, nous avons mis à disposition une branche basée sur **Spring Boot 1.4.0**. L’objectif de ce billet est de vous expliquer quels ont été les impacts d’une telle migration.
-
-![screenshot-petclinic](screenshot-petclinic.jpg)
 
 ## Stack technique existante
 
-Techniquement, la [branche master](https://github.com/spring-projects/spring-petclinic/) à partir de laquelle a été créée la [**branche springboot**](https://github.com/spring-projects/spring-petclinic/tree/springboot) est relativement à jour. Elle s’appuie sur le BOM 2.0.7 de la plateforme Spring.IO.
+Techniquement, la [branche master](https://github.com/spring-projects/spring-petclinic/) à partir de laquelle a été créée la [**branche springboot**](https://github.com/spring-projects/spring-petclinic/tree/springboot) est relativement à jour. Elle s’appuie sur le BOM 2.0.7 de la plateforme [spring.io](https://spring.io/).
 Spring MVC 4.2, JSP, Dandelion, jQuery 2 et Bootstrap 3.3 sont utilisés pour la couche de présentation.
 La couche de persistance propose 3 implémentations différentes : Spring Data JPA 1.9, JPA/Hibernate 4.3 et JDBC. Un profile Spring permet de choisir quelle implémentation utiliser au démarrage de l’application.
 
 Le build est principalement construit autour de Maven. Bower est utilisé pour télécharger les frameworks JavaScript / CSS. Les feuilles de styles sont écrites en LESS. Un plugin maven les convertit en CSS.
 
-L’application est compatible Java 7 et 8. Sur mon poste de dév, je la déploie sur Tomcat 7, et Tomcat 8.. A noter que sous Jetty, les pages JSP ne s’affichent pas suite à un [bug de Dandelion](https://github.com/dandelion/dandelion/issues/113).
+L’application est compatible Java 7 et 8. Sur mon poste de dév, je la déploie sur Tomcat 7, et Tomcat 8.
+À noter que sous Jetty, les pages JSP ne s’affichent pas suite à un [bug de Dandelion](https://github.com/dandelion/dandelion/issues/113).
 
 ## Cible
 
-Le but de la migration est de conserver l’application iso-fonctionnelle et de garder dans la mesure du possible les mêmes frameworks. Par contre, nous avons fait le choix de ne retenir qu’une seule des 3 implémentations de la couche de persistance, à savoir Spring Data JPA. Garder les 3 technologies aurait complexifié inutilement la configuration Spring.
+Le but de la migration est de conserver l’application iso-fonctionnelle et de garder dans la mesure du possible les mêmes frameworks.
+Par contre, nous avons fait le choix de ne retenir qu’une seule des 3 implémentations de la couche de persistance, à savoir Spring Data JPA.
+Garder les 3 technologies aurait complexifié inutilement la configuration Spring.
 
 Afin de coller davantage à l’esprit Spring Boot, nous sommes revenus aux webjars et avons délaissé l’usage de Bower. Ce billet n’abordera pas ce changement.
 
@@ -53,10 +56,10 @@ La migration vers Spring Boot a simplifié le [`pom.xml`](https://github.com/spr
 Voici les changements apportés :
 
 1. Ajout d’un POM Parent : `org.springframework.boot:spring-boot-starter-parent`
-1. Suppression du Bill Of Materials `io.spring.platform:platform-bom`
-1. Remplacement des dépendances de frameworks par les « Spring Boot Starter » équivalents : `spring-boot-starter-actuator`, `spring-boot-starter-cache`, `spring-boot-starter-data-jpa`, `spring-boot-starter-test` et `spring-boot-starter-web`
-1. Déclaration du plugin Maven `spring-boot-maven-plugin`
-1. Suppression de la déclaration des plugins `maven-war-plugin`, `maven-assembly-plugin` et `tomcat7-maven-plugin`
+2. Suppression du Bill Of Materials `io.spring.platform:platform-bom`
+3. Remplacement des dépendances de frameworks par les « Spring Boot Starter » équivalents : `spring-boot-starter-actuator`, `spring-boot-starter-cache`, `spring-boot-starter-data-jpa`, `spring-boot-starter-test` et `spring-boot-starter-web`
+4. Déclaration du plugin Maven `spring-boot-maven-plugin`
+5. Suppression de la déclaration des plugins `maven-war-plugin`, `maven-assembly-plugin` et `tomcat7-maven-plugin`
 
 ## Configuration Spring
 
@@ -84,9 +87,12 @@ Par convention, le fichier de configuration `ehcache.xml` a été déplacé à l
 Au niveau des dépendances, le starter `spring-boot-starter-test` tire tous les frameworks de tests utilisés par Petclinic :  **JUnit**, **Spring Test**, **AssertJ**, **Mockito**, Json Path et Hamcrest.
 Un peu comme Unitils en son temps, Spring Boot facilite l’utilisation conjointe de ces différents frameworks. Et la version 1.4.0 de Spring Boot améliore encore leur intégration.
 
-Ainsi, l’annotation `@MockBean` permet de créer un mock avec Mockito, de l’enregistrer au sein du contexte applicatif Spring et de l’injecter dans votre classe de tests unitaires. Nul besoin désormais de faire appel explicitement à la méthode `Mockito::mock()`.
+Ainsi, l’annotation `@MockBean` permet de créer un mock avec Mockito, de l’enregistrer au sein du contexte applicatif Spring et de l’injecter dans votre classe de tests unitaires.
+Nul besoin désormais de faire appel explicitement à la méthode `Mockito::mock()`.
 
-En fonction de la couche applicative à laquelle la classe testée appartient, la configuration Spring du test associé peut être auto-détectée. Ainsi, pour la couche web Spring MVC, l’annotation `@WebMvcTest` détecte tous les beans annotés avec `@Controller`, `@ControllerAdvice` et `@JsonComponent` puis configure l’instance de `MockMvc`. La classe de test [`OwnerControllerTests`](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/test/java/org/springframework/samples/petclinic/web/OwnerControllerTests.java) la montre en action.
+En fonction de la couche applicative à laquelle la classe testée appartient, la configuration Spring du test associé peut être auto-détectée.
+Ainsi, pour la couche web Spring MVC, l’annotation `@WebMvcTest` détecte tous les beans annotés avec `@Controller`, `@ControllerAdvice` et `@JsonComponent` puis configure l’instance de `MockMvc`.
+La classe de test [`OwnerControllerTests`](https://github.com/spring-projects/spring-petclinic/blob/springboot/src/test/java/org/springframework/samples/petclinic/web/OwnerControllerTests.java) la montre en action.
 
 ## Autres changements
 
@@ -99,6 +105,7 @@ D’autres changements mineurs ont été nécessaires :
 
 ## Conclusion
 
-Le portage vers Spring Boot n’aura demandé que quelques heures de développement. Au final, la configuration Spring est simplifiée à l’extrême. Et mis à part la configuration Maven, Petclinic ne contient a plus une seule ligne de XML.
+Le portage vers Spring Boot n’aura demandé que quelques heures de développement.
+Au final, la configuration Spring est simplifiée à l’extrême. Et mis à part la configuration Maven, Petclinic ne contient a plus une seule ligne de XML.
 En bonus, l’application s’est automatiquement vu enrichie d’une API de management accessible à la fois en REST et en JMX.
 Petclinic est packagé sous forme de war auto-exécutable. Une limitation du support des pages JSP par Spring Boot fait qu’il n’est pas (encore ?) possible de le jarjariser.
