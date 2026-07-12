@@ -117,7 +117,7 @@ spring:
 ```
 
 Le filtre **`SripPrefix`** accepte pour paramètre le nombre de parties du chemin à retirer de la requête HTTP avant d’être redirigée vers le microservice cible.  
-Exemple : lorsqu’une requête arrive sur la gateway avec l’URL [http://localhost::8080/api/customer/owners](http://localhost::8080/api/customer/owners), la requête `/owners` est transmise au microservice _customers-service_ (sans le `/api/customer`).
+Exemple : lorsqu’une requête arrive sur la gateway avec l’URL [http://localhost:8080/api/customer/owners](http://localhost:8080/api/customer/owners), la requête `/owners` est transmise au microservice _customers-service_ (sans le `/api/customer`).
 
 A noter que la route `/api/gateway` servie par le contrôleur Rest [ApiGatewayController](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java) n’a plus besoin d’être déclarée.
 
