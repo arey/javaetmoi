@@ -26,7 +26,9 @@ Depuis, mis à part 3 années passées sur les technologies .NET, je n'ai plus q
 
 La stack Java EE, Spring et Hibernate m'accompagnent au quotidien.
 
-![](/wp-content/uploads/2012/02/CertitfiedSpring_Professional.png)[![Certified Spring Enterprise Integration Specialist](/wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png)](/wp-content/uploads/2012/09/CertifiedSpring_EnterpriseIntegrationSpecialist.png) Rigoureux, l'outillage, l'intégration continue, la qualité et le TDD me tiennent particulièrement à coeur.
+![Certitfied Spring Professional:left](/2012/02/core-spring-3-0-certification-mock-exam/CertitfiedSpring_Professional.png)![Certified Spring Enterprise Integration Specialist](/2012/09/certified-spring-enterprise-integration-specialist-study-notes/CertifiedSpring_EnterpriseIntegrationSpecialist.png)
+
+Rigoureux, l'outillage, l'intégration continue, la qualité et le TDD me tiennent particulièrement à coeur.
 Fin 2010, j'ai découvert l'outil distribué de gestion de version Git. Depuis, je pousse mes collègues pour passer dessus, quitte à devoir utiliser le bridge git-svn. J'espère qu'ils se reconnaîtront.
 
 # Pourquoi un blog ?
