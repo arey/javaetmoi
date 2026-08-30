@@ -5,7 +5,7 @@ categories:
   - test
 date: "2016-03-24T07:36:23+00:00"
 toc: true
-thumbnail: artist.png
+thumbnail: logo/logo-java-duke.png
 featureImage: artist.png
 featureImageAlt: "artist"
 usePageBundles: true
