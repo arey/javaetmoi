@@ -5,7 +5,7 @@ categories:
   - conférence
 date: "2016-04-30T15:04:09+00:00"
 toc: true
-thumbnail: 2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg
+thumbnail: logo/logo-devoxx-france.png
 featureImage: 2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg
 featureImageAlt: "2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016"
 usePageBundles: true
@@ -20,10 +20,6 @@ summary: |-
   En7 étapes, vous développerez une application de Quizz avec la beta 11 d’Angular 2.
 
   ![2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016](/2016/04/angular-2-hands-on-lab-devoxx-france/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg)
-
-  ##
-
-  ![2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016](/2016/04/angular-2-hands-on-lab-devoxx-france/2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg)
 tags:
   - angular2
   - devoxx
@@ -34,10 +30,8 @@ url: /2016/04/angular-2-hands-on-lab-devoxx-france/
 ---
 Lors de l’édition 2013 de Devoxx France, [je découvrais la simplicité de coder une application full JavaScript avec Angular JS](/2013/04/angularjs-devoxx-france-2013/). Lors de l’édition 2014, [je recodais from scratch sa fonctionnalité phare de binding directionnel](/2014/04/lab-angularjs-from-scratch-devoxx-france-2014/). Deux ans ont passé. Depuis son annonce, la version 2 d’Angular déchaine les passions au sein de la communauté front. Animé par Wassim Chegham , Emmanuel Demey et Cyril Balit, le [**Hand’s On Lab sur Angular 2**](http://cfp.devoxx.fr/2016/talk/ROC-7855/Angular_2_hands_on) fut pour moi l’occasion de découvrir les nouveautés, mais surtout, de découvrir si ce nouveau cru est aussi séduisant que le premier.
 
-Ce billet s’adresse à celles et ceux qui n’ont pas pu assister à ce Lab et qui **ont envie de découvrir** [**Angular 2**](https://angular.io/). Il s’appuie sur les ressources mises à disposition par les speakers.
+Ce billet s’adresse à celles et ceux qui n’ont pas pu assister à ce Lab et qui **ont envie de découvrir** [**Angular 2**](https://angular.dev/). Il s’appuie sur les ressources mises à disposition par les speakers.
 En7 étapes, vous développerez une application de Quizz avec la beta 11 d’Angular 2.
-
-![2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016](2016-04-20_Hands-on-lab-Angular2_Devoxx_France_2016.jpg)
 
 ###  Installation du post de dév
 
@@ -100,7 +94,7 @@ Techniquement, un composant est une classe JavaScript décorée avec l’annotat
 
 Un composant peut disposer d’une **vue**. Cette dernière est déclarée en tant que propriété `template` ou `templateUrl` du @Component. L’attribut `templateUrl` référence un template HTML externe (comme sous Angular 1) et `template` permet d’utiliser les backquotes TS pour déclarer un template inline.
 
-Au travers de la propriété `selector` de @Component, un composant peut également être associé à une balise HTML, et même plus largement à un **selector CSS 3**.
+Au travers de la propriété `selector` de `@Component`, un composant peut également être associé à une balise HTML, et même plus largement à un **selector CSS 3**.
 
 Pour démarrer une application Bootstrap, il faut appeler la fonction `bootstrap` en lui passant la classe du composant parent, en l’occurrence `Ng2CodelabApp`.
 
@@ -146,7 +140,8 @@ A la fin de cette étape, la page d’accueil n’affiche qu’un simple sablier
 
 ### Step 2 – Templates et cycle de vie
 
-Dans le step 1, les fichiers HTML manipulés ne comportaient aucune syntaxe particulière à Angular. Le step 2 vise à utiliser quelques notations syntaxiques propres à Angular 2 et qui vont sont présentées dans [le slide Template Syntaxe](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/16) et dont voici quelques explications.
+Dans le step 1, les fichiers HTML manipulés ne comportaient aucune syntaxe particulière à Angular.
+Le step 2 vise à utiliser quelques notations syntaxiques propres à Angular 2 et qui vont sont présentées dans [le slide Template Syntaxe](http://slides.com/wassimchegham/getting-started-with-angular-2#/8/16) et dont voici quelques explications.
 Syntaxe raccourcie d’Angular 2 :
 
 - Double accolade **{{**: affiche une propriété du composant (même syntaxe qu’Angular 1)
