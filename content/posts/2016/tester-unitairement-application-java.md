@@ -18,7 +18,7 @@ tags:
   - unitils
 title: Tester unitairement une application Java
 url: /2016/02/tester-unitairement-application-java/
-
+thumbnail: logo/logo-java-duke.png
 ---
 Un récent 13-14 m’a donné l’occasion de partager ma vision des **tests unitaires** avec mes collègues, qu’ils soient **développeurs Java** ou **chefs de projet**.
 
@@ -26,4 +26,4 @@ Au cours de cette présentation, j’ai essayé de répondre à des questions qu
 
 Des exemples de code ont illustré cette présentation dont voici librement le support :
 
-\[slideshare id=58163908&doc=20160211-tester-unitairement-une-application-java-160211185545\]
+{{< slideshare src="https://www.slideshare.net/slideshow/embed_code/key/KKFbeo3nBmFQW8" >}}
