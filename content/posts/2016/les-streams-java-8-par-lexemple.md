@@ -8,6 +8,7 @@ guid: http://javaetmoi.com/?p=1615
 parent_post_id: null
 post_id: "1615"
 post_views_count: "4617"
+thumbnail: logo/logo-java-duke.png
 tags:
   - java
 title: Les Streams Java 8 par l'exemple
@@ -18,4 +19,4 @@ Bien que **Java 8** soit sorti il y’a 2 ans, tous les développeurs n’ont pa
 Pourtant, Java 8 est à nos portes : des projets de migration de serveur d’application se terminent, les socles d’entreprise se mettent à jour, des frameworks exploitent ces nouveautés (ex : JUnit 5) ... Et on va enfin pouvoir exploiter à bon escient toutes ces nouvelles fonctionnalités. Mais avant cela, une mise à niveau est indispensable. Et c’est dans cet objectif que j’ai récemment initié mes collègues aux **Streams**.
 A partir d’un jeux de données réduit (une liste de 3 clients), **j’ai implémenté quelques règles de gestion à la fois en Java 7 avec des boucles et en Java 8 avec des Streams**, histoire de leur montrer la différence.
 
-\[slideshare id=62288571&doc=13-14-lesstreamsjava8-160523061803\]
+{{< slideshare src="https://www.slideshare.net/slideshow/embed_code/key/FPrcdFUrK8MNWr" >}}
