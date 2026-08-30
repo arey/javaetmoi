@@ -1,0 +1,30 @@
+---
+_edit_last: "1"
+author: Antoine Rey
+categories:
+  - conférence
+date: "2016-05-14T09:10:07+00:00"
+guid: http://javaetmoi.com/?p=1608
+parent_post_id: null
+post_id: "1608"
+post_views_count: "3554"
+usePageBundles: true
+thumbnail: logo/logo-devoxx-france.png
+tags:
+  - angular-2
+  - devoxx
+  - java
+  - javascript
+  - kafka
+  - spring-cloud
+title: 'Devoxx France 2016 : une conf appréciée, un slide'
+url: /2016/05/devoxx-france-2016-un-slide-par-conf/
+
+---
+Voici la présentation que j'ai animée auprès de mes collègues afin de leur faire un retour suite à ma participation à Devoxx France 2016.
+Le leitmotiv était :
+> Une conférence appréciée = un slide
+
+Au menu : **Angular 2**, **ECMAScript 2015**, **Kafka**, **Spring Cloud**, architecture StackOverflow, **Jenkins pipeline**, **React**, revues de code et documentation.
+
+{{< slideshare src="https://www.slideshare.net/slideshow/embed_code/key/kteoKXCEA1OY9J" >}}
