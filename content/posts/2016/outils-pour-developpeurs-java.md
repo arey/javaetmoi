@@ -8,12 +8,12 @@ guid: http://javaetmoi.com/?p=1549
 parent_post_id: null
 post_id: "1549"
 post_views_count: "6906"
+thumbnail: logo/logo-java-duke.png
 summary: |-
   Au quotidien, tout **développeur Java** utilise un IDE, un JDK, un outil build et un navigateur. Ce sont des standards. A côté, chaque développeur utilise un ou plusieurs petits outils permettant d’améliorer son quotidien. Par outil, j’entends aussi bien un **plugin**, un **logiciel** ou une **fonctionnalité** avancée de son IDE.
-  Dans cette présentation, j’ai eu envie de partager des **outils fonctionnant sous Windows**(mais pas que). J’utilise certains depuis des années, d’autres depuis seulement quelques semaines suite aux recommandations de collègues.
+  Dans cette présentation, j’ai eu envie de partager des **outils fonctionnant sous Windows** (mais pas que). J’utilise certains depuis des années, d’autres depuis seulement quelques semaines suite aux recommandations de collègues.
   A vous de voir si vous souhaitez les tester puis les adopter, ou non.
 
-  \[slideshare id=59714114&doc=2016-03-17-cesoutilsquivousfontgagnerdutemps-160318071738\]
 tags:
   - cmdr
   - dcevm
@@ -32,10 +32,11 @@ url: /2016/03/outils-pour-developpeurs-java/
 
 ---
 Au quotidien, tout **développeur Java** utilise un IDE, un JDK, un outil build et un navigateur. Ce sont des standards. A côté, chaque développeur utilise un ou plusieurs petits outils permettant d’améliorer son quotidien. Par outil, j’entends aussi bien un **plugin**, un **logiciel** ou une **fonctionnalité** avancée de son IDE.
-Dans cette présentation, j’ai eu envie de partager des **outils fonctionnant sous Windows**(mais pas que). J’utilise certains depuis des années, d’autres depuis seulement quelques semaines suite aux recommandations de collègues.
+Dans cette présentation, j’ai eu envie de partager des **outils fonctionnant sous Windows** (mais pas que). J’utilise certains depuis des années, d’autres depuis seulement quelques semaines suite aux recommandations de collègues.
 A vous de voir si vous souhaitez les tester puis les adopter, ou non.
 
-\[slideshare id=59714114&doc=2016-03-17-cesoutilsquivousfontgagnerdutemps-160318071738\]
+
+{{< slideshare src="https://www.slideshare.net/slideshow/embed_code/key/8OUsk6RVc3y3Fu" >}}
 
 Les outils présentés dans le support de présentation sont les suivants :
 
