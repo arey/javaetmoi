@@ -4,9 +4,7 @@ author: Antoine Rey
 categories:
   - retour-d'expérience
 date: "2015-10-01T05:17:30+00:00"
-thumbnail: hibernate-validator-logo.png
-featureImage: hibernate-validator-logo.png
-featureImageAlt: "hibernate-validator-logo"
+thumbnail: hibernate-icon.svg
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1462
 parent_post_id: null
@@ -16,10 +14,8 @@ summary: |-
   Implémentation de référence de [Bean Validation 1.1](http://beanvalidation.org/), [Hibernate Validator 5.x requière une implémentation d'Unified Expression Language respectant la JSR-341](http://docs.jboss.org/hibernate/validator/5.1/reference/en-US/html/validator-gettingstarted.html#validator-gettingstarted-uel) (correspond aux [**EL 2.2**](https://jcp.org/en/jsr/detail?id=341)).
   EL 2.2 étant apparue avec Java EE 6, il n’est donc pas possible d’utiliser Hibernate Validator 5 dans un serveur d’application Java EE 5 et un conteneur de servlets 2.5. C’est pourquoi [Hibernate Validator 5 ne fonctionne pas avec Tomcat 6](http://hibernate.org/validator/faq/#does-hibernate-validator-5-x-work-with-tomcat-6).
 
-  [![hibernate-validator-logo](/2015/10/hibernate-validator-5-sur-conteneur-servlet-2-5/hibernate-validator-logo.png)](hibernate-validator-logo.png)
-
   Essayer et vous tomberez au runtime sur l’exception suivante :
-  NoSuchMethodError: javax.el.ExpressionFactory.newInstance()Ljavax/el/ExpressionFactory)
+  `NoSuchMethodError: javax.el.ExpressionFactory.newInstance()Ljavax/el/ExpressionFactory)`
 
   ![hibernate-validator-logo](/2015/10/hibernate-validator-5-sur-conteneur-servlet-2-5/hibernate-validator-logo.png)
 tags:
@@ -35,7 +31,7 @@ EL 2.2 étant apparue avec Java EE 6, il n’est donc pas possible d’utiliser 
 [![hibernate-validator-logo](hibernate-validator-logo.png)](hibernate-validator-logo.png)
 
 Essayer et vous tomberez au runtime sur l’exception suivante :
-NoSuchMethodError: javax.el.ExpressionFactory.newInstance()Ljavax/el/ExpressionFactory)
+`NoSuchMethodError: javax.el.ExpressionFactory.newInstance()Ljavax/el/ExpressionFactory)`
 
 Comme indiqué dans la documentation, embarquer EL 2.2 dans votre WAR ne résout pas le problème et génère ce type d’erreur au runtime :
 
@@ -43,7 +39,7 @@ Comme indiqué dans la documentation, embarquer EL 2.2 dans votre WAR ne résout
 java.lang.LinkageError: loader constraint violation: when resolving interface method "javax.servlet.jsp.JspApplicationContext.getExpressionFactory()Ljavax/el/ExpressionFactory;" the class loader (instance of org/apache/jasper/servlet/JasperLoader) of the current class, org/apache/jsp/index_jsp, and the class loader (instance of org/apache/catalina/loader/StandardClassLoader) for resolved class, javax/servlet/jsp/JspApplicationContext, have different Class objects for the type javax/el/ExpressionFactory used in the signature
 ```
 
-Pour profiter des avancées apportées par Bean Validation 1.1, comme par exemple l’ [amélioration du formatage des messages d'erreurs des contraintes](http://beanvalidation.org/1.1/changes/), vous avez le choix entre:
+Pour profiter des avancées apportées par Bean Validation 1.1, comme l’[amélioration du formatage des messages d'erreurs des contraintes](http://beanvalidation.org/1.1/changes/), vous avez le choix entre :
 
 1. Effectuer une montée de version de Tomcat ou de JBoss
 1. Utiliser une autre implémentation de Bean Validation 1.1 (personnellement je n’en connais pas)
@@ -75,11 +71,12 @@ ResourceBundleMessageInterpolator.class.getClassLoader().loadClass( "com.javaetm
 private final String EL_PACKAGE_PREFIX = "com.javaetmoi.fork.javax.el";
 ```
 
-Editer le pom.xml. Afin de ne pas confondre ce fork avec l’originalhanger le groupId, l’artefactId et/ou le numéro de version du module hibernate-validator.
+Éditer le `pom.xml`. Afin de ne pas confondre ce fork avec l’original, modifier le `groupId`, l’`artefactId` et/ou le numéro de version du module `hibernate-validator.
 Ajouter les dépendances vers l’API et l’implémentation de EL 2.1. Construire le JAR et le déployer. Le tour est joué.
 
 ## Conclusion
 
 En une petite heure, vous aurez réussi à faire en sorte qu’Hibernate Validator 5.x soit compatible avec votre conteneur de servlet 2.5 (ou votre serveur d’application JEE 5).
-En soit, les adaptations ne sont ni compliquées ni risquées. Se posera la question de devoir les réappliquer lorsque vous voulez monter de version Hibernate Validator ou EL. Un fichier patch ou un fork sous Github permettront de faciliter les mises à jour.
+En soit, les adaptations ne sont ni compliquées ni risquées. Se posera la question de devoir les réappliquer lorsque vous voulez monter de version Hibernate Validator ou EL.
+Un fichier patch ou un fork sous Github permettront de faciliter les mises à jour.
 Lors d’un passage à JEE 6 ou à un conteneur de servlet compatible Servlet 3.x, ces versions personnalisés d’EL et d’Hibernate Validator pourront être remplacées peur l’original.
