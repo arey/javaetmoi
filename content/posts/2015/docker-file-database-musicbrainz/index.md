@@ -6,22 +6,18 @@ categories:
 date: "2015-11-02T06:12:35+00:00"
 toc: true
 thumbnail: docker-logo.jpg
-featureImage: docker-logo.jpg
-featureImageAlt: "docker-logo"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1471
 parent_post_id: null
 post_id: "1471"
 post_views_count: "4873"
 summary: |-
-  [![docker-logo](/2015/11/docker-file-database-musicbrainz/docker-logo.jpg)](docker-logo.jpg) Lorsqu’on développe dans son coin une démo basée sur une nouvelle techno, il est fréquent d’avoir besoin de données de tests. Soit on se les construit à la main, soit on en récupère sur Internet. Le mouvement [Open Data](https://fr.wikipedia.org/wiki/Open_data) et les API mises à disposition par les grands du Web permettent de récupérer des données en temps réel. Dans les conférences, nombre de démos live utilisent les API de Twitter ou de Github. Ces données sont généralement formatées en JSON. Une connexion réseau est alors nécessaire.
+  Lorsqu’on développe dans son coin une démo basée sur une nouvelle techno, il est fréquent d’avoir besoin de données de tests. Soit on se les construit à la main, soit on en récupère sur Internet. Le mouvement [Open Data](https://fr.wikipedia.org/wiki/Open_data) et les API mises à disposition par les grands du Web permettent de récupérer des données en temps réel. Dans les conférences, nombre de démos live utilisent les API de Twitter ou de Github. Ces données sont généralement formatées en JSON. Une connexion réseau est alors nécessaire.
 
   Dans le cadre d’une série d’articles sur Elasticsearch et AngularJS, j’ai eu le besoin d’indexer des données de manière **offline**. Cherchant une **source de donnée musicale**, j’ai opté pour [**MusicBrainz**](https://musicbrainz.org/) qui, à l’instar d’IMDb pour le cinéma, est une plateforme ouverte collectant des méta-données sur les artistes, leurs albums et leurs chansons puis les mettant à disposition du publique. Cette plateforme est composée d’une base de données relationnelles et d’une interface web permettant d’effectuer des recherches, de consulter les données et de participer à l’enrichissement de la base. [Last.fm](http://blog.last.fm/2011/11/24/the-brainz-are-back-in-town), [The Guardian](http://www.theguardian.com/open-platform/blog/linked-data-open-platform) ou bien encore la [BBC](http://www.bbc.co.uk/music/brainz/) s’interfacent avec MusicBrainz.
 
   Dans l’article [Elastifiez la base MusicBrainz sur OpenShift](http://javaetmoi.com/2013/11/musicbrainz-elasticsearch-angularjs-openshift/), je proposais 2 méthodes pour installer la base de données : récupérer une VM ou un dump de la base PostgreSQL. Dans les 2 cas, la procédure d’installation demandait une intervention humaine.
   Ce billet vous en propose une 3ième : automatiser l’installation de base de données à l’aide de [**Docker**](https://www.docker.com/). Après **quelques lignes de commande** et un peu de **patience** le temps de l’import du dump PostgreSQL, vous pourrez vous connecter localement à la base musicale contenant des données à jour.
-
-  ![docker-logo](/2015/11/docker-file-database-musicbrainz/docker-logo.jpg)
 tags:
   - docker
   - postresql
@@ -29,20 +25,21 @@ title: Docker file de la database MusicBrainz
 url: /2015/11/docker-file-database-musicbrainz/
 
 ---
-[![docker-logo](docker-logo.jpg)](docker-logo.jpg) Lorsqu’on développe dans son coin une démo basée sur une nouvelle techno, il est fréquent d’avoir besoin de données de tests. Soit on se les construit à la main, soit on en récupère sur Internet. Le mouvement [Open Data](https://fr.wikipedia.org/wiki/Open_data) et les API mises à disposition par les grands du Web permettent de récupérer des données en temps réel. Dans les conférences, nombre de démos live utilisent les API de Twitter ou de Github. Ces données sont généralement formatées en JSON. Une connexion réseau est alors nécessaire.
+![docker-logo:right](docker-logo.jpg)]Lorsqu’on développe dans son coin une démo basée sur une nouvelle techno, il est fréquent d’avoir besoin de données de tests. Soit on se les construit à la main, soit on en récupère sur Internet. Le mouvement [Open Data](https://fr.wikipedia.org/wiki/Open_data) et les API mises à disposition par les grands du Web permettent de récupérer des données en temps réel. Dans les conférences, nombre de démos live utilisent les API de Twitter ou de Github. Ces données sont généralement formatées en JSON. Une connexion réseau est alors nécessaire.
 
 Dans le cadre d’une série d’articles sur Elasticsearch et AngularJS, j’ai eu le besoin d’indexer des données de manière **offline**. Cherchant une **source de donnée musicale**, j’ai opté pour [**MusicBrainz**](https://musicbrainz.org/) qui, à l’instar d’IMDb pour le cinéma, est une plateforme ouverte collectant des méta-données sur les artistes, leurs albums et leurs chansons puis les mettant à disposition du publique. Cette plateforme est composée d’une base de données relationnelles et d’une interface web permettant d’effectuer des recherches, de consulter les données et de participer à l’enrichissement de la base. [Last.fm](http://blog.last.fm/2011/11/24/the-brainz-are-back-in-town), [The Guardian](http://www.theguardian.com/open-platform/blog/linked-data-open-platform) ou bien encore la [BBC](http://www.bbc.co.uk/music/brainz/) s’interfacent avec MusicBrainz.
 
+![musicbrainz-logo:left](musicbrainz-logo.svg)
 Dans l’article [Elastifiez la base MusicBrainz sur OpenShift](/2013/11/musicbrainz-elasticsearch-angularjs-openshift/), je proposais 2 méthodes pour installer la base de données : récupérer une VM ou un dump de la base PostgreSQL. Dans les 2 cas, la procédure d’installation demandait une intervention humaine.
 Ce billet vous en propose une 3ième : automatiser l’installation de base de données à l’aide de [**Docker**](https://www.docker.com/). Après **quelques lignes de commande** et un peu de **patience** le temps de l’import du dump PostgreSQL, vous pourrez vous connecter localement à la base musicale contenant des données à jour.
 
 ## L’image arey/musicbrainz-database
 
-Basée sur l’ [image officielle de postgres](https://hub.docker.com/_/postgres/), [**l’image Docker arey/musicbrainz-database**](https://registry.hub.docker.com/u/arey/musicbrainz-database/) installe la base de données PostgreSQL 9.4 ainsi que toutes les librairies nécessaires au fonctionnement de la base de données MusicBrainz (ex : postgresql-server-dev-9.4, postgresql-musicbrainz-unaccent).
+Basée sur l’[image officielle de postgres](https://hub.docker.com/_/postgres/), [**l’image Docker arey/musicbrainz-database**](https://hub.docker.com/r/arey/musicbrainz-database) installe la base de données PostgreSQL 9.4 ainsi que toutes les librairies nécessaires au fonctionnement de la base de données MusicBrainz (ex : postgresql-server-dev-9.4, postgresql-musicbrainz-unaccent).
 
 Cette image vient avec le script shell [create-database.sh](https://github.com/arey/musicbrainz-database/blob/master/create-database.sh) utilisé pour créer la structure de données et importer le dump de la base de données MusicBrainz. Les étapes le décomposant sont les suivantes :
 
-1. Crée le schéma musicbrainz
+1. Crée le schéma `musicbrainz`
 1. Crée les tables à partir des scripts DDL présent sur le GitHub de MusicBrainz
 1. Télécharge le dump de la base de données
 1. Importe le dump après l’avoir téléchargé par FTP
@@ -88,7 +85,7 @@ Vous trouverez ci-dessous le fichier Dockerfile et le script de création de la 
 
 **Dockerfile**
 
-```default
+```dockerfile
 FROM postgres:9.4
 
 RUN apt-get update
@@ -164,4 +161,4 @@ rm CreateIndexes.sql
 
 Le script shell de création de la base m’aura demandé plus d’efforts que le Dockerfile. Indépendant de tout script externe, il devrait être stable dans le temps. L’image devra par contre évoluer au fil du temps, par exemple lors de montée de version de PostgreSQL.
 
-L’image [arey/musicbrainz-database](https://registry.hub.docker.com/u/arey/musicbrainz-database/) peut être utilisée avec **docker-compose.** C’est désormais le cas sur le projet [musicbrainz-elasticsearch](https://github.com/arey/musicbrainz-elasticsearch/tree/master/docker) qui l’utilise pour démarrer la base de données MusicBrainz et un cluster Elasticsearch.
+L’image [arey/musicbrainz-database](https://hub.docker.com/r/arey/musicbrainz-database) peut être utilisée avec **docker-compose.** C’est désormais le cas sur le projet [musicbrainz-elasticsearch](https://github.com/arey/musicbrainz-elasticsearch/tree/master/docker) qui l’utilise pour démarrer la base de données MusicBrainz et un cluster Elasticsearch.
