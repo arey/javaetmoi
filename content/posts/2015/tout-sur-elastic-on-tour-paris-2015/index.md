@@ -5,7 +5,7 @@ categories:
   - conférence
 date: "2015-11-13T13:00:47+00:00"
 toc: true
-thumbnail: elasticon-patis-2015-keynote.jpeg
+thumbnail: /logo/logo-elastic.svg
 featureImage: elasticon-patis-2015-keynote.jpeg
 featureImageAlt: "elasticon-patis-2015-keynote"
 usePageBundles: true
@@ -17,8 +17,6 @@ summary: |-
   Sur les 12 représentations mondiales, la 3ième date de la tournée européenne de l [a conférence Elastic{ON}](https://www.elastic.co/elasticon) a eu lieu le 5 novembre 2015 à Paris.
 
   Invité par la société [Adelean](http://adelean.com/), j’ai pu y participé. Pour toutes celles et ceux qui n’ont pas eu cette chance, ce billet me permet de vous faire partager cette journée.
-
-  [![elasticon-patis-2015-keynote](/2015/11/tout-sur-elastic-on-tour-paris-2015/elasticon-patis-2015-keynote.jpeg)](elasticon-patis-2015-keynote.jpeg)
 
   ![elasticon-patis-2015-keynote](/2015/11/tout-sur-elastic-on-tour-paris-2015/elasticon-patis-2015-keynote.jpeg)
 tags:
@@ -35,12 +33,11 @@ Sur les 12 représentations mondiales, la 3ième date de la tournée européenne
 
 Invité par la société [Adelean](http://adelean.com/), j’ai pu y participé. Pour toutes celles et ceux qui n’ont pas eu cette chance, ce billet me permet de vous faire partager cette journée.
 
-[![elasticon-patis-2015-keynote](elasticon-patis-2015-keynote.jpeg)](elasticon-patis-2015-keynote.jpeg)
-
 ## Plongée dans le produit et la roadmap
 
 ### Keynote de Shay Banon
 
+![logo elastic:left](logo-elastic.webp)
 Créateur du moteur de recherche Elasticsearch, Shay Banon a tout naturellement ouvert cette journée. Ce fut pour lui l’occasion de retracer la genèse de son bébé.
 L’histoire d’Elasticsearch a commencé il y’a 15 ans par une **application de cuisine** baptisée iCook et que Shay avait développé pour sa femme. Basée sur Spring, Hibernate et Eclipse RCP, la fonctionnalité centrale était la barre de recherche positionnée sur la page d’accueil. Shay a très vite compris que le SQL n’était pas adapté à la recherche full text. Il a donc adapté l’architecture pour utiliser Apache Lucene. Voyant que son API de haut niveau pouvait adresser d’autres cas d’utilisation que la cuisine, il l’a open sourcé sous le nom de **Compass**.
 Pour un utilisateur, Shay rappelle que le search doit être rapide. C’est d’ailleurs la fierté de Google qui affiche le temps d’exécution de ses requêtes.
