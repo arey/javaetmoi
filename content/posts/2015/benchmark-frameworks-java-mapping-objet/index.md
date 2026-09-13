@@ -7,15 +7,13 @@ categories:
 date: "2015-09-16T05:20:37+00:00"
 toc: true
 thumbnail: logo-java-performance.png
-featureImage: logo-java-performance.png
-featureImageAlt: "logo-java-performance"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1442
 parent_post_id: null
 post_id: "1442"
 post_views_count: "22999"
 summary: |-
-  [![logo-java-performance](/2015/09/benchmark-frameworks-java-mapping-objet/logo-java-performance.png)](logo-java-performance.png) Ce billet a pour origine un commentaire posté dans [mon précédent billet](http://javaetmoi.com/2015/08/check-list-revue-code-et-architecture-java/) et dans lequel Laurent demandait un **retour d’expérience** sur l’utilisation de **frameworks Java de mapping objet vers objet** tels [Dozer](https://github.com/DozerMapper/dozer) ou [ModelMapper](http://modelmapper.org/).
+  Ce billet a pour origine un commentaire posté dans [mon précédent billet](http://javaetmoi.com/2015/08/check-list-revue-code-et-architecture-java/) et dans lequel Laurent demandait un **retour d’expérience** sur l’utilisation de **frameworks Java de mapping objet vers objet** tels [Dozer](https://github.com/DozerMapper/dozer) ou [ModelMapper](http://modelmapper.org/).
 
   Dans l’architecture d’une **applicative n-tiers**, une couche de mapping objet / objet peut intervenir à plusieurs niveaux :
 
@@ -30,8 +28,6 @@ summary: |-
 
   1. Une première dressant les **avantages** et les **inconvénients** d’utiliser **Dozer** par rapport à une **approche manuelle**,
   2. et une seconde présentant les résultats d’un **micro-benchmark** comparant plusieurs frameworks : **Dozer**, **Orika**, **Selma**, **MapStruct** et **ModelMapper**.
-
-  ![logo-java-performance](/2015/09/benchmark-frameworks-java-mapping-objet/logo-java-performance.png)
 tags:
   - benchmark
   - dozer
@@ -43,7 +39,7 @@ title: Benchmark de frameworks de mapping objet
 url: /2015/09/benchmark-frameworks-java-mapping-objet/
 
 ---
-[![logo-java-performance](logo-java-performance.png)](logo-java-performance.png) Ce billet a pour origine un commentaire posté dans [mon précédent billet](/2015/08/check-list-revue-code-et-architecture-java/) et dans lequel Laurent demandait un **retour d’expérience** sur l’utilisation de **frameworks Java de mapping objet vers objet** tels [Dozer](https://github.com/DozerMapper/dozer) ou [ModelMapper](http://modelmapper.org/).
+[![logo-java-performance:left](logo-java-performance.png)](logo-java-performance.png) Ce billet a pour origine un commentaire posté dans [mon précédent billet](/2015/08/check-list-revue-code-et-architecture-java/) et dans lequel Laurent demandait un **retour d’expérience** sur l’utilisation de **frameworks Java de mapping objet vers objet** tels [Dozer](https://github.com/DozerMapper/dozer) ou [ModelMapper](http://modelmapper.org/).
 
 Dans l’architecture d’une **applicative n-tiers**, une couche de mapping objet / objet peut intervenir à plusieurs niveaux :
 
@@ -73,7 +69,7 @@ Quel que soit l’approche choisie (framework ou code manuel), seuls des **tests
 
 ## Micro-benchmark
 
-Ne trouvant aucun comparatif récent sur les performances des frameworks de mapping, j’ai créé sur GitHub le projet [java-object-mapper-benchmark](http://github.com/arey/java-object-mapper-benchmark). Ce dernier utilise **[JMH](http://openjdk.java.net/projects/code-tools/jmh/)** (Java Microbenchmarking Harness) pour réaliser un micro-benchmark entre Dozer, Selma, ModelMapper, Orika, MapStruct et un mapping écrit manuellement.
+Ne trouvant aucun comparatif récent sur les performances des frameworks de mapping, j’ai créé sur GitHub le projet [java-object-mapper-benchmark](http://github.com/arey/java-object-mapper-benchmark). Ce dernier utilise **[JMH](https://github.com/openjdk/jmh)** (Java Microbenchmarking Harness) pour réaliser un micro-benchmark entre Dozer, Selma, ModelMapper, Orika, MapStruct et un mapping écrit manuellement.
 
 Le diagramme ci-dessous présente résultats obtenus avec la configuration suivante :
 
