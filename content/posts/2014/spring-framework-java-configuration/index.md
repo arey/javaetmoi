@@ -490,21 +490,18 @@ La configuration donnée en exemple ne donne qu’un aperçu de l’éventail de
 
 En guise de conclusion, voici un tableau récapitulant les avantages et les inconvénients qu’a un développeur Java à passer sur une syntaxe full Java :
 
-**Avantages****Inconvénients**
-
-- Type safe : syntaxe vérifiée à la compilation
-- Complétion dans l’IDE sans plugin
-- Import Java mettant en évidence les dépendances non présentes
-- Refactoring facilité de la configuration
-- Ajout de code possible lors de la déclaration de beans (ex : logs)
-- Accélère le chargement du contexte applicatif
-- Traite la configuration comme du code
-- Navigation dans la conf facilitée
-- Mixité possible avec la configuration XML
-- Plus besoin de connaitre les namespaces XML
-
-- Nouvelle syntaxe à appréhender
-- Subtilités à maîtriser : `afterPropertiesSet()`, appels de méthodes annotées avec `@Bean` qui n’en sont pas
+| Avantages                                                          | Inconvénients                                                                                               |
+|--------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| Type safe : syntaxe vérifiée à la compilation                      | Nouvelle syntaxe à appréhender                                                                              |
+| Complétion dans l’IDE sans plugin                                  | Subtilités à maîtriser : `afterPropertiesSet()`, appels de méthodes annotées avec `@Bean` qui n’en sont pas |
+| Import Java mettant en évidence les dépendances non présentes      |                                                                                                             |
+| Refactoring facilité de la configuration                           |                                                                                                             |
+| Ajout de code possible lors de la déclaration de beans (ex : logs) |                                                                                                             |
+| Accélère le chargement du contexte applicatif                      |                                                                                                             |
+| Traite la configuration comme du code                              |                                                                                                             |
+| Navigation dans la conf facilitée                                  |                                                                                                             |
+| Mixité possible avec la configuration XML                          |                                                                                                             |
+| Plus besoin de connaitre les namespaces XML                        |                                                                                                             |
 
 Références :
 
