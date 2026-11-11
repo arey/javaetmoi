@@ -6,8 +6,6 @@ categories:
 date: "2013-11-15T19:35:01+00:00"
 toc: true
 thumbnail: logo-musicbrainz.jpg
-featureImage: logo-musicbrainz.jpg
-featureImageAlt: "logo-musicbrainz"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=782
 parent_post_id: null
@@ -21,8 +19,6 @@ summary: |-
   Pour indexer les données depuis une base PostgreSQL, j’ai privilégié **Spring Batch** au détriment d'une river. Pour l’IHM, j’ai adapté un prototype basé sur **AngularJS**, jQuery et Bootstrap qu’avait réalisé [Lucian Precup](https://twitter.com/lucianprecup) pour la [Scrum Day 2013](http://agenda2013.scrumday.fr/event/149). La mise en ligne de l’index Elasticsearch m’aura permis de tester  la plateforme Cloud  **OpenShift** de Redhat.
 
   Cet article a pour objectif de décrire les différentes étapes qui m’ont été nécessaires pour réaliser ma démo et d’expliquer ce que j’ai librement rendu accessible sur [GitHub](https://github.com/arey/musicbrainz-elasticsearch/blob/musicbrainz-elasticsearch-1.0.0/src/main/java/com/javaetmoi/core/batch/item/EsDocumentWriter.java) et [Internet](http://musicsearch.javaetmoi.com/).
-
-  ![logo-musicbrainz](/2013/11/musicbrainz-elasticsearch-angularjs-openshift/logo-musicbrainz.jpg)
 tags:
   - angularjs
   - cloud
@@ -33,9 +29,7 @@ title: Elastifiez la base MusicBrainz sur OpenShift
 url: /2013/11/musicbrainz-elasticsearch-angularjs-openshift/
 
 ---
-![logo-musicbrainz](logo-musicbrainz.jpg)
-
-Pour les besoins d’un workshop sur Elasticsearch, je me suis amusé à **indexer une encyclopédie musicale** et à mettre en ligne une petite **application HTML 5** permettant de réaliser des **recherches**.
+![logo-musicbrainz:right](logo-musicbrainz.jpg) Pour les besoins d’un workshop sur Elasticsearch, je me suis amusé à **indexer une encyclopédie musicale** et à mettre en ligne une petite **application HTML 5** permettant de réaliser des **recherches**.
 
 Comme source de données musicale, j’ai opté pour **[MusicBrainz](http://musicbrainz.org/ "MusicBrainz Home")** qui est une plateforme ouverte collectant des méta-données sur les artistes, leurs albums et leurs chansons puis les mettant à disposition du publique.
 

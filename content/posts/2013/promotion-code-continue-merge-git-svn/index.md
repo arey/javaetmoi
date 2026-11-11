@@ -5,9 +5,7 @@ categories:
   - retour-d'expérience
 date: "2013-03-19T19:48:16+00:00"
 toc: true
-thumbnail: 2013-03-promotion-continue-avec-git-svn.png
-featureImage: 2013-03-promotion-continue-avec-git-svn.png
-featureImageAlt: "Workflow de promotion en continue du trunk vers la branche"
+thumbnail: /logo/logo-git.png
 usePageBundles: true
 guid: http://javaetmoi.com/?p=626
 parent_post_id: null
@@ -30,7 +28,7 @@ url: /2013/03/promotion-code-continue-merge-git-svn/
 
 ---
 Dans le cadre d’un important **chantier** de **migration technique** d’une **application**, j’ai eu l’occasion de pratiquer ce que j’appellerais la **promotion de code en continue**.
-
+![Logo Git:right](/logo/logo-git.png)
 Pour resituer le contexte, ce chantier dura plus de 6 mois. Entre le début et la fin de la migration, l’application a été livrée plusieurs fois en production, embarquant à chaque fois de nombreuses évolutions fonctionnelles. Nous avons donc dû nous organiser pour migrer l’application sans pénaliser l’avancement du reste de l’équipe.
 Les changements techniques étant bien trop transverses à l’application, la stratégie de [Feature Toggle](http://martinfowler.com/bliki/FeatureToggle.html) ne pouvait s’appliquer. Nous nous sommes donc dirigés vers une technique assimilable au [Feature Branch](http://martinfowler.com/bliki/FeatureBranch.html) ; notre migration technique n’étant rien d’autre qu’une feature comme une autre.  Logiquement, une branche dédiée à la migration a été créée.
 

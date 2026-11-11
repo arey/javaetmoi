@@ -19,11 +19,14 @@ summary: |-
   Les **secrets du conteneur** Spring vous attendent pour ce 3ième workshop sur le framework Spring : module **spring-test**, **injection de beans de portées différentes**, **support** des **JSR 250** et **330**, **post-processeurs de beans**, fichiers de **configuration** et abstraction de l’accès aux ressources.
 
   Conçu en décembre 2011, et faisant suite aux 2 billets précédents, le support de présentation de ce workshop reste d’actualités avec Spring 4.x. Seule la syntaxe XML pourrait de nos jours être réécrites en Java.
+
+  <iframe width="476" height="400" src="//www.slideshare.net/slideshow/embed_code/42031864" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+thumbnail: /logo/logo-spring-framework.svg
 title: Tests et techniques avancées du conteneur Spring
 url: /2014/12/tests-et-techniques-avancees-conteneur-spring/
 
 ---
-L'écosystème des technologies supportées par Spring vous est familier.
+![logo Spring Framework:right](/logo/logo-spring-framework.svg)L'écosystème des technologies supportées par Spring vous est familier.
 L'inversion de contrôle et l'injection de dépendances n'ont plus de secret pour vous.
 Les supports de JDBC, de JPA et d'Hibernate sont pour vous une réalité.
 Vous êtes conquis par la magie de Spring Data JPA.
@@ -33,6 +36,8 @@ Alors n'attendez plus !!
 Les **secrets du conteneur** Spring vous attendent pour ce 3ième workshop sur le framework Spring : module **spring-test**, **injection de beans de portées différentes**, **support** des **JSR 250** et **330**, **post-processeurs de beans**, fichiers de **configuration** et abstraction de l’accès aux ressources.
 
 Conçu en décembre 2011, et faisant suite aux 2 billets précédents, le support de présentation de ce workshop reste d’actualités avec Spring 4.x. Seule la syntaxe XML pourrait de nos jours être réécrites en Java.
+
+{{< slideshare src="//www.slideshare.net/slideshow/embed_code/42031864" >}}
 
 Voici le sommaire complet de la présentation :
 

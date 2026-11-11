@@ -5,9 +5,7 @@ categories:
   - retour-d'expérience
 date: "2014-02-09T19:13:56+00:00"
 toc: true
-thumbnail: angular-musicbrainz-screenshot.png
-featureImage: angular-musicbrainz-screenshot.png
-featureImageAlt: "Angular MusicBrainz web app screenshot"
+thumbnail: /logo/logo-angularjs.svg
 usePageBundles: true
 guid: http://javaetmoi.com/?p=898
 parent_post_id: null
@@ -46,7 +44,7 @@ title: Développer et industrialiser une web app avec AngularJS
 url: /2014/02/developper-industrialiser-web-app-recherche-angularjs/
 
 ---
-Au travers du billet [Elastifiez la base MusicBrainz sur OpenShift](https://github.com/angular/angular-seed/blob/master/README.md), je vous ai expliqué comment indexer dans **Elasticsearch** et avec **Spring Batch** l’encyclopédie musicale **MusicBrainz.** L’index avait ensuite été déployé sur le Cloud **OpenShift** de RedHat.  
+![logo AngularJS:right](/logo/logo-angularjs.svg)Au travers du billet [Elastifiez la base MusicBrainz sur OpenShift](https://github.com/angular/angular-seed/blob/master/README.md), je vous ai expliqué comment indexer dans **Elasticsearch** et avec **Spring Batch** l’encyclopédie musicale **MusicBrainz.** L’index avait ensuite été déployé sur le Cloud **OpenShift** de RedHat.  
 Une application HTML 5 était mise à disposition pour consulter les albums de musique ainsi indexés. Pour m’y aider, [Lucian Precup](https://twitter.com/lucianprecup) m’avait autorisé à adapter l’application qu’il avait mise au point pour l’atelier [Construisons un moteur de recherche](http://agenda2013.scrumday.fr/event/149)  de la conférence Scrum Day 2013.  
 Afin d’approfondir mes connaissances de l'**écosystème JavaScript,** je me suis amusé à recoder cette **application front-end** en partant de zéro. Ce fut l’occasion d’adopter les meilleures pratiques en vigueur : framework JavaScript MV\*, outils de builds, tests,  qualité du code, packaging …  
 Au travers de ce article, je vous présenterai comment :

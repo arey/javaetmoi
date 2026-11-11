@@ -5,9 +5,7 @@ categories:
   - spring
 date: "2014-06-16T05:07:42+00:00"
 toc: true
-thumbnail: logo-spring-highres.png
-featureImage: logo-spring-highres.png
-featureImageAlt: "logo-spring-highres"
+thumbnail: /logo/logo-spring-framework.svg
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1122
 parent_post_id: null
@@ -30,9 +28,7 @@ title: Configurez Spring en Java
 url: /2014/06/spring-framework-java-configuration/
 
 ---
-![logo-spring-highres](logo-spring-highres.png)
-
-Dans ce billet, nous verrons comment **configurer en Java** le **contexte Spring** d’une application basée sur **Spring MVC**, **Spring Security**, **Spring Data JPA** et **Hibernate**, et cela sans utiliser la moindre ligne de XML.  
+![logo Spring Framework:right](/logo/logo-spring-framework.svg) Dans ce billet, nous verrons comment **configurer en Java** le **contexte Spring** d’une application basée sur **Spring MVC**, **Spring Security**, **Spring Data JPA** et **Hibernate**, et cela sans utiliser la moindre ligne de XML.  
 Personnellement, je n’ai rien contre la **syntaxe XML** à laquelle j’étais habitué. D’autant la **verbosité** de la configuration avait considérablement diminué grâce à l’introduction des **namespaces XML** et des **annotations**. Avant d’utiliser la syntaxe Java sur une application d’entreprise, j’étais même sceptique quant aux gains qu’elle pouvait apporter. Aujourd’hui, je comprends mieux son intérêt et pourquoi les projets du portfolio Spring tels [Spring Integration 4.0](http://spring.io/blog/2014/04/30/spring-integration-4-0-released), [Spring Web Service 2.2](ttp://spring.io/blog/2014/05/22/spring-web-services-2-2-0-released) ou bien [Spring Security 3.2](http://spring.io/blog/2013/07/03/spring-security-java-config-preview-web-security) proposent dans leur dernière version un niveau de configuration Java iso-fonctionnel avec leur équivalent XML. Sans compter que le support de la configuration Java leur ouvre la porte d’une intégration plus poussée à [**Spring Boot**](http://projects.spring.io/spring-boot/), le nouveau fer de lance de Pivotal.  
 
 ## Préambule

@@ -7,9 +7,7 @@ categories:
   - test
 date: "2012-12-01T17:54:55+00:00"
 toc: true
-thumbnail: ParallélisationTraitementsBatch_MPD.jpg
-featureImage: ParallélisationTraitementsBatch_MPD.jpg
-featureImageAlt: "Modèle physique de données des tables MASTERPIECE, MUSIC_ALBUM et MOVIE"
+thumbnail: /logo/logo-spring-framework.svg
 usePageBundles: true
 guid: http://javaetmoi.com/?p=368
 parent_post_id: null
@@ -48,6 +46,7 @@ url: /2012/12/parallelisation-de-traitements-batchs-spring-batch/
 ---
 ## Contexte
 
+![logo Spring Batch:right](/logo/logo-spring-framework.svg)
 Récemment, j’ai participé au développement d’un batch capable d’indexer dans le moteur de recherche [Elasticsearch](http://www.elasticsearch.org/) des données provenant d’une **base de données** tierce. Développé en Java, ce batch s’appuie sur [Spring Batch](http://static.springsource.org/spring-batch/), le plus célèbre framework de traitements par lot de l’écosystème Java  
 Plus précisément, ce batch est décomposé en 2 jobs Spring Batch, très proches l’un de l’autre :
 

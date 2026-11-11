@@ -5,8 +5,7 @@ categories:
   - spring
 date: "2012-09-29T11:18:22+00:00"
 toc: true
-thumbnail: CertifiedSpring_EnterpriseIntegrationSpecialist.png
-featureImage: CertifiedSpring_EnterpriseIntegrationSpecialist.png
+thumbnail: /logo/logo-spring-framework.svg
 usePageBundles: true
 guid: http://javaetmoi.com/?p=230
 parent_post_id: null
@@ -15,9 +14,8 @@ post_views_count: "28024"
 summary: |-
   En l’espace de 8 mois, me voici doté d’une deuxième certification Spring. Après la certification Spring Core dont je vous ai fait écho dans mon tout [premier billet](http://javaetmoi.com/2012/02/core-spring-3-0-certification-mock-exam/ "Core Spring 3.0 Certification Mock Exam"), j’ai eu l’opportunité de préparer la certification Spring Integration Specialist.
 
-  [![Badge de certification Spring Enterprise Integration Specialist](/2012/09/certified-spring-enterprise-integration-specialist-study-notes/CertifiedSpring_EnterpriseIntegrationSpecialist.png)](CertifiedSpring_EnterpriseIntegrationSpecialist.png) Comme à l’accoutumée avec les certifications Spring, la [formation officielle Spring Enterprise Integration](http://www.zenika.com/formation_enterprise_integration_avec_spring.html "Formation Enterprise Integration avec Spring") est pré-requise. Elaborée par SpringSource et dispensée par Zenika, cette formation couvre de nombreux sujets basés sur Spring Framework 3 et différents projets du Portfolio Spring :
+  Comme à l’accoutumée avec les certifications Spring, la [formation officielle Spring Enterprise Integration](http://www.zenika.com/formation_enterprise_integration_avec_spring.html "Formation Enterprise Integration avec Spring") est pré-requise. Elaborée par SpringSource et dispensée par Zenika, cette formation couvre de nombreux sujets basés sur Spring Framework 3 et différents projets du Portfolio Spring :
 
-  ![Certified Spring Enterprise Integration Specialist Study Notes](/2012/09/certified-spring-enterprise-integration-specialist-study-notes/CertifiedSpring_EnterpriseIntegrationSpecialist.png)
 tags:
   - certification
   - jms

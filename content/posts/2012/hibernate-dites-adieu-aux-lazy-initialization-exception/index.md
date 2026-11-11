@@ -5,8 +5,6 @@ categories:
   - orm
 date: "2012-03-30T20:39:43+00:00"
 thumbnail: logo_hibernate.png
-featureImage: logo_hibernate.png
-featureImageAlt: "logo_hibernate"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=54
 parent_post_id: null

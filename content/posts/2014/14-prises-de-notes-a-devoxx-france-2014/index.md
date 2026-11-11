@@ -4,9 +4,7 @@ author: Antoine Rey
 categories:
   - conférence
 date: "2014-04-23T15:28:37+00:00"
-thumbnail: devoxx-france-2014-les-cast-codeurs.jpg
-featureImage: devoxx-france-2014-les-cast-codeurs.jpg
-featureImageAlt: "devoxx-france-2014-les-cast-codeurs"
+thumbnail: /logo/logo-devoxx-france.png
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1082
 parent_post_id: null
@@ -15,8 +13,6 @@ post_views_count: "6089"
 summary: |-
   En attendant que les vidéos des [différentes conférences de l’édition 2014](http://cfp.devoxx.fr/devoxxfr2014) de Devoxx France soient mises en ligne sur [Parleys](http://www.parleys.com/) et en complément des [supports](http://www.parleys.com/) déjà mis en ligne par certains Speakers, je mets librement à votre disposition les différentes notes que j’ai pu prendre sur mon laptop.
   Les sujets sont variés : de Docker à Angular JS, en passant par Java 8. Certaines pourront être lues de manière autonome ; je pense par exemple au quickie [Outils pour manager une équipe](Outils-pour-manager-une-équipe.pdf) et à la conférence [33 things your want to do better](33-things-your-want-to-do-better.pdf). Pour être exploitables en l’état, d’autres notes demanderont à ce que vous ayez assisté à la conférence ou que vous ayez pu récupérer les supports de présentation.
-
-  [![devoxx-france-2014-les-cast-codeurs](/2014/04/14-prises-de-notes-a-devoxx-france-2014/devoxx-france-2014-les-cast-codeurs.jpg)](devoxx-france-2014-les-cast-codeurs.jpg)
 
   ![devoxx-france-2014-les-cast-codeurs](/2014/04/14-prises-de-notes-a-devoxx-france-2014/devoxx-france-2014-les-cast-codeurs.jpg)
 tags:

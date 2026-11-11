@@ -6,8 +6,6 @@ categories:
 date: "2013-12-16T14:23:37+00:00"
 toc: true
 thumbnail: logo-elastisearch.png
-featureImage: logo-elastisearch.png
-featureImageAlt: "Logo Elastisearch"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=879
 parent_post_id: null
@@ -17,8 +15,6 @@ summary: |-
   _« Près de 2 ans passés chez un client en tant que référent technique d’un **middle de recherche** basé sur le moteur de recherche [Elasticsearch](http://www.elasticsearch.org/), il me paraît aujourd’hui opportun de vous faire part des différentes **problématiques** rencontrées au cours des **développements** et de son **exploitation**. »_
 
   En 2 versions majeures et une montée de version d’Elasticsearch, les problématiques abordées ont été nombreuses : occupation mémoire, ré-indexation sans interruption de service, Split Brain, IDF et partitionnement. Prêts pour ce retour d’expérience ? »
-
-  ![Logo Elastisearch](/2013/12/retour-experience-problematiques-elasticsearch/logo-elastisearch.png)
 tags:
   - elasticsearch
   - nosql
@@ -26,9 +22,7 @@ title: Retour d’expérience sur les problématiques Elasticsearch
 url: /2013/12/retour-experience-problematiques-elasticsearch/
 
 ---
-![Logo Elastisearch](logo-elastisearch.png)
-
-_« Près de 2 ans passés chez un client en tant que référent technique d’un **middle de recherche** basé sur le moteur de recherche [Elasticsearch](http://www.elasticsearch.org/), il me paraît aujourd’hui opportun de vous faire part des différentes **problématiques** rencontrées au cours des **développements** et de son **exploitation**. »_
+![Logo Elastisearch:right](logo-elastisearch.png) _« Près de 2 ans passés chez un client en tant que référent technique d’un **middle de recherche** basé sur le moteur de recherche [Elasticsearch](http://www.elasticsearch.org/), il me paraît aujourd’hui opportun de vous faire part des différentes **problématiques** rencontrées au cours des **développements** et de son **exploitation**. »_
 
 En 2 versions majeures et une montée de version d’Elasticsearch, les problématiques abordées ont été nombreuses : occupation mémoire, ré-indexation sans interruption de service, Split Brain, IDF et partitionnement. Prêts pour ce retour d’expérience ? »
 

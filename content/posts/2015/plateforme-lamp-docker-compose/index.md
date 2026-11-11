@@ -6,16 +6,12 @@ categories:
 date: "2015-07-15T05:31:19+00:00"
 toc: true
 thumbnail: docker-logo.jpg
-featureImage: docker-logo.jpg
-featureImageAlt: "docker-logo"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1429
 parent_post_id: null
 post_id: "1429"
 post_views_count: "16261"
 summary: |-
-  [![docker-logo](/2015/07/plateforme-lamp-docker-compose/docker-logo.jpg)](docker-logo.jpg)
-
   Afin de préparer la migration technique d’un site web, j’ai eu besoin de reconstruire un environnement à l’identique de la production.
 
   Hébergé sur un serveur Linux, ce site est propulsé par Apache 2.2, PHP 5.6 et MySQL 5.5.
@@ -28,8 +24,6 @@ summary: |-
   Pour orchestrer le démarrage des conteneurs, gérer leur configuration et définir leurs interactions, l’utilisation de l’outil [**Docker Compose**](https://docs.docker.com/compose/) paraissait évidente.
 
   Dans ce billet, vous trouverez le fichier docker-compose correspondant, un Dockerfile personnalisant l’image officielle php:5.6-apache, les lignes de commandes démarrant les conteneurs sous MacOSX et alimentant la base à partir d’un script SQL.
-
-  ![docker-logo](/2015/07/plateforme-lamp-docker-compose/docker-logo.jpg)
 tags:
   - apache
   - docker
@@ -40,9 +34,7 @@ title: Plateforme LAMP avec Docker Compose
 url: /2015/07/plateforme-lamp-docker-compose/
 
 ---
-[![docker-logo](docker-logo.jpg)](docker-logo.jpg)
-
-Afin de préparer la migration technique d’un site web, j’ai eu besoin de reconstruire un environnement à l’identique de la production.
+[![docker-logo:right](docker-logo.jpg)](docker-logo.jpg) Afin de préparer la migration technique d’un site web, j’ai eu besoin de reconstruire un environnement à l’identique de la production.
 
 Hébergé sur un serveur Linux, ce site est propulsé par Apache 2.2, PHP 5.6 et MySQL 5.5.
 C’était l’occasion parfaite pour découvrir **Docker**. Une première étape consiste à décomposer cette plateforme LAMP en **conteneurs** Docker ayant chacun leur responsabilité. Voici les 3 conteneurs identifiés :

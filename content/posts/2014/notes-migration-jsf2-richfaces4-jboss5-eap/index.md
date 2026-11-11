@@ -6,21 +6,17 @@ categories:
 date: "2014-06-28T16:19:58+00:00"
 toc: true
 thumbnail: 2014-07-jsf2-richfaces4-dans-jboss5-richfaces-logo.png
-featureImage: 2014-07-jsf2-richfaces4-dans-jboss5-richfaces-logo.png
-featureImageAlt: "JBoss Richfaces Logo"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1165
 parent_post_id: null
 post_id: "1165"
 post_views_count: "13664"
 summary: |-
-  [![JBoss Richfaces Logo](/2014/06/notes-migration-jsf2-richfaces4-jboss5-eap/2014-07-jsf2-richfaces4-dans-jboss5-richfaces-logo.png)](2014-07-jsf2-richfaces4-dans-jboss5-richfaces-logo.png) Début 2014, j’ai étudié la faisabilité technique d’une **migration** de **JSF 1.2** **\+ Richfaces 3.3** **vers JSF 2.1 + Richfaces 4.3** sans changer de serveur d’application.
+  Début 2014, j’ai étudié la faisabilité technique d’une **migration** de **JSF 1.2** **\+ Richfaces 3.3** **vers JSF 2.1 + Richfaces 4.3** sans changer de serveur d’application.
   Notre serveur [JBoss 5.1 EAP](https://access.redhat.com/site/articles/112673#EAP_5) étant certifié **JavaEE 5**, la première difficulté consistait à **désinstaller l’implémentation [Mojarra](https://javaserverfaces.java.net/) de JSF 1.2 embarquée dans JBoss**. Cette opération est le pré-requis à l’installation de la version de JSF de son choix. Cette dernière aura alors pour unique contrainte d’être compatible avec le moteur de **Servlet 2.5** sur lequel repose JBoss Web.
   Plus classique, la seconde difficulté consistait à **monter les versions de JSF et de Richfaces** d’une application existante.
   J’ai arrêté mon étude après avoir migré le premier écran de cette application. Ayant conservé quelques notes, je me suis dit qu’elles pourraient intéresser certains ou certaines d’entre vous.
   Ce billet commence par expliquer comment **désinstaller JSF 1.2**, se poursuit par le déploiement du **Showcase de Richfaces 4.3.5** dans JBoss 5.1 EAP et se termine par la mise à disposition de mes **notes de migration**.
-
-  ![JBoss Richfaces Logo](/2014/06/notes-migration-jsf2-richfaces4-jboss5-eap/2014-07-jsf2-richfaces4-dans-jboss5-richfaces-logo.png)
 tags:
   - jboss
   - jsf
@@ -29,7 +25,7 @@ title: Notes de migration vers JSF 2 et Richfaces 4
 url: /2014/06/notes-migration-jsf2-richfaces4-jboss5-eap/
 
 ---
-[![JBoss Richfaces Logo](2014-07-jsf2-richfaces4-dans-jboss5-richfaces-logo.png)](2014-07-jsf2-richfaces4-dans-jboss5-richfaces-logo.png) Début 2014, j’ai étudié la faisabilité technique d’une **migration** de **JSF 1.2** **\+ Richfaces 3.3** **vers JSF 2.1 + Richfaces 4.3** sans changer de serveur d’application.
+[![JBoss Richfaces Logo:right](2014-07-jsf2-richfaces4-dans-jboss5-richfaces-logo.png)](2014-07-jsf2-richfaces4-dans-jboss5-richfaces-logo.png) Début 2014, j’ai étudié la faisabilité technique d’une **migration** de **JSF 1.2** **\+ Richfaces 3.3** **vers JSF 2.1 + Richfaces 4.3** sans changer de serveur d’application.
 Notre serveur [JBoss 5.1 EAP](https://access.redhat.com/site/articles/112673#EAP_5) étant certifié **JavaEE 5**, la première difficulté consistait à **désinstaller l’implémentation [Mojarra](https://javaserverfaces.java.net/) de JSF 1.2 embarquée dans JBoss**. Cette opération est le pré-requis à l’installation de la version de JSF de son choix. Cette dernière aura alors pour unique contrainte d’être compatible avec le moteur de **Servlet 2.5** sur lequel repose JBoss Web.
 Plus classique, la seconde difficulté consistait à **monter les versions de JSF et de Richfaces** d’une application existante.
 J’ai arrêté mon étude après avoir migré le premier écran de cette application. Ayant conservé quelques notes, je me suis dit qu’elles pourraient intéresser certains ou certaines d’entre vous.

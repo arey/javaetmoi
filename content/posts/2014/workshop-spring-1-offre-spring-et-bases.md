@@ -17,7 +17,8 @@ summary: |-
   Propulsée dans Java EE 6 avec CDI et plus récemment au sein de JavaScript avec Google Gin, l’injection de dépendance sera au cœur du premier workshop.
   Voici le support de présentation du workshop sur Spring que j'ai animé en novembre 2011 au sein de ma SSII et que j'ai réactualisé avant sa diffusion sur Slideshare.
 
-  **[Workshop Spring - Session 1 - L'offre Spring et les bases](//fr.slideshare.net/AntoineRey/workshop-spring-session-1-loffre-spring-et-les-bases "Workshop Spring - Session 1 - L'offre Spring et les bases")** from **[Antoine Rey](//www.slideshare.net/AntoineRey)**
+  <iframe width="476" height="400" src="//www.slideshare.net/slideshow/embed_code/40733500" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+thumbnail: /logo/logo-spring-framework.svg
 tags:
   - présentation
   - spring-framework
@@ -26,6 +27,7 @@ title: L'offre Spring et les bases
 url: /2014/11/workshop-spring-1-offre-spring-et-bases/
 
 ---
+![logo Spring Framework:right](/logo/logo-spring-framework.svg)
 Rejoignez les millions de développeurs Spring.
 De par sa forte pénétration dans les entreprises, tout développeur Java /JEE a ou aura à travailler sur une application s’appuyant sur Spring. Or Spring dépasse le cadre du simple framework open source.
 Cette série de 5 workshops a pour objectif de faire un tour d’horizon de l’écosystème des technologies supportées par Spring avant de se focaliser plus spécifiquement sur certaines d’entre elles.
@@ -34,7 +36,7 @@ Retours d’expérience, bonnes pratiques, techniques avancées seront de partie
 Propulsée dans Java EE 6 avec CDI et plus récemment au sein de JavaScript avec Google Gin, l’injection de dépendance sera au cœur du premier workshop.
 Voici le support de présentation du workshop sur Spring que j'ai animé en novembre 2011 au sein de ma SSII et que j'ai réactualisé avant sa diffusion sur Slideshare.
 
-**[Workshop Spring - Session 1 - L'offre Spring et les bases](//fr.slideshare.net/AntoineRey/workshop-spring-session-1-loffre-spring-et-les-bases "Workshop Spring - Session 1 - L'offre Spring et les bases")** from **[Antoine Rey](//www.slideshare.net/AntoineRey)**
+{{< slideshare src="//www.slideshare.net/slideshow/embed_code/40733500" >}}
 
 Au sommaire du workshop :
 

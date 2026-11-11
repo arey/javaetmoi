@@ -4,9 +4,7 @@ author: Antoine Rey
 categories:
   - conférence
 date: "2015-04-21T06:03:20+00:00"
-thumbnail: Keynote-des-organisateurs.jpg
-featureImage: Keynote-des-organisateurs.jpg
-featureImageAlt: "Keynote des organisateurs"
+thumbnail: /logo/logo-devoxx-france.png
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1356
 parent_post_id: null
@@ -18,8 +16,6 @@ summary: |-
   Les sujets sont variés : du **Machine Learning** avec Watson, Spark et MMLib, du **Reactive Programming** avec RxJava et Vert.x, du **Java 9**, du **Spring 4.1** ou bien encore du Docker.
 
   Certaines notes pourront être lues de manière autonome ; je pense par exemple au quickie [Stratégie de mise en place de revues de code](Devoxx_France_2015-Stratégie_de_mise_en_place_de_revues_de_code.pdf) et à la conférence [Livrer chaque jour ce qui est prêt !.](ploads/2015/04/Devoxx_France_2015-Livrer_chaque_jour_ce_qui_est_pret.pdf) Pour être exploitables en l’état, d’autres notes demanderont à ce que vous ayez assisté à la conférence ou que vous ayez pu récupérer les supports de présentation.
-
-  [![Keynote des organisateurs](/2015/04/18-prises-de-notes-a-devoxx-france-2015/Keynote-des-organisateurs.jpg)](Keynote-des-organisateurs.jpg)
 
   ![Keynote des organisateurs](/2015/04/18-prises-de-notes-a-devoxx-france-2015/Keynote-des-organisateurs.jpg)
 tags:

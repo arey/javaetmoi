@@ -48,8 +48,13 @@
       {{- $image = "" -}}
       {{- $scratch.Add "classes" " image_svg" -}}
     {{- else if and (not $image) .Page.File -}}
-      {{ $file = path.Join .Page.RelPermalink $file }}
-      {{ $image = resources.Get $file }}
+      {{ $joined := path.Join .Page.RelPermalink $file }}
+      {{ $image = resources.Get $joined }}
+      {{- if $image }}{{ $file = $joined }}{{ end -}}
+    {{- end -}}
+    {{/* Site-level image from static/ (e.g. /logo/...): do not prefix it with the page path. */}}
+    {{- if and (eq $bundle true) (not $image) (not (in ($scratch.Get "classes") "image_svg")) (fileExists (path.Join "static" $file)) -}}
+      {{- $bundle = false -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

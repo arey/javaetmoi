@@ -13,6 +13,8 @@ summary: |-
   Ce second workshop se focalise sur une couche centrale de la majorité des applications d'entreprise : **la persistance de données**. Vous verrez que Spring facilite la **gestion des exceptions** et des **transactions**. En supprimant le boilerplate code, Spring facilite également l'accès aux différentes technologies de persistance : que ce soit **JDBC**, **Hibernate** ou bien encore **JPA**. Enfin, nous verrons comment les projets **Spring Data JPA** et **QueryDSL** simplifient encore davantage l'écriture de la couche d'accès aux données.
 
   Voici le support de présentation du workshop sur Spring que j’ai animé en décembre 2011 au sein de ma société et que j’ai réactualisé avant sa diffusion sur Slideshare :
+
+  <iframe width="476" height="400" src="//www.slideshare.net/slideshow/embed_code/41020450" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 tags:
   - hibernate
   - jdbc
@@ -21,14 +23,17 @@ tags:
   - querydsl
   - spring-data
   - transaction
+thumbnail: /logo/logo-spring-framework.svg
 title: Persistance de données avec Spring
 url: /2014/11/persistance-spring-jdbc-hibernate-jpa/
 
 ---
-Dans le [1er workshop](/2014/11/workshop-spring-1-offre-spring-et-bases/ "L’offre Spring et les bases"), je vous présentais l'écosystème de Spring et les bases du conteneur léger.
+![logo Spring Framework:right](/logo/logo-spring-framework.svg)Dans le [1er workshop](/2014/11/workshop-spring-1-offre-spring-et-bases/ "L’offre Spring et les bases"), je vous présentais l'écosystème de Spring et les bases du conteneur léger.
 Ce second workshop se focalise sur une couche centrale de la majorité des applications d'entreprise : **la persistance de données**. Vous verrez que Spring facilite la **gestion des exceptions** et des **transactions**. En supprimant le boilerplate code, Spring facilite également l'accès aux différentes technologies de persistance : que ce soit **JDBC**, **Hibernate** ou bien encore **JPA**. Enfin, nous verrons comment les projets **Spring Data JPA** et **QueryDSL** simplifient encore davantage l'écriture de la couche d'accès aux données.
 
 Voici le support de présentation du workshop sur Spring que j’ai animé en décembre 2011 au sein de ma société et que j’ai réactualisé avant sa diffusion sur Slideshare :
+
+{{< slideshare src="//www.slideshare.net/slideshow/embed_code/41020450" >}}
 
 Au sommaire du workshop :
 

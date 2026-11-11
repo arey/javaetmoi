@@ -4,8 +4,7 @@ author: Antoine Rey
 categories:
   - spring
 date: "2012-02-26T16:22:40+00:00"
-thumbnail: CertitfiedSpring_Professional.png
-featureImage: CertitfiedSpring_Professional.png
+thumbnail: /logo/logo-spring-framework.svg
 usePageBundles: true
 guid: http://javaetmoi.com/?p=18
 parent_post_id: null
@@ -16,7 +15,6 @@ summary: |-
 
   Comme pré-requis pour passer la certification,  sachez tout d’abord qu’il est nécessaire de  suivre la **formation officielle de 4 jours** estampillée SpringSource. En France, elle est exclusivement assurée par le cabinet d’architecture Zenika. Mon formateur fut l’un de co-auteurs du très bon livre Spring par la Pratique.
 
-  ![Core Spring 3.0 Certification Mock Exam](/2012/02/core-spring-3-0-certification-mock-exam/CertitfiedSpring_Professional.png)
 tags:
   - aop
   - certification

@@ -7,16 +7,12 @@ categories:
 date: "2015-04-14T04:28:48+00:00"
 toc: true
 thumbnail: spark-logo.png
-featureImage: spark-logo.png
-featureImageAlt: "spark-logo"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1343
 parent_post_id: null
 post_id: "1343"
 post_views_count: "30983"
 summary: |-
-  [![spark-logo](/2015/04/initiation-apache-spark-en-java-devoxx/spark-logo.png)](spark-logo.png)
-
   En cette édition 2015 de Devoxx France, [**Apache Spark**](https://spark.apache.org/) est l’une des technologies qui se démarque, comme le furent Docker et Java 8 en 2014 ou AngularJS en 2013. Connu pour être le digne successeur d’Hadoop, le framework Spark fait partie des [outils Big-Data que j’ai découvert lors de la conférence NoSQL Matters 2015](http://javaetmoi.com/2015/03/nosql-matters-paris-2015/).
 
   Présenté par Hayssam Saleh et Olivier Girardot, [le Hands-on-Lab « Initiation à Spark avec Java 8 et Scala »](http://cfp.devoxx.fr/2015/talk/YGL-3979/`Initiation`a`Spark`avec`Java`8_et_Scala) était donc l’occasion idéale pour m’initier en pratique aux fonctionnalités proposées par Spark et découvrir l’univers du **Machine Learning**.
@@ -26,8 +22,6 @@ summary: |-
   1. Un [gitbook Initiation à Spark avec Java 8 et Scala](initiation-a-spark-avec-java-8-et-scala.pdf).  Avec ses 33 pages, ce livre contient à la fois la présentation réalisée en séance par les speakers ainsi que les intitulés des exercices.
   2. [Les jeu de données](initiation-apache-spark-data.zip) au format CSV et JSON nécessaires pour le Lab
   3. La [configuration maven pour Java ou sbt pour Scala](initiation-apache-spark-build.zip).
-
-  ![spark-logo](/2015/04/initiation-apache-spark-en-java-devoxx/spark-logo.png)
 tags:
   - bigdata
   - devoxx
@@ -39,9 +33,7 @@ title: Initiation à Apache Spark avec Java
 url: /2015/04/initiation-apache-spark-en-java-devoxx/
 
 ---
-[![spark-logo](spark-logo.png)](spark-logo.png)
-
-En cette édition 2015 de Devoxx France, [**Apache Spark**](https://spark.apache.org/) est l’une des technologies qui se démarque, comme le furent Docker et Java 8 en 2014 ou AngularJS en 2013. Connu pour être le digne successeur d’Hadoop, le framework Spark fait partie des [outils Big-Data que j’ai découvert lors de la conférence NoSQL Matters 2015](/2015/03/nosql-matters-paris-2015/).
+[![spark-logo:right](spark-logo.png)](spark-logo.png) En cette édition 2015 de Devoxx France, [**Apache Spark**](https://spark.apache.org/) est l’une des technologies qui se démarque, comme le furent Docker et Java 8 en 2014 ou AngularJS en 2013. Connu pour être le digne successeur d’Hadoop, le framework Spark fait partie des [outils Big-Data que j’ai découvert lors de la conférence NoSQL Matters 2015](/2015/03/nosql-matters-paris-2015/).
 
 Présenté par Hayssam Saleh et Olivier Girardot, [le Hands-on-Lab « Initiation à Spark avec Java 8 et Scala »](http://cfp.devoxx.fr/2015/talk/YGL-3979/`Initiation`a`Spark`avec`Java`8_et_Scala) était donc l’occasion idéale pour m’initier en pratique aux fonctionnalités proposées par Spark et découvrir l’univers du **Machine Learning**.
 

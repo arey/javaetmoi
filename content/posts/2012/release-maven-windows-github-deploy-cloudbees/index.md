@@ -6,15 +6,13 @@ categories:
 date: "2012-04-12T19:42:24+00:00"
 toc: true
 thumbnail: logo_github.png
-featureImage: logo_github.png
-featureImageAlt: "logo_github"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=81
 parent_post_id: null
 post_id: "81"
 post_views_count: "14394"
 summary: |-
-  [![logo_github](/2012/04/release-maven-windows-github-deploy-cloudbees/logo_github.png)](logo_github.png) Habitué aux releases maven avec SVN, j’ai rencontré quelques difficultés pour effectuer la première release du projet [Hibernate Hydrate](https://github.com/arey/hibernate-hydrate) \[1\] hébergé sur GitHub et présenté dans un [précédent billet](http://javaetmoi.com/2012/03/hibernate-dites-adieu-aux-lazy-initialization-exception/).
+  Habitué aux releases maven avec SVN, j’ai rencontré quelques difficultés pour effectuer la première release du projet [Hibernate Hydrate](https://github.com/arey/hibernate-hydrate) \[1\] hébergé sur GitHub et présenté dans un [précédent billet](http://javaetmoi.com/2012/03/hibernate-dites-adieu-aux-lazy-initialization-exception/).
 
   Pour rappel, lors d’une release, le plugin maven accède au gestionnaire de code source pour commiter les modifications effectuées sur les `pom.xml` et créer un tag. Il déploie ensuite les artefacts sur le repo maven distant.
 
@@ -29,8 +27,6 @@ summary: |-
   1. **Configuration maven pour GitHub**
   2. **Problème de passphrase SSH spécifique à Windows**
   3. **Configuration maven du repo CloudBees
-
-  ![logo_github](/2012/04/release-maven-windows-github-deploy-cloudbees/logo_github.png)
 tags:
   - cloudbees
   - git
@@ -40,7 +36,7 @@ title: Release Maven sous Windows d’un projet GitHub déployé sur CloudBees
 url: /2012/04/release-maven-windows-github-deploy-cloudbees/
 
 ---
-[![logo_github](logo_github.png)](logo_github.png) Habitué aux releases maven avec SVN, j’ai rencontré quelques difficultés pour effectuer la première release du projet [Hibernate Hydrate](https://github.com/arey/hibernate-hydrate) \[1\] hébergé sur GitHub et présenté dans un [précédent billet](/2012/03/hibernate-dites-adieu-aux-lazy-initialization-exception/).
+[![logo_github:right](logo_github.png)](logo_github.png) Habitué aux releases maven avec SVN, j’ai rencontré quelques difficultés pour effectuer la première release du projet [Hibernate Hydrate](https://github.com/arey/hibernate-hydrate) \[1\] hébergé sur GitHub et présenté dans un [précédent billet](/2012/03/hibernate-dites-adieu-aux-lazy-initialization-exception/).
 
 Pour rappel, lors d’une release, le plugin maven accède au gestionnaire de code source pour commiter les modifications effectuées sur les `pom.xml` et créer un tag. Il déploie ensuite les artefacts sur le repo maven distant.
 

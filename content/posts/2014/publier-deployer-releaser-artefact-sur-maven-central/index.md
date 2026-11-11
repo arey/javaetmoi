@@ -5,9 +5,7 @@ categories:
   - maven
 date: "2014-09-08T04:30:59+00:00"
 toc: true
-thumbnail: 2014-09-publier-sur-maven-central-javaetmoi-search.png
-featureImage: 2014-09-publier-sur-maven-central-javaetmoi-search.png
-featureImageAlt: "2014-09-publier-sur-maven-central-javaetmoi-search"
+thumbnail: /logo/logo-maven.svg
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1184
 parent_post_id: null
@@ -16,8 +14,6 @@ post_views_count: "8450"
 summary: |-
   Lorsque vous rendez open-source un projet, même le plus modeste soit-il, quoi de plus naturel que de vouloir faciliter son utilisation par la communauté de développeurs intéressés ? Dans le monde Java, le dépôt de binaires Open Source le plus connu est le **Central Repository**, également connu sous le nom de [**Maven Central**](http://central.sonatype.org/). En effet, lors de la construction d’un projet Java, [Apache Maven](http://maven.apache.org/) essaie par défaut de localiser ses dépendances depuis Maven Central. D’autres outils de build comme Gradle et Ant/Ivy y font également référence. Géré par Sonatype et reposant sur Nexus, **Maven Central est accessible en écriture par les développeurs Open-Source en faisant la demande**. Ayant récemment publié des artefacts sur ce repo, ce billet présente les différentes étapes qui m’ont permis d’y arriver.
 
-  [![2014-09-publier-sur-maven-central-javaetmoi-search](/2014/09/publier-deployer-releaser-artefact-sur-maven-central/2014-09-publier-sur-maven-central-javaetmoi-search.png)](2014-09-publier-sur-maven-central-javaetmoi-search.png)
-
   ![2014-09-publier-sur-maven-central-javaetmoi-search](/2014/09/publier-deployer-releaser-artefact-sur-maven-central/2014-09-publier-sur-maven-central-javaetmoi-search.png)
 tags:
   - maven
@@ -25,7 +21,7 @@ title: Publiez vos artefacts sur Maven Central
 url: /2014/09/publier-deployer-releaser-artefact-sur-maven-central/
 
 ---
-Lorsque vous rendez open-source un projet, même le plus modeste soit-il, quoi de plus naturel que de vouloir faciliter son utilisation par la communauté de développeurs intéressés ? Dans le monde Java, le dépôt de binaires Open Source le plus connu est le **Central Repository**, également connu sous le nom de [**Maven Central**](http://central.sonatype.org/). En effet, lors de la construction d’un projet Java, [Apache Maven](http://maven.apache.org/) essaie par défaut de localiser ses dépendances depuis Maven Central. D’autres outils de build comme Gradle et Ant/Ivy y font également référence. Géré par Sonatype et reposant sur Nexus, **Maven Central est accessible en écriture par les développeurs Open-Source en faisant la demande**. Ayant récemment publié des artefacts sur ce repo, ce billet présente les différentes étapes qui m’ont permis d’y arriver.
+![logo Apache Maven:right](/logo/logo-maven.svg)Lorsque vous rendez open-source un projet, même le plus modeste soit-il, quoi de plus naturel que de vouloir faciliter son utilisation par la communauté de développeurs intéressés ? Dans le monde Java, le dépôt de binaires Open Source le plus connu est le **Central Repository**, également connu sous le nom de [**Maven Central**](http://central.sonatype.org/). En effet, lors de la construction d’un projet Java, [Apache Maven](http://maven.apache.org/) essaie par défaut de localiser ses dépendances depuis Maven Central. D’autres outils de build comme Gradle et Ant/Ivy y font également référence. Géré par Sonatype et reposant sur Nexus, **Maven Central est accessible en écriture par les développeurs Open-Source en faisant la demande**. Ayant récemment publié des artefacts sur ce repo, ce billet présente les différentes étapes qui m’ont permis d’y arriver.
 
 [![2014-09-publier-sur-maven-central-javaetmoi-search](2014-09-publier-sur-maven-central-javaetmoi-search.png)](2014-09-publier-sur-maven-central-javaetmoi-search.png)
 

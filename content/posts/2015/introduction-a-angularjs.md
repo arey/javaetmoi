@@ -4,6 +4,7 @@ author: Antoine Rey
 categories:
   - conférence
 date: "2015-05-20T17:36:21+00:00"
+thumbnail: /logo/logo-angularjs.svg
 guid: http://javaetmoi.com/?p=1316
 parent_post_id: null
 post_id: "1316"
@@ -17,6 +18,7 @@ title: Introduction à Angular JS
 url: /2015/05/introduction-a-angularjs/
 
 ---
+![logo AngularJS:left](/logo/logo-angularjs.svg)
 Si vous pensez encore que le **data-binding**, l'**inversion de dépendances**, le **pattern MVC** ou bien encore la gestion de la **navigation** sont réservés au code Java des applications web modernes, courrez visionner cette présentation.
 **AngularJS**, le dernier framework JavaScript de chez Google, devrait vous surprendre.
 
@@ -25,3 +27,5 @@ Les concepts fondamentaux seront mis en action au travers de l'application Game 
 Côté industrialisation, nous verrons que tests unitaires, tests fonctionnels et infrastructure de build ne sont pas non plus délaissés.
 
 A l’heure où la couche présentation des applications web est de plus en plus déportée côté client, ce workshop a pour objectif de démystifier ce type de framework permettant de structurer une application JavaScript.
+
+{{< slideshare src="https://www.slideshare.net/slideshow/embed_code/44101068" >}}

@@ -7,21 +7,17 @@ categories:
 date: "2014-03-04T09:27:15+00:00"
 toc: true
 thumbnail: tester-code-javascript-webapp-logo.png
-featureImage: tester-code-javascript-webapp-logo.png
-featureImageAlt: "tester-code-javascript-webapp-logo"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=995
 parent_post_id: null
 post_id: "995"
 post_views_count: "12511"
 summary: |-
-  [![tester-code-javascript-webapp-logo](/2014/03/tester-code-javascript-webapp-java/tester-code-javascript-webapp-logo.png)](tester-code-javascript-webapp-logo.png) Vous développez une **application web** en **Java**. Le couche présentation est assurée typiquement par un **framework MVC** situé côté **serveur** : Spring MVC, Struts 2, Tapestry ou bien encore JSF.  Votre projet est parfaitement industrialisé : infrastructure de build sous maven, intégration continue, tests unitaires, tests Selenium, analyse qualimétrique via Sonar.
+  Vous développez une **application web** en **Java**. Le couche présentation est assurée typiquement par un **framework MVC** situé côté **serveur** : Spring MVC, Struts 2, Tapestry ou bien encore JSF.  Votre projet est parfaitement industrialisé : infrastructure de build sous maven, intégration continue, tests unitaires, tests Selenium, analyse qualimétrique via Sonar.
 
   A priori, vous n’avez rien à envier à la richesse grandissante de l’écosystème JavaScript, de l’outillage et des frameworks MV\* côté clients. Et pourtant, quelque chose vous manque cruellement. En effet, depuis que RIA et Ajax se sont imposés, votre application Java contient davantage de code JavaScript qu’il y’a 10 ans. S’appuyant sur des librairies telles que jQuery ou Underscore, ce code JavaScript est typiquement embarqué dans votre **WAR**. Pour le valider, les développeurs doivent démarrer leur conteneur web et accéder à l’écran sur lequel le code est utilisé. Firebug ou Chrome sont alors vos meilleurs amis pour la mise au point du script.
 
   Ce code JavaScript n’est généralement pas documenté. Le tester manuellement demande du temps.  Les modifications sont sources d’erreur. Tout changement est donc périlleux. Si, à l’instar de vos tests JUnit pour vous classes Java, vous disposiez de **tests JavaScript**, vous en seriez comblés. Or, c’est précisément ce qu’il vous manque. Et c’est là où **Jasmine** et **son plugin maven** viennent à votre rescousse.
-
-  ![tester-code-javascript-webapp-logo](/2014/03/tester-code-javascript-webapp-java/tester-code-javascript-webapp-logo.png)
 tags:
   - htmlunit
   - jasmine
@@ -35,7 +31,7 @@ title: Tester le code JavaScript de vos webapp Java
 url: /2014/03/tester-code-javascript-webapp-java/
 
 ---
-[![tester-code-javascript-webapp-logo](tester-code-javascript-webapp-logo.png)](tester-code-javascript-webapp-logo.png) Vous développez une **application web** en **Java**. Le couche présentation est assurée typiquement par un **framework MVC** situé côté **serveur** : Spring MVC, Struts 2, Tapestry ou bien encore JSF.  Votre projet est parfaitement industrialisé : infrastructure de build sous maven, intégration continue, tests unitaires, tests Selenium, analyse qualimétrique via Sonar.
+[![tester-code-javascript-webapp-logo:right](tester-code-javascript-webapp-logo.png)](tester-code-javascript-webapp-logo.png) Vous développez une **application web** en **Java**. Le couche présentation est assurée typiquement par un **framework MVC** situé côté **serveur** : Spring MVC, Struts 2, Tapestry ou bien encore JSF.  Votre projet est parfaitement industrialisé : infrastructure de build sous maven, intégration continue, tests unitaires, tests Selenium, analyse qualimétrique via Sonar.
 
 A priori, vous n’avez rien à envier à la richesse grandissante de l’écosystème JavaScript, de l’outillage et des frameworks MV\* côté clients. Et pourtant, quelque chose vous manque cruellement. En effet, depuis que RIA et Ajax se sont imposés, votre application Java contient davantage de code JavaScript qu’il y’a 10 ans. S’appuyant sur des librairies telles que jQuery ou Underscore, ce code JavaScript est typiquement embarqué dans votre **WAR**. Pour le valider, les développeurs doivent démarrer leur conteneur web et accéder à l’écran sur lequel le code est utilisé. Firebug ou Chrome sont alors vos meilleurs amis pour la mise au point du script.
 

@@ -5,16 +5,14 @@ categories:
   - maven
 date: "2013-07-16T16:37:26+00:00"
 toc: true
-thumbnail: jenkins-build-history.png
-featureImage: jenkins-build-history.png
-featureImageAlt: "jenkins-build-history"
+thumbnail: /logo/logo-jenkins.svg
 usePageBundles: true
 guid: http://javaetmoi.com/?p=721
 parent_post_id: null
 post_id: "721"
 post_views_count: "9806"
 summary: |-
-  [![jenkins-build-history](/2013/07/jenkins-release-deploy-plugins/jenkins-build-history.png)](jenkins-build-history.png) A Devoxx France, lorsqu’Axel Fontaine vante les mérites du **Continuous Delivery** et que Ludovic Cinquin affirme que **Facebook est mis en production 2 fois par jour**, avouez que cela a de quoi vous laisser rêveur ? En attendant de travailler un jour dans des structures ayant compris que des **livraisons fréquentes** et **automatisées** permettent de gagner en fiabilité, en agilité et de développer leur business, vous n’avez d’autres choix que de vous approprier les processus établis où vous intervenez et de les améliorer à votre niveau.
+  A Devoxx France, lorsqu’Axel Fontaine vante les mérites du **Continuous Delivery** et que Ludovic Cinquin affirme que **Facebook est mis en production 2 fois par jour**, avouez que cela a de quoi vous laisser rêveur ? En attendant de travailler un jour dans des structures ayant compris que des **livraisons fréquentes** et **automatisées** permettent de gagner en fiabilité, en agilité et de développer leur business, vous n’avez d’autres choix que de vous approprier les processus établis où vous intervenez et de les améliorer à votre niveau.
 
   Dans les grands comptes où je suis intervenu, la mouvance **Devops** prônant de tels processus n’avait pas encore percé. Quelques **outils** sont bien mis en place. Mais pour autant, **MOE** et **exploitation** sont 2 **équipes** bien **distinctes**. L’exploitation peut elle-même être scindée en 2 : production et intégration (hors-prod). C’est précisément dans ce contexte que s’inscrit  cet article. Il montre comment utiliser un **serveur d’intégration continue** pour releaser puis **déployer une application** sur les environnements autorisés.
 
@@ -30,7 +28,7 @@ url: /2013/07/jenkins-release-deploy-plugins/
 ---
 [![jenkins-build-history](jenkins-build-history.png)](jenkins-build-history.png) A Devoxx France, lorsqu’Axel Fontaine vante les mérites du **Continuous Delivery** et que Ludovic Cinquin affirme que **Facebook est mis en production 2 fois par jour**, avouez que cela a de quoi vous laisser rêveur ? En attendant de travailler un jour dans des structures ayant compris que des **livraisons fréquentes** et **automatisées** permettent de gagner en fiabilité, en agilité et de développer leur business, vous n’avez d’autres choix que de vous approprier les processus établis où vous intervenez et de les améliorer à votre niveau.
 
-Dans les grands comptes où je suis intervenu, la mouvance **Devops** prônant de tels processus n’avait pas encore percé. Quelques **outils** sont bien mis en place. Mais pour autant, **MOE** et **exploitation** sont 2 **équipes** bien **distinctes**. L’exploitation peut elle-même être scindée en 2 : production et intégration (hors-prod). C’est précisément dans ce contexte que s’inscrit  cet article. Il montre comment utiliser un **serveur d’intégration continue** pour releaser puis **déployer une application** sur les environnements autorisés.
+![logo Jenkins:right](/logo/logo-jenkins.svg)Dans les grands comptes où je suis intervenu, la mouvance **Devops** prônant de tels processus n’avait pas encore percé. Quelques **outils** sont bien mis en place. Mais pour autant, **MOE** et **exploitation** sont 2 **équipes** bien **distinctes**. L’exploitation peut elle-même être scindée en 2 : production et intégration (hors-prod). C’est précisément dans ce contexte que s’inscrit  cet article. Il montre comment utiliser un **serveur d’intégration continue** pour releaser puis **déployer une application** sur les environnements autorisés.
 
 ## CONTEXTE DE MISE EN ŒUVRE
 

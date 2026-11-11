@@ -7,15 +7,13 @@ categories:
 date: "2015-06-03T05:19:45+00:00"
 toc: true
 thumbnail: jetty-logo.png
-featureImage: jetty-logo.png
-featureImageAlt: "jetty-logo"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1339
 parent_post_id: null
 post_id: "1339"
 post_views_count: "7188"
 summary: |-
-  [![jetty-logo](/2015/06/web-app-jetty-standalone/jetty-logo.png)](jetty-logo.png) Une fois le développement d’une **application web** terminé, vient le moment (douloureux ou non) de son **installation sur un serveur**. En général, plusieurs pré-requis sont nécessaires : JRE, **serveur d’application**, base de données … Aujourd’hui, Docker et/ou des outils comme Ansible et Puppet facilitent le provisionning du middleware. Néanmoins, il est possible de simplifier encore davantage cette phase d’installation. Des applications comme Sonar et Jenkins le font depuis des années : **packager l’application avec son propre conteneur de Servlets** et sa propre base de données. Afin de pouvoir déployer des applications les plus légères possibles, les architectures micro-services poussent dans ce sens. Et c’est d’ailleurs ce que proposent des frameworks comme Play Framework et Spring Boot. Ce dernier permet en effet de créer un JAR exécutable démarrant au choix un Tomcat ou un Jetty.
+  Une fois le développement d’une **application web** terminé, vient le moment (douloureux ou non) de son **installation sur un serveur**. En général, plusieurs pré-requis sont nécessaires : JRE, **serveur d’application**, base de données … Aujourd’hui, Docker et/ou des outils comme Ansible et Puppet facilitent le provisionning du middleware. Néanmoins, il est possible de simplifier encore davantage cette phase d’installation. Des applications comme Sonar et Jenkins le font depuis des années : **packager l’application avec son propre conteneur de Servlets** et sa propre base de données. Afin de pouvoir déployer des applications les plus légères possibles, les architectures micro-services poussent dans ce sens. Et c’est d’ailleurs ce que proposent des frameworks comme Play Framework et Spring Boot. Ce dernier permet en effet de créer un JAR exécutable démarrant au choix un Tomcat ou un Jetty.
 
   **Ce billet  explique pas à pas comment embarquer un conteneur Jetty dans sa propre application**. Nul besoin d’utiliser Spring ou Scala.
 
@@ -27,8 +25,6 @@ summary: |-
   Le packaging est assuré par différents plugins Maven.
 
   Disposer d’une JVM et le seul pré-requis. Sachant qu’OpenJDK est installé sur la plupart des distributions Linux, ce n’est pas nécessairement une contrainte. Seule la version de Java devra être vérifiée avec soin.
-
-  ![jetty-logo](/2015/06/web-app-jetty-standalone/jetty-logo.png)
 tags:
   - devops
   - jetty
@@ -37,7 +33,7 @@ title: Embarquer Jetty dans une web app
 url: /2015/06/web-app-jetty-standalone/
 
 ---
-[![jetty-logo](jetty-logo.png)](jetty-logo.png) Une fois le développement d’une **application web** terminé, vient le moment (douloureux ou non) de son **installation sur un serveur**. En général, plusieurs pré-requis sont nécessaires : JRE, **serveur d’application**, base de données … Aujourd’hui, Docker et/ou des outils comme Ansible et Puppet facilitent le provisionning du middleware. Néanmoins, il est possible de simplifier encore davantage cette phase d’installation. Des applications comme Sonar et Jenkins le font depuis des années : **packager l’application avec son propre conteneur de Servlets** et sa propre base de données. Afin de pouvoir déployer des applications les plus légères possibles, les architectures micro-services poussent dans ce sens. Et c’est d’ailleurs ce que proposent des frameworks comme Play Framework et Spring Boot. Ce dernier permet en effet de créer un JAR exécutable démarrant au choix un Tomcat ou un Jetty.
+[![jetty-logo:right](jetty-logo.png)](jetty-logo.png) Une fois le développement d’une **application web** terminé, vient le moment (douloureux ou non) de son **installation sur un serveur**. En général, plusieurs pré-requis sont nécessaires : JRE, **serveur d’application**, base de données … Aujourd’hui, Docker et/ou des outils comme Ansible et Puppet facilitent le provisionning du middleware. Néanmoins, il est possible de simplifier encore davantage cette phase d’installation. Des applications comme Sonar et Jenkins le font depuis des années : **packager l’application avec son propre conteneur de Servlets** et sa propre base de données. Afin de pouvoir déployer des applications les plus légères possibles, les architectures micro-services poussent dans ce sens. Et c’est d’ailleurs ce que proposent des frameworks comme Play Framework et Spring Boot. Ce dernier permet en effet de créer un JAR exécutable démarrant au choix un Tomcat ou un Jetty.
 
 **Ce billet  explique pas à pas comment embarquer un conteneur Jetty dans sa propre application**. Nul besoin d’utiliser Spring ou Scala.
 

@@ -5,9 +5,7 @@ categories:
   - spring
 date: "2013-02-26T10:35:42+00:00"
 toc: true
-thumbnail: architecture-middle-indexation.png
-featureImage: architecture-middle-indexation.png
-featureImageAlt: "Chaque mise à jour d’une entité métier implique une opération d’indexation atomique."
+thumbnail: /logo/logo-elastic.svg
 usePageBundles: true
 guid: http://javaetmoi.com/?p=604
 parent_post_id: null
@@ -20,6 +18,8 @@ summary: |-
   Ce billet aborde précisément cet aspect. En effet, le fil de l'eau ou le quasi temps réel fut dès le départ une exigence forte du métier.
   Recherches instantanées et auto-complétion révolutionnent le traditionnel formulaire de recherche mettant plusieurs secondes à renvoyer les résultats.
   Mais au prix de faire des recherches sur des données pouvant dater de J-1 ? Ce n'était pas acceptable ! Un middle d'indexation fut la réponse apportée.
+
+  ![Architecture du middle d’indexation](/2013/02/architecture-middle-indexation-elasticsearch/architecture-middle-indexation.png)
 tags:
   - architecture
   - elasticsearch
@@ -31,7 +31,7 @@ title: Architecture d’un middle d’indexation
 url: /2013/02/architecture-middle-indexation-elasticsearch/
 
 ---
-Dans [un précédent billet](/2012/12/parallelisation-de-traitements-batchs-spring-batch/ "Parallélisation de traitements batchs"), je vous ai présenté les solutions mises en œuvre sur un projet pour paralléliser un batch d’indexation alimentant un moteur de recherche d’entreprise. Utilisée pour initialiser l’index de recherche puis le resynchroniser quotidiennement, la technique d’intégration par batch ne permet cependant pas d’indexer les données au fil de l’eau. Ce billet aborde précisément cet aspect. En effet, le fil de l’eau ou le quasi temps réel  fut dès le départ une exigence forte du métier. Recherches instantanées et auto-complétion révolutionnent le traditionnel formulaire de recherche mettant plusieurs secondes à renvoyer les résultats. Mais au prix de faire des recherches sur des données pouvant dater de J-1 ? Ce n’était pas acceptable ! Un middle d’indexation fut la réponse apportée.
+![Logo Elasticsearch:right](/logo/logo-elastic.svg)Dans [un précédent billet](/2012/12/parallelisation-de-traitements-batchs-spring-batch/ "Parallélisation de traitements batchs"), je vous ai présenté les solutions mises en œuvre sur un projet pour paralléliser un batch d’indexation alimentant un moteur de recherche d’entreprise. Utilisée pour initialiser l’index de recherche puis le resynchroniser quotidiennement, la technique d’intégration par batch ne permet cependant pas d’indexer les données au fil de l’eau. Ce billet aborde précisément cet aspect. En effet, le fil de l’eau ou le quasi temps réel  fut dès le départ une exigence forte du métier. Recherches instantanées et auto-complétion révolutionnent le traditionnel formulaire de recherche mettant plusieurs secondes à renvoyer les résultats. Mais au prix de faire des recherches sur des données pouvant dater de J-1 ? Ce n’était pas acceptable ! Un middle d’indexation fut la réponse apportée.
 
 ## Architecture technique
 

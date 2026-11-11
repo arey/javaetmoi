@@ -7,8 +7,6 @@ categories:
 date: "2012-12-15T09:08:10+00:00"
 toc: true
 thumbnail: cloudbees-github-jenkins.png
-featureImage: cloudbees-github-jenkins.png
-featureImageAlt: "cloudbees-github-jenkins"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=436
 parent_post_id: null
@@ -21,7 +19,6 @@ summary: |-
   Le gain : à chaque commit poussé dans GitHub, votre **code** est **compilé**, **testé** unitairement puis **déployé** dans un **repository maven public** dédié aux Snapshots. Par ailleurs, vous pourrez effectuer des **releases maven** en local depuis votre poste de développement ; les artefacts construits seront mis à disposition dans un repository maven dédié. Tout développeur pourra librement référencer l’un ou l’autre de ces repository et utiliser votre code.
 
   En bonus, si vous développez des projets open source, vous n’aurez même pas à sortir votre carte bancaire.
-  [![cloudbees-github-jenkins](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-github-jenkins.png)](cloudbees-github-jenkins.png)
 
   ![cloudbees-github-jenkins](/2012/12/ma-petite-usine-logicielle-github-cloudbees/cloudbees-github-jenkins.png)
 tags:

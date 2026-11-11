@@ -4,9 +4,7 @@ author: Antoine Rey
 categories:
   - conférence
 date: "2012-04-20T20:17:10+00:00"
-thumbnail: 2012-04-18-11.56.37.jpg
-featureImage: 2012-04-18-11.56.37.jpg
-featureImageAlt: "Hands-on-Lab Le Président est ... de Devoxx France 2012"
+thumbnail: /logo/logo-google-app-engine.jpg
 usePageBundles: true
 guid: http://javaetmoi.com/?p=148
 parent_post_id: null
@@ -35,7 +33,7 @@ title: Initiation à Google App Engine
 url: /2012/04/devoxx-initiation-google-app-engine/
 
 ---
-Au cours de la première matinée de **Devoxx France**, j’ai pu assister à un **Lands-on-Lab** permettant de **s’initier au SDK** et à la plateforme **Google App Engine**.
+![logo Google App Engine:right](/logo/logo-google-app-engine.jpg)Au cours de la première matinée de **Devoxx France**, j’ai pu assister à un **Lands-on-Lab** permettant de **s’initier au SDK** et à la plateforme **Google App Engine**.
 
 Nommé « [Le Président est …](http://www.devoxx.com/pages/viewpage.action?pageId=6128177)» \[1\], ce code labs fut co-animé par [Didier Girard](http://www.devoxx.com/display/FR12/Didier+Girard) (SFEIR), [Ludovic Champenois](http://www.devoxx.com/display/FR12/Ludovic+Champenois) (Google), [Martin Görner](http://www.devoxx.com/display/FR12/Martin+Gorner) (Google) et [Patrice de Saint Steban](https://twitter.com/#!/patoudss) (SFEIR). Il consistait à développer en 3h un site web visant à annoncer au soir du 6 mai 2012 le nom du nouveau Président. Une seule contrainte : accueillir un trafic potentiel de 50 millions d’utilisateurs et pouvoir tenir **un pic  de charge de 2 millions d’utilisateurs** aux alentours de 20h. En guise d’exemple, une [application démo](http://electionfr2012.appspot.com/) \[2\] était déjà disponible en ligne.
 

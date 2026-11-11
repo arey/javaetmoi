@@ -6,20 +6,16 @@ categories:
 date: "2014-11-09T11:15:07+00:00"
 toc: true
 thumbnail: logstash.png
-featureImage: logstash.png
-featureImageAlt: "logstash"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1254
 parent_post_id: null
 post_id: "1254"
 post_views_count: "6594"
 summary: |-
-  [![logstash](/2014/11/plugin-exit-pour-logstash/logstash.png)](logstash.png) Ce billet a pour objectif de vous présenter un cas d’usage du **plugin exit** pour LogStash.
+  Ce billet a pour objectif de vous présenter un cas d’usage du **plugin exit** pour LogStash.
   Une utilisation répandue de LogStash consiste à alimenter Elasticsearch à partir de fichiers de logs.
   Extensible via un mécanisme de plugins, LogStash sait gérer plusieurs types de source et plusieurs types de destinations.
   **Une utilisation alternative de LogStash consiste à l’utiliser comme batch d’indexation**. Le fichier à indexer a une fin. Et **l’utilisateur souhaite que LogStash s’arrête une fois les données importées**.
-
-  ![logstash](/2014/11/plugin-exit-pour-logstash/logstash.png)
 tags:
   - elasticsearch
   - jruby
@@ -29,7 +25,7 @@ title: Plugin exit pour LogStash
 url: /2014/11/plugin-exit-pour-logstash/
 
 ---
-[![logstash](logstash.png)](logstash.png) Ce billet a pour objectif de vous présenter un cas d’usage du **plugin exit** pour LogStash.
+[![logstash:right](logstash.png)](logstash.png) Ce billet a pour objectif de vous présenter un cas d’usage du **plugin exit** pour LogStash.
 Une utilisation répandue de LogStash consiste à alimenter Elasticsearch à partir de fichiers de logs.
 Extensible via un mécanisme de plugins, LogStash sait gérer plusieurs types de source et plusieurs types de destinations.
 **Une utilisation alternative de LogStash consiste à l’utiliser comme batch d’indexation**. Le fichier à indexer a une fin. Et **l’utilisateur souhaite que LogStash s’arrête une fois les données importées**.

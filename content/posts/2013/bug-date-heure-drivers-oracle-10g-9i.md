@@ -5,6 +5,7 @@ categories:
   - retour-d'expérience
 date: "2013-01-19T18:14:11+00:00"
 toc: true
+thumbnail: /logo/logo-oracle.svg
 guid: http://javaetmoi.com/?p=564
 parent_post_id: null
 post_id: "564"
@@ -23,7 +24,7 @@ title: 'Oracle : dis-moi quelle heure est-il ?'
 url: /2013/01/bug-date-heure-drivers-oracle-10g-9i/
 
 ---
-Récemment, je suis tombé sur un **bug** lié à l’utilisation d’une **version de driver** **JDBC pour Oracle** plus récente que la version de la base Oracle attaquée en SQL via JDBC.
+![Logo Oracle:right](/logo/logo-oracle.svg)Récemment, je suis tombé sur un **bug** lié à l’utilisation d’une **version de driver** **JDBC pour Oracle** plus récente que la version de la base Oracle attaquée en SQL via JDBC.
 
 ## Les symptômes
 

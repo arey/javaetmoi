@@ -5,9 +5,7 @@ categories:
   - retour-d'expérience
 date: "2014-03-24T18:26:20+00:00"
 toc: true
-thumbnail: 2014-04-jboss-messaging-meme-schema.png
-featureImage: 2014-04-jboss-messaging-meme-schema.png
-featureImageAlt: "Architecture JBoss Messaging"
+thumbnail: /logo/logo-jboss.svg
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1019
 parent_post_id: null
@@ -22,7 +20,6 @@ summary: |-
 
   JBoss Messaging supportant le **multi-tenancy**, cet article explique comment mettre en œuvre la 2ième solution.
 
-  [![Architecture JBoss Messaging](/2014/03/plusieurs-jboss-messaging-meme-base/2014-04-jboss-messaging-meme-schema.png)](2014-04-jboss-messaging-meme-schema.png)
 
   ![Architecture JBoss Messaging](/2014/03/plusieurs-jboss-messaging-meme-base/2014-04-jboss-messaging-meme-schema.png)
 tags:
@@ -34,7 +31,7 @@ title: Plusieurs JBoss Messaging pour une même base
 url: /2014/03/plusieurs-jboss-messaging-meme-base/
 
 ---
-Ce billet ne devrait intéresser que les développeurs Java ou administrateurs JBoss en charge de la configuration de **JBoss Messaging**, le broker JMS intégré aux versions  4.3 et 5.x du serveur d’application JBoss EAP.
+![logo JBoss:right](/logo/logo-jboss.svg)Ce billet ne devrait intéresser que les développeurs Java ou administrateurs JBoss en charge de la configuration de **JBoss Messaging**, le broker JMS intégré aux versions  4.3 et 5.x du serveur d’application JBoss EAP.
 Pour fil conducteur, prenons l’exemple d’une application Java EE déployée dans un pseudo cluster  JBoss où, par choix d’architecture technique, **chaque serveur JBoss est autonome**. A ce titre, les sessions HTTP ne sont pas partagées entre les différents serveurs JBoss ; le répartiteur de charge fonctionne en affinité de session De plus, chaque serveur dispose de ses propres files JMS (clustering JBoss Messaging non mis en œuvre). Les **messages JMS** sont **persistés dans une base de données**, Oracle dans notre cas **.** La persistance des messages peut se faire de 2 manières :
 
 1. Utiliser un schéma Oracle différent pour chaque serveur JBoss du cluster

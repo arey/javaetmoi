@@ -5,6 +5,7 @@ categories:
   - retour-d'expérience
 date: "2013-05-23T18:45:16+00:00"
 toc: true
+thumbnail: /logo/logo-jboss.svg
 guid: http://javaetmoi.com/?p=692
 parent_post_id: null
 post_id: "692"
@@ -22,7 +23,7 @@ title: Mod_headers à la rescousse du jsessionid
 url: /2013/05/mod_headers-rescousse-jsessionid-jboss/
 
 ---
-Au cours de la migration d’une cinquantaine d’applications web de Websphere vers **JBoss 5.1 EAP**, nous avons été confrontés à un problème de sécurité mis en évidence par l’infrastructure de pré-production : le firewall bloquait systématiquement toute requête comportant un `jsessionid` dans l’URL.
+![logo JBoss:right](/logo/logo-jboss.svg)Au cours de la migration d’une cinquantaine d’applications web de Websphere vers **JBoss 5.1 EAP**, nous avons été confrontés à un problème de sécurité mis en évidence par l’infrastructure de pré-production : le firewall bloquait systématiquement toute requête comportant un `jsessionid` dans l’URL.
 Modifier les règles du firewall pour laisser passer ce type de requêtes aurait introduit une faille de sécurité exploitable par appropriation de session web. Cette faille nous a d’ailleurs été révélée en parallèle par l’outil d’audit de sécurité [IBM AppScan](http://www-03.ibm.com/software/products/us/en/appscan/).
 Ce billet rappelle l’origine du problème et précise quelle solution a été employée pour le résoudre le plus rapidement possible.
 

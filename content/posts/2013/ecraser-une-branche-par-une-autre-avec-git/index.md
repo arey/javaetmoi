@@ -5,16 +5,13 @@ categories:
   - retour-d'expérience
 date: "2013-08-01T18:13:55+00:00"
 toc: true
-thumbnail: git-logo.png
-featureImage: git-logo.png
-featureImageAlt: "Logo du SCM GIT"
+thumbnail: /logo/logo-git.png
 usePageBundles: true
 guid: http://javaetmoi.com/?p=735
 parent_post_id: null
 post_id: "735"
 post_views_count: "21056"
 summary: |-
-  [![Logo du SCM GIT](/2013/08/ecraser-une-branche-par-une-autre-avec-git/git-logo.png)](git-logo.png)
   Dans le cycle de vie d'une application, il arrive parfois qu' **une branche prenne le pas sur une autre branche** et qu'il soit nécessaire d'écraser la seconde par la première.
   Prenons l'exemple d'une application où, par convention, le master (ou le trunk sous SVN) est considéré comme la branche de développement (axée vers le futur)
   et que l'utilisation du système de branches soit habituellement consacrée aux branches de maintenance.
@@ -27,7 +24,7 @@ title: Ecraser une branche par une autre avec Git
 url: /2013/08/ecraser-une-branche-par-une-autre-avec-git/
 
 ---
-[![Logo du SCM GIT](git-logo.png)](git-logo.png) Dans le cycle de vie d’une application, il arrive parfois qu’ **une branche prenne le pas sur une autre  branche** et qu’il soit nécessaire d’écraser la seconde par la première. Prenons l’exemple d’une application où, par convention, le master (ou le trunk sous SVN) est considéré comme la branche de développement (axée vers le futur) et que l’utilisation du système de branches soit habituellement consacrée aux branches de maintenance. Dans certaines circonstances (ex : nouveaux développements à commencer pour la version N+2, migration technique à réaliser …), une branche peut prendre le dessus du master. Afin de retrouver la convention d’origine, une **recopie de la branche sur le master** va, à termes, être nécessaire. Que ce soit avec Git ou git-svn, nous allons voir comment **[Git](http://git-scm.com/)** peut nous y aider en **quelques lignes de commande**.
+![Logo du SCM GIT:right](/logo/logo-git.png) Dans le cycle de vie d’une application, il arrive parfois qu’ **une branche prenne le pas sur une autre  branche** et qu’il soit nécessaire d’écraser la seconde par la première. Prenons l’exemple d’une application où, par convention, le master (ou le trunk sous SVN) est considéré comme la branche de développement (axée vers le futur) et que l’utilisation du système de branches soit habituellement consacrée aux branches de maintenance. Dans certaines circonstances (ex : nouveaux développements à commencer pour la version N+2, migration technique à réaliser …), une branche peut prendre le dessus du master. Afin de retrouver la convention d’origine, une **recopie de la branche sur le master** va, à termes, être nécessaire. Que ce soit avec Git ou git-svn, nous allons voir comment **[Git](http://git-scm.com/)** peut nous y aider en **quelques lignes de commande**.
 
 ## Mise en scène
 

@@ -5,9 +5,7 @@ categories:
   - spring
 date: "2014-12-01T05:53:51+00:00"
 toc: true
-thumbnail: logo-spring-highres.png
-featureImage: logo-spring-highres.png
-featureImageAlt: "logo-spring-highres"
+thumbnail: /logo/logo-spring-framework.svg
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1273
 parent_post_id: null
@@ -16,15 +14,13 @@ post_views_count: "5308"
 summary: |-
   EhCache est sans nul doute le framework open source de gestion de cache applicatif le plus populaire parmi les développeurs Java. Polyvalent, **EhCache** peut être mis en œuvre dans les différentes couches d’une application web :
 
-  - [![logo-spring-highres](/2014/12/migration-projet-ehcache-spring-annotations/logo-spring-highres.png)](logo-spring-highres.png) Persistance : utilisé comme cache de niveau 2 de JPA / Hibernate pour stocker des entités et le résultat des requêtes en base.
+  - Persistance : utilisé comme cache de niveau 2 de JPA / Hibernate pour stocker des entités et le résultat des requêtes en base.
   - Service métier : mise en cache du résultat d’un service métier ou d’un appel de web service
   - Présentation : cache de pages ou de fragments de page HTML
 
   Habitués à gérer la sécurité et les transactions de manière déclarative à l’aide d’annotations, le projet open source [ehcache-spring-annotations](https://code.google.com/p/ehcache-spring-annotations/) a fait le bonheur des développeurs Spring en 2010 en introduisant l'**annotation @Cacheable**
   Hébergé sur Google Code, ce projet n’est aujourd’hui plus maintenu. Il ne supporte pas Spring 4.x. Rattrapant son retard, la version 3.1 du framework Spring a été enrichi de sa propre annotation @Cacheable. Comme à son habitude, Spring permet de s’abstraire de la solution de cache sous-jacente (ex : ConcurrentMap, EhCache, Guava …) en proposant une API générique. Les débuts de cette API ont été difficiles (cf. SPR-10237 à laquelle j’ai participé). Aujourd’hui mature, implémentant la JSR-107 JCache, il n’y a aucune raison pour ne pas migrer dessus.
   Relativement court **, ce billet explique pas à pas comment migrer de ehcache-spring-annotations vers le support de cache du framework Spring**.
-
-  ![logo-spring-highres](/2014/12/migration-projet-ehcache-spring-annotations/logo-spring-highres.png)
 tags:
   - ehcache
   - spring-framework
@@ -32,9 +28,9 @@ title: Désendettement du projet ehcache-spring-annotations
 url: /2014/12/migration-projet-ehcache-spring-annotations/
 
 ---
-EhCache est sans nul doute le framework open source de gestion de cache applicatif le plus populaire parmi les développeurs Java. Polyvalent, **EhCache** peut être mis en œuvre dans les différentes couches d’une application web :
+![logo Spring Framework:right](/logo/logo-spring-framework.svg) EhCache est sans nul doute le framework open source de gestion de cache applicatif le plus populaire parmi les développeurs Java. Polyvalent, **EhCache** peut être mis en œuvre dans les différentes couches d’une application web :
 
-- [![logo-spring-highres](logo-spring-highres.png)](logo-spring-highres.png) Persistance : utilisé comme cache de niveau 2 de JPA / Hibernate pour stocker des entités et le résultat des requêtes en base.
+- Persistance : utilisé comme cache de niveau 2 de JPA / Hibernate pour stocker des entités et le résultat des requêtes en base.
 - Service métier : mise en cache du résultat d’un service métier ou d’un appel de web service
 - Présentation : cache de pages ou de fragments de page HTML
 

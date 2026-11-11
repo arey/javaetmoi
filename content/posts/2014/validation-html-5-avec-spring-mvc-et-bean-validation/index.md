@@ -6,22 +6,16 @@ categories:
 date: "2014-09-16T06:40:53+00:00"
 toc: true
 thumbnail: 2014-09-input-spring-mvc-en-html5-logo.png
-featureImage: 2014-09-input-spring-mvc-en-html5-logo.png
-featureImageAlt: "Logo HTML 5"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1199
 parent_post_id: null
 post_id: "1199"
 post_views_count: "24640"
 summary: |-
-  [![Logo HTML 5](/2014/09/validation-html-5-avec-spring-mvc-et-bean-validation/2014-09-input-spring-mvc-en-html5-logo.png)](2014-09-input-spring-mvc-en-html5-logo.png)
-
   Cet article explique comment **étendre Spring MVC pour générer le code HTML 5** **des champs de saisie** (input fields) à partir des **annotations Bean Validation** (JSR 330) apposées sur des Entités ou de simples DTO.
 
   Dans une application web **, valider les écrans de saisie côté client** permet de donner un retour rapide à l’utilisateur. Avant HTML 5, le développeur web était bien démuni pour implémenter ces contrôles de surface sur le Navigateur. Certes, HTML 4 permettait de spécifier la taille max des champs de saisie (balise `maxLength`) et leur caractère obligatoire ou non (balise `required`). Les autres contrôles effectués côté serveur étaient alors bien souvent recodés en JavaScript à l’aide de jQuery, de CSS et de quelques plugins.
   Aujourd’hui, HTML 5 se démocratise et le code JavaScript de validation devrait bientôt s’alléger drastiquement. En effet, cette spécification permet de standardiser la validation des champs de saisie côté client. Le développeur a désormais la possibilité de spécifier le type de champs (ex : nombre, date, URL …), des valeurs min et max ou bien encore un pattern de validation à l’aide d’une expression régulière.
-
-  ![Logo HTML 5](/2014/09/validation-html-5-avec-spring-mvc-et-bean-validation/2014-09-input-spring-mvc-en-html5-logo.png)
 tags:
   - bean-validation
   - hibernate
@@ -33,9 +27,7 @@ title: Validation HTML 5 avec Spring MVC et Bean Validation
 url: /2014/09/validation-html-5-avec-spring-mvc-et-bean-validation/
 
 ---
-[![Logo HTML 5](2014-09-input-spring-mvc-en-html5-logo.png)](2014-09-input-spring-mvc-en-html5-logo.png)
-
-Cet article explique comment **étendre Spring MVC pour générer le code HTML 5** **des champs de saisie** (input fields) à partir des **annotations Bean Validation** (JSR 330) apposées sur des Entités ou de simples DTO.
+[![Logo HTML 5:right](2014-09-input-spring-mvc-en-html5-logo.png)](2014-09-input-spring-mvc-en-html5-logo.png) Cet article explique comment **étendre Spring MVC pour générer le code HTML 5** **des champs de saisie** (input fields) à partir des **annotations Bean Validation** (JSR 330) apposées sur des Entités ou de simples DTO.
 
 Dans une application web **, valider les écrans de saisie côté client** permet de donner un retour rapide à l’utilisateur. Avant HTML 5, le développeur web était bien démuni pour implémenter ces contrôles de surface sur le Navigateur. Certes, HTML 4 permettait de spécifier la taille max des champs de saisie (balise `maxLength`) et leur caractère obligatoire ou non (balise `required`). Les autres contrôles effectués côté serveur étaient alors bien souvent recodés en JavaScript à l’aide de jQuery, de CSS et de quelques plugins.
 Aujourd’hui, HTML 5 se démocratise et le code JavaScript de validation devrait bientôt s’alléger drastiquement. En effet, cette spécification permet de standardiser la validation des champs de saisie côté client. Le développeur a désormais la possibilité de spécifier le type de champs (ex : nombre, date, URL …), des valeurs min et max ou bien encore un pattern de validation à l’aide d’une expression régulière.

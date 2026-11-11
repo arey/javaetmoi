@@ -8,6 +8,7 @@ guid: http://javaetmoi.com/?p=1310
 parent_post_id: null
 post_id: "1310"
 post_views_count: "4278"
+thumbnail: /logo/logo-spring-framework.svg
 tags:
   - elasticsearch
   - spring-integration
@@ -15,6 +16,7 @@ title: Etude de cas Spring Integration
 url: /2015/03/etude-de-cas-spring-integration-elasticsearch/
 
 ---
+![logo Spring Framework:left](/logo/logo-spring-framework.svg)
 Vous avez déjà entendu parler d'**Apache Camel** ?
 Les Design Pattern n’ont plus de secrets pour vous ?
 L’Event Driven Architecture vous attire ?
@@ -28,3 +30,5 @@ Voici le support de présentation d’un workshop d’1h s’appuyant sur le **c
 Une connaissance minimaliste de Spring Framework est pré-requise.
 
 Spring Integration est à votre portée de main. EAI et ESB n’ont qu’à bien se tenir !!
+
+{{< slideshare src="https://www.slideshare.net/slideshow/embed_code/43556067" >}}

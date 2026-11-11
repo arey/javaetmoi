@@ -8,6 +8,7 @@ guid: http://javaetmoi.com/?p=1304
 parent_post_id: null
 post_id: "1304"
 post_views_count: "577640"
+thumbnail: /logo/logo-spring-framework.svg
 featured: true
 summary: |-
   Pour créer vos IHM web en Java, vous n’avez que l’embarras du choix : Vaadin, JSF, GWT, Spring MVC, Tapestry …
@@ -20,12 +21,15 @@ summary: |-
   la JSR-352 Java Batch de JEE 7 ? Optez pour l’original.
 
   Alors franchissez le pas et venez découvrir Spring Batch au cours d’un workshop basé sur un cas d’utilisation concret.
+
+  <iframe width="476" height="400" src="https://www.slideshare.net/slideshow/embed_code/42784653" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 tags:
   - spring-batch
 title: Etudes de cas Spring Batch
 url: /2015/02/worskshop-etudes-de-cas-spring-batch/
 
 ---
+![logo Spring Framework:left](/logo/logo-spring-framework.svg)
 Pour créer vos IHM web en Java, vous n’avez que l’embarras du choix : Vaadin, JSF, GWT, Spring MVC, Tapestry …
 
 Pour accéder aux données, à chacun ses préférences : Hibernate, JPA 2, iBatis, Spring JDBC, Spring Data …
@@ -36,6 +40,8 @@ Mais pour écrire vos traitements par lot ? java.io ? Soyons fou : commons-io. P
 la JSR-352 Java Batch de JEE 7 ? Optez pour l’original.
 
 Alors franchissez le pas et venez découvrir Spring Batch au cours d’un workshop basé sur un cas d’utilisation concret.
+
+{{< slideshare src="https://www.slideshare.net/slideshow/embed_code/42784653" >}}
 
 Sommaire de la présentation :
 

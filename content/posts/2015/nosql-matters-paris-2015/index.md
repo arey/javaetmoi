@@ -6,21 +6,15 @@ categories:
 date: "2015-03-31T16:32:57+00:00"
 toc: true
 thumbnail: nosql-matters-logo.png
-featureImage: nosql-matters-logo.png
-featureImageAlt: "nosql-matters-logo"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=1324
 parent_post_id: null
 post_id: "1324"
 post_views_count: "3399"
 summary: |-
-  [![nosql-matters-logo](/2015/03/nosql-matters-paris-2015/nosql-matters-logo.png)](nosql-matters-logo.png)
-
   Ayant gagné une place par le groupe utilisateurs Elasticsearch (que je remercie une nouvelle fois), j’ai eu l’opportunité d’assister pour la première fois à une conférence dédiée au NoSQL. Parmi la centaine de participants, je devais sans nul doute être le plus néophyte. Certes, je connais relativement bien Elasticsearch pour l’avoir mis en œuvre, mais l’écosystème d’Hadoop et des bases de données NoSQL restait pour moi encore très vague.
   Ce fut donc l’occasion rêvée d’approfondir mes connaissances sur le sujet et de m’aérer l’esprit.
   Cerise sur le gâteau, cette conférence m’aura permis d’apprécier la qualité de speaker de deux anciens collègues, Bruno Guedes et Lucian Precup.
-
-  ![nosql-matters-logo](/2015/03/nosql-matters-paris-2015/nosql-matters-logo.png)
 tags:
   - elasticsearch
   - nosql
@@ -28,9 +22,7 @@ title: NoSQL Matters Paris 2015
 url: /2015/03/nosql-matters-paris-2015/
 
 ---
-[![nosql-matters-logo](nosql-matters-logo.png)](nosql-matters-logo.png)
-
-Ayant gagné une place par le groupe utilisateurs Elasticsearch (que je remercie une nouvelle fois), j’ai eu l’opportunité d’assister pour la première fois à une conférence dédiée au NoSQL. Parmi la centaine de participants, je devais sans nul doute être le plus néophyte. Certes, je connais relativement bien Elasticsearch pour l’avoir mis en œuvre, mais l’écosystème d’Hadoop et des bases de données NoSQL restait pour moi encore très vague.
+[![nosql-matters-logo:right](nosql-matters-logo.png)](nosql-matters-logo.png) Ayant gagné une place par le groupe utilisateurs Elasticsearch (que je remercie une nouvelle fois), j’ai eu l’opportunité d’assister pour la première fois à une conférence dédiée au NoSQL. Parmi la centaine de participants, je devais sans nul doute être le plus néophyte. Certes, je connais relativement bien Elasticsearch pour l’avoir mis en œuvre, mais l’écosystème d’Hadoop et des bases de données NoSQL restait pour moi encore très vague.
 Ce fut donc l’occasion rêvée d’approfondir mes connaissances sur le sujet et de m’aérer l’esprit.
 Cerise sur le gâteau, cette conférence m’aura permis d’apprécier la qualité de speaker de deux anciens collègues, Bruno Guedes et Lucian Precup.
 

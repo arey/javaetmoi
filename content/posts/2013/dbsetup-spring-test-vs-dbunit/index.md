@@ -6,15 +6,13 @@ categories:
 date: "2013-09-06T16:46:25+00:00"
 toc: true
 thumbnail: test-database.jpg
-featureImage: test-database.jpg
-featureImageAlt: "test-database"
 usePageBundles: true
 guid: http://javaetmoi.com/?p=757
 parent_post_id: null
 post_id: "757"
 post_views_count: "7897"
 summary: |-
-  Lors du développement de **tests d’intégration**, j’ai récemment eu besoin de charger une base de données à l’aide de jeux de données. Pour écrire mon premier test, j’ai simplement commencé par écrire un fichier SQL. En un appel de méthode (JdbcTestUtils::executeSqlScript) ou une ligne de déclaration XML (<jdbc:script location="" />), Spring m’aidait à charger mes données.<br>Pour tous ceux qui se sont déjà prêtés à l’exercice, maintenir des jeux de données est relativement fastidieux, qui plus en SQL. Cette solution n’était donc pas pérenne.
+  Lors du développement de **tests d’intégration**, j’ai récemment eu besoin de charger une base de données à l’aide de jeux de données. Pour écrire mon premier test, j’ai simplement commencé par écrire un fichier SQL. En un appel de méthode (`JdbcTestUtils::executeSqlScript`) ou une ligne de déclaration XML (`<jdbc:script location="" />), Spring m’aidait à charger mes données.<br>Pour tous ceux qui se sont déjà prêtés à l’exercice, maintenir des jeux de données est relativement fastidieux, qui plus en SQL. Cette solution n’était donc pas pérenne.
 
   Depuis une dizaine d’années, j’utilise régulièrement [DbUnit](http://www.dbunit.org/) pour tester la couche de persistance des applications Java sur lesquelles j’interviens, qu’elle soit développée avec JDBC, Hibernate ou bien encore JPA. Cette librairie open source est également très appréciable pour tester unitairement des procédures stockées manipulant des données par lot. Pour mon besoin, j’aurais donc pu naturellement me tourner vers cet outil qui a fait ses preuves et dont je suis familier.
 
@@ -62,7 +60,7 @@ Db Setup
 Remarque : _dans mon contexte projet, chaque méthode de test a besoin de **son propre jeu de données**. Les données insérées ou modifiées par la précédente méthode testée doivent donc être purgées. Par choix, ce ménage n’est pas assuré par la classe [DbSetupTracker](http://dbsetup.ninja-squad.com/apidoc/1.0/com/ninja_squad/dbsetup/DbSetupTracker.html) proposée par DbSetup, mais par le support transactionnel offert par [Spring Test](http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/testing.html). Une transaction base de données est ouverte par Spring avant l’appel de la méthode de test puis est annulée une fois la fin de la méthode atteinte. Par contre, les données sont insérées par DbSetup au début de la méthode de test. Parce qu’il est parfois utile de pouvoir consulter l’état de la base après un test en échec, l’annotation [`@Rollback(false)`](http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/testing.html#integration-testing-annotations) peut être apposée temporairement sur la méthode incriminée afin que Spring valide la transaction._  
 Pour que Spring Test puisse charger le contexte applicatif et initier le contexte transactionnel, les 3 annotations suivantes décorent la classe de test :
 
-```xhtml
+```java
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
 @Transactional
@@ -73,7 +71,7 @@ Le code source complet de la classe [`TestSpringDbSetup.java`](https://gist.gith
 
 La configuration du contexte Spring est déclarée en java, dans une nested class du test. A noter que cette classe de configuration pourrait être externalisée afin d’être utilisée par toutes les classes de tests unitaires. Y sont déclarés : une source de données, un gestionnaire de transaction, une instance de `JdbcTemplate` pouvant être utilisées par les assertions et une `Destination` DbSetup.
 
-```xhtml
+```java
 @Configuration
 static class Config {
 
@@ -105,7 +103,7 @@ L’interface _Destination_ fournie par DbSetup permet à ce dernier d’accéde
 Notre exemple utilise l’implémentation spécifique [`TransactionAwareDestination`](https://gist.github.com/arey/6453086) dont le code source est disponible sous forme de Gist. Basé sur le proxy [`TransactionAwareDataSourceProxy`](http://static.springsource.org/spring/docs/3.2.4.RELEASE/javadoc-api/org/springframework/jdbc/datasource/TransactionAwareDataSourceProxy.html)  proposé par Spring, cette destination permet à DbSetup d’utiliser le contexte transactionnel géré par Sring pour récupérer et clôturer une connexion, commiter ou bien rollbacker. La classe [`TransactionAwareDestination`](https://gist.github.com/arey/6453086) apporte une amélioration reportée dans la Jira [SPR-6441](https://jira.springsource.org/browse/SPR-6441).  
 Afin de pouvoir être utilisés dans les méthodes de test, les beans `JdbcTemplate` et `Destination` sont injectés en tant que propriétés de la classe `TestSpringDbSetup` :
 
-```xhtml
+```java
 @Autowired
 private JdbcTemplate jdbcTemplate;
 
@@ -127,7 +125,7 @@ Au travers de 2 méthodes de tests, nous allons voir quelles sont les **facilit�
 
 Notre **première méthode de test** insère en base de données 4 clients dont les prénoms ont une racine commune ou une casse différente :
 
-```xhtml
+```java
 @Test
 public void indexCustomerWithSimilarName() throws SQLException {
     // Prepare
@@ -161,7 +159,7 @@ Une fois la méthode de test terminé, Spring Test rollback l’insertion de ces
 
 Notre **seconde méthode de test** utilise 2 autres fonctionnalités offertes par DbSetup et qui font défaut à DbUnit :
 
-```xhtml
+```java
 private static final int CUSTOMER_1 = 1;
 @Test
 public void indexSingleCustomer() {

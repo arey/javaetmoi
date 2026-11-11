@@ -6,9 +6,7 @@ categories:
   - retour-d'expérience
 date: "2014-02-22T09:28:31+00:00"
 toc: true
-thumbnail: 2014-02-cxf-attachments-memory-leak-2.jpg
-featureImage: 2014-02-cxf-attachments-memory-leak-2.jpg
-featureImageAlt: "2014-02-cxf-attachments-memory-leak-2"
+thumbnail: /logo/logo-apache-software-foundation.svg
 usePageBundles: true
 guid: http://javaetmoi.com/?p=977
 parent_post_id: null
@@ -18,8 +16,6 @@ summary: |-
   Les tests de charge d’une nouvelle fonctionnalité m’a récemment permis de détecter un comportement inattendu de **CXF** s’apparentant à une **fuite mémoire**. Fusion de Celtix et de XFire, le [framework CXF](http://cxf.apache.org/) propose une implémentation cliente et serveur de web services SOAP et REST. Le comportement suspect concerne la partie **cliente** d’un **web service SOAP** avec **pièce-jointes**.
 
   Les symptômes ont été observés dans les conditions suivantes. Un tir de charge avec JMeter simule l’upload de fichiers de 4 Mo. Trente utilisateurs connectés simultanément uploadent des fichiers PDF. D’une durée de 5mn, le scénario fonctionnel mettant en jeu l’upload de fichiers est réitéré pendant 3h. A l’issu du tir, aucune erreur technique ou fonctionnelle n’est remontée. Par contre, l’analyse de l’empreinte mémoire est suspecte : non seulement cette nouvelle fonctionnalité a nécessité davantage de mémoire que lors des tirs précédents, mais surtout : **la mémoire n’est jamais libérée**, même après l’expiration des sessions utilisateurs.
-
-  [![2014-02-cxf-attachments-memory-leak-2](/2014/02/memory-leak-client-cxf-attachment/2014-02-cxf-attachments-memory-leak-2.jpg)](2014-02-cxf-attachments-memory-leak-2.jpg)
 
   ![2014-02-cxf-attachments-memory-leak-2](/2014/02/memory-leak-client-cxf-attachment/2014-02-cxf-attachments-memory-leak-2.jpg)
 tags:
@@ -31,7 +27,7 @@ title: Memory Leak du client CXF
 url: /2014/02/memory-leak-client-cxf-attachment/
 
 ---
-Les tests de charge d’une nouvelle fonctionnalité m’a récemment permis de détecter un comportement inattendu de **CXF** s’apparentant à une **fuite mémoire**. Fusion de Celtix et de XFire, le [framework CXF](http://cxf.apache.org/) propose une implémentation cliente et serveur de web services SOAP et REST. Le comportement suspect concerne la partie **cliente** d’un **web service SOAP** avec **pièce-jointes**.
+![logo Apache Software Foundation:right](/logo/logo-apache-software-foundation.svg)Les tests de charge d’une nouvelle fonctionnalité m’a récemment permis de détecter un comportement inattendu de **CXF** s’apparentant à une **fuite mémoire**. Fusion de Celtix et de XFire, le [framework CXF](http://cxf.apache.org/) propose une implémentation cliente et serveur de web services SOAP et REST. Le comportement suspect concerne la partie **cliente** d’un **web service SOAP** avec **pièce-jointes**.
 
 Les symptômes ont été observés dans les conditions suivantes. Un tir de charge avec JMeter simule l’upload de fichiers de 4 Mo. Trente utilisateurs connectés simultanément uploadent des fichiers PDF. D’une durée de 5mn, le scénario fonctionnel mettant en jeu l’upload de fichiers est réitéré pendant 3h. A l’issu du tir, aucune erreur technique ou fonctionnelle n’est remontée. Par contre, l’analyse de l’empreinte mémoire est suspecte : non seulement cette nouvelle fonctionnalité a nécessité davantage de mémoire que lors des tirs précédents, mais surtout : **la mémoire n’est jamais libérée**, même après l’expiration des sessions utilisateurs.
 
