@@ -1,0 +1,3 @@
+{{- /* Performance: the theme JS bundle is now deferred. Apply the color mode stored by the
+       theme (localStorage "colorMode") immediately to avoid a flash of the wrong theme. */ -}}
+<script>(function(){try{var m=localStorage.getItem('colorMode');if(m)document.documentElement.setAttribute('data-mode',m);}catch(e){}})();</script>
