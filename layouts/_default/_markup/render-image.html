@@ -57,6 +57,21 @@
       {{- $bundle = false -}}
     {{- end -}}
   {{- end -}}
+  {{/* Image still not found while rendered outside of its page (e.g. a post summary
+       markdownified on the home page, where .Page is the home page): look for the page
+       bundle owning this absolute path, so that Hugo can process (resize/convert) it. */}}
+  {{- if and (not $image) (strings.HasPrefix $file "/") (not (in ($scratch.Get "classes") "image_svg")) -}}
+    {{- $ownerPermalink := printf "%s/" (path.Dir $file) -}}
+    {{- range first 1 (where site.RegularPages "RelPermalink" $ownerPermalink) -}}
+      {{- with .Resources.GetMatch (path.Base $file) -}}
+        {{- if eq .MediaType.SubType "svg" -}}
+          {{- $scratch.Add "classes" " image_svg" -}}
+        {{- else -}}
+          {{- $image = . -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}
 
 {{- $diskPath := "" -}}

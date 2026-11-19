@@ -1,0 +1,126 @@
+{{/*
+  Override of the hugo-clarity "figure" partial (performance-oriented).
+
+  Differences with the theme version:
+  - When Hugo can process the image (raster image found as a page/global resource),
+    responsive WebP variants are generated and exposed through a srcset/sizes <source>,
+    so that mobiles no longer download multi-megapixel originals.
+  - Featured images (class "image_featured") are usually the LCP element of an article:
+    they are loaded eagerly with a high fetch priority instead of lazily.
+  - The alt text is unescaped once (it was previously double-escaped, e.g. "&amp;rsquo;").
+
+  If Hugo hasn't been able to access the image, it's loaded at .file, with only
+  its path available.
+*/}}
+
+{{- $file := .file -}}
+{{- $image := .image -}}
+{{- $diskPath := .diskPath -}}
+{{- $webPath := .webPath -}}
+{{- $alt := .alt -}}
+{{- $cap := .cap -}}
+{{- $classes := .classes -}}
+{{- $bundle := .bundle -}}
+
+{{- if and (not $image) (not (in $classes "image_svg")) (not (strings.HasPrefix $file "http")) -}}
+  {{- $image = partial "func/staticImage" $file -}}
+{{- end -}}
+
+{{- $fileWeb := .file -}}
+{{- if eq $bundle true -}}
+  {{ $fileWeb = path.Join $webPath $file }}
+  {{ if in $classes "image_svg" }}
+    {{ if strings.HasPrefix $file "http" }}
+      {{ $fileWeb = $file }}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* Loading strategy: featured images are LCP candidates, everything else is lazy. */}}
+{{- $isFeatured := in $classes "image_featured" -}}
+{{- $isThumbnail := in $classes "image_thumbnail" -}}
+
+{{/* Responsive WebP variants (only for raster images Hugo can process). */}}
+{{- $srcset := slice -}}
+{{- $sizes := "(max-width: 992px) 100vw, 800px" -}}
+{{- if $isThumbnail -}}
+  {{- $sizes = "(max-width: 667px) 100vw, 300px" -}}
+{{- end -}}
+{{- with $image -}}
+  {{- if in (slice "jpeg" "png" "webp") .MediaType.SubType -}}
+    {{- $widths := slice 480 800 1200 1600 -}}
+    {{- if $isThumbnail -}}
+      {{- $widths = slice 300 600 -}}
+    {{- end -}}
+    {{- range $widths -}}
+      {{- if lt . $image.Width -}}
+        {{- $r := $image.Resize (printf "%dx webp q80" .) -}}
+        {{- $srcset = $srcset | append (printf "%s %dw" $r.RelPermalink $r.Width) -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if and (le $image.Width 2000) (or $srcset (ne .MediaType.SubType "webp")) -}}
+      {{/* Largest candidate: the original size, re-encoded as WebP when it is not already
+           (skipped for very large originals: the 1600w variant is enough for the layout). */}}
+      {{- $full := $image -}}
+      {{- if ne .MediaType.SubType "webp" -}}
+        {{- $full = $image.Resize (printf "%dx webp q80" $image.Width) -}}
+      {{- end -}}
+      {{- $srcset = $srcset | append (printf "%s %dw" $full.RelPermalink $full.Width) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+<figure>
+  <picture>
+
+    {{- if $srcset -}}
+      <source type="image/webp" srcset="{{ delimit $srcset ", " }}" sizes="{{ $sizes }}">
+    {{- else -}}
+    {{/* Generate alternate image format tags. */}}
+    {{- with $file -}}
+      {{ $name := replace $file (path.Ext $file) "" }}
+      {{ $ext := slice "avif" "webp" "jxl" }}
+      {{- range $ext -}}
+        {{ $item := printf "%s" . | printf "%s%s" "." | printf "%s%s" $name | printf "%s" }}
+        {{ $itemDisk := path.Join $diskPath $item }}
+        {{ $itemWeb := path.Join $webPath $item }}
+        {{- if fileExists $itemDisk -}}
+          <source srcset="{{ $itemWeb }}" type="image/{{ . }}">
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- end -}}
+
+    {{/* Render image and attributes. */}}
+    <img
+      {{- if $isFeatured }}
+      loading="eager"
+      fetchpriority="high"
+      {{- else }}
+      loading="lazy"
+      {{- end }}
+      decoding="async"
+      alt="{{ htmlUnescape $alt }}"
+      {{ with $image }}
+        class="{{ $classes }} image_processed"
+        width="{{ .Width }}"
+        height="{{ .Height }}"
+        src="{{ .RelPermalink | absURL }}"
+      {{ else }}
+        class="{{ $classes }} image_unprocessed"
+        src="{{ $fileWeb | absURL }}"
+      {{ end }}
+      {{ with $cap }}
+        title="{{ safeHTML $cap }}"
+      {{ end }}
+    />
+
+    {{/* Provide caption based on image title, if it is set. */}}
+    {{- with $cap -}}
+      {{- if not (eq $cap " ") -}}
+        <figcaption class="{{ replace $classes "image" "caption" }}">{{ $cap | safeHTML }}</figcaption>
+      {{- end -}}
+    {{- end -}}
+
+  </picture>
+</figure>

@@ -1,0 +1,18 @@
+{{- /*
+  Returns a processable image resource for a file stored in static/ (e.g. "images/foo.jpg"),
+  or nil when the file doesn't exist or isn't a raster image.
+  Lets templates read dimensions and generate resized/WebP variants of static images
+  without moving them to assets/ (they're still referenced by their static URL elsewhere).
+
+  Usage: {{ $img := partialCached "func/staticImage" "images/JavaOne2000.jpg" "images/JavaOne2000.jpg" }}
+*/ -}}
+{{- $res := "" -}}
+{{- $path := strings.TrimPrefix "/" . -}}
+{{- $diskPath := path.Join "static" $path -}}
+{{- if fileExists $diskPath -}}
+  {{- $ext := strings.ToLower (path.Ext $path) -}}
+  {{- if in (slice ".jpg" ".jpeg" ".png" ".webp") $ext -}}
+    {{- $res = os.ReadFile $diskPath | resources.FromString (path.Join "static-images" $path) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $res -}}
