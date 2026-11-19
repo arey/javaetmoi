@@ -1,0 +1,9 @@
+<!-- styles definition-->
+{{ $options := (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" "true") }}
+{{ $mainSassFile :=  "sass/main.sass" }}
+{{/* Temporary override: pipe through resources.Minify before Fingerprint so the UTF-8 BOM
+     emitted by Sass is stripped before computing the SHA-512 SRI integrity hash.
+     TODO: Remove this override file once https://github.com/chipzoller/hugo-clarity/pull/532#issuecomment-7024058615 is integrated and merged upstream. */}}
+{{ $styles := resources.Get $mainSassFile | resources.ExecuteAsTemplate $mainSassFile . | css.Sass $options | resources.Minify | resources.Fingerprint "sha512" }}
+
+{{ return $styles }}
