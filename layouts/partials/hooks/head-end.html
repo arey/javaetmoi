@@ -1,3 +1,6 @@
 {{- /* Performance: the theme JS bundle is now deferred. Apply the color mode stored by the
        theme (localStorage "colorMode") immediately to avoid a flash of the wrong theme. */ -}}
 <script>(function(){try{var m=localStorage.getItem('colorMode');if(m)document.documentElement.setAttribute('data-mode',m);}catch(e){}})();</script>
+{{- /* Performance: fonts are otherwise discovered only once the CSS is downloaded. */}}
+<link rel="preload" href="{{ absURL "fonts/Metropolis-Regular.woff2" }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ absURL "fonts/Metropolis-Bold.woff2" }}" as="font" type="font/woff2" crossorigin>
