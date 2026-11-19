@@ -4,11 +4,16 @@
 {{/* Full-width site banner above the navigation bar */}}
 {{- with $logo }}
 {{- $logoWebP := replaceRE `\.(png|jpg|jpeg)$` ".webp" . }}
+{{- /* Explicit dimensions avoid layout shifts (CLS) while the banner loads. */}}
+{{- $dims := "" }}
+{{- with partialCached "func/staticImage" . . }}
+  {{- $dims = printf `width="%d" height="%d"` .Width .Height }}
+{{- end }}
 <div class="site_banner_wrap">
   <a href='{{ absLangURL "" }}' title="{{ site.Title }}">
     <picture>
       <source srcset="{{ absURL $logoWebP }}" type="image/webp">
-      <img src="{{ absURL . }}" alt="{{ site.Title }}" class="site_banner_img" fetchpriority="high">
+      <img src="{{ absURL . }}" alt="{{ site.Title }}" class="site_banner_img" fetchpriority="high" {{ safeHTMLAttr $dims }}>
     </picture>
   </a>
 </div>

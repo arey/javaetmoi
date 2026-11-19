@@ -24,7 +24,13 @@
       {{- end }}
       {{- if $showAuthorPhoto }}
         <div class="author_header">
-          <img src="{{ absURL $author.photo }}" alt="{{ $author.name }} photo">
+          {{- /* The photo is displayed in a 3rem column: serve a small WebP (3x) instead of the original. */}}
+          {{- with partialCached "func/staticImage" $author.photo $author.photo }}
+            {{- $photo := .Resize "144x webp q80" }}
+          <img src="{{ $photo.Permalink }}" width="{{ $photo.Width }}" height="{{ $photo.Height }}" alt="{{ $author.name }} photo" loading="lazy" decoding="async">
+          {{- else }}
+          <img src="{{ absURL $author.photo }}" alt="{{ $author.name }} photo" loading="lazy" decoding="async">
+          {{- end }}
           <h2>{{  $author.name }}</h2>
         </div>
       {{- else }}
@@ -135,7 +141,8 @@
       </p>
       <a href="https://www.devoxx.fr/" target="_blank" rel="noopener">
         <img src="{{ absURL "images/banniere-devoxx-france-2026.webp" }}"
-             alt="Devoxx France 2026" style="max-width:100%;height:auto;">
+             alt="Devoxx France 2026" width="160" height="240" loading="lazy" decoding="async"
+             style="max-width:100%;height:auto;">
       </a>
     </div>
 
@@ -160,8 +167,14 @@
     <div class="mt-4">
       <h2 class="mt-4">Les Cast Codeurs</h2>
       <a href="https://lescastcodeurs.com/" target="_blank" rel="noopener">
+        {{- with partialCached "func/staticImage" "logo/logo-les-cast-codeurs.png" "logo/logo-les-cast-codeurs.png" }}
+          {{- $castcodeurs := .Resize (printf "%dx webp q85" .Width) }}
+        <img src="{{ $castcodeurs.Permalink }}" width="{{ $castcodeurs.Width }}" height="{{ $castcodeurs.Height }}"
+        alt="Les Cast Codeurs" loading="lazy" decoding="async" style="max-width:100%;height:auto;">
+        {{- else }}
         <img src="{{ absURL "logo/logo-les-cast-codeurs.png" }}"
-        alt="Les Cast Codeurs" style="max-width:100%;height:auto;">
+        alt="Les Cast Codeurs" loading="lazy" decoding="async" style="max-width:100%;height:auto;">
+        {{- end }}
       </a>
       <p style="font-size:0.9em">
         J'écoute et soutiens <a href="https://lescastcodeurs.com/" target="_blank" rel="noopener">Les Cast Codeurs</a>,
